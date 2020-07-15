@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>gnt-job &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gnt-network" href="man-gnt-network.html" />
+    <link rel="prev" title="gnt-instance" href="man-gnt-instance.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-gnt-network.html" title="gnt-network"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-gnt-instance.html" title="gnt-instance"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnt-job">
+<h1>gnt-job<a class="headerlink" href="#gnt-job" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>gnt-job - Job commands</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>gnt-job</strong> {command} [arguments…]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>gnt-job</strong> is used for examining and manipulating the job
+queue.</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="archive">
+<h3>ARCHIVE<a class="headerlink" href="#archive" title="Permalink to this headline">¶</a></h3>
+<p><strong>archive</strong> {job-id…}</p>
+<p>This command can be used to archive job by their IDs. Only jobs
+that have finished execution (i.e either <em>success</em>, <em>error</em> or
+<em>canceled</em> jobs).</p>
+</div>
+<div class="section" id="autoarchive">
+<h3>AUTOARCHIVE<a class="headerlink" href="#autoarchive" title="Permalink to this headline">¶</a></h3>
+<p><strong>autoarchive</strong> {<em>age</em> | <code class="docutils literal notranslate"><span class="pre">all</span></code>}</p>
+<p>Archive jobs by their age. This command can archive jobs older than
+<em>age</em> seconds, or alternatively all finished jobs can be archived
+if the string all is passed.</p>
+</div>
+<div class="section" id="cancel">
+<h3>CANCEL<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>cancel</strong></div>
+<div class="line">{[–force] [–kill] {–pending | –queued | –waiting} |</div>
+<div class="line-block">
+<div class="line"><em>job-id</em> …}</div>
+</div>
+</div>
+<p>Cancel the job(s) identified by the given <em>job id</em>. Only jobs that have
+not yet started to run can be canceled; that is, jobs in either the
+<em>queued</em> or <em>waiting</em> state. To skip a confirmation, pass <code class="docutils literal notranslate"><span class="pre">--force</span></code>.
+<code class="docutils literal notranslate"><span class="pre">--queued</span></code> and <code class="docutils literal notranslate"><span class="pre">waiting</span></code> can be used to cancel all jobs in the
+respective state, <code class="docutils literal notranslate"><span class="pre">--pending</span></code> includes both.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">--kill</span></code> option is given, jobs will be killed, even if in <em>running</em>
+state, using SIGKILL in the latter case. This is dangerous, as the job will
+not have the chance to do any clean up; so it will most likely leave any
+objects it touched in an inconsistent state.</p>
+</div>
+<div class="section" id="change-priority">
+<h3>CHANGE-PRIORITY<a class="headerlink" href="#change-priority" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>change-priority</strong> –priority {low | normal | high}</div>
+<div class="line">{[–force] {–pending | –queued | –waiting} | <em>job-id</em>…}</div>
+</div>
+<p>Changes the priority of one or multiple pending jobs. Jobs currently
+running have only the priority of remaining opcodes changed.
+<code class="docutils literal notranslate"><span class="pre">--priority</span></code> must be specified. <code class="docutils literal notranslate"><span class="pre">--queued</span></code> and <code class="docutils literal notranslate"><span class="pre">waiting</span></code> can be
+used to re-prioritize all jobs in the respective state, <code class="docutils literal notranslate"><span class="pre">--pending</span></code>
+includes both. To skip a confirmation, pass <code class="docutils literal notranslate"><span class="pre">--force</span></code>.</p>
+</div>
+<div class="section" id="info">
+<h3>INFO<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
+<p><strong>info</strong> {<em>job-id</em>…}</p>
+<p>Show detailed information about the given job id(s). If no job id
+is given, all jobs are examined (warning, this is a lot of
+information).</p>
+</div>
+<div class="section" id="list">
+<h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>list</strong> [–no-headers] [–separator=*SEPARATOR*]</div>
+<div class="line">[-o <em>[+]FIELD,…</em>] [–filter] [job-id…]</div>
+</div>
+<p>Lists the jobs and their status. By default, the job id, job
+status, and a small job description is listed, but additional
+parameters can be selected.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--no-headers</span></code> option will skip the initial header line. The
+<code class="docutils literal notranslate"><span class="pre">--separator</span></code> option takes an argument which denotes what will be
+used between the output fields. Both these options are to help
+scripting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
+The available fields and their meaning are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">archived</span></code></dt>
+<dd>Whether job is archived</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">end_ts</span></code></dt>
+<dd>Timestamp of job end (tuple containing seconds and microseconds)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">id</span></code></dt>
+<dd>Job ID</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opend</span></code></dt>
+<dd>List of opcode execution end timestamps</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opexec</span></code></dt>
+<dd>List of opcode execution start timestamps (after acquiring locks)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oplog</span></code></dt>
+<dd>List of opcode output logs</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oppriority</span></code></dt>
+<dd>List of opcode priorities</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opresult</span></code></dt>
+<dd>List of opcodes results</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ops</span></code></dt>
+<dd>List of all opcodes</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opstart</span></code></dt>
+<dd>List of opcode start timestamps (before acquiring locks)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opstatus</span></code></dt>
+<dd>List of opcodes status</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code></dt>
+<dd>Current job priority (19 to -20)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">received_ts</span></code></dt>
+<dd>Timestamp of when job was received (tuple containing seconds and microseconds)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">start_ts</span></code></dt>
+<dd>Timestamp of job start (tuple containing seconds and microseconds)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">status</span></code></dt>
+<dd>Job status</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">summary</span></code></dt>
+<dd>List of per-opcode summaries</dd>
+</dl>
+<p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
+fields will be added to the default list. This allows one to quickly
+see the default list plus a few other fields, instead of retyping
+the entire list of fields.</p>
+<p>To include archived jobs in the list the <code class="docutils literal notranslate"><span class="pre">--archived</span></code> option can be
+used.</p>
+<p>The following options can be used to show only specific jobs:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">--pending</span></code></dt>
+<dd>Show only jobs pending execution.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--running</span></code></dt>
+<dd>Show jobs currently running only.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--error</span></code></dt>
+<dd>Show failed jobs only.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--finished</span></code></dt>
+<dd>Show finished jobs only.</dd>
+</dl>
+<p>If exactly one argument is given and it appears to be a query filter
+(see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For
+ambiguous cases (e.g. a single field name as a filter) the <code class="docutils literal notranslate"><span class="pre">--filter</span></code>
+(<code class="docutils literal notranslate"><span class="pre">-F</span></code>) option forces the argument to be treated as a filter.</p>
+</div>
+<div class="section" id="list-fields">
+<h3>LIST-FIELDS<a class="headerlink" href="#list-fields" title="Permalink to this headline">¶</a></h3>
+<p><strong>list-fields</strong> [field…]</p>
+<p>Lists available fields for jobs.</p>
+</div>
+<div class="section" id="wait">
+<h3>WAIT<a class="headerlink" href="#wait" title="Permalink to this headline">¶</a></h3>
+<p><strong>wait</strong> {<em>job-id</em>}</p>
+<p>Wait for the job by the given <em>job-id</em> to finish; do not produce
+any output.</p>
+</div>
+<div class="section" id="watch">
+<h3>WATCH<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h3>
+<p><strong>watch</strong> {<em>job-id</em>}</p>
+<p>This command follows the output of the job by the given <em>job-id</em> and
+prints it.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">gnt-job</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#commands">COMMANDS</a><ul>
+<li><a class="reference internal" href="#archive">ARCHIVE</a></li>
+<li><a class="reference internal" href="#autoarchive">AUTOARCHIVE</a></li>
+<li><a class="reference internal" href="#cancel">CANCEL</a></li>
+<li><a class="reference internal" href="#change-priority">CHANGE-PRIORITY</a></li>
+<li><a class="reference internal" href="#info">INFO</a></li>
+<li><a class="reference internal" href="#list">LIST</a></li>
+<li><a class="reference internal" href="#list-fields">LIST-FIELDS</a></li>
+<li><a class="reference internal" href="#wait">WAIT</a></li>
+<li><a class="reference internal" href="#watch">WATCH</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man-gnt-instance.html"
+                        title="previous chapter">gnt-instance</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="man-gnt-network.html"
+                        title="next chapter">gnt-network</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-gnt-job.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-gnt-network.html" title="gnt-network"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-gnt-instance.html" title="gnt-instance"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>

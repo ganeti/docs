@@ -1,0 +1,279 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>gnt-debug &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gnt-filter" href="man-gnt-filter.html" />
+    <link rel="prev" title="gnt-cluster" href="man-gnt-cluster.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-gnt-filter.html" title="gnt-filter"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-gnt-cluster.html" title="gnt-cluster"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnt-debug">
+<h1>gnt-debug<a class="headerlink" href="#gnt-debug" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>gnt-debug - Debug commands</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>gnt-debug</strong> {command} [arguments…]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>gnt-debug</strong> is used for debugging the Ganeti system.</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="iallocator">
+<h3>IALLOCATOR<a class="headerlink" href="#iallocator" title="Permalink to this headline">¶</a></h3>
+<p><strong>iallocator</strong> [–debug] [–dir <em>direction</em>] {–algorithm
+<em>allocator</em> } [–mode <em>mode</em>] [–mem <em>memory</em>] [–disks <em>diskS</em>]
+[–disk-template <em>template</em>] [–nics <em>nics</em>] [–os-type <em>OS</em>]
+[–vcpus <em>vcpus</em>] [–tags <em>tags</em>] {<em>instance-name</em>}</p>
+<p>Executes a test run of the <em>iallocator</em> framework.</p>
+<p>The command will build input for a given iallocator script (named
+with the <code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> option), and either show this input data
+(if <em>direction</em> is <code class="docutils literal notranslate"><span class="pre">in</span></code>) or run the iallocator script and show its
+output (if <em>direction</em> is <code class="docutils literal notranslate"><span class="pre">out</span></code>).</p>
+<p>If the <em>mode</em> is <code class="docutils literal notranslate"><span class="pre">allocate</span></code>, then an instance definition is built
+from the other arguments and sent to the script, otherwise (<em>mode</em> is
+<code class="docutils literal notranslate"><span class="pre">relocate</span></code>) an existing instance name must be passed as the first
+argument.</p>
+<p>This build of Ganeti will look for iallocator scripts in the following
+directories: /usr/local/lib/ganeti/iallocators; for more details about
+this framework, see the HTML or PDF documentation.</p>
+</div>
+<div class="section" id="delay">
+<h3>DELAY<a class="headerlink" href="#delay" title="Permalink to this headline">¶</a></h3>
+<p><strong>delay</strong> [–debug] [–no-master] [–interruptible] [-n <em>node-name</em>…]
+{<em>duration</em>}</p>
+<p>Run a test opcode (a sleep) on the master and on selected nodes
+(via an RPC call). This serves no other purpose but to execute a
+test operation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-n</span></code> option can be given multiple times to select the nodes
+for the RPC call. By default, the delay will also be executed on
+the master, unless the <code class="docutils literal notranslate"><span class="pre">--no-master</span></code> option is passed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--interruptible</span></code> option allows a running delay opcode to be
+interrupted by communicating with a special domain socket. If any data
+is sent to the socket, the delay opcode terminates. If this option is
+used, no RPCs are performed, but locks are still acquired.</p>
+<p>The <em>delay</em> argument will be interpreted as a floating point
+number.</p>
+</div>
+<div class="section" id="submit-job">
+<h3>SUBMIT-JOB<a class="headerlink" href="#submit-job" title="Permalink to this headline">¶</a></h3>
+<p><strong>submit-job</strong> [–verbose] [–timing-stats] [–job-repeat <em>n</em>]
+[–op-repeat <em>n</em>] [–each] {opcodes_file…}</p>
+<p>This command builds a list of opcodes from files in JSON format and
+submits a job per file to the master daemon. It can be used to test
+options that are not available via command line.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">verbose</span></code> option will additionally display the corresponding
+job IDs and the progress in waiting for the jobs; the
+<code class="docutils literal notranslate"><span class="pre">timing-stats</span></code> option will show some overall statistics inluding
+the number of total opcodes, jobs submitted and time spent in each
+stage (submit, exec, total).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">job-repeat</span></code> and <code class="docutils literal notranslate"><span class="pre">op-repeat</span></code> options allow to submit
+multiple copies of the passed arguments; job-repeat will cause N
+copies of each job (input file) to be submitted (equivalent to
+passing the arguments N times) while op-repeat will cause N copies
+of each of the opcodes in the file to be executed (equivalent to
+each file containing N copies of the opcodes).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">each</span></code> option allow to submit each job separately (using <code class="docutils literal notranslate"><span class="pre">N</span></code>
+SubmitJob LUXI requests instead of one SubmitManyJobs request).</p>
+</div>
+<div class="section" id="test-jobqueue">
+<h3>TEST-JOBQUEUE<a class="headerlink" href="#test-jobqueue" title="Permalink to this headline">¶</a></h3>
+<p><strong>test-jobqueue</strong></p>
+<p>Executes a few tests on the job queue. This command might generate
+failed jobs deliberately.</p>
+</div>
+<div class="section" id="test-osparams">
+<h3>TEST_OSPARAMS<a class="headerlink" href="#test-osparams" title="Permalink to this headline">¶</a></h3>
+<p><strong>test-osparams</strong> {–os-parameters-secret <em>param*=*value</em>… }</p>
+<p>Tests secret os parameter transmission.</p>
+</div>
+<div class="section" id="locks">
+<h3>LOCKS<a class="headerlink" href="#locks" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>locks</strong> [–no-headers] [–separator=*separator*] [-v]</div>
+<div class="line">[-o <em>[+]field,…</em>] [–interval=*seconds*]</div>
+</div>
+<p>Shows a list of locks in the master daemon.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--no-headers</span></code> option will skip the initial header line. The
+<code class="docutils literal notranslate"><span class="pre">--separator</span></code> option takes an argument which denotes what will be
+used between the output fields. Both these options are to help
+scripting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-v</span></code> option activates verbose mode, which changes the display of
+special field states (see <strong>ganeti</strong>(7)).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
+The available fields and their meaning are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">mode</span></code></dt>
+<dd>Mode in which the lock is currently acquired (exclusive or shared)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
+<dd>Lock name</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">owner</span></code></dt>
+<dd>Current lock owner(s)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pending</span></code></dt>
+<dd>Threads waiting for the lock</dd>
+</dl>
+<p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
+fields will be added to the default list. This allows one to quickly
+see the default list plus a few other fields, instead of retyping
+the entire list of fields.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--interval</span></code> to repeat the listing. A delay specified by the
+option value in seconds is inserted.</p>
+</div>
+<div class="section" id="metad">
+<h3>METAD<a class="headerlink" href="#metad" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>metad</strong> echo <em>text</em></div>
+</div>
+<p>Tests the WConf daemon by invoking its <code class="docutils literal notranslate"><span class="pre">echo</span></code> function.</p>
+<p>A given text is sent to Metad through RPC, echoed back by Metad and
+printed to the console.</p>
+</div>
+<div class="section" id="wconfd">
+<h3>WCONFD<a class="headerlink" href="#wconfd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> echo <em>text</em></div>
+</div>
+<p>Tests the WConf daemon by invoking its <code class="docutils literal notranslate"><span class="pre">echo</span></code> function.</p>
+<p>A given text is sent to WConfd through RPC, echoed back by WConfd and
+printed to the console.</p>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> cleanuplocks</div>
+</div>
+<p>A request to clean up all stale locks is sent to WConfd.</p>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> listlocks <em>job-id</em></div>
+</div>
+<p>A request to list the locks owned by the given job id is
+sent to WConfd and the answer is displayed.</p>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> listalllocks</div>
+</div>
+<p>A request to list all locks in use, directly or indirectly, is
+sent to WConfd and the answer is displayed.</p>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> listalllocks</div>
+</div>
+<p>A request to list all locks in use, directly or indirectly, together
+with their respective direct owners is sent to WConfd and the answer
+is displayed.</p>
+<div class="line-block">
+<div class="line"><strong>wconfd</strong> flushconfig</div>
+</div>
+<p>A request to ensure that the configuration is fully distributed to the
+master candidates.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">gnt-debug</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#commands">COMMANDS</a><ul>
+<li><a class="reference internal" href="#iallocator">IALLOCATOR</a></li>
+<li><a class="reference internal" href="#delay">DELAY</a></li>
+<li><a class="reference internal" href="#submit-job">SUBMIT-JOB</a></li>
+<li><a class="reference internal" href="#test-jobqueue">TEST-JOBQUEUE</a></li>
+<li><a class="reference internal" href="#test-osparams">TEST_OSPARAMS</a></li>
+<li><a class="reference internal" href="#locks">LOCKS</a></li>
+<li><a class="reference internal" href="#metad">METAD</a></li>
+<li><a class="reference internal" href="#wconfd">WCONFD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man-gnt-cluster.html"
+                        title="previous chapter">gnt-cluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="man-gnt-filter.html"
+                        title="next chapter">gnt-filter</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-gnt-debug.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-gnt-filter.html" title="gnt-filter"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-gnt-cluster.html" title="gnt-cluster"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>

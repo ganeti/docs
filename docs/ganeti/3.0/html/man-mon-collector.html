@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mon-collector &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="/" href="monitoring-query-format.html" />
+    <link rel="prev" title="htools" href="man-htools.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="monitoring-query-format.html" title="/"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-htools.html" title="htools"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mon-collector">
+<h1>mon-collector<a class="headerlink" href="#mon-collector" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>mon-collector - Command line interface for the data collectors of the
+monitoring system</p>
+</div>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>mon-collector</strong> {collector}</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mon-collector</span></code> is a suite of tools designed to provide a command line
+interface to the data collectors implemented by the ganeti monitoring system.
+<code class="docutils literal notranslate"><span class="pre">mon-collector</span></code> is also the generic binary that must be invoked specifying,
+as the first command line parameter, the name of the actual desired data
+collector to be run.</p>
+<p>When executed, <code class="docutils literal notranslate"><span class="pre">mon-collector</span></code> will run the specified collector and will
+print its output to stdout, in JSON format.</p>
+</div>
+<div class="section" id="collectors">
+<h2>COLLECTORS<a class="headerlink" href="#collectors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="diskstats">
+<h3>DISKSTATS<a class="headerlink" href="#diskstats" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">diskstats [ [ <strong>-f</strong> | <strong>–file</strong> ] = <em>input-file</em> ]</div>
+</div>
+<p>Collects the information about the status of the disks of the system, as listed
+by /proc/diskstats, or by an alternate file with the same syntax specified on
+the command line.</p>
+<p>The options that can be passed to the DRBD collector are as follows:</p>
+<dl class="docutils">
+<dt>-f <em>input-file</em>, –file=*input-file*</dt>
+<dd>Where to read the data from. Default if not specified: /proc/diskstats</dd>
+</dl>
+</div>
+<div class="section" id="drbd">
+<h3>DRBD<a class="headerlink" href="#drbd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">drbd [ [ <strong>-s</strong> | <strong>–drbd-status</strong> ] = <em>status-file</em> ] [ [ <strong>-p</strong> |
+<strong>–drbd-pairing</strong>] = <em>pairing-file</em> ]</div>
+</div>
+<p>Collects the information about the version and status of the DRBD kernel
+module, and of the disks it is managing.</p>
+<p>If <em>status-file</em> and <em>pairing-file</em> are specified, the status and the
+instance-minor paring information will be read from those files.
+Otherwise, the collector will read them, respectively, from /proc/drbd
+and from the Confd server.</p>
+<p>The options that can be passed to the DRBD collector are as follows:</p>
+<dl class="docutils">
+<dt>-s <em>status-file</em>, –drbd-status=*status-file*</dt>
+<dd>Read the DRBD status from the specified file instead of /proc/drbd.</dd>
+<dt>-p <em>pairing-file</em>, –drbd-pairing=*pairing-file*</dt>
+<dd>Read the information about the pairing between instances and DRBD minors
+from the specified file instead of asking the Confd servers for them.</dd>
+</dl>
+</div>
+<div class="section" id="instance-status">
+<h3>INSTANCE STATUS<a class="headerlink" href="#instance-status" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">inst-status-xen [ [ <strong>-a</strong> | <strong>–address</strong> ] = <em>ip-address</em> ] [ [ <strong>-p</strong> |
+<strong>–port</strong> ] = <em>port-number</em> ]</div>
+</div>
+<p>Collects the information about the status of the instances of the current node.
+In order to perform this task, it needs to connect to the ConfD daemon to fetch
+some configuration information. The following parameters allow the user to
+specify the position where the daemon is listening, in case it’s not the default
+one:</p>
+<dl class="docutils">
+<dt>-a <em>ip-address</em>, –address=*ip-address*</dt>
+<dd>The IP address the ConfD daemon is listening on.</dd>
+<dt>-p <em>port-number</em>, –port=*port-number*</dt>
+<dd>The port the ConfD daemon is listening on.</dd>
+</dl>
+</div>
+<div class="section" id="logical-volumes">
+<h3>LOGICAL VOLUMES<a class="headerlink" href="#logical-volumes" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">lv [ [ <strong>-a</strong> | <strong>–address</strong> ] = <em>ip-address</em> ] [ [ <strong>-p</strong> | <strong>–port</strong> ]
+= <em>port-number</em> ] [ [ <strong>-f</strong> | <strong>–file</strong> ] = <em>input-file</em> ]
+[ [ <strong>-i</strong> | <strong>–instances</strong> ] = <em>instances-file</em> ]</div>
+</div>
+<p>Collects the information about the logical volumes of the current node.</p>
+<p>In order to perform this task, it needs to interact with the <code class="docutils literal notranslate"><span class="pre">lvs</span></code> command
+line tool and to connect to the ConfD daemon to fetch some configuration
+information. The following parameters allow the user to specify the position
+where the daemon is listening, in case it’s not the default one:</p>
+<dl class="docutils">
+<dt>-a <em>ip-address</em>, –address=*ip-address*</dt>
+<dd>The IP address the ConfD daemon is listening on.</dd>
+<dt>-p <em>port-number</em>, –port=*port-number*</dt>
+<dd>The port the ConfD daemon is listening on.</dd>
+</dl>
+<p>Instead of accessing the live data on the cluster, the tool can also read data
+serialized on files (mainly for testing purposes). Namely:</p>
+<dl class="docutils">
+<dt>-f <em>input-file</em>, –file <em>input-file</em></dt>
+<dd>The name of the file containing a recorded output of the <code class="docutils literal notranslate"><span class="pre">lvs</span></code> tool.</dd>
+<dt>-i <em>instances-file</em>, –instances=*instances-file*</dt>
+<dd><p class="first">The name of the file containing a JSON serialization of instances the
+current node is primary and secondary for, listed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">([</span><span class="n">Instance</span><span class="p">],</span> <span class="p">[</span><span class="n">Instance</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="last">where the first list contains the instances the node is primary for, the
+second list those the node is secondary for.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mon-collector</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#collectors">COLLECTORS</a><ul>
+<li><a class="reference internal" href="#diskstats">DISKSTATS</a></li>
+<li><a class="reference internal" href="#drbd">DRBD</a></li>
+<li><a class="reference internal" href="#instance-status">INSTANCE STATUS</a></li>
+<li><a class="reference internal" href="#logical-volumes">LOGICAL VOLUMES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man-htools.html"
+                        title="previous chapter">htools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="monitoring-query-format.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">/</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-mon-collector.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="monitoring-query-format.html" title="/"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-htools.html" title="htools"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>

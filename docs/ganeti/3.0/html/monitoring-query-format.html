@@ -1,0 +1,146 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>/ &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Moving instances between clusters" href="move-instance.html" />
+    <link rel="prev" title="mon-collector" href="man-mon-collector.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="move-instance.html" title="Moving instances between clusters"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-mon-collector.html" title="mon-collector"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>The queries to the monitoring agent will be HTTP GET requests on port 1815.
+The answer will be encoded in JSON format and will depend on the specific
+accessed resource.</p>
+<p>If a request is sent to a non-existing resource, a 404 error will be returned by
+the HTTP server.</p>
+<p>The following paragraphs will present the existing resources supported by the
+current protocol version, that is version 1.</p>
+<div class="section" id="id1">
+<h1><code class="docutils literal notranslate"><span class="pre">/</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>The root resource. It will return the list of the supported protocol version
+numbers.</p>
+<p>Currently, this will include only version 1.</p>
+</div>
+<div class="section" id="id2">
+<h1><code class="docutils literal notranslate"><span class="pre">/1</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>Not an actual resource per-se, it is the root of all the resources of protocol
+version 1.</p>
+<p>If requested through GET, the null JSON value will be returned.</p>
+</div>
+<div class="section" id="list-collectors">
+<h1><code class="docutils literal notranslate"><span class="pre">/1/list/collectors</span></code><a class="headerlink" href="#list-collectors" title="Permalink to this headline">¶</a></h1>
+<p>Returns a list of tuples (kind, category, name) showing all the collectors
+available in the system.</p>
+</div>
+<div class="section" id="report-all">
+<h1><code class="docutils literal notranslate"><span class="pre">/1/report/all</span></code><a class="headerlink" href="#report-all" title="Permalink to this headline">¶</a></h1>
+<p>A list of the reports of all the data collectors, as a JSON list.</p>
+<p>Status reporting collectors will provide their output in non-verbose format.
+The verbose format can be requested by adding the parameter <code class="docutils literal notranslate"><span class="pre">verbose=1</span></code> to the
+request.</p>
+</div>
+<div class="section" id="report-category-collector-name">
+<h1><code class="docutils literal notranslate"><span class="pre">/1/report/[category]/[collector_name]</span></code><a class="headerlink" href="#report-category-collector-name" title="Permalink to this headline">¶</a></h1>
+<p>Returns the report of the collector <code class="docutils literal notranslate"><span class="pre">[collector_name]</span></code> that belongs to the
+specified <code class="docutils literal notranslate"><span class="pre">[category]</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">category</span></code> has to be written in lowercase.</p>
+<p>If a collector does not belong to any category, <code class="docutils literal notranslate"><span class="pre">default</span></code> will have to be
+used as the value for <code class="docutils literal notranslate"><span class="pre">[category]</span></code>.</p>
+<p>Status reporting collectors will provide their output in non-verbose format.
+The verbose format can be requested by adding the parameter <code class="docutils literal notranslate"><span class="pre">verbose=1</span></code> to the
+request.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">/</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">/1</span></code></a></li>
+<li><a class="reference internal" href="#list-collectors"><code class="docutils literal notranslate"><span class="pre">/1/list/collectors</span></code></a></li>
+<li><a class="reference internal" href="#report-all"><code class="docutils literal notranslate"><span class="pre">/1/report/all</span></code></a></li>
+<li><a class="reference internal" href="#report-category-collector-name"><code class="docutils literal notranslate"><span class="pre">/1/report/[category]/[collector_name]</span></code></a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man-mon-collector.html"
+                        title="previous chapter">mon-collector</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="move-instance.html"
+                        title="next chapter">Moving instances between clusters</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/monitoring-query-format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="move-instance.html" title="Moving instances between clusters"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-mon-collector.html" title="mon-collector"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>
