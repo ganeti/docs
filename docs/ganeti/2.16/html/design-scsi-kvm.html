@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>KVM + SCSI &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>KVM + SCSI &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Design document drafts" href="design-draft.html" />
     <link rel="next" title="Disks" href="design-disks.html" />
     <link rel="prev" title="Ganeti Maintenance Daemon" href="design-repaird.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="design-repaird.html" title="Ganeti Maintenance Daemon"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="kvm-scsi">
 <h1><a class="toc-backref" href="#id1">KVM + SCSI</a><a class="headerlink" href="#kvm-scsi" title="Permalink to this headline">¶</a></h1>
@@ -177,10 +175,10 @@ available for disk and NICs inserted explicitly by Ganeti. By default
 the default PCI reservations will be 12 as explained above.</p>
 <p>How to keep track of the bus state of a running instance?</p>
 <p>To be able to hotplug a device, we need to know which slot is
-available on the desired bus. Until now, we were using the <tt class="docutils literal"><span class="pre">query-pci</span></tt>
+available on the desired bus. Until now, we were using the <code class="docutils literal"><span class="pre">query-pci</span></code>
 QMP command that returns the state of the PCI buses (i.e., which devices
 occupy which slots). Unfortunately, there is no equivalent for the SCSI
-buses. We could use the <tt class="docutils literal"><span class="pre">info</span> <span class="pre">qtree</span></tt> HMP command that practically
+buses. We could use the <code class="docutils literal"><span class="pre">info</span> <span class="pre">qtree</span></code> HMP command that practically
 dumps in plain text the whole device tree. This makes it really hard to
 parse. So we decide to generate the bus state of a running instance
 through our local runtime files.</p>
@@ -218,7 +216,7 @@ a cluster downgrade. This ugly hack would go away on 2.17 since we support
 downgrades only to the previous minor version.</p>
 <div class="section" id="configuration-changes">
 <h3><a class="toc-backref" href="#id5">Configuration changes</a><a class="headerlink" href="#configuration-changes" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">NIC</span></tt> and <tt class="docutils literal"><span class="pre">Disk</span></tt> objects get one extra slot: <tt class="docutils literal"><span class="pre">hvinfo</span></tt>. It is
+<p>The <code class="docutils literal"><span class="pre">NIC</span></code> and <code class="docutils literal"><span class="pre">Disk</span></code> objects get one extra slot: <code class="docutils literal"><span class="pre">hvinfo</span></code>. It is
 hypervisor-specific and will never reach config.data. In case of the KVM
 Hypervisor it will contain all necessary info for constructing the -device
 QEMU option. Existing entries in runtime files that had a <cite>pci</cite> slot
@@ -233,20 +231,22 @@ adds automatically if not specified explicitly by an option.</p>
 <h3><a class="toc-backref" href="#id6">Hypervisor changes</a><a class="headerlink" href="#hypervisor-changes" title="Permalink to this headline">¶</a></h3>
 <p>The current implementation verifies if a hotplug action has succeeded
 by scanning the PCI bus and searching for a specific device ID. This
-will change, and we will use the <tt class="docutils literal"><span class="pre">query-block</span></tt> along with the
-<tt class="docutils literal"><span class="pre">query-pci</span></tt> QMP command to find block devices that are attached to the
+will change, and we will use the <code class="docutils literal"><span class="pre">query-block</span></code> along with the
+<code class="docutils literal"><span class="pre">query-pci</span></code> QMP command to find block devices that are attached to the
 SCSI bus as well.</p>
 <p>Up until now, if <cite>disk_type</cite> hvparam was set to <cite>scsi</cite>, QEMU would use the
 deprecated device model and end up using SCSI emulation, e.g.:</p>
 <blockquote>
-<div><div class="highlight-python"><pre>-drive file=/var/run/ganeti/instance-disks/test:0,if=scsi,format=raw</pre>
+<div><div class="highlight-python"><div class="highlight"><pre>-drive file=/var/run/ganeti/instance-disks/test:0,if=scsi,format=raw
+</pre></div>
 </div>
 </div></blockquote>
 <p>Now the equivalent, which will also enable hotplugging, will be to set
 disk_type to <cite>scsi-hd</cite>. The QEMU command line will include:</p>
 <blockquote>
-<div><div class="highlight-python"><pre>-drive file=/var/run/ganeti/instance-disks/test:0,if=none,format=raw,id=disk-9e7c85f6-b6e5-4243
--device scsi-hd,id=disk-9e7c85f6-b6e5-4243,drive=disk-9e7c85f6-b6e5-4243,bus=scsi.0,channel=0,scsi-id=0,lun=0</pre>
+<div><div class="highlight-python"><div class="highlight"><pre>-drive file=/var/run/ganeti/instance-disks/test:0,if=none,format=raw,id=disk-9e7c85f6-b6e5-4243
+-device scsi-hd,id=disk-9e7c85f6-b6e5-4243,drive=disk-9e7c85f6-b6e5-4243,bus=scsi.0,channel=0,scsi-id=0,lun=0
+</pre></div>
 </div>
 </div></blockquote>
 </div>
@@ -265,7 +265,7 @@ require a real SCSI device on the host.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -288,12 +288,14 @@ require a real SCSI device on the host.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-disks.html"
                         title="next chapter">Disks</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-scsi-kvm.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-scsi-kvm.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -310,7 +312,7 @@ require a real SCSI device on the host.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -319,13 +321,13 @@ require a real SCSI device on the host.</p>
         <li class="right" >
           <a href="design-repaird.html" title="Ganeti Maintenance Daemon"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

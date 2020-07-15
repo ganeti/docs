@@ -4,11 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>gnt-node(8) Ganeti | Version 2.16.0~rc1</title>
+  <title>gnt-node(8) Ganeti | Version 2.16.2</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">gnt-node(8) Ganeti | Version 2.16.0~rc1</h1>
+<h1 class="title">gnt-node(8) Ganeti | Version 2.16.2</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -45,22 +46,29 @@
 <li><a href="#copyright">COPYRIGHT</a></li>
 </ul>
 </div>
-<h1 id="name"><a href="#TOC">Name</a></h1>
+<h1 id="name">Name</h1>
 <p>gnt-node - Node administration</p>
-<h1 id="synopsis"><a href="#TOC">Synopsis</a></h1>
+<h1 id="synopsis">Synopsis</h1>
 <p><strong>gnt-node</strong> {command} [arguments...]</p>
-<h1 id="description"><a href="#TOC">DESCRIPTION</a></h1>
+<h1 id="description">DESCRIPTION</h1>
 <p>The <strong>gnt-node</strong> is used for managing the (physical) nodes in the Ganeti system.</p>
-<h1 id="commands"><a href="#TOC">COMMANDS</a></h1>
-<h2 id="add"><a href="#TOC">ADD</a></h2>
-<p><strong>add</strong> [--readd] [{-s|--secondary-ip} <em>secondary_ip</em>]<br />[{-g|--node-group} <em>nodegroup</em>]<br />[--master-capable=<code>yes|no</code>] [--vm-capable=<code>yes|no</code>]<br />[--node-parameters <em>ndparams</em>]<br />[--disk-state <em>diskstate</em>]<br />[--hypervisor-state <em>hvstate</em>]<br />[--no-node-setup]<br />{<em>nodename</em>}</p>
+<h1 id="commands">COMMANDS</h1>
+<h2 id="add">ADD</h2>
+<p><strong>add</strong> [--readd] [{-s|--secondary-ip} <em>secondary_ip</em>]<br />
+[{-g|--node-group} <em>nodegroup</em>]<br />
+[--master-capable=<code>yes|no</code>] [--vm-capable=<code>yes|no</code>]<br />
+[--node-parameters <em>ndparams</em>]<br />
+[--disk-state <em>diskstate</em>]<br />
+[--hypervisor-state <em>hvstate</em>]<br />
+[--no-node-setup]<br />
+{<em>node-name</em>}</p>
 <p>Adds the given node to the cluster.</p>
-<p>This command is used to join a new node to the cluster. You will have to provide credentials to ssh as root to the node to be added. Forwardig of an ssh agent (the <code>-A</code> option of ssh) works, if an appropriate authorized key is set up on the node to be added. If the other node allows password authentication for root, another way of providing credentials is to provide the root password once asked for it. The command needs to be run on the Ganeti master.</p>
+<p>This command is used to join a new node to the cluster. You will have to provide credentials to ssh as root to the node to be added. Forwarding of an ssh agent (the <code>-A</code> option of ssh) works, if an appropriate authorized key is set up on the node to be added. If the other node allows password authentication for root, another way of providing credentials is to provide the root password once asked for it. The command needs to be run on the Ganeti master.</p>
 <p>Note that the command is potentially destructive, as it will forcibly join the specified host to the cluster, not paying attention to its current status (it could be already in a cluster, etc.)</p>
 <p>The <code>-s (--secondary-ip)</code> is used in dual-home clusters and specifies the new node's IP in the secondary network. See the discussion in <strong>gnt-cluster</strong>(8) for more information.</p>
-<p>In case you're readding a node after hardware failure, you can use the <code>--readd</code> parameter. In this case, you don't need to pass the secondary IP again, it will be reused from the cluster. Also, the drained and offline flags of the node will be cleared before re-adding it. Note that even for readded nodes, a new SSH key is generated and distributed and previous Ganeti keys are removed from the machine.</p>
+<p>In case you're re-adding a node after hardware failure, you can use the <code>--readd</code> parameter. In this case, you don't need to pass the secondary IP again, it will be reused from the cluster. Also, the drained and offline flags of the node will be cleared before re-adding it. Note that even for re-added nodes, a new SSH key is generated and distributed and previous Ganeti keys are removed from the machine.</p>
 <p>The <code>-g (--node-group)</code> option is used to add the new node into a specific node group, specified by UUID or name. If only one node group exists you can skip this option, otherwise it's mandatory.</p>
-<p>The <code>--no-node-setup</code> option that used to prevent Ganeti from performing the initial SSH setup on the new node is no longer valid. Instead, Ganeti consideres the <code>modify ssh setup</code> configuration parameter (which is set using <code>--no-ssh-init</code> during cluster initialization) to determine whether or not to do the SSH setup on a new node or not. If this parameter is set to <code>False</code>, Ganeti will not touch the SSH keys or the <code>authorized_keys</code> file of the node at all. Using this option, it lies in the administrators responsibility to ensure SSH connectivity between the hosts by other means.</p>
+<p>The <code>--no-node-setup</code> option that used to prevent Ganeti from performing the initial SSH setup on the new node is no longer valid. Instead, Ganeti considers the <code>modify ssh setup</code> configuration parameter (which is set using <code>--no-ssh-init</code> during cluster initialization) to determine whether or not to do the SSH setup on a new node or not. If this parameter is set to <code>False</code>, Ganeti will not touch the SSH keys or the <code>authorized_keys</code> file of the node at all. Using this option, it lies in the administrators responsibility to ensure SSH connectivity between the hosts by other means.</p>
 <p>The <code>vm_capable</code>, <code>master_capable</code>, <code>ndparams</code>, <code>diskstate</code> and <code>hvstate</code> options are described in <strong>ganeti</strong>(7), and are used to set the properties of the new node.</p>
 <p>The command performs some operations that change the state of the master and the new node, like copying certificates and starting the node daemon on the new node, or updating <code>/etc/hosts</code> on the master node. If the command fails at a later stage, it doesn't undo such changes. This should not be a problem, as a successful run of <code>gnt-node add</code> will bring everything back in sync.</p>
 <p>If the node was previously part of another cluster and still has daemons running, the <code>node-cleanup</code> tool can be run on the machine to be added to clean remains of the previous cluster from the node.</p>
@@ -68,13 +76,17 @@
 <pre><code># gnt-node add node5.example.com
 # gnt-node add -s 192.0.2.5 node5.example.com
 # gnt-node add -g group2 -s 192.0.2.9 node9.group2.example.com</code></pre>
-<h2 id="evacuate"><a href="#TOC">EVACUATE</a></h2>
-<p><strong>evacuate</strong> [-f] [--early-release] [--submit] [--print-jobid]<br />[{-I|--iallocator} <em>NAME</em> | {-n|--new-secondary} <em>destination_node</em>]<br />[--ignore-soft-errors]<br />[{-p|--primary-only} | {-s|--secondary-only} ]<br /> {<em>node</em>}</p>
+<h2 id="evacuate">EVACUATE</h2>
+<p><strong>evacuate</strong> [-f] [--early-release] [--submit] [--print-jobid]<br />
+[{-I|--iallocator} <em>name</em> | {-n|--new-secondary} <em>destination_node</em>]<br />
+[--ignore-soft-errors]<br />
+[{-p|--primary-only} | {-s|--secondary-only} ]<br />
+ {<em>node</em>}</p>
 <p>This command will move instances away from the given node. If <code>--primary-only</code> is given, only primary instances are evacuated, with <code>--secondary-only</code> only secondaries. If neither is given, all instances are evacuated. It works only for instances having a drbd disk template.</p>
 <p>The new location for the instances can be specified in two ways:</p>
 <ul>
-<li><p>as a single node for all instances, via the <code>-n (--new-secondary)</code> option</p></li>
-<li><p>or via the <code>-I (--iallocator)</code> option, giving a script name as parameter (or <code>.</code> to use the default allocator), so each instance will be in turn placed on the (per the script) optimal node</p></li>
+<li>as a single node for all instances, via the <code>-n (--new-secondary)</code> option</li>
+<li>or via the <code>-I (--iallocator)</code> option, giving a script name as parameter (or <code>.</code> to use the default allocator), so each instance will be in turn placed on the (per the script) optimal node</li>
 </ul>
 <p>The <code>--early-release</code> changes the code so that the old storage on node being evacuated is removed early (before the resync is completed) and the internal Ganeti locks are also released for both the current secondary and the new secondary, thus allowing more parallelism in the cluster operation. This should be used only when recovering from a disk failure on the current secondary (thus the old storage is already broken) or when the storage on the primary node is known to be fine (thus we won't need the old storage for potential recovery).</p>
 <p>Note that this command is equivalent to using per-instance commands for each affected instance individually:</p>
@@ -88,21 +100,25 @@
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
 <pre><code># gnt-node evacuate -I hail node3.example.com</code></pre>
-<p>Note that, due to an issue with the iallocator interface, evacuation of all instances at once is not yet implemented. Full evacuation can currently be achieved by sequentially evacuating primaries and secondaries.</p>
+<p>Note that, due to an issue with the iallocator interface, evacuation of all instances at once is not yet implemented. Full evacuation can currently be achieved by sequentially evacuating primaries and secondaries. :</p>
 <pre><code># gnt-node evacuate -p node3.example.com
 # gnt-node evacuate -s node3.example.com</code></pre>
-<h2 id="failover"><a href="#TOC">FAILOVER</a></h2>
+<h2 id="failover">FAILOVER</h2>
 <p><strong>failover</strong> [-f] [--ignore-consistency] {<em>node</em>}</p>
 <p>This command will fail over all instances having the given node as primary to their secondary nodes. This works only for instances having a drbd disk template.</p>
 <p>Note that failover will stop any running instances on the given node and restart them again on the new primary. See also FAILOVER in <strong>gnt-instance</strong>(8).</p>
 <p>Normally the failover will check the consistency of the disks before failing over the instance. If you are trying to migrate instances off a dead node, this will fail. Use the <code>--ignore-consistency</code> option for this purpose.</p>
 <p>Example:</p>
 <pre><code># gnt-node failover node1.example.com</code></pre>
-<h2 id="info"><a href="#TOC">INFO</a></h2>
+<h2 id="info">INFO</h2>
 <p><strong>info</strong> [<em>node</em>...]</p>
 <p>Show detailed information about the nodes in the cluster. If you don't give any arguments, all nodes will be shows, otherwise the output will be restricted to the given names.</p>
-<h2 id="list"><a href="#TOC">LIST</a></h2>
-<p><strong>list</strong><br />[--no-headers] [--separator=<em>SEPARATOR</em>]<br />[--units=<em>UNITS</em>] [-v] [{-o|--output} <em>[+]FIELD,...</em>]<br />[--filter]<br />[node...]</p>
+<h2 id="list">LIST</h2>
+<p><strong>list</strong><br />
+[--no-headers] [--separator=*SEPARATOR*]<br />
+[--units=*UNITS*] [-v] [{-o|--output} <em>[+]FIELD,...</em>]<br />
+[--filter]<br />
+[<em>node-name</em>...]</p>
 <p>Lists the nodes in the cluster.</p>
 <p>The <code>--no-headers</code> option will skip the initial header line. The <code>--separator</code> option takes an argument which denotes what will be used between the output fields. Both these options are to help scripting.</p>
 <p>The units used to display the numeric values in the output varies, depending on the options given. By default, the values will be formatted in the most appropriate unit. If the <code>--separator</code> option is given, then the values are shown in mebibytes to allow parsing by scripts. In both cases, the <code>--units</code> option can be used to enforce a given output unit.</p>
@@ -255,8 +271,8 @@
 <p>Note that the field 'dtotal' and 'dfree' refer to the storage type that is defined by the default disk template. The default disk template is the first on in the list of cluster-wide enabled disk templates and can be set with <code>gnt-cluster modify</code>. Currently, only the disk templates 'plain', 'drbd', 'file', and 'sharedfile' support storage reporting, for all others '0' is displayed.</p>
 <p>If exactly one argument is given and it appears to be a query filter (see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For ambiguous cases (e.g. a single field name as a filter) the <code>--filter</code> (<code>-F</code>) option forces the argument to be treated as a filter (e.g. <code>gnt-node list -F master_candidate</code>).</p>
 <p>If no node names are given, then all nodes are queried. Otherwise, only the given nodes will be listed.</p>
-<h2 id="list-drbd"><a href="#TOC">LIST-DRBD</a></h2>
-<p><strong>list-drbd</strong> [--no-headers] [--separator=<em>SEPARATOR</em>] node</p>
+<h2 id="list-drbd">LIST-DRBD</h2>
+<p><strong>list-drbd</strong> [--no-headers] [--separator=*SEPARATOR*] <em>node</em></p>
 <p>Lists the mapping of DRBD minors for a given node. This outputs a static list of fields (it doesn't accept the <code>--output</code> option), as follows:</p>
 <dl>
 <dt><code>Node</code></dt>
@@ -280,19 +296,29 @@
 </dl>
 <p>This command can be used as a reverse lookup (from node and minor) to a given instance, which can be useful when debugging DRBD issues.</p>
 <p>Note that this command queries Ganeti via <strong>ganeti-confd</strong>(8), so it won't be available if support for <code>confd</code> has not been enabled at build time; furthermore, in Ganeti 2.6 this is only available via the Haskell version of confd (again selected at build time).</p>
-<h2 id="list-fields"><a href="#TOC">LIST-FIELDS</a></h2>
+<h2 id="list-fields">LIST-FIELDS</h2>
 <p><strong>list-fields</strong> [field...]</p>
 <p>Lists available fields for nodes.</p>
-<h2 id="migrate"><a href="#TOC">MIGRATE</a></h2>
-<p><strong>migrate</strong> [-f] [--non-live] [--migration-mode=live|non-live]<br />[--ignore-ipolicy] [--submit] [--print-jobid] {<em>node</em>}</p>
+<h2 id="migrate">MIGRATE</h2>
+<p><strong>migrate</strong> [-f] [--non-live] [--migration-mode=live|non-live]<br />
+[--ignore-ipolicy] [--submit] [--print-jobid] {<em>node</em>}</p>
 <p>This command will migrate all instances having the given node as primary to their secondary nodes. This works only for instances having a drbd disk template.</p>
 <p>As for the <strong>gnt-instance migrate</strong> command, the options <code>--no-live</code>, <code>--migration-mode</code> and <code>--no-runtime-changes</code> can be given to influence the migration type.</p>
 <p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
 <pre><code># gnt-node migrate node1.example.com</code></pre>
-<h2 id="modify"><a href="#TOC">MODIFY</a></h2>
-<p><strong>modify</strong> [-f] [--submit] [--print-jobid]<br />[{-C|--master-candidate} <code>yes|no</code>]<br />[{-D|--drained} <code>yes|no</code>] [{-O|--offline} <code>yes|no</code>]<br />[--master-capable=<code>yes|no</code>] [--vm-capable=<code>yes|no</code>] [--auto-promote]<br />[{-s|--secondary-ip} <em>secondary_ip</em>]<br />[--node-parameters <em>ndparams</em>]<br />[--node-powered=<code>yes|no</code>]<br />[--hypervisor-state <em>hvstate</em>]<br />[--disk-state <em>diskstate</em>]<br />{<em>node</em>}</p>
+<h2 id="modify">MODIFY</h2>
+<p><strong>modify</strong> [-f] [--submit] [--print-jobid]<br />
+[{-C|--master-candidate} <code>yes|no</code>]<br />
+[{-D|--drained} <code>yes|no</code>] [{-O|--offline} <code>yes|no</code>]<br />
+[--master-capable=<code>yes|no</code>] [--vm-capable=<code>yes|no</code>] [--auto-promote]<br />
+[{-s|--secondary-ip} <em>secondary_ip</em>]<br />
+[--node-parameters <em>ndparams</em>]<br />
+[--node-powered=<code>yes|no</code>]<br />
+[--hypervisor-state <em>hvstate</em>]<br />
+[--disk-state <em>diskstate</em>]<br />
+{<em>node-name</em>}</p>
 <p>This command changes the role of the node. Each options takes either a literal yes or no, and only one option should be given as yes. The meaning of the roles and flags are described in the manpage <strong>ganeti</strong>(7).</p>
 <p>The option <code>--node-powered</code> can be used to modify state-of-record if it doesn't reflect the reality anymore.</p>
 <p>In case a node is demoted from the master candidate role, the operation will be refused unless you pass the <code>--auto-promote</code> option. This option will cause the operation to lock all cluster nodes (thus it will not be able to run in parallel with most other jobs), but it allows automated maintenance of the cluster candidate pool. If locking all cluster node is too expensive, another option is to promote manually another node to master candidate before demoting the current one.</p>
@@ -302,13 +328,15 @@
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example (setting the node back to online and master candidate):</p>
 <pre><code># gnt-node modify --offline=no --master-candidate=yes node1.example.com</code></pre>
-<h2 id="remove"><a href="#TOC">REMOVE</a></h2>
-<p><strong>remove</strong> {<em>nodename</em>}</p>
+<h2 id="remove">REMOVE</h2>
+<p><strong>remove</strong> {<em>node-name</em>}</p>
 <p>Removes a node from the cluster. Instances must be removed or migrated to another cluster before.</p>
 <p>Example:</p>
 <pre><code># gnt-node remove node5.example.com</code></pre>
-<h2 id="volumes"><a href="#TOC">VOLUMES</a></h2>
-<p><strong>volumes</strong> [--no-headers] [--human-readable]<br />[--separator=<em>SEPARATOR</em>] [{-o|--output} <em>FIELDS</em>]<br />[<em>node</em>...]</p>
+<h2 id="volumes">VOLUMES</h2>
+<p><strong>volumes</strong> [--no-headers] [--human-readable]<br />
+[--separator=*SEPARATOR*] [{-o|--output} <em>FIELDS</em>]<br />
+[<em>node-name</em>...]</p>
 <p>Lists all logical volumes and their physical disks from the node(s) provided.</p>
 <p>The <code>--no-headers</code> option will skip the initial header line. The <code>--separator</code> option takes an argument which denotes what will be used between the output fields. Both these options are to help scripting.</p>
 <p>The units used to display the numeric values in the output varies, depending on the options given. By default, the values will be formatted in the most appropriate unit. If the <code>--separator</code> option is given, then the values are shown in mebibytes to allow parsing by scripts. In both cases, the <code>--units</code> option can be used to enforce a given output unit.</p>
@@ -338,8 +366,11 @@
 Node              PhysDev   VG    Name                                 Size Instance
 node1.example.com /dev/hdc1 xenvg instance1.example.com-sda_11000.meta 128  instance1.example.com
 node1.example.com /dev/hdc1 xenvg instance1.example.com-sda_11001.data 256  instance1.example.com</code></pre>
-<h2 id="list-storage"><a href="#TOC">LIST-STORAGE</a></h2>
-<p><strong>list-storage</strong> [--no-headers] [--human-readable]<br />[--separator=<em>SEPARATOR</em>] [--storage-type=<em>STORAGE_TYPE</em>]<br />[{-o|--output} <em>FIELDS</em>]<br />[<em>node</em>...]</p>
+<h2 id="list-storage">LIST-STORAGE</h2>
+<p><strong>list-storage</strong> [--no-headers] [--human-readable]<br />
+[--separator=*SEPARATOR*] [--storage-type=*STORAGE_TYPE*]<br />
+[{-o|--output} <em>FIELDS</em>]<br />
+[<em>node-name</em>...]</p>
 <p>Lists the available storage units and their details for the given node(s).</p>
 <p>The <code>--no-headers</code> option will skip the initial header line. The <code>--separator</code> option takes an argument which denotes what will be used between the output fields. Both these options are to help scripting.</p>
 <p>The units used to display the numeric values in the output varies, depending on the options given. By default, the values will be formatted in the most appropriate unit. If the <code>--separator</code> option is given, then the values are shown in mebibytes to allow parsing by scripts. In both cases, the <code>--units</code> option can be used to enforce a given output unit.</p>
@@ -374,38 +405,42 @@ node1.example.com /dev/hdc1 xenvg instance1.example.com-sda_11001.data 256  inst
 Node  Type   Name        Size Used   Free Allocatable
 node2 lvm-pv /dev/sda7 673.8G 1.5G 672.3G Y
 node2 lvm-pv /dev/sdb1 698.6G   0M 698.6G Y</code></pre>
-<h2 id="modify-storage"><a href="#TOC">MODIFY-STORAGE</a></h2>
-<p><strong>modify-storage</strong> [--allocatable={yes|no}] [--submit] [--print-jobid]<br />{<em>node</em>} {<em>storage-type</em>} {<em>volume-name</em>}</p>
+<h2 id="modify-storage">MODIFY-STORAGE</h2>
+<p><strong>modify-storage</strong> [--allocatable={yes|no}] [--submit] [--print-jobid]<br />
+{<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</p>
 <p>Modifies storage volumes on a node. Only LVM physical volumes can be modified at the moment. They have a storage type of &quot;lvm-pv&quot;.</p>
 <p>Example:</p>
 <pre><code># gnt-node modify-storage --allocatable no node5.example.com lvm-pv /dev/sdb1</code></pre>
-<h2 id="repair-storage"><a href="#TOC">REPAIR-STORAGE</a></h2>
-<p><strong>repair-storage</strong> [--ignore-consistency] ]--submit]<br />{<em>node</em>} {<em>storage-type</em>} {<em>volume-name</em>}</p>
+<h2 id="repair-storage">REPAIR-STORAGE</h2>
+<p><strong>repair-storage</strong> [--ignore-consistency] ]--submit]<br />
+{<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</p>
 <p>Repairs a storage volume on a node. Only LVM volume groups can be repaired at this time. They have the storage type &quot;lvm-vg&quot;.</p>
 <p>On LVM volume groups, <strong>repair-storage</strong> runs <code>vgreduce --removemissing</code>.</p>
 <p><strong>Caution:</strong> Running this command can lead to data loss. Use it with care.</p>
 <p>The <code>--ignore-consistency</code> option will ignore any inconsistent disks (on the nodes paired with this one). Use of this option is most likely to lead to data-loss.</p>
 <p>Example:</p>
 <pre><code># gnt-node repair-storage node5.example.com lvm-vg xenvg</code></pre>
-<h2 id="powercycle"><a href="#TOC">POWERCYCLE</a></h2>
-<p><strong>powercycle</strong> [--yes] [--force] [--submit] [--print-jobid] {<em>node</em>}</p>
+<h2 id="powercycle">POWERCYCLE</h2>
+<p><strong>powercycle</strong> [--yes] [--force] [--submit] [--print-jobid] {<em>node-name</em>}</p>
 <p>This command (tries to) forcefully reboot a node. It is a command that can be used if the node environment is broken, such that the admin can no longer login over SSH, but the Ganeti node daemon is still working.</p>
 <p>Note that this command is not guaranteed to work; it depends on the hypervisor how effective is the reboot attempt. For Linux, this command requires the kernel option <code>CONFIG_MAGIC_SYSRQ</code> to be enabled.</p>
 <p>The <code>--yes</code> option can be used to skip confirmation, while the <code>--force</code> option is needed if the target node is the master node.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
-<h2 id="power"><a href="#TOC">POWER</a></h2>
-<p><strong>power</strong> [<code>--force</code>] [<code>--ignore-status</code>] [<code>--all</code>] [<code>--power-delay</code>] on|off|cycle|status [<em>nodes</em>]</p>
+<h2 id="power">POWER</h2>
+<p><strong>power</strong> [<code>--force</code>] [<code>--ignore-status</code>] [<code>--all</code>] [<code>--power-delay</code>] on|off|cycle|status [<em>node-name</em>...]</p>
 <p>This command calls out to out-of-band management to change the power state of given node. With <code>status</code> you get the power status as reported by the out-of-band management script.</p>
 <p>Note that this command will only work if the out-of-band functionality is configured and enabled on the cluster. If this is not the case, please use the <strong>powercycle</strong> command above.</p>
-<p>Using <code>--force</code> you skip the confirmation to do the operation. Currently this only has effect on <code>off</code> and <code>cycle</code>. On those two you can <em>not</em> operate on the master. However, the command will provide you with the command to invoke to operate on the master nerver-mind. This is considered harmful and Ganeti does not support the use of it.</p>
+<p>Currently this only has effect for <code>off</code> and <code>cycle</code>. For safety, Ganeti will not allow either of these operations to be run on the master node. However, it will print a command line which can then be run manually on the master. Note that powering off the master is potentially dangerous, and Ganeti does not support doing this.</p>
+<p>Providing <code>--force</code> will skip confirmations for the operation.</p>
 <p>Providing <code>--ignore-status</code> will ignore the offline=N state of a node and continue with power off.</p>
 <p><code>--power-delay</code> specifies the time in seconds (factions allowed) waited between powering on the next node. This is by default 2 seconds but can increased if needed with this option.</p>
-<p><em>nodes</em> are optional. If not provided it will call out for every node in the cluster. Except for the <code>off</code> and <code>cycle</code> command where you've to explicit use <code>--all</code> to select all.</p>
-<h2 id="health"><a href="#TOC">HEALTH</a></h2>
-<p><strong>health</strong> [<em>nodes</em>]</p>
+<p>The list of node names is optional. If not provided it will call out for every node in the cluster. Except for the <code>off</code> and <code>cycle</code> command where you've to explicit use <code>--all</code> to select all.</p>
+<h2 id="health">HEALTH</h2>
+<p><strong>health</strong> [<em>node-name</em>...]</p>
 <p>This command calls out to out-of-band management to ask for the health status of all or given nodes. The health contains the node name and then the items element with their status in a <code>item=status</code> manner. Where <code>item</code> is script specific and <code>status</code> can be one of <code>OK</code>, <code>WARNING</code>, <code>CRITICAL</code> or <code>UNKNOWN</code>. Items with status <code>WARNING</code> or <code>CRITICAL</code> are logged and annotated in the command line output.</p>
-<h2 id="restricted-command"><a href="#TOC">RESTRICTED-COMMAND</a></h2>
-<p><strong>restricted-command</strong> [-M] [--sync]<br />{ -g <em>group</em> <em>command</em> | <em>command</em> <em>nodes</em>... }</p>
+<h2 id="restricted-command">RESTRICTED-COMMAND</h2>
+<p><strong>restricted-command</strong> [-M] [--sync]<br />
+{ -g <em>group</em> <em>command</em> | <em>command</em> <em>node-name</em>... }</p>
 <p>Executes a restricted command on the specified nodes. Restricted commands are not arbitrary, but must reside in <code>/etc/ganeti/restricted-commands</code> on a node, either as a regular file or as a symlink. The directory must be owned by root and not be world- or group-writable. If a command fails verification or otherwise fails to start, the node daemon log must be consulted for more detailed information.</p>
 <p>Example for running a command on two nodes:</p>
 <pre><code># gnt-node restricted-command mycommand \
@@ -413,26 +448,26 @@ node2 lvm-pv /dev/sdb1 698.6G   0M 698.6G Y</code></pre>
 <p>The <code>-g</code> option can be used to run a command only on a specific node group, e.g.:</p>
 <pre><code># gnt-node restricted-command -g default mycommand</code></pre>
 <p>The <code>-M</code> option can be used to prepend the node name to all command output lines. <code>--sync</code> forces the opcode to acquire the node lock(s) in exclusive mode.</p>
-<h2 id="tags"><a href="#TOC">Tags</a></h2>
-<h3 id="add-tags"><a href="#TOC">ADD-TAGS</a></h3>
-<p><strong>add-tags</strong> [--from <em>file</em>] {<em>nodename</em>} {<em>tag</em>...}</p>
+<h2 id="tags">Tags</h2>
+<h3 id="add-tags">ADD-TAGS</h3>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>node-name</em>} {<em>tag</em>...}</p>
 <p>Add tags to the given node. If any of the tags contains invalid characters, the entire operation will abort.</p>
 <p>If the <code>--from</code> option is given, the list of tags will be extended with the contents of that file (each line becomes a tag). In this case, there is not need to pass tags on the command line (if you do, both sources will be used). A file name of - will be interpreted as stdin.</p>
-<h3 id="list-tags"><a href="#TOC">LIST-TAGS</a></h3>
-<p><strong>list-tags</strong> {<em>nodename</em>}</p>
+<h3 id="list-tags">LIST-TAGS</h3>
+<p><strong>list-tags</strong> {<em>node-name</em>}</p>
 <p>List the tags of the given node.</p>
-<h3 id="remove-tags"><a href="#TOC">REMOVE-TAGS</a></h3>
-<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>nodename</em>} {<em>tag</em>...}</p>
+<h3 id="remove-tags">REMOVE-TAGS</h3>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>node-name</em>} {<em>tag</em>...}</p>
 <p>Remove tags from the given node. If any of the tags are not existing on the node, the entire operation will abort.</p>
 <p>If the <code>--from</code> option is given, the list of tags to be removed will be extended with the contents of that file (each line becomes a tag). In this case, there is not need to pass tags on the command line (if you do, tags from both sources will be removed). A file name of - will be interpreted as stdin.</p>
-<h1 id="reporting-bugs"><a href="#TOC">REPORTING BUGS</a></h1>
+<h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to <a href="http://code.google.com/p/ganeti/">project website</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
-<h1 id="see-also"><a href="#TOC">SEE ALSO</a></h1>
+<h1 id="see-also">SEE ALSO</h1>
 <p>Ganeti overview and specifications: <strong>ganeti</strong>(7) (general overview), <strong>ganeti-os-interface</strong>(7) (guest OS definitions), <strong>ganeti-extstorage-interface</strong>(7) (external storage providers).</p>
 <p>Ganeti commands: <strong>gnt-cluster</strong>(8) (cluster-wide commands), <strong>gnt-job</strong>(8) (job-related commands), <strong>gnt-node</strong>(8) (node-related commands), <strong>gnt-instance</strong>(8) (instance commands), <strong>gnt-os</strong>(8) (guest OS commands), <strong>gnt-storage</strong>(8) (storage commands), <strong>gnt-group</strong>(8) (node group commands), <strong>gnt-backup</strong>(8) (instance import/export commands), <strong>gnt-debug</strong>(8) (debug commands).</p>
 <p>Ganeti daemons: <strong>ganeti-watcher</strong>(8) (automatic instance restarter), <strong>ganeti-cleaner</strong>(8) (job queue cleaner), <strong>ganeti-noded</strong>(8) (node daemon), <strong>ganeti-rapi</strong>(8) (remote API daemon).</p>
 <p>Ganeti htools: <strong>htools</strong>(1) (generic binary), <strong>hbal</strong>(1) (cluster balancer), <strong>hspace</strong>(1) (capacity calculation), <strong>hail</strong>(1) (IAllocator plugin), <strong>hscan</strong>(1) (data gatherer from remote clusters), <strong>hinfo</strong>(1) (cluster information printer), <strong>mon-collector</strong>(7) (data collectors interface).</p>
-<h1 id="copyright"><a href="#TOC">COPYRIGHT</a></h1>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2006-2015 Google Inc. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>

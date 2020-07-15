@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Instance move improvements &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Instance move improvements &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,31 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
-    <link rel="next" title="Moving instances accross node groups" href="design-multi-reloc.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
+    <link rel="next" title="Moving instances across node groups" href="design-multi-reloc.html" />
     <link rel="prev" title="Ganeti monitoring agent" href="design-monitoring-agent.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-multi-reloc.html" title="Moving instances accross node groups"
+          <a href="design-multi-reloc.html" title="Moving instances across node groups"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="design-monitoring-agent.html" title="Ganeti monitoring agent"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="instance-move-improvements">
 <h1><a class="toc-backref" href="#id1">Instance move improvements</a><a class="headerlink" href="#instance-move-improvements" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Apr-11</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.12.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -144,9 +154,9 @@ OpenSSL ciphers at will, while still enforcing high-security settings for moves
 between clusters.</p>
 <p>Thus, two settings will be introduced:</p>
 <ul class="simple">
-<li>a cluster-level setting called <tt class="docutils literal"><span class="pre">--allow-cipher-bypassing</span></tt>, a boolean that
+<li>a cluster-level setting called <code class="docutils literal"><span class="pre">--allow-cipher-bypassing</span></code>, a boolean that
 cannot be set over RAPI</li>
-<li>a gnt-instance move setting called <tt class="docutils literal"><span class="pre">--ciphers-to-use</span></tt>, bypassing the default
+<li>a gnt-instance move setting called <code class="docutils literal"><span class="pre">--ciphers-to-use</span></code>, bypassing the default
 cipher list with given ciphers, filtered to ensure no other OpenSSL options
 are passed in within</li>
 </ul>
@@ -156,28 +166,28 @@ within the cluster, while keeping Ganeti security at its current level.</p>
 <div class="section" id="compression">
 <h3><a class="toc-backref" href="#id4">Compression</a><a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h3>
 <p>Support for disk compression during instance moves was partially present before,
-but cleaned up and unified under the <tt class="docutils literal"><span class="pre">--compress</span></tt> option only as of Ganeti
+but cleaned up and unified under the <code class="docutils literal"><span class="pre">--compress</span></code> option only as of Ganeti
 2.11. The only option offered by Ganeti is gzip with no options passed to it,
 resulting in a good compression ratio, but bad compression speed.</p>
 <p>As compression can affect the speed of instance moves significantly, it is
 worthwhile to explore alternatives. To test compression tool performance, an 8GB
 drive filled with data matching the expected usage patterns (taken from a
 workstation) was compressed by using various tools with various settings. The
-two top performers were <tt class="docutils literal"><span class="pre">lzop</span></tt> and, surprisingly, <tt class="docutils literal"><span class="pre">gzip</span></tt>. The improvement in
-the performance of <tt class="docutils literal"><span class="pre">gzip</span></tt> was obtained by explicitly optimizing for speed
+two top performers were <code class="docutils literal"><span class="pre">lzop</span></code> and, surprisingly, <code class="docutils literal"><span class="pre">gzip</span></code>. The improvement in
+the performance of <code class="docutils literal"><span class="pre">gzip</span></code> was obtained by explicitly optimizing for speed
 rather than compression.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">gzip</span> <span class="pre">-6</span></tt>: 22.3MB/s in, 7.1MB/s out</li>
-<li><tt class="docutils literal"><span class="pre">gzip</span> <span class="pre">-1</span></tt>: 44.1MB/s in, 15.1MB/s out</li>
-<li><tt class="docutils literal"><span class="pre">lzop</span></tt>: 71.9MB/s in, 28.1MB/s out</li>
+<li><code class="docutils literal"><span class="pre">gzip</span> <span class="pre">-6</span></code>: 22.3MB/s in, 7.1MB/s out</li>
+<li><code class="docutils literal"><span class="pre">gzip</span> <span class="pre">-1</span></code>: 44.1MB/s in, 15.1MB/s out</li>
+<li><code class="docutils literal"><span class="pre">lzop</span></code>: 71.9MB/s in, 28.1MB/s out</li>
 </ul>
 <p>If encryption is the limiting factor, and as in the example, limits the
-bandwidth to 40MB/s, <tt class="docutils literal"><span class="pre">lzop</span></tt> allows for an effective 79% increase in transfer
-speed. The fast <tt class="docutils literal"><span class="pre">gzip</span></tt> would also prove to be beneficial, but much less than
-<tt class="docutils literal"><span class="pre">lzop</span></tt>. It should also be noted that as a rule of thumb, tools with a lower
-compression ratio had a lesser workload, with <tt class="docutils literal"><span class="pre">lzop</span></tt> straining the CPU much
+bandwidth to 40MB/s, <code class="docutils literal"><span class="pre">lzop</span></code> allows for an effective 79% increase in transfer
+speed. The fast <code class="docutils literal"><span class="pre">gzip</span></code> would also prove to be beneficial, but much less than
+<code class="docutils literal"><span class="pre">lzop</span></code>. It should also be noted that as a rule of thumb, tools with a lower
+compression ratio had a lesser workload, with <code class="docutils literal"><span class="pre">lzop</span></code> straining the CPU much
 less than any of the competitors.</p>
-<p>With the test results present here, it is clear that <tt class="docutils literal"><span class="pre">lzop</span></tt> would be a very
+<p>With the test results present here, it is clear that <code class="docutils literal"><span class="pre">lzop</span></code> would be a very
 worthwhile addition to the compression options present in Ganeti, yet the
 problem is that it is not available by default on all distributions, as the
 option&#8217;s presence might imply. In general, Ganeti may know how to use several
@@ -187,9 +197,9 @@ at which tools are available.</p>
 Allowing the tool to be named is also helpful, both for cases when multiple
 custom tools are to be used, and for distinguishing between various tools in
 case of e.g. inter-cluster moves.</p>
-<p>To this end, the <tt class="docutils literal"><span class="pre">--compression-tools</span></tt> cluster parameter will be added to
+<p>To this end, the <code class="docutils literal"><span class="pre">--compression-tools</span></code> cluster parameter will be added to
 Ganeti. It contains a list of names of compression tools that can be supplied as
-the parameter of <tt class="docutils literal"><span class="pre">--compress</span></tt>, and by default it contains all the tools
+the parameter of <code class="docutils literal"><span class="pre">--compress</span></code>, and by default it contains all the tools
 Ganeti knows how to use. The user can change the list as desired, removing
 entries that are not or should not be available on the cluster, and adding
 custom tools.</p>
@@ -198,16 +208,16 @@ correspond to a script invoking the compression tool. Without arguments, the
 script compresses input on stdin, outputting it on stdout. With the -d argument,
 the script does the same, only while decompressing. The -h argument is used to
 check for the presence of the script, and in this case, only the error code is
-examined. This syntax matches the <tt class="docutils literal"><span class="pre">gzip</span></tt> syntax well, which should allow most
+examined. This syntax matches the <code class="docutils literal"><span class="pre">gzip</span></code> syntax well, which should allow most
 compression tools to be adapted to it easily.</p>
 <p>Ganeti will not allow arbitrary parameters to be passed to a compression tool,
 and will restrict the names to contain only a small but assuredly safe subset of
 characters - alphanumeric values and dashes and underscores. This minimizes the
 risk of security issues that could arise from an attacker smuggling a malicious
 command through RAPI. Common variations, like the speed/compression tradeoff of
-<tt class="docutils literal"><span class="pre">gzip</span></tt>, will be handled by aliases, e.g. <tt class="docutils literal"><span class="pre">gzip-fast</span></tt> or <tt class="docutils literal"><span class="pre">gzip-slow</span></tt>.</p>
+<code class="docutils literal"><span class="pre">gzip</span></code>, will be handled by aliases, e.g. <code class="docutils literal"><span class="pre">gzip-fast</span></code> or <code class="docutils literal"><span class="pre">gzip-slow</span></code>.</p>
 <p>It should also be noted that for some purposes - e.g. the writing of OVF files,
-<tt class="docutils literal"><span class="pre">gzip</span></tt> is the only allowed means of compression, and an appropriate error
+<code class="docutils literal"><span class="pre">gzip</span></code> is the only allowed means of compression, and an appropriate error
 message should be displayed if the user attempts to use one of the other
 provided tools.</p>
 </div>
@@ -276,10 +286,10 @@ virtualization platform of choice is not easy. Thus we do not provide a script
 for this purpose, but the user is free to provide any OS image which performs
 the necessary steps: zero out all virtualization-provided devices on startup,
 shutdown immediately. The cluster-wide parameter controlling the image to be
-used would be called <tt class="docutils literal"><span class="pre">--zeroing-image</span></tt>.</p>
+used would be called <code class="docutils literal"><span class="pre">--zeroing-image</span></code>.</p>
 <p>The modifications to Ganeti code needed are minor. The zeroing functionality
 should be implemented as an extension of the instance export, and exposed as the
-<tt class="docutils literal"><span class="pre">--zero-free-space</span> <span class="pre">option</span></tt>. Prior to beginning the export, the instance
+<code class="docutils literal"><span class="pre">--zero-free-space</span> <span class="pre">option</span></code>. Prior to beginning the export, the instance
 configuration is temporarily extended with a new read-only disk of sufficient
 size to host the zeroing image, and the changes necessary for the image to be
 used as the boot drive. The temporary nature of the configuration changes
@@ -392,7 +402,7 @@ improvements, and finally the encryption changes.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -419,13 +429,15 @@ improvements, and finally the encryption changes.</p>
                         title="previous chapter">Ganeti monitoring agent</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-multi-reloc.html"
-                        title="next chapter">Moving instances accross node groups</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-move-instance-improvements.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+                        title="next chapter">Moving instances across node groups</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-move-instance-improvements.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -442,21 +454,21 @@ improvements, and finally the encryption changes.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-multi-reloc.html" title="Moving instances accross node groups"
+          <a href="design-multi-reloc.html" title="Moving instances across node groups"
              >next</a></li>
         <li class="right" >
           <a href="design-monitoring-agent.html" title="Ganeti monitoring agent"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

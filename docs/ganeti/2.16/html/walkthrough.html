@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti walk-through &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti walk-through &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,24 +23,24 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="prev" title="Virtual cluster support" href="virtual-cluster.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="virtual-cluster.html" title="Virtual cluster support"
              accesskey="P">previous</a></li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-walk-through">
 <h1><a class="toc-backref" href="#id1">Ganeti walk-through</a><a class="headerlink" href="#ganeti-walk-through" title="Permalink to this headline">¶</a></h1>
@@ -89,14 +87,14 @@
 the administration guide shows a conceptual approach, here you will find
 a step-by-step example to managing instances and the cluster.</p>
 <p>Our simulated, example cluster will have three machines, named
-<tt class="docutils literal"><span class="pre">node1</span></tt>, <tt class="docutils literal"><span class="pre">node2</span></tt>, <tt class="docutils literal"><span class="pre">node3</span></tt>. Note that in real life machines will
+<code class="docutils literal"><span class="pre">node1</span></code>, <code class="docutils literal"><span class="pre">node2</span></code>, <code class="docutils literal"><span class="pre">node3</span></code>. Note that in real life machines will
 usually have FQDNs but here we use short names for brevity. We will use
-a secondary network for replication data, <tt class="docutils literal"><span class="pre">192.0.2.0/24</span></tt>, with nodes
+a secondary network for replication data, <code class="docutils literal"><span class="pre">192.0.2.0/24</span></code>, with nodes
 having the last octet the same as their index. The cluster name will be
-<tt class="docutils literal"><span class="pre">example-cluster</span></tt>. All nodes have the same simulated hardware
+<code class="docutils literal"><span class="pre">example-cluster</span></code>. All nodes have the same simulated hardware
 configuration, two disks of 750GB, 32GB of memory and 4 CPUs.</p>
 <p>On this cluster, we will create up to seven instances, named
-<tt class="docutils literal"><span class="pre">instance1</span></tt> to <tt class="docutils literal"><span class="pre">instance7</span></tt>.</p>
+<code class="docutils literal"><span class="pre">instance1</span></code> to <code class="docutils literal"><span class="pre">instance7</span></code>.</p>
 </div>
 <div class="section" id="cluster-creation">
 <h2><a class="toc-backref" href="#id3">Cluster creation</a><a class="headerlink" href="#cluster-creation" title="Permalink to this headline">¶</a></h2>
@@ -179,7 +177,7 @@ node1<span class="c1">#</span>
 <p>Now that the cluster is created, it is time to check that the hardware
 works correctly, that the hypervisor can actually create instances,
 etc. This is done via the debootstrap tool as described in the admin
-guide. Similar output lines are replaced with <tt class="docutils literal"><span class="pre">…</span></tt> in the below log:</p>
+guide. Similar output lines are replaced with <code class="docutils literal"><span class="pre">…</span></code> in the below log:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">/usr/lib/ganeti/tools/burnin</span> <span class="gs">-o</span> <span class="gs">debootstrap</span> <span class="gs">-p</span> <span class="gs">instance{1..5}</span>
 - Testing global parameters
 - Creating instances
@@ -509,7 +507,7 @@ $
 </div>
 <p>Note in our first attempt, Ganeti refused to do the failover since it
 wasn&#8217;t sure what is the status of the instance&#8217;s disks. We pass the
-<tt class="docutils literal"><span class="pre">--ignore-consistency</span></tt> flag and then we can failover:</p>
+<code class="docutils literal"><span class="pre">--ignore-consistency</span></code> flag and then we can failover:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">gnt-instance</span> <span class="gs">list</span>
 Instance  Hypervisor OS          Primary_node Status  Memory
 instance1 xen-pvm    debootstrap node2        running   128M
@@ -687,7 +685,7 @@ $
 </pre></div>
 </div>
 <p>You can see that all instances on node2 have logical volumes on
-<tt class="docutils literal"><span class="pre">/dev/sdb1</span></tt>. Let&#8217;s simulate a disk failure on that disk:</p>
+<code class="docutils literal"><span class="pre">/dev/sdb1</span></code>. Let&#8217;s simulate a disk failure on that disk:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">ssh</span> <span class="gs">node2</span>
 <span class="c1"># on node2</span>
 $ <span class="gs">echo</span> <span class="gs">offline</span> <span class="gs">&gt;</span> <span class="gs">/sys/block/sdb/device/state</span>
@@ -761,7 +759,7 @@ involved instances.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">For Ganeti 2.0 we need to fix manually the volume group on
-node2 by running <tt class="docutils literal"><span class="pre">vgreduce</span> <span class="pre">--removemissing</span> <span class="pre">xenvg</span></tt></p>
+node2 by running <code class="docutils literal"><span class="pre">vgreduce</span> <span class="pre">--removemissing</span> <span class="pre">xenvg</span></code></p>
 </div>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">gnt-node</span> <span class="gs">repair-storage</span> <span class="nv">node2</span> <span class="gs">lvm-vg</span> <span class="nv">xenvg</span>
 Mon Oct 26 18:14:03 2009 Repairing storage unit &#39;xenvg&#39; on node2 ...
@@ -816,10 +814,10 @@ $
 <p>As this point, all instances should be healthy again.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>Ganeti 2.0 doesn&#8217;t have the <tt class="docutils literal"><span class="pre">-a</span></tt> option to replace-disks, so
+<p>Ganeti 2.0 doesn&#8217;t have the <code class="docutils literal"><span class="pre">-a</span></code> option to replace-disks, so
 for it you have to run the loop twice, once over primary instances
-with argument <tt class="docutils literal"><span class="pre">-p</span></tt> and once secondary instances with argument
-<tt class="docutils literal"><span class="pre">-s</span></tt>, but otherwise the operations are similar:</p>
+with argument <code class="docutils literal"><span class="pre">-p</span></code> and once secondary instances with argument
+<code class="docutils literal"><span class="pre">-s</span></code>, but otherwise the operations are similar:</p>
 <div class="last highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">gnt-instance</span> <span class="gs">replace-disks</span> <span class="gs">-p</span> <span class="gs">instance1</span>
 …
 $ <span class="gs">for</span> <span class="gs">i</span> <span class="gs">in</span> <span class="nv">instance{2..4}</span><span class="gs">;</span> <span class="gs">do</span> <span class="gs">gnt-instance</span> <span class="gs">replace-disks</span> <span class="gs">-s</span> <span class="gs">$i;</span> <span class="gs">done</span>
@@ -990,16 +988,16 @@ solve this, you have a number of options:</p>
 <li>try to manually move instances around (but this can become complicated
 for any non-trivial cluster)</li>
 <li>try to reduce the minimum memory of some instances on the source node
-of the N+1 failure (in the example above <tt class="docutils literal"><span class="pre">node1</span></tt>): this will allow
+of the N+1 failure (in the example above <code class="docutils literal"><span class="pre">node1</span></code>): this will allow
 it to start and be failed over/migrated with less than its maximum
 memory</li>
 <li>try to reduce the runtime/maximum memory of some instances on the
-destination node of the N+1 failure (in the example above <tt class="docutils literal"><span class="pre">node2</span></tt>)
+destination node of the N+1 failure (in the example above <code class="docutils literal"><span class="pre">node2</span></code>)
 to create additional available node memory (check the <a class="reference internal" href="admin.html"><em>Ganeti administrator&#8217;s guide</em></a>
 guide for what Ganeti will and won&#8217;t automatically do in regards to
 instance runtime memory modification)</li>
 <li>if Ganeti has been built with the htools package enabled, you can run
-the <tt class="docutils literal"><span class="pre">hbal</span></tt> tool which will try to compute an automated cluster
+the <code class="docutils literal"><span class="pre">hbal</span></code> tool which will try to compute an automated cluster
 solution that complies with the N+1 rule</li>
 </ul>
 </div>
@@ -1035,7 +1033,7 @@ investigate its network settings/connection.</p>
 <div class="section" id="migration-problems">
 <h3><a class="toc-backref" href="#id19">Migration problems</a><a class="headerlink" href="#migration-problems" title="Permalink to this headline">¶</a></h3>
 <p>Since live migration can sometimes fail and leave the instance in an
-inconsistent state, Ganeti provides a <tt class="docutils literal"><span class="pre">--cleanup</span></tt> argument to the
+inconsistent state, Ganeti provides a <code class="docutils literal"><span class="pre">--cleanup</span></code> argument to the
 migrate command that does:</p>
 <ul class="simple">
 <li>check on which node the instance is actually running (has the
@@ -1076,15 +1074,15 @@ Mon Oct 26 19:16:23 2009  - WARNING: Could not shutdown block device disk/0 on n
 device. This can be bad if the instance is not running, as it might mean
 that there was concurrent access from both the node and the instance to
 the disks, but not always (e.g. you could only have had the partitions
-activated via <tt class="docutils literal"><span class="pre">kpartx</span></tt>).</p>
+activated via <code class="docutils literal"><span class="pre">kpartx</span></code>).</p>
 <p>To troubleshoot this issue you need to follow standard Linux practices,
 and pay attention to the hypervisor being used:</p>
 <ul class="simple">
-<li>check if (in the above example) <tt class="docutils literal"><span class="pre">/dev/drbd0</span></tt> on node2 is being
-mounted somewhere (<tt class="docutils literal"><span class="pre">cat</span> <span class="pre">/proc/mounts</span></tt>)</li>
+<li>check if (in the above example) <code class="docutils literal"><span class="pre">/dev/drbd0</span></code> on node2 is being
+mounted somewhere (<code class="docutils literal"><span class="pre">cat</span> <span class="pre">/proc/mounts</span></code>)</li>
 <li>check if the device is not being used by device mapper itself:
-<tt class="docutils literal"><span class="pre">dmsetup</span> <span class="pre">ls</span></tt> and look for entries of the form <tt class="docutils literal"><span class="pre">drbd0pX</span></tt>, and if so
-remove them with either <tt class="docutils literal"><span class="pre">kpartx</span> <span class="pre">-d</span></tt> or <tt class="docutils literal"><span class="pre">dmsetup</span> <span class="pre">remove</span></tt></li>
+<code class="docutils literal"><span class="pre">dmsetup</span> <span class="pre">ls</span></code> and look for entries of the form <code class="docutils literal"><span class="pre">drbd0pX</span></code>, and if so
+remove them with either <code class="docutils literal"><span class="pre">kpartx</span> <span class="pre">-d</span></code> or <code class="docutils literal"><span class="pre">dmsetup</span> <span class="pre">remove</span></code></li>
 </ul>
 <p>For Xen, check if it&#8217;s not using the disks itself:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">xenstore-ls</span> <span class="gs">/local/domain/</span><span class="nv">0</span><span class="gs">/backend/vbd|grep</span> <span class="gs">-e</span> <span class="gs">&quot;domain</span> <span class="gs">=&quot;</span> <span class="gs">-e</span> <span class="gs">physical-device</span>
@@ -1098,8 +1096,8 @@ $
 </pre></div>
 </div>
 <p>You can see in the above output that the node exports three disks, to
-three instances. The <tt class="docutils literal"><span class="pre">physical-device</span></tt> key is in major:minor format in
-hexadecimal, and <tt class="docutils literal"><span class="pre">0x93</span></tt> represents DRBD&#8217;s major number. Thus we can
+three instances. The <code class="docutils literal"><span class="pre">physical-device</span></code> key is in major:minor format in
+hexadecimal, and <code class="docutils literal"><span class="pre">0x93</span></code> represents DRBD&#8217;s major number. Thus we can
 see from the above that instance2 has /dev/drbd0, instance3 /dev/drbd1,
 and instance4 /dev/drbd2.</p>
 </div>
@@ -1117,7 +1115,7 @@ versions or import their libraries from different, consistent paths
 (e.g. an older version installed in another place). You can print the
 import path for Ganeti&#8217;s modules using the following command (note that
 depending on your setup you might have to use an explicit version in the
-Python command, e.g. <tt class="docutils literal"><span class="pre">python2.6</span></tt>):</p>
+Python command, e.g. <code class="docutils literal"><span class="pre">python2.6</span></code>):</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>python -c &#39;import ganeti; print ganeti.__file__&#39;
 </pre></div>
 </div>
@@ -1129,7 +1127,7 @@ Python command, e.g. <tt class="docutils literal"><span class="pre">python2.6</s
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1169,12 +1167,14 @@ Python command, e.g. <tt class="docutils literal"><span class="pre">python2.6</s
   <h4>Previous topic</h4>
   <p class="topless"><a href="virtual-cluster.html"
                         title="previous chapter">Virtual cluster support</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/walkthrough.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/walkthrough.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1191,18 +1191,18 @@ Python command, e.g. <tt class="docutils literal"><span class="pre">python2.6</s
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="virtual-cluster.html" title="Virtual cluster support"
              >previous</a></li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

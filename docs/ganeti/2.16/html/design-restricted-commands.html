@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Design for executing commands via RPC &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Design for executing commands via RPC &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,31 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti shared storage support" href="design-shared-storage.html" />
-    <link rel="prev" title="Ganeti reason trail" href="design-reason-trail.html" /> 
+    <link rel="prev" title="Resource model changes" href="design-resource-model.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-shared-storage.html" title="Ganeti shared storage support"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="design-reason-trail.html" title="Ganeti reason trail"
+          <a href="design-resource-model.html" title="Resource model changes"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="design-for-executing-commands-via-rpc">
 <h1><a class="toc-backref" href="#id1">Design for executing commands via RPC</a><a class="headerlink" href="#design-for-executing-commands-via-rpc" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-Oct-16</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.7.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -66,7 +76,7 @@
 attempts at connecting via SSH or SSH became unavailable through other
 means. Quite often the node daemon is still available, even in
 situations where there&#8217;s little free memory. The latter is due to the
-node daemon being locked into main memory using <tt class="docutils literal"><span class="pre">mlock(2)</span></tt>.</p>
+node daemon being locked into main memory using <code class="docutils literal"><span class="pre">mlock(2)</span></code>.</p>
 <p>Since the node daemon does not allow the execution of arbitrary
 commands, quite often the only solution left was either to attempt a
 powercycle request via said node daemon or to physically reset the node.</p>
@@ -75,12 +85,12 @@ powercycle request via said node daemon or to physically reset the node.</p>
 <h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
 <p>The goal of this design is to allow the execution of non-arbitrary
 commands via RPC requests. Since this can be dangerous in case the
-cluster certificate (<tt class="docutils literal"><span class="pre">server.pem</span></tt>) is leaked, some precautions need to
+cluster certificate (<code class="docutils literal"><span class="pre">server.pem</span></code>) is leaked, some precautions need to
 be taken:</p>
 <ul class="simple">
 <li>No parameters may be passed</li>
 <li>No absolute or relative path may be passed, only a filename</li>
-<li>Executable must reside in <tt class="docutils literal"><span class="pre">/etc/ganeti/restricted-commands</span></tt>, which must
+<li>Executable must reside in <code class="docutils literal"><span class="pre">/etc/ganeti/restricted-commands</span></code>, which must
 be owned by root:root and have mode 0755 or stricter
 - Must be regular files or symlinks
 - Must be executable by root:root</li>
@@ -91,7 +101,7 @@ command will either be its output and exit code, or a generic error
 message. Only the receiving node&#8217;s log files shall contain information
 as to why executing the command failed.</p>
 <p>To slow down dictionary attacks on command names in case an attacker
-manages to obtain a copy of <tt class="docutils literal"><span class="pre">server.pem</span></tt>, a system-wide, file-based
+manages to obtain a copy of <code class="docutils literal"><span class="pre">server.pem</span></code>, a system-wide, file-based
 lock is acquired before verifying the command name and its executable.
 If a command can not be executed for some reason, the lock is only
 released with a delay of several seconds, after which the generic error
@@ -99,7 +109,7 @@ message will be returned to the caller.</p>
 <p>At first, restricted commands will not be made available through the
 <a class="reference internal" href="rapi.html"><em>remote API</em></a>, though that could be done at a later point
 (with a separate password).</p>
-<p>On the command line, a new sub-command will be added to the <tt class="docutils literal"><span class="pre">gnt-node</span></tt>
+<p>On the command line, a new sub-command will be added to the <code class="docutils literal"><span class="pre">gnt-node</span></code>
 script.</p>
 </div>
 </div>
@@ -108,7 +118,7 @@ script.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -120,17 +130,19 @@ script.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="design-reason-trail.html"
-                        title="previous chapter">Ganeti reason trail</a></p>
+  <p class="topless"><a href="design-resource-model.html"
+                        title="previous chapter">Resource model changes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-shared-storage.html"
                         title="next chapter">Ganeti shared storage support</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-restricted-commands.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-restricted-commands.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -147,21 +159,21 @@ script.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-shared-storage.html" title="Ganeti shared storage support"
              >next</a></li>
         <li class="right" >
-          <a href="design-reason-trail.html" title="Ganeti reason trail"
+          <a href="design-resource-model.html" title="Resource model changes"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

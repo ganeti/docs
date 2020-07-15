@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Improving location awareness of Ganeti &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Improving location awareness of Ganeti &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Linux HA integration" href="design-linuxha.html" />
     <link rel="prev" title="KVM daemon" href="design-kvmd.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-kvmd.html" title="KVM daemon"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="improving-location-awareness-of-ganeti">
 <h1><a class="toc-backref" href="#id1">Improving location awareness of Ganeti</a><a class="headerlink" href="#improving-location-awareness-of-ganeti" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Jul-22</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.13.0, 2.14.0</td>
+</tr>
+</tbody>
+</table>
 <p>This document describes an enhancement of Ganeti&#8217;s instance
 placement by taking into account that some nodes are vulnerable
 to common failures.</p>
@@ -90,7 +100,7 @@ they are not spread out location wise.</p>
 </div>
 <div class="section" id="proposed-changes">
 <h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
-<p>We propose to the cluster metric (as used, e.g., by <tt class="docutils literal"><span class="pre">hbal</span></tt> and <tt class="docutils literal"><span class="pre">hail</span></tt>)
+<p>We propose to the cluster metric (as used, e.g., by <code class="docutils literal"><span class="pre">hbal</span></code> and <code class="docutils literal"><span class="pre">hail</span></code>)
 to honor additional node tags indicating nodes that might have a common
 cause of failure.</p>
 <div class="section" id="failure-tags">
@@ -122,9 +132,9 @@ It will also dominate the disk load component which, which, when only taking
 static information into account, essentially amounts to counting disks. In
 this way, Ganeti will be willing to sacrifice equal numbers of disks on every
 node in order to fulfill location requirements.</p>
-<p>Appart from changing the balancedness metric, common-failure tags will
+<p>Apart from changing the balancedness metric, common-failure tags will
 not have any other effect. In particular, as opposed to exclusion tags,
-no hard guarantees are made: <tt class="docutils literal"><span class="pre">hail</span></tt> will try allocate an instance in
+no hard guarantees are made: <code class="docutils literal"><span class="pre">hail</span></code> will try allocate an instance in
 a common-failure avoiding way if possible, but still allocate the instance
 if not.</p>
 </div>
@@ -145,7 +155,7 @@ node property. Additionally, cluster tags of the form
 </div>
 <div class="section" id="restriction">
 <h3><a class="toc-backref" href="#id8">Restriction</a><a class="headerlink" href="#restriction" title="Permalink to this headline">¶</a></h3>
-<p>An instance migration will only be considered by <tt class="docutils literal"><span class="pre">htools</span></tt>, if for all
+<p>An instance migration will only be considered by <code class="docutils literal"><span class="pre">htools</span></code>, if for all
 migration tags <em>y</em> present on the node migrated from, either the tag
 is also present on the node migrated to or there is a cluster tag
 <em>htools::allowmigration:y::z</em> and the target node is tagged <em>z</em> (or both).</p>
@@ -157,7 +167,7 @@ but not the other way round, tagging all already upgraded nodes suffices.</p>
 </div>
 <div class="section" id="advise-only">
 <h3><a class="toc-backref" href="#id10">Advise only</a><a class="headerlink" href="#advise-only" title="Permalink to this headline">¶</a></h3>
-<p>These tags are of advisory nature only. That is, all <tt class="docutils literal"><span class="pre">htools</span></tt> will strictly
+<p>These tags are of advisory nature only. That is, all <code class="docutils literal"><span class="pre">htools</span></code> will strictly
 obey the restrictions imposed by those tags, but Ganeti will not prevent users
 from manually instructing other migrations.</p>
 </div>
@@ -168,7 +178,7 @@ from manually instructing other migrations.</p>
 typically geographic, location. To support these kind of requests, instances
 can be assigned tags of the form <em>htools:desiredlocation:x</em> where <em>x</em> is a
 failure tag. Those tags indicate the the instance wants to be placed on a
-node tagged <em>x</em>. To make <tt class="docutils literal"><span class="pre">htools</span></tt> honor those desires, the metric is extended,
+node tagged <em>x</em>. To make <code class="docutils literal"><span class="pre">htools</span></code> honor those desires, the metric is extended,
 appropriately weighted, by the following component.</p>
 <ul class="simple">
 <li>Sum of dissatisfied desired locations number among all cluster instances.
@@ -189,7 +199,7 @@ it will only be achieved by the cluster metrics favouring such placements.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -218,12 +228,14 @@ it will only be achieved by the cluster metrics favouring such placements.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-linuxha.html"
                         title="next chapter">Linux HA integration</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-location.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-location.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -240,7 +252,7 @@ it will only be achieved by the cluster metrics favouring such placements.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -249,12 +261,12 @@ it will only be achieved by the cluster metrics favouring such placements.</p>
         <li class="right" >
           <a href="design-kvmd.html" title="KVM daemon"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

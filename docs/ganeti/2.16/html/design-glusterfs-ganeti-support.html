@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>GlusterFS Ganeti support &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>GlusterFS Ganeti support &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,40 +23,50 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
-    <link rel="up" title="Design document drafts" href="design-draft.html" />
-    <link rel="next" title="Huge Pages Support for Ganeti" href="design-hugepages-support.html" />
-    <link rel="prev" title="Management of storage types and disk templates, incl. storage space reporting" href="design-storagetypes.html" /> 
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
+    <link rel="next" title="HRoller tool" href="design-hroller.html" />
+    <link rel="prev" title="Ganeti file-based disks ownership" href="design-file-based-disks-ownership.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-hugepages-support.html" title="Huge Pages Support for Ganeti"
+          <a href="design-hroller.html" title="HRoller tool"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
+          <a href="design-file-based-disks-ownership.html" title="Ganeti file-based disks ownership"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="glusterfs-ganeti-support">
 <h1><a class="toc-backref" href="#id1">GlusterFS Ganeti support</a><a class="headerlink" href="#glusterfs-ganeti-support" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2013-Jun-24</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.11.0</td>
+</tr>
+</tbody>
+</table>
 <p>This document describes the plan for adding GlusterFS support inside Ganeti.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#glusterfs-ganeti-support" id="id1">GlusterFS Ganeti support</a><ul>
 <li><a class="reference internal" href="#gluster-overview" id="id2">Gluster overview</a><ul>
-<li><a class="reference internal" href="#why-not-use-a-sharedfile-disk-template" id="id3">Why not use a <tt class="docutils literal"><span class="pre">sharedfile</span></tt> disk template?</a></li>
+<li><a class="reference internal" href="#why-not-use-a-sharedfile-disk-template" id="id3">Why not use a <code class="docutils literal"><span class="pre">sharedfile</span></code> disk template?</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#implementation-strategy" id="id4">Implementation strategy</a><ul>
@@ -186,11 +194,11 @@ a given volume.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The gluster mountpoint must be whitelisted by the administrator in
-<tt class="docutils literal"><span class="pre">/etc/ganeti/file-storage-paths</span></tt> for security reasons in order to allow
+<code class="docutils literal"><span class="pre">/etc/ganeti/file-storage-paths</span></code> for security reasons in order to allow
 Ganeti to modify the filesystem.</p>
 </div>
 <div class="section" id="why-not-use-a-sharedfile-disk-template">
-<h3><a class="toc-backref" href="#id3">Why not use a <tt class="docutils literal"><span class="pre">sharedfile</span></tt> disk template?</a><a class="headerlink" href="#why-not-use-a-sharedfile-disk-template" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Why not use a <code class="docutils literal"><span class="pre">sharedfile</span></code> disk template?</a><a class="headerlink" href="#why-not-use-a-sharedfile-disk-template" title="Permalink to this headline">¶</a></h3>
 <p>Gluster volumes <cite>can</cite> be used by Ganeti using the generic shared file disk
 template. There is a number of reasons why that is probably not a good idea,
 however:</p>
@@ -199,11 +207,11 @@ however:</p>
 <li>Even with userspace support, Ganeti still needs kernelspace access in order to
 create disks and install OSes on them. Ganeti can manage the mounting for you
 so that the Gluster servers only have as many connections as necessary.</li>
-<li>Experiments showed that you can&#8217;t trust <tt class="docutils literal"><span class="pre">mount.glusterfs</span></tt> to give useful
+<li>Experiments showed that you can&#8217;t trust <code class="docutils literal"><span class="pre">mount.glusterfs</span></code> to give useful
 return codes or error messages. Ganeti can work around its oddities so
 administrators don&#8217;t have to.</li>
-<li>The shared file folder scheme (<tt class="docutils literal"><span class="pre">../{instance.name}/disk{disk.id}</span></tt>) does not
-work well with Gluster. The <tt class="docutils literal"><span class="pre">distribute</span></tt> translator distributes files across
+<li>The shared file folder scheme (<code class="docutils literal"><span class="pre">../{instance.name}/disk{disk.id}</span></code>) does not
+work well with Gluster. The <code class="docutils literal"><span class="pre">distribute</span></code> translator distributes files across
 bricks, but directories need to be replicated on <cite>all</cite> bricks. As a result, if
 we have a dozen hundred instances, that means a dozen hundred folders being
 replicated on all bricks. This does not scale well.</li>
@@ -230,7 +238,7 @@ needed is userspace access, however, it is inappropriate for the Gluster storage
 class to inherit from FileStorage. So the implementation should resort to
 composition rather than inheritance:</p>
 <ol class="arabic simple">
-<li>Extract the <tt class="docutils literal"><span class="pre">FileStorage</span></tt> disk-facing logic into a <tt class="docutils literal"><span class="pre">FileDeviceHelper</span></tt>
+<li>Extract the <code class="docutils literal"><span class="pre">FileStorage</span></code> disk-facing logic into a <code class="docutils literal"><span class="pre">FileDeviceHelper</span></code>
 class.</li>
 </ol>
 <blockquote>
@@ -238,15 +246,15 @@ class.</li>
 <li>In order not to further inflate bdev.py, Filestorage should join its helper
 functions in filestorage.py (thus reducing their visibility) and add Gluster
 to its own file, gluster.py. Moving the other classes to their own files
-like it&#8217;s been done in <tt class="docutils literal"><span class="pre">lib/hypervisor/</span></tt>) is not addressed as part of this
+like it&#8217;s been done in <code class="docutils literal"><span class="pre">lib/hypervisor/</span></code>) is not addressed as part of this
 design.</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Use the <tt class="docutils literal"><span class="pre">FileDeviceHelper</span></tt> class to implement a <tt class="docutils literal"><span class="pre">GlusterStorage</span></tt> class in
+<li>Use the <code class="docutils literal"><span class="pre">FileDeviceHelper</span></code> class to implement a <code class="docutils literal"><span class="pre">GlusterStorage</span></code> class in
 much the same way.</li>
 <li>Add Gluster as a disk template that behaves like SharedFile in every way.</li>
-<li>Provide Ganeti knowledge about what a <tt class="docutils literal"><span class="pre">GlusterVolume</span></tt> is and how to mount,
+<li>Provide Ganeti knowledge about what a <code class="docutils literal"><span class="pre">GlusterVolume</span></code> is and how to mount,
 unmount and reference them.</li>
 </ol>
 <blockquote>
@@ -254,7 +262,7 @@ unmount and reference them.</li>
 <li>Before attempting a mount, we should check if the volume is not mounted
 already. Linux allows mounting partitions multiple times, but then you also
 have to unmount them as many times as you mounted them to actually free the
-resources; this also makes the output of commands such as <tt class="docutils literal"><span class="pre">mount</span></tt> less
+resources; this also makes the output of commands such as <code class="docutils literal"><span class="pre">mount</span></code> less
 useful.</li>
 <li>Every time the device could be released (after instance shutdown, OS
 installation scripts or file creation), a single unmount is attempted. If
@@ -263,7 +271,7 @@ administrator shells), the failure is ignored.</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li>Modify <tt class="docutils literal"><span class="pre">GlusterStorage</span></tt> and customize the disk template behavior to fit
+<li>Modify <code class="docutils literal"><span class="pre">GlusterStorage</span></code> and customize the disk template behavior to fit
 Gluster&#8217;s needs.</li>
 </ol>
 <div class="section" id="directory-structure">
@@ -309,10 +317,10 @@ storage
 type</th>
 <th class="head" colspan="3">Does it report storage information to...</th>
 </tr>
-<tr class="row-even"><th class="head"><tt class="docutils literal"><span class="pre">gnt-node</span>
-<span class="pre">list</span></tt></th>
-<th class="head"><tt class="docutils literal"><span class="pre">gnt-node</span>
-<span class="pre">list-storage</span></tt></th>
+<tr class="row-even"><th class="head"><code class="docutils literal"><span class="pre">gnt-node</span>
+<span class="pre">list</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">gnt-node</span>
+<span class="pre">list-storage</span></code></th>
 <th class="head">iallocator</th>
 </tr>
 </thead>
@@ -350,10 +358,10 @@ gnt-node list or to IAllocators. Regrettably, the simplest way to do so right
 now is by claiming that storage reporting for the relevant storage type is not
 implemented. An effort was made to claim that the shared storage type did support
 disk reporting while refusing to provide any value, but it was not successful
-(<tt class="docutils literal"><span class="pre">hail</span></tt> does not support this combination.)</p>
+(<code class="docutils literal"><span class="pre">hail</span></code> does not support this combination.)</p>
 <p>To do so without breaking the File disk template, a new storage type must be
 added. Like RBD, it does not claim to support disk reporting. However, we can
-still make an effort of reporting stats to <tt class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list-storage</span></tt>.</p>
+still make an effort of reporting stats to <code class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list-storage</span></code>.</p>
 <p>The rationale is simple. For shared file and gluster storage, disk space is not
 a function of any one node. If storage types with disk space reporting are used,
 Hail expects them to give useful numbers for allocation purposes, but a shared
@@ -362,7 +370,7 @@ any longer. Moreover, it would be wasteful to mount a Gluster volume on each
 node just for running statvfs() if no machine was actually running gluster VMs.</p>
 <p>As a result, Gluster support for gnt-node list-storage is necessarily limited
 and nodes on which Gluster is available but not in use will report failures.
-Additionally, running <tt class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></tt> will give an output like this:</p>
+Additionally, running <code class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></code> will give an output like this:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>Node              DTotal DFree MTotal MNode MFree Pinst Sinst
 node1.example.com      ?     ?   744M  273M  477M     0     0
 node2.example.com      ?     ?   744M  273M  477M     0     0
@@ -370,35 +378,35 @@ node2.example.com      ?     ?   744M  273M  477M     0     0
 </div>
 <p>This is expected and consistent with behaviour in RBD.</p>
 <p>An alternative would have been to report DTotal and DFree as 0 in order to allow
-<tt class="docutils literal"><span class="pre">hail</span></tt> to ignore the disk information, but this incorrectly populates the
-<tt class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></tt> DTotal and DFree fields with 0s as well.</p>
+<code class="docutils literal"><span class="pre">hail</span></code> to ignore the disk information, but this incorrectly populates the
+<code class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></code> DTotal and DFree fields with 0s as well.</p>
 </div>
 <div class="section" id="new-configuration-switches">
 <h3><a class="toc-backref" href="#id7">New configuration switches</a><a class="headerlink" href="#new-configuration-switches" title="Permalink to this headline">¶</a></h3>
-<p>Configurable at the cluster and node group level (<tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span></tt>,
-<tt class="docutils literal"><span class="pre">gnt-group</span> <span class="pre">modify</span></tt> and other commands that support the <cite>-D</cite> switch to edit
+<p>Configurable at the cluster and node group level (<code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span></code>,
+<code class="docutils literal"><span class="pre">gnt-group</span> <span class="pre">modify</span></code> and other commands that support the <cite>-D</cite> switch to edit
 disk parameters):</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">gluster:host</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">gluster:host</span></code></dt>
 <dd><p class="first">The IP address or hostname of the Gluster server to connect to. In the default
 deployment of Gluster, that is any machine that is hosting a brick.</p>
-<p class="last">Default: <tt class="docutils literal"><span class="pre">&quot;127.0.0.1&quot;</span></tt></p>
+<p class="last">Default: <code class="docutils literal"><span class="pre">&quot;127.0.0.1&quot;</span></code></p>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">gluster:port</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">gluster:port</span></code></dt>
 <dd><p class="first">The port where the Gluster server is listening to.</p>
-<p class="last">Default: <tt class="docutils literal"><span class="pre">24007</span></tt></p>
+<p class="last">Default: <code class="docutils literal"><span class="pre">24007</span></code></p>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">gluster:volume</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">gluster:volume</span></code></dt>
 <dd><p class="first">The volume Ganeti should use.</p>
-<p class="last">Default: <tt class="docutils literal"><span class="pre">&quot;gv0&quot;</span></tt></p>
+<p class="last">Default: <code class="docutils literal"><span class="pre">&quot;gv0&quot;</span></code></p>
 </dd>
 </dl>
-<p>Configurable at the cluster level only (<tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span></tt>) and stored in
+<p>Configurable at the cluster level only (<code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span></code>) and stored in
 ssconf for all nodes to read (just like shared file):</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">--gluster-dir</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--gluster-dir</span></code></dt>
 <dd><p class="first">Where the Gluster volume should be mounted.</p>
-<p class="last">Default: <tt class="docutils literal"><span class="pre">/var/run/ganeti/gluster</span></tt></p>
+<p class="last">Default: <code class="docutils literal"><span class="pre">/var/run/ganeti/gluster</span></code></p>
 </dd>
 </dl>
 <p>The default values work if all of the Ganeti nodes also host Gluster bricks.
@@ -412,7 +420,7 @@ to deadlocks in the kernel memory (much in the same way RBD works).</p>
 <ul class="simple">
 <li>Support the UDP transport.</li>
 <li>Support mounting through NFS.</li>
-<li>Filter <tt class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></tt> so DTotal and DFree are not shown for RBD and shared
+<li>Filter <code class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">list</span></code> so DTotal and DFree are not shown for RBD and shared
 file disk types, or otherwise report the disk storage values as &#8220;-&#8221; or some
 other special value to clearly distinguish it from the result of a
 communication failure between nodes.</li>
@@ -425,13 +433,13 @@ communication failure between nodes.</li>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">GlusterFS Ganeti support</a><ul>
 <li><a class="reference internal" href="#gluster-overview">Gluster overview</a><ul>
-<li><a class="reference internal" href="#why-not-use-a-sharedfile-disk-template">Why not use a <tt class="docutils literal"><span class="pre">sharedfile</span></tt> disk template?</a></li>
+<li><a class="reference internal" href="#why-not-use-a-sharedfile-disk-template">Why not use a <code class="docutils literal"><span class="pre">sharedfile</span></code> disk template?</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#implementation-strategy">Implementation strategy</a><ul>
@@ -446,17 +454,19 @@ communication failure between nodes.</li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="design-storagetypes.html"
-                        title="previous chapter">Management of storage types and disk templates, incl. storage space reporting</a></p>
+  <p class="topless"><a href="design-file-based-disks-ownership.html"
+                        title="previous chapter">Ganeti file-based disks ownership</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="design-hugepages-support.html"
-                        title="next chapter">Huge Pages Support for Ganeti</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-glusterfs-ganeti-support.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="design-hroller.html"
+                        title="next chapter">HRoller tool</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-glusterfs-ganeti-support.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -473,22 +483,21 @@ communication failure between nodes.</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-hugepages-support.html" title="Huge Pages Support for Ganeti"
+          <a href="design-hroller.html" title="HRoller tool"
              >next</a></li>
         <li class="right" >
-          <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
+          <a href="design-file-based-disks-ownership.html" title="Ganeti file-based disks ownership"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

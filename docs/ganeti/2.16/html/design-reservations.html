@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Instance Reservations &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Instance Reservations &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Design document drafts" href="design-draft.html" />
     <link rel="next" title="DRBD Sync Rate Throttling" href="design-sync-rate-throttling.html" />
     <link rel="prev" title="Design for adding ifdown script to KVM" href="design-ifdown.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,18 +38,30 @@
         <li class="right" >
           <a href="design-ifdown.html" title="Design for adding ifdown script to KVM"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="instance-reservations">
 <h1><a class="toc-backref" href="#id1">Instance Reservations</a><a class="headerlink" href="#instance-reservations" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Jul-22</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.12.0, 2.14.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -103,10 +113,10 @@ will be extended as follows.</p>
 <p>The following functionality will be added to existing resources.</p>
 <ul class="simple">
 <li>/2/instances/<ul>
-<li>POST. This request will have an additional, optional, <tt class="docutils literal"><span class="pre">forthcoming</span></tt>
-flag with default <tt class="docutils literal"><span class="pre">False</span></tt>. If the <tt class="docutils literal"><span class="pre">forthcoming</span></tt> flag is set, all
+<li>POST. This request will have an additional, optional, <code class="docutils literal"><span class="pre">forthcoming</span></code>
+flag with default <code class="docutils literal"><span class="pre">False</span></code>. If the <code class="docutils literal"><span class="pre">forthcoming</span></code> flag is set, all
 parameters are optional, including the instance name. Even if
-<tt class="docutils literal"><span class="pre">forthcoming</span></tt> is set, the result of this request will still be the job id
+<code class="docutils literal"><span class="pre">forthcoming</span></code> is set, the result of this request will still be the job id
 to be used later for polling. A job to create a forthcoming instance,
 however, will return the UUID of the instance instead of the hosts
 allocated for it.</li>
@@ -121,13 +131,13 @@ in the same way as existing ones.</li>
 <p>The following resources will be added.</p>
 <ul class="simple">
 <li>/2/instances/[instance_uuid]/modify<ul>
-<li>PUT. This will behave the same as the <tt class="docutils literal"><span class="pre">modify</span></tt> indexed by instance
+<li>PUT. This will behave the same as the <code class="docutils literal"><span class="pre">modify</span></code> indexed by instance
 name and is added to allow modification of an instance that does
 not yet have a name.</li>
 </ul>
 </li>
 <li>/2/instances/[instance_uuid]/rename<ul>
-<li>PUT. This will behave the same as the <tt class="docutils literal"><span class="pre">rename</span></tt> indexed by
+<li>PUT. This will behave the same as the <code class="docutils literal"><span class="pre">rename</span></code> indexed by
 instance name. This will allow to assign a name to a forthcoming
 instance.</li>
 </ul>
@@ -143,15 +153,15 @@ It will return the id of the creation job, for later polling.</li>
 <div class="section" id="representation-in-the-configuration">
 <h3><a class="toc-backref" href="#id5">Representation in the Configuration</a><a class="headerlink" href="#representation-in-the-configuration" title="Permalink to this headline">¶</a></h3>
 <p>As for most part of the system, forthcoming instances and their disks are to
-be treated as if they were real. Therefore, the wire representation will
-be by adding an additional, optional, <tt class="docutils literal"><span class="pre">fortcoming</span></tt> flag to the <tt class="docutils literal"><span class="pre">instances</span></tt>
-and <tt class="docutils literal"><span class="pre">disks</span></tt> objects. Additionally, the internal consistency condition will
+be treated as if they were real. Therefore, the wire representation will be
+by adding an additional, optional, <code class="docutils literal"><span class="pre">forthcoming</span></code> flag to the <code class="docutils literal"><span class="pre">instances</span></code>
+and <code class="docutils literal"><span class="pre">disks</span></code> objects. Additionally, the internal consistency condition will
 be relaxed to have all non-uuid fields optional if an instance or disk is
 forthcoming.</p>
 <div class="section" id="rationale">
 <h4><a class="toc-backref" href="#id6">Rationale</a><a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h4>
 <p>The alternative to the chosen approach would be to add a new top-level object
-<tt class="docutils literal"><span class="pre">forthcoming_instances</span></tt> to the configuration. Both approaches bear the risk
+<code class="docutils literal"><span class="pre">forthcoming_instances</span></code> to the configuration. Both approaches bear the risk
 of introducing subtle bugs. Adding a new top-level object bears the risk of
 missing in some places to take into account the resources consumed by the
 forthcoming instances. Adding a new attribute and relaxing the consistency
@@ -168,8 +178,8 @@ a Pascal-style variant record (one element of an enumeration type,
 and the remaining fields depend on the value of that field). Of course, in
 the Haskell part of our code base, this will be represented in the standard way
 having two constructors for the type; additionally there will be accessors
-for all the fields of the JSON representation (yielding <tt class="docutils literal"><span class="pre">Maybe</span></tt> values,
-as they can be optional if we&#8217;re in the <tt class="docutils literal"><span class="pre">Forthcoming</span></tt> constuctor).</p>
+for all the fields of the JSON representation (yielding <code class="docutils literal"><span class="pre">Maybe</span></code> values,
+as they can be optional if we&#8217;re in the <code class="docutils literal"><span class="pre">Forthcoming</span></code> constructor).</p>
 </div>
 </div>
 <div class="section" id="adaptions-of-htools">
@@ -180,9 +190,9 @@ change primary and secondary node simultaneously. The restriction of not
 changing node group without explicit user request to do so remains.
 Wherever possible, moves of forthcoming instances are preferred over
 moving real instances, as forthcoming instances can be moved for
-free. Implementation wise, the existing <tt class="docutils literal"><span class="pre">Instance</span></tt> data structure is
-used, and a new bit <tt class="docutils literal"><span class="pre">forthcoming</span></tt> is added; for forthcoming
-instances, the <tt class="docutils literal"><span class="pre">name</span></tt> field will carry the UUID.</p>
+free. Implementation wise, the existing <code class="docutils literal"><span class="pre">Instance</span></code> data structure is
+used, and a new bit <code class="docutils literal"><span class="pre">forthcoming</span></code> is added; for forthcoming
+instances, the <code class="docutils literal"><span class="pre">name</span></code> field will carry the UUID.</p>
 </div>
 </div>
 </div>
@@ -191,7 +201,7 @@ instances, the <tt class="docutils literal"><span class="pre">name</span></tt> f
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -217,12 +227,14 @@ instances, the <tt class="docutils literal"><span class="pre">name</span></tt> f
   <h4>Next topic</h4>
   <p class="topless"><a href="design-sync-rate-throttling.html"
                         title="next chapter">DRBD Sync Rate Throttling</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-reservations.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-reservations.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -239,7 +251,7 @@ instances, the <tt class="docutils literal"><span class="pre">name</span></tt> f
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -248,13 +260,13 @@ instances, the <tt class="docutils literal"><span class="pre">name</span></tt> f
         <li class="right" >
           <a href="design-ifdown.html" title="Design for adding ifdown script to KVM"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

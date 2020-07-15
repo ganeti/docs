@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ganeti-noded &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>ganeti-noded &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Man pages" href="manpages.html" />
     <link rel="next" title="ganeti-os-interface" href="man-ganeti-os-interface.html" />
     <link rel="prev" title="ganeti-mond" href="man-ganeti-mond.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="man-ganeti-mond.html" title="ganeti-mond"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-noded">
 <h1>ganeti-noded<a class="headerlink" href="#ganeti-noded" title="Permalink to this headline">¶</a></h1>
@@ -58,8 +56,11 @@
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><strong>ganeti-noded</strong> [-f] [-d] [-p <em>PORT</em>] [-b <em>ADDRESS</em>] [-i <em>INTERFACE</em>]
-[&#8211;no-mlock] [&#8211;syslog] [&#8211;no-ssl] [-K <em>SSL_KEY_FILE</em>] [-C <em>SSL_CERT_FILE</em>]</p>
+<div class="line-block">
+<div class="line"><strong>ganeti-noded</strong> [-f] [-d] [-p <em>PORT</em>] [-b <em>ADDRESS</em>] [-i <em>INTERFACE</em>]</div>
+<div class="line">[&#8211;max-clients <em>CLIENTS</em>] [&#8211;no-mlock] [&#8211;syslog] [&#8211;no-ssl]</div>
+<div class="line">[-K <em>SSL_KEY_FILE</em>] [-C <em>SSL_CERT_FILE</em>]</div>
+</div>
 </div>
 <div class="section" id="description">
 <h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
@@ -68,22 +69,26 @@ node functions in the Ganeti system.</p>
 <p>By default, in order to be able to support features such as node
 powercycling even on systems with a very damaged root disk,
 <strong>ganeti-noded</strong> locks itself in RAM using <strong>mlockall</strong>(2). You can
-disable this feature by passing in the <tt class="docutils literal"><span class="pre">--no-mlock</span></tt> to the daemon.</p>
-<p>For testing purposes, you can give the <tt class="docutils literal"><span class="pre">-f</span></tt> option and the
+disable this feature by passing in the <code class="docutils literal"><span class="pre">--no-mlock</span></code> to the daemon.</p>
+<p>For testing purposes, you can give the <code class="docutils literal"><span class="pre">-f</span></code> option and the
 program won&#8217;t detach from the running terminal.</p>
-<p>Debug-level message can be activated by giving the <tt class="docutils literal"><span class="pre">-d</span></tt> option.</p>
+<p>Debug-level message can be activated by giving the <code class="docutils literal"><span class="pre">-d</span></code> option.</p>
 <p>Logging to syslog, rather than its own log file, can be enabled by
-passing in the <tt class="docutils literal"><span class="pre">--syslog</span></tt> option.</p>
+passing in the <code class="docutils literal"><span class="pre">--syslog</span></code> option.</p>
 <p>The <strong>ganeti-noded</strong> daemon listens to port 1811 TCP, on all
 interfaces, by default. The port can be overridden by an entry in the
-services database (usually <tt class="docutils literal"><span class="pre">/etc/services</span></tt>) or by passing the <tt class="docutils literal"><span class="pre">-p</span></tt>
-option.  The <tt class="docutils literal"><span class="pre">-b</span></tt> option can be used to specify the address to bind
-to (defaults to <tt class="docutils literal"><span class="pre">0.0.0.0</span></tt>); alternatively, the <tt class="docutils literal"><span class="pre">-i</span></tt> option can be
+services database (usually <code class="docutils literal"><span class="pre">/etc/services</span></code>) or by passing the <code class="docutils literal"><span class="pre">-p</span></code>
+option.  The <code class="docutils literal"><span class="pre">-b</span></code> option can be used to specify the address to bind
+to (defaults to <code class="docutils literal"><span class="pre">0.0.0.0</span></code>); alternatively, the <code class="docutils literal"><span class="pre">-i</span></code> option can be
 used to specify the interface to bind do.</p>
+<p>The maximum number of simultaneous client connections may be configured
+with the <code class="docutils literal"><span class="pre">--max-clients</span></code> option. This defaults to 20. Connections
+above this count are accepted, but no responses are sent until enough
+connections are closed.</p>
 <p>Ganeti noded communication is protected via SSL, with a key
 generated at cluster init time. This can be disabled with the
-<tt class="docutils literal"><span class="pre">--no-ssl</span></tt> option, or a different SSL key and certificate can be
-specified using the <tt class="docutils literal"><span class="pre">-K</span></tt> and <tt class="docutils literal"><span class="pre">-C</span></tt> options.</p>
+<code class="docutils literal"><span class="pre">--no-ssl</span></code> option, or a different SSL key and certificate can be
+specified using the <code class="docutils literal"><span class="pre">-K</span></code> and <code class="docutils literal"><span class="pre">-C</span></code> options.</p>
 <div class="section" id="role">
 <h3>ROLE<a class="headerlink" href="#role" title="Permalink to this headline">¶</a></h3>
 <p>The role of the node daemon is to do almost all the actions that
@@ -108,7 +113,7 @@ built using JSON over HTTP(S).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -130,12 +135,14 @@ built using JSON over HTTP(S).</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="man-ganeti-os-interface.html"
                         title="next chapter">ganeti-os-interface</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/man-ganeti-noded.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-ganeti-noded.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -152,7 +159,7 @@ built using JSON over HTTP(S).</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -161,13 +168,13 @@ built using JSON over HTTP(S).</p>
         <li class="right" >
           <a href="man-ganeti-mond.html" title="ganeti-mond"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" >Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

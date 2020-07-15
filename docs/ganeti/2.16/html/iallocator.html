@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti automatic instance allocation &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti automatic instance allocation &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti installation tutorial" href="install.html" />
     <link rel="prev" title="Ganeti customisation using hooks" href="hooks.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="hooks.html" title="Ganeti customisation using hooks"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-automatic-instance-allocation">
 <h1><a class="toc-backref" href="#id3">Ganeti automatic instance allocation</a><a class="headerlink" href="#ganeti-automatic-instance-allocation" title="Permalink to this headline">¶</a></h1>
@@ -101,18 +99,18 @@ a defined list of directories.</p>
 <div class="section" id="cluster-configuration">
 <h3><a class="toc-backref" href="#id6">Cluster configuration</a><a class="headerlink" href="#cluster-configuration" title="Permalink to this headline">¶</a></h3>
 <p>At configure time, the list of the directories can be selected via the
-<tt class="docutils literal"><span class="pre">--with-iallocator-search-path=LIST</span></tt> option, where <em>LIST</em> is a
+<code class="docutils literal"><span class="pre">--with-iallocator-search-path=LIST</span></code> option, where <em>LIST</em> is a
 comma-separated list of directories. If not given, this defaults to
-<tt class="docutils literal"><span class="pre">$libdir/ganeti/iallocators</span></tt>, i.e. for an installation under
-<tt class="docutils literal"><span class="pre">/usr</span></tt>, this will be <tt class="docutils literal"><span class="pre">/usr/lib/ganeti/iallocators</span></tt>.</p>
+<code class="docutils literal"><span class="pre">$libdir/ganeti/iallocators</span></code>, i.e. for an installation under
+<code class="docutils literal"><span class="pre">/usr</span></code>, this will be <code class="docutils literal"><span class="pre">/usr/lib/ganeti/iallocators</span></code>.</p>
 <p>Ganeti will then search for allocator script in the configured list,
 using the first one whose filename matches the one given by the user.</p>
 </div>
 <div class="section" id="command-line-interface-changes">
 <h3><a class="toc-backref" href="#id7">Command line interface changes</a><a class="headerlink" href="#command-line-interface-changes" title="Permalink to this headline">¶</a></h3>
 <p>The node selection options in instance add and instance replace disks
-can be replace by the new <tt class="docutils literal"><span class="pre">--iallocator=NAME</span></tt> option (shortened to
-<tt class="docutils literal"><span class="pre">-I</span></tt>), which will cause the auto-assignement of nodes with the
+can be replace by the new <code class="docutils literal"><span class="pre">--iallocator=NAME</span></code> option (shortened to
+<code class="docutils literal"><span class="pre">-I</span></code>), which will cause the auto-assignement of nodes with the
 passed iallocator. The selected node(s) will be shown as part of the
 command output.</p>
 </div>
@@ -225,8 +223,8 @@ replication); note that this can be the same as the primary one</dd>
 <dt>group:</dt>
 <dd>the node group that this node belongs to</dd>
 </dl>
-<p class="last">No allocations should be made on nodes having either the <tt class="docutils literal"><span class="pre">drained</span></tt>
-or <tt class="docutils literal"><span class="pre">offline</span></tt> flags set. More details about these of node status
+<p class="last">No allocations should be made on nodes having either the <code class="docutils literal"><span class="pre">drained</span></code>
+or <code class="docutils literal"><span class="pre">offline</span></code> flags set. More details about these of node status
 flags is available in the manpage <a class="reference internal" href="man-ganeti.html"><em>ganeti(7)</em></a>.</p>
 </dd>
 </dl>
@@ -242,7 +240,7 @@ i_pri_memory and i_pri_up memory will be absent</td></tr>
 </div>
 <div class="section" id="operation-specific-input">
 <h4><a class="toc-backref" href="#id11">Operation-specific input</a><a class="headerlink" href="#operation-specific-input" title="Permalink to this headline">¶</a></h4>
-<p>All input dictionaries to the IAllocator carry, in the <tt class="docutils literal"><span class="pre">request</span></tt>
+<p>All input dictionaries to the IAllocator carry, in the <code class="docutils literal"><span class="pre">request</span></code>
 dictionary, detailed information about the operation that&#8217;s being
 requested. The required keys vary depending on the type of operation, as
 follows.</p>
@@ -250,29 +248,29 @@ follows.</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>type</dt>
-<dd><p class="first">the request type; this can be either <tt class="docutils literal"><span class="pre">allocate</span></tt>, <tt class="docutils literal"><span class="pre">relocate</span></tt>,
-<tt class="docutils literal"><span class="pre">change-group</span></tt> or <tt class="docutils literal"><span class="pre">node-evacuate</span></tt>. The
-<tt class="docutils literal"><span class="pre">allocate</span></tt> request is used when a new instance needs to be placed
-on the cluster. The <tt class="docutils literal"><span class="pre">relocate</span></tt> request is used when an existing
+<dd><p class="first">the request type; this can be either <code class="docutils literal"><span class="pre">allocate</span></code>, <code class="docutils literal"><span class="pre">relocate</span></code>,
+<code class="docutils literal"><span class="pre">change-group</span></code> or <code class="docutils literal"><span class="pre">node-evacuate</span></code>. The
+<code class="docutils literal"><span class="pre">allocate</span></code> request is used when a new instance needs to be placed
+on the cluster. The <code class="docutils literal"><span class="pre">relocate</span></code> request is used when an existing
 instance needs to be moved within its node group.</p>
-<p>The <tt class="docutils literal"><span class="pre">multi-evacuate</span></tt> protocol used to request that the script
+<p>The <code class="docutils literal"><span class="pre">multi-evacuate</span></code> protocol used to request that the script
 computes the optimal relocate solution for all secondary instances
 of the given nodes. It is now deprecated and needs only be
 implemented if backwards compatibility with Ganeti 2.4 and lower is
 needed.</p>
-<p>The <tt class="docutils literal"><span class="pre">change-group</span></tt> request is used to relocate multiple instances
-across multiple node groups. <tt class="docutils literal"><span class="pre">node-evacuate</span></tt> evacuates instances
-off their node(s). These are described in a separate <a class="reference internal" href="design-multi-reloc.html#multi-reloc-detailed-design"><em>design
-document</em></a>.</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">multi-allocate</span></tt> request is used to allocate multiple
+<p>The <code class="docutils literal"><span class="pre">change-group</span></code> request is used to relocate multiple instances
+across multiple node groups. <code class="docutils literal"><span class="pre">node-evacuate</span></code> evacuates instances
+off their node(s). These are described in a separate <a class="reference internal" href="design-multi-reloc.html#multi-reloc-detailed-design"><span>design
+document</span></a>.</p>
+<p class="last">The <code class="docutils literal"><span class="pre">multi-allocate</span></code> request is used to allocate multiple
 instances on the cluster. The request is beside of that very
-similiar to the <tt class="docutils literal"><span class="pre">allocate</span></tt> one. For more details look at
+similiar to the <code class="docutils literal"><span class="pre">allocate</span></code> one. For more details look at
 <a class="reference internal" href="design-bulk-create.html"><em>Ganeti bulk create</em></a>.</p>
 </dd>
 </dl>
 </div></blockquote>
 <p>For both allocate and relocate mode, the following extra keys are needed
-in the <tt class="docutils literal"><span class="pre">request</span></tt> dictionary:</p>
+in the <code class="docutils literal"><span class="pre">request</span></code> dictionary:</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>name</dt>
@@ -299,8 +297,8 @@ suited to compute it; type <em>integer</em></dd>
 instance (in the order they are exported to the hypervisor):</p>
 <dl class="last docutils">
 <dt>mode</dt>
-<dd>either <tt class="docutils literal"><span class="pre">ro</span></tt> or
-<tt class="docutils literal"><span class="pre">rw</span></tt> denoting if the disk is read-only or
+<dd>either <code class="docutils literal"><span class="pre">ro</span></code> or
+<code class="docutils literal"><span class="pre">rw</span></code> denoting if the disk is read-only or
 writable</dd>
 <dt>size</dt>
 <dd>the size of this disk in mebibytes</dd>
@@ -343,17 +341,17 @@ contain also a single node, the current primary of the instance;
 type <em>list of strings</em></dd>
 </dl>
 </div></blockquote>
-<p>As for <tt class="docutils literal"><span class="pre">node-evacuate</span></tt>, it needs the following request arguments:</p>
+<p>As for <code class="docutils literal"><span class="pre">node-evacuate</span></code>, it needs the following request arguments:</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>instances</dt>
 <dd>a list of instance names to evacuate; type <em>list of strings</em></dd>
 <dt>evac_mode</dt>
-<dd>specify which instances to evacuate; one of <tt class="docutils literal"><span class="pre">primary-only</span></tt>,
-<tt class="docutils literal"><span class="pre">secondary-only</span></tt>, <tt class="docutils literal"><span class="pre">all</span></tt>, type <em>string</em></dd>
+<dd>specify which instances to evacuate; one of <code class="docutils literal"><span class="pre">primary-only</span></code>,
+<code class="docutils literal"><span class="pre">secondary-only</span></code>, <code class="docutils literal"><span class="pre">all</span></code>, type <em>string</em></dd>
 </dl>
 </div></blockquote>
-<p><tt class="docutils literal"><span class="pre">change-group</span></tt> needs the following request arguments:</p>
+<p><code class="docutils literal"><span class="pre">change-group</span></code> needs the following request arguments:</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>instances</dt>
@@ -365,7 +363,7 @@ should be considered for relocating instances to; type
 <em>list of strings</em></dd>
 </dl>
 </div></blockquote>
-<p><tt class="docutils literal"><span class="pre">multi-allocate</span></tt> needs the following request arguments:</p>
+<p><code class="docutils literal"><span class="pre">multi-allocate</span></code> needs the following request arguments:</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>instances</dt>
@@ -379,7 +377,7 @@ should be considered for relocating instances to; type
 provide information that can help an allocator script make better
 decisions when allocating a new instance. Mond&#8217;s information may also be
 accessible from a mock file mainly for testing purposes. The file will
-be in JSON format and will present an array of <a class="reference internal" href="design-monitoring-agent.html#monitoring-agent-format-of-the-report"><em>report objects</em></a>.</p>
+be in JSON format and will present an array of <a class="reference internal" href="design-monitoring-agent.html#monitoring-agent-format-of-the-report"><span>report objects</span></a>.</p>
 </div>
 </div>
 <div class="section" id="response-message">
@@ -396,13 +394,13 @@ this will be shown to the user</dd>
 <dd><p class="first">the output of the algorithm; even if the algorithm failed
 (i.e. success is false), this must be returned as an empty list</p>
 <p>for allocate/relocate, this is the list of node(s) for the instance;
-note that the length of this list must equal the <tt class="docutils literal"><span class="pre">requested_nodes</span></tt>
+note that the length of this list must equal the <code class="docutils literal"><span class="pre">requested_nodes</span></code>
 entry in the input message, otherwise Ganeti will consider the result
 as failed</p>
-<p>for the <tt class="docutils literal"><span class="pre">node-evacuate</span></tt> and <tt class="docutils literal"><span class="pre">change-group</span></tt> modes, this is a
+<p>for the <code class="docutils literal"><span class="pre">node-evacuate</span></code> and <code class="docutils literal"><span class="pre">change-group</span></code> modes, this is a
 dictionary containing, among other information, a list of lists of
-serialized opcodes; see the <a class="reference internal" href="design-multi-reloc.html#multi-reloc-result"><em>design document</em></a> for a detailed description</p>
-<p class="last">for the <tt class="docutils literal"><span class="pre">multi-allocate</span></tt> mode this is a tuple of 2 lists, the first
+serialized opcodes; see the <a class="reference internal" href="design-multi-reloc.html#multi-reloc-result"><span>design document</span></a> for a detailed description</p>
+<p class="last">for the <code class="docutils literal"><span class="pre">multi-allocate</span></code> mode this is a tuple of 2 lists, the first
 being element of the tuple is a list of succeeded allocation, with the
 instance name as first element of each entry and the node placement in
 the second. The second element of the tuple is the instance list of
@@ -411,9 +409,9 @@ failed allocations.</p>
 </dl>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Current Ganeti version accepts either <tt class="docutils literal"><span class="pre">result</span></tt> or <tt class="docutils literal"><span class="pre">nodes</span></tt>
+<p class="last">Current Ganeti version accepts either <code class="docutils literal"><span class="pre">result</span></code> or <code class="docutils literal"><span class="pre">nodes</span></code>
 as a backwards-compatibility measure (older versions only supported
-<tt class="docutils literal"><span class="pre">nodes</span></tt>)</p>
+<code class="docutils literal"><span class="pre">nodes</span></code>)</p>
 </div>
 </div>
 </div>
@@ -424,228 +422,229 @@ as a backwards-compatibility measure (older versions only supported
 <p>Input message, new instance allocation (common elements are listed this
 time, but not included in further examples below):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s">&quot;cluster_name&quot;</span><span class="p">:</span> <span class="s">&quot;cluster1.example.com&quot;</span><span class="p">,</span>
-  <span class="s">&quot;cluster_tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
-  <span class="s">&quot;enabled_hypervisors&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s">&quot;xen-pvm&quot;</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s2">&quot;cluster_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cluster1.example.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cluster_tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;enabled_hypervisors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;xen-pvm&quot;</span>
   <span class="p">],</span>
-  <span class="s">&quot;nodegroups&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;default&quot;</span><span class="p">,</span>
-      <span class="s">&quot;alloc_policy&quot;</span><span class="p">:</span> <span class="s">&quot;preferred&quot;</span><span class="p">,</span>
-      <span class="s">&quot;networks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;net-uuid-1&quot;</span><span class="p">,</span> <span class="s">&quot;net-uuid-2&quot;</span><span class="p">],</span>
-      <span class="s">&quot;ipolicy&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;disk-templates&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;drbd&quot;</span><span class="p">,</span> <span class="s">&quot;plain&quot;</span><span class="p">],</span>
-        <span class="s">&quot;minmax&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;nodegroups&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alloc_policy&quot;</span><span class="p">:</span> <span class="s2">&quot;preferred&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;networks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;net-uuid-1&quot;</span><span class="p">,</span> <span class="s2">&quot;net-uuid-2&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;ipolicy&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;disk-templates&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;drbd&quot;</span><span class="p">,</span> <span class="s2">&quot;plain&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;minmax&quot;</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
-            <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-              <span class="s">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-              <span class="s">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
-              <span class="s">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">12800</span><span class="p">,</span>
-              <span class="s">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-              <span class="s">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">8</span>
+            <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+              <span class="s2">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+              <span class="s2">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
+              <span class="s2">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">12800</span><span class="p">,</span>
+              <span class="s2">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+              <span class="s2">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">8</span>
             <span class="p">},</span>
-            <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-              <span class="s">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-              <span class="s">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
-              <span class="s">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-              <span class="s">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-              <span class="s">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+              <span class="s2">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+              <span class="s2">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">1</span>
             <span class="p">}</span>
           <span class="p">}</span>
         <span class="p">],</span>
-        <span class="s">&quot;spindle-ratio&quot;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span>
-        <span class="s">&quot;std&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
-          <span class="s">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-          <span class="s">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="s2">&quot;spindle-ratio&quot;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span>
+        <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;cpu-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;disk-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;disk-size&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+          <span class="s2">&quot;memory-size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+          <span class="s2">&quot;nic-count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;spindle-use&quot;</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">},</span>
-        <span class="s">&quot;vcpu-ratio&quot;</span><span class="p">:</span> <span class="mf">4.0</span>
+        <span class="s2">&quot;vcpu-ratio&quot;</span><span class="p">:</span> <span class="mf">4.0</span>
       <span class="p">},</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;ng-tag-1&quot;</span><span class="p">,</span> <span class="s">&quot;ng-tag-2&quot;</span><span class="p">]</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ng-tag-1&quot;</span><span class="p">,</span> <span class="s2">&quot;ng-tag-2&quot;</span><span class="p">]</span>
     <span class="p">}</span>
   <span class="p">},</span>
-  <span class="s">&quot;instances&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;instance1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="s">&quot;should_run&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-      <span class="s">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;instance1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;should_run&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-          <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">64</span>
+          <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">64</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-          <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">512</span>
+          <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">512</span>
         <span class="p">}</span>
       <span class="p">],</span>
-      <span class="s">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-          <span class="s">&quot;mac&quot;</span><span class="p">:</span> <span class="s">&quot;aa:00:00:00:60:bf&quot;</span><span class="p">,</span>
-          <span class="s">&quot;bridge&quot;</span><span class="p">:</span> <span class="s">&quot;xen-br0&quot;</span>
+          <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;mac&quot;</span><span class="p">:</span> <span class="s2">&quot;aa:00:00:00:60:bf&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bridge&quot;</span><span class="p">:</span> <span class="s2">&quot;xen-br0&quot;</span>
         <span class="p">}</span>
       <span class="p">],</span>
-      <span class="s">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s">&quot;plain&quot;</span><span class="p">,</span>
-      <span class="s">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-      <span class="s">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s">&quot;nodee1.com&quot;</span>
+      <span class="s2">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s2">&quot;plain&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+      <span class="s2">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;nodee1.com&quot;</span>
       <span class="p">],</span>
-      <span class="s">&quot;os&quot;</span><span class="p">:</span> <span class="s">&quot;debootstrap+default&quot;</span>
+      <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;debootstrap+default&quot;</span>
     <span class="p">},</span>
-    <span class="s">&quot;instance2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="s">&quot;should_run&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-      <span class="s">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;instance2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;should_run&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-          <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">512</span>
+          <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">512</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-          <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">256</span>
+          <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">256</span>
         <span class="p">}</span>
       <span class="p">],</span>
-      <span class="s">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-          <span class="s">&quot;mac&quot;</span><span class="p">:</span> <span class="s">&quot;aa:00:00:55:f8:38&quot;</span><span class="p">,</span>
-          <span class="s">&quot;bridge&quot;</span><span class="p">:</span> <span class="s">&quot;xen-br0&quot;</span>
+          <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;mac&quot;</span><span class="p">:</span> <span class="s2">&quot;aa:00:00:55:f8:38&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;bridge&quot;</span><span class="p">:</span> <span class="s2">&quot;xen-br0&quot;</span>
         <span class="p">}</span>
       <span class="p">],</span>
-      <span class="s">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s">&quot;drbd&quot;</span><span class="p">,</span>
-      <span class="s">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
-      <span class="s">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s">&quot;node2.example.com&quot;</span><span class="p">,</span>
-        <span class="s">&quot;node3.example.com&quot;</span>
+      <span class="s2">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s2">&quot;drbd&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+      <span class="s2">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;node2.example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;node3.example.com&quot;</span>
       <span class="p">],</span>
-      <span class="s">&quot;os&quot;</span><span class="p">:</span> <span class="s">&quot;debootstrap+default&quot;</span>
+      <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;debootstrap+default&quot;</span>
     <span class="p">}</span>
   <span class="p">},</span>
-  <span class="s">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;node1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">858276</span><span class="p">,</span>
-      <span class="s">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;198.51.100.1&quot;</span><span class="p">,</span>
-      <span class="s">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;192.0.2.1&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="s">&quot;group&quot;</span><span class="p">:</span> <span class="s">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
-      <span class="s">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
-      <span class="s">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">856740</span><span class="p">,</span>
-      <span class="s">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
+  <span class="s2">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;node1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">858276</span><span class="p">,</span>
+      <span class="s2">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;198.51.100.1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;192.0.2.1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
+      <span class="s2">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">856740</span><span class="p">,</span>
+      <span class="s2">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
     <span class="p">},</span>
-    <span class="s">&quot;node2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">858240</span><span class="p">,</span>
-      <span class="s">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;198.51.100.2&quot;</span><span class="p">,</span>
-      <span class="s">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;192.0.2.2&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;test&quot;</span><span class="p">],</span>
-      <span class="s">&quot;group&quot;</span><span class="p">:</span> <span class="s">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
-      <span class="s">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
-      <span class="s">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">848320</span><span class="p">,</span>
-      <span class="s">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
+    <span class="s2">&quot;node2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">858240</span><span class="p">,</span>
+      <span class="s2">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;198.51.100.2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;192.0.2.2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
+      <span class="s2">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">848320</span><span class="p">,</span>
+      <span class="s2">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
     <span class="p">},</span>
-    <span class="s">&quot;node3.example.com.com&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">572184</span><span class="p">,</span>
-      <span class="s">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;198.51.100.3&quot;</span><span class="p">,</span>
-      <span class="s">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s">&quot;192.0.2.3&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="s">&quot;group&quot;</span><span class="p">:</span> <span class="s">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
-      <span class="s">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
-      <span class="s">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">570648</span><span class="p">,</span>
-      <span class="s">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
+    <span class="s2">&quot;node3.example.com.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;total_disk&quot;</span><span class="p">:</span> <span class="mi">572184</span><span class="p">,</span>
+      <span class="s2">&quot;primary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;198.51.100.3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secondary_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;192.0.2.3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;f4e06e0d-528a-4963-a5ad-10f3e114232d&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;free_memory&quot;</span><span class="p">:</span> <span class="mi">3505</span><span class="p">,</span>
+      <span class="s2">&quot;free_disk&quot;</span><span class="p">:</span> <span class="mi">570648</span><span class="p">,</span>
+      <span class="s2">&quot;total_memory&quot;</span><span class="p">:</span> <span class="mi">4095</span>
     <span class="p">}</span>
   <span class="p">},</span>
-  <span class="s">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;allocate&quot;</span><span class="p">,</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;instance3.example.com&quot;</span><span class="p">,</span>
-    <span class="s">&quot;required_nodes&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s">&quot;disk_space_total&quot;</span><span class="p">:</span> <span class="mi">3328</span><span class="p">,</span>
-    <span class="s">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;allocate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;instance3.example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;required_nodes&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;disk_space_total&quot;</span><span class="p">:</span> <span class="mi">3328</span><span class="p">,</span>
+    <span class="s2">&quot;disks&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-        <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">1024</span>
+        <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">1024</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-        <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">2048</span>
+        <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">2048</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;nics&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">&quot;mac&quot;</span><span class="p">:</span> <span class="s">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
-        <span class="s">&quot;bridge&quot;</span><span class="p">:</span> <span class="n">null</span>
+        <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;mac&quot;</span><span class="p">:</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bridge&quot;</span><span class="p">:</span> <span class="n">null</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s">&quot;drbd&quot;</span><span class="p">,</span>
-    <span class="s">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
-    <span class="s">&quot;os&quot;</span><span class="p">:</span> <span class="s">&quot;debootstrap+default&quot;</span><span class="p">,</span>
-    <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="s">&quot;type:test&quot;</span><span class="p">,</span>
-      <span class="s">&quot;owner:foo&quot;</span>
+    <span class="s2">&quot;vcpus&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;disk_template&quot;</span><span class="p">:</span> <span class="s2">&quot;drbd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
+    <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;debootstrap+default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;type:test&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;owner:foo&quot;</span>
     <span class="p">],</span>
-    <span class="n">hypervisor</span><span class="p">:</span> <span class="s">&quot;xen-pvm&quot;</span>
+    <span class="n">hypervisor</span><span class="p">:</span> <span class="s2">&quot;xen-pvm&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Input message, reallocation:</p>
-<div class="highlight-python"><pre>{
-  "version": 2,
+<div class="highlight-python"><div class="highlight"><pre>{
+  &quot;version&quot;: 2,
   ...
-  "request": {
-    "type": "relocate",
-    "name": "instance2.example.com",
-    "required_nodes": 1,
-    "disk_space_total": 832,
-    "relocate_from": [
-      "node3.example.com"
+  &quot;request&quot;: {
+    &quot;type&quot;: &quot;relocate&quot;,
+    &quot;name&quot;: &quot;instance2.example.com&quot;,
+    &quot;required_nodes&quot;: 1,
+    &quot;disk_space_total&quot;: 832,
+    &quot;relocate_from&quot;: [
+      &quot;node3.example.com&quot;
     ]
   }
-}</pre>
+}
+</pre></div>
 </div>
 </div>
 <div class="section" id="response-messages">
 <h3><a class="toc-backref" href="#id16">Response messages</a><a class="headerlink" href="#response-messages" title="Permalink to this headline">¶</a></h3>
 <p>Successful response message:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="s">&quot;Allocation successful&quot;</span><span class="p">,</span>
-  <span class="s">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s">&quot;node2.example.com&quot;</span><span class="p">,</span>
-    <span class="s">&quot;node1.example.com&quot;</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;Allocation successful&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;node2.example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;node1.example.com&quot;</span>
   <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Failed response message:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-  <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="s">&quot;Can&#39;t find a suitable node for position 2 (already selected: node2.example.com)&quot;</span><span class="p">,</span>
-  <span class="s">&quot;result&quot;</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;Can&#39;t find a suitable node for position 2 (already selected: node2.example.com)&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Successful node evacuation message:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="s">&quot;Request successful&quot;</span><span class="p">,</span>
-  <span class="s">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;Request successful&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">[</span>
-      <span class="s">&quot;instance1&quot;</span><span class="p">,</span>
-      <span class="s">&quot;node3&quot;</span>
+      <span class="s2">&quot;instance1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;node3&quot;</span>
     <span class="p">],</span>
     <span class="p">[</span>
-      <span class="s">&quot;instance2&quot;</span><span class="p">,</span>
-      <span class="s">&quot;node1&quot;</span>
+      <span class="s2">&quot;instance2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;node1&quot;</span>
     <span class="p">]</span>
   <span class="p">]</span>
 <span class="p">}</span>
@@ -654,18 +653,19 @@ time, but not included in further examples below):</p>
 </div>
 <div class="section" id="command-line-messages">
 <h3><a class="toc-backref" href="#id17">Command line messages</a><a class="headerlink" href="#command-line-messages" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre># gnt-instance add -t plain -m 2g --os-size 1g --swap-size 512m --iallocator hail -o debootstrap+default instance3
+<div class="highlight-python"><div class="highlight"><pre># gnt-instance add -t plain -m 2g --os-size 1g --swap-size 512m --iallocator hail -o debootstrap+default instance3
 Selected nodes for the instance: node1.example.com
 * creating instance disks...
 [...]
 
 # gnt-instance add -t plain -m 3400m --os-size 1g --swap-size 512m --iallocator hail -o debootstrap+default instance4
 Failure: prerequisites not met for this operation:
-Can't compute nodes using iallocator 'hail': Can't find a suitable node for position 1 (already selected: )
+Can&#39;t compute nodes using iallocator &#39;hail&#39;: Can&#39;t find a suitable node for position 1 (already selected: )
 
 # gnt-instance add -t drbd -m 1400m --os-size 1g --swap-size 512m --iallocator hail -o debootstrap+default instance5
 Failure: prerequisites not met for this operation:
-Can't compute nodes using iallocator 'hail': Can't find a suitable node for position 2 (already selected: node1.example.com)</pre>
+Can&#39;t compute nodes using iallocator &#39;hail&#39;: Can&#39;t find a suitable node for position 2 (already selected: node1.example.com)
+</pre></div>
 </div>
 </div>
 <div class="section" id="reference-implementation">
@@ -681,7 +681,7 @@ more details).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -719,12 +719,14 @@ more details).</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="install.html"
                         title="next chapter">Ganeti installation tutorial</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/iallocator.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/iallocator.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -741,7 +743,7 @@ more details).</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -750,12 +752,12 @@ more details).</p>
         <li class="right" >
           <a href="hooks.html" title="Ganeti customisation using hooks"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

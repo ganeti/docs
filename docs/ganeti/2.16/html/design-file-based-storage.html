@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>File-based Storage &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>File-based Storage &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,31 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti file-based disks ownership" href="design-file-based-disks-ownership.html" />
-    <link rel="prev" title="Disks" href="design-disks.html" /> 
+    <link rel="prev" title="Conversion between disk templates" href="design-disk-conversion.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-file-based-disks-ownership.html" title="Ganeti file-based disks ownership"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="design-disks.html" title="Disks"
+          <a href="design-disk-conversion.html" title="Conversion between disk templates"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="file-based-storage">
 <h1>File-based Storage<a class="headerlink" href="#file-based-storage" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Jan-27</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.0.0</td>
+</tr>
+</tbody>
+</table>
 <p>This page describes the proposed file-based storage for the 2.0 version
 of Ganeti. The project consists in extending Ganeti in order to support
 a filesystem image as Virtual Block Device (VBD) in Dom0 as the primary
@@ -133,7 +143,7 @@ write load</li>
 </ul>
 </div>
 <div class="section" id="blktap-driver">
-<h5><tt class="docutils literal"><span class="pre">blktap</span></tt> driver<a class="headerlink" href="#blktap-driver" title="Permalink to this headline">¶</a></h5>
+<h5><code class="docutils literal"><span class="pre">blktap</span></code> driver<a class="headerlink" href="#blktap-driver" title="Permalink to this headline">¶</a></h5>
 <p>Advantages:</p>
 <ul class="simple">
 <li>higher performance than loopback driver</li>
@@ -150,10 +160,10 @@ write load</li>
 <li>stable, but not as much tested as loopback driver</li>
 </ul>
 </div>
-<div class="section" id="ubklback-driver">
-<h5>3) ubklback driver<a class="headerlink" href="#ubklback-driver" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="ublkback-driver">
+<h5>3) ublkback driver<a class="headerlink" href="#ublkback-driver" title="Permalink to this headline">¶</a></h5>
 <p>The Xen Roadmap states &#8220;Work is well under way to implement a
-<tt class="docutils literal"><span class="pre">ublkback</span></tt> driver that supports all of the various qemu file format
+<code class="docutils literal"><span class="pre">ublkback</span></code> driver that supports all of the various qemu file format
 plugins&#8221;.</p>
 <p>Furthermore, the Roadmap includes the following:</p>
 <blockquote>
@@ -233,19 +243,19 @@ utility.</p>
 <blockquote>
 <div>gnt-instance add -t <a class="reference external" href="file:[path">file:[path</a>=[,driver=loop[,reuse[,...]]]] &#8211;disk 0:size=5G &#8211;disk 1:size=10G -n node -o debian-etch instance2</div></blockquote>
 <p>This will create a file-based instance with e.g. the following files:
-* <tt class="docutils literal"><span class="pre">/sda</span></tt> -&gt; 5GB
-* <tt class="docutils literal"><span class="pre">/sdb</span></tt> -&gt; 10GB</p>
+* <code class="docutils literal"><span class="pre">/sda</span></code> -&gt; 5GB
+* <code class="docutils literal"><span class="pre">/sdb</span></code> -&gt; 10GB</p>
 <p>The default directory where files will be stored is
-<tt class="docutils literal"><span class="pre">/srv/ganeti/file-storage/</span></tt>. This can be changed by setting the
-<tt class="docutils literal"><span class="pre">&lt;path&gt;</span></tt> option. This option denotes the full path to the directory
+<code class="docutils literal"><span class="pre">/srv/ganeti/file-storage/</span></code>. This can be changed by setting the
+<code class="docutils literal"><span class="pre">&lt;path&gt;</span></code> option. This option denotes the full path to the directory
 where the files are stored. The filetype will be &#8220;raw&#8221; for the first
 release of Ganeti 2.0. However, the code will be extensible to more
 file types, since Ganeti will store information about the file type of
 each image file. Internally Ganeti will keep track of the used driver,
 the file-type and the full path to the file for every VBD. Example:
-&#8220;logical_id&#8221; : <tt class="docutils literal"><span class="pre">[FD_LOOP,</span> <span class="pre">FT_RAW,</span> <span class="pre">&quot;/instance1/sda&quot;]</span></tt> If the
-<tt class="docutils literal"><span class="pre">--reuse</span></tt> flag is set, Ganeti checks for existing files in the
-corresponding directory (e.g. <tt class="docutils literal"><span class="pre">/xen/instance2/</span></tt>). If one or more
+&#8220;logical_id&#8221; : <code class="docutils literal"><span class="pre">[FD_LOOP,</span> <span class="pre">FT_RAW,</span> <span class="pre">&quot;/instance1/sda&quot;]</span></code> If the
+<code class="docutils literal"><span class="pre">--reuse</span></code> flag is set, Ganeti checks for existing files in the
+corresponding directory (e.g. <code class="docutils literal"><span class="pre">/xen/instance2/</span></code>). If one or more
 files in this directory are present and correctly named (the naming
 conventions will be defined in Ganeti version 2.0) Ganeti will set a
 VM up with these. If no file can be found or the names or invalid the
@@ -270,13 +280,15 @@ exported/imported. If any other backup-tool (which requires access to
 the mounted file-system) is used then the image file can be temporarily
 mounted. This can be done in different ways:</p>
 <p>Mount a raw image file via loopback driver:</p>
-<div class="highlight-python"><pre>mount -o loop /srv/ganeti/file-storage/instance1/sda1 /mnt/disk\</pre>
+<div class="highlight-python"><div class="highlight"><pre>mount -o loop /srv/ganeti/file-storage/instance1/sda1 /mnt/disk\
+</pre></div>
 </div>
 <p>Mount a raw image file via blkfront driver (Dom0 kernel needs this
 module to do the following operation):</p>
-<div class="highlight-python"><pre>xm block-attach 0 tap:aio:/srv/ganeti/file-storage/instance1/sda1 /dev/xvda1 w 0\
+<div class="highlight-python"><div class="highlight"><pre>xm block-attach 0 tap:aio:/srv/ganeti/file-storage/instance1/sda1 /dev/xvda1 w 0\
 
-mount /dev/xvda1 /mnt/disk</pre>
+mount /dev/xvda1 /mnt/disk
+</pre></div>
 </div>
 <p>Mount a qcow image file via blkfront driver (Dom0 kernel needs this
 module to do the following operation)</p>
@@ -322,7 +334,8 @@ the same on the source and destination node.</p>
 <h4>File creation<a class="headerlink" href="#file-creation" title="Permalink to this headline">¶</a></h4>
 <p>Creation of a raw file is simple. Example of creating a sparse file of 2
 Gigabytes. The option &#8220;seek&#8221; instructs &#8220;dd&#8221; to create a sparse file:</p>
-<div class="highlight-python"><pre>dd if=/dev/zero of=vm1disk bs=1k seek=2048k count=1</pre>
+<div class="highlight-python"><div class="highlight"><pre>dd if=/dev/zero of=vm1disk bs=1k seek=2048k count=1
+</pre></div>
 </div>
 <p>Creation of QCOW image files can be done with the &#8220;qemu-img&#8221; utility (in
 debian it comes with the &#8220;qemu&#8221; package).</p>
@@ -333,19 +346,19 @@ debian it comes with the &#8220;qemu&#8221; package).</p>
 the file-based disk-template.</p>
 <div class="section" id="loopback-driver-and-raw-file">
 <h5>1) loopback driver and raw file<a class="headerlink" href="#loopback-driver-and-raw-file" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;file:&lt;/path/to/file&gt;,sda1,w&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;file:&lt;/path/to/file&gt;,sda1,w&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="blktap-driver-and-raw-file">
 <h5>2) blktap driver and raw file<a class="headerlink" href="#blktap-driver-and-raw-file" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;tap:aio:,sda1,w&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tap:aio:,sda1,w&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="blktap-driver-and-qcow-file">
 <h5>3) blktap driver and qcow file<a class="headerlink" href="#blktap-driver-and-qcow-file" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;tap:qcow:,sda1,w&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">disk</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tap:qcow:,sda1,w&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -353,7 +366,7 @@ the file-based disk-template.</p>
 </div>
 <div class="section" id="other-hypervisors">
 <h3>Other hypervisors<a class="headerlink" href="#other-hypervisors" title="Permalink to this headline">¶</a></h3>
-<p>Other hypervisors have mostly differnet ways to make storage available
+<p>Other hypervisors have mostly different ways to make storage available
 to their virtual instances/machines. This is beyond the scope of this
 document.</p>
 </div>
@@ -364,7 +377,7 @@ document.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -377,8 +390,8 @@ document.</p>
 <li><a class="reference internal" href="#xen-related-specifications">Xen-related specifications</a><ul>
 <li><a class="reference internal" href="#driver">Driver</a><ul>
 <li><a class="reference internal" href="#loopback-driver">1) loopback driver</a></li>
-<li><a class="reference internal" href="#blktap-driver"><tt class="docutils literal"><span class="pre">blktap</span></tt> driver</a></li>
-<li><a class="reference internal" href="#ubklback-driver">3) ubklback driver</a></li>
+<li><a class="reference internal" href="#blktap-driver"><code class="docutils literal"><span class="pre">blktap</span></code> driver</a></li>
+<li><a class="reference internal" href="#ublkback-driver">3) ublkback driver</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#file-types">File types</a><ul>
@@ -428,17 +441,19 @@ document.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="design-disks.html"
-                        title="previous chapter">Disks</a></p>
+  <p class="topless"><a href="design-disk-conversion.html"
+                        title="previous chapter">Conversion between disk templates</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-file-based-disks-ownership.html"
                         title="next chapter">Ganeti file-based disks ownership</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-file-based-storage.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-file-based-storage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -455,21 +470,21 @@ document.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-file-based-disks-ownership.html" title="Ganeti file-based disks ownership"
              >next</a></li>
         <li class="right" >
-          <a href="design-disks.html" title="Disks"
+          <a href="design-disk-conversion.html" title="Conversion between disk templates"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

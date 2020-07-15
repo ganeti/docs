@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti 2.2 design &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti 2.2 design &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti 2.3 design" href="design-2.3.html" />
     <link rel="prev" title="Ganeti 2.1 design" href="design-2.1.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="design-2.1.html" title="Ganeti 2.1 design"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-2-2-design">
 <h1><a class="toc-backref" href="#id10">Ganeti 2.2 design</a><a class="headerlink" href="#ganeti-2-2-design" title="Permalink to this headline">¶</a></h1>
@@ -146,10 +144,10 @@ informed that everything is proceeding, and doesn&#8217;t need to time out.</p>
 <div class="section" id="wait-for-job-change">
 <h5>Wait for job change<a class="headerlink" href="#wait-for-job-change" title="Permalink to this headline">¶</a></h5>
 <p>The REQ_WAIT_FOR_JOB_CHANGE luxi operation makes the relevant client
-thread block on its job for a relative long time. This is another easy
-way to exhaust the 16 client threads, and a place where clients often
-time out, moreover this operation is negative for the job queue lock
-contention (see below).</p>
+thread block on its job for a relatively long time. This is another
+easy way to exhaust the 16 client threads, and a place where clients
+often time out, moreover this operation is negative for the job queue
+lock contention (see below).</p>
 </div>
 <div class="section" id="job-queue-lock">
 <h5>Job Queue lock<a class="headerlink" href="#job-queue-lock" title="Permalink to this headline">¶</a></h5>
@@ -240,7 +238,7 @@ thread on the socket.</p>
 subscription-based, so that the executing thread doesn&#8217;t have to be
 waiting for the changes to arrive. Threads producing messages (job queue
 executors) will make sure that when there is a change another thread is
-awaken and delivers it to the waiting clients. This can be either a
+awakened and delivers it to the waiting clients. This can be either a
 dedicated &#8220;wait for job changes&#8221; thread or pool, or one of the client
 workers, depending on what&#8217;s easier to implement. In either case the
 main asyncore thread will only be involved in pushing of the actual
@@ -320,13 +318,13 @@ connections.</p>
 data transfer from one machine to another. To reduce the risk of
 accidentally overwriting data due to software bugs, authenticating the
 arriving data was considered critical. Eventually we decided to use
-socat&#8217;s OpenSSL options (<tt class="docutils literal"><span class="pre">OPENSSL:</span></tt>, <tt class="docutils literal"><span class="pre">OPENSSL-LISTEN:</span></tt> et al), which
+socat&#8217;s OpenSSL options (<code class="docutils literal"><span class="pre">OPENSSL:</span></code>, <code class="docutils literal"><span class="pre">OPENSSL-LISTEN:</span></code> et al), which
 provide us with encryption, authentication and authorization when used
 with separate keys and certificates.</p>
 <p>Combinations of OpenSSH, GnuPG and Netcat were deemed too complex to set
 up from within Ganeti. Any solution involving OpenSSH would require a
 dedicated user with a home directory and likely automated modifications
-to the user&#8217;s <tt class="docutils literal"><span class="pre">$HOME/.ssh/authorized_keys</span></tt> file. When using Netcat,
+to the user&#8217;s <code class="docutils literal"><span class="pre">$HOME/.ssh/authorized_keys</span></code> file. When using Netcat,
 GnuPG or another encryption method would be necessary to transfer the
 data over an untrusted network. socat combines both in one program and
 is already a dependency.</p>
@@ -343,17 +341,17 @@ verify the certificates and destination information exchanged via the
 third party by checking an HMAC signature using a key shared among the
 involved clusters. By default this secret key will be a random string
 unique to the cluster, generated by running SHA1 over 20 bytes read from
-<tt class="docutils literal"><span class="pre">/dev/urandom</span></tt> and the administrator must synchronize the secrets
+<code class="docutils literal"><span class="pre">/dev/urandom</span></code> and the administrator must synchronize the secrets
 between clusters before instances can be moved. If the third party does
 not know the secret, it can&#8217;t forge the certificates or redirect the
 data. Unless disabled by a new cluster parameter, verifying the HMAC
 signatures must be mandatory. The HMAC signature for X509 certificates
-will be prepended to the certificate similar to an <span class="target" id="index-0"></span><a class="rfc reference external" href="http://tools.ietf.org/html/rfc822.html"><strong>RFC 822</strong></a> header and
-only covers the certificate (from <tt class="docutils literal"><span class="pre">-----BEGIN</span> <span class="pre">CERTIFICATE-----</span></tt> to
-<tt class="docutils literal"><span class="pre">-----END</span> <span class="pre">CERTIFICATE-----</span></tt>). The header name will be
-<tt class="docutils literal"><span class="pre">X-Ganeti-Signature</span></tt> and its value will have the format
-<tt class="docutils literal"><span class="pre">$salt/$hash</span></tt> (salt and hash separated by slash). The salt may only
-contain characters in the range <tt class="docutils literal"><span class="pre">[a-zA-Z0-9]</span></tt>.</p>
+will be prepended to the certificate similar to an <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc822.html"><strong>RFC 822</strong></a> header and
+only covers the certificate (from <code class="docutils literal"><span class="pre">-----BEGIN</span> <span class="pre">CERTIFICATE-----</span></code> to
+<code class="docutils literal"><span class="pre">-----END</span> <span class="pre">CERTIFICATE-----</span></code>). The header name will be
+<code class="docutils literal"><span class="pre">X-Ganeti-Signature</span></code> and its value will have the format
+<code class="docutils literal"><span class="pre">$salt/$hash</span></code> (salt and hash separated by slash). The salt may only
+contain characters in the range <code class="docutils literal"><span class="pre">[a-zA-Z0-9]</span></code>.</p>
 <p>On the web, the destination cluster would be equivalent to an HTTPS
 server requiring verifiable client certificates. The browser would be
 equivalent to the source cluster and must verify the server&#8217;s
@@ -380,7 +378,7 @@ directly, where it&#8217;ll be written to the new block device directly again.</
 <li>Third party tells source cluster to shut down instance, asks for the
 instance specification and for the public part of an encryption key<ul>
 <li>Instance information can already be retrieved using an existing API
-(<tt class="docutils literal"><span class="pre">OpInstanceQueryData</span></tt>).</li>
+(<code class="docutils literal"><span class="pre">OpInstanceQueryData</span></code>).</li>
 <li>An RSA encryption key and a corresponding self-signed X509
 certificate is generated using the &#8220;openssl&#8221; command. This key will
 be used to encrypt the data sent to the destination cluster.<ul>
@@ -395,7 +393,7 @@ salting and a secret shared between Ganeti clusters.</li>
 same specifications as on source cluster and to prepare for an
 instance move with the key received from the source cluster and
 receives the public part of the destination&#8217;s encryption key<ul>
-<li>The current API to create instances (<tt class="docutils literal"><span class="pre">OpInstanceCreate</span></tt>) will be
+<li>The current API to create instances (<code class="docutils literal"><span class="pre">OpInstanceCreate</span></code>) will be
 extended to support an import from a remote cluster.</li>
 <li>A valid, unexpired X509 certificate signed with the destination
 cluster&#8217;s secret will be required. By verifying the signature, we
@@ -407,7 +405,7 @@ IP address or port sent by the destination cluster.</li>
 </li>
 <li>The destination cluster generates another key and certificate,
 signs and sends it to the third party, who will have to pass it to
-the API for exporting an instance (<tt class="docutils literal"><span class="pre">OpBackupExport</span></tt>). This
+the API for exporting an instance (<code class="docutils literal"><span class="pre">OpBackupExport</span></code>). This
 certificate is used to ensure we&#8217;re sending the disk data to the
 correct destination cluster.</li>
 <li>Once a disk can be imported, the API sends the destination
@@ -418,7 +416,7 @@ signature to the third party.</li>
 <li>Third party hands public part of the destination&#8217;s encryption key
 together with all necessary information to source cluster and tells
 it to start the move<ul>
-<li>The existing API for exporting instances (<tt class="docutils literal"><span class="pre">OpBackupExport</span></tt>)
+<li>The existing API for exporting instances (<code class="docutils literal"><span class="pre">OpBackupExport</span></code>)
 will be extended to export instances to remote clusters.</li>
 </ul>
 </li>
@@ -452,48 +450,48 @@ clusters and what happens on both clusters.</p>
 <li><p class="first">Script is started, gets the instance name and destination cluster:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">dest_cluster_name</span><span class="p">)</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
-<span class="c"># Get destination cluster object</span>
+<span class="c1"># Get destination cluster object</span>
 <span class="n">dest_cluster</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">FindCluster</span><span class="p">(</span><span class="n">dest_cluster_name</span><span class="p">)</span>
 
-<span class="c"># Use database to find source cluster</span>
+<span class="c1"># Use database to find source cluster</span>
 <span class="n">src_cluster</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">FindClusterByInstance</span><span class="p">(</span><span class="n">instance_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Script tells source cluster to stop instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Stop instance</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># Stop instance</span>
 <span class="n">src_cluster</span><span class="o">.</span><span class="n">StopInstance</span><span class="p">(</span><span class="n">instance_name</span><span class="p">)</span>
 
-<span class="c"># Get instance specification (memory, disk, etc.)</span>
+<span class="c1"># Get instance specification (memory, disk, etc.)</span>
 <span class="n">inst_spec</span> <span class="o">=</span> <span class="n">src_cluster</span><span class="o">.</span><span class="n">GetInstanceInfo</span><span class="p">(</span><span class="n">instance_name</span><span class="p">)</span>
 
 <span class="p">(</span><span class="n">src_key_name</span><span class="p">,</span> <span class="n">src_cert</span><span class="p">)</span> <span class="o">=</span> <span class="n">src_cluster</span><span class="o">.</span><span class="n">CreateX509Certificate</span><span class="p">()</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">CreateX509Certificate</span></tt> on source cluster:</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">CreateX509Certificate</span></code> on source cluster:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">key_file</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">()</span>
-<span class="n">cert_file</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.cert&quot;</span> <span class="o">%</span> <span class="n">key_file</span>
-<span class="n">RunCmd</span><span class="p">([</span><span class="s">&quot;/usr/bin/openssl&quot;</span><span class="p">,</span> <span class="s">&quot;req&quot;</span><span class="p">,</span> <span class="s">&quot;-new&quot;</span><span class="p">,</span>
-         <span class="s">&quot;-newkey&quot;</span><span class="p">,</span> <span class="s">&quot;rsa:1024&quot;</span><span class="p">,</span> <span class="s">&quot;-days&quot;</span><span class="p">,</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
-         <span class="s">&quot;-nodes&quot;</span><span class="p">,</span> <span class="s">&quot;-x509&quot;</span><span class="p">,</span> <span class="s">&quot;-batch&quot;</span><span class="p">,</span>
-         <span class="s">&quot;-keyout&quot;</span><span class="p">,</span> <span class="n">key_file</span><span class="p">,</span> <span class="s">&quot;-out&quot;</span><span class="p">,</span> <span class="n">cert_file</span><span class="p">])</span>
+<span class="n">cert_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.cert&quot;</span> <span class="o">%</span> <span class="n">key_file</span>
+<span class="n">RunCmd</span><span class="p">([</span><span class="s2">&quot;/usr/bin/openssl&quot;</span><span class="p">,</span> <span class="s2">&quot;req&quot;</span><span class="p">,</span> <span class="s2">&quot;-new&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;-newkey&quot;</span><span class="p">,</span> <span class="s2">&quot;rsa:1024&quot;</span><span class="p">,</span> <span class="s2">&quot;-days&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;-nodes&quot;</span><span class="p">,</span> <span class="s2">&quot;-x509&quot;</span><span class="p">,</span> <span class="s2">&quot;-batch&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;-keyout&quot;</span><span class="p">,</span> <span class="n">key_file</span><span class="p">,</span> <span class="s2">&quot;-out&quot;</span><span class="p">,</span> <span class="n">cert_file</span><span class="p">])</span>
 
 <span class="n">plain_cert</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="n">cert_file</span><span class="p">)</span>
 
-<span class="c"># HMAC sign using secret key, this adds a &quot;X-Ganeti-Signature&quot;</span>
-<span class="c"># header to the beginning of the certificate</span>
+<span class="c1"># HMAC sign using secret key, this adds a &quot;X-Ganeti-Signature&quot;</span>
+<span class="c1"># header to the beginning of the certificate</span>
 <span class="n">signed_cert</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">SignX509Certificate</span><span class="p">(</span><span class="n">plain_cert</span><span class="p">,</span>
   <span class="n">utils</span><span class="o">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">X509_SIGNKEY_FILE</span><span class="p">))</span>
 
-<span class="c"># The certificate now looks like the following:</span>
-<span class="c">#</span>
-<span class="c">#   X-Ganeti-Signature: $1234$28676f0516c6ab68062b[…]</span>
-<span class="c">#   -----BEGIN CERTIFICATE-----</span>
-<span class="c">#   MIICsDCCAhmgAwIBAgI[…]</span>
-<span class="c">#   -----END CERTIFICATE-----</span>
+<span class="c1"># The certificate now looks like the following:</span>
+<span class="c1">#</span>
+<span class="c1">#   X-Ganeti-Signature: $1234$28676f0516c6ab68062b[…]</span>
+<span class="c1">#   -----BEGIN CERTIFICATE-----</span>
+<span class="c1">#   MIICsDCCAhmgAwIBAgI[…]</span>
+<span class="c1">#   -----END CERTIFICATE-----</span>
 
-<span class="c"># Return name of key file and signed certificate in PEM format</span>
+<span class="c1"># Return name of key file and signed certificate in PEM format</span>
 <span class="k">return</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">key_file</span><span class="p">),</span> <span class="n">signed_cert</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -504,7 +502,7 @@ finish:</p>
                             <span class="n">spec</span><span class="o">=</span><span class="n">inst_spec</span><span class="p">,</span>
                             <span class="n">source_cert</span><span class="o">=</span><span class="n">src_cert</span><span class="p">)</span>
 
-<span class="c"># Wait until destination cluster gives us its certificate</span>
+<span class="c1"># Wait until destination cluster gives us its certificate</span>
 <span class="n">dest_cert</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">disk_info</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">dest_cert</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">disk_info</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">inst_spec</span><span class="o">.</span><span class="n">disks</span><span class="p">)):</span>
@@ -512,48 +510,48 @@ finish:</p>
   <span class="k">if</span> <span class="n">tmp</span> <span class="ow">is</span> <span class="n">Certificate</span><span class="p">:</span>
     <span class="n">dest_cert</span> <span class="o">=</span> <span class="n">tmp</span>
   <span class="k">elif</span> <span class="n">tmp</span> <span class="ow">is</span> <span class="n">DiskInfo</span><span class="p">:</span>
-    <span class="c"># DiskInfo contains destination address and port</span>
+    <span class="c1"># DiskInfo contains destination address and port</span>
     <span class="n">disk_info</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
 
-<span class="c"># Tell source cluster to export disks</span>
+<span class="c1"># Tell source cluster to export disks</span>
 <span class="k">for</span> <span class="n">disk</span> <span class="ow">in</span> <span class="n">disk_info</span><span class="p">:</span>
   <span class="n">src_cluster</span><span class="o">.</span><span class="n">ExportDisk</span><span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">disk</span><span class="o">=</span><span class="n">disk</span><span class="p">,</span>
                          <span class="n">key_name</span><span class="o">=</span><span class="n">src_key_name</span><span class="p">,</span>
                          <span class="n">dest_cert</span><span class="o">=</span><span class="n">dest_cert</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s">&quot;Instance </span><span class="si">%s</span><span class="s"> sucessfully moved to </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Instance </span><span class="si">%s</span><span class="s2"> sucessfully moved to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
        <span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">dest_cluster</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">CreateInstance</span></tt> on destination cluster:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># …</span>
+<li><p class="first"><code class="docutils literal"><span class="pre">CreateInstance</span></code> on destination cluster:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># …</span>
 
 <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">REMOTE_IMPORT</span><span class="p">:</span>
-  <span class="c"># Make sure certificate was not modified since it was generated by</span>
-  <span class="c"># source cluster (which must use the same secret)</span>
+  <span class="c1"># Make sure certificate was not modified since it was generated by</span>
+  <span class="c1"># source cluster (which must use the same secret)</span>
   <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">utils</span><span class="o">.</span><span class="n">VerifySignedX509Cert</span><span class="p">(</span><span class="n">source_cert</span><span class="p">,</span>
         <span class="n">utils</span><span class="o">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">X509_SIGNKEY_FILE</span><span class="p">))):</span>
-    <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s">&quot;Certificate not signed with this cluster&#39;s secret&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s2">&quot;Certificate not signed with this cluster&#39;s secret&quot;</span><span class="p">)</span>
 
   <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">CheckExpiredX509Cert</span><span class="p">(</span><span class="n">source_cert</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s">&quot;X509 certificate is expired&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s2">&quot;X509 certificate is expired&quot;</span><span class="p">)</span>
 
   <span class="n">source_cert_file</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">WriteTempFile</span><span class="p">(</span><span class="n">source_cert</span><span class="p">)</span>
 
-  <span class="c"># See above for X509 certificate generation and signing</span>
+  <span class="c1"># See above for X509 certificate generation and signing</span>
   <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">signed_cert</span><span class="p">)</span> <span class="o">=</span> <span class="n">CreateSignedX509Certificate</span><span class="p">()</span>
 
-  <span class="n">SendToClient</span><span class="p">(</span><span class="s">&quot;x509-cert&quot;</span><span class="p">,</span> <span class="n">signed_cert</span><span class="p">)</span>
+  <span class="n">SendToClient</span><span class="p">(</span><span class="s2">&quot;x509-cert&quot;</span><span class="p">,</span> <span class="n">signed_cert</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">disk</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">disks</span><span class="p">:</span>
-    <span class="c"># Start socat</span>
-    <span class="n">RunCmd</span><span class="p">((</span><span class="s">&quot;socat&quot;</span>
-            <span class="s">&quot; OPENSSL-LISTEN:</span><span class="si">%s</span><span class="s">,…,key=</span><span class="si">%s</span><span class="s">,cert=</span><span class="si">%s</span><span class="s">,cafile=</span><span class="si">%s</span><span class="s">,verify=1&quot;</span>
-            <span class="s">&quot; stdout &gt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
+    <span class="c1"># Start socat</span>
+    <span class="n">RunCmd</span><span class="p">((</span><span class="s2">&quot;socat&quot;</span>
+            <span class="s2">&quot; OPENSSL-LISTEN:</span><span class="si">%s</span><span class="s2">,…,key=</span><span class="si">%s</span><span class="s2">,cert=</span><span class="si">%s</span><span class="s2">,cafile=</span><span class="si">%s</span><span class="s2">,verify=1&quot;</span>
+            <span class="s2">&quot; stdout &gt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
            <span class="n">port</span><span class="p">,</span> <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
            <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="n">src_cert_file</span><span class="p">)</span>
-    <span class="n">SendToClient</span><span class="p">(</span><span class="s">&quot;send-disk-to&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="n">SendToClient</span><span class="p">(</span><span class="s2">&quot;send-disk-to&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
 
   <span class="n">DestroyX509Cert</span><span class="p">(</span><span class="n">key_name</span><span class="p">)</span>
 
@@ -561,22 +559,22 @@ finish:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">ExportDisk</span></tt> on source cluster:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Make sure certificate was not modified since it was generated by</span>
-<span class="c"># destination cluster (which must use the same secret)</span>
+<li><p class="first"><code class="docutils literal"><span class="pre">ExportDisk</span></code> on source cluster:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># Make sure certificate was not modified since it was generated by</span>
+<span class="c1"># destination cluster (which must use the same secret)</span>
 <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">utils</span><span class="o">.</span><span class="n">VerifySignedX509Cert</span><span class="p">(</span><span class="n">cert_pem</span><span class="p">,</span>
       <span class="n">utils</span><span class="o">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">X509_SIGNKEY_FILE</span><span class="p">))):</span>
-  <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s">&quot;Certificate not signed with this cluster&#39;s secret&quot;</span><span class="p">)</span>
+  <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s2">&quot;Certificate not signed with this cluster&#39;s secret&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">CheckExpiredX509Cert</span><span class="p">(</span><span class="n">cert_pem</span><span class="p">):</span>
-  <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s">&quot;X509 certificate is expired&quot;</span><span class="p">)</span>
+  <span class="k">raise</span> <span class="n">Error</span><span class="p">(</span><span class="s2">&quot;X509 certificate is expired&quot;</span><span class="p">)</span>
 
 <span class="n">dest_cert_file</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">WriteTempFile</span><span class="p">(</span><span class="n">cert_pem</span><span class="p">)</span>
 
-<span class="c"># Start socat</span>
-<span class="n">RunCmd</span><span class="p">((</span><span class="s">&quot;socat stdin&quot;</span>
-        <span class="s">&quot; OPENSSL:</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">,…,key=</span><span class="si">%s</span><span class="s">,cert=</span><span class="si">%s</span><span class="s">,cafile=</span><span class="si">%s</span><span class="s">,verify=1&quot;</span>
-        <span class="s">&quot; &lt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
+<span class="c1"># Start socat</span>
+<span class="n">RunCmd</span><span class="p">((</span><span class="s2">&quot;socat stdin&quot;</span>
+        <span class="s2">&quot; OPENSSL:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">,…,key=</span><span class="si">%s</span><span class="s2">,cert=</span><span class="si">%s</span><span class="s2">,cafile=</span><span class="si">%s</span><span class="s2">,verify=1&quot;</span>
+        <span class="s2">&quot; &lt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
        <span class="n">disk</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">disk</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
        <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
        <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="n">dest_cert_file</span><span class="p">)</span>
@@ -601,15 +599,15 @@ on the source cluster, setting them up with a different disk layout
 might be helpful in some use-cases.</li>
 <li>A cleanup operation, similar to the one available for failed instance
 migrations, should be provided.</li>
-<li><tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> should remove instances pending a move from another
+<li><code class="docutils literal"><span class="pre">ganeti-watcher</span></code> should remove instances pending a move from another
 cluster after a certain amount of time. This takes care of failures
 somewhere in the process.</li>
 <li>RSA keys can be generated using the existing
-<tt class="docutils literal"><span class="pre">bootstrap.GenerateSelfSignedSslCert</span></tt> function, though it might be
+<code class="docutils literal"><span class="pre">bootstrap.GenerateSelfSignedSslCert</span></code> function, though it might be
 useful to not write both parts into a single file, requiring small
 changes to the function. The public part always starts with
-<tt class="docutils literal"><span class="pre">-----BEGIN</span> <span class="pre">CERTIFICATE-----</span></tt> and ends with <tt class="docutils literal"><span class="pre">-----END</span>
-<span class="pre">CERTIFICATE-----</span></tt>.</li>
+<code class="docutils literal"><span class="pre">-----BEGIN</span> <span class="pre">CERTIFICATE-----</span></code> and ends with <code class="docutils literal"><span class="pre">-----END</span>
+<span class="pre">CERTIFICATE-----</span></code>.</li>
 <li>The source and destination cluster might be different when it comes
 to available hypervisors, kernels, etc. The destination cluster should
 refuse to accept an instance move if it can&#8217;t fulfill an instance&#8217;s
@@ -627,13 +625,13 @@ security perspective as for possible exploitation of any daemon the user
 has full access to the system.</p>
 <p>In order to overcome this situation we&#8217;ll allow Ganeti to run its daemon
 under different users and a dedicated group. This also will allow some
-side effects, like letting the user run some <tt class="docutils literal"><span class="pre">gnt-*</span></tt> commands if one
+side effects, like letting the user run some <code class="docutils literal"><span class="pre">gnt-*</span></code> commands if one
 is in the same group.</p>
 </div>
 <div class="section" id="implementation">
 <h4><a class="toc-backref" href="#id20">Implementation</a><a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h4>
 <p>For Ganeti 2.2 the implementation will be focused on a the RAPI daemon
-only. This involves changes to <tt class="docutils literal"><span class="pre">daemons.py</span></tt> so it&#8217;s possible to drop
+only. This involves changes to <code class="docutils literal"><span class="pre">daemons.py</span></code> so it&#8217;s possible to drop
 privileges on daemonize the process. Though, this will be a short term
 solution which will be replaced by a privilege drop already on daemon
 startup in Ganeti 2.3.</p>
@@ -666,7 +664,7 @@ possibilities, in the absence of a local privilege escalation attack, to
 subvert the node.</p>
 <div class="section" id="dropping-privileges-in-kvm-to-a-single-user-easy">
 <h5>Dropping privileges in kvm to a single user (easy)<a class="headerlink" href="#dropping-privileges-in-kvm-to-a-single-user-easy" title="Permalink to this headline">¶</a></h5>
-<p>By passing the <tt class="docutils literal"><span class="pre">-runas</span></tt> option to kvm, we can make it drop privileges.
+<p>By passing the <code class="docutils literal"><span class="pre">-runas</span></code> option to kvm, we can make it drop privileges.
 The user can be chosen by an hypervisor parameter, so that each instance
 can have its own user, but by default they will all run under the same
 one. It should be very easy to implement, and can easily be backported
@@ -692,7 +690,7 @@ privileges to set up networking) (unless different users are used)</li>
 </div>
 <div class="section" id="running-kvm-in-a-chroot-slightly-harder">
 <h5>Running kvm in a chroot (slightly harder)<a class="headerlink" href="#running-kvm-in-a-chroot-slightly-harder" title="Permalink to this headline">¶</a></h5>
-<p>By passing the <tt class="docutils literal"><span class="pre">-chroot</span></tt> option to kvm, we can restrict the kvm
+<p>By passing the <code class="docutils literal"><span class="pre">-chroot</span></code> option to kvm, we can restrict the kvm
 process in its own (possibly empty) root directory. We need to set this
 area up so that the instance disks and control sockets are accessible,
 so it would require slightly more work at the Ganeti level.</p>
@@ -766,7 +764,7 @@ will also break reinstallations and renames of existing instances. To
 phase out an OS definition, without actually having to modify the OS
 scripts, it would be ideal to be able to restrict new installations but
 keep the rest of the functionality available.</p>
-<p>Second, <tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">reinstall</span> <span class="pre">--select-os</span></tt> shows all the OSes
+<p>Second, <code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">reinstall</span> <span class="pre">--select-os</span></code> shows all the OSes
 available on the clusters. Some OSes might exist only for debugging and
 diagnose, and not for end-user availability. For this, it would be
 useful to &#8220;hide&#8221; a set of OSes, but keep it otherwise functional.</p>
@@ -776,15 +774,15 @@ useful to &#8220;hide&#8221; a set of OSes, but keep it otherwise functional.</p
 <p>Two new cluster-level attributes will be added, holding the list of OSes
 hidden from the user and respectively the list of OSes which are
 blacklisted from new installations.</p>
-<p>These lists will be modifiable via <tt class="docutils literal"><span class="pre">gnt-os</span> <span class="pre">modify</span></tt> (implemented via
-<tt class="docutils literal"><span class="pre">OpClusterSetParams</span></tt>), such that even not-yet-existing OSes can be
+<p>These lists will be modifiable via <code class="docutils literal"><span class="pre">gnt-os</span> <span class="pre">modify</span></code> (implemented via
+<code class="docutils literal"><span class="pre">OpClusterSetParams</span></code>), such that even not-yet-existing OSes can be
 preseeded into a given state.</p>
 <p>For the hidden OSes, they are fully functional except that they are not
-returned in the default OS list (as computed via <tt class="docutils literal"><span class="pre">OpOsDiagnose</span></tt>),
+returned in the default OS list (as computed via <code class="docutils literal"><span class="pre">OpOsDiagnose</span></code>),
 unless the hidden state is requested.</p>
 <p>For the blacklisted OSes, they are also not shown (unless the
 blacklisted state is requested), and they are also prevented from
-installation via <tt class="docutils literal"><span class="pre">OpInstanceCreate</span></tt> (in create mode).</p>
+installation via <code class="docutils literal"><span class="pre">OpInstanceCreate</span></code> (in create mode).</p>
 <p>Both these attributes are per-OS, not per-variant. Thus they apply to
 all of an OS&#8217; variants, and it&#8217;s impossible to blacklist or hide just
 one variant. Further improvements might allow a given OS variant to be
@@ -805,11 +803,11 @@ instead discovered at runtime, the interface is not entirely
 straightforward.</p>
 <p>Furthermore, to support the system administrator in keeping OSes
 properly in sync across the nodes of a cluster, Ganeti will also verify
-(if existing) the consistence of a new <tt class="docutils literal"><span class="pre">os_version</span></tt> file.</p>
+(if existing) the consistence of a new <code class="docutils literal"><span class="pre">os_version</span></code> file.</p>
 <p>These changes to the OS API will bump the API version to 20.</p>
 <div class="section" id="os-version">
 <h4><a class="toc-backref" href="#id31">OS version</a><a class="headerlink" href="#os-version" title="Permalink to this headline">¶</a></h4>
-<p>A new <tt class="docutils literal"><span class="pre">os_version</span></tt> file will be supported by Ganeti. This file is not
+<p>A new <code class="docutils literal"><span class="pre">os_version</span></code> file will be supported by Ganeti. This file is not
 required, but if existing, its contents will be checked for consistency
 across nodes. The file should hold only one line of text (any extra data
 will be discarded), and its contents will be shown in the OS information
@@ -826,7 +824,7 @@ environment variables, and as such the parameters and their values will
 need to be valid in this context.</p>
 <div class="section" id="names">
 <h5>Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h5>
-<p>The parameter names will be declared in a new file, <tt class="docutils literal"><span class="pre">parameters.list</span></tt>,
+<p>The parameter names will be declared in a new file, <code class="docutils literal"><span class="pre">parameters.list</span></code>,
 together with a one-line documentation (whitespace-separated). Example:</p>
 <div class="highlight-text"><div class="highlight"><pre>$ cat parameters.list
 ns1    Specifies the first name server to add to /etc/resolv.conf
@@ -860,16 +858,16 @@ the value space).</p>
 <div class="section" id="environment-variables">
 <h6>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h6>
 <p>The parameters will be exposed in the environment upper-case and
-prefixed with the string <tt class="docutils literal"><span class="pre">OSP_</span></tt>. For example, a parameter declared in
-the &#8216;parameters&#8217; file as <tt class="docutils literal"><span class="pre">ns1</span></tt> will appear in the environment as the
-variable <tt class="docutils literal"><span class="pre">OSP_NS1</span></tt>.</p>
+prefixed with the string <code class="docutils literal"><span class="pre">OSP_</span></code>. For example, a parameter declared in
+the &#8216;parameters&#8217; file as <code class="docutils literal"><span class="pre">ns1</span></code> will appear in the environment as the
+variable <code class="docutils literal"><span class="pre">OSP_NS1</span></code>.</p>
 </div>
 </div>
 <div class="section" id="validation">
 <h5>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h5>
 <p>For the purpose of parameter name/value validation, the OS scripts
-<em>must</em> provide an additional script, named <tt class="docutils literal"><span class="pre">verify</span></tt>. This script will
-be called with the argument <tt class="docutils literal"><span class="pre">parameters</span></tt>, and all the parameters will
+<em>must</em> provide an additional script, named <code class="docutils literal"><span class="pre">verify</span></code>. This script will
+be called with the argument <code class="docutils literal"><span class="pre">parameters</span></code>, and all the parameters will
 be passed in via environment variables, as described above.</p>
 <p>The script should signify result/failure based on its exit code, and
 show explanatory messages either on its standard output or standard
@@ -887,7 +885,7 @@ scripts in sync between all nodes.</p>
 <h5>Instance operations<a class="headerlink" href="#instance-operations" title="Permalink to this headline">¶</a></h5>
 <p>The parameters will be passed, as described above, to all the other
 instance operations (creation, import, export). Ideally, these scripts
-will not abort with parameter validation errors, if the <tt class="docutils literal"><span class="pre">verify</span></tt>
+will not abort with parameter validation errors, if the <code class="docutils literal"><span class="pre">verify</span></code>
 script has verified them correctly.</p>
 <p>Note: when changing an instance&#8217;s OS type, any OS parameters defined at
 instance level will be kept as-is. If the parameters differ between the
@@ -912,11 +910,11 @@ explained above.</p>
 <div class="section" id="cli-interface">
 <h5>CLI interface<a class="headerlink" href="#cli-interface" title="Permalink to this headline">¶</a></h5>
 <p>The modification of global (default) parameters will be done via the
-<tt class="docutils literal"><span class="pre">gnt-os</span></tt> command, and the per-instance parameters via the
-<tt class="docutils literal"><span class="pre">gnt-instance</span></tt> command. Both these commands will take an addition
-<tt class="docutils literal"><span class="pre">--os-parameters</span></tt> or <tt class="docutils literal"><span class="pre">-O</span></tt> flag that specifies the parameters in the
+<code class="docutils literal"><span class="pre">gnt-os</span></code> command, and the per-instance parameters via the
+<code class="docutils literal"><span class="pre">gnt-instance</span></code> command. Both these commands will take an addition
+<code class="docutils literal"><span class="pre">--os-parameters</span></code> or <code class="docutils literal"><span class="pre">-O</span></code> flag that specifies the parameters in the
 familiar comma-separated, key=value format. For removing a parameter, a
-<tt class="docutils literal"><span class="pre">-key</span></tt> syntax will be used, e.g.:</p>
+<code class="docutils literal"><span class="pre">-key</span></code> syntax will be used, e.g.:</p>
 <div class="highlight-text"><div class="highlight"><pre># initial modification
 $ gnt-instance modify -O use_dchp=true instance1
 # later revert (to the cluster default, or the OS default if not
@@ -927,7 +925,7 @@ $ gnt-instance modify -O -use_dhcp instance1
 </div>
 <div class="section" id="internal-storage">
 <h5>Internal storage<a class="headerlink" href="#internal-storage" title="Permalink to this headline">¶</a></h5>
-<p>Internally, the OS parameters will be stored in a new <tt class="docutils literal"><span class="pre">osparams</span></tt>
+<p>Internally, the OS parameters will be stored in a new <code class="docutils literal"><span class="pre">osparams</span></code>
 attribute. The global parameters will be stored on the cluster object,
 and the value of this attribute will be a dictionary indexed by OS name
 (this also accepts an OS+variant name, which will override a simple OS
@@ -950,7 +948,7 @@ scripts).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1042,12 +1040,14 @@ scripts).</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-2.3.html"
                         title="next chapter">Ganeti 2.3 design</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-2.2.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-2.2.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1064,7 +1064,7 @@ scripts).</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1073,12 +1073,12 @@ scripts).</p>
         <li class="right" >
           <a href="design-2.1.html" title="Ganeti 2.1 design"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

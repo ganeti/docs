@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Design for parallelized instance creations and opportunistic locking &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Design for parallelized instance creations and opportunistic locking &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Filtering of jobs for the Ganeti job queue" href="design-optables.html" />
     <link rel="prev" title="Support for Open vSwitch" href="design-openvswitch.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-openvswitch.html" title="Support for Open vSwitch"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="design-for-parallelized-instance-creations-and-opportunistic-locking">
 <h1><a class="toc-backref" href="#id1">Design for parallelized instance creations and opportunistic locking</a><a class="headerlink" href="#design-for-parallelized-instance-creations-and-opportunistic-locking" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-Dec-03</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.7.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -77,14 +87,14 @@ groups.</p>
 <p>The situation gets worse when disk wiping is enabled (see
 <a class="reference internal" href="man-gnt-cluster.html"><em>gnt-cluster(8)</em></a>) as that can take, depending on disk size and
 hardware performance, from minutes to hours. Not waiting for DRBD disks
-to synchronize (<tt class="docutils literal"><span class="pre">wait_for_sync=false</span></tt>) makes instance creations
+to synchronize (<code class="docutils literal"><span class="pre">wait_for_sync=false</span></code>) makes instance creations
 slightly faster, but there&#8217;s a risk of impacting I/O of other instances.</p>
 </div>
 <div class="section" id="proposed-changes">
 <h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
 <p>The target is to speed up instance creations in combination with an
 iallocator even when the cluster&#8217;s balance is sacrificed in the process.
-The cluster can later be re-balanced using <tt class="docutils literal"><span class="pre">hbal</span></tt>. The main objective
+The cluster can later be re-balanced using <code class="docutils literal"><span class="pre">hbal</span></code>. The main objective
 is to reduce the number of node locks acquired for creation and to
 release un-used locks as fast as possible (the latter is already being
 done). To do this safely, several changes are necessary.</p>
@@ -96,24 +106,24 @@ using an iallocator, only those currently available will be acquired.</p>
 opportunistic locking. Lock sets must be able to only acquire all locks
 available at the time, ignoring and not waiting for those held by
 another thread.</p>
-<p>Locks (<tt class="docutils literal"><span class="pre">SharedLock</span></tt>) already support a timeout of zero. The latter is
+<p>Locks (<code class="docutils literal"><span class="pre">SharedLock</span></code>) already support a timeout of zero. The latter is
 different from a blocking acquisition, in which case the timeout would
-be <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+be <code class="docutils literal"><span class="pre">None</span></code>.</p>
 <p>Lock sets can essentially be acquired in two different modes. One is to
 acquire the whole set, which in turn will also block adding new locks
 from other threads, and the other is to acquire specific locks by name.
 The function to acquire locks in a set accepts a timeout which, if not
-<tt class="docutils literal"><span class="pre">None</span></tt> for blocking acquisitions, counts for the whole duration of
+<code class="docutils literal"><span class="pre">None</span></code> for blocking acquisitions, counts for the whole duration of
 acquiring, if necessary, the lock set&#8217;s internal lock, as well as the
 member locks. For opportunistic acquisitions the timeout is only
 meaningful when acquiring the whole set, in which case it is only used
 for acquiring the set&#8217;s internal lock (used to block lock additions).
 For acquiring member locks the timeout is effectively zero to make them
 opportunistic.</p>
-<p>A new and optional boolean parameter named <tt class="docutils literal"><span class="pre">opportunistic</span></tt> is added to
-<tt class="docutils literal"><span class="pre">LockSet.acquire</span></tt> and re-exported through
-<tt class="docutils literal"><span class="pre">GanetiLockManager.acquire</span></tt> for use by <tt class="docutils literal"><span class="pre">mcpu</span></tt>. Internally, lock sets
-do the lock acquisition using a helper function, <tt class="docutils literal"><span class="pre">__acquire_inner</span></tt>. It
+<p>A new and optional boolean parameter named <code class="docutils literal"><span class="pre">opportunistic</span></code> is added to
+<code class="docutils literal"><span class="pre">LockSet.acquire</span></code> and re-exported through
+<code class="docutils literal"><span class="pre">GanetiLockManager.acquire</span></code> for use by <code class="docutils literal"><span class="pre">mcpu</span></code>. Internally, lock sets
+do the lock acquisition using a helper function, <code class="docutils literal"><span class="pre">__acquire_inner</span></code>. It
 will be extended to support opportunistic acquisitions. The algorithm is
 very similar to acquiring the whole set with the difference that
 acquisitions timing out will be ignored (the timeout in this case is
@@ -124,7 +134,7 @@ zero).</p>
 <p>With opportunistic locking used for instance creations (controlled by a
 parameter), multiple such requests can start at (essentially) the same
 time and compete for node locks. Some logical units, such as
-<tt class="docutils literal"><span class="pre">LUClusterVerifyGroup</span></tt>, need to acquire all node locks. In the latter
+<code class="docutils literal"><span class="pre">LUClusterVerifyGroup</span></code>, need to acquire all node locks. In the latter
 case all instance allocations would fail to get their locks. This also
 applies when multiple instance creations are started at roughly the same
 time.</p>
@@ -134,15 +144,15 @@ allocations. The logical units for instance failover and migration can
 only safely determine whether they need all node locks after the
 instance lock has been acquired. Therefore the new lock level, named
 &#8220;node-alloc&#8221; (shorthand for &#8220;node-allocation&#8221;) will be inserted after
-instances (<tt class="docutils literal"><span class="pre">LEVEL_INSTANCE</span></tt>) and before node groups
-(<tt class="docutils literal"><span class="pre">LEVEL_NODEGROUP</span></tt>). Similar to the &#8220;big cluster lock&#8221; (&#8220;BGL&#8221;) there
+instances (<code class="docutils literal"><span class="pre">LEVEL_INSTANCE</span></code>) and before node groups
+(<code class="docutils literal"><span class="pre">LEVEL_NODEGROUP</span></code>). Similar to the &#8220;big cluster lock&#8221; (&#8220;BGL&#8221;) there
 is only a single lock at this level whose name is &#8220;node allocation lock&#8221;
 (&#8220;NAL&#8221;).</p>
 <p>As a rule-of-thumb, the node allocation lock must be acquired in the
 same mode as nodes and/or node resources. If all or a large number of
 node locks are acquired, the node allocation lock should be acquired as
 well. Special attention should be given to logical units started for all
-node groups, such as <tt class="docutils literal"><span class="pre">LUGroupVerifyDisks</span></tt>, as they also block many
+node groups, such as <code class="docutils literal"><span class="pre">LUGroupVerifyDisks</span></code>, as they also block many
 nodes over a short amount of time.</p>
 </div>
 <div class="section" id="iallocator">
@@ -155,11 +165,11 @@ will be shown as offline.</p>
 </div>
 <div class="section" id="opcodes">
 <h3><a class="toc-backref" href="#id7">Opcodes</a><a class="headerlink" href="#opcodes" title="Permalink to this headline">¶</a></h3>
-<p>The opcodes <tt class="docutils literal"><span class="pre">OpInstanceCreate</span></tt> and <tt class="docutils literal"><span class="pre">OpInstanceMultiAlloc</span></tt> will gain
+<p>The opcodes <code class="docutils literal"><span class="pre">OpInstanceCreate</span></code> and <code class="docutils literal"><span class="pre">OpInstanceMultiAlloc</span></code> will gain
 a new parameter to enable opportunistic locking. By default this mode is
 disabled as to not break backwards compatibility.</p>
 <p>A new error type is added to describe a temporary lack of resources. Its
-name will be <tt class="docutils literal"><span class="pre">ECODE_TEMP_NORES</span></tt>. With opportunistic locks the opcodes
+name will be <code class="docutils literal"><span class="pre">ECODE_TEMP_NORES</span></code>. With opportunistic locks the opcodes
 mentioned before only have a partial view of the cluster and can no
 longer decide if an instance could not be allocated due to the locks it
 has been given or whether the whole cluster is lacking resources.
@@ -174,7 +184,7 @@ by re-submitting the job or by re-directing it to another cluster.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -197,12 +207,14 @@ by re-submitting the job or by re-directing it to another cluster.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-optables.html"
                         title="next chapter">Filtering of jobs for the Ganeti job queue</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-opportunistic-locking.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-opportunistic-locking.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -219,7 +231,7 @@ by re-submitting the job or by re-directing it to another cluster.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -228,12 +240,12 @@ by re-submitting the job or by re-directing it to another cluster.</p>
         <li class="right" >
           <a href="design-openvswitch.html" title="Support for Open vSwitch"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

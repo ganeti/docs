@@ -4,11 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>HSCAN(1) Ganeti | Version 2.16.0~rc1</title>
+  <title>HSCAN(1) Ganeti | Version 2.16.2</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">HSCAN(1) Ganeti | Version 2.16.0~rc1</h1>
+<h1 class="title">HSCAN(1) Ganeti | Version 2.16.2</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -24,12 +25,12 @@
 <li><a href="#copyright">COPYRIGHT</a></li>
 </ul>
 </div>
-<h1 id="name"><a href="#TOC">NAME</a></h1>
+<h1 id="name">NAME</h1>
 <p>hscan - Scan clusters via RAPI and save node/instance data</p>
-<h1 id="synopsis"><a href="#TOC">SYNOPSIS</a></h1>
+<h1 id="synopsis">SYNOPSIS</h1>
 <p><strong>hscan</strong> [-p] [--no-headers] [-d <em>path</em> ] <em>cluster...</em></p>
 <p><strong>hscan</strong> --version</p>
-<h1 id="description"><a href="#TOC">DESCRIPTION</a></h1>
+<h1 id="description">DESCRIPTION</h1>
 <p>hscan is a tool for scanning clusters via RAPI and saving their data in the input format used by <strong>hbal</strong>(1) and <strong>hspace</strong>(1). It will also show a one-line score for each cluster scanned or, if desired, the cluster state as show by the <strong>-p</strong> option to the other tools.</p>
 <p>For each cluster, one file named <em>cluster</em><strong>.data</strong> will be generated holding the node and instance data. This file can then be used in <strong>hbal</strong>(1) or <strong>hspace</strong>(1) via the <em>-t</em> option. In case the cluster name contains slashes (as it can happen when the cluster is a fully-specified URL), these will be replaced with underscores.</p>
 <p>The one-line output for each cluster will show the following:</p>
@@ -67,7 +68,7 @@
 </dl>
 <p>In case of errors while collecting data, all fields after the name of the cluster are replaced with the error display.</p>
 <p><strong>Note:</strong> this output format is not yet final so it should not be used for scripting yet.</p>
-<h1 id="options"><a href="#TOC">OPTIONS</a></h1>
+<h1 id="options">OPTIONS</h1>
 <p>The options that can be passed to the program are as follows:</p>
 <dl>
 <dt>-p, --print-nodes</dt>
@@ -80,24 +81,24 @@
 <dd><p>Just show the program version and exit.</p>
 </dd>
 </dl>
-<h1 id="exit-status"><a href="#TOC">EXIT STATUS</a></h1>
+<h1 id="exit-status">EXIT STATUS</h1>
 <p>The exist status of the command will be zero, unless for some reason loading the input data failed fatally (e.g. wrong node or instance data).</p>
-<h1 id="bugs"><a href="#TOC">BUGS</a></h1>
+<h1 id="bugs">BUGS</h1>
 <p>The program does not check its input data for consistency, and aborts with cryptic errors messages in this case.</p>
-<h1 id="example"><a href="#TOC">EXAMPLE</a></h1>
+<h1 id="example">EXAMPLE</h1>
 <pre><code>$ hscan cluster1
 Name     Nodes  Inst BNode BInst  t_mem  f_mem t_disk f_disk      Score
 cluster1     2     2     0     0   1008    652    255    253 0.24404762
 $ ls -l cluster1.data
 -rw-r--r-- 1 root root 364 2009-03-23 07:26 cluster1.data</code></pre>
-<h1 id="reporting-bugs"><a href="#TOC">REPORTING BUGS</a></h1>
+<h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to <a href="http://code.google.com/p/ganeti/">project website</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
-<h1 id="see-also"><a href="#TOC">SEE ALSO</a></h1>
+<h1 id="see-also">SEE ALSO</h1>
 <p>Ganeti overview and specifications: <strong>ganeti</strong>(7) (general overview), <strong>ganeti-os-interface</strong>(7) (guest OS definitions), <strong>ganeti-extstorage-interface</strong>(7) (external storage providers).</p>
 <p>Ganeti commands: <strong>gnt-cluster</strong>(8) (cluster-wide commands), <strong>gnt-job</strong>(8) (job-related commands), <strong>gnt-node</strong>(8) (node-related commands), <strong>gnt-instance</strong>(8) (instance commands), <strong>gnt-os</strong>(8) (guest OS commands), <strong>gnt-storage</strong>(8) (storage commands), <strong>gnt-group</strong>(8) (node group commands), <strong>gnt-backup</strong>(8) (instance import/export commands), <strong>gnt-debug</strong>(8) (debug commands).</p>
 <p>Ganeti daemons: <strong>ganeti-watcher</strong>(8) (automatic instance restarter), <strong>ganeti-cleaner</strong>(8) (job queue cleaner), <strong>ganeti-noded</strong>(8) (node daemon), <strong>ganeti-rapi</strong>(8) (remote API daemon).</p>
 <p>Ganeti htools: <strong>htools</strong>(1) (generic binary), <strong>hbal</strong>(1) (cluster balancer), <strong>hspace</strong>(1) (capacity calculation), <strong>hail</strong>(1) (IAllocator plugin), <strong>hscan</strong>(1) (data gatherer from remote clusters), <strong>hinfo</strong>(1) (cluster information printer), <strong>mon-collector</strong>(7) (data collectors interface).</p>
-<h1 id="copyright"><a href="#TOC">COPYRIGHT</a></h1>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2006-2015 Google Inc. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>

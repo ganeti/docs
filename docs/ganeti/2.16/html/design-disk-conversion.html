@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Conversion between disk templates &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Conversion between disk templates &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,31 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
-    <link rel="next" title="Disks" href="design-disks.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
+    <link rel="next" title="File-based Storage" href="design-file-based-storage.html" />
     <link rel="prev" title="Ganeti daemons refactoring" href="design-daemons.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-disks.html" title="Disks"
+          <a href="design-file-based-storage.html" title="File-based Storage"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="design-daemons.html" title="Ganeti daemons refactoring"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="conversion-between-disk-templates">
 <h1><a class="toc-backref" href="#id1">Conversion between disk templates</a><a class="headerlink" href="#conversion-between-disk-templates" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-May-23</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.13.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -81,7 +91,7 @@ templates.</p>
 <h2><a class="toc-backref" href="#id2">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h2>
 <p>Currently, Ganeti supports choosing among different disk templates when
 creating an instance. However, converting the disk template of an
-existing instance is possible only between the <tt class="docutils literal"><span class="pre">plain</span></tt> and <tt class="docutils literal"><span class="pre">drbd</span></tt>
+existing instance is possible only between the <code class="docutils literal"><span class="pre">plain</span></code> and <code class="docutils literal"><span class="pre">drbd</span></code>
 templates. This feature was added in Ganeti since its early versions
 when the number of supported disk templates was limited. Now that Ganeti
 supports plenty of choices, this feature should be extended to provide
@@ -118,7 +128,7 @@ probably added in Ganeti, at a future point.</p>
 <div class="section" id="design-decisions">
 <h2><a class="toc-backref" href="#id4">Design decisions</a><a class="headerlink" href="#design-decisions" title="Permalink to this headline">¶</a></h2>
 <p>Currently, the supported conversions for the LVM-based templates are
-handled by the <tt class="docutils literal"><span class="pre">LUInstanceSetParams</span></tt> LU. Our implementation will
+handled by the <code class="docutils literal"><span class="pre">LUInstanceSetParams</span></code> LU. Our implementation will
 follow the same approach. From a high-level point-of-view this design
 can be split in two parts:</p>
 <ul class="simple">
@@ -130,7 +140,7 @@ feature</li>
 <p>The instance must be stopped before starting the disk template
 conversion, as it currently is, otherwise the operation will fail. The
 new mechanism will need to copy the disk&#8217;s data for the conversion to be
-possible. We propose using the Unix <tt class="docutils literal"><span class="pre">dd</span></tt> command to copy the
+possible. We propose using the Unix <code class="docutils literal"><span class="pre">dd</span></code> command to copy the
 instance&#8217;s data. It can be used to copy data from source to destination,
 block-by-block, regardless of their filesystem types, making it a
 convenient tool for the case. Since the conversion will be done via data
@@ -138,12 +148,12 @@ copy it will take a long time for bigger disks to copy their data and
 consequently for the instance to switch to the new template.</p>
 <p>Some template conversions can be done faster without copying explicitly
 their disks&#8217; data. A use case is the conversions between the LVM-based
-templates, i.e., <tt class="docutils literal"><span class="pre">drbd</span></tt> and <tt class="docutils literal"><span class="pre">plain</span></tt> which will be done as happens
-now and not using the <tt class="docutils literal"><span class="pre">dd</span></tt> command. Also, this implementation will
-provide partial support for the <tt class="docutils literal"><span class="pre">blockdev</span></tt> disk template which will
+templates, i.e., <code class="docutils literal"><span class="pre">drbd</span></code> and <code class="docutils literal"><span class="pre">plain</span></code> which will be done as happens
+now and not using the <code class="docutils literal"><span class="pre">dd</span></code> command. Also, this implementation will
+provide partial support for the <code class="docutils literal"><span class="pre">blockdev</span></code> disk template which will
 act only as a source template. Since those volumes are adopted
 pre-existent block devices we will not support conversions targeting
-this template. Another exception case will be the <tt class="docutils literal"><span class="pre">diskless</span></tt> template.
+this template. Another exception case will be the <code class="docutils literal"><span class="pre">diskless</span></code> template.
 Since it is a testing template that creates instances with no disks we
 will not provide support for conversions that include this template
 type.</p>
@@ -161,27 +171,27 @@ command</li>
 <div class="section" id="block-device-changes">
 <h3><a class="toc-backref" href="#id5">Block device changes</a><a class="headerlink" href="#block-device-changes" title="Permalink to this headline">¶</a></h3>
 <p>The block device abstract class will be extended with two new methods,
-named <tt class="docutils literal"><span class="pre">Import</span></tt> and <tt class="docutils literal"><span class="pre">Export</span></tt>. Those methods will be responsible for
+named <code class="docutils literal"><span class="pre">Import</span></code> and <code class="docutils literal"><span class="pre">Export</span></code>. Those methods will be responsible for
 building the commands that will be used for the data copy between the
-corresponding devices. The <tt class="docutils literal"><span class="pre">Export</span></tt> method will build the command
-which will export the data from the source device, while the <tt class="docutils literal"><span class="pre">Import</span></tt>
+corresponding devices. The <code class="docutils literal"><span class="pre">Export</span></code> method will build the command
+which will export the data from the source device, while the <code class="docutils literal"><span class="pre">Import</span></code>
 method will do the opposite. It will import the data to the newly
 created target device. Those two methods will not perform the actual
 data copy; they will simply return the requested commands for
 transferring the data from/to the individual devices. The output of the
 two methods will be combined using a pipe (&#8220;|&#8221;) by the caller method in
 the backend level.</p>
-<p>By default the data import and export will be done using the <tt class="docutils literal"><span class="pre">dd</span></tt>
+<p>By default the data import and export will be done using the <code class="docutils literal"><span class="pre">dd</span></code>
 command. All the inherited classes will use the base functionality
 unless there is a faster way to convert to. In that case the underlying
 block device will overwrite those methods with its specific
 functionality. A use case will be the Ceph/RADOS block devices which
-will make use of the <tt class="docutils literal"><span class="pre">rbd</span> <span class="pre">import</span></tt> and <tt class="docutils literal"><span class="pre">rbd</span> <span class="pre">export</span></tt> commands to copy
-their data instead of using the default <tt class="docutils literal"><span class="pre">dd</span></tt> command.</p>
+will make use of the <code class="docutils literal"><span class="pre">rbd</span> <span class="pre">import</span></code> and <code class="docutils literal"><span class="pre">rbd</span> <span class="pre">export</span></code> commands to copy
+their data instead of using the default <code class="docutils literal"><span class="pre">dd</span></code> command.</p>
 <p>Keeping the data copy functionality in the block device layer, provides
 us with a generic mechanism that works between almost all conversions
 and furthermore can be easily extended for new disk templates. It also
-covers the devices that support the <tt class="docutils literal"><span class="pre">access=userspace</span></tt> parameter and
+covers the devices that support the <code class="docutils literal"><span class="pre">access=userspace</span></code> parameter and
 solves this problem in a generic way, by implementing the logic in the
 right level where we know what is the best to do for each device.</p>
 </div>
@@ -191,17 +201,17 @@ right level where we know what is the best to do for each device.</p>
 <ul class="simple">
 <li>blockdev_convert(src_disk, dest_disk)</li>
 </ul>
-<p>where <tt class="docutils literal"><span class="pre">src_disk</span></tt> and <tt class="docutils literal"><span class="pre">dest_disk</span></tt> are the original and the new disk
+<p>where <code class="docutils literal"><span class="pre">src_disk</span></code> and <code class="docutils literal"><span class="pre">dest_disk</span></code> are the original and the new disk
 objects respectively. First, the actual device instances will be
 computed and then they will be used to build the export and import
 commands for the data copy. The output of those methods will be
 concatenated using a pipe, following a similar approach with the impexp
 daemon. Finally, the unified data copy command will be executed, at this
-level, by the <tt class="docutils literal"><span class="pre">nodeD</span></tt>.</p>
+level, by the <code class="docutils literal"><span class="pre">nodeD</span></code>.</p>
 </div>
 <div class="section" id="core-changes">
 <h3><a class="toc-backref" href="#id7">Core changes</a><a class="headerlink" href="#core-changes" title="Permalink to this headline">¶</a></h3>
-<p>The main modifications will be made in the <tt class="docutils literal"><span class="pre">LUInstanceSetParams</span></tt> LU.
+<p>The main modifications will be made in the <code class="docutils literal"><span class="pre">LUInstanceSetParams</span></code> LU.
 The implementation of the conversion mechanism will be split into the
 following parts:</p>
 <ul class="simple">
@@ -209,30 +219,30 @@ following parts:</p>
 disks will match the size, mode, and name of the original volumes.
 Those parameters and any other needed, .i.e., the provider&#8217;s name for
 the ExtStorage conversions, will be computed by a new method which we
-will introduce, named <tt class="docutils literal"><span class="pre">ComputeDisksInfo</span></tt>. The output of that
-function will be used as the <tt class="docutils literal"><span class="pre">disk_info</span></tt> argument of the
-<tt class="docutils literal"><span class="pre">GenerateDiskTemplate</span></tt> method.</li>
+will introduce, named <code class="docutils literal"><span class="pre">ComputeDisksInfo</span></code>. The output of that
+function will be used as the <code class="docutils literal"><span class="pre">disk_info</span></code> argument of the
+<code class="docutils literal"><span class="pre">GenerateDiskTemplate</span></code> method.</li>
 <li>The creation of the new block devices. We will make use of the
-<tt class="docutils literal"><span class="pre">CreateDisks</span></tt> method which creates and attaches the new block
+<code class="docutils literal"><span class="pre">CreateDisks</span></code> method which creates and attaches the new block
 devices.</li>
 <li>The data copy for each disk of the instance from the original to the
-newly created volume. The data copy will be made by the <tt class="docutils literal"><span class="pre">nodeD</span></tt> with
+newly created volume. The data copy will be made by the <code class="docutils literal"><span class="pre">nodeD</span></code> with
 the rpc call we have introduced earlier in this design. In case some
 disks fail to copy their data the operation will fail and the newly
 created disks will be removed. The instance will remain intact.</li>
 <li>The detachment of the original disks of the instance when the data
 copy operation successfully completes by calling the
-<tt class="docutils literal"><span class="pre">RemoveInstanceDisk</span></tt> method for each instance&#8217;s disk.</li>
+<code class="docutils literal"><span class="pre">RemoveInstanceDisk</span></code> method for each instance&#8217;s disk.</li>
 <li>The attachment of the new disks to the instance by calling the
-<tt class="docutils literal"><span class="pre">AddInstanceDisk</span></tt> method for each disk we have created.</li>
+<code class="docutils literal"><span class="pre">AddInstanceDisk</span></code> method for each disk we have created.</li>
 <li>The update of the configuration file with the new values.</li>
 <li>The removal of the original block devices from the node using the
-<tt class="docutils literal"><span class="pre">BlockdevRemove</span></tt> method for each one of the old disks.</li>
+<code class="docutils literal"><span class="pre">BlockdevRemove</span></code> method for each one of the old disks.</li>
 </ul>
 </div>
 <div class="section" id="user-interface-changes">
 <h3><a class="toc-backref" href="#id8">User interface changes</a><a class="headerlink" href="#user-interface-changes" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">-t</span></tt> (<tt class="docutils literal"><span class="pre">--disk-template</span></tt>) option from the gnt-instance modify
+<p>The <code class="docutils literal"><span class="pre">-t</span></code> (<code class="docutils literal"><span class="pre">--disk-template</span></code>) option from the gnt-instance modify
 command will specify the disk template to convert <em>to</em>, as it happens
 now. The rest disk options such as its size, its mode, and its name will
 be computed from the original volumes by the conversion mechanism, and
@@ -240,24 +250,26 @@ the user will not explicitly provide them.</p>
 <div class="section" id="extstorage-conversions">
 <h4><a class="toc-backref" href="#id9">ExtStorage conversions</a><a class="headerlink" href="#extstorage-conversions" title="Permalink to this headline">¶</a></h4>
 <p>When converting to an ExtStorage disk template the
-<tt class="docutils literal"><span class="pre">provider=*PROVIDER*</span></tt> option which specifies the ExtStorage provider
+<code class="docutils literal"><span class="pre">provider=*PROVIDER*</span></code> option which specifies the ExtStorage provider
 will be mandatory. Also, arbitrary parameters can be passed to the
 ExtStorage provider. Those parameters will be optional and could be
 passed as additional comma separated options. Since it is not allowed to
-convert the disk template of an instance and make use of the <tt class="docutils literal"><span class="pre">--disk</span></tt>
+convert the disk template of an instance and make use of the <code class="docutils literal"><span class="pre">--disk</span></code>
 option at the same time, we propose to introduce a new option named
-<tt class="docutils literal"><span class="pre">--ext-params</span></tt> to handle the <tt class="docutils literal"><span class="pre">ext</span></tt> template conversions.</p>
-<div class="highlight-python"><pre>gnt-instance modify -t ext --ext-params provider=pvdr1 test_vm
-gnt-instance modify -t ext --ext-params provider=pvdr1,param1=val1,param2=val2 test_vm</pre>
+<code class="docutils literal"><span class="pre">--ext-params</span></code> to handle the <code class="docutils literal"><span class="pre">ext</span></code> template conversions.</p>
+<div class="highlight-python"><div class="highlight"><pre>gnt-instance modify -t ext --ext-params provider=pvdr1 test_vm
+gnt-instance modify -t ext --ext-params provider=pvdr1,param1=val1,param2=val2 test_vm
+</pre></div>
 </div>
 </div>
 <div class="section" id="file-based-conversions">
 <h4><a class="toc-backref" href="#id10">File-based conversions</a><a class="headerlink" href="#file-based-conversions" title="Permalink to this headline">¶</a></h4>
-<p>For conversions <em>to</em> a file-based template the <tt class="docutils literal"><span class="pre">--file-storage-dir</span></tt>
-and the <tt class="docutils literal"><span class="pre">--file-driver</span></tt> options could be used, similarly to the
+<p>For conversions <em>to</em> a file-based template the <code class="docutils literal"><span class="pre">--file-storage-dir</span></code>
+and the <code class="docutils literal"><span class="pre">--file-driver</span></code> options could be used, similarly to the
 <strong>add</strong> command, to manually configure the storage directory and the
 preferred driver for the file-based disks.</p>
-<div class="highlight-python"><pre>gnt-instance modify -t file --file-storage-dir=mysubdir test_vm</pre>
+<div class="highlight-python"><div class="highlight"><pre>gnt-instance modify -t file --file-storage-dir=mysubdir test_vm
+</pre></div>
 </div>
 </div>
 </div>
@@ -441,7 +453,7 @@ currently done by the impexp daemon.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -469,14 +481,16 @@ currently done by the impexp daemon.</p>
   <p class="topless"><a href="design-daemons.html"
                         title="previous chapter">Ganeti daemons refactoring</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="design-disks.html"
-                        title="next chapter">Disks</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-disk-conversion.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="design-file-based-storage.html"
+                        title="next chapter">File-based Storage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-disk-conversion.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -493,21 +507,21 @@ currently done by the impexp daemon.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-disks.html" title="Disks"
+          <a href="design-file-based-storage.html" title="File-based Storage"
              >next</a></li>
         <li class="right" >
           <a href="design-daemons.html" title="Ganeti daemons refactoring"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Allocation for Partitioned Ganeti &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Allocation for Partitioned Ganeti &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Design for adding UUID and name to devices" href="design-device-uuid-name.html" />
     <link rel="prev" title="Ganeti CPU Pinning" href="design-cpu-pinning.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-cpu-pinning.html" title="Ganeti CPU Pinning"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="allocation-for-partitioned-ganeti">
 <h1><a class="toc-backref" href="#id1">Allocation for Partitioned Ganeti</a><a class="headerlink" href="#allocation-for-partitioned-ganeti" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2015-Jan-22</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.15.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -85,7 +95,7 @@ the total usage of the cluster being low.</p>
 <div class="section" id="proposed-changes">
 <h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
 <p>We propose to change the allocation strategy of hail for
-node groups that have the <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> flag set,
+node groups that have the <code class="docutils literal"><span class="pre">exclusive_storage</span></code> flag set,
 as detailed below; nothing will be changed for non-exclusive
 node groups. The new strategy will try to keep the cluster
 as available for new instances as possible.</p>
@@ -109,9 +119,9 @@ after placing that instance on that node. Lost-allocation vectors
 are ordered lexicographically, i.e., a loss of an allocation
 larger instance size dominates loss of allocations of smaller
 instance sizes.</p>
-<p>If allocating in a node group with <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> set
+<p>If allocating in a node group with <code class="docutils literal"><span class="pre">exclusive_storage</span></code> set
 to true, hail will try to minimise the pair of the lost-allocations
-vector and the remaining disk space on the node afer, ordered
+vector and the remaining disk space on the node after, ordered
 lexicographically.</p>
 </div>
 <div class="section" id="example">
@@ -141,7 +151,7 @@ node (lost allocations: 0, 1, 0, 1).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -162,12 +172,14 @@ node (lost allocations: 0, 1, 0, 1).</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-device-uuid-name.html"
                         title="next chapter">Design for adding UUID and name to devices</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-dedicated-allocation.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-dedicated-allocation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -184,7 +196,7 @@ node (lost allocations: 0, 1, 0, 1).</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -193,12 +205,12 @@ node (lost allocations: 0, 1, 0, 1).</p>
         <li class="right" >
           <a href="design-cpu-pinning.html" title="Ganeti CPU Pinning"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

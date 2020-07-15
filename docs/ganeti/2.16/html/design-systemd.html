@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Systemd integration &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Systemd integration &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Automatized Upgrade Procedure for Ganeti" href="design-upgrade.html" />
     <link rel="prev" title="Management of storage types and disk templates, incl. storage space reporting" href="design-storagetypes.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="systemd-integration">
 <h1><a class="toc-backref" href="#id2">Systemd integration</a><a class="headerlink" href="#systemd-integration" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Mar-26</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.12.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -82,10 +92,10 @@ discusses the possibility of supporting socket activation.</p>
 (and derivatives) and RedHat/Fedora (and derivatives). The initscript
 treats the whole Ganeti system as a single service wrt. starting and
 stopping (but allows starting/stopping/restarting individual daemons).</p>
-<p>The initscript is aided by <tt class="docutils literal"><span class="pre">daemon-util</span></tt>, which takes care of correctly
+<p>The initscript is aided by <code class="docutils literal"><span class="pre">daemon-util</span></code>, which takes care of correctly
 ordering the startup/shutdown of daemons using an explicit order.</p>
 <p>Finally, process supervision is achieved by (optionally) running
-<tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> via cron every 5 minutes. <tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> will - among
+<code class="docutils literal"><span class="pre">ganeti-watcher</span></code> via cron every 5 minutes. <code class="docutils literal"><span class="pre">ganeti-watcher</span></code> will - among
 other things - try to start services that should be running but are not.</p>
 <p>The example initscript currently shipped with Ganeti will work with
 systemd&#8217;s LSB compatibility wrappers out of the box, however there are
@@ -120,26 +130,26 @@ better restrict daemons running as root (noded and mond).</li>
 <p>We propose to extend Ganeti to natively support systemd, in addition to
 shipping the init-script as is. This requires the addition of systemd
 unit files, as well as some changes in daemon-util and ganeti-watcher to
-use <tt class="docutils literal"><span class="pre">systemctl</span></tt> on systems where Ganeti is managed by systemd.</p>
+use <code class="docutils literal"><span class="pre">systemctl</span></code> on systems where Ganeti is managed by systemd.</p>
 <div class="section" id="systemd-unit-files">
 <h3><a class="toc-backref" href="#id5">systemd unit files</a><a class="headerlink" href="#systemd-unit-files" title="Permalink to this headline">¶</a></h3>
 <p>Systemd uses unit files to store information about a service, device,
 mount point, or other resource it controls. Each unit file contains
-exactly one unit definition, consisting of a <tt class="docutils literal"><span class="pre">Unit</span></tt> an (optional)
-<tt class="docutils literal"><span class="pre">Install</span></tt> section and an (optional) type-specific section (e.g.
-<tt class="docutils literal"><span class="pre">Service</span></tt>). Unit files are dropped in pre-determined locations in the
+exactly one unit definition, consisting of a <code class="docutils literal"><span class="pre">Unit</span></code> an (optional)
+<code class="docutils literal"><span class="pre">Install</span></code> section and an (optional) type-specific section (e.g.
+<code class="docutils literal"><span class="pre">Service</span></code>). Unit files are dropped in pre-determined locations in the
 system, where systemd is configured to read them from. Systemd allows
 complete or partial overrides of the unit files, using overlay
 directories. For more information, see <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/systemd.unit.html">systemd.unit(5)</a>.</p>
 <p>We will create one systemd <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/systemd.service.html">service unit</a> per daemon (masterd, noded,
 mond, luxid, confd, rapi) and an additional oneshot service for
-ensure-dirs (<tt class="docutils literal"><span class="pre">ganeti-common.service</span></tt>). All services will <tt class="docutils literal"><span class="pre">Require</span></tt>
-<tt class="docutils literal"><span class="pre">ganeti-common.service</span></tt>, which will thus run exactly once per
+ensure-dirs (<code class="docutils literal"><span class="pre">ganeti-common.service</span></code>). All services will <code class="docutils literal"><span class="pre">Require</span></code>
+<code class="docutils literal"><span class="pre">ganeti-common.service</span></code>, which will thus run exactly once per
 transaction (regardless of starting one or all daemons).</p>
 <p>All daemons will run in the foreground (already implemented by the
-<tt class="docutils literal"><span class="pre">-f</span></tt> flag), directly supervised by systemd, using
-<tt class="docutils literal"><span class="pre">Restart=on-failure</span></tt> in the respective units. Master role units will
-also treat <tt class="docutils literal"><span class="pre">EXIT_NOTMASTER</span></tt> as a successful exit and not trigger
+<code class="docutils literal"><span class="pre">-f</span></code> flag), directly supervised by systemd, using
+<code class="docutils literal"><span class="pre">Restart=on-failure</span></code> in the respective units. Master role units will
+also treat <code class="docutils literal"><span class="pre">EXIT_NOTMASTER</span></code> as a successful exit and not trigger
 restarts. Additionally, systemd&#8217;s conditional directives will be used to
 avoid starting daemons when they will certainly fail (e.g. because of
 missing configuration).</p>
@@ -147,25 +157,25 @@ missing configuration).</p>
 <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/systemd.target.html">target units</a> as synchronization points:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">ganeti-node.target</span></tt>: Regular node/master candidate functionality,
-including <tt class="docutils literal"><span class="pre">ganeti-noded.service</span></tt>, <tt class="docutils literal"><span class="pre">ganeti-mond.service</span></tt> and
-<tt class="docutils literal"><span class="pre">ganeti-confd.service</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">ganeti-master.target</span></tt>: Master node functionality, including
-<tt class="docutils literal"><span class="pre">ganeti-masterd.service</span></tt>, <tt class="docutils literal"><span class="pre">ganeti-luxid.service</span></tt> and
-<tt class="docutils literal"><span class="pre">ganeti-rapi.service</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">ganeti.target</span></tt>: A &#8220;meta-target&#8221; depending on
-<tt class="docutils literal"><span class="pre">ganeti-node.target</span></tt> and <tt class="docutils literal"><span class="pre">ganti-master.target</span></tt>.
-<tt class="docutils literal"><span class="pre">ganeti.target</span></tt> itself will be <tt class="docutils literal"><span class="pre">WantedBy</span></tt> <tt class="docutils literal"><span class="pre">multi-user.target</span></tt>,
+<li><code class="docutils literal"><span class="pre">ganeti-node.target</span></code>: Regular node/master candidate functionality,
+including <code class="docutils literal"><span class="pre">ganeti-noded.service</span></code>, <code class="docutils literal"><span class="pre">ganeti-mond.service</span></code> and
+<code class="docutils literal"><span class="pre">ganeti-confd.service</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">ganeti-master.target</span></code>: Master node functionality, including
+<code class="docutils literal"><span class="pre">ganeti-masterd.service</span></code>, <code class="docutils literal"><span class="pre">ganeti-luxid.service</span></code> and
+<code class="docutils literal"><span class="pre">ganeti-rapi.service</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">ganeti.target</span></code>: A &#8220;meta-target&#8221; depending on
+<code class="docutils literal"><span class="pre">ganeti-node.target</span></code> and <code class="docutils literal"><span class="pre">ganti-master.target</span></code>.
+<code class="docutils literal"><span class="pre">ganeti.target</span></code> itself will be <code class="docutils literal"><span class="pre">WantedBy</span></code> <code class="docutils literal"><span class="pre">multi-user.target</span></code>,
 so that Ganeti starts automatically on boot.</li>
 </ul>
 </div></blockquote>
 <p>To allow starting/stopping/restarting the different roles, all units
-will include a <tt class="docutils literal"><span class="pre">PartOf</span></tt> directive referencing their direct ancestor
-target. In this way <tt class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">ganeti-node.target</span></tt> or <tt class="docutils literal"><span class="pre">systemctl</span>
-<span class="pre">restart</span> <span class="pre">ganeti.target</span></tt> will work as expected, i.e. restart only the node
+will include a <code class="docutils literal"><span class="pre">PartOf</span></code> directive referencing their direct ancestor
+target. In this way <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">ganeti-node.target</span></code> or <code class="docutils literal"><span class="pre">systemctl</span>
+<span class="pre">restart</span> <span class="pre">ganeti.target</span></code> will work as expected, i.e. restart only the node
 daemons or all daemons respectively.</p>
 <p>The full dependency tree is as follows:</p>
-<div class="highlight-python"><pre>ganeti.target
+<div class="highlight-python"><div class="highlight"><pre>ganeti.target
 ├─ganeti-master.target
 │ ├─ganeti-luxid.service
 │ │ └─ganeti-common.service
@@ -179,63 +189,64 @@ daemons or all daemons respectively.</p>
   ├─ganeti-mond.service
   │ └─ganeti-common.service
   └─ganeti-noded.service
-    └─ganeti-common.service</pre>
+    └─ganeti-common.service
+</pre></div>
 </div>
 <div class="section" id="installation">
 <h4><a class="toc-backref" href="#id6">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h4>
 <p>The systemd unit files will be built from templates under
 doc/examples/systemd, much like what is currently done for the
-initscript. They will not be installed with <tt class="docutils literal"><span class="pre">make</span> <span class="pre">install</span></tt>, but left
+initscript. They will not be installed with <code class="docutils literal"><span class="pre">make</span> <span class="pre">install</span></code>, but left
 up to the distribution packagers to ship them at the appropriate
 locations.</p>
 </div>
 <div class="section" id="sysv-compatibility">
 <h4><a class="toc-backref" href="#id7">SysV compatibility</a><a class="headerlink" href="#sysv-compatibility" title="Permalink to this headline">¶</a></h4>
 <p>Systemd automatically creates a service for each SysV initscript on the
-system, appending <tt class="docutils literal"><span class="pre">.service</span></tt> to the initscript name, except if a
+system, appending <code class="docutils literal"><span class="pre">.service</span></code> to the initscript name, except if a
 service with the given name already exists. In our case however, the
-initscript&#8217;s functionality is implemented by <tt class="docutils literal"><span class="pre">ganeti.target</span></tt>.</p>
+initscript&#8217;s functionality is implemented by <code class="docutils literal"><span class="pre">ganeti.target</span></code>.</p>
 <p>Systemd provides the ability to <em>mask</em> a given service, rendering it
 unusable, but in the case of SysV services this also results in
-failure to use tools like <tt class="docutils literal"><span class="pre">invoke-rc.d</span></tt> or <tt class="docutils literal"><span class="pre">service</span></tt>. Thus we have
-to ship a <tt class="docutils literal"><span class="pre">ganeti.service</span></tt> (calling <tt class="docutils literal"><span class="pre">/bin/true</span></tt>) of type
-<tt class="docutils literal"><span class="pre">oneshot</span></tt>, that depends on <tt class="docutils literal"><span class="pre">ganeti.target</span></tt> for these tools to
-continue working as expected.  <tt class="docutils literal"><span class="pre">ganeti.target</span></tt> on the other hand will
-be marked as <tt class="docutils literal"><span class="pre">PartOf</span> <span class="pre">=</span> <span class="pre">ganeti.service</span></tt> for stop and restart to be
+failure to use tools like <code class="docutils literal"><span class="pre">invoke-rc.d</span></code> or <code class="docutils literal"><span class="pre">service</span></code>. Thus we have
+to ship a <code class="docutils literal"><span class="pre">ganeti.service</span></code> (calling <code class="docutils literal"><span class="pre">/bin/true</span></code>) of type
+<code class="docutils literal"><span class="pre">oneshot</span></code>, that depends on <code class="docutils literal"><span class="pre">ganeti.target</span></code> for these tools to
+continue working as expected.  <code class="docutils literal"><span class="pre">ganeti.target</span></code> on the other hand will
+be marked as <code class="docutils literal"><span class="pre">PartOf</span> <span class="pre">=</span> <span class="pre">ganeti.service</span></code> for stop and restart to be
 propagated to the whole service.</p>
-<p>The <tt class="docutils literal"><span class="pre">ganeti.service</span></tt> unit will not be marked to be enabled by systemd
+<p>The <code class="docutils literal"><span class="pre">ganeti.service</span></code> unit will not be marked to be enabled by systemd
 (i.e. will not be started at boot), but will be available for manual
 invocation and only be used for compatibility purposes.</p>
 </div>
 </div>
 <div class="section" id="changes-to-daemon-util">
 <h3><a class="toc-backref" href="#id8">Changes to daemon-util</a><a class="headerlink" href="#changes-to-daemon-util" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">daemon-util</span></tt> is used wherever daemon control is required:</p>
+<p><code class="docutils literal"><span class="pre">daemon-util</span></code> is used wherever daemon control is required:</p>
 <blockquote>
 <div><ul class="simple">
 <li>In the sample initscript, to start and stop all daemons.</li>
-<li>In <tt class="docutils literal"><span class="pre">ganeti.backend</span></tt> to start the master daemons on master failover and
+<li>In <code class="docutils literal"><span class="pre">ganeti.backend</span></code> to start the master daemons on master failover and
 to stop confd when leaving the cluster.</li>
-<li>In <tt class="docutils literal"><span class="pre">ganeti.bootstrap</span></tt>, to start the daemons on cluster initialization.</li>
-<li>In <tt class="docutils literal"><span class="pre">ganeti.cli</span></tt>, to control the daemon run state during certain
+<li>In <code class="docutils literal"><span class="pre">ganeti.bootstrap</span></code>, to start the daemons on cluster initialization.</li>
+<li>In <code class="docutils literal"><span class="pre">ganeti.cli</span></code>, to control the daemon run state during certain
 operations (e.g. renew-crypto).</li>
 </ul>
 </div></blockquote>
-<p>Currently, <tt class="docutils literal"><span class="pre">daemon-util</span></tt> uses two auxiliary tools for managing daemons
-<tt class="docutils literal"><span class="pre">start-stop-daemon</span></tt> and <tt class="docutils literal"><span class="pre">daemon</span></tt>, in this order of preference.  In
-order not to confuse systemd in its process supervision, <tt class="docutils literal"><span class="pre">daemon-util</span></tt>
-will have to be modified to start and stop the daemons via <tt class="docutils literal"><span class="pre">systemctl</span></tt>
-in preference to <tt class="docutils literal"><span class="pre">start-stop-daemon</span></tt> and <tt class="docutils literal"><span class="pre">daemon</span></tt>. This
+<p>Currently, <code class="docutils literal"><span class="pre">daemon-util</span></code> uses two auxiliary tools for managing daemons
+<code class="docutils literal"><span class="pre">start-stop-daemon</span></code> and <code class="docutils literal"><span class="pre">daemon</span></code>, in this order of preference.  In
+order not to confuse systemd in its process supervision, <code class="docutils literal"><span class="pre">daemon-util</span></code>
+will have to be modified to start and stop the daemons via <code class="docutils literal"><span class="pre">systemctl</span></code>
+in preference to <code class="docutils literal"><span class="pre">start-stop-daemon</span></code> and <code class="docutils literal"><span class="pre">daemon</span></code>. This
 will require a basic check against run-time environment integrity:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Make sure that <tt class="docutils literal"><span class="pre">systemd</span></tt> runs as PID 1, which is a <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/sd_booted.html">simple
-check</a> against the existence of <tt class="docutils literal"><span class="pre">/run/systemd/system</span></tt>.</li>
-<li>Make sure <tt class="docutils literal"><span class="pre">systemd</span></tt> knows how to handle Ganeti natively. This can
-be a check against the <tt class="docutils literal"><span class="pre">LoadState</span></tt> of the <tt class="docutils literal"><span class="pre">ganeti.target</span></tt> unit.</li>
+<li>Make sure that <code class="docutils literal"><span class="pre">systemd</span></code> runs as PID 1, which is a <a class="reference external" href="http://www.freedesktop.org/software/systemd/man/sd_booted.html">simple
+check</a> against the existence of <code class="docutils literal"><span class="pre">/run/systemd/system</span></code>.</li>
+<li>Make sure <code class="docutils literal"><span class="pre">systemd</span></code> knows how to handle Ganeti natively. This can
+be a check against the <code class="docutils literal"><span class="pre">LoadState</span></code> of the <code class="docutils literal"><span class="pre">ganeti.target</span></code> unit.</li>
 </ul>
 </div></blockquote>
-<p>Unless both of these checks pass, <tt class="docutils literal"><span class="pre">daemon-util</span></tt> will fall back to its
+<p>Unless both of these checks pass, <code class="docutils literal"><span class="pre">daemon-util</span></code> will fall back to its
 current behavior.</p>
 </div>
 <div class="section" id="changes-to-ganeti-watcher">
@@ -243,7 +254,7 @@ current behavior.</p>
 <p>Since the daemon process supervision will be systemd&#8217;s responsibility,
 the watcher must detect systemd&#8217;s presence and not attempt to start any
 missing services. Again, systemd can be detected by the existence of
-<tt class="docutils literal"><span class="pre">/run/systemd/system</span></tt>.</p>
+<code class="docutils literal"><span class="pre">/run/systemd/system</span></code>.</p>
 </div>
 </div>
 <div class="section" id="future-work">
@@ -271,7 +282,7 @@ environment variables to the started processes.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -301,12 +312,14 @@ environment variables to the started processes.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-upgrade.html"
                         title="next chapter">Automatized Upgrade Procedure for Ganeti</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-systemd.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-systemd.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -323,7 +336,7 @@ environment variables to the started processes.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -332,12 +345,12 @@ environment variables to the started processes.</p>
         <li class="right" >
           <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

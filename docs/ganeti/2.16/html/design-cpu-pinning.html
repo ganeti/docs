@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti CPU Pinning &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti CPU Pinning &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Allocation for Partitioned Ganeti" href="design-dedicated-allocation.html" />
     <link rel="prev" title="Taking relative CPU speed into account" href="design-cpu-speed.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-cpu-speed.html" title="Taking relative CPU speed into account"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-cpu-pinning">
 <h1>Ganeti CPU Pinning<a class="headerlink" href="#ganeti-cpu-pinning" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-May-28</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.6.0</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <p>This document defines Ganeti&#8217;s support for CPU pinning (aka CPU
@@ -62,7 +72,8 @@ specific virtual CPU (vCPU), to a physical CPU or a range of CPUs.</p>
 <h2>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
 <p>Suggested command line parameters for controlling CPU pinning are as
 follows:</p>
-<div class="highlight-python"><pre>gnt-instance modify -H cpu_mask=&lt;cpu-pinning-info&gt; &lt;instance&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>gnt-instance modify -H cpu_mask=&lt;cpu-pinning-info&gt; &lt;instance&gt;
+</pre></div>
 </div>
 <p>cpu-pinning-info can be any of the following:</p>
 <ul>
@@ -74,7 +85,7 @@ vCPUs will be mapped to the indicated list.</p>
 each vCPU is mapped to an entry in the list, and the size of the
 list must match the number of vCPUs defined for the instance. This
 is enforced when setting CPU pinning or when setting the number of
-vCPUs using <tt class="docutils literal"><span class="pre">-B</span> <span class="pre">vcpus=#</span></tt>.</p>
+vCPUs using <code class="docutils literal"><span class="pre">-B</span> <span class="pre">vcpus=#</span></code>.</p>
 <p>The mapping list is matched to consecutive virtual CPUs, so the first entry
 would be the CPU pinning information for vCPU 0, the second entry
 for vCPU 1, etc.</p>
@@ -83,7 +94,7 @@ for vCPU 1, etc.</p>
 <p>The default setting for new instances is &#8220;all&#8221;, which maps the entire
 instance to all CPUs, thus effectively turning off CPU pinning.</p>
 <p>Here are some usage examples:</p>
-<div class="highlight-python"><pre># Map vCPU 0 to physical CPU 1 and vCPU 1 to CPU 3 (assuming 2 vCPUs)
+<div class="highlight-python"><div class="highlight"><pre># Map vCPU 0 to physical CPU 1 and vCPU 1 to CPU 3 (assuming 2 vCPUs)
 gnt-instance modify -H cpu_mask=1:3 my-inst
 
 # Pin vCPU 0 to CPUs 1 or 2, and vCPU 1 to any CPU
@@ -97,14 +108,16 @@ gnt-instance modify -H cpu_mask=all:1\\,3-5:0 my-inst
 gnt-instance modify -H cpu_mask=0 my-inst
 
 # Turn off CPU pinning (default setting)
-gnt-instance modify -H cpu_mask=all my-inst</pre>
+gnt-instance modify -H cpu_mask=all my-inst
+</pre></div>
 </div>
 <p>Assuming an instance has 3 vCPUs, the following commands will fail:</p>
-<div class="highlight-python"><pre># not enough mappings
+<div class="highlight-python"><div class="highlight"><pre># not enough mappings
 gnt-instance modify -H cpu_mask=0:1 my-inst
 
 # too many
-gnt-instance modify -H cpu_mask=2:1:1:all my-inst</pre>
+gnt-instance modify -H cpu_mask=2:1:1:all my-inst
+</pre></div>
 </div>
 </div>
 <div class="section" id="validation">
@@ -116,7 +129,7 @@ Changing either parameter in a way that conflicts with the other will
 fail with a proper error message.
 To make such a change, both parameters should be modified at the same
 time. For example:
-<tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">modify</span> <span class="pre">-B</span> <span class="pre">vcpus=4</span> <span class="pre">-H</span> <span class="pre">cpu_mask=1:1:2-3:4\\,6</span> <span class="pre">my-inst</span></tt></p>
+<code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">modify</span> <span class="pre">-B</span> <span class="pre">vcpus=4</span> <span class="pre">-H</span> <span class="pre">cpu_mask=1:1:2-3:4\\,6</span> <span class="pre">my-inst</span></code></p>
 <p>Besides validating CPU configuration, i.e. the number of vCPUs matches
 the requested CPU pinning, Ganeti will also verify the number of
 physical CPUs is enough to support the required configuration. For
@@ -138,7 +151,7 @@ migrations will succeed.</p>
 indicated by CPU pinning information, instance failover will fail.</p>
 <p>In case of emergency, to force failover to ignore mismatching CPU
 information, the following switch can be used:
-<tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">failover</span> <span class="pre">--fix-cpu-mismatch</span> <span class="pre">my-inst</span></tt>.
+<code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">failover</span> <span class="pre">--fix-cpu-mismatch</span> <span class="pre">my-inst</span></code>.
 This command will try to failover the instance with the current cpu mask,
 but if that fails, it will change the mask to be &#8220;all&#8221;.</p>
 </div>
@@ -167,14 +180,15 @@ params section of the configuration file as the original string.</p>
 <p>There are 2 ways to control pinning in Xen, either via the command line
 or through the configuration file.</p>
 <p>The commands to make direct pinning changes are the following:</p>
-<div class="highlight-python"><pre># To pin a vCPU to a specific CPU
+<div class="highlight-python"><div class="highlight"><pre># To pin a vCPU to a specific CPU
 xm vcpu-pin &lt;domain&gt; &lt;vcpu&gt; &lt;cpu&gt;
 
 # To unpin a vCPU
 xm vcpu-pin &lt;domain&gt; &lt;vcpu&gt; all
 
 # To get the current pinning status
-xm vcpu-list &lt;domain&gt;</pre>
+xm vcpu-list &lt;domain&gt;
+</pre></div>
 </div>
 <p>Since currently controlling Xen in Ganeti is done in the configuration
 file, it is straight forward to use the same method for CPU pinning.
@@ -189,35 +203,35 @@ configuration:</p>
 <p>When no pinning is required (pinning information is &#8220;all&#8221;), the
 &#8220;cpus&#8221; entry is removed from the configuration file.</p>
 <p>For all other cases, the configuration is &#8220;translated&#8221; to Xen, which
-expects either <tt class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">&quot;a&quot;</span></tt> or <tt class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;,</span> <span class="pre">...]</span></tt>,
+expects either <code class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">&quot;a&quot;</span></code> or <code class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;,</span> <span class="pre">...]</span></code>,
 where each a, b or c are a physical CPU number, CPU range, or a
 combination, and the number of entries (if a list is used) must match
 the number of vCPUs, and are mapped in order.</p>
-<p>For example, CPU pinning information of <tt class="docutils literal"><span class="pre">1:2,4-7:0-1</span></tt> is translated
-to this entry in Xen&#8217;s configuration <tt class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;1&quot;,</span> <span class="pre">&quot;2,4-7&quot;,</span> <span class="pre">&quot;0-1&quot;</span> <span class="pre">]</span></tt></p>
+<p>For example, CPU pinning information of <code class="docutils literal"><span class="pre">1:2,4-7:0-1</span></code> is translated
+to this entry in Xen&#8217;s configuration <code class="docutils literal"><span class="pre">cpus</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;1&quot;,</span> <span class="pre">&quot;2,4-7&quot;,</span> <span class="pre">&quot;0-1&quot;</span> <span class="pre">]</span></code></p>
 </div>
 <div class="section" id="kvm">
 <h2>KVM<a class="headerlink" href="#kvm" title="Permalink to this headline">¶</a></h2>
 <p>Controlling pinning in KVM is a little more complicated as there is no
 configuration to control pinning before instances are started.</p>
-<p>The way to change or assign CPU pinning under KVM is to use <tt class="docutils literal"><span class="pre">taskset</span></tt> or
-its underlying system call <tt class="docutils literal"><span class="pre">sched_setaffinity</span></tt>. Setting the affinity for
+<p>The way to change or assign CPU pinning under KVM is to use <code class="docutils literal"><span class="pre">taskset</span></code> or
+its underlying system call <code class="docutils literal"><span class="pre">sched_setaffinity</span></code>. Setting the affinity for
 the VM process will change CPU pinning for the entire VM, and setting it
 for specific vCPU threads will control specific vCPUs.</p>
 <p>The sequence of commands to control pinning is this: start the instance
-with the <tt class="docutils literal"><span class="pre">-S</span></tt> switch, so it halts before starting execution, get the
-process ID or identify thread IDs of each vCPU by sending <tt class="docutils literal"><span class="pre">info</span> <span class="pre">cpus</span></tt>
+with the <code class="docutils literal"><span class="pre">-S</span></code> switch, so it halts before starting execution, get the
+process ID or identify thread IDs of each vCPU by sending <code class="docutils literal"><span class="pre">info</span> <span class="pre">cpus</span></code>
 to the monitor, map vCPUs as required by the cpu-pinning information,
-and issue a <tt class="docutils literal"><span class="pre">cont</span></tt> command on the KVM monitor to allow the instance
+and issue a <code class="docutils literal"><span class="pre">cont</span></code> command on the KVM monitor to allow the instance
 to start execution.</p>
 <p>For example, a sequence of commands to control CPU affinity under KVM
 may be:</p>
 <ul class="simple">
-<li>Start KVM: <tt class="docutils literal"><span class="pre">/usr/bin/kvm</span> <span class="pre">…</span> <span class="pre">&lt;kvm-command-line-options&gt;</span> <span class="pre">…</span> <span class="pre">-S</span></tt></li>
+<li>Start KVM: <code class="docutils literal"><span class="pre">/usr/bin/kvm</span> <span class="pre">…</span> <span class="pre">&lt;kvm-command-line-options&gt;</span> <span class="pre">…</span> <span class="pre">-S</span></code></li>
 <li>Use socat to connect to monitor</li>
-<li>send <tt class="docutils literal"><span class="pre">info</span> <span class="pre">cpus</span></tt> to monitor to get thread/vCPU information</li>
-<li>call <tt class="docutils literal"><span class="pre">sched_setaffinity</span></tt> for each thread with the CPU mask</li>
-<li>send <tt class="docutils literal"><span class="pre">cont</span></tt> to KVM&#8217;s monitor</li>
+<li>send <code class="docutils literal"><span class="pre">info</span> <span class="pre">cpus</span></code> to monitor to get thread/vCPU information</li>
+<li>call <code class="docutils literal"><span class="pre">sched_setaffinity</span></code> for each thread with the CPU mask</li>
+<li>send <code class="docutils literal"><span class="pre">cont</span></code> to KVM&#8217;s monitor</li>
 </ul>
 <p>A CPU mask is a hexadecimal bit mask where each bit represents one
 physical CPU. See man page for <em class="manpage">sched_setaffinity(2)</em> for more
@@ -249,7 +263,7 @@ frequent, there&#8217;s no real advantage.</li>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -274,12 +288,14 @@ frequent, there&#8217;s no real advantage.</li>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-dedicated-allocation.html"
                         title="next chapter">Allocation for Partitioned Ganeti</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-cpu-pinning.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-cpu-pinning.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -296,7 +312,7 @@ frequent, there&#8217;s no real advantage.</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -305,12 +321,12 @@ frequent, there&#8217;s no real advantage.</li>
         <li class="right" >
           <a href="design-cpu-speed.html" title="Taking relative CPU speed into account"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

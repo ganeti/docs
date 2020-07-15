@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti 2.1 design &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti 2.1 design &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti 2.2 design" href="design-2.2.html" />
     <link rel="prev" title="Ganeti 2.0 design" href="design-2.0.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="design-2.0.html" title="Ganeti 2.0 design"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-2-1-design">
 <h1><a class="toc-backref" href="#id18">Ganeti 2.1 design</a><a class="headerlink" href="#ganeti-2-1-design" title="Permalink to this headline">¶</a></h1>
@@ -145,8 +143,8 @@ intended to add the basics of the framework, and not necessarilly move
 all the curent VG/FileBased operations to it.</p>
 <p>Note that while we model both LVM PVs and LVM VGs, the framework will
 <strong>not</strong> model any relationship between the different types. In other
-words, we don&#8217;t model neither inheritances nor stacking, since this is
-too complex for our needs. While a <tt class="docutils literal"><span class="pre">vgreduce</span></tt> operation on a LVM VG
+words, we model neither inheritances nor stacking, since this is too
+complex for our needs. While a <code class="docutils literal"><span class="pre">vgreduce</span></code> operation on a LVM VG
 could actually remove a PV from it, this will not be handled at the
 framework level, but at individual operation level. The goal is that
 this is a lightweight framework, for abstracting the different storage
@@ -156,31 +154,31 @@ operation, and not for modelling the storage hierarchy.</p>
 <h4><a class="toc-backref" href="#id23">Locking improvements</a><a class="headerlink" href="#locking-improvements" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="current-state-and-shortcomings">
 <h5>Current State and shortcomings<a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h5>
-<p>The class <tt class="docutils literal"><span class="pre">LockSet</span></tt> (see <tt class="docutils literal"><span class="pre">lib/locking.py</span></tt>) is a container for one or
-many <tt class="docutils literal"><span class="pre">SharedLock</span></tt> instances. It provides an interface to add/remove
+<p>The class <code class="docutils literal"><span class="pre">LockSet</span></code> (see <code class="docutils literal"><span class="pre">lib/locking.py</span></code>) is a container for one or
+many <code class="docutils literal"><span class="pre">SharedLock</span></code> instances. It provides an interface to add/remove
 locks and to acquire and subsequently release any number of those locks
 contained in it.</p>
-<p>Locks in a <tt class="docutils literal"><span class="pre">LockSet</span></tt> are always acquired in alphabetic order. Due to
+<p>Locks in a <code class="docutils literal"><span class="pre">LockSet</span></code> are always acquired in alphabetic order. Due to
 the way we&#8217;re using locks for nodes and instances (the single cluster
 lock isn&#8217;t affected by this issue) this can lead to long delays when
 acquiring locks if another operation tries to acquire multiple locks but
 has to wait for yet another operation.</p>
 <p>In the following demonstration we assume to have the instance locks
-<tt class="docutils literal"><span class="pre">inst1</span></tt>, <tt class="docutils literal"><span class="pre">inst2</span></tt>, <tt class="docutils literal"><span class="pre">inst3</span></tt> and <tt class="docutils literal"><span class="pre">inst4</span></tt>.</p>
+<code class="docutils literal"><span class="pre">inst1</span></code>, <code class="docutils literal"><span class="pre">inst2</span></code>, <code class="docutils literal"><span class="pre">inst3</span></code> and <code class="docutils literal"><span class="pre">inst4</span></code>.</p>
 <ol class="arabic simple">
-<li>Operation A grabs lock for instance <tt class="docutils literal"><span class="pre">inst4</span></tt>.</li>
+<li>Operation A grabs lock for instance <code class="docutils literal"><span class="pre">inst4</span></code>.</li>
 <li>Operation B wants to acquire all instance locks in alphabetic order,
-but it has to wait for <tt class="docutils literal"><span class="pre">inst4</span></tt>.</li>
-<li>Operation C tries to lock <tt class="docutils literal"><span class="pre">inst1</span></tt>, but it has to wait until
+but it has to wait for <code class="docutils literal"><span class="pre">inst4</span></code>.</li>
+<li>Operation C tries to lock <code class="docutils literal"><span class="pre">inst1</span></code>, but it has to wait until
 Operation B (which is trying to acquire all locks) releases the lock
 again.</li>
-<li>Operation A finishes and releases lock on <tt class="docutils literal"><span class="pre">inst4</span></tt>. Operation B can
+<li>Operation A finishes and releases lock on <code class="docutils literal"><span class="pre">inst4</span></code>. Operation B can
 continue and eventually releases all locks.</li>
-<li>Operation C can get <tt class="docutils literal"><span class="pre">inst1</span></tt> lock and finishes.</li>
+<li>Operation C can get <code class="docutils literal"><span class="pre">inst1</span></code> lock and finishes.</li>
 </ol>
 <p>Technically there&#8217;s no need for Operation C to wait for Operation A, and
 subsequently Operation B, to finish. Operation B can&#8217;t continue until
-Operation A is done (it has to wait for <tt class="docutils literal"><span class="pre">inst4</span></tt>), anyway.</p>
+Operation A is done (it has to wait for <code class="docutils literal"><span class="pre">inst4</span></code>), anyway.</p>
 </div>
 <div class="section" id="proposed-changes">
 <h5>Proposed changes<a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h5>
@@ -189,32 +187,32 @@ Operation A is done (it has to wait for <tt class="docutils literal"><span class
 <p>Acquiring locks for OpCode execution is always done in blocking mode.
 They won&#8217;t return until the lock has successfully been acquired (or an
 error occurred, although we won&#8217;t cover that case here).</p>
-<p><tt class="docutils literal"><span class="pre">SharedLock</span></tt> and <tt class="docutils literal"><span class="pre">LockSet</span></tt> must be able to be acquired in a
+<p><code class="docutils literal"><span class="pre">SharedLock</span></code> and <code class="docutils literal"><span class="pre">LockSet</span></code> must be able to be acquired in a
 non-blocking way. They must support a timeout and abort trying to
 acquire the lock(s) after the specified amount of time.</p>
 </div>
 <div class="section" id="retry-acquiring-locks">
 <h6>Retry acquiring locks<a class="headerlink" href="#retry-acquiring-locks" title="Permalink to this headline">¶</a></h6>
 <p>To prevent other operations from waiting for a long time, such as
-described in the demonstration before, <tt class="docutils literal"><span class="pre">LockSet</span></tt> must not keep locks
+described in the demonstration before, <code class="docutils literal"><span class="pre">LockSet</span></code> must not keep locks
 for a prolonged period of time when trying to acquire two or more locks.
 Instead it should, with an increasing timeout for acquiring all locks,
 release all locks again and sleep some time if it fails to acquire all
 requested locks.</p>
 <p>A good timeout value needs to be determined. In any case should
-<tt class="docutils literal"><span class="pre">LockSet</span></tt> proceed to acquire locks in blocking mode after a few
+<code class="docutils literal"><span class="pre">LockSet</span></code> proceed to acquire locks in blocking mode after a few
 (unsuccessful) attempts to acquire all requested locks.</p>
-<p>One proposal for the timeout is to use <tt class="docutils literal"><span class="pre">2**tries</span></tt> seconds, where
-<tt class="docutils literal"><span class="pre">tries</span></tt> is the number of unsuccessful tries.</p>
+<p>One proposal for the timeout is to use <code class="docutils literal"><span class="pre">2**tries</span></code> seconds, where
+<code class="docutils literal"><span class="pre">tries</span></code> is the number of unsuccessful tries.</p>
 <p>In the demonstration before this would allow Operation C to continue
 after Operation B unsuccessfully tried to acquire all locks and released
-all acquired locks (<tt class="docutils literal"><span class="pre">inst1</span></tt>, <tt class="docutils literal"><span class="pre">inst2</span></tt> and <tt class="docutils literal"><span class="pre">inst3</span></tt>) again.</p>
+all acquired locks (<code class="docutils literal"><span class="pre">inst1</span></code>, <code class="docutils literal"><span class="pre">inst2</span></code> and <code class="docutils literal"><span class="pre">inst3</span></code>) again.</p>
 </div>
 </div>
 <div class="section" id="other-solutions-discussed">
 <h5>Other solutions discussed<a class="headerlink" href="#other-solutions-discussed" title="Permalink to this headline">¶</a></h5>
 <p>There was also some discussion on going one step further and extend the
-job queue (see <tt class="docutils literal"><span class="pre">lib/jqueue.py</span></tt>) to select the next task for a worker
+job queue (see <code class="docutils literal"><span class="pre">lib/jqueue.py</span></code>) to select the next task for a worker
 depending on whether it can acquire the necessary locks. While this may
 reduce the number of necessary worker threads and/or increase throughput
 on large clusters with many jobs, it also brings many potential
@@ -226,23 +224,23 @@ simpler solution for now.</p>
 <div class="section" id="implementation-details">
 <h5>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h5>
 <div class="section" id="sharedlock-redesign">
-<h6><tt class="docutils literal"><span class="pre">SharedLock</span></tt> redesign<a class="headerlink" href="#sharedlock-redesign" title="Permalink to this headline">¶</a></h6>
-<p>The current design of <tt class="docutils literal"><span class="pre">SharedLock</span></tt> is not good for supporting timeouts
+<h6><code class="docutils literal"><span class="pre">SharedLock</span></code> redesign<a class="headerlink" href="#sharedlock-redesign" title="Permalink to this headline">¶</a></h6>
+<p>The current design of <code class="docutils literal"><span class="pre">SharedLock</span></code> is not good for supporting timeouts
 when acquiring a lock and there are also minor fairness issues in it. We
 plan to address both with a redesign. A proof of concept implementation
 was written and resulted in significantly simpler code.</p>
-<p>Currently <tt class="docutils literal"><span class="pre">SharedLock</span></tt> uses two separate queues for shared and
+<p>Currently <code class="docutils literal"><span class="pre">SharedLock</span></code> uses two separate queues for shared and
 exclusive acquires and waiters get to run in turns. This means if an
 exclusive acquire is released, the lock will allow shared waiters to run
 and vice versa.  Although it&#8217;s still fair in the end there is a slight
 bias towards shared waiters in the current implementation. The same
 implementation with two shared queues can not support timeouts without
 adding a lot of complexity.</p>
-<p>Our proposed redesign changes <tt class="docutils literal"><span class="pre">SharedLock</span></tt> to have only one single
+<p>Our proposed redesign changes <code class="docutils literal"><span class="pre">SharedLock</span></code> to have only one single
 queue.  There will be one condition (see <a class="reference internal" href="#condition">Condition</a> for a note about
 performance) in the queue per exclusive acquire and two for all shared
 acquires (see below for an explanation). The maximum queue length will
-always be <tt class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">(number</span> <span class="pre">of</span> <span class="pre">exclusive</span> <span class="pre">acquires</span> <span class="pre">waiting)</span></tt>. The number of
+always be <code class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">(number</span> <span class="pre">of</span> <span class="pre">exclusive</span> <span class="pre">acquires</span> <span class="pre">waiting)</span></code>. The number of
 queue entries for shared acquires can vary from 0 to 2.</p>
 <p>The two conditions for shared acquires are a bit special. They will be
 used in turn. When the lock is instantiated, no conditions are in the
@@ -375,17 +373,17 @@ wake up, notice the deleted lock and return an error to the caller.</p>
 <p>Note: This is not necessary for the locking changes above, but it may be
 a good optimization (pending performance tests).</p>
 <p>The existing locking code in Ganeti 2.0 uses Python&#8217;s built-in
-<tt class="docutils literal"><span class="pre">threading.Condition</span></tt> class. Unfortunately <tt class="docutils literal"><span class="pre">Condition</span></tt> implements
+<code class="docutils literal"><span class="pre">threading.Condition</span></code> class. Unfortunately <code class="docutils literal"><span class="pre">Condition</span></code> implements
 timeouts by sleeping 1ms to 20ms between tries to acquire the condition
 lock in non-blocking mode. This requires unnecessary context switches
 and contention on the CPython GIL (Global Interpreter Lock).</p>
-<p>By using POSIX pipes (see <tt class="docutils literal"><span class="pre">pipe(2)</span></tt>) we can use the operating system&#8217;s
-support for timeouts on file descriptors (see <tt class="docutils literal"><span class="pre">select(2)</span></tt>). A custom
+<p>By using POSIX pipes (see <code class="docutils literal"><span class="pre">pipe(2)</span></code>) we can use the operating system&#8217;s
+support for timeouts on file descriptors (see <code class="docutils literal"><span class="pre">select(2)</span></code>). A custom
 condition class will have to be written for this.</p>
 <p>On instantiation the class creates a pipe. After each notification the
 previous pipe is abandoned and re-created (technically the old pipe
 needs to stay around until all notifications have been delivered).</p>
-<p>All waiting clients of the condition use <tt class="docutils literal"><span class="pre">select(2)</span></tt> or <tt class="docutils literal"><span class="pre">poll(2)</span></tt> to
+<p>All waiting clients of the condition use <code class="docutils literal"><span class="pre">select(2)</span></code> or <code class="docutils literal"><span class="pre">poll(2)</span></code> to
 wait for notifications, optionally with a timeout. A notification will
 be signalled to the waiting clients by closing the pipe. If the pipe
 wasn&#8217;t closed during the timeout, the waiting function returns to its
@@ -399,8 +397,8 @@ caller nonetheless.</p>
 <h5>Current State and shortcomings<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
 <p>Currently, when a Ganeti node suffers serious system disk damage, the
 migration/failover of an instance may not correctly shutdown the virtual
-machine on the broken node causing instances duplication. The <tt class="docutils literal"><span class="pre">gnt-node</span>
-<span class="pre">powercycle</span></tt> command can be used to force a node reboot and thus to
+machine on the broken node causing instances duplication. The <code class="docutils literal"><span class="pre">gnt-node</span>
+<span class="pre">powercycle</span></code> command can be used to force a node reboot and thus to
 avoid duplicated instances. This command relies on node daemon
 availability, though, and thus can fail if the node daemon has some
 pages swapped out of ram, for example.</p>
@@ -408,10 +406,10 @@ pages swapped out of ram, for example.</p>
 <div class="section" id="id2">
 <h5>Proposed changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
 <p>The proposed solution forces node daemon to run exclusively in RAM. It
-uses python ctypes to to call <tt class="docutils literal"><span class="pre">mlockall(MCL_CURRENT</span> <span class="pre">|</span> <span class="pre">MCL_FUTURE)</span></tt> on
+uses python ctypes to to call <code class="docutils literal"><span class="pre">mlockall(MCL_CURRENT</span> <span class="pre">|</span> <span class="pre">MCL_FUTURE)</span></code> on
 the node daemon process and all its children. In addition another log
 handler has been implemented for node daemon to redirect to
-<tt class="docutils literal"><span class="pre">/dev/console</span></tt> messages that cannot be written on the logfile.</p>
+<code class="docutils literal"><span class="pre">/dev/console</span></code> messages that cannot be written on the logfile.</p>
 <p>With these changes node daemon can successfully run basic tasks such as
 a powercycle request even when the system disk is heavily damaged and
 reading/writing to disk fails constantly.</p>
@@ -427,7 +425,7 @@ reading/writing to disk fails constantly.</p>
 <p>Currently there&#8217;s no easy way to merge two or more clusters together.
 But in order to optimize resources this is a needed missing piece. The
 goal of this design doc is to come up with a easy to use solution which
-allows you to merge two or more cluster together.</p>
+allows you to merge two or more clusters together.</p>
 </div>
 <div class="section" id="initial-contact">
 <h5>Initial contact<a class="headerlink" href="#initial-contact" title="Permalink to this headline">¶</a></h5>
@@ -435,11 +433,11 @@ allows you to merge two or more cluster together.</p>
 itself has no way to reach nodes outside of its cluster. To overcome
 this situation we&#8217;re required to prepare the cluster before we can go
 ahead with the actual merge: We&#8217;ve to replace at least the ssh keys on
-the affected nodes before we can do any operation within <tt class="docutils literal"><span class="pre">gnt-</span></tt>
+the affected nodes before we can do any operation within <code class="docutils literal"><span class="pre">gnt-</span></code>
 commands.</p>
 <p>To make this a automated process we&#8217;ll ask the user to provide us with
 the root password of every cluster we&#8217;ve to merge. We use the password
-to grab the current <tt class="docutils literal"><span class="pre">id_dsa</span></tt> key and then rely on that ssh key for any
+to grab the current <code class="docutils literal"><span class="pre">id_dsa</span></code> key and then rely on that ssh key for any
 further communication to be made until the cluster is fully merged.</p>
 </div>
 <div class="section" id="cluster-merge">
@@ -447,32 +445,32 @@ further communication to be made until the cluster is fully merged.</p>
 <p>After initial contact we do the cluster merge:</p>
 <ol class="arabic simple">
 <li>Grab the list of nodes</li>
-<li>On all nodes add our own <tt class="docutils literal"><span class="pre">id_dsa.pub</span></tt> key to <tt class="docutils literal"><span class="pre">authorized_keys</span></tt></li>
+<li>On all nodes add our own <code class="docutils literal"><span class="pre">id_dsa.pub</span></code> key to <code class="docutils literal"><span class="pre">authorized_keys</span></code></li>
 <li>Stop all instances running on the merging cluster</li>
-<li>Disable <tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> as it tries to restart Ganeti daemons</li>
+<li>Disable <code class="docutils literal"><span class="pre">ganeti-watcher</span></code> as it tries to restart Ganeti daemons</li>
 <li>Stop all Ganeti daemons on all merging nodes</li>
-<li>Grab the <tt class="docutils literal"><span class="pre">config.data</span></tt> from the master of the merging cluster</li>
-<li>Stop local <tt class="docutils literal"><span class="pre">ganeti-masterd</span></tt></li>
+<li>Grab the <code class="docutils literal"><span class="pre">config.data</span></code> from the master of the merging cluster</li>
+<li>Stop local <code class="docutils literal"><span class="pre">ganeti-masterd</span></code></li>
 <li>Merge the config:<ol class="arabic">
-<li>Open our own cluster <tt class="docutils literal"><span class="pre">config.data</span></tt></li>
-<li>Open cluster <tt class="docutils literal"><span class="pre">config.data</span></tt> of the merging cluster</li>
+<li>Open our own cluster <code class="docutils literal"><span class="pre">config.data</span></code></li>
+<li>Open cluster <code class="docutils literal"><span class="pre">config.data</span></code> of the merging cluster</li>
 <li>Grab all nodes of the merging cluster</li>
-<li>Set <tt class="docutils literal"><span class="pre">master_candidate</span></tt> to false on all merging nodes</li>
-<li>Add the nodes to our own cluster <tt class="docutils literal"><span class="pre">config.data</span></tt></li>
+<li>Set <code class="docutils literal"><span class="pre">master_candidate</span></code> to false on all merging nodes</li>
+<li>Add the nodes to our own cluster <code class="docutils literal"><span class="pre">config.data</span></code></li>
 <li>Grab all the instances on the merging cluster</li>
 <li>Adjust the port if the instance has drbd layout:<ol class="arabic">
-<li>In <tt class="docutils literal"><span class="pre">logical_id</span></tt> (index 2)</li>
-<li>In <tt class="docutils literal"><span class="pre">physical_id</span></tt> (index 1 and 3)</li>
+<li>In <code class="docutils literal"><span class="pre">logical_id</span></code> (index 2)</li>
+<li>In <code class="docutils literal"><span class="pre">physical_id</span></code> (index 1 and 3)</li>
 </ol>
 </li>
-<li>Add the instances to our own cluster <tt class="docutils literal"><span class="pre">config.data</span></tt></li>
+<li>Add the instances to our own cluster <code class="docutils literal"><span class="pre">config.data</span></code></li>
 </ol>
 </li>
-<li>Start <tt class="docutils literal"><span class="pre">ganeti-masterd</span></tt> with <tt class="docutils literal"><span class="pre">--no-voting</span></tt> <tt class="docutils literal"><span class="pre">--yes-do-it</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">add</span> <span class="pre">--readd</span></tt> on all merging nodes</li>
-<li><tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">redist-conf</span></tt></li>
-<li>Restart <tt class="docutils literal"><span class="pre">ganeti-masterd</span></tt> normally</li>
-<li>Enable <tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> again</li>
+<li>Start <code class="docutils literal"><span class="pre">ganeti-masterd</span></code> with <code class="docutils literal"><span class="pre">--no-voting</span></code> <code class="docutils literal"><span class="pre">--yes-do-it</span></code></li>
+<li><code class="docutils literal"><span class="pre">gnt-node</span> <span class="pre">add</span> <span class="pre">--readd</span></code> on all merging nodes</li>
+<li><code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">redist-conf</span></code></li>
+<li>Restart <code class="docutils literal"><span class="pre">ganeti-masterd</span></code> normally</li>
+<li>Enable <code class="docutils literal"><span class="pre">ganeti-watcher</span></code> again</li>
 <li>Start all merging instances again</li>
 </ol>
 </div>
@@ -480,16 +478,16 @@ further communication to be made until the cluster is fully merged.</p>
 <h5>Rollback<a class="headerlink" href="#rollback" title="Permalink to this headline">¶</a></h5>
 <p>Until we actually (re)add any nodes we can abort and rollback the merge
 at any point. After merging the config, though, we&#8217;ve to get the backup
-copy of <tt class="docutils literal"><span class="pre">config.data</span></tt> (from another master candidate node). And for
-security reasons it&#8217;s a good idea to undo <tt class="docutils literal"><span class="pre">id_dsa.pub</span></tt> distribution by
-going on every affected node and remove the <tt class="docutils literal"><span class="pre">id_dsa.pub</span></tt> key again.
+copy of <code class="docutils literal"><span class="pre">config.data</span></code> (from another master candidate node). And for
+security reasons it&#8217;s a good idea to undo <code class="docutils literal"><span class="pre">id_dsa.pub</span></code> distribution by
+going on every affected node and remove the <code class="docutils literal"><span class="pre">id_dsa.pub</span></code> key again.
 Also we&#8217;ve to keep in mind, that we&#8217;ve to start the Ganeti daemons and
 starting up the instances again.</p>
 </div>
 <div class="section" id="verification">
 <h5>Verification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h5>
 <p>Last but not least we should verify that the merge was successful.
-Therefore we run <tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">verify</span></tt>, which ensures that the cluster
+Therefore we run <code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">verify</span></code>, which ensures that the cluster
 overall is in a healthy state. Additional it&#8217;s also possible to compare
 the list of instances/nodes with a list made prior to the upgrade to
 make sure we didn&#8217;t lose any data/instance/node.</p>
@@ -500,7 +498,7 @@ make sure we didn&#8217;t lose any data/instance/node.</p>
 <h6>cluster-merge.py<a class="headerlink" href="#cluster-merge-py" title="Permalink to this headline">¶</a></h6>
 <p>Used to merge the cluster config. This is a POC and might differ from
 actual production code.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">ganeti</span> <span class="kn">import</span> <span class="n">config</span>
@@ -592,76 +590,78 @@ to accept only answers which contain salt generated by them.</p>
 <div class="section" id="wire-protocol">
 <h6>Wire protocol<a class="headerlink" href="#wire-protocol" title="Permalink to this headline">¶</a></h6>
 <p>A confd query will look like this, on the wire:</p>
-<div class="highlight-python"><pre>plj0{
-  "msg": "{\"type\": 1,
-           \"rsalt\": \"9aa6ce92-8336-11de-af38-001d093e835f\",
-           \"protocol\": 1,
-           \"query\": \"node1.example.com\"}\n",
-  "salt": "1249637704",
-  "hmac": "4a4139b2c3c5921f7e439469a0a45ad200aead0f"
-}</pre>
+<div class="highlight-python"><div class="highlight"><pre>plj0{
+  &quot;msg&quot;: &quot;{\&quot;type\&quot;: 1,
+           \&quot;rsalt\&quot;: \&quot;9aa6ce92-8336-11de-af38-001d093e835f\&quot;,
+           \&quot;protocol\&quot;: 1,
+           \&quot;query\&quot;: \&quot;node1.example.com\&quot;}\n&quot;,
+  &quot;salt&quot;: &quot;1249637704&quot;,
+  &quot;hmac&quot;: &quot;4a4139b2c3c5921f7e439469a0a45ad200aead0f&quot;
+}
+</pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">plj0</span></tt> is a fourcc that details the message content. It stands for plain
+<p><code class="docutils literal"><span class="pre">plj0</span></code> is a fourcc that details the message content. It stands for plain
 json 0, and can be changed as we move on to different type of protocols
 (for example protocol buffers, or encrypted json). What follows is a
 json encoded string, with the following fields:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">msg</span></tt> contains a JSON-encoded query, its fields are:<ul>
-<li><tt class="docutils literal"><span class="pre">protocol</span></tt>, integer, is the confd protocol version (initially
-just <tt class="docutils literal"><span class="pre">constants.CONFD_PROTOCOL_VERSION</span></tt>, with a value of 1)</li>
-<li><tt class="docutils literal"><span class="pre">type</span></tt>, integer, is the query type. For example &#8220;node role by
+<li><code class="docutils literal"><span class="pre">msg</span></code> contains a JSON-encoded query, its fields are:<ul>
+<li><code class="docutils literal"><span class="pre">protocol</span></code>, integer, is the confd protocol version (initially
+just <code class="docutils literal"><span class="pre">constants.CONFD_PROTOCOL_VERSION</span></code>, with a value of 1)</li>
+<li><code class="docutils literal"><span class="pre">type</span></code>, integer, is the query type. For example &#8220;node role by
 name&#8221; or &#8220;node primary ip by instance ip&#8221;. Constants will be
 provided for the actual available query types</li>
-<li><tt class="docutils literal"><span class="pre">query</span></tt> is a multi-type field (depending on the <tt class="docutils literal"><span class="pre">type</span></tt> field):<ul>
+<li><code class="docutils literal"><span class="pre">query</span></code> is a multi-type field (depending on the <code class="docutils literal"><span class="pre">type</span></code> field):<ul>
 <li>it can be missing, when the request is fully determined by the
-<tt class="docutils literal"><span class="pre">type</span></tt> field</li>
+<code class="docutils literal"><span class="pre">type</span></code> field</li>
 <li>it can contain a string which denotes the search key: for
 example an IP, or a node name</li>
 <li>it can contain a dictionary, in which case the actual details
 vary further per request type</li>
 </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">rsalt</span></tt>, string, is the required response salt; the client must
+<li><code class="docutils literal"><span class="pre">rsalt</span></code>, string, is the required response salt; the client must
 use it to recognize which answer it&#8217;s getting.</li>
 </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">salt</span></tt> must be the current unix timestamp, according to the
+<li><code class="docutils literal"><span class="pre">salt</span></code> must be the current unix timestamp, according to the
 client; servers should refuse messages which have a wrong timing,
 according to their configuration and clock</li>
-<li><tt class="docutils literal"><span class="pre">hmac</span></tt> is an hmac signature of salt+msg, with the cluster hmac key</li>
+<li><code class="docutils literal"><span class="pre">hmac</span></code> is an hmac signature of salt+msg, with the cluster hmac key</li>
 </ul>
 <p>If an answer comes back (which is optional, since confd works over UDP)
 it will be in this format:</p>
-<div class="highlight-python"><pre>plj0{
-  "msg": "{\"status\": 0,
-           \"answer\": 0,
-           \"serial\": 42,
-           \"protocol\": 1}\n",
-  "salt": "9aa6ce92-8336-11de-af38-001d093e835f",
-  "hmac": "aaeccc0dff9328fdf7967cb600b6a80a6a9332af"
-}</pre>
+<div class="highlight-python"><div class="highlight"><pre>plj0{
+  &quot;msg&quot;: &quot;{\&quot;status\&quot;: 0,
+           \&quot;answer\&quot;: 0,
+           \&quot;serial\&quot;: 42,
+           \&quot;protocol\&quot;: 1}\n&quot;,
+  &quot;salt&quot;: &quot;9aa6ce92-8336-11de-af38-001d093e835f&quot;,
+  &quot;hmac&quot;: &quot;aaeccc0dff9328fdf7967cb600b6a80a6a9332af&quot;
+}
+</pre></div>
 </div>
 <p>Where:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">plj0</span></tt> the message type magic fourcc, as discussed above</li>
-<li><tt class="docutils literal"><span class="pre">msg</span></tt> contains a JSON-encoded answer, its fields are:<ul>
-<li><tt class="docutils literal"><span class="pre">protocol</span></tt>, integer, is the confd protocol version (initially
+<li><code class="docutils literal"><span class="pre">plj0</span></code> the message type magic fourcc, as discussed above</li>
+<li><code class="docutils literal"><span class="pre">msg</span></code> contains a JSON-encoded answer, its fields are:<ul>
+<li><code class="docutils literal"><span class="pre">protocol</span></code>, integer, is the confd protocol version (initially
 just constants.CONFD_PROTOCOL_VERSION, with a value of 1)</li>
-<li><tt class="docutils literal"><span class="pre">status</span></tt>, integer, is the error code; initially just <tt class="docutils literal"><span class="pre">0</span></tt> for
-&#8216;ok&#8217; or <tt class="docutils literal"><span class="pre">1</span></tt> for &#8216;error&#8217; (in which case answer contains an error
+<li><code class="docutils literal"><span class="pre">status</span></code>, integer, is the error code; initially just <code class="docutils literal"><span class="pre">0</span></code> for
+&#8216;ok&#8217; or <code class="docutils literal"><span class="pre">1</span></code> for &#8216;error&#8217; (in which case answer contains an error
 detail, rather than an answer), but in the future it may be
-expanded to have more meanings (e.g. <tt class="docutils literal"><span class="pre">2</span></tt> if the answer is
+expanded to have more meanings (e.g. <code class="docutils literal"><span class="pre">2</span></code> if the answer is
 compressed)</li>
-<li><tt class="docutils literal"><span class="pre">answer</span></tt>, is the actual answer; its type and meaning is query
+<li><code class="docutils literal"><span class="pre">answer</span></code>, is the actual answer; its type and meaning is query
 specific: for example for &#8220;node primary ip by instance ip&#8221; queries
 it will be a string containing an IP address, for &#8220;node role by
 name&#8221; queries it will be an integer which encodes the role
 (master, candidate, drained, offline) according to constants</li>
 </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">salt</span></tt> is the requested salt from the query; a client can use it
+<li><code class="docutils literal"><span class="pre">salt</span></code> is the requested salt from the query; a client can use it
 to recognize what query the answer is answering.</li>
-<li><tt class="docutils literal"><span class="pre">hmac</span></tt> is an hmac signature of salt+msg, with the cluster hmac key</li>
+<li><code class="docutils literal"><span class="pre">hmac</span></code> is an hmac signature of salt+msg, with the cluster hmac key</li>
 </ul>
 </div>
 </div>
@@ -798,7 +798,7 @@ not changeable on a per-instance level. The create, modify and query
 instance operations are changed to not allow/show these parameters.</p>
 <p>Furthermore, to allow transition of parameters to the global list, and
 to allow cleanup of inadverdently-customised parameters, the
-<tt class="docutils literal"><span class="pre">UpgradeConfig()</span></tt> method of instances will drop any such parameters
+<code class="docutils literal"><span class="pre">UpgradeConfig()</span></code> method of instances will drop any such parameters
 from their list of hvparams, such that a restart of the master daemon
 is all that is needed for cleaning these up.</p>
 <p>Also, the framework is simple enough that if we need to replicate it
@@ -862,8 +862,8 @@ to all entities missing it.</p>
 <p>In the next release (e.g. 2.2), the tracking of objects will change
 from the name to the UUID internally, and externally Ganeti will
 accept both forms of identification; e.g. an RAPI call would be made
-either against <tt class="docutils literal"><span class="pre">/2/instances/foo.bar</span></tt> or against
-<tt class="docutils literal"><span class="pre">/2/instances/bb3b2e42…</span></tt>. Since an FQDN must have at least a dot,
+either against <code class="docutils literal"><span class="pre">/2/instances/foo.bar</span></code> or against
+<code class="docutils literal"><span class="pre">/2/instances/bb3b2e42…</span></code>. Since an FQDN must have at least a dot,
 and dots are not valid characters in UUIDs, we will not have namespace
 issues.</p>
 <p>Another change here is that node identification (during cluster
@@ -911,19 +911,19 @@ allow determining what part of the instance is broken (if any).</p>
 </div>
 <div class="section" id="repair-instance">
 <h5>Repair instance<a class="headerlink" href="#repair-instance" title="Permalink to this headline">¶</a></h5>
-<p>This new opcode/LU/RAPI call will run <tt class="docutils literal"><span class="pre">replace-disks</span> <span class="pre">-p</span></tt> as needed, in
+<p>This new opcode/LU/RAPI call will run <code class="docutils literal"><span class="pre">replace-disks</span> <span class="pre">-p</span></code> as needed, in
 order to fix the instance status. It only affects primary instances;
 secondaries can just be moved away.</p>
 </div>
 <div class="section" id="migrate-node">
 <h5>Migrate node<a class="headerlink" href="#migrate-node" title="Permalink to this headline">¶</a></h5>
-<p>This new opcode/LU/RAPI call will take over the current <tt class="docutils literal"><span class="pre">gnt-node</span>
-<span class="pre">migrate</span></tt> code and run migrate for all instances on the node.</p>
+<p>This new opcode/LU/RAPI call will take over the current <code class="docutils literal"><span class="pre">gnt-node</span>
+<span class="pre">migrate</span></code> code and run migrate for all instances on the node.</p>
 </div>
 <div class="section" id="evacuate-node">
 <h5>Evacuate node<a class="headerlink" href="#evacuate-node" title="Permalink to this headline">¶</a></h5>
-<p>This new opcode/LU/RAPI call will take over the current <tt class="docutils literal"><span class="pre">gnt-node</span>
-<span class="pre">evacuate</span></tt> code and run replace-secondary with an iallocator script for
+<p>This new opcode/LU/RAPI call will take over the current <code class="docutils literal"><span class="pre">gnt-node</span>
+<span class="pre">evacuate</span></code> code and run replace-secondary with an iallocator script for
 all instances on the node.</p>
 </div>
 </div>
@@ -944,11 +944,11 @@ user-id or by implementing the same locking mechanism.</p>
 <div class="section" id="implementation">
 <h5>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h5>
 <p>The functions that are specific to the user-id pool feature are located
-in a separate module: <tt class="docutils literal"><span class="pre">lib/uidpool.py</span></tt>.</p>
+in a separate module: <code class="docutils literal"><span class="pre">lib/uidpool.py</span></code>.</p>
 <div class="section" id="storage">
 <h6>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h6>
 <p>The user-id pool is a single cluster parameter. It is stored in the
-<em>Cluster</em> object under the <tt class="docutils literal"><span class="pre">uid_pool</span></tt> name as a list of integer
+<em>Cluster</em> object under the <code class="docutils literal"><span class="pre">uid_pool</span></code> name as a list of integer
 tuples. These tuples represent the boundaries of user-id ranges.
 For single user-ids, the boundaries are equal.</p>
 <p>The internal user-id pool representation is converted into a
@@ -962,10 +962,10 @@ node or master candidate nodes.</p>
 <h6>Initial value<a class="headerlink" href="#initial-value" title="Permalink to this headline">¶</a></h6>
 <p>The value of the user-id pool cluster parameter can be initialized
 at cluster initialization time using the</p>
-<p><tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span> <span class="pre">--uid-pool</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span> <span class="pre">...</span></tt></p>
+<p><code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span> <span class="pre">--uid-pool</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span> <span class="pre">...</span></code></p>
 <p>command.</p>
 <p>As there is no sensible default value for the user-id pool parameter,
-it is initialized to an empty list if no <tt class="docutils literal"><span class="pre">--uid-pool</span></tt> option is
+it is initialized to an empty list if no <code class="docutils literal"><span class="pre">--uid-pool</span></code> option is
 supplied at cluster init time.</p>
 <p>If the user-id pool is empty, the user-id pool feature is considered
 to be disabled.</p>
@@ -975,20 +975,20 @@ to be disabled.</p>
 <p>The user-id pool cluster parameter can be modified from the
 command-line with the following commands:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--uid-pool</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--add-uids</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--remove-uids</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt></li>
+<li><code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--uid-pool</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--add-uids</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--remove-uids</span> <span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code></li>
 </ul>
-<p>The <tt class="docutils literal"><span class="pre">--uid-pool</span></tt> option overwrites the current setting with the
-supplied <tt class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt>, while
-<tt class="docutils literal"><span class="pre">--add-uids</span></tt>/<tt class="docutils literal"><span class="pre">--remove-uids</span></tt> adds/removes the listed uids
+<p>The <code class="docutils literal"><span class="pre">--uid-pool</span></code> option overwrites the current setting with the
+supplied <code class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code>, while
+<code class="docutils literal"><span class="pre">--add-uids</span></code>/<code class="docutils literal"><span class="pre">--remove-uids</span></code> adds/removes the listed uids
 or uid-ranges from the pool.</p>
-<p>The <tt class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt> should be a comma-separated list of
+<p>The <code class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code> should be a comma-separated list of
 user-ids or user-id ranges. A range should be defined by a lower and
 a higher boundary. The boundaries should be separated with a dash.
 The boundaries are inclusive.</p>
-<p>The <tt class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></tt> is parsed into the internal
-representation, sanity-checked and stored in the <tt class="docutils literal"><span class="pre">uid_pool</span></tt>
+<p>The <code class="docutils literal"><span class="pre">&lt;uid-pool</span> <span class="pre">definition&gt;</span></code> is parsed into the internal
+representation, sanity-checked and stored in the <code class="docutils literal"><span class="pre">uid_pool</span></code>
 attribute of the <em>Cluster</em> object.</p>
 <p>It is also immediately converted into a string (formatted in the
 input format) and distributed to all nodes via the <em>ssconf</em> mechanism.</p>
@@ -996,13 +996,13 @@ input format) and distributed to all nodes via the <em>ssconf</em> mechanism.</p
 <div class="section" id="inspection">
 <h6>Inspection<a class="headerlink" href="#inspection" title="Permalink to this headline">¶</a></h6>
 <p>The current value of the user-id pool cluster parameter is printed
-by the <tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">info</span></tt> command.</p>
-<p>The output format is accepted by the <tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--uid-pool</span></tt>
+by the <code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">info</span></code> command.</p>
+<p>The output format is accepted by the <code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">modify</span> <span class="pre">--uid-pool</span></code>
 command.</p>
 </div>
 <div class="section" id="locking">
 <h6>Locking<a class="headerlink" href="#locking" title="Permalink to this headline">¶</a></h6>
-<p>The <tt class="docutils literal"><span class="pre">uidpool.py</span></tt> module provides a function (<tt class="docutils literal"><span class="pre">RequestUnusedUid</span></tt>)
+<p>The <code class="docutils literal"><span class="pre">uidpool.py</span></code> module provides a function (<code class="docutils literal"><span class="pre">RequestUnusedUid</span></code>)
 for requesting an unused user-id from the pool.</p>
 <p>This will try to find a random user-id that is not currently in use.
 The algorithm is the following:</p>
@@ -1022,19 +1022,19 @@ be released, but the lock file will remain in the filesystem.
 The presence of such a lock file means that the given user-id is most
 probably in use. The lack of a uid lock file does not guarantee that
 there are no processes with that user-id.</p>
-<p>After acquiring the exclusive POSIX lock, <tt class="docutils literal"><span class="pre">RequestUnusedUid</span></tt>
+<p>After acquiring the exclusive POSIX lock, <code class="docutils literal"><span class="pre">RequestUnusedUid</span></code>
 always performs a check to see if there is a process running with the
 given uid.</p>
 <p>A user-id can be returned to the pool, by calling the
-<tt class="docutils literal"><span class="pre">ReleaseUid</span></tt> function. This will remove the corresponding lock file.
+<code class="docutils literal"><span class="pre">ReleaseUid</span></code> function. This will remove the corresponding lock file.
 Note, that it doesn&#8217;t check if there is any process still running
 with that user-id. The removal of the lock file only means that there
 are most probably no processes with the given user-id. This helps
 in speeding up the process of finding a user-id that is guaranteed to
 be unused.</p>
-<p>There is a convenience function, called <tt class="docutils literal"><span class="pre">ExecWithUnusedUid</span></tt> that
+<p>There is a convenience function, called <code class="docutils literal"><span class="pre">ExecWithUnusedUid</span></code> that
 wraps the execution of a function (or any callable) that requires a
-unique user-id. <tt class="docutils literal"><span class="pre">ExecWithUnusedUid</span></tt> takes care of requesting an
+unique user-id. <code class="docutils literal"><span class="pre">ExecWithUnusedUid</span></code> takes care of requesting an
 unused user-id and unlocking the lock file. It also automatically
 returns the user-id to the pool if the callable raises an exception.</p>
 </div>
@@ -1042,12 +1042,12 @@ returns the user-id to the pool if the callable raises an exception.</p>
 <div class="section" id="code-examples">
 <h5>Code examples<a class="headerlink" href="#code-examples" title="Permalink to this headline">¶</a></h5>
 <p>Requesting a user-id from the pool:</p>
-<div class="highlight-python"><pre>from ganeti import ssconf
+<div class="highlight-python"><div class="highlight"><pre>from ganeti import ssconf
 from ganeti import uidpool
 
 # Get list of all user-ids in the uid-pool from ssconf
 ss = ssconf.SimpleStore()
-uid_pool = uidpool.ParseUidPool(ss.GetUidPool(), separator="\n")
+uid_pool = uidpool.ParseUidPool(ss.GetUidPool(), separator=&quot;\n&quot;)
 all_uids = set(uidpool.ExpandUidPool(uid_pool))
 
 uid = uidpool.RequestUnusedUid(all_uids)
@@ -1057,14 +1057,16 @@ try:
   uid.Unlock()
 except ..., err:
   # Return the UID to the pool
-  uidpool.ReleaseUid(uid)</pre>
+  uidpool.ReleaseUid(uid)
+</pre></div>
 </div>
 <p>Releasing a user-id:</p>
-<div class="highlight-python"><pre>from ganeti import uidpool
+<div class="highlight-python"><div class="highlight"><pre>from ganeti import uidpool
 
 uid = &lt;get the UID the process is running under&gt;
 &lt;stop the process&gt;
-uidpool.ReleaseUid(uid)</pre>
+uidpool.ReleaseUid(uid)
+</pre></div>
 </div>
 </div>
 </div>
@@ -1195,15 +1197,15 @@ all the usual checks.</p>
 <h6>Cluster balancing<a class="headerlink" href="#cluster-balancing" title="Permalink to this headline">¶</a></h6>
 <p>Instance add/removals/moves can create a situation where load on the
 nodes is not spread equally. For this, a new iallocator mode will be
-implemented called <tt class="docutils literal"><span class="pre">balance</span></tt> in which the plugin, given the current
+implemented called <code class="docutils literal"><span class="pre">balance</span></code> in which the plugin, given the current
 cluster state, and a maximum number of operations, will need to
 compute the instance relocations needed in order to achieve a &#8220;better&#8221;
 (for whatever the script believes it&#8217;s better) cluster.</p>
 </div>
 <div class="section" id="cluster-capacity-calculation">
 <h6>Cluster capacity calculation<a class="headerlink" href="#cluster-capacity-calculation" title="Permalink to this headline">¶</a></h6>
-<p>In this mode, called <tt class="docutils literal"><span class="pre">capacity</span></tt>, given an instance specification and
-the current cluster state (similar to the <tt class="docutils literal"><span class="pre">allocate</span></tt> mode), the
+<p>In this mode, called <code class="docutils literal"><span class="pre">capacity</span></code>, given an instance specification and
+the current cluster state (similar to the <code class="docutils literal"><span class="pre">allocate</span></code> mode), the
 plugin needs to return:</p>
 <ul class="simple">
 <li>how many instances can be allocated on the cluster with that
@@ -1221,7 +1223,7 @@ specification</li>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1239,7 +1241,7 @@ specification</li>
 </li>
 <li><a class="reference internal" href="#other-solutions-discussed">Other solutions discussed</a></li>
 <li><a class="reference internal" href="#implementation-details">Implementation details</a><ul>
-<li><a class="reference internal" href="#sharedlock-redesign"><tt class="docutils literal"><span class="pre">SharedLock</span></tt> redesign</a><ul>
+<li><a class="reference internal" href="#sharedlock-redesign"><code class="docutils literal"><span class="pre">SharedLock</span></code> redesign</a><ul>
 <li><a class="reference internal" href="#acquire">Acquire</a></li>
 <li><a class="reference internal" href="#release">Release</a></li>
 <li><a class="reference internal" href="#delete">Delete</a></li>
@@ -1367,12 +1369,14 @@ specification</li>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-2.2.html"
                         title="next chapter">Ganeti 2.2 design</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-2.1.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-2.1.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1389,7 +1393,7 @@ specification</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1398,12 +1402,12 @@ specification</li>
         <li class="right" >
           <a href="design-2.0.html" title="Ganeti 2.0 design"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

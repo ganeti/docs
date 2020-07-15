@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti quick installation guide &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti quick installation guide &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti locking" href="locking.html" />
     <link rel="prev" title="Ganeti installation tutorial" href="install.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="install.html" title="Ganeti installation tutorial"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-quick-installation-guide">
 <h1>Ganeti quick installation guide<a class="headerlink" href="#ganeti-quick-installation-guide" title="Permalink to this headline">¶</a></h1>
@@ -67,7 +65,7 @@ versions 0.11.X and above have shown good behavior).</li>
 <li><a class="reference external" href="http://www.drbd.org/">DRBD</a>, kernel module and userspace utils,
 version 8.0.7 or above, up to 8.4.x.</li>
 <li><a class="reference external" href="http://ceph.newdream.net/">RBD</a>, kernel modules
-(<tt class="docutils literal"><span class="pre">rbd.ko</span></tt>/<tt class="docutils literal"><span class="pre">libceph.ko</span></tt>) and userspace utils (<tt class="docutils literal"><span class="pre">ceph-common</span></tt>)</li>
+(<code class="docutils literal"><span class="pre">rbd.ko</span></code>/<code class="docutils literal"><span class="pre">libceph.ko</span></code>) and userspace utils (<code class="docutils literal"><span class="pre">ceph-common</span></code>)</li>
 <li><a class="reference external" href="http://sourceware.org/lvm2/">LVM2</a></li>
 <li><a class="reference external" href="http://www.openssh.com/portable.html">OpenSSH</a></li>
 <li><a class="reference external" href="http://www.linuxfoundation.org/en/Net:Bridge">bridge utilities</a></li>
@@ -81,14 +79,16 @@ version 8.0.7 or above, up to 8.4.x.</li>
 1.4.6 or above</li>
 <li><a class="reference external" href="https://github.com/seb-m/pyinotify">pyinotify Python module</a></li>
 <li><a class="reference external" href="http://pycurl.sourceforge.net/">PycURL Python module</a></li>
-<li><a class="reference external" href="http://www.dest-unreach.org/socat/">socat</a>, see <a class="reference internal" href="#socat-note"><em>note</em></a> below</li>
+<li><a class="reference external" href="http://www.dest-unreach.org/socat/">socat</a>, see <a class="reference internal" href="#socat-note"><span>note</span></a> below</li>
 <li><a class="reference external" href="http://www.lag.net/paramiko/">Paramiko</a>, if you want to use
-<tt class="docutils literal"><span class="pre">ganeti-listrunner</span></tt></li>
+<code class="docutils literal"><span class="pre">ganeti-listrunner</span></code></li>
 <li><a class="reference external" href="https://github.com/giampaolo/psutil">psutil Python module</a>,
-optional python package for supporting CPU pinning under KVM</li>
+optional python package for supporting CPU pinning under KVM, versions
+2.x.x only; beware that versions from 2.0.0 to before 2.2.0 had a
+number of file handle leaks, so running at least 2.2.0 is advised</li>
 <li><a class="reference external" href="https://gitorious.org/python-fdsend">fdsend Python module</a>,
 optional Python package for supporting NIC hotplugging under KVM</li>
-<li><a class="reference external" href="http://qemu.org/">qemu-img</a>, if you want to use <tt class="docutils literal"><span class="pre">ovfconverter</span></tt></li>
+<li><a class="reference external" href="http://qemu.org/">qemu-img</a>, if you want to use <code class="docutils literal"><span class="pre">ovfconverter</span></code></li>
 <li><a class="reference external" href="http://fping.sourceforge.net/">fping</a></li>
 <li><a class="reference external" href="http://code.google.com/p/ipaddr-py/">Python IP address manipulation library</a></li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/bitarray/">Bitarray Python library</a></li>
@@ -112,7 +112,7 @@ To install the optional package, run the following line.:</p>
 </pre></div>
 </div>
 <p>If some of the python packages are not available in your system,
-you can try installing them using <tt class="docutils literal"><span class="pre">easy_install</span></tt> command.
+you can try installing them using <code class="docutils literal"><span class="pre">easy_install</span></code> command.
 For example:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">python-setuptools</span> <span class="gs">python-dev</span>
 $ <span class="gs">cd</span> <span class="gs">/</span> <span class="gs">&amp;&amp;</span> <span class="gs">easy_install</span> <span class="gs">\</span>
@@ -135,21 +135,21 @@ $ <span class="gs">cd</span> <span class="gs">/</span> <span class="gs">&amp;&am
 dependencies.</p>
 <div class="admonition note" id="socat-note">
 <p class="first admonition-title">Note</p>
-<p>Ganeti&#8217;s import/export functionality uses <tt class="docutils literal"><span class="pre">socat</span></tt> with OpenSSL for
+<p>Ganeti&#8217;s import/export functionality uses <code class="docutils literal"><span class="pre">socat</span></code> with OpenSSL for
 transferring data between nodes. By default, OpenSSL 0.9.8 and above
 employ transparent compression of all data using zlib if supported by
 both sides of a connection. In cases where a lot of data is
 transferred, this can lead to an increased CPU usage. Additionally,
-Ganeti already compresses all data using <tt class="docutils literal"><span class="pre">gzip</span></tt> where it makes sense
+Ganeti already compresses all data using <code class="docutils literal"><span class="pre">gzip</span></code> where it makes sense
 (for inter-cluster instance moves).</p>
-<p>To remedey this situation, patches implementing a new <tt class="docutils literal"><span class="pre">socat</span></tt> option
+<p>To remedey this situation, patches implementing a new <code class="docutils literal"><span class="pre">socat</span></code> option
 for disabling OpenSSL compression have been contributed and will
 likely be included in the next feature release. Until then, users or
 distributions need to apply the patches on their own.</p>
-<p>Ganeti will use the option if it&#8217;s detected by the <tt class="docutils literal"><span class="pre">configure</span></tt>
+<p>Ganeti will use the option if it&#8217;s detected by the <code class="docutils literal"><span class="pre">configure</span></code>
 script; auto-detection can be disabled by explicitly passing
-<tt class="docutils literal"><span class="pre">--enable-socat-compress</span></tt> (use the option to disable compression) or
-<tt class="docutils literal"><span class="pre">--disable-socat-compress</span></tt> (don&#8217;t use the option).</p>
+<code class="docutils literal"><span class="pre">--enable-socat-compress</span></code> (use the option to disable compression) or
+<code class="docutils literal"><span class="pre">--disable-socat-compress</span></code> (don&#8217;t use the option).</p>
 <p class="last">The patches and more information can be found on
 <a class="reference external" href="http://www.dest-unreach.org/socat/contrib/socat-opensslcompress.html">http://www.dest-unreach.org/socat/contrib/socat-opensslcompress.html</a>.</p>
 </div>
@@ -185,7 +185,7 @@ version 0.3.2</li>
 <li><a class="reference external" href="http://hackage.haskell.org/package/Crypto">Crypto</a>, tested with
 version 4.2.4</li>
 <li><a class="reference external" href="http://hackage.haskell.org/package/regex-pcre">regex-pcre</a>,
-bindings for the <tt class="docutils literal"><span class="pre">pcre</span></tt> library</li>
+bindings for the <code class="docutils literal"><span class="pre">pcre</span></code> library</li>
 <li><a class="reference external" href="http://hackage.haskell.org/package/attoparsec">attoparsec</a>,
 version 0.10 and above</li>
 <li><a class="reference external" href="http://hackage.haskell.org/package/vector">vector</a></li>
@@ -224,8 +224,8 @@ version 3.10 and above.</li>
                   <span class="gs">ghc-regex-pcre-devel</span>
 </pre></div>
 </div>
-<p>The most recent Fedora doesn&#8217;t provide <tt class="docutils literal"><span class="pre">crypto</span></tt>, <tt class="docutils literal"><span class="pre">inotify</span></tt>. So these
-need to be installed using <tt class="docutils literal"><span class="pre">cabal</span></tt>.</p>
+<p>The most recent Fedora doesn&#8217;t provide <code class="docutils literal"><span class="pre">crypto</span></code>, <code class="docutils literal"><span class="pre">inotify</span></code>. So these
+need to be installed using <code class="docutils literal"><span class="pre">cabal</span></code>.</p>
 <p>If using a distribution which does not provide these libraries, first
 install the Haskell platform. Then run:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">cabal</span> <span class="gs">update</span>
@@ -235,7 +235,7 @@ install the Haskell platform. Then run:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">libpcre3-dev</span> <span class="gs">libcurl4-openssl-dev</span>
 </pre></div>
 </div>
-<p>And finally the libraries required for building the packages via <tt class="docutils literal"><span class="pre">cabal</span></tt>
+<p>And finally the libraries required for building the packages via <code class="docutils literal"><span class="pre">cabal</span></code>
 (it will automatically pick only those that are not already installed via your
 distribution packages):</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">cabal</span> <span class="gs">install</span> <span class="gs">--only-dependencies</span> <span class="gs">cabal/ganeti.template.cabal</span>
@@ -245,16 +245,16 @@ distribution packages):</p>
 <div class="section" id="haskell-optional-features">
 <h3>Haskell optional features<a class="headerlink" href="#haskell-optional-features" title="Permalink to this headline">¶</a></h3>
 <p>Optionally, more functionality can be enabled if your build machine has
-a few more Haskell libraries enabled: the <tt class="docutils literal"><span class="pre">ganeti-confd</span></tt> daemon
-(<tt class="docutils literal"><span class="pre">--enable-confd</span></tt>), the monitoring daemon (<tt class="docutils literal"><span class="pre">--enable-monitoring</span></tt>) and
-the meta-data daemon (<tt class="docutils literal"><span class="pre">--enable-metadata</span></tt>).
+a few more Haskell libraries enabled: the <code class="docutils literal"><span class="pre">ganeti-confd</span></code> daemon
+(<code class="docutils literal"><span class="pre">--enable-confd</span></code>), the monitoring daemon (<code class="docutils literal"><span class="pre">--enable-monitoring</span></code>) and
+the meta-data daemon (<code class="docutils literal"><span class="pre">--enable-metadata</span></code>).
 The extra dependencies for these are:</p>
 <ul class="simple">
 <li><cite>snap-server</cite> &lt;<a class="reference external" href="http://hackage.haskell.org/package/snap-server">http://hackage.haskell.org/package/snap-server</a>&gt;`_, version
 0.8.1 and above.</li>
 <li><cite>case-insensitive</cite>
 &lt;<a class="reference external" href="http://hackage.haskell.org/package/case-insensitive">http://hackage.haskell.org/package/case-insensitive</a>&gt;`_, version
-0.4.0.1 and above (it&#8217;s also a dependency of <tt class="docutils literal"><span class="pre">snap-server</span></tt>).</li>
+0.4.0.1 and above (it&#8217;s also a dependency of <code class="docutils literal"><span class="pre">snap-server</span></code>).</li>
 <li><a class="reference external" href="http://hackage.haskell.org/package/PSQueue">PSQueue</a>,
 version 1.0 and above.</li>
 </ul>
@@ -263,7 +263,7 @@ either apt:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">libghc-snap-server-dev</span> <span class="gs">libghc-psqueue-dev</span>
 </pre></div>
 </div>
-<p>or <tt class="docutils literal"><span class="pre">cabal</span></tt>:</p>
+<p>or <code class="docutils literal"><span class="pre">cabal</span></code>:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">cabal</span> <span class="gs">install</span> <span class="gs">--only-dependencies</span> <span class="gs">cabal/ganeti.template.cabal</span> <span class="gs">\</span>
                 <span class="gs">--flags=&quot;confd</span> <span class="gs">mond</span> <span class="gs">metad&quot;</span>
 </pre></div>
@@ -271,8 +271,8 @@ either apt:</p>
 <p>to install them.</p>
 <div class="admonition note" id="cabal-note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure that your <tt class="docutils literal"><span class="pre">~/.cabal/bin</span></tt> directory (or whatever else
-is defined as <tt class="docutils literal"><span class="pre">bindir</span></tt>) is in your <tt class="docutils literal"><span class="pre">PATH</span></tt>.</p>
+<p class="last">Make sure that your <code class="docutils literal"><span class="pre">~/.cabal/bin</span></code> directory (or whatever else
+is defined as <code class="docutils literal"><span class="pre">bindir</span></code>) is in your <code class="docutils literal"><span class="pre">PATH</span></code>.</p>
 </div>
 </div>
 </div>
@@ -284,27 +284,27 @@ is defined as <tt class="docutils literal"><span class="pre">bindir</span></tt>)
   <span class="gs">make</span> <span class="gs">install</span>
 </pre></div>
 </div>
-<p>This will install the software under <tt class="docutils literal"><span class="pre">/usr/local</span></tt>. You then need to
-copy <tt class="docutils literal"><span class="pre">doc/examples/ganeti.initd</span></tt> to <tt class="docutils literal"><span class="pre">/etc/init.d/ganeti</span></tt> and
-integrate it into your boot sequence (<tt class="docutils literal"><span class="pre">chkconfig</span></tt>, <tt class="docutils literal"><span class="pre">update-rc.d</span></tt>,
+<p>This will install the software under <code class="docutils literal"><span class="pre">/usr/local</span></code>. You then need to
+copy <code class="docutils literal"><span class="pre">doc/examples/ganeti.initd</span></code> to <code class="docutils literal"><span class="pre">/etc/init.d/ganeti</span></code> and
+integrate it into your boot sequence (<code class="docutils literal"><span class="pre">chkconfig</span></code>, <code class="docutils literal"><span class="pre">update-rc.d</span></code>,
 etc.). Also, Ganeti uses symbolic links in the sysconfdir to determine,
 which of potentially many installed versions currently is used. If these
 symbolic links should be added by the install as well, add the
-option <tt class="docutils literal"><span class="pre">--enable-symlinks</span></tt> to the <tt class="docutils literal"><span class="pre">configure</span></tt> call.</p>
+option <code class="docutils literal"><span class="pre">--enable-symlinks</span></code> to the <code class="docutils literal"><span class="pre">configure</span></code> call.</p>
 </div>
 <div class="section" id="cluster-initialisation">
 <h2>Cluster initialisation<a class="headerlink" href="#cluster-initialisation" title="Permalink to this headline">¶</a></h2>
 <p>Before initialising the cluster, on each node you need to create the
 following directories:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">/etc/ganeti</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">/var/lib/ganeti</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">/var/log/ganeti</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">/srv/ganeti</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">/srv/ganeti/os</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">/srv/ganeti/export</span></tt></li>
+<li><code class="docutils literal"><span class="pre">/etc/ganeti</span></code></li>
+<li><code class="docutils literal"><span class="pre">/var/lib/ganeti</span></code></li>
+<li><code class="docutils literal"><span class="pre">/var/log/ganeti</span></code></li>
+<li><code class="docutils literal"><span class="pre">/srv/ganeti</span></code></li>
+<li><code class="docutils literal"><span class="pre">/srv/ganeti/os</span></code></li>
+<li><code class="docutils literal"><span class="pre">/srv/ganeti/export</span></code></li>
 </ul>
-<p>After this, use <tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span></tt>.</p>
+<p>After this, use <code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">init</span></code>.</p>
 </div>
 </div>
 
@@ -312,7 +312,7 @@ following directories:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -334,12 +334,14 @@ following directories:</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="locking.html"
                         title="next chapter">Ganeti locking</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/install-quick.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install-quick.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -356,7 +358,7 @@ following directories:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -365,12 +367,12 @@ following directories:</p>
         <li class="right" >
           <a href="install.html" title="Ganeti installation tutorial"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

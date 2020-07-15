@@ -4,11 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>HBAL(1) Ganeti | Version 2.16.0~rc1</title>
+  <title>HBAL(1) Ganeti | Version 2.16.2</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">HBAL(1) Ganeti | Version 2.16.0~rc1</h1>
+<h1 class="title">HBAL(1) Ganeti | Version 2.16.2</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -36,9 +37,9 @@
 <li><a href="#copyright">COPYRIGHT</a></li>
 </ul>
 </div>
-<h1 id="name"><a href="#TOC">NAME</a></h1>
+<h1 id="name">NAME</h1>
 <p>hbal - Cluster balancer for Ganeti</p>
-<h1 id="synopsis"><a href="#TOC">SYNOPSIS</a></h1>
+<h1 id="synopsis">SYNOPSIS</h1>
 <p><strong>hbal</strong> {backend options...} [algorithm options...] [reporting options...]</p>
 <p><strong>hbal</strong> --version</p>
 <p>Backend options:</p>
@@ -47,12 +48,12 @@
 <p><strong>[ --max-cpu <em>cpu-ratio</em> ]</strong> <strong>[ --min-disk <em>disk-ratio</em> ]</strong> <strong>[ -l <em>limit</em> ]</strong> <strong>[ -e <em>score</em> ]</strong> <strong>[ -g <em>delta</em> ]</strong> <strong>[ --min-gain-limit <em>threshold</em> ]</strong> <strong>[ -O <em>name...</em> ]</strong> <strong>[ --no-disk-moves ]</strong> <strong>[ --no-instance-moves ]</strong> <strong>[ -U <em>util-file</em> ]</strong> <strong>[ --ignore-dynu ]</strong> <strong>[ --ignore-soft-errors ]</strong> <strong>[ --mond <em>yes|no</em> ]</strong> <strong>[ --mond-xen ]</strong> <strong>[ --exit-on-missing-mond-data ]</strong> <strong>[ --evac-mode ]</strong> <strong>[ --restricted-migration ]</strong> <strong>[ --select-instances <em>inst...</em> ]</strong> <strong>[ --exclude-instances <em>inst...</em> ]</strong></p>
 <p>Reporting options:</p>
 <p><strong>[ -C[ <em>file</em> ] ]</strong> <strong>[ -p[ <em>fields</em> ] ]</strong> <strong>[ --print-instances ]</strong> <strong>[ -S <em>file</em> ]</strong> <strong>[ -v... | -q ]</strong></p>
-<h1 id="description"><a href="#TOC">DESCRIPTION</a></h1>
+<h1 id="description">DESCRIPTION</h1>
 <p>hbal is a cluster balancer that looks at the current state of the cluster (nodes with their total and free disk, memory, etc.) and instance placement and computes a series of steps designed to bring the cluster into a better state.</p>
 <p>The algorithm used is designed to be stable (i.e. it will give you the same results when restarting it from the middle of the solution) and reasonably fast. It is not, however, designed to be a perfect algorithm: it is possible to make it go into a corner from which it can find no improvement, because it looks only one &quot;step&quot; ahead.</p>
 <p>The program accesses the cluster state via Rapi or Luxi. It also requests data over the network from all MonDs with the --mond option. Currently it uses only data produced by CPUload collector.</p>
 <p>By default, the program will show the solution incrementally as it is computed, in a somewhat cryptic format; for getting the actual Ganeti command list, use the <strong>-C</strong> option.</p>
-<h2 id="algorithm"><a href="#TOC">ALGORITHM</a></h2>
+<h2 id="algorithm">ALGORITHM</h2>
 <p>The program works in independent steps; at each step, we compute the best instance move that lowers the cluster score.</p>
 <p>The possible move type for an instance are combinations of failover/migrate and replace-disks such that we change one of the instance nodes, and the other one remains (but possibly with changed role, e.g. from primary it becomes secondary). The list is:</p>
 <ul>
@@ -63,7 +64,7 @@
 <li>replace secondary and failover, also composite (r, f)</li>
 </ul>
 <p>We don't do the only remaining possibility of replacing both nodes (r,f,r,f or the equivalent f,r,f,r) since these move needs an exhaustive search over both candidate primary and secondary nodes, and is O(n*n) in the number of nodes. Furthermore, it doesn't seems to give better scores but will result in more disk replacements.</p>
-<h2 id="placement-restrictions"><a href="#TOC">PLACEMENT RESTRICTIONS</a></h2>
+<h2 id="placement-restrictions">PLACEMENT RESTRICTIONS</h2>
 <p>At each step, we prevent an instance move if it would cause:</p>
 <ul>
 <li>a node to go into N+1 failure state</li>
@@ -72,7 +73,7 @@
 <li>a max vcpu/pcpu ratio to be exceeded (configured via <em>--max-cpu</em>)</li>
 <li>min disk free percentage to go below the configured limit (configured via <em>--min-disk</em>)</li>
 </ul>
-<h2 id="cluster-scoring"><a href="#TOC">CLUSTER SCORING</a></h2>
+<h2 id="cluster-scoring">CLUSTER SCORING</h2>
 <p>As said before, the algorithm tries to minimise the cluster score at each step. Currently this score is computed as a weighted sum of the following components:</p>
 <ul>
 <li>standard deviation of the percent of free memory</li>
@@ -95,13 +96,13 @@
 <p>The dynamic load values need to be read from an external file (Ganeti doesn't supply them), and are computed for each node as: sum of primary instance cpu load, sum of primary instance memory load, sum of primary and secondary instance disk load (as DRBD generates write load on secondary nodes too in normal case and in degraded scenarios also read load), and sum of primary instance network load. An example of how to generate these values for input to hbal would be to track <code>xm list</code> for instances over a day and by computing the delta of the cpu values, and feed that via the <em>-U</em> option for all instances (and keep the other metrics as one). For the algorithm to work, all that is needed is that the values are consistent for a metric across all instances (e.g. all instances use cpu% to report cpu usage, and not something related to number of CPU seconds used if the CPUs are different), and that they are normalised to between zero and one. Note that it's recommended to not have zero as the load value for any instance metric since then secondary instances are not well balanced.</p>
 <p>The CPUload from MonD's data collector will be used only if all MonDs are running, otherwise it won't affect the cluster score. Since we can't find the CPU load of each instance, we can assume that the CPU load of an instance is proportional to the number of its vcpus. With this heuristic, instances from nodes with high CPU load will tend to move to nodes with less CPU load.</p>
 <p>On a perfectly balanced cluster (all nodes the same size, all instances the same size and spread across the nodes equally, all desired locations satisfied), the values for all metrics would be zero, with the exception of the total percentage of reserved memory. This doesn't happen too often in practice :)</p>
-<h2 id="offline-instances"><a href="#TOC">OFFLINE INSTANCES</a></h2>
+<h2 id="offline-instances">OFFLINE INSTANCES</h2>
 <p>Since current Ganeti versions do not report the memory used by offline (down) instances, ignoring the run status of instances will cause wrong calculations. For this reason, the algorithm subtracts the memory size of down instances from the free node memory of their primary node, in effect simulating the startup of such instances.</p>
-<h2 id="desired-location-tags"><a href="#TOC">DESIRED LOCATION TAGS</a></h2>
+<h2 id="desired-location-tags">DESIRED LOCATION TAGS</h2>
 <p>Sometimes, administrators want specific instances located in a particular, typically geographic, location. To suppoer this desired location tags are introduced.</p>
 <p>If the cluster is tagged <em>htools:desiredlocation:x</em> then tags starting with <em>x</em> are desired location tags. Instances can be assigned tags of the form <em>x</em> that means that instance wants to be placed on a node tagged with a location tag <em>x</em>. (That means that cluster should be tagged <em>htools:nlocation:x</em> too).</p>
 <p>Instance pinning is just heuristics, not a hard enforced requirement; it will only be achieved by the cluster metrics favouring such placements.</p>
-<h2 id="exclusion-tags"><a href="#TOC">EXCLUSION TAGS</a></h2>
+<h2 id="exclusion-tags">EXCLUSION TAGS</h2>
 <p>The exclusion tags mechanism is designed to prevent instances which run the same workload (e.g. two DNS servers) to land on the same node, which would make the respective node a SPOF for the given service.</p>
 <p>It works by tagging instances with certain tags and then building exclusion maps based on these. Which tags are actually used is configured either via the command line (option <em>--exclusion-tags</em>) or via adding them to the cluster tags:</p>
 <dl>
@@ -113,7 +114,7 @@
 </dd>
 </dl>
 <p>Both the above forms mean that two instances both having (e.g.) the tag <em>a:foo</em> or <em>b:bar</em> won't end on the same node.</p>
-<h2 id="migration-tags"><a href="#TOC">MIGRATION TAGS</a></h2>
+<h2 id="migration-tags">MIGRATION TAGS</h2>
 <p>If Ganeti is deployed on a heterogeneous cluster, migration might not be possible between all nodes of a node group. One example of such a situation is upgrading the hypervisor node by node. To make hbal aware of those restrictions, the following cluster tags are used.</p>
 <dl>
 <dt>cluster tags <em>htools:migration:a</em>, <em>htools:migration:b</em>, etc</dt>
@@ -124,7 +125,7 @@
 </dd>
 </dl>
 <p>So in the simple case of a hypervisor upgrade, tagging all the nodes that have been upgraded with a migration tag suffices. In more complicated situations, it is always possible to use a different migration tag for each hypervisor used and explictly state the allowed migration directions by means of <em>htools:allowmigration:</em> tags.</p>
-<h2 id="location-tags"><a href="#TOC">LOCATION TAGS</a></h2>
+<h2 id="location-tags">LOCATION TAGS</h2>
 <p>Within a node group, certain nodes might be more likely to fail simultaneously due to a common cause of error (e.g., if they share the same power supply unit). Ganeti can be made aware of thos common causes of failure by means of tags.</p>
 <dl>
 <dt>cluster tags <em>htools:nlocation:a</em>, <em>htools:nlocation:b</em>, etc</dt>
@@ -132,7 +133,7 @@
 </dd>
 </dl>
 <p>Instances with primary and secondary node having a common cause of failure and instances sharing the same exclusion tag with primary nodes having a common failure are considered badly placed. While such placements are always allowed, they count heavily towards the cluster score.</p>
-<h1 id="options"><a href="#TOC">OPTIONS</a></h1>
+<h1 id="options">OPTIONS</h1>
 <p>The options that can be passed to the program are as follows:</p>
 <dl>
 <dt>-C, --print-commands</dt>
@@ -154,7 +155,7 @@
 </ul>
 <p>Note that algorithm will also mark as offline any nodes which are reported by RAPI as such, or that have &quot;?&quot; in file-based input in any numeric fields.</p>
 </dd>
-<dt>-e <em>score</em>, --min-score=<em>score</em></dt>
+<dt>-e <em>score</em>, --min-score=*score*</dt>
 <dd><p>This parameter denotes how much above the N+1 bound the cluster score can for us to be happy with and alters the computation in two ways:</p>
 <ul>
 <li>if the cluster has the initial score lower than this value, then we don't enter the algorithm at all, and exit with success</li>
@@ -162,10 +163,10 @@
 </ul>
 <p>The default value of the parameter is currently <code>1e-9</code> (chosen empirically).</p>
 </dd>
-<dt>-g <em>delta</em>, --min-gain=<em>delta</em></dt>
+<dt>-g <em>delta</em>, --min-gain=*delta*</dt>
 <dd><p>Since the balancing algorithm can sometimes result in just very tiny improvements, that bring less gain that they cost in relocation time, this parameter (defaulting to 0.01) represents the minimum gain we require during a step, to continue balancing.</p>
 </dd>
-<dt>--min-gain-limit=<em>threshold</em></dt>
+<dt>--min-gain-limit=*threshold*</dt>
 <dd><p>The above min-gain option will only take effect if the cluster score is already below <em>threshold</em> (defaults to 0.1). The rationale behind this setting is that at high cluster scores (badly balanced clusters), we don't want to abort the rebalance too quickly, as later gains might still be significant. However, under the threshold, the total gain is only the threshold value, so we can exit early.</p>
 </dd>
 <dt>--no-disk-moves</dt>
@@ -180,10 +181,10 @@
 <dt>--restricted-migration</dt>
 <dd><p>This parameter disallows any replace-primary moves (frf), as well as those replace-and-failover moves (rf) where the primary node of the instance is not drained. If used together with the <code>--evac-mode</code> option, the only migrations that hbal will do are migrations of instances off a drained node. This can be useful if during a reinstall of the base operating system migration is only possible from the old OS to the new OS. Note, however, that usually the use of migration tags is the better choice.</p>
 </dd>
-<dt>--select-instances=<em>instances</em></dt>
+<dt>--select-instances=*instances*</dt>
 <dd><p>This parameter marks the given instances (as a comma-separated list) as the only ones being moved during the rebalance.</p>
 </dd>
-<dt>--exclude-instances=<em>instances</em></dt>
+<dt>--exclude-instances=*instances*</dt>
 <dd><p>This parameter marks the given instances (as a comma-separated list) from being moved during the rebalance.</p>
 </dd>
 <dt>-U <em>util-file</em></dt>
@@ -196,13 +197,13 @@
 <dt>--ignore-soft-errors</dt>
 <dd><p>If given, all checks for soft errors will be ommitted when considering balancing moves. In this way, progress can be made in a cluster where all nodes are in a policy-wise bad state, like exceeding oversubscription ratios on CPU or spindles.</p>
 </dd>
-<dt>-S <em>filename</em>, --save-cluster=<em>filename</em></dt>
+<dt>-S <em>filename</em>, --save-cluster=*filename*</dt>
 <dd><p>If given, the state of the cluster before the balancing is saved to the given file plus the extension &quot;original&quot; (i.e. <em>filename</em>.original), and the state at the end of the balancing is saved to the given file plus the extension &quot;balanced&quot; (i.e. <em>filename</em>.balanced). This allows re-feeding the cluster state to either hbal itself or for example hspace via the <code>-t</code> option.</p>
 </dd>
-<dt>-t <em>datafile</em>, --text-data=<em>datafile</em></dt>
+<dt>-t <em>datafile</em>, --text-data=*datafile*</dt>
 <dd><p>Backend specification: the name of the file holding node and instance information (if not collecting via RAPI or LUXI). This or one of the other backends must be selected. The option is described in the man page <strong>htools</strong>(1).</p>
 </dd>
-<dt>--mond=<em>yes|no</em></dt>
+<dt>--mond=*yes|no*</dt>
 <dd><p>If given the program will query all MonDs to fetch data from the supported data collectors over the network.</p>
 </dd>
 <dt>--mond-xen</dt>
@@ -224,16 +225,16 @@
 <dd><p>When using the Luxi backend, hbal can also execute the given commands. The execution method is to execute the individual jobsets (see the <em>-C</em> option for details) in separate stages, aborting if at any time a jobset doesn't have all jobs successful. Each step in the balancing solution will be translated into exactly one Ganeti job (having between one and three OpCodes), and all the steps in a jobset will be executed in parallel. The jobsets themselves are executed serially.</p>
 <p>The execution of the job series can be interrupted, see below for signal handling.</p>
 </dd>
-<dt>-l <em>N</em>, --max-length=<em>N</em></dt>
+<dt>-l <em>N</em>, --max-length=*N*</dt>
 <dd><p>Restrict the solution to this length. This can be used for example to automate the execution of the balancing.</p>
 </dd>
-<dt>--max-cpu=<em>cpu-ratio</em></dt>
+<dt>--max-cpu=*cpu-ratio*</dt>
 <dd><p>The maximum virtual to physical cpu ratio, as a floating point number greater than or equal to one. For example, specifying <em>cpu-ratio</em> as <strong>2.5</strong> means that, for a 4-cpu machine, a maximum of 10 virtual cpus should be allowed to be in use for primary instances. A value of exactly one means there will be no over-subscription of CPU (except for the CPU time used by the node itself), and values below one do not make sense, as that means other resources (e.g. disk) won't be fully utilised due to CPU restrictions.</p>
 </dd>
-<dt>--min-disk=<em>disk-ratio</em></dt>
+<dt>--min-disk=*disk-ratio*</dt>
 <dd><p>The minimum amount of free disk space remaining, as a floating point number. For example, specifying <em>disk-ratio</em> as <strong>0.25</strong> means that at least one quarter of disk space should be left free on nodes.</p>
 </dd>
-<dt>-G <em>uuid</em>, --group=<em>uuid</em></dt>
+<dt>-G <em>uuid</em>, --group=*uuid*</dt>
 <dd><p>On an multi-group cluster, select this group for processing. Otherwise hbal will abort, since it cannot balance multiple groups at the same time.</p>
 </dd>
 <dt>-v, --verbose</dt>
@@ -246,23 +247,23 @@
 <dd><p>Just show the program version and exit.</p>
 </dd>
 </dl>
-<h1 id="signal-handling"><a href="#TOC">SIGNAL HANDLING</a></h1>
+<h1 id="signal-handling">SIGNAL HANDLING</h1>
 <p>When executing jobs via LUXI (using the <code>-X</code> option), normally hbal will execute all jobs until either one errors out or all the jobs finish successfully.</p>
 <p>Since balancing can take a long time, it is possible to stop hbal early in two ways:</p>
 <ul>
-<li><p>by sending a <code>SIGINT</code> (<code>^C</code>), hbal will register the termination request, and will wait until the currently submitted jobs finish, at which point it will exit (with exit code 0 if all jobs finished correctly, otherwise with exit code 1 as usual)</p></li>
-<li><p>by sending a <code>SIGTERM</code>, hbal will immediately exit (with exit code 2); it is the responsibility of the user to follow up with Ganeti and check the result of the currently-executing jobs</p></li>
+<li>by sending a <code>SIGINT</code> (<code>^C</code>), hbal will register the termination request, and will wait until the currently submitted jobs finish, at which point it will exit (with exit code 0 if all jobs finished correctly, otherwise with exit code 1 as usual)</li>
+<li>by sending a <code>SIGTERM</code>, hbal will immediately exit (with exit code 2); it is the responsibility of the user to follow up with Ganeti and check the result of the currently-executing jobs</li>
 </ul>
 <p>Note that in any situation, it's perfectly safe to kill hbal, either via the above signals or via any other signal (e.g. <code>SIGQUIT</code>, <code>SIGKILL</code>), since the jobs themselves are processed by Ganeti whereas hbal (after submission) only watches their progression. In this case, the user will have to query Ganeti for job results.</p>
-<h1 id="exit-status"><a href="#TOC">EXIT STATUS</a></h1>
+<h1 id="exit-status">EXIT STATUS</h1>
 <p>The exit status of the command will be zero, unless for some reason the algorithm failed (e.g. wrong node or instance data), invalid command line options, or (in case of job execution) one of the jobs has failed.</p>
 <p>Once job execution via Luxi has started (<code>-X</code>), if the balancing was interrupted early (via <em>SIGINT</em>, or via <code>--max-length</code>) but all jobs executed successfully, then the exit status is zero; a non-zero exit code means that the cluster state should be investigated, since a job failed or we couldn't compute its status and this can also point to a problem on the Ganeti side.</p>
-<h1 id="bugs"><a href="#TOC">BUGS</a></h1>
+<h1 id="bugs">BUGS</h1>
 <p>The program does not check all its input data for consistency, and sometime aborts with cryptic errors messages with invalid data.</p>
 <p>The algorithm is not perfect.</p>
-<h1 id="example"><a href="#TOC">EXAMPLE</a></h1>
+<h1 id="example">EXAMPLE</h1>
 <p>Note that these examples are not for the latest version (they don't have full node data).</p>
-<h2 id="default-output"><a href="#TOC">Default output</a></h2>
+<h2 id="default-output">Default output</h2>
 <p>With the default options, the program shows each individual step and the improvements it brings in cluster score:</p>
 <pre><code>$ hbal
 Loaded 20 nodes, 80 instances
@@ -406,14 +407,14 @@ N1 Name   t_mem f_mem r_mem t_dsk f_dsk pri sec  p_fmem  p_fdsk
    node20 32762 13280  6000  1861  1089   3   5 0.40535 0.58565</code></pre>
 <p>Here we see, beside the step list, the initial and final cluster status, with the final one showing all nodes being N+1 compliant, and the command list to reach the final solution. In the initial listing, we see which nodes are not N+1 compliant.</p>
 <p>The algorithm is stable as long as each step above is fully completed, e.g. in step 8, both the migrate and the replace-disks are done. Otherwise, if only the migrate is done, the input data is changed in a way that the program will output a different solution list (but hopefully will end in the same state).</p>
-<h1 id="reporting-bugs"><a href="#TOC">REPORTING BUGS</a></h1>
+<h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to <a href="http://code.google.com/p/ganeti/">project website</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
-<h1 id="see-also"><a href="#TOC">SEE ALSO</a></h1>
+<h1 id="see-also">SEE ALSO</h1>
 <p>Ganeti overview and specifications: <strong>ganeti</strong>(7) (general overview), <strong>ganeti-os-interface</strong>(7) (guest OS definitions), <strong>ganeti-extstorage-interface</strong>(7) (external storage providers).</p>
 <p>Ganeti commands: <strong>gnt-cluster</strong>(8) (cluster-wide commands), <strong>gnt-job</strong>(8) (job-related commands), <strong>gnt-node</strong>(8) (node-related commands), <strong>gnt-instance</strong>(8) (instance commands), <strong>gnt-os</strong>(8) (guest OS commands), <strong>gnt-storage</strong>(8) (storage commands), <strong>gnt-group</strong>(8) (node group commands), <strong>gnt-backup</strong>(8) (instance import/export commands), <strong>gnt-debug</strong>(8) (debug commands).</p>
 <p>Ganeti daemons: <strong>ganeti-watcher</strong>(8) (automatic instance restarter), <strong>ganeti-cleaner</strong>(8) (job queue cleaner), <strong>ganeti-noded</strong>(8) (node daemon), <strong>ganeti-rapi</strong>(8) (remote API daemon).</p>
 <p>Ganeti htools: <strong>htools</strong>(1) (generic binary), <strong>hbal</strong>(1) (cluster balancer), <strong>hspace</strong>(1) (capacity calculation), <strong>hail</strong>(1) (IAllocator plugin), <strong>hscan</strong>(1) (data gatherer from remote clusters), <strong>hinfo</strong>(1) (cluster information printer), <strong>mon-collector</strong>(7) (data collectors interface).</p>
-<h1 id="copyright"><a href="#TOC">COPYRIGHT</a></h1>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2006-2015 Google Inc. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>

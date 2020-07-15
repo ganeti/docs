@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti 2.3 design &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti 2.3 design &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Synchronising htools to Ganeti 2.3" href="design-htools-2.3.html" />
     <link rel="prev" title="Ganeti 2.2 design" href="design-2.2.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="design-2.2.html" title="Ganeti 2.2 design"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-2-3-design">
 <h1><a class="toc-backref" href="#id6">Ganeti 2.3 design</a><a class="headerlink" href="#ganeti-2-3-design" title="Permalink to this headline">¶</a></h1>
@@ -139,12 +137,13 @@ one.</p>
 <h5>Node group management<a class="headerlink" href="#node-group-management" title="Permalink to this headline">¶</a></h5>
 <p>To manage node groups and the nodes belonging to them, the following new
 commands and flags will be introduced:</p>
-<div class="highlight-python"><pre>gnt-group add &lt;group&gt; # add a new node group
+<div class="highlight-python"><div class="highlight"><pre>gnt-group add &lt;group&gt; # add a new node group
 gnt-group remove &lt;group&gt; # delete an empty node group
 gnt-group list # list node groups
 gnt-group rename &lt;oldname&gt; &lt;newname&gt; # rename a node group
 gnt-node {list,info} -g &lt;group&gt; # list only nodes belonging to a node group
-gnt-node modify -g &lt;group&gt; # assign a node to a node group</pre>
+gnt-node modify -g &lt;group&gt; # assign a node to a node group
+</pre></div>
 </div>
 </div>
 <div class="section" id="node-group-attributes">
@@ -152,10 +151,10 @@ gnt-node modify -g &lt;group&gt; # assign a node to a node group</pre>
 <p>In clusters with more than one node group, it may be desirable to
 establish local policies regarding which groups should be preferred when
 performing allocation of new instances, or inter-group instance migrations.</p>
-<p>To help with this, we will provide an <tt class="docutils literal"><span class="pre">alloc_policy</span></tt> attribute for
+<p>To help with this, we will provide an <code class="docutils literal"><span class="pre">alloc_policy</span></code> attribute for
 node groups. Such attribute will be honored by iallocator plugins when
 making automatic decisions regarding instance placement.</p>
-<p>The <tt class="docutils literal"><span class="pre">alloc_policy</span></tt> attribute can have the following values:</p>
+<p>The <code class="docutils literal"><span class="pre">alloc_policy</span></code> attribute can have the following values:</p>
 <ul class="simple">
 <li>unallocable: the node group should not be a candidate for instance
 allocations, and the operation should fail if only groups in this
@@ -173,7 +172,8 @@ deferred to the iallocator plugin that&#8217;s being used.</li>
 <div class="section" id="node-group-operations">
 <h5>Node group operations<a class="headerlink" href="#node-group-operations" title="Permalink to this headline">¶</a></h5>
 <p>One operation at the node group level will be initially provided:</p>
-<div class="highlight-python"><pre>gnt-group drain &lt;group&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>gnt-group drain &lt;group&gt;
+</pre></div>
 </div>
 <p>The purpose of this operation is to migrate all instances in a given
 node group to other groups in the cluster, e.g. to reclaim capacity if
@@ -194,7 +194,7 @@ so that plugins will be able to make a decision regarding the group
 in which to place a new instance. By default, all node groups will
 be considered, but it will be possible to include a list of groups
 in the creation job, in which case the plugin will limit itself to
-considering those; in both cases, the <tt class="docutils literal"><span class="pre">alloc_policy</span></tt> attribute
+considering those; in both cases, the <code class="docutils literal"><span class="pre">alloc_policy</span></code> attribute
 will be honored.</li>
 <li>If, on the other hand, a primary and secondary nodes are specified
 for a new instance, they will be required to be on the same node
@@ -247,11 +247,11 @@ candidates which Ganeti will try to keep in each group, for example.</li>
 </div>
 <div class="section" id="other-work-and-future-changes">
 <h5>Other work and future changes<a class="headerlink" href="#other-work-and-future-changes" title="Permalink to this headline">¶</a></h5>
-<p>Commands like <tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">command</span></tt>/<tt class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">copyfile</span></tt> will
+<p>Commands like <code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">command</span></code>/<code class="docutils literal"><span class="pre">gnt-cluster</span> <span class="pre">copyfile</span></code> will
 continue to work on the whole cluster, but it will be possible to target
 one group only by specifying it.</p>
 <p>Commands which allow selection of sets of resources (for example
-<tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">start</span></tt>/<tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">stop</span></tt>) will be able to select
+<code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">start</span></code>/<code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">stop</span></code>) will be able to select
 them by node group as well.</p>
 <p>Initially node groups won&#8217;t be taggable objects, to simplify the first
 implementation, but we expect this to be easy to add in a future version
@@ -357,8 +357,8 @@ state will be invalidated.</p>
 instances they lock. If an LU uses the BGL, then it will invalidate the
 entire cache. In time, it is expected that LUs will be modified to not
 invalidate, if they are not expected to change the node&#8217;s and/or
-instance&#8217;s state (e.g. <tt class="docutils literal"><span class="pre">LUInstanceConsole</span></tt>, or
-<tt class="docutils literal"><span class="pre">LUInstanceActivateDisks</span></tt>).</p>
+instance&#8217;s state (e.g. <code class="docutils literal"><span class="pre">LUInstanceConsole</span></code>, or
+<code class="docutils literal"><span class="pre">LUInstanceActivateDisks</span></code>).</p>
 <p>Invalidation of a node&#8217;s properties will also invalidate the capacity
 data associated with that node.</p>
 </div>
@@ -374,7 +374,7 @@ minutes).</p>
 <p>The cache will be used by default for most queries (e.g. a Luxi call,
 without locks, for the entire cluster). Since this will be a change from
 the current behaviour, we&#8217;ll need to allow non-cached responses,
-e.g. via a <tt class="docutils literal"><span class="pre">--cache=off</span></tt> or similar argument (which will force the
+e.g. via a <code class="docutils literal"><span class="pre">--cache=off</span></code> or similar argument (which will force the
 query).</p>
 <p>The cache will also be used for the iallocator runs, so that computing
 allocation solution can proceed independent from other jobs which lock
@@ -393,7 +393,7 @@ improvements in order to scale with the the cluster size.</p>
 pair that runs with locks held over the entire query sequence (the
 current watcher runs a job with two opcodes, which grab and release the
 locks individually). The new opcode will be called
-<tt class="docutils literal"><span class="pre">OpUpdateNodeGroupCache</span></tt> and will do the following:</p>
+<code class="docutils literal"><span class="pre">OpUpdateNodeGroupCache</span></code> and will do the following:</p>
 <ul class="simple">
 <li>try to acquire all node/instance locks (to examine in more depth, and
 possibly alter) in the given node group</li>
@@ -460,9 +460,9 @@ run in parallel requires that the state file handling changes from
 monolithic updates to partial ones.</p>
 <p>There are two file that the watcher maintains:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">$LOCALSTATEDIR/lib/ganeti/watcher.data</span></tt>, its internal state file,
+<li><code class="docutils literal"><span class="pre">$LOCALSTATEDIR/lib/ganeti/watcher.data</span></code>, its internal state file,
 used for deciding internal actions</li>
-<li><tt class="docutils literal"><span class="pre">$LOCALSTATEDIR/run/ganeti/instance-status</span></tt>, a file designed for
+<li><code class="docutils literal"><span class="pre">$LOCALSTATEDIR/run/ganeti/instance-status</span></code>, a file designed for
 external consumption</li>
 </ul>
 <p>For the first file, since it&#8217;s used only internally to the watchers, we
@@ -475,7 +475,7 @@ per-group files or keep the single file and add a per-instance timestamp
 <p>The proposal is that each child process maintains its own node group
 file, and the master process will, right after querying the node group
 list, delete any extra per-node group state file. This leaves the
-consumers to run a simple <tt class="docutils literal"><span class="pre">cat</span> <span class="pre">instance-status.group-*</span></tt> to obtain the
+consumers to run a simple <code class="docutils literal"><span class="pre">cat</span> <span class="pre">instance-status.group-*</span></code> to obtain the
 entire list of instance and their states. If needed, the modify
 timestamp of each file can be used to determine the age of the results.</p>
 </div>
@@ -485,10 +485,10 @@ timestamp of each file can be used to determine the age of the results.</p>
 <p>Currently, the capacity calculations are done completely outside
 Ganeti. As explained in the current problems section, this needs to
 account better for the cluster state changes.</p>
-<p>Therefore a new OpCode will be introduced, <tt class="docutils literal"><span class="pre">OpComputeCapacity</span></tt>, that
+<p>Therefore a new OpCode will be introduced, <code class="docutils literal"><span class="pre">OpComputeCapacity</span></code>, that
 will either return the current capacity numbers (if available), or
 trigger a new capacity calculation, via the iallocator framework, which
-will get a new method called <tt class="docutils literal"><span class="pre">capacity</span></tt>.</p>
+will get a new method called <code class="docutils literal"><span class="pre">capacity</span></code>.</p>
 <p>This method will feed the cluster state (for the complete set of node
 group, or alternative just a subset) to the iallocator plugin (either
 the specified one, or the default if none is specified), and return the
@@ -651,7 +651,7 @@ must acquire its locks in blocking mode.</p>
 a restart or crash of the master daemon.</p>
 <p>Priorities also need to be considered inside the locking library to
 ensure opcodes with higher priorities get locks first. See
-<a class="reference internal" href="#locking-priorities"><em>locking priorities</em></a> for more details.</p>
+<a class="reference internal" href="#locking-priorities"><span>locking priorities</span></a> for more details.</p>
 <div class="section" id="worker-pool">
 <h5>Worker pool<a class="headerlink" href="#worker-pool" title="Permalink to this headline">¶</a></h5>
 <p>To support job priorities in the job queue, the worker pool underlying
@@ -686,11 +686,11 @@ priorities.</p>
 <div class="section" id="locking">
 <span id="locking-priorities"></span><h5>Locking<a class="headerlink" href="#locking" title="Permalink to this headline">¶</a></h5>
 <p>In order to support priorities in Ganeti&#8217;s own lock classes,
-<tt class="docutils literal"><span class="pre">locking.SharedLock</span></tt> and <tt class="docutils literal"><span class="pre">locking.LockSet</span></tt>, the internal structure
+<code class="docutils literal"><span class="pre">locking.SharedLock</span></code> and <code class="docutils literal"><span class="pre">locking.LockSet</span></code>, the internal structure
 of the former class needs to be changed. The last major change in this
 area was done for Ganeti 2.1 and can be found in the respective
 <a class="reference internal" href="design-2.1.html"><em>design document</em></a>.</p>
-<p>The plain list (<tt class="docutils literal"><span class="pre">[]</span></tt>) used as a queue is replaced by a heap queue,
+<p>The plain list (<code class="docutils literal"><span class="pre">[]</span></code>) used as a queue is replaced by a heap queue,
 similar to the <a class="reference internal" href="#worker-pool">worker pool</a>. The heap or priority queue does automatic
 sorting, thereby automatically taking care of priorities. For each
 priority there&#8217;s a plain list with pending acquires, like the single
@@ -708,15 +708,15 @@ priority is maintained.</p>
 &#8220;active&#8221; and &#8220;inactive&#8221; condition for shared acquires is abolished. The
 lock can&#8217;t predict what priorities the next acquires will use and even
 keeping a cache can become computationally expensive for arguable
-benefit (the underlying POSIX pipe, see <tt class="docutils literal"><span class="pre">pipe(2)</span></tt>, needs to be
+benefit (the underlying POSIX pipe, see <code class="docutils literal"><span class="pre">pipe(2)</span></code>, needs to be
 re-created for each notification anyway).</p>
 <p>The following diagram shows a possible state of the internal queue from
 a high-level view. Conditions are shown as (waiting) threads. Assuming
 no modifications are made to the queue (e.g. more acquires or timeouts),
 the lock would be acquired by the threads in this order (concurrent
-acquires in parentheses): <tt class="docutils literal"><span class="pre">threadE1</span></tt>, <tt class="docutils literal"><span class="pre">threadE2</span></tt>, (<tt class="docutils literal"><span class="pre">threadS1</span></tt>,
-<tt class="docutils literal"><span class="pre">threadS2</span></tt>, <tt class="docutils literal"><span class="pre">threadS3</span></tt>), (<tt class="docutils literal"><span class="pre">threadS4</span></tt>, <tt class="docutils literal"><span class="pre">threadS5</span></tt>), <tt class="docutils literal"><span class="pre">threadE3</span></tt>,
-<tt class="docutils literal"><span class="pre">threadS6</span></tt>, <tt class="docutils literal"><span class="pre">threadE4</span></tt>, <tt class="docutils literal"><span class="pre">threadE5</span></tt>.</p>
+acquires in parentheses): <code class="docutils literal"><span class="pre">threadE1</span></code>, <code class="docutils literal"><span class="pre">threadE2</span></code>, (<code class="docutils literal"><span class="pre">threadS1</span></code>,
+<code class="docutils literal"><span class="pre">threadS2</span></code>, <code class="docutils literal"><span class="pre">threadS3</span></code>), (<code class="docutils literal"><span class="pre">threadS4</span></code>, <code class="docutils literal"><span class="pre">threadS5</span></code>), <code class="docutils literal"><span class="pre">threadE3</span></code>,
+<code class="docutils literal"><span class="pre">threadS6</span></code>, <code class="docutils literal"><span class="pre">threadE4</span></code>, <code class="docutils literal"><span class="pre">threadE5</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
   <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">exc</span><span class="o">/</span><span class="n">threadE1</span><span class="p">,</span> <span class="n">exc</span><span class="o">/</span><span class="n">threadE2</span><span class="p">,</span> <span class="n">shr</span><span class="o">/</span><span class="n">threadS1</span><span class="o">/</span><span class="n">threadS2</span><span class="o">/</span><span class="n">threadS3</span><span class="p">]),</span>
   <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="n">shr</span><span class="o">/</span><span class="n">threadS4</span><span class="o">/</span><span class="n">threadS5</span><span class="p">]),</span>
@@ -759,7 +759,7 @@ boundaries.</p>
 </div>
 <div class="section" id="netutils-utilities-for-handling-common-network-tasks">
 <h4><a class="toc-backref" href="#id24">netutils: Utilities for handling common network tasks</a><a class="headerlink" href="#netutils-utilities-for-handling-common-network-tasks" title="Permalink to this headline">¶</a></h4>
-<p>Currently common utility functions are kept in the <tt class="docutils literal"><span class="pre">utils</span></tt> module.
+<p>Currently common utility functions are kept in the <code class="docutils literal"><span class="pre">utils</span></code> module.
 Since this module grows bigger and bigger network-related functions are
 moved to a separate module named <em>netutils</em>. Additionally all these
 utilities will be IPv6-enabled.</p>
@@ -833,20 +833,20 @@ will be done by using the recommended getaddrinfo().</p>
 This was done directly in the daemon&#8217;s code in the process of
 daemonizing itself. Doing so leads to several potential issues. For
 example, a file could be opened while the code is still running as
-<tt class="docutils literal"><span class="pre">root</span></tt> and for some reason not be closed again. Even after changing
+<code class="docutils literal"><span class="pre">root</span></code> and for some reason not be closed again. Even after changing
 the user ID, the file descriptor can be written to.</p>
 </div>
 <div class="section" id="implementation">
 <h4><a class="toc-backref" href="#id31">Implementation</a><a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h4>
 <p>To address these shortcomings, daemons will be started under the target
-user right away. The <tt class="docutils literal"><span class="pre">start-stop-daemon</span></tt> utility used to start daemons
-supports the <tt class="docutils literal"><span class="pre">--chuid</span></tt> option to change user and group ID before
+user right away. The <code class="docutils literal"><span class="pre">start-stop-daemon</span></code> utility used to start daemons
+supports the <code class="docutils literal"><span class="pre">--chuid</span></code> option to change user and group ID before
 starting the executable.</p>
 <p>The intermediate solution for the RAPI daemon from Ganeti 2.2 will be
 removed again.</p>
 <p>Files written by the daemons may need to have an explicit owner and
-group set (easily done through <tt class="docutils literal"><span class="pre">utils.WriteFile</span></tt>).</p>
-<p>All SSH-related code is removed from the <tt class="docutils literal"><span class="pre">ganeti.bootstrap</span></tt> module and
+group set (easily done through <code class="docutils literal"><span class="pre">utils.WriteFile</span></code>).</p>
+<p>All SSH-related code is removed from the <code class="docutils literal"><span class="pre">ganeti.bootstrap</span></code> module and
 core components and moved to a separate script. The core code will
 simply assume a working SSH setup to be in place.</p>
 </div>
@@ -855,7 +855,7 @@ simply assume a working SSH setup to be in place.</p>
 <p>In order to separate the permissions of file sets we separate them
 into the following 3 overall security domain chunks:</p>
 <ol class="arabic simple">
-<li>Public: <tt class="docutils literal"><span class="pre">0755</span></tt> respectively <tt class="docutils literal"><span class="pre">0644</span></tt></li>
+<li>Public: <code class="docutils literal"><span class="pre">0755</span></code> respectively <code class="docutils literal"><span class="pre">0644</span></code></li>
 <li>Ganeti wide: shared between the daemons (gntdaemons)</li>
 <li>Secret files: shared among a specific set of daemons/users</li>
 </ol>
@@ -901,7 +901,7 @@ gntconfd and gntmasterd</td>
 only to redistribute the
 configuration, has access
 to all files under
-<tt class="docutils literal"><span class="pre">lib/ganeti</span></tt></td>
+<code class="docutils literal"><span class="pre">lib/ganeti</span></code></td>
 </tr>
 <tr class="row-even"><td>E</td>
 <td>gntdaemons</td>
@@ -917,18 +917,19 @@ data</td>
 <h4><a class="toc-backref" href="#id33">Restricted commands</a><a class="headerlink" href="#restricted-commands" title="Permalink to this headline">¶</a></h4>
 <p>The following commands still require root permissions to fulfill their
 functions:</p>
-<div class="highlight-python"><pre>gnt-cluster {init|destroy|command|copyfile|rename|masterfailover|renew-crypto}
+<div class="highlight-python"><div class="highlight"><pre>gnt-cluster {init|destroy|command|copyfile|rename|masterfailover|renew-crypto}
 gnt-node {add|remove}
-gnt-instance {console}</pre>
+gnt-instance {console}
+</pre></div>
 </div>
 </div>
 <div class="section" id="directory-structure-and-permissions">
 <h4><a class="toc-backref" href="#id34">Directory structure and permissions</a><a class="headerlink" href="#directory-structure-and-permissions" title="Permalink to this headline">¶</a></h4>
 <p>Here&#8217;s how we propose to change the filesystem hierarchy and their
 permissions.</p>
-<p>Assuming it follows the defaults: <tt class="docutils literal"><span class="pre">gnt${daemon}</span></tt> for user and
+<p>Assuming it follows the defaults: <code class="docutils literal"><span class="pre">gnt${daemon}</span></code> for user and
 the groups from the section <a class="reference internal" href="#security-domains">Security Domains</a>:</p>
-<div class="highlight-python"><pre>${localstatedir}/lib/ganeti/ (0755; gntmasterd:gntmasterd)
+<div class="highlight-python"><div class="highlight"><pre>${localstatedir}/lib/ganeti/ (0755; gntmasterd:gntmasterd)
    cluster-domain-secret (0600; gntmasterd:gntmasterd)
    config.data (0640; gntmasterd:gntconfd)
    hmac.key (0440; gntmasterd:gntconfd)
@@ -950,7 +951,8 @@ ${localstatedir}/log/ganeti/ (0770; gntmasterd:gntdaemons)
    master-daemon.log (0600; gntmasterd:gntdaemons)
    rapi-daemon.log (0600; gntrapi:gntdaemons)
    conf-daemon.log (0600; gntconfd:gntdaemons)
-   node-daemon.log (0600; gntnoded:gntdaemons)</pre>
+   node-daemon.log (0600; gntnoded:gntdaemons)
+</pre></div>
 </div>
 </div>
 </div>
@@ -967,7 +969,7 @@ ${localstatedir}/log/ganeti/ (0770; gntmasterd:gntdaemons)
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1054,12 +1056,14 @@ ${localstatedir}/log/ganeti/ (0770; gntmasterd:gntdaemons)
   <h4>Next topic</h4>
   <p class="topless"><a href="design-htools-2.3.html"
                         title="next chapter">Synchronising htools to Ganeti 2.3</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-2.3.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-2.3.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1076,7 +1080,7 @@ ${localstatedir}/log/ganeti/ (0770; gntmasterd:gntdaemons)
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1085,12 +1089,12 @@ ${localstatedir}/log/ganeti/ (0770; gntmasterd:gntdaemons)
         <li class="right" >
           <a href="design-2.2.html" title="Ganeti 2.2 design"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

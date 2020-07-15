@@ -4,11 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>ganeti-luxid(8) Ganeti | Version 2.16.0~rc1</title>
+  <title>ganeti-luxid(8) Ganeti | Version 2.16.2</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">ganeti-luxid(8) Ganeti | Version 2.16.0~rc1</h1>
+<h1 class="title">ganeti-luxid(8) Ganeti | Version 2.16.2</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -22,11 +23,11 @@
 <li><a href="#copyright">COPYRIGHT</a></li>
 </ul>
 </div>
-<h1 id="name"><a href="#TOC">Name</a></h1>
+<h1 id="name">Name</h1>
 <p>ganeti-luxid - Ganeti query daemon</p>
-<h1 id="synopsis"><a href="#TOC">Synopsis</a></h1>
+<h1 id="synopsis">Synopsis</h1>
 <p><strong>ganeti-luxid</strong> [-f] [-d] [--syslog] [--no-user-checks] [--no-voting --yes-do-it]</p>
-<h1 id="description"><a href="#TOC">DESCRIPTION</a></h1>
+<h1 id="description">DESCRIPTION</h1>
 <p><strong>ganeti-luxid</strong> is a daemon used to answer queries related to the configuration and the current live state of a Ganeti cluster. Additionally, it is the autorative daemon for the Ganeti job queue. Jobs can be submitted via this daemon and it schedules and starts them.</p>
 <p>For testing purposes, you can give the <code>-f</code> option and the program won't detach from the running terminal.</p>
 <p>Debug-level message can be activated by giving the <code>-d</code> option.</p>
@@ -36,16 +37,16 @@
 <p>The daemon will refuse to start if it cannot verify that the majority of cluster nodes believes that it is running on the master node. To allow failover in a two-node cluster, this can be overridden by the <code>--no-voting</code> option. As it this is dangerous, the <code>--yes-do-it</code> option has to be given as well.</p>
 <p>Only queries which don't require locks can be handled by the luxi daemon, which might lead to slightly outdated results in some cases.</p>
 <p>The config is reloaded from disk automatically when it changes, with a rate limit of once per second.</p>
-<h2 id="communication-protocol"><a href="#TOC">COMMUNICATION PROTOCOL</a></h2>
+<h2 id="communication-protocol">COMMUNICATION PROTOCOL</h2>
 <p>See <strong>gnt-master</strong>(8).</p>
-<h1 id="reporting-bugs"><a href="#TOC">REPORTING BUGS</a></h1>
+<h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to <a href="http://code.google.com/p/ganeti/">project website</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
-<h1 id="see-also"><a href="#TOC">SEE ALSO</a></h1>
+<h1 id="see-also">SEE ALSO</h1>
 <p>Ganeti overview and specifications: <strong>ganeti</strong>(7) (general overview), <strong>ganeti-os-interface</strong>(7) (guest OS definitions), <strong>ganeti-extstorage-interface</strong>(7) (external storage providers).</p>
 <p>Ganeti commands: <strong>gnt-cluster</strong>(8) (cluster-wide commands), <strong>gnt-job</strong>(8) (job-related commands), <strong>gnt-node</strong>(8) (node-related commands), <strong>gnt-instance</strong>(8) (instance commands), <strong>gnt-os</strong>(8) (guest OS commands), <strong>gnt-storage</strong>(8) (storage commands), <strong>gnt-group</strong>(8) (node group commands), <strong>gnt-backup</strong>(8) (instance import/export commands), <strong>gnt-debug</strong>(8) (debug commands).</p>
 <p>Ganeti daemons: <strong>ganeti-watcher</strong>(8) (automatic instance restarter), <strong>ganeti-cleaner</strong>(8) (job queue cleaner), <strong>ganeti-noded</strong>(8) (node daemon), <strong>ganeti-rapi</strong>(8) (remote API daemon).</p>
 <p>Ganeti htools: <strong>htools</strong>(1) (generic binary), <strong>hbal</strong>(1) (cluster balancer), <strong>hspace</strong>(1) (capacity calculation), <strong>hail</strong>(1) (IAllocator plugin), <strong>hscan</strong>(1) (data gatherer from remote clusters), <strong>hinfo</strong>(1) (cluster information printer), <strong>mon-collector</strong>(7) (data collectors interface).</p>
-<h1 id="copyright"><a href="#TOC">COPYRIGHT</a></h1>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2006-2015 Google Inc. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>

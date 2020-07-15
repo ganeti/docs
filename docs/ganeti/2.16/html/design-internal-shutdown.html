@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Detection of user-initiated shutdown from inside an instance &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Detection of user-initiated shutdown from inside an instance &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="KVM daemon" href="design-kvmd.html" />
     <link rel="prev" title="Hotplug" href="design-hotplug.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-hotplug.html" title="Hotplug"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="detection-of-user-initiated-shutdown-from-inside-an-instance">
 <h1><a class="toc-backref" href="#id1">Detection of user-initiated shutdown from inside an instance</a><a class="headerlink" href="#detection-of-user-initiated-shutdown-from-inside-an-instance" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-Mar-23</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.10.0, 2.11.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -69,11 +79,11 @@ by the user from inside the instance itself.</p>
 <p>Ganeti keeps track of the desired status of instances in order to be able to
 take proper action (e.g.: reboot) on the instances that happen to crash.
 Currently, the only way to properly shut down an instance is through Ganeti&#8217;s
-own commands, which can be used to mark an instance as <tt class="docutils literal"><span class="pre">ADMIN_down</span></tt>.</p>
+own commands, which can be used to mark an instance as <code class="docutils literal"><span class="pre">ADMIN_down</span></code>.</p>
 <p>If a user shuts down an instance from inside, through the proper command of the
 operating system it is running, the instance will be shutdown gracefully, but
 Ganeti is not aware of that: the desired status of the instance will still be
-marked as <tt class="docutils literal"><span class="pre">running</span></tt>, so when the watcher realises that the instance is down,
+marked as <code class="docutils literal"><span class="pre">running</span></code>, so when the watcher realises that the instance is down,
 it will restart it. This behaviour is usually not what the user expects.</p>
 </div>
 <div class="section" id="proposed-changes">
@@ -81,10 +91,10 @@ it will restart it. This behaviour is usually not what the user expects.</p>
 <p>We propose to modify Ganeti in such a way that it will detect when an instance
 was shutdown as a result of an explicit request from the user. When such a
 situation is detected, instead of presenting an error as it happens now, either
-the state of the instance will be set to <tt class="docutils literal"><span class="pre">ADMIN_down</span></tt>, or the instance will be
+the state of the instance will be set to <code class="docutils literal"><span class="pre">ADMIN_down</span></code>, or the instance will be
 automatically rebooted, depending on an instance-specific configuration value.
 The default behavior in case no such parameter is found will be to follow the
-apparent will of the user, and setting to <tt class="docutils literal"><span class="pre">ADMIN_down</span></tt> an instance that was
+apparent will of the user, and setting to <code class="docutils literal"><span class="pre">ADMIN_down</span></code> an instance that was
 shut down correctly from inside.</p>
 <p>The rest of this design document details the implementation of instance shutdown
 detection for Xen.  The KVM implementation is detailed in <a class="reference internal" href="design-kvmd.html"><em>KVM daemon</em></a>.</p>
@@ -96,23 +106,23 @@ or poweroff request), but such information is not usually readily available
 externally, because all such cases lead to the virtual machine being destroyed
 immediately after the event is detected.</p>
 <p>Still, Xen allows the instance configuration file to define what action to be
-taken in all those cases through the <tt class="docutils literal"><span class="pre">on_poweroff</span></tt>, <tt class="docutils literal"><span class="pre">on_shutdown</span></tt> and
-<tt class="docutils literal"><span class="pre">on_crash</span></tt> variables. By setting them to <tt class="docutils literal"><span class="pre">preserve</span></tt>, Xen will avoid
+taken in all those cases through the <code class="docutils literal"><span class="pre">on_poweroff</span></code>, <code class="docutils literal"><span class="pre">on_shutdown</span></code> and
+<code class="docutils literal"><span class="pre">on_crash</span></code> variables. By setting them to <code class="docutils literal"><span class="pre">preserve</span></code>, Xen will avoid
 destroying the domains automatically.</p>
-<p>When the domain is not destroyed, it can be viewed by using <tt class="docutils literal"><span class="pre">xm</span> <span class="pre">list</span></tt> (or <tt class="docutils literal"><span class="pre">xl</span>
-<span class="pre">list</span></tt> in newer Xen versions), and the <tt class="docutils literal"><span class="pre">State</span></tt> field of the output will
+<p>When the domain is not destroyed, it can be viewed by using <code class="docutils literal"><span class="pre">xm</span> <span class="pre">list</span></code> (or <code class="docutils literal"><span class="pre">xl</span>
+<span class="pre">list</span></code> in newer Xen versions), and the <code class="docutils literal"><span class="pre">State</span></code> field of the output will
 provide useful information.</p>
-<p>If the state is <tt class="docutils literal"><span class="pre">----c-</span></tt> it means the instance has crashed.</p>
-<p>If the state is <tt class="docutils literal"><span class="pre">---s--</span></tt> it means the instance was properly shutdown.</p>
-<p>If the instance was properly shutdown and it is still marked as <tt class="docutils literal"><span class="pre">running</span></tt> by
+<p>If the state is <code class="docutils literal"><span class="pre">----c-</span></code> it means the instance has crashed.</p>
+<p>If the state is <code class="docutils literal"><span class="pre">---s--</span></code> it means the instance was properly shutdown.</p>
+<p>If the instance was properly shutdown and it is still marked as <code class="docutils literal"><span class="pre">running</span></code> by
 Ganeti, it means that it was shutdown from inside by the user, and the Ganeti
-status of the instance needs to be changed to <tt class="docutils literal"><span class="pre">ADMIN_down</span></tt>.</p>
+status of the instance needs to be changed to <code class="docutils literal"><span class="pre">ADMIN_down</span></code>.</p>
 <p>This will be done at regular intervals by the group watcher, just before
 deciding which instances to reboot.</p>
-<p>On top of that, at the same time, the watcher will also need to issue <tt class="docutils literal"><span class="pre">xm</span>
-<span class="pre">destroy</span></tt> commands for all the domains that are in a crashed or shutdown state,
+<p>On top of that, at the same time, the watcher will also need to issue <code class="docutils literal"><span class="pre">xm</span>
+<span class="pre">destroy</span></code> commands for all the domains that are in a crashed or shutdown state,
 since this will not be done automatically by Xen anymore because of the
-<tt class="docutils literal"><span class="pre">preserve</span></tt> setting in their config files.</p>
+<code class="docutils literal"><span class="pre">preserve</span></code> setting in their config files.</p>
 <p>This behavior will be limited to the domains shut down from inside, because it
 will actually keep the resources of the domain busy until the watcher will do
 the cleaning job (that, with the default setting, is up to every 5 minutes).
@@ -126,10 +136,10 @@ of instances will not run the cleanup function.</p>
 destruction of the stopped domains) and configuration changes, to be performed
 on the master node (marking as offline an instance that was shut down
 internally). The watcher, on the master node, will fetch the list of instances
-that have been shutdown from inside (recognizable by their <tt class="docutils literal"><span class="pre">oper_state</span></tt>
-as described below). It will then submit a series of <tt class="docutils literal"><span class="pre">InstanceShutdown</span></tt> jobs
-that will mark such instances as <tt class="docutils literal"><span class="pre">ADMIN_down</span></tt> and clean them up (after
-the functionality of <tt class="docutils literal"><span class="pre">InstanceShutdown</span></tt> will have been extended as specified
+that have been shutdown from inside (recognizable by their <code class="docutils literal"><span class="pre">oper_state</span></code>
+as described below). It will then submit a series of <code class="docutils literal"><span class="pre">InstanceShutdown</span></code> jobs
+that will mark such instances as <code class="docutils literal"><span class="pre">ADMIN_down</span></code> and clean them up (after
+the functionality of <code class="docutils literal"><span class="pre">InstanceShutdown</span></code> will have been extended as specified
 in the rest of this design document).</p>
 <p>LUs performing operations other than an explicit cleanup will have to be
 modified to perform the cleanup as well, either by submitting a job to perform
@@ -139,7 +149,7 @@ explicitly performing the cleanup themselves through the RPC calls.</p>
 <h3>Other required changes<a class="headerlink" href="#other-required-changes" title="Permalink to this headline">¶</a></h3>
 <p>The implementation of this design document will require some commands to be
 changed in order to cope with the new shutdown procedure.</p>
-<p>With the default shutdown action in Xen set to <tt class="docutils literal"><span class="pre">preserve</span></tt>, the Ganeti
+<p>With the default shutdown action in Xen set to <code class="docutils literal"><span class="pre">preserve</span></code>, the Ganeti
 command for shutting down instances would leave them in a shutdown but
 preserved state. Therefore, it will have to be changed in such a way to
 immediately perform the cleanup of the instance after verifying its correct
@@ -147,12 +157,12 @@ shutdown. Also, it will correctly deal with instances that have been shutdown
 from inside but are still active according to Ganeti, by detecting this
 situation, destroying the instance and carrying out the rest of the Ganeti
 shutdown procedure as usual.</p>
-<p>The <tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">list</span></tt> command will need to be able to handle the situation
+<p>The <code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">list</span></code> command will need to be able to handle the situation
 where an instance was shutdown internally but not yet cleaned up.  The
-<tt class="docutils literal"><span class="pre">admin_state</span></tt> field will maintain the current meaning unchanged. The
-<tt class="docutils literal"><span class="pre">oper_state</span></tt> field will get a new possible state, <tt class="docutils literal"><span class="pre">S</span></tt>, meaning that the
+<code class="docutils literal"><span class="pre">admin_state</span></code> field will maintain the current meaning unchanged. The
+<code class="docutils literal"><span class="pre">oper_state</span></code> field will get a new possible state, <code class="docutils literal"><span class="pre">S</span></code>, meaning that the
 instance was shutdown internally.</p>
-<p>The <tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">info</span></tt> command <tt class="docutils literal"><span class="pre">State</span></tt> field, in such case, will show a
+<p>The <code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">info</span></code> command <code class="docutils literal"><span class="pre">State</span></code> field, in such case, will show a
 message stating that the instance was supposed to be run but was shut down
 internally.</p>
 </div>
@@ -163,7 +173,7 @@ internally.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -184,12 +194,14 @@ internally.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-kvmd.html"
                         title="next chapter">KVM daemon</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-internal-shutdown.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-internal-shutdown.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -206,7 +218,7 @@ internally.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -215,12 +227,12 @@ internally.</p>
         <li class="right" >
           <a href="design-hotplug.html" title="Hotplug"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

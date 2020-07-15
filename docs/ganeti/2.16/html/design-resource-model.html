@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Resource model changes &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Resource model changes &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,33 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
-    <link rel="up" title="Design document drafts" href="design-draft.html" />
-    <link rel="next" title="Management of storage types and disk templates, incl. storage space reporting" href="design-storagetypes.html" />
-    <link rel="prev" title="Design for import/export version 2" href="design-impexp2.html" /> 
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
+    <link rel="next" title="Design for executing commands via RPC" href="design-restricted-commands.html" />
+    <link rel="prev" title="Ganeti reason trail" href="design-reason-trail.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
+          <a href="design-restricted-commands.html" title="Design for executing commands via RPC"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="design-impexp2.html" title="Design for import/export version 2"
+          <a href="design-reason-trail.html" title="Ganeti reason trail"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="resource-model-changes">
 <h1>Resource model changes<a class="headerlink" href="#resource-model-changes" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-Oct-12</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.6.0</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In order to manage virtual machines across the cluster, Ganeti needs to
@@ -66,7 +74,7 @@ cluster.</p>
 <p>While currently the HTools model is much more advanced than Ganeti&#8217;s,
 neither one is flexible enough and both are heavily geared toward a
 specific Xen model; they fail to work well with (e.g.) KVM or LXC, or
-with Xen when <a class="reference internal" href="glossary.html#term-tmem"><em class="xref std std-term">tmem</em></a> is enabled. Furthermore, the set of metrics
+with Xen when <a class="reference internal" href="glossary.html#term-tmem"><span class="xref std std-term">tmem</span></a> is enabled. Furthermore, the set of metrics
 contained in the models is limited to historic requirements and fails to
 account for (e.g.)  heterogeneity in the I/O performance of the nodes.</p>
 </div>
@@ -82,7 +90,7 @@ cluster resources. It only does some runtime checks:</p>
 <li>during cluster verify, for enough N+1 memory on the secondaries, based
 on the (current) free memory</li>
 </ul>
-<p>Basically this model is a pure <a class="reference internal" href="glossary.html#term-sow"><em class="xref std std-term">SoW</em></a> one, and it works well when
+<p>Basically this model is a pure <a class="reference internal" href="glossary.html#term-sow"><span class="xref std std-term">SoW</span></a> one, and it works well when
 there are other instances/LVs on the nodes, as it allows Ganeti to deal
 with ‘orphan’ resource usage, but on the other hand it has many issues,
 described below.</p>
@@ -91,48 +99,66 @@ described below.</p>
 <h3>HTools<a class="headerlink" href="#htools" title="Permalink to this headline">¶</a></h3>
 <p>Since HTools does an pure in-memory modelling of the cluster changes as
 it executes the balancing or allocation steps, it had to introduce a
-static (<a class="reference internal" href="glossary.html#term-sor"><em class="xref std std-term">SoR</em></a>) cluster model.</p>
+static (<a class="reference internal" href="glossary.html#term-sor"><span class="xref std std-term">SoR</span></a>) cluster model.</p>
 <p>The model is constructed based on the received node properties from
 Ganeti (hence it basically is constructed on what Ganeti can export).</p>
 <div class="section" id="disk">
 <h4>Disk<a class="headerlink" href="#disk" title="Permalink to this headline">¶</a></h4>
-<p>For disk it consists of just the total (<tt class="docutils literal"><span class="pre">tdsk</span></tt>) and the free disk
-space (<tt class="docutils literal"><span class="pre">fdsk</span></tt>); we don&#8217;t directly track the used disk space. On top of
+<p>For disk it consists of just the total (<code class="docutils literal"><span class="pre">tdsk</span></code>) and the free disk
+space (<code class="docutils literal"><span class="pre">fdsk</span></code>); we don&#8217;t directly track the used disk space. On top of
 this, we compute and warn if the sum of disk sizes used by instance does
-not match with <tt class="docutils literal"><span class="pre">tdsk</span> <span class="pre">-</span> <span class="pre">fdsk</span></tt>, but otherwise we do not track this
+not match with <code class="docutils literal"><span class="pre">tdsk</span> <span class="pre">-</span> <span class="pre">fdsk</span></code>, but otherwise we do not track this
 separately.</p>
 </div>
 <div class="section" id="memory">
 <h4>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h4>
 <p>For memory, the model is more complex and tracks some variables that
-Ganeti itself doesn&#8217;t compute. We start from the total (<tt class="docutils literal"><span class="pre">tmem</span></tt>), free
-(<tt class="docutils literal"><span class="pre">fmem</span></tt>) and node memory (<tt class="docutils literal"><span class="pre">nmem</span></tt>) as supplied by Ganeti, and
+Ganeti itself doesn&#8217;t compute. We start from the total (<code class="docutils literal"><span class="pre">tmem</span></code>), free
+(<code class="docutils literal"><span class="pre">fmem</span></code>) and node memory (<code class="docutils literal"><span class="pre">nmem</span></code>) as supplied by Ganeti, and
 additionally we track:</p>
 <dl class="docutils">
-<dt>instance memory (<tt class="docutils literal"><span class="pre">imem</span></tt>)</dt>
+<dt>instance memory (<code class="docutils literal"><span class="pre">imem</span></code>)</dt>
 <dd>the total memory used by primary instances on the node, computed
 as the sum of instance memory</dd>
-<dt>reserved memory (<tt class="docutils literal"><span class="pre">rmem</span></tt>)</dt>
+<dt>reserved memory (<code class="docutils literal"><span class="pre">rmem</span></code>)</dt>
 <dd>the memory reserved by peer nodes for N+1 redundancy; this memory is
 tracked per peer-node, and the maximum value out of the peer memory
-lists is the node&#8217;s <tt class="docutils literal"><span class="pre">rmem</span></tt>; when not using DRBD, this will be
+lists is the node&#8217;s <code class="docutils literal"><span class="pre">rmem</span></code>; when not using DRBD, this will be
 equal to zero</dd>
-<dt>unaccounted memory (<tt class="docutils literal"><span class="pre">xmem</span></tt>)</dt>
+<dt>missing memory (<code class="docutils literal"><span class="pre">xmem</span></code>)</dt>
 <dd><p class="first">memory that cannot be unaccounted for via the Ganeti model; this is
 computed at startup as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">tmem</span> <span class="o">-</span> <span class="n">imem</span> <span class="o">-</span> <span class="n">nmem</span> <span class="o">-</span> <span class="n">fmem</span>
-</pre></div>
-</div>
-<p class="last">and is presumed to remain constant irrespective of any instance
-moves</p>
+<blockquote>
+<div>tmem - imem - nmem - fmem</div></blockquote>
+<p>if we define state-of-record free mem as:</p>
+<blockquote>
+<div>tmem - imem - nmem</div></blockquote>
+<p class="last">then we can interpret this as the difference between the state-of-record
+and state-of-world free memory; it presumed to remain constant irrespective
+of any instance moves</p>
 </dd>
-<dt>available memory (<tt class="docutils literal"><span class="pre">amem</span></tt>)</dt>
-<dd>this is simply <tt class="docutils literal"><span class="pre">fmem</span> <span class="pre">-</span> <span class="pre">rmem</span></tt>, so unless we use DRBD, this will be
-equal to <tt class="docutils literal"><span class="pre">fmem</span></tt></dd>
+<dt>unallocated memory (<code class="docutils literal"><span class="pre">umem</span></code>)</dt>
+<dd><p class="first">the memory that is guaranteed to be not allocated to existing processes;
+in case of a static node model this is simply:</p>
+<blockquote>
+<div>min(state-of-record_free_mem, fmem)</div></blockquote>
+<p>since the state-of-record changes during instance placement simulations,
+we can&#8217;t use that definition directly (see the above note about missing
+memory presumed being constant); we need to use an equivalent definiton:</p>
+<blockquote class="last">
+<div>state-of-record_free_mem - max(0, missing_memory)</div></blockquote>
+</dd>
+<dt>available memory (<code class="docutils literal"><span class="pre">amem</span></code>)</dt>
+<dd><p class="first">this is defined as a zero bounded difference between unallocated and
+reserved memory:</p>
+<blockquote>
+<div>max(0, umem - rmem)</div></blockquote>
+<p class="last">so unless we use DRBD, this will be equal to <code class="docutils literal"><span class="pre">umem</span></code></p>
+</dd>
 </dl>
-<p><tt class="docutils literal"><span class="pre">tmem</span></tt>, <tt class="docutils literal"><span class="pre">nmem</span></tt> and <tt class="docutils literal"><span class="pre">xmem</span></tt> are presumed constant during the
-instance moves, whereas the <tt class="docutils literal"><span class="pre">fmem</span></tt>, <tt class="docutils literal"><span class="pre">imem</span></tt>, <tt class="docutils literal"><span class="pre">rmem</span></tt> and <tt class="docutils literal"><span class="pre">amem</span></tt>
-values are updated according to the executed moves.</p>
+<p><code class="docutils literal"><span class="pre">tmem</span></code>, <code class="docutils literal"><span class="pre">nmem</span></code> and <code class="docutils literal"><span class="pre">xmem</span></code> are presumed constant during the
+instance moves, whereas the <code class="docutils literal"><span class="pre">fmem</span></code>, <code class="docutils literal"><span class="pre">imem</span></code>, <code class="docutils literal"><span class="pre">rmem</span></code>, <code class="docutils literal"><span class="pre">umem</span></code> and
+<code class="docutils literal"><span class="pre">amem</span></code> values are updated according to the executed moves.</p>
 </div>
 <div class="section" id="cpu">
 <h4>CPU<a class="headerlink" href="#cpu" title="Permalink to this headline">¶</a></h4>
@@ -172,7 +198,7 @@ metrics) is that the number of secondaries will be balanced.</p>
 <div class="section" id="id1">
 <h4>Memory<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>The memory model doesn&#8217;t work well in case of KVM. For Xen, the memory
-for the node (i.e. <tt class="docutils literal"><span class="pre">dom0</span></tt>) can be static or dynamic; we don&#8217;t support
+for the node (i.e. <code class="docutils literal"><span class="pre">dom0</span></code>) can be static or dynamic; we don&#8217;t support
 the latter case, but for the former case, the static value is configured
 in Xen/kernel command line, and can be queried from Xen
 itself. Therefore, Ganeti can query the hypervisor for the memory used
@@ -182,7 +208,7 @@ used by the base OS/kernel, and we currently try to compute a value for
 the node memory based on current consumption. This, being variable,
 breaks the assumptions in both Ganeti and HTools.</p>
 <p>This problem also shows for the free memory: if the free memory on the
-node is not constant (Xen with <a class="reference internal" href="glossary.html#term-tmem"><em class="xref std std-term">tmem</em></a> auto-ballooning enabled), or
+node is not constant (Xen with <a class="reference internal" href="glossary.html#term-tmem"><span class="xref std std-term">tmem</span></a> auto-ballooning enabled), or
 if the node and instance memory are pooled together (Linux-based
 hypervisors like KVM and LXC), the current value of the free memory is
 meaningless and cannot be used for instance checks.</p>
@@ -235,8 +261,8 @@ stabilise in the end).</p>
 <div class="section" id="disks">
 <h4>Disks<a class="headerlink" href="#disks" title="Permalink to this headline">¶</a></h4>
 <p>Because we only track disk space currently, this means if we have a
-cluster of <tt class="docutils literal"><span class="pre">N</span></tt> otherwise identical nodes but half of them have 10
-drives of size <tt class="docutils literal"><span class="pre">X</span></tt> and the other half 2 drives of size <tt class="docutils literal"><span class="pre">5X</span></tt>, HTools
+cluster of <code class="docutils literal"><span class="pre">N</span></code> otherwise identical nodes but half of them have 10
+drives of size <code class="docutils literal"><span class="pre">X</span></code> and the other half 2 drives of size <code class="docutils literal"><span class="pre">5X</span></code>, HTools
 will consider them exactly the same. However, in the case of mechanical
 drives at least, the I/O performance will differ significantly based on
 spindle count, and a “fair” load distribution should take this into
@@ -245,7 +271,7 @@ speed).</p>
 <p>Another problem related to the spindle count is the LVM allocation
 algorithm. Currently, the algorithm always creates (or tries to create)
 striped volumes, with the stripe count being hard-coded to the
-<tt class="docutils literal"><span class="pre">./configure</span></tt> parameter <tt class="docutils literal"><span class="pre">--with-lvm-stripecount</span></tt>. This creates
+<code class="docutils literal"><span class="pre">./configure</span></code> parameter <code class="docutils literal"><span class="pre">--with-lvm-stripecount</span></code>. This creates
 problems like:</p>
 <ul class="simple">
 <li>when installing from a distribution package, all clusters will be
@@ -312,8 +338,8 @@ job1e -&gt; job2s [style=dotted,label=&quot;release locks&quot;];
 }" />
 </p>
 <p>In the above example, the second IAllocator run will wait for locks for
-nodes <tt class="docutils literal"><span class="pre">A</span></tt> and <tt class="docutils literal"><span class="pre">B</span></tt>, even though in the end the second instance will
-be placed on another set of nodes (<tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">D</span></tt>). This wait shouldn&#8217;t
+nodes <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">B</span></code>, even though in the end the second instance will
+be placed on another set of nodes (<code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">D</span></code>). This wait shouldn&#8217;t
 be needed, since right after the first IAllocator run has finished,
 <strong class="command">hail</strong> knows the status of the cluster after the allocation,
 and it could answer the question for the second run too; however, Ganeti
@@ -343,7 +369,7 @@ Ganeti).</p>
 </div>
 <div class="section" id="balancing-algorithm">
 <h4>Balancing algorithm<a class="headerlink" href="#balancing-algorithm" title="Permalink to this headline">¶</a></h4>
-<p>The balancing algorithm, as documented in the HTools <tt class="docutils literal"><span class="pre">README</span></tt> file,
+<p>The balancing algorithm, as documented in the HTools <code class="docutils literal"><span class="pre">README</span></code> file,
 tries to minimise the cluster score; this score is based on a set of
 metrics that describe both exceptional conditions and how spread the
 instances are across the nodes. In order to achieve this goal, it moves
@@ -375,16 +401,16 @@ start -&gt; {replace1; replace2a; migrate1} -&gt; choose;
 <p>Even though a migration is much, much cheaper than a disk replace (in
 terms of network and disk traffic on the cluster), if the disk replace
 results in a score infinitesimally smaller, then it will be
-chosen. Similarly, between two disk replaces, one moving e.g. <tt class="docutils literal"><span class="pre">500GiB</span></tt>
-and one moving <tt class="docutils literal"><span class="pre">20GiB</span></tt>, the first one will be chosen if it results in
+chosen. Similarly, between two disk replaces, one moving e.g. <code class="docutils literal"><span class="pre">500GiB</span></code>
+and one moving <code class="docutils literal"><span class="pre">20GiB</span></code>, the first one will be chosen if it results in
 a score smaller than the second one. Furthermore, even if the resulting
 scores are equal, the first computed solution will be kept, whichever it
 is.</p>
 <p>Fixing this algorithmic problem is doable, but currently Ganeti doesn&#8217;t
 export enough information about nodes to make an informed decision; in
-the above example, if the <tt class="docutils literal"><span class="pre">500GiB</span></tt> move is between nodes having fast
+the above example, if the <code class="docutils literal"><span class="pre">500GiB</span></code> move is between nodes having fast
 I/O (both disks and network), it makes sense to execute it over a disk
-replace of <tt class="docutils literal"><span class="pre">100GiB</span></tt> between nodes with slow I/O, so simply relating to
+replace of <code class="docutils literal"><span class="pre">100GiB</span></code> between nodes with slow I/O, so simply relating to
 the properties of the move itself is not enough; we need more node
 information for cost computation.</p>
 </div>
@@ -397,10 +423,11 @@ is worth mentioning as it directly related to the resource model.</p>
 </div>
 <p>The current allocation/capacity algorithm works as follows (per
 node-group):</p>
-<div class="highlight-python"><pre>repeat:
-    allocate instance without failing N+1</pre>
+<div class="highlight-python"><div class="highlight"><pre>repeat:
+    allocate instance without failing N+1
+</pre></div>
 </div>
-<p>This simple algorithm, and its use of <tt class="docutils literal"><span class="pre">N+1</span></tt> criterion, has a built-in
+<p>This simple algorithm, and its use of <code class="docutils literal"><span class="pre">N+1</span></code> criterion, has a built-in
 limit of 1 machine failure in case of DRBD. This means the algorithm
 guarantees that, if using DRBD storage, there are enough resources to
 (re)start all affected instances in case of one machine failure. This
@@ -424,8 +451,8 @@ until the cluster is full).</p>
 <h2>Proposed architecture<a class="headerlink" href="#proposed-architecture" title="Permalink to this headline">¶</a></h2>
 <p>There are two main changes proposed:</p>
 <ul class="simple">
-<li>changing the resource model from a pure <a class="reference internal" href="glossary.html#term-sow"><em class="xref std std-term">SoW</em></a> to a hybrid
-<a class="reference internal" href="glossary.html#term-sor"><em class="xref std std-term">SoR</em></a>/<a class="reference internal" href="glossary.html#term-sow"><em class="xref std std-term">SoW</em></a> one, where the <a class="reference internal" href="glossary.html#term-sor"><em class="xref std std-term">SoR</em></a> component is
+<li>changing the resource model from a pure <a class="reference internal" href="glossary.html#term-sow"><span class="xref std std-term">SoW</span></a> to a hybrid
+<a class="reference internal" href="glossary.html#term-sor"><span class="xref std std-term">SoR</span></a>/<a class="reference internal" href="glossary.html#term-sow"><span class="xref std std-term">SoW</span></a> one, where the <a class="reference internal" href="glossary.html#term-sor"><span class="xref std std-term">SoR</span></a> component is
 heavily emphasised</li>
 <li>extending the resource model to cover additional properties,
 completing the “holes” in the current coverage</li>
@@ -457,7 +484,7 @@ Ganeti operations, even more than lengthy sequences of Ganeti jobs, it
 makes sense to treat them separately.</p>
 <p>The proposal is then to move the following resources into the
 configuration and treat the configuration as the authoritative source
-for them (a <a class="reference internal" href="glossary.html#term-sor"><em class="xref std std-term">SoR</em></a> model):</p>
+for them (a <a class="reference internal" href="glossary.html#term-sor"><span class="xref std std-term">SoR</span></a> model):</p>
 <ul>
 <li><dl class="first docutils">
 <dt>CPU resources:</dt>
@@ -559,7 +586,7 @@ with the node lock level. To be determined.</p>
 <div class="section" id="lock-contention-reduction">
 <h4>Lock contention reduction<a class="headerlink" href="#lock-contention-reduction" title="Permalink to this headline">¶</a></h4>
 <p>Based on the above, the locking contention will be reduced as follows:
-IAllocator calls will no longer need the <tt class="docutils literal"><span class="pre">LEVEL_NODE:</span> <span class="pre">ALL_SET</span></tt> lock,
+IAllocator calls will no longer need the <code class="docutils literal"><span class="pre">LEVEL_NODE:</span> <span class="pre">ALL_SET</span></code> lock,
 only the resource lock (in exclusive mode). Hence allocating/computing
 evacuation targets will no longer conflict for longer than the time to
 compute the allocation solution.</p>
@@ -610,21 +637,21 @@ the hypervisor, in cases of failover/lack of resources.</p>
 parameters, and change the meaning of some of the current ones.</p>
 <div class="section" id="instance-size-limits">
 <h4>Instance size limits<a class="headerlink" href="#instance-size-limits" title="Permalink to this headline">¶</a></h4>
-<p>As described in <a class="reference internal" href="#label-policies"><em>Policies</em></a>, we currently lack a clear
+<p>As described in <a class="reference internal" href="#label-policies"><span>Policies</span></a>, we currently lack a clear
 definition of the support instance sizes (minimum, maximum and
 standard). As such, we will add the following structure to the cluster
 parameters:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">min_ispec</span></tt>, <tt class="docutils literal"><span class="pre">max_ispec</span></tt>: minimum and maximum acceptable instance
+<li><code class="docutils literal"><span class="pre">min_ispec</span></code>, <code class="docutils literal"><span class="pre">max_ispec</span></code>: minimum and maximum acceptable instance
 specs</li>
-<li><tt class="docutils literal"><span class="pre">std_ispec</span></tt>: standard instance size, which will be used for capacity
+<li><code class="docutils literal"><span class="pre">std_ispec</span></code>: standard instance size, which will be used for capacity
 computations and for default parameters on the instance creation
 request</li>
 </ul>
 <p>Ganeti will by default reject non-standard instance sizes (lower than
-<tt class="docutils literal"><span class="pre">min_ispec</span></tt> or greater than <tt class="docutils literal"><span class="pre">max_ispec</span></tt>), but as usual a
-<tt class="docutils literal"><span class="pre">--ignore-ipolicy</span></tt> option on the command line or in the RAPI request
-will override these constraints. The <tt class="docutils literal"><span class="pre">std_spec</span></tt> structure will be used
+<code class="docutils literal"><span class="pre">min_ispec</span></code> or greater than <code class="docutils literal"><span class="pre">max_ispec</span></code>), but as usual a
+<code class="docutils literal"><span class="pre">--ignore-ipolicy</span></code> option on the command line or in the RAPI request
+will override these constraints. The <code class="docutils literal"><span class="pre">std_spec</span></code> structure will be used
 to fill in missing instance specifications on create.</p>
 <p>Each of the ispec structures will be a dictionary, since the contents
 can change over time. Initially, we will define the following variables
@@ -659,7 +686,7 @@ in these structures:</p>
 <td>int</td>
 </tr>
 <tr class="row-even"><td>nic_count</td>
-<td>Alowed NIC count</td>
+<td>Allowed NIC count</td>
 <td>int</td>
 </tr>
 </tbody>
@@ -673,9 +700,9 @@ can Ganeti present unified specifications over RAPI?</p>
 <p>Since the set of instance specs is only partially ordered (as opposed to
 the sets of values of individual variable in the spec, which are totally
 ordered), it follows that we can&#8217;t present unified specs. As such, the
-proposed approach is to allow the <tt class="docutils literal"><span class="pre">min_ispec</span></tt> and <tt class="docutils literal"><span class="pre">max_ispec</span></tt> to be
+proposed approach is to allow the <code class="docutils literal"><span class="pre">min_ispec</span></code> and <code class="docutils literal"><span class="pre">max_ispec</span></code> to be
 customised per node-group (and export them as a list of specifications),
-and a single <tt class="docutils literal"><span class="pre">std_spec</span></tt> at cluster level (exported as a single value).</p>
+and a single <code class="docutils literal"><span class="pre">std_spec</span></code> at cluster level (exported as a single value).</p>
 </div>
 </div>
 <div class="section" id="allocation-parameters">
@@ -739,7 +766,7 @@ in htools)</td>
 <p>Since these are used mostly internally (in htools), they will be
 exported as-is from Ganeti, without explicit handling of node-groups
 grouping.</p>
-<p>Regarding <tt class="docutils literal"><span class="pre">spindle_ratio</span></tt>, in this context spindles do not necessarily
+<p>Regarding <code class="docutils literal"><span class="pre">spindle_ratio</span></code>, in this context spindles do not necessarily
 have to mean actual mechanical hard-drivers; it&#8217;s rather a measure of
 I/O performance for internal storage.</p>
 </div>
@@ -780,7 +807,7 @@ template</th>
 <td>stripes</td>
 <td>How many stripes to use
 for newly created (plain)
-logical voumes</td>
+logical volumes</td>
 <td>Configured at
 ./configure time, not
 overridable at
@@ -943,7 +970,7 @@ implements all of them.</p>
 is 8.3.9, since previous versions implement different parameters.</p>
 <p>A more detailed discussion of the dynamic resync speed controller
 parameters is outside the scope of the present document. Please refer to
-the <tt class="docutils literal"><span class="pre">drbdsetup</span></tt> man page
+the <code class="docutils literal"><span class="pre">drbdsetup</span></code> man page
 (<a class="reference external" href="http://www.drbd.org/users-guide-8.3/re-drbdsetup.html">8.3</a> and
 <a class="reference external" href="http://www.drbd.org/users-guide/re-drbdsetup.html">8.4</a>). An
 interesting discussion about them can also be found in a
@@ -962,9 +989,9 @@ creation vs. activation)</p>
 <h4>Node parameters<a class="headerlink" href="#node-parameters" title="Permalink to this headline">¶</a></h4>
 <p>For the new memory model, we&#8217;ll add the following parameters, in a
 dictionary indexed by the hypervisor name (node attribute
-<tt class="docutils literal"><span class="pre">hv_state</span></tt>). The rationale is that, even though multi-hypervisor
+<code class="docutils literal"><span class="pre">hv_state</span></code>). The rationale is that, even though multi-hypervisor
 clusters are rare, they make sense sometimes, and thus we need to
-support multipe node states (one per hypervisor).</p>
+support multiple node states (one per hypervisor).</p>
 <p>Since usually only one of the multiple hypervisors is the &#8216;main&#8217; one
 (and the others used sparringly), capacity computation will still only
 use the first hypervisor, and not all of them. Thus we avoid possible
@@ -1031,18 +1058,18 @@ are left for instances</td>
 </tr>
 </tbody>
 </table>
-<p>Of the above parameters, only <tt class="docutils literal"><span class="pre">_total</span></tt> ones are straight-forward. The
+<p>Of the above parameters, only <code class="docutils literal"><span class="pre">_total</span></code> ones are straight-forward. The
 others have sometimes strange semantics:</p>
 <ul class="simple">
-<li>Xen can report <tt class="docutils literal"><span class="pre">mem_node</span></tt>, if configured statically (as we
+<li>Xen can report <code class="docutils literal"><span class="pre">mem_node</span></code>, if configured statically (as we
 recommend); but Linux-based hypervisors (KVM, chroot, LXC) do not, and
 this needs to be configured statically for these values</li>
-<li><tt class="docutils literal"><span class="pre">mem_hv</span></tt>, representing unaccounted for memory, is not directly
+<li><code class="docutils literal"><span class="pre">mem_hv</span></code>, representing unaccounted for memory, is not directly
 computable; on Xen, it can be seen that on a N GB machine, with 1 GB
 for dom0 and N-2 GB for instances, there&#8217;s just a few MB left, instead
 fo a full 1 GB of RAM; however, the exact value varies with the total
 memory size (at least)</li>
-<li><tt class="docutils literal"><span class="pre">cpu_node</span></tt> only makes sense on Xen (currently), in the case when we
+<li><code class="docutils literal"><span class="pre">cpu_node</span></code> only makes sense on Xen (currently), in the case when we
 restrict dom0; for Linux-based hypervisors, the node itself cannot be
 easily restricted, so it should be set as an estimate of how &#8220;heavy&#8221;
 the node loads will be</li>
@@ -1050,12 +1077,12 @@ the node loads will be</li>
 <p>Since these two values cannot be auto-computed from the node, we need to
 be able to declare a default at cluster level (debatable how useful they
 are at node group level); the proposal is to do this via a cluster-level
-<tt class="docutils literal"><span class="pre">hv_state</span></tt> dict (per hypervisor).</p>
+<code class="docutils literal"><span class="pre">hv_state</span></code> dict (per hypervisor).</p>
 <p>Beside the per-hypervisor attributes, we also have disk attributes,
 which are queried directly on the node (without hypervisor
-involvment). The are stored in a separate attribute (<tt class="docutils literal"><span class="pre">disk_state</span></tt>),
+involvement). The are stored in a separate attribute (<code class="docutils literal"><span class="pre">disk_state</span></code>),
 which is indexed per storage type and name; currently this will be just
-<tt class="docutils literal"><span class="pre">DT_PLAIN</span></tt> and the volume name as key.</p>
+<code class="docutils literal"><span class="pre">DT_PLAIN</span></code> and the volume name as key.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="20%" />
@@ -1090,7 +1117,7 @@ parameter for this</td>
 <td>Disk that is expected to
 be used by other volumes
 (set via
-<tt class="docutils literal"><span class="pre">reserved_lvs</span></tt>);
+<code class="docutils literal"><span class="pre">reserved_lvs</span></code>);
 usually should be zero</td>
 <td>None used in Ganeti;
 htools detects this
@@ -1162,7 +1189,7 @@ need to write it down.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1216,17 +1243,19 @@ need to write it down.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="design-impexp2.html"
-                        title="previous chapter">Design for import/export version 2</a></p>
+  <p class="topless"><a href="design-reason-trail.html"
+                        title="previous chapter">Ganeti reason trail</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="design-storagetypes.html"
-                        title="next chapter">Management of storage types and disk templates, incl. storage space reporting</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-resource-model.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="design-restricted-commands.html"
+                        title="next chapter">Design for executing commands via RPC</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-resource-model.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1243,22 +1272,21 @@ need to write it down.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="design-storagetypes.html" title="Management of storage types and disk templates, incl. storage space reporting"
+          <a href="design-restricted-commands.html" title="Design for executing commands via RPC"
              >next</a></li>
         <li class="right" >
-          <a href="design-impexp2.html" title="Design for import/export version 2"
+          <a href="design-reason-trail.html" title="Ganeti reason trail"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

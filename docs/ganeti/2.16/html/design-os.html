@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti OS installation redesign &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti OS installation redesign &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti Instance Import/Export using Open Virtualization Format" href="design-ovf-support.html" />
     <link rel="prev" title="Filtering of jobs for the Ganeti job queue" href="design-optables.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-optables.html" title="Filtering of jobs for the Ganeti job queue"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-os-installation-redesign">
 <h1><a class="toc-backref" href="#id1">Ganeti OS installation redesign</a><a class="headerlink" href="#ganeti-os-installation-redesign" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2013-Dec-12</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.12.0, 2.13.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -83,8 +93,8 @@ tasks w.r.t. the current one.</p>
 <div class="section" id="current-state-and-shortcomings">
 <h2><a class="toc-backref" href="#id2">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h2>
 <p>As of Ganeti 2.10, each instance is associated with an OS definition. An OS
-definition is a set of scripts (i.e., <tt class="docutils literal"><span class="pre">create</span></tt>, <tt class="docutils literal"><span class="pre">export</span></tt>, <tt class="docutils literal"><span class="pre">import</span></tt>,
-<tt class="docutils literal"><span class="pre">rename</span></tt>) that are executed with root privileges on the primary host of the
+definition is a set of scripts (i.e., <code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">export</span></code>, <code class="docutils literal"><span class="pre">import</span></code>,
+<code class="docutils literal"><span class="pre">rename</span></code>) that are executed with root privileges on the primary host of the
 instance.  These scripts are responsible for performing all the OS-related
 tasks, namely, create an instance, setup an operating system on the instance&#8217;s
 disks, export/import the instance, and rename the instance.</p>
@@ -95,8 +105,8 @@ instance and user defined parameters are written in the configuration file of
 Ganeti, to allow future reinstalls of the instance, and in various log files,
 namely:</p>
 <ul class="simple">
-<li>node daemon log file: contains DEBUG strings of the <tt class="docutils literal"><span class="pre">/os_validate</span></tt>,
-<tt class="docutils literal"><span class="pre">/instance_os_add</span></tt> and <tt class="docutils literal"><span class="pre">/instance_start</span></tt> RPC calls.</li>
+<li>node daemon log file: contains DEBUG strings of the <code class="docutils literal"><span class="pre">/os_validate</span></code>,
+<code class="docutils literal"><span class="pre">/instance_os_add</span></code> and <code class="docutils literal"><span class="pre">/instance_start</span></code> RPC calls.</li>
 <li>master daemon log file: DEBUG strings related to the same RPC calls are stored
 here as well.</li>
 <li>commands log: the CLI commands that create a new instance, including their
@@ -141,11 +151,11 @@ following changes.</p>
 <h3><a class="toc-backref" href="#id4">OS parameter categories</a><a class="headerlink" href="#os-parameter-categories" title="Permalink to this headline">¶</a></h3>
 <p>Change the OS parameters to have three categories:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">public</span></tt>: the current behavior. The parameter is logged and stored freely.</li>
-<li><tt class="docutils literal"><span class="pre">private</span></tt>: the parameter is saved inside the Ganeti configuration (to allow
+<li><code class="docutils literal"><span class="pre">public</span></code>: the current behavior. The parameter is logged and stored freely.</li>
+<li><code class="docutils literal"><span class="pre">private</span></code>: the parameter is saved inside the Ganeti configuration (to allow
 for instance reinstall) but it is not shown in logs, job logs, or passed back
 via RAPI.</li>
-<li><tt class="docutils literal"><span class="pre">secret</span></tt>: the parameter is not saved inside the Ganeti configuration.
+<li><code class="docutils literal"><span class="pre">secret</span></code>: the parameter is not saved inside the Ganeti configuration.
 Reinstalls are impossible unless the data is passed again. The parameter will
 not appear in any log file. When a functionality is performed jointly by
 multiple daemons (such as MasterD and LuxiD), currently Ganeti sometimes
@@ -167,7 +177,7 @@ will be bidirectional (e.g.: to allow the setup process going on inside the
 instance to communicate its progress to the host). Each instance will have
 access exclusively to its own metadata, and it will be only able to communicate
 with its host over this channel.  This is the approach followed the
-<tt class="docutils literal"><span class="pre">cloud-init</span></tt> tool and more details will be provided in the <a class="reference internal" href="#communication-mechanism">Communication
+<code class="docutils literal"><span class="pre">cloud-init</span></code> tool and more details will be provided in the <a class="reference internal" href="#communication-mechanism">Communication
 mechanism</a> and <a class="reference internal" href="#metadata-service">Metadata service</a> sections.</p>
 </div>
 <div class="section" id="installation-procedure">
@@ -193,7 +203,7 @@ of Ganeti and used in future reinstalls, but not during normal execution.</p>
 first installation.  However, it will be the administrator&#8217;s responsibility to
 ensure that the installation media is still available at the proper location
 when a reinstall occurs.</p>
-<p>The parameter <tt class="docutils literal"><span class="pre">--os-parameters</span></tt> can still be used to specify the OS
+<p>The parameter <code class="docutils literal"><span class="pre">--os-parameters</span></code> can still be used to specify the OS
 parameters.  However, without OS scripts, Ganeti cannot do more than a syntactic
 check to validate the supplied OS parameter string.  As a result, this string
 will be passed directly to the instance as part of the metadata.  If OS scripts
@@ -204,13 +214,13 @@ to the OS scripts as environment variables.</p>
 <ul>
 <li><p class="first">Use a disk image:</p>
 <p>Currently, it is already possible to specify an installation medium, such as,
-a cdrom, but not a disk image.  Therefore, a new parameter <tt class="docutils literal"><span class="pre">--os-image</span></tt> will
+a cdrom, but not a disk image.  Therefore, a new parameter <code class="docutils literal"><span class="pre">--os-image</span></code> will
 be used to specify the location of a disk image which will be dumped to the
 instance&#8217;s first disk before the instance is started.  The location of the
 image can be a URL and, if this is the case, Ganeti will download this image.</p>
 </li>
 <li><p class="first">Run OS scripts:</p>
-<p>The parameter <tt class="docutils literal"><span class="pre">--os-type</span></tt> (short version: <tt class="docutils literal"><span class="pre">-o</span></tt>), is currently used to
+<p>The parameter <code class="docutils literal"><span class="pre">--os-type</span></code> (short version: <code class="docutils literal"><span class="pre">-o</span></code>), is currently used to
 specify the OS scripts.  This parameter will still be used to specify the OS
 scripts with the difference that these scripts may optionally run inside a
 virtualized environment for safety reasons, depending on whether they are
@@ -228,8 +238,8 @@ setup process and before the VM is started for the first time in normal mode.
 Ganeti will provide a mechanism for receiving and unpacking this archive,
 independently of whether the installation is being performed inside the
 virtualized environment or not.</p>
-<p>The archive will be in TAR-GZIP format (with extension <tt class="docutils literal"><span class="pre">.tar.gz</span></tt> or
-<tt class="docutils literal"><span class="pre">.tgz</span></tt>) and contain the files according to the directory structure that will
+<p>The archive will be in TAR-GZIP format (with extension <code class="docutils literal"><span class="pre">.tar.gz</span></code> or
+<code class="docutils literal"><span class="pre">.tgz</span></code>) and contain the files according to the directory structure that will
 be recreated on the installation disk.  Files contained in this archive will
 overwrite files with the same path created during the installation procedure
 (if any).  The URL of the &#8220;personalization package&#8221; will have to specify an
@@ -266,7 +276,7 @@ pristine copy of the appliance can be started every time a new instance needs
 to be created and to further increase security.  The data the instance needs
 to write at runtime will only be stored in RAM and disappear as soon as the
 instance is stopped.</p>
-<p>The parameter <tt class="docutils literal"><span class="pre">--enable-safe-install=yes|no</span></tt> will be used to give the
+<p>The parameter <code class="docutils literal"><span class="pre">--enable-safe-install=yes|no</span></code> will be used to give the
 administrator control over whether to use a virtualized environment for the
 installation procedure.  By default, a virtualized environment will be used.
 Note that some feature combinations, such as, using untrusted scripts, will
@@ -322,17 +332,17 @@ and bidirectional, unless intended.</p>
 <p>The communication mechanism will be enabled automatically during an installation
 procedure that requires a virtualized environment, but, for backwards
 compatibility, it will be disabled when the instance is running normally, unless
-explicitly requested.  Specifically, a new parameter <tt class="docutils literal"><span class="pre">--communication=yes|no</span></tt>
-(short version: <tt class="docutils literal"><span class="pre">-C</span></tt>) will be added to <tt class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">add</span></tt> and <tt class="docutils literal"><span class="pre">gnt-instance</span>
-<span class="pre">modify</span></tt>.  This parameter will determine whether the communication mechanism is
+explicitly requested.  Specifically, a new parameter <code class="docutils literal"><span class="pre">--communication=yes|no</span></code>
+(short version: <code class="docutils literal"><span class="pre">-C</span></code>) will be added to <code class="docutils literal"><span class="pre">gnt-instance</span> <span class="pre">add</span></code> and <code class="docutils literal"><span class="pre">gnt-instance</span>
+<span class="pre">modify</span></code>.  This parameter will determine whether the communication mechanism is
 enabled for a particular instance.  The value of this parameter will be saved as
 part of the instance&#8217;s configuration.</p>
 <p>The communication mechanism will be implemented through network interfaces on
 the host and the guest, and Ganeti will be responsible for the host side,
 namely, creating a TAP interface for each guest and configuring these interfaces
-to have name <tt class="docutils literal"><span class="pre">gnt.com.%d</span></tt>, where <tt class="docutils literal"><span class="pre">%d</span></tt> is a unique number within the host
-(e.g., <tt class="docutils literal"><span class="pre">gnt.com.0</span></tt> and <tt class="docutils literal"><span class="pre">gnt.com.1</span></tt>), IP address <tt class="docutils literal"><span class="pre">169.254.169.254</span></tt>, and
-netmask <tt class="docutils literal"><span class="pre">255.255.255.255</span></tt>.  The interface&#8217;s name allows DHCP servers to
+to have name <code class="docutils literal"><span class="pre">gnt.com.%d</span></code>, where <code class="docutils literal"><span class="pre">%d</span></code> is a unique number within the host
+(e.g., <code class="docutils literal"><span class="pre">gnt.com.0</span></code> and <code class="docutils literal"><span class="pre">gnt.com.1</span></code>), IP address <code class="docutils literal"><span class="pre">169.254.169.254</span></code>, and
+netmask <code class="docutils literal"><span class="pre">255.255.255.255</span></code>.  The interface&#8217;s name allows DHCP servers to
 recognize which interfaces are part of the communication mechanism.</p>
 <p>This network interface will be connected to the guest&#8217;s last network interface,
 which is meant to be used exclusively for the communication mechanism and is
@@ -350,7 +360,7 @@ cluster.  An IP is unique within a single cluster, and not within a single host,
 in order to minimize disruption of connectivity, for example, during live
 migration, in particular since an instance is not aware when it changes host.
 Unfortunately, a side-effect of this decision is that a cluster can have a
-maximum of a <tt class="docutils literal"><span class="pre">/16</span></tt> network allowed instances (with communication enabled).  If
+maximum of a <code class="docutils literal"><span class="pre">/16</span></code> network allowed instances (with communication enabled).  If
 necessary to overcome this limit, it should be possible to allow different
 networks to be configured link-local only.</p>
 <p>The guest will use the DHCP protocol on its last network interface to contact a
@@ -364,7 +374,8 @@ approved by Ganeti.</p>
 Therefore, it will be necessary to extend the routing table with rules specific
 to each guest.  This can be achieved with the following command, which takes the
 guest&#8217;s unique IP address and its TAP interface:</p>
-<div class="highlight-python"><pre>route add -host &lt;ip&gt; dev &lt;ifname&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>route add -host &lt;ip&gt; dev &lt;ifname&gt;
+</pre></div>
 </div>
 <p>This rule has the additional advantage of preventing guests from trying to lease
 IP addresses from the DHCP server other than the own that has been assigned to
@@ -377,9 +388,9 @@ replies from the host will not be routed to the malicious guest.</p>
 <p>This routing rule ensures that the communication channel is exclusive but, as
 mentioned before, it will not prevent guests from accessing any service on the
 host.  It is the system administrator&#8217;s responsibility to employ the necessary
-<tt class="docutils literal"><span class="pre">iptables</span></tt> rules.  In order to achieve this, Ganeti will provide <tt class="docutils literal"><span class="pre">ifup</span></tt>
+<code class="docutils literal"><span class="pre">iptables</span></code> rules.  In order to achieve this, Ganeti will provide <code class="docutils literal"><span class="pre">ifup</span></code>
 hooks associated with the guest network interfaces which will give system
-administrator&#8217;s the opportunity to customize their own <tt class="docutils literal"><span class="pre">iptables</span></tt>, if
+administrator&#8217;s the opportunity to customize their own <code class="docutils literal"><span class="pre">iptables</span></code>, if
 necessary.  Ganeti will also provide examples of such hooks.  However, these are
 meant to personalized to each Ganeti installation and not to be taken as
 production ready scripts.</p>
@@ -387,11 +398,12 @@ production ready scripts.</p>
 descriptor for the TAP network interface meant to be used by the communication
 mechanism.  Ganeti will be responsible for generating a unique MAC address for
 the guest, opening the TAP interface, and passing its file descriptor to KVM:</p>
-<div class="highlight-python"><pre>kvm -net nic,macaddr=&lt;mac&gt; -net tap,fd=&lt;tap-fd&gt; ...</pre>
+<div class="highlight-python"><div class="highlight"><pre>kvm -net nic,macaddr=&lt;mac&gt; -net tap,fd=&lt;tap-fd&gt; ...
+</pre></div>
 </div>
-<p>For Xen, a network interface will be created on the host (using the <tt class="docutils literal"><span class="pre">vif</span></tt>
+<p>For Xen, a network interface will be created on the host (using the <code class="docutils literal"><span class="pre">vif</span></code>
 parameter of the Xen configuration file).  Each instance will have its
-corresponding <tt class="docutils literal"><span class="pre">vif</span></tt> network interface on the host.  The <tt class="docutils literal"><span class="pre">vif-route</span></tt> script
+corresponding <code class="docutils literal"><span class="pre">vif</span></code> network interface on the host.  The <code class="docutils literal"><span class="pre">vif-route</span></code> script
 of Xen might be helpful in implementing this.</p>
 </div>
 <div class="section" id="dnsmasq">
@@ -407,40 +419,40 @@ properly configure dnsmasq to work on a given Ganeti installation.  This is
 particularly important if, in this Ganeti installation, dnsmasq will share the
 node with one or more DHCP servers running in parallel.</p>
 <p>First, it is important to become familiar with the operational modes of dnsmasq,
-which are well explained in the <a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/docs/FAQ">FAQ</a> under the question <tt class="docutils literal"><span class="pre">What</span> <span class="pre">are</span>
-<span class="pre">these</span> <span class="pre">strange</span> <span class="pre">&quot;bind-interface&quot;</span> <span class="pre">and</span> <span class="pre">&quot;bind-dynamic&quot;</span> <span class="pre">options?</span></tt>.  The rest of this
+which are well explained in the <a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/docs/FAQ">FAQ</a> under the question <code class="docutils literal"><span class="pre">What</span> <span class="pre">are</span>
+<span class="pre">these</span> <span class="pre">strange</span> <span class="pre">&quot;bind-interface&quot;</span> <span class="pre">and</span> <span class="pre">&quot;bind-dynamic&quot;</span> <span class="pre">options?</span></code>.  The rest of this
 section assumes the reader is familiar with these operational modes.</p>
 <dl class="docutils">
 <dt>bind-dynamic</dt>
-<dd>dnsmasq SHOULD be configured in the <tt class="docutils literal"><span class="pre">bind-dynamic</span></tt> mode (if supported) in
+<dd>dnsmasq SHOULD be configured in the <code class="docutils literal"><span class="pre">bind-dynamic</span></code> mode (if supported) in
 order to allow other DHCP servers to run on the same node.  In this mode,
 dnsmasq can listen on the TAP interfaces for the communication mechanism by
-listening on the TAP interfaces that match the pattern <tt class="docutils literal"><span class="pre">gnt.com.*</span></tt> (e.g.,
-<tt class="docutils literal"><span class="pre">interface=gnt.com.*</span></tt>).  For extra safety, interfaces matching the pattern
-<tt class="docutils literal"><span class="pre">eth*</span></tt> and the name <tt class="docutils literal"><span class="pre">lo</span></tt> should be configured such that dnsmasq will
-always ignore them (e.g., <tt class="docutils literal"><span class="pre">except-interface=eth*</span></tt> and
-<tt class="docutils literal"><span class="pre">except-interface=lo</span></tt>).</dd>
+listening on the TAP interfaces that match the pattern <code class="docutils literal"><span class="pre">gnt.com.*</span></code> (e.g.,
+<code class="docutils literal"><span class="pre">interface=gnt.com.*</span></code>).  For extra safety, interfaces matching the pattern
+<code class="docutils literal"><span class="pre">eth*</span></code> and the name <code class="docutils literal"><span class="pre">lo</span></code> should be configured such that dnsmasq will
+always ignore them (e.g., <code class="docutils literal"><span class="pre">except-interface=eth*</span></code> and
+<code class="docutils literal"><span class="pre">except-interface=lo</span></code>).</dd>
 <dt>bind-interfaces</dt>
-<dd><p class="first">dnsmasq MAY be configured in the <tt class="docutils literal"><span class="pre">bind-interfaces</span></tt> mode (if supported) in
+<dd><p class="first">dnsmasq MAY be configured in the <code class="docutils literal"><span class="pre">bind-interfaces</span></code> mode (if supported) in
 order to allow other DHCP servers to run on the same node.  Unfortunately,
 because dnsmasq cannot dynamically adjust to TAP interfaces that are created
 and destroyed by the system, dnsmasq must be restarted with a new
 configuration file each time an instance is created or destroyed.</p>
-<p class="last">Also, the interfaces cannot be patterns, such as, <tt class="docutils literal"><span class="pre">gnt.com.*</span></tt>.  Instead, the
+<p class="last">Also, the interfaces cannot be patterns, such as, <code class="docutils literal"><span class="pre">gnt.com.*</span></code>.  Instead, the
 interfaces must be explictly specified, for example,
-<tt class="docutils literal"><span class="pre">interface=gnt.com.0,gnt.com.1</span></tt>.  Moreover, dnsmasq cannot bind to the TAP
+<code class="docutils literal"><span class="pre">interface=gnt.com.0,gnt.com.1</span></code>.  Moreover, dnsmasq cannot bind to the TAP
 interfaces if they have all the same IPv4 address.  As a result, it is
 necessary to configure these TAP interfaces to enable IPv6 and an IPv6 address
 must be assigned to them.</p>
 </dd>
 <dt>wildcard</dt>
-<dd>dnsmasq CANNOT be configured in the <tt class="docutils literal"><span class="pre">wildcard</span></tt> mode if there is
+<dd>dnsmasq CANNOT be configured in the <code class="docutils literal"><span class="pre">wildcard</span></code> mode if there is
 (at least) another DHCP server running on the same node.</dd>
 </dl>
 </div>
 <div class="section" id="metadata-service">
 <h3><a class="toc-backref" href="#id10">Metadata service</a><a class="headerlink" href="#metadata-service" title="Permalink to this headline">¶</a></h3>
-<p>An instance will be able to reach metadata service on <tt class="docutils literal"><span class="pre">169.254.169.254:80</span></tt> in
+<p>An instance will be able to reach metadata service on <code class="docutils literal"><span class="pre">169.254.169.254:80</span></code> in
 order to, for example, retrieve its metadata.  This IP address and port were
 chosen for compatibility with the OpenStack and Amazon EC2 metadata service.
 The metadata service will be provided by a single daemon, which will determine
@@ -448,40 +460,47 @@ the source instance for a given request and reply with the metadata pertaining
 to that instance.</p>
 <p>Where possible, the metadata will be provided in a way compatible with Amazon
 EC2, at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/&lt;version&gt;/meta-data/*</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/&lt;version&gt;/meta-data/*
+</pre></div>
 </div>
 <p>Ganeti-specific metadata, that does not fit this structure, will be provided
 at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/meta_data.json</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/meta_data.json
+</pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">&lt;version&gt;</span></tt> is either a date in YYYY-MM-DD format, or <tt class="docutils literal"><span class="pre">latest</span></tt> to
+<p>where <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code> is either a date in YYYY-MM-DD format, or <code class="docutils literal"><span class="pre">latest</span></code> to
 indicate the most recent available protocol version.</p>
 <p>If needed in the future, this structure also allows us to support OpenStack&#8217;s
 metadata at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/openstack/&lt;version&gt;/meta_data.json</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/openstack/&lt;version&gt;/meta_data.json
+</pre></div>
 </div>
 <p>A bi-directional, pipe-like communication channel will also be provided.  The
 instance will be able to receive data from the host by a GET request at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/read</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/read
+</pre></div>
 </div>
 <p>and to send data to the host by a POST request at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/write</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/write
+</pre></div>
 </div>
 <p>As in a pipe, once the data are read, they will not be in the buffer anymore, so
-subsequent GET requests to <tt class="docutils literal"><span class="pre">read</span></tt> will not return the same data.  However,
+subsequent GET requests to <code class="docutils literal"><span class="pre">read</span></code> will not return the same data.  However,
 unlike a pipe, it will not be possible to perform blocking I/O operations.</p>
 <p>The OS parameters will be accessible through a GET request at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/os/parameters.json</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/os/parameters.json
+</pre></div>
 </div>
 <p>as a JSON serialized dictionary having the parameter name as the key, and the
-pair <tt class="docutils literal"><span class="pre">(&lt;value&gt;,</span> <span class="pre">&lt;visibility&gt;)</span></tt> as the value, where <tt class="docutils literal"><span class="pre">&lt;value&gt;</span></tt> is the
-user-provided value of the parameter, and <tt class="docutils literal"><span class="pre">&lt;visibility&gt;</span></tt> is either <tt class="docutils literal"><span class="pre">public</span></tt>,
-<tt class="docutils literal"><span class="pre">private</span></tt> or <tt class="docutils literal"><span class="pre">secret</span></tt>.</p>
+pair <code class="docutils literal"><span class="pre">(&lt;value&gt;,</span> <span class="pre">&lt;visibility&gt;)</span></code> as the value, where <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code> is the
+user-provided value of the parameter, and <code class="docutils literal"><span class="pre">&lt;visibility&gt;</span></code> is either <code class="docutils literal"><span class="pre">public</span></code>,
+<code class="docutils literal"><span class="pre">private</span></code> or <code class="docutils literal"><span class="pre">secret</span></code>.</p>
 <p>The installation scripts to be run inside the virtualized environment will be
 available at:</p>
-<div class="highlight-python"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/os/scripts/&lt;script_name&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://169.254.169.254/ganeti/&lt;version&gt;/os/scripts/&lt;script_name&gt;
+</pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">&lt;script_name&gt;</span></tt> is the name of the script.</p>
+<p>where <code class="docutils literal"><span class="pre">&lt;script_name&gt;</span></code> is the name of the script.</p>
 <div class="section" id="rationale">
 <h4>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h4>
 <p>The choice of using a network interface for instance-host communication, as
@@ -502,21 +521,21 @@ untrusted code.</p>
 <p>The trusted installation code maintains the behavior of the current one and
 requires no modifications, with the scripts running on the node the instance is
 being created on. The untrusted code is stored in a subdirectory of the OS
-definition called <tt class="docutils literal"><span class="pre">untrusted</span></tt>.  This directory contains scripts that are
-equivalent to the already existing ones (<tt class="docutils literal"><span class="pre">create</span></tt>, <tt class="docutils literal"><span class="pre">export</span></tt>, <tt class="docutils literal"><span class="pre">import</span></tt>,
-<tt class="docutils literal"><span class="pre">rename</span></tt>) but that will be run inside an virtualized environment, to protect
+definition called <code class="docutils literal"><span class="pre">untrusted</span></code>.  This directory contains scripts that are
+equivalent to the already existing ones (<code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">export</span></code>, <code class="docutils literal"><span class="pre">import</span></code>,
+<code class="docutils literal"><span class="pre">rename</span></code>) but that will be run inside an virtualized environment, to protect
 the host from malicious tampering.</p>
-<p>The <tt class="docutils literal"><span class="pre">untrusted</span></tt> code is meant to either be untrusted itself, or to be trusted
+<p>The <code class="docutils literal"><span class="pre">untrusted</span></code> code is meant to either be untrusted itself, or to be trusted
 code running operations that might be dangerous (such as mounting a
 user-provided image).</p>
 <p>By default, all new OS definitions will have to be explicitly marked as trusted
-by the cluster administrator (with a new <tt class="docutils literal"><span class="pre">gnt-os</span> <span class="pre">modify</span></tt> command) before they
+by the cluster administrator (with a new <code class="docutils literal"><span class="pre">gnt-os</span> <span class="pre">modify</span></code> command) before they
 can run code on the host. Otherwise, only the untrusted part of the code will be
 allowed to run, inside the virtual appliance. For backwards compatibility
 reasons, when upgrading an existing cluster, all the installed OSes will be
 marked as trusted, so that they can keep running with no changes.</p>
 <p>In order to allow for the highest flexibility, if both a trusted and an
-untrusted script are provided for the same operation (i.e. <tt class="docutils literal"><span class="pre">create</span></tt>), both of
+untrusted script are provided for the same operation (i.e. <code class="docutils literal"><span class="pre">create</span></code>), both of
 them will be executed at the same time, one on the host, and one inside the
 installation appliance. They will be allowed to communicate with each other
 through the already described communication mechanism, in order to orchestrate
@@ -558,9 +577,10 @@ KVM&#8217;s guest port forwarding, namely, creating a forwarding device, such as
 TCP/IP connection, or executing a command.  However, we have determined that
 both of these options are not viable.</p>
 <p>A TCP/IP forwarding device can be created through the following KVM invocation:</p>
-<div class="highlight-python"><pre>kvm -net nic -net \
+<div class="highlight-python"><div class="highlight"><pre>kvm -net nic -net \
   user,restrict=on,net=169.254.0.0/16,host=169.254.169.253,
-  guestfwd=tcp:169.254.169.254:80-tcp:127.0.0.1:8080 ...</pre>
+  guestfwd=tcp:169.254.169.254:80-tcp:127.0.0.1:8080 ...
+</pre></div>
 </div>
 <p>This invocation even has the advantage that it can block undesired traffic
 (i.e., traffic that is not explicitly specified in the arguments) and it can
@@ -572,9 +592,10 @@ interferes with the HTTP protocol, which needs to dynamically establish and
 close connections.</p>
 <p>The alternative to the TCP/IP forwarding device is to execute a command.  The
 KVM invocation for this is, for example, the following:</p>
-<div class="highlight-python"><pre>kvm -net nic -net \
-  "user,restrict=on,net=169.254.0.0/16,host=169.254.169.253,
-  guestfwd=tcp:169.254.169.254:80-netcat 127.0.0.1 8080" ...</pre>
+<div class="highlight-python"><div class="highlight"><pre>kvm -net nic -net \
+  &quot;user,restrict=on,net=169.254.0.0/16,host=169.254.169.253,
+  guestfwd=tcp:169.254.169.254:80-netcat 127.0.0.1 8080&quot; ...
+</pre></div>
 </div>
 <p>The advantage of this approach is that the command is executed each time the
 guest initiates a connection.  This is the ideal situation, however, it is only
@@ -585,20 +606,20 @@ Ubuntu LTS.</p>
 <div class="section" id="alternatives-to-the-dhcp-server">
 <h3><a class="toc-backref" href="#id14">Alternatives to the DHCP server</a><a class="headerlink" href="#alternatives-to-the-dhcp-server" title="Permalink to this headline">¶</a></h3>
 <p>There are alternatives to using the DHCP server, for example, by assigning a
-fixed IP address to guests, such as, the IP address <tt class="docutils literal"><span class="pre">169.254.169.253</span></tt>.
+fixed IP address to guests, such as, the IP address <code class="docutils literal"><span class="pre">169.254.169.253</span></code>.
 However, this introduces a routing problem, namely, how to route incoming
 packets from the same source IP to the host.  This problem can be overcome in a
 number of ways.</p>
 <p>The first solution is to use NAT to translate the incoming guest IP address, for
-example, <tt class="docutils literal"><span class="pre">169.254.169.253</span></tt>, to a unique IP address, for example,
-<tt class="docutils literal"><span class="pre">169.254.0.1</span></tt>.  Given that NAT through <tt class="docutils literal"><span class="pre">ip</span> <span class="pre">rule</span></tt> is deprecated, users can
-resort to <tt class="docutils literal"><span class="pre">iptables</span></tt>.  Note that this has not yet been tested.</p>
+example, <code class="docutils literal"><span class="pre">169.254.169.253</span></code>, to a unique IP address, for example,
+<code class="docutils literal"><span class="pre">169.254.0.1</span></code>.  Given that NAT through <code class="docutils literal"><span class="pre">ip</span> <span class="pre">rule</span></code> is deprecated, users can
+resort to <code class="docutils literal"><span class="pre">iptables</span></code>.  Note that this has not yet been tested.</p>
 <p>Another option, which has been tested, but only in a prototype, is to connect
 the TAP network interfaces of the guests to a bridge.  The bridge takes the
 configuration from the TAP network interfaces, namely, IP address
-<tt class="docutils literal"><span class="pre">169.254.169.254</span></tt> and netmask <tt class="docutils literal"><span class="pre">255.255.255.255</span></tt>, thus leaving those
+<code class="docutils literal"><span class="pre">169.254.169.254</span></code> and netmask <code class="docutils literal"><span class="pre">255.255.255.255</span></code>, thus leaving those
 interfaces without an IP address.  Note that in this setting, guests will be
-able to reach each other, therefore, if necessary, additional <tt class="docutils literal"><span class="pre">iptables</span></tt> rules
+able to reach each other, therefore, if necessary, additional <code class="docutils literal"><span class="pre">iptables</span></code> rules
 can be put in place to prevent it.</p>
 </div>
 </div>
@@ -608,7 +629,7 @@ can be put in place to prevent it.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -645,12 +666,14 @@ can be put in place to prevent it.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-ovf-support.html"
                         title="next chapter">Ganeti Instance Import/Export using Open Virtualization Format</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-os.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-os.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -667,7 +690,7 @@ can be put in place to prevent it.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -676,12 +699,12 @@ can be put in place to prevent it.</p>
         <li class="right" >
           <a href="design-optables.html" title="Filtering of jobs for the Ganeti job queue"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>
