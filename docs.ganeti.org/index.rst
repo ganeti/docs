@@ -53,4 +53,4 @@ Select the link pointing to the resource you'd like to view.
 +-------------------+-------------+------------------------+----------------------------------------------------+---------------------+
 
 The documentation for the external (deprecated) *htools* package is still
-available at the `Index of /htools.deprecated <htools.deprecated/>`_.
+available at the `Index of /htools.deprecated <docs/htools.deprecated/>`_.
