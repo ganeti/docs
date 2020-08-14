@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mon-collector &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>mon-collector &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Man pages" href="manpages.html" />
     <link rel="next" title="/" href="monitoring-query-format.html" />
     <link rel="prev" title="htools" href="man-htools.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="man-htools.html" title="htools"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="mon-collector">
 <h1>mon-collector<a class="headerlink" href="#mon-collector" title="Permalink to this headline">¶</a></h1>
@@ -63,12 +61,12 @@ monitoring system</p>
 </div>
 <div class="section" id="description">
 <h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">mon-collector</span></tt> is a suite of tools designed to provide a command line
+<p><code class="docutils literal"><span class="pre">mon-collector</span></code> is a suite of tools designed to provide a command line
 interface to the data collectors implemented by the ganeti monitoring system.
-<tt class="docutils literal"><span class="pre">mon-collector</span></tt> is also the generic binary that must be invoked specifying,
+<code class="docutils literal"><span class="pre">mon-collector</span></code> is also the generic binary that must be invoked specifying,
 as the first command line parameter, the name of the actual desired data
 collector to be run.</p>
-<p>When executed, <tt class="docutils literal"><span class="pre">mon-collector</span></tt> will run the specified collector and will
+<p>When executed, <code class="docutils literal"><span class="pre">mon-collector</span></code> will run the specified collector and will
 print its output to stdout, in JSON format.</p>
 </div>
 <div class="section" id="collectors">
@@ -123,7 +121,7 @@ one:</p>
 <dt>-a <em>ip-address</em>, &#8211;address=*ip-address*</dt>
 <dd>The IP address the ConfD daemon is listening on.</dd>
 <dt>-p <em>port-number</em>, &#8211;port=*port-number*</dt>
-<dd>The port the ConfD deamon is listening on.</dd>
+<dd>The port the ConfD daemon is listening on.</dd>
 </dl>
 </div>
 <div class="section" id="logical-volumes">
@@ -134,7 +132,7 @@ one:</p>
 [ [ <strong>-i</strong> | <strong>&#8211;instances</strong> ] = <em>instances-file</em> ]</div>
 </div>
 <p>Collects the information about the logical volumes of the current node.</p>
-<p>In order to perform this task, it needs to interact with the <tt class="docutils literal"><span class="pre">lvs</span></tt> command
+<p>In order to perform this task, it needs to interact with the <code class="docutils literal"><span class="pre">lvs</span></code> command
 line tool and to connect to the ConfD daemon to fetch some configuration
 information. The following parameters allow the user to specify the position
 where the daemon is listening, in case it&#8217;s not the default one:</p>
@@ -142,13 +140,13 @@ where the daemon is listening, in case it&#8217;s not the default one:</p>
 <dt>-a <em>ip-address</em>, &#8211;address=*ip-address*</dt>
 <dd>The IP address the ConfD daemon is listening on.</dd>
 <dt>-p <em>port-number</em>, &#8211;port=*port-number*</dt>
-<dd>The port the ConfD deamon is listening on.</dd>
+<dd>The port the ConfD daemon is listening on.</dd>
 </dl>
 <p>Instead of accessing the live data on the cluster, the tool can also read data
 serialized on files (mainly for testing purposes). Namely:</p>
 <dl class="docutils">
 <dt>-f <em>input-file</em>, &#8211;file <em>input-file</em></dt>
-<dd>The name of the file containing a recorded output of the <tt class="docutils literal"><span class="pre">lvs</span></tt> tool.</dd>
+<dd>The name of the file containing a recorded output of the <code class="docutils literal"><span class="pre">lvs</span></code> tool.</dd>
 <dt>-i <em>instances-file</em>, &#8211;instances=*instances-file*</dt>
 <dd><p class="first">The name of the file containing a JSON serialization of instances the
 current node is primary and secondary for, listed as:</p>
@@ -167,7 +165,7 @@ second list those the node is secondary for.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -191,13 +189,15 @@ second list those the node is secondary for.</p>
                         title="previous chapter">htools</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="monitoring-query-format.html"
-                        title="next chapter"><tt class="docutils literal"><span class="pre">/</span></tt></a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/man-mon-collector.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+                        title="next chapter"><code class="docutils literal"><span class="pre">/</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-mon-collector.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -214,7 +214,7 @@ second list those the node is secondary for.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -223,13 +223,13 @@ second list those the node is secondary for.</p>
         <li class="right" >
           <a href="man-htools.html" title="htools"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" >Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti monitoring agent &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti monitoring agent &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Instance move improvements" href="design-move-instance-improvements.html" />
     <link rel="prev" title="Submitting jobs from logical units" href="design-lu-generated-jobs.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-lu-generated-jobs.html" title="Submitting jobs from logical units"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-monitoring-agent">
 <h1><a class="toc-backref" href="#id3">Ganeti monitoring agent</a><a class="headerlink" href="#ganeti-monitoring-agent" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-Oct-18</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.7.0, 2.8.0, 2.9.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -70,11 +80,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#format-of-the-query" id="id17">Format of the query</a><ul>
-<li><a class="reference internal" href="#id1" id="id18"><tt class="docutils literal"><span class="pre">/</span></tt></a></li>
-<li><a class="reference internal" href="#id2" id="id19"><tt class="docutils literal"><span class="pre">/1</span></tt></a></li>
-<li><a class="reference internal" href="#list-collectors" id="id20"><tt class="docutils literal"><span class="pre">/1/list/collectors</span></tt></a></li>
-<li><a class="reference internal" href="#report-all" id="id21"><tt class="docutils literal"><span class="pre">/1/report/all</span></tt></a></li>
-<li><a class="reference internal" href="#report-category-collector-name" id="id22"><tt class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></tt></a></li>
+<li><a class="reference internal" href="#id1" id="id18"><code class="docutils literal"><span class="pre">/</span></code></a></li>
+<li><a class="reference internal" href="#id2" id="id19"><code class="docutils literal"><span class="pre">/1</span></code></a></li>
+<li><a class="reference internal" href="#list-collectors" id="id20"><code class="docutils literal"><span class="pre">/1/list/collectors</span></code></a></li>
+<li><a class="reference internal" href="#report-all" id="id21"><code class="docutils literal"><span class="pre">/1/report/all</span></code></a></li>
+<li><a class="reference internal" href="#report-category-collector-name" id="id22"><code class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#instance-disk-status-propagation" id="id23">Instance disk status propagation</a></li>
@@ -137,80 +147,81 @@ Each report object will be produced by a specific data collector.
 Each report object includes some mandatory fields, to be provided by all
 the data collectors:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>The name of the data collector that produced this part of the report.
 It is supposed to be unique inside a report.</dd>
-<dt><tt class="docutils literal"><span class="pre">version</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">version</span></code></dt>
 <dd>The version of the data collector that produces this part of the
 report. Built-in data collectors (as opposed to those implemented as
 plugins) should have &#8220;B&#8221; as the version number.</dd>
-<dt><tt class="docutils literal"><span class="pre">format_version</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">format_version</span></code></dt>
 <dd>The format of what is represented in the &#8220;data&#8221; field for each data
 collector might change over time. Every time this happens, the
 format_version should be changed, so that who reads the report knows
 what format to expect, and how to correctly interpret it.</dd>
-<dt><tt class="docutils literal"><span class="pre">timestamp</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">timestamp</span></code></dt>
 <dd>The time when the reported data were gathered. It has to be expressed
 in nanoseconds since the unix epoch (0:00:00 January 01, 1970). If not
 enough precision is available (or needed) it can be padded with
 zeroes. If a report object needs multiple timestamps, it can add more
 and/or override this one inside its own &#8220;data&#8221; section.</dd>
-<dt><tt class="docutils literal"><span class="pre">category</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">category</span></code></dt>
 <dd>A collector can belong to a given category of collectors (e.g.: storage
 collectors, daemon collector). This means that it will have to provide a
-minumum set of prescribed fields, as documented for each category.
+minimum set of prescribed fields, as documented for each category.
 This field will contain the name of the category the collector belongs to,
-if any, or just the <tt class="docutils literal"><span class="pre">null</span></tt> value.</dd>
-<dt><tt class="docutils literal"><span class="pre">kind</span></tt></dt>
+if any, or just the <code class="docutils literal"><span class="pre">null</span></code> value.</dd>
+<dt><code class="docutils literal"><span class="pre">kind</span></code></dt>
 <dd>Two kinds of collectors are possible:
 <a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a> and <a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>.
 The respective paragraphs will describe them and the value of this field.</dd>
-<dt><tt class="docutils literal"><span class="pre">data</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">data</span></code></dt>
 <dd>This field contains all the data generated by the specific data collector,
 in its own independently defined format. The monitoring agent could check
 this syntactically (according to the JSON specifications) but not
 semantically.</dd>
 </dl>
 <p>Here follows a minimal example of a report:</p>
-<div class="highlight-python"><pre>[
+<div class="highlight-python"><div class="highlight"><pre>[
 {
-    "name" : "TheCollectorIdentifier",
-    "version" : "1.2",
-    "format_version" : 1,
-    "timestamp" : 1351607182000000000,
-    "category" : null,
-    "kind" : 0,
-    "data" : { "plugin_specific_data" : "go_here" }
+    &quot;name&quot; : &quot;TheCollectorIdentifier&quot;,
+    &quot;version&quot; : &quot;1.2&quot;,
+    &quot;format_version&quot; : 1,
+    &quot;timestamp&quot; : 1351607182000000000,
+    &quot;category&quot; : null,
+    &quot;kind&quot; : 0,
+    &quot;data&quot; : { &quot;plugin_specific_data&quot; : &quot;go_here&quot; }
 },
 {
-    "name" : "AnotherDataCollector",
-    "version" : "B",
-    "format_version" : 7,
-    "timestamp" : 1351609526123854000,
-    "category" : "storage",
-    "kind" : 1,
-    "data" : { "status" : { "code" : 1,
-                            "message" : "Error on disk 2"
+    &quot;name&quot; : &quot;AnotherDataCollector&quot;,
+    &quot;version&quot; : &quot;B&quot;,
+    &quot;format_version&quot; : 7,
+    &quot;timestamp&quot; : 1351609526123854000,
+    &quot;category&quot; : &quot;storage&quot;,
+    &quot;kind&quot; : 1,
+    &quot;data&quot; : { &quot;status&quot; : { &quot;code&quot; : 1,
+                            &quot;message&quot; : &quot;Error on disk 2&quot;
                           },
-               "plugin_specific" : "data",
-               "some_late_data" : { "timestamp" : 1351609526123942720,
+               &quot;plugin_specific&quot; : &quot;data&quot;,
+               &quot;some_late_data&quot; : { &quot;timestamp&quot; : 1351609526123942720,
                                     ...
                                   }
              }
 }
-]</pre>
+]
+</pre></div>
 </div>
 <div class="section" id="performance-reporting-collectors">
 <h4><a class="toc-backref" href="#id9">Performance reporting collectors</a><a class="headerlink" href="#performance-reporting-collectors" title="Permalink to this headline">¶</a></h4>
 <p>These collectors only provide data about some component of the system, without
 giving any interpretation over their meaning.</p>
-<p>The value of the <tt class="docutils literal"><span class="pre">kind</span></tt> field of the report will be <tt class="docutils literal"><span class="pre">0</span></tt>.</p>
+<p>The value of the <code class="docutils literal"><span class="pre">kind</span></code> field of the report will be <code class="docutils literal"><span class="pre">0</span></code>.</p>
 </div>
 <div class="section" id="status-reporting-collectors">
 <h4><a class="toc-backref" href="#id10">Status reporting collectors</a><a class="headerlink" href="#status-reporting-collectors" title="Permalink to this headline">¶</a></h4>
 <p>These collectors will provide information about the status of some
 component of ganeti, or managed by ganeti.</p>
-<p>The value of their <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">1</span></tt>.</p>
+<p>The value of their <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">1</span></code>.</p>
 <p>The rationale behind this kind of collectors is that there are some situations
 where exporting data about the underlying subsystems would expose potential
 issues. But if Ganeti itself is able (and going) to fix the problem, conflicts
@@ -229,50 +240,50 @@ monitoring agent
 (when collectors are executed as part of it) the verbose output mode providing
 all the data can be selected.</p>
 <p>When exporting just the status each status reporting collector will provide,
-in its <tt class="docutils literal"><span class="pre">data</span></tt> section, at least the following field:</p>
+in its <code class="docutils literal"><span class="pre">data</span></code> section, at least the following field:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">status</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">status</span></code></dt>
 <dd><p class="first">summarizes the status of the component being monitored and consists of two
 subfields:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">code</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">code</span></code></dt>
 <dd><p class="first">It assumes a numeric value, encoded in such a way to allow using a bitset
 to easily distinguish which states are currently present in the whole
-cluster. If the bitwise OR of all the <tt class="docutils literal"><span class="pre">status</span></tt> fields is 0, the cluster
-is completely healty.
+cluster. If the bitwise OR of all the <code class="docutils literal"><span class="pre">status</span></code> fields is 0, the cluster
+is completely healthy.
 The status codes are as follows:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">0</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">0</span></code></dt>
 <dd>The collector can determine that everything is working as
 intended.</dd>
-<dt><tt class="docutils literal"><span class="pre">1</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">1</span></code></dt>
 <dd>Something is temporarily wrong but it is being automatically fixed by
 Ganeti.
 There is no need of external intervention.</dd>
-<dt><tt class="docutils literal"><span class="pre">2</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">2</span></code></dt>
 <dd>The collector has failed to understand whether the status is good or
 bad. Further analysis is required. Interpret this status as a
 potentially dangerous situation.</dd>
-<dt><tt class="docutils literal"><span class="pre">4</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">4</span></code></dt>
 <dd>The collector can determine that something is wrong and Ganeti has no
 way to fix it autonomously. External intervention is required.</dd>
 </dl>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">message</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">message</span></code></dt>
 <dd><p class="first">A message to better explain the reason of the status.
 The exact format of the message string is data collector dependent.</p>
 <p>The field is mandatory, but the content can be an empty string if the
-<tt class="docutils literal"><span class="pre">code</span></tt> is <tt class="docutils literal"><span class="pre">0</span></tt> (working as intended) or <tt class="docutils literal"><span class="pre">1</span></tt> (being fixed
+<code class="docutils literal"><span class="pre">code</span></code> is <code class="docutils literal"><span class="pre">0</span></code> (working as intended) or <code class="docutils literal"><span class="pre">1</span></code> (being fixed
 automatically).</p>
-<p class="last">If the status code is <tt class="docutils literal"><span class="pre">2</span></tt>, the message should specify what has gone
+<p class="last">If the status code is <code class="docutils literal"><span class="pre">2</span></code>, the message should specify what has gone
 wrong.
-If the status code is <tt class="docutils literal"><span class="pre">4</span></tt>, the message shoud explain why it was not
+If the status code is <code class="docutils literal"><span class="pre">4</span></code>, the message should explain why it was not
 possible to determine a proper status.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p>The <tt class="docutils literal"><span class="pre">data</span></tt> section will also contain all the fields describing the gathered
+<p>The <code class="docutils literal"><span class="pre">data</span></code> section will also contain all the fields describing the gathered
 data, according to a collector-specific format.</p>
 </div>
 <div class="section" id="instance-status">
@@ -308,45 +319,45 @@ an instance continuously &#8220;flapping&#8221; between nodes, or an instance is
 constantly up on more than one), which should be reported and acted
 upon.</p>
 <p>The instance status will be on each node, for the instances it is
-primary for, and its <tt class="docutils literal"><span class="pre">data</span></tt> section of the report will contain a list
-of instances, named <tt class="docutils literal"><span class="pre">instances</span></tt>, with at least the following fields for
+primary for, and its <code class="docutils literal"><span class="pre">data</span></code> section of the report will contain a list
+of instances, named <code class="docutils literal"><span class="pre">instances</span></code>, with at least the following fields for
 each instance:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>The name of the instance.</dd>
-<dt><tt class="docutils literal"><span class="pre">uuid</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">uuid</span></code></dt>
 <dd>The UUID of the instance (stable on name change).</dd>
-<dt><tt class="docutils literal"><span class="pre">admin_state</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">admin_state</span></code></dt>
 <dd>The status of the instance (up/down/offline) as requested by the admin.</dd>
-<dt><tt class="docutils literal"><span class="pre">actual_state</span></tt></dt>
-<dd>The actual status of the instance. It can be <tt class="docutils literal"><span class="pre">up</span></tt>, <tt class="docutils literal"><span class="pre">down</span></tt>, or
-<tt class="docutils literal"><span class="pre">hung</span></tt> if the instance is up but it appears to be completely stuck.</dd>
-<dt><tt class="docutils literal"><span class="pre">uptime</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">actual_state</span></code></dt>
+<dd>The actual status of the instance. It can be <code class="docutils literal"><span class="pre">up</span></code>, <code class="docutils literal"><span class="pre">down</span></code>, or
+<code class="docutils literal"><span class="pre">hung</span></code> if the instance is up but it appears to be completely stuck.</dd>
+<dt><code class="docutils literal"><span class="pre">uptime</span></code></dt>
 <dd>The uptime of the instance (if it is up, &#8220;null&#8221; otherwise).</dd>
-<dt><tt class="docutils literal"><span class="pre">mtime</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">mtime</span></code></dt>
 <dd>The timestamp of the last known change to the instance state.</dd>
-<dt><tt class="docutils literal"><span class="pre">state_reason</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">state_reason</span></code></dt>
 <dd>The last known reason for state change of the instance, described according
 to the JSON representation of a reason trail, as detailed in the <a class="reference internal" href="design-reason-trail.html"><em>reason
 trail design document</em></a>.</dd>
-<dt><tt class="docutils literal"><span class="pre">status</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">status</span></code></dt>
 <dd>It represents the status of the instance, and its format is the same as that
-of the <tt class="docutils literal"><span class="pre">status</span></tt> field of <a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>.</dd>
+of the <code class="docutils literal"><span class="pre">status</span></code> field of <a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>.</dd>
 </dl>
 <p>Each hypervisor should provide its own instance status data collector, possibly
 with the addition of more, specific, fields.
-The <tt class="docutils literal"><span class="pre">category</span></tt> field of all of them will be <tt class="docutils literal"><span class="pre">instance</span></tt>.
-The <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">1</span></tt>.</p>
+The <code class="docutils literal"><span class="pre">category</span></code> field of all of them will be <code class="docutils literal"><span class="pre">instance</span></code>.
+The <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">1</span></code>.</p>
 <p>Note that as soon as a node knows it&#8217;s not the primary anymore for an
 instance it will stop reporting status for it: this means the instance
 will either disappear, if it has been deleted, or appear on another
 node, if it&#8217;s been moved.</p>
-<p>The <tt class="docutils literal"><span class="pre">code</span></tt> of the <tt class="docutils literal"><span class="pre">status</span></tt> field of the report of the Instance status data
+<p>The <code class="docutils literal"><span class="pre">code</span></code> of the <code class="docutils literal"><span class="pre">status</span></code> field of the report of the Instance status data
 collector will be:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">0</span></tt></dt>
-<dd>if <tt class="docutils literal"><span class="pre">status</span></tt> is <tt class="docutils literal"><span class="pre">0</span></tt> for all the instances it is reporting about.</dd>
-<dt><tt class="docutils literal"><span class="pre">1</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">0</span></code></dt>
+<dd>if <code class="docutils literal"><span class="pre">status</span></code> is <code class="docutils literal"><span class="pre">0</span></code> for all the instances it is reporting about.</dd>
+<dt><code class="docutils literal"><span class="pre">1</span></code></dt>
 <dd>otherwise.</dd>
 </dl>
 </div>
@@ -357,11 +368,11 @@ that will gather data about storage for the current node. The collection
 will be performed at different granularity and abstraction levels, from
 the physical disks, to partitions, logical volumes and to the specific
 storage types used by Ganeti itself (drbd, rbd, plain, file).</p>
-<p>The <tt class="docutils literal"><span class="pre">name</span></tt> of each of these collector will reflect what storage type each of
+<p>The <code class="docutils literal"><span class="pre">name</span></code> of each of these collector will reflect what storage type each of
 them refers to.</p>
-<p>The <tt class="docutils literal"><span class="pre">category</span></tt> field of these collector will be <tt class="docutils literal"><span class="pre">storage</span></tt>.</p>
-<p>The <tt class="docutils literal"><span class="pre">kind</span></tt> field will depend on the specific collector.</p>
-<p>Each <tt class="docutils literal"><span class="pre">storage</span></tt> collector&#8217;s <tt class="docutils literal"><span class="pre">data</span></tt> section will provide collector-specific
+<p>The <code class="docutils literal"><span class="pre">category</span></code> field of these collector will be <code class="docutils literal"><span class="pre">storage</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">kind</span></code> field will depend on the specific collector.</p>
+<p>Each <code class="docutils literal"><span class="pre">storage</span></code> collector&#8217;s <code class="docutils literal"><span class="pre">data</span></code> section will provide collector-specific
 fields.</p>
 <p>The various storage collectors will provide keys to join the data they provide,
 in order to allow the user to get a better understanding of the system. E.g.:
@@ -372,51 +383,51 @@ through device names, or instance names.</p>
 disks installed in the system, as listed in the /proc/diskstats file. This means
 that not only physical hard drives, but also ramdisks and loopback devices will
 be listed.</p>
-<p>Its <tt class="docutils literal"><span class="pre">kind</span></tt> in the report will be <tt class="docutils literal"><span class="pre">0</span></tt> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
-<p>Its <tt class="docutils literal"><span class="pre">category</span></tt> field in the report will contain the value <tt class="docutils literal"><span class="pre">storage</span></tt>.</p>
-<p>When executed in verbose mode, the <tt class="docutils literal"><span class="pre">data</span></tt> section of the report of this
+<p>Its <code class="docutils literal"><span class="pre">kind</span></code> in the report will be <code class="docutils literal"><span class="pre">0</span></code> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
+<p>Its <code class="docutils literal"><span class="pre">category</span></code> field in the report will contain the value <code class="docutils literal"><span class="pre">storage</span></code>.</p>
+<p>When executed in verbose mode, the <code class="docutils literal"><span class="pre">data</span></code> section of the report of this
 collector will be a list of items, each representing one disk, each providing
 the following fields:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">major</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">major</span></code></dt>
 <dd>The major number of the device.</dd>
-<dt><tt class="docutils literal"><span class="pre">minor</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">minor</span></code></dt>
 <dd>The minor number of the device.</dd>
-<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>The name of the device.</dd>
-<dt><tt class="docutils literal"><span class="pre">readsNum</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">readsNum</span></code></dt>
 <dd>This is the total number of reads completed successfully.</dd>
-<dt><tt class="docutils literal"><span class="pre">mergedReads</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">mergedReads</span></code></dt>
 <dd>Reads which are adjacent to each other may be merged for efficiency. Thus
 two 4K reads may become one 8K read before it is ultimately handed to the
 disk, and so it will be counted (and queued) as only one I/O. This field
 specifies how often this was done.</dd>
-<dt><tt class="docutils literal"><span class="pre">secRead</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">secRead</span></code></dt>
 <dd>This is the total number of sectors read successfully.</dd>
-<dt><tt class="docutils literal"><span class="pre">timeRead</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">timeRead</span></code></dt>
 <dd>This is the total number of milliseconds spent by all reads.</dd>
-<dt><tt class="docutils literal"><span class="pre">writes</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">writes</span></code></dt>
 <dd>This is the total number of writes completed successfully.</dd>
-<dt><tt class="docutils literal"><span class="pre">mergedWrites</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">mergedWrites</span></code></dt>
 <dd>Writes which are adjacent to each other may be merged for efficiency. Thus
 two 4K writes may become one 8K read before it is ultimately handed to the
 disk, and so it will be counted (and queued) as only one I/O. This field
 specifies how often this was done.</dd>
-<dt><tt class="docutils literal"><span class="pre">secWritten</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">secWritten</span></code></dt>
 <dd>This is the total number of sectors written successfully.</dd>
-<dt><tt class="docutils literal"><span class="pre">timeWrite</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">timeWrite</span></code></dt>
 <dd>This is the total number of milliseconds spent by all writes.</dd>
-<dt><tt class="docutils literal"><span class="pre">ios</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">ios</span></code></dt>
 <dd>The number of I/Os currently in progress.
 The only field that should go to zero, it is incremented as requests are
 given to appropriate struct request_queue and decremented as they finish.</dd>
-<dt><tt class="docutils literal"><span class="pre">timeIO</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">timeIO</span></code></dt>
 <dd>The number of milliseconds spent doing I/Os. This field increases so long
-as field <tt class="docutils literal"><span class="pre">IOs</span></tt> is nonzero.</dd>
-<dt><tt class="docutils literal"><span class="pre">wIOmillis</span></tt></dt>
+as field <code class="docutils literal"><span class="pre">IOs</span></code> is nonzero.</dd>
+<dt><code class="docutils literal"><span class="pre">wIOmillis</span></code></dt>
 <dd>The weighted number of milliseconds spent doing I/Os.
 This field is incremented at each I/O start, I/O completion, I/O merge,
-or read of these stats by the number of I/Os in progress (field <tt class="docutils literal"><span class="pre">IOs</span></tt>)
+or read of these stats by the number of I/Os in progress (field <code class="docutils literal"><span class="pre">IOs</span></code>)
 times the number of milliseconds spent doing I/O since the last update of
 this field. This can provide an easy measure of both I/O completion time
 and the backlog that may be accumulating.</dd>
@@ -426,53 +437,53 @@ and the backlog that may be accumulating.</dd>
 <h5>Logical Volume collector<a class="headerlink" href="#logical-volume-collector" title="Permalink to this headline">¶</a></h5>
 <p>This data collector will gather information about the attributes of logical
 volumes present in the system.</p>
-<p>Its <tt class="docutils literal"><span class="pre">kind</span></tt> in the report will be <tt class="docutils literal"><span class="pre">0</span></tt> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
-<p>Its <tt class="docutils literal"><span class="pre">category</span></tt> field in the report will contain the value <tt class="docutils literal"><span class="pre">storage</span></tt>.</p>
-<p>The <tt class="docutils literal"><span class="pre">data</span></tt> section of the report of this collector will be a list of items,
+<p>Its <code class="docutils literal"><span class="pre">kind</span></code> in the report will be <code class="docutils literal"><span class="pre">0</span></code> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
+<p>Its <code class="docutils literal"><span class="pre">category</span></code> field in the report will contain the value <code class="docutils literal"><span class="pre">storage</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">data</span></code> section of the report of this collector will be a list of items,
 each representing one logical volume and providing the following fields:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">uuid</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">uuid</span></code></dt>
 <dd>The UUID of the logical volume.</dd>
-<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>The name of the logical volume.</dd>
-<dt><tt class="docutils literal"><span class="pre">attr</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">attr</span></code></dt>
 <dd>The attributes of the logical volume.</dd>
-<dt><tt class="docutils literal"><span class="pre">major</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">major</span></code></dt>
 <dd>Persistent major number or -1 if not persistent.</dd>
-<dt><tt class="docutils literal"><span class="pre">minor</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">minor</span></code></dt>
 <dd>Persistent minor number or -1 if not persistent.</dd>
-<dt><tt class="docutils literal"><span class="pre">kernel_major</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">kernel_major</span></code></dt>
 <dd>Currently assigned major number or -1 if LV is not active.</dd>
-<dt><tt class="docutils literal"><span class="pre">kernel_minor</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">kernel_minor</span></code></dt>
 <dd>Currently assigned minor number or -1 if LV is not active.</dd>
-<dt><tt class="docutils literal"><span class="pre">size</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">size</span></code></dt>
 <dd>Size of LV in bytes.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_count</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">seg_count</span></code></dt>
 <dd>Number of segments in LV.</dd>
-<dt><tt class="docutils literal"><span class="pre">tags</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">tags</span></code></dt>
 <dd>Tags, if any.</dd>
-<dt><tt class="docutils literal"><span class="pre">modules</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">modules</span></code></dt>
 <dd>Kernel device-mapper modules required for this LV, if any.</dd>
-<dt><tt class="docutils literal"><span class="pre">vg_uuid</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">vg_uuid</span></code></dt>
 <dd>Unique identifier of the volume group.</dd>
-<dt><tt class="docutils literal"><span class="pre">vg_name</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">vg_name</span></code></dt>
 <dd>Name of the volume group.</dd>
-<dt><tt class="docutils literal"><span class="pre">segtype</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">segtype</span></code></dt>
 <dd>Type of LV segment.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_start</span></tt></dt>
-<dd>Offset within the LVto the start of the segment in bytes.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_start_pe</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">seg_start</span></code></dt>
+<dd>Offset within the LV to the start of the segment in bytes.</dd>
+<dt><code class="docutils literal"><span class="pre">seg_start_pe</span></code></dt>
 <dd>Offset within the LV to the start of the segment in physical extents.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_size</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">seg_size</span></code></dt>
 <dd>Size of the segment in bytes.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_tags</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">seg_tags</span></code></dt>
 <dd>Tags for the segment, if any.</dd>
-<dt><tt class="docutils literal"><span class="pre">seg_pe_ranges</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">seg_pe_ranges</span></code></dt>
 <dd>Ranges of Physical Extents of underlying devices in lvs command line format.</dd>
-<dt><tt class="docutils literal"><span class="pre">devices</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">devices</span></code></dt>
 <dd>Underlying devices used with starting extent numbers.</dd>
-<dt><tt class="docutils literal"><span class="pre">instance</span></tt></dt>
-<dd>The name of the instance this LV is used by, or <tt class="docutils literal"><span class="pre">null</span></tt> if it was not
+<dt><code class="docutils literal"><span class="pre">instance</span></code></dt>
+<dd>The name of the instance this LV is used by, or <code class="docutils literal"><span class="pre">null</span></code> if it was not
 possible to determine it.</dd>
 </dl>
 </div>
@@ -480,109 +491,109 @@ possible to determine it.</dd>
 <h5>DRBD status<a class="headerlink" href="#drbd-status" title="Permalink to this headline">¶</a></h5>
 <p>This data collector will run only on nodes where DRBD is actually
 present and it will gather information about DRBD devices.</p>
-<p>Its <tt class="docutils literal"><span class="pre">kind</span></tt> in the report will be <tt class="docutils literal"><span class="pre">1</span></tt> (<a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>).</p>
-<p>Its <tt class="docutils literal"><span class="pre">category</span></tt> field in the report will contain the value <tt class="docutils literal"><span class="pre">storage</span></tt>.</p>
-<p>When executed in verbose mode, the <tt class="docutils literal"><span class="pre">data</span></tt> section of the report of this
+<p>Its <code class="docutils literal"><span class="pre">kind</span></code> in the report will be <code class="docutils literal"><span class="pre">1</span></code> (<a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>).</p>
+<p>Its <code class="docutils literal"><span class="pre">category</span></code> field in the report will contain the value <code class="docutils literal"><span class="pre">storage</span></code>.</p>
+<p>When executed in verbose mode, the <code class="docutils literal"><span class="pre">data</span></code> section of the report of this
 collector will provide the following fields:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">versionInfo</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">versionInfo</span></code></dt>
 <dd><p class="first">Information about the DRBD version number, given by a combination of
 any (but at least one) of the following fields:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">version</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">version</span></code></dt>
 <dd>The DRBD driver version.</dd>
-<dt><tt class="docutils literal"><span class="pre">api</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">api</span></code></dt>
 <dd>The API version number.</dd>
-<dt><tt class="docutils literal"><span class="pre">proto</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">proto</span></code></dt>
 <dd>The protocol version.</dd>
-<dt><tt class="docutils literal"><span class="pre">srcversion</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">srcversion</span></code></dt>
 <dd>The version of the source files.</dd>
-<dt><tt class="docutils literal"><span class="pre">gitHash</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">gitHash</span></code></dt>
 <dd>Git hash of the source files.</dd>
-<dt><tt class="docutils literal"><span class="pre">buildBy</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">buildBy</span></code></dt>
 <dd>Who built the binary, and, optionally, when.</dd>
 </dl>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">device</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">device</span></code></dt>
 <dd><p class="first">A list of structures, each describing a DRBD device (a minor) and containing
 the following fields:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">minor</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">minor</span></code></dt>
 <dd>The device minor number.</dd>
-<dt><tt class="docutils literal"><span class="pre">connectionState</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">connectionState</span></code></dt>
 <dd>The state of the connection. If it is &#8220;Unconfigured&#8221;, all the following
 fields are not present.</dd>
-<dt><tt class="docutils literal"><span class="pre">localRole</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">localRole</span></code></dt>
 <dd>The role of the local resource.</dd>
-<dt><tt class="docutils literal"><span class="pre">remoteRole</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">remoteRole</span></code></dt>
 <dd>The role of the remote resource.</dd>
-<dt><tt class="docutils literal"><span class="pre">localState</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">localState</span></code></dt>
 <dd>The status of the local disk.</dd>
-<dt><tt class="docutils literal"><span class="pre">remoteState</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">remoteState</span></code></dt>
 <dd>The status of the remote disk.</dd>
-<dt><tt class="docutils literal"><span class="pre">replicationProtocol</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">replicationProtocol</span></code></dt>
 <dd>The replication protocol being used.</dd>
-<dt><tt class="docutils literal"><span class="pre">ioFlags</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">ioFlags</span></code></dt>
 <dd>The input/output flags.</dd>
-<dt><tt class="docutils literal"><span class="pre">perfIndicators</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">perfIndicators</span></code></dt>
 <dd><p class="first">The performance indicators. This field will contain the following
 sub-fields:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">networkSend</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">networkSend</span></code></dt>
 <dd>KiB of data sent on the network.</dd>
-<dt><tt class="docutils literal"><span class="pre">networkReceive</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">networkReceive</span></code></dt>
 <dd>KiB of data received from the network.</dd>
-<dt><tt class="docutils literal"><span class="pre">diskWrite</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">diskWrite</span></code></dt>
 <dd>KiB of data written on local disk.</dd>
-<dt><tt class="docutils literal"><span class="pre">diskRead</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">diskRead</span></code></dt>
 <dd>KiB of date read from the local disk.</dd>
-<dt><tt class="docutils literal"><span class="pre">activityLog</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">activityLog</span></code></dt>
 <dd>Number of updates of the activity log.</dd>
-<dt><tt class="docutils literal"><span class="pre">bitMap</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">bitMap</span></code></dt>
 <dd>Number of updates to the bitmap area of the metadata.</dd>
-<dt><tt class="docutils literal"><span class="pre">localCount</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">localCount</span></code></dt>
 <dd>Number of open requests to the local I/O subsystem.</dd>
-<dt><tt class="docutils literal"><span class="pre">pending</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">pending</span></code></dt>
 <dd>Number of requests sent to the partner but not yet answered.</dd>
-<dt><tt class="docutils literal"><span class="pre">unacknowledged</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">unacknowledged</span></code></dt>
 <dd>Number of requests received by the partner but still to be answered.</dd>
-<dt><tt class="docutils literal"><span class="pre">applicationPending</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">applicationPending</span></code></dt>
 <dd>Num of block input/output requests forwarded to DRBD but that have not yet
 been answered.</dd>
-<dt><tt class="docutils literal"><span class="pre">epochs</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">epochs</span></code></dt>
 <dd>(Optional) Number of epoch objects. Not provided by all DRBD versions.</dd>
-<dt><tt class="docutils literal"><span class="pre">writeOrder</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">writeOrder</span></code></dt>
 <dd>(Optional) Currently used write ordering method. Not provided by all DRBD
 versions.</dd>
-<dt><tt class="docutils literal"><span class="pre">outOfSync</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">outOfSync</span></code></dt>
 <dd>(Optional) KiB of storage currently out of sync. Not provided by all DRBD
 versions.</dd>
 </dl>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">syncStatus</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">syncStatus</span></code></dt>
 <dd><p class="first">(Optional) The status of the synchronization of the disk. This is present
 only if the disk is being synchronized, and includes the following fields:</p>
 <dl class="last docutils">
-<dt><tt class="docutils literal"><span class="pre">percentage</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">percentage</span></code></dt>
 <dd>The percentage of synchronized data.</dd>
-<dt><tt class="docutils literal"><span class="pre">progress</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">progress</span></code></dt>
 <dd>How far the synchronization is. Written as &#8220;x/y&#8221;, where x and y are
 integer numbers expressed in the measurement unit stated in
-<tt class="docutils literal"><span class="pre">progressUnit</span></tt></dd>
-<dt><tt class="docutils literal"><span class="pre">progressUnit</span></tt></dt>
+<code class="docutils literal"><span class="pre">progressUnit</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">progressUnit</span></code></dt>
 <dd>The measurement unit for the progress indicator.</dd>
-<dt><tt class="docutils literal"><span class="pre">timeToFinish</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">timeToFinish</span></code></dt>
 <dd>The expected time before finishing the synchronization.</dd>
-<dt><tt class="docutils literal"><span class="pre">speed</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">speed</span></code></dt>
 <dd>The speed of the synchronization.</dd>
-<dt><tt class="docutils literal"><span class="pre">want</span></tt></dt>
-<dd>The desiderd speed of the synchronization.</dd>
-<dt><tt class="docutils literal"><span class="pre">speedUnit</span></tt></dt>
-<dd>The measurement unit of the <tt class="docutils literal"><span class="pre">speed</span></tt> and <tt class="docutils literal"><span class="pre">want</span></tt> values. Expressed
+<dt><code class="docutils literal"><span class="pre">want</span></code></dt>
+<dd>The desired speed of the synchronization.</dd>
+<dt><code class="docutils literal"><span class="pre">speedUnit</span></code></dt>
+<dd>The measurement unit of the <code class="docutils literal"><span class="pre">speed</span></code> and <code class="docutils literal"><span class="pre">want</span></code> values. Expressed
 as &#8220;size/time&#8221;.</dd>
 </dl>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">instance</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">instance</span></code></dt>
 <dd>The name of the Ganeti instance this disk is associated to.</dd>
 </dl>
 </dd>
@@ -595,21 +606,21 @@ as &#8220;size/time&#8221;.</dd>
 This should allow identifying possible problems with the Ganeti system itself:
 for example memory leaks, crashes and high resource utilization should be
 evident by analyzing this information.</p>
-<p>The <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">1</span></tt> (<a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>).</p>
+<p>The <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">1</span></code> (<a class="reference internal" href="#status-reporting-collectors">Status reporting collectors</a>).</p>
 <p>Each daemon will have its own data collector, and each of them will have
-a <tt class="docutils literal"><span class="pre">category</span></tt> field valued <tt class="docutils literal"><span class="pre">daemon</span></tt>.</p>
+a <code class="docutils literal"><span class="pre">category</span></code> field valued <code class="docutils literal"><span class="pre">daemon</span></code>.</p>
 <p>When executed in verbose mode, their data section will include at least:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">memory</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">memory</span></code></dt>
 <dd>The amount of used memory.</dd>
-<dt><tt class="docutils literal"><span class="pre">size_unit</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">size_unit</span></code></dt>
 <dd>The measurement unit used for the memory.</dd>
-<dt><tt class="docutils literal"><span class="pre">uptime</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">uptime</span></code></dt>
 <dd>The uptime of the daemon.</dd>
-<dt><tt class="docutils literal"><span class="pre">CPU</span> <span class="pre">usage</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">CPU</span> <span class="pre">usage</span></code></dt>
 <dd>How much cpu the daemon is using (percentage).</dd>
 </dl>
-<p>Any other daemon-specific information can be included as well in the <tt class="docutils literal"><span class="pre">data</span></tt>
+<p>Any other daemon-specific information can be included as well in the <code class="docutils literal"><span class="pre">data</span></code>
 section.</p>
 </div>
 <div class="section" id="hypervisor-resources-report">
@@ -620,30 +631,30 @@ running as Dom0, has access to only part of those resources). In this
 section we&#8217;ll report all information we can in a &#8220;non hypervisor
 specific&#8221; way. Each hypervisor can then add extra specific information
 that is not generic enough be abstracted.</p>
-<p>The <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">0</span></tt> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
-<p>Each of the hypervisor data collectory will be of <tt class="docutils literal"><span class="pre">category</span></tt>: <tt class="docutils literal"><span class="pre">hypervisor</span></tt>.</p>
+<p>The <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">0</span></code> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
+<p>Each of the hypervisor data collectors will be of <code class="docutils literal"><span class="pre">category</span></code>: <code class="docutils literal"><span class="pre">hypervisor</span></code>.</p>
 </div>
 <div class="section" id="node-os-resources-report">
 <h4><a class="toc-backref" href="#id15">Node OS resources report</a><a class="headerlink" href="#node-os-resources-report" title="Permalink to this headline">¶</a></h4>
 <p>Since Ganeti assumes it&#8217;s running on Linux, it&#8217;s useful to export some
 basic information as seen by the host system.</p>
-<p>The <tt class="docutils literal"><span class="pre">category</span></tt> field of the report will be <tt class="docutils literal"><span class="pre">null</span></tt>.</p>
-<p>The <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">0</span></tt> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
-<p>The <tt class="docutils literal"><span class="pre">data</span></tt> section will include:</p>
+<p>The <code class="docutils literal"><span class="pre">category</span></code> field of the report will be <code class="docutils literal"><span class="pre">null</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">0</span></code> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
+<p>The <code class="docutils literal"><span class="pre">data</span></code> section will include:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">cpu_number</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">cpu_number</span></code></dt>
 <dd>The number of available cpus.</dd>
-<dt><tt class="docutils literal"><span class="pre">cpus</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">cpus</span></code></dt>
 <dd>A list with one element per cpu, showing its average load.</dd>
-<dt><tt class="docutils literal"><span class="pre">memory</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">memory</span></code></dt>
 <dd>The current view of memory (free, used, cached, etc.)</dd>
-<dt><tt class="docutils literal"><span class="pre">filesystem</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">filesystem</span></code></dt>
 <dd>A list with one element per filesystem, showing a summary of the
 total/available space.</dd>
-<dt><tt class="docutils literal"><span class="pre">NICs</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">NICs</span></code></dt>
 <dd>A list with one element per network interface, showing the amount of
 sent/received data, error rate, IP address of the interface, etc.</dd>
-<dt><tt class="docutils literal"><span class="pre">versions</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">versions</span></code></dt>
 <dd>A map using the name of a component Ganeti interacts (Linux, drbd,
 hypervisor, etc) as the key and its version number as the value.</dd>
 </dl>
@@ -664,15 +675,15 @@ done by an independent thread (see <a class="reference internal" href="#mode-of-
 report</a>) and they might eventually get merged, once reporting for the
 other fields (memory, filesystem, NICs) gets implemented too.</p>
 <p>Specifically:</p>
-<p>The <tt class="docutils literal"><span class="pre">category</span></tt> field of the report will be <tt class="docutils literal"><span class="pre">null</span></tt>.</p>
-<p>The <tt class="docutils literal"><span class="pre">kind</span></tt> field will be <tt class="docutils literal"><span class="pre">0</span></tt> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
-<p>The <tt class="docutils literal"><span class="pre">data</span></tt> section will include:</p>
+<p>The <code class="docutils literal"><span class="pre">category</span></code> field of the report will be <code class="docutils literal"><span class="pre">null</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">kind</span></code> field will be <code class="docutils literal"><span class="pre">0</span></code> (<a class="reference internal" href="#performance-reporting-collectors">Performance reporting collectors</a>).</p>
+<p>The <code class="docutils literal"><span class="pre">data</span></code> section will include:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">cpu_number</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">cpu_number</span></code></dt>
 <dd>The number of available cpus.</dd>
-<dt><tt class="docutils literal"><span class="pre">cpus</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">cpus</span></code></dt>
 <dd>A list with one element per cpu, showing its average load.</dd>
-<dt><tt class="docutils literal"><span class="pre">cpu_total</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">cpu_total</span></code></dt>
 <dd>The total CPU load average as a sum of the all separate cpus.</dd>
 </dl>
 <p>The CPU load report function will get N values, collected by the
@@ -691,38 +702,38 @@ the HTTP server.</p>
 <p>The following paragraphs will present the existing resources supported by the
 current protocol version, that is version 1.</p>
 <div class="section" id="id1">
-<h4><a class="toc-backref" href="#id18"><tt class="docutils literal"><span class="pre">/</span></tt></a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id18"><code class="docutils literal"><span class="pre">/</span></code></a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>The root resource. It will return the list of the supported protocol version
 numbers.</p>
 <p>Currently, this will include only version 1.</p>
 </div>
 <div class="section" id="id2">
-<h4><a class="toc-backref" href="#id19"><tt class="docutils literal"><span class="pre">/1</span></tt></a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id19"><code class="docutils literal"><span class="pre">/1</span></code></a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Not an actual resource per-se, it is the root of all the resources of protocol
 version 1.</p>
 <p>If requested through GET, the null JSON value will be returned.</p>
 </div>
 <div class="section" id="list-collectors">
-<h4><a class="toc-backref" href="#id20"><tt class="docutils literal"><span class="pre">/1/list/collectors</span></tt></a><a class="headerlink" href="#list-collectors" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id20"><code class="docutils literal"><span class="pre">/1/list/collectors</span></code></a><a class="headerlink" href="#list-collectors" title="Permalink to this headline">¶</a></h4>
 <p>Returns a list of tuples (kind, category, name) showing all the collectors
 available in the system.</p>
 </div>
 <div class="section" id="report-all">
-<h4><a class="toc-backref" href="#id21"><tt class="docutils literal"><span class="pre">/1/report/all</span></tt></a><a class="headerlink" href="#report-all" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id21"><code class="docutils literal"><span class="pre">/1/report/all</span></code></a><a class="headerlink" href="#report-all" title="Permalink to this headline">¶</a></h4>
 <p>A list of the reports of all the data collectors, as a JSON list.</p>
 <p>Status reporting collectors will provide their output in non-verbose format.
-The verbose format can be requested by adding the parameter <tt class="docutils literal"><span class="pre">verbose=1</span></tt> to the
+The verbose format can be requested by adding the parameter <code class="docutils literal"><span class="pre">verbose=1</span></code> to the
 request.</p>
 </div>
 <div class="section" id="report-category-collector-name">
-<h4><a class="toc-backref" href="#id22"><tt class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></tt></a><a class="headerlink" href="#report-category-collector-name" title="Permalink to this headline">¶</a></h4>
-<p>Returns the report of the collector <tt class="docutils literal"><span class="pre">[collector_name]</span></tt> that belongs to the
-specified <tt class="docutils literal"><span class="pre">[category]</span></tt>.</p>
-<p>The <tt class="docutils literal"><span class="pre">category</span></tt> has to be written in lowercase.</p>
-<p>If a collector does not belong to any category, <tt class="docutils literal"><span class="pre">default</span></tt> will have to be
-used as the value for <tt class="docutils literal"><span class="pre">[category]</span></tt>.</p>
+<h4><a class="toc-backref" href="#id22"><code class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></code></a><a class="headerlink" href="#report-category-collector-name" title="Permalink to this headline">¶</a></h4>
+<p>Returns the report of the collector <code class="docutils literal"><span class="pre">[collector_name]</span></code> that belongs to the
+specified <code class="docutils literal"><span class="pre">[category]</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">category</span></code> has to be written in lowercase.</p>
+<p>If a collector does not belong to any category, <code class="docutils literal"><span class="pre">default</span></code> will have to be
+used as the value for <code class="docutils literal"><span class="pre">[category]</span></code>.</p>
 <p>Status reporting collectors will provide their output in non-verbose format.
-The verbose format can be requested by adding the parameter <tt class="docutils literal"><span class="pre">verbose=1</span></tt> to the
+The verbose format can be requested by adding the parameter <code class="docutils literal"><span class="pre">verbose=1</span></code> to the
 request.</p>
 </div>
 </div>
@@ -838,7 +849,7 @@ from the nodes from a monitoring system and for Ganeti itself.</p>
 <p>One extra feature we may need is a way to query for only sub-parts of
 the report (eg. instances status only). This can be done by passing
 arguments to the HTTP GET, which will be defined when we get to this
-funtionality.</p>
+functionality.</p>
 <p>Finally the <a class="reference internal" href="design-autorepair.html"><em>autorepair system design</em></a>. system
 (see its design) can be expanded to use the monitoring agent system as a
 source of information to decide which repairs it can perform.</p>
@@ -849,7 +860,7 @@ source of information to decide which repairs it can perform.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -875,11 +886,11 @@ source of information to decide which repairs it can perform.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#format-of-the-query">Format of the query</a><ul>
-<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">/</span></tt></a></li>
-<li><a class="reference internal" href="#id2"><tt class="docutils literal"><span class="pre">/1</span></tt></a></li>
-<li><a class="reference internal" href="#list-collectors"><tt class="docutils literal"><span class="pre">/1/list/collectors</span></tt></a></li>
-<li><a class="reference internal" href="#report-all"><tt class="docutils literal"><span class="pre">/1/report/all</span></tt></a></li>
-<li><a class="reference internal" href="#report-category-collector-name"><tt class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></tt></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal"><span class="pre">/</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal"><span class="pre">/1</span></code></a></li>
+<li><a class="reference internal" href="#list-collectors"><code class="docutils literal"><span class="pre">/1/list/collectors</span></code></a></li>
+<li><a class="reference internal" href="#report-all"><code class="docutils literal"><span class="pre">/1/report/all</span></code></a></li>
+<li><a class="reference internal" href="#report-category-collector-name"><code class="docutils literal"><span class="pre">/1/report/[category]/[collector_name]</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#instance-disk-status-propagation">Instance disk status propagation</a></li>
@@ -901,12 +912,14 @@ source of information to decide which repairs it can perform.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-move-instance-improvements.html"
                         title="next chapter">Instance move improvements</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-monitoring-agent.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-monitoring-agent.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -923,7 +936,7 @@ source of information to decide which repairs it can perform.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -932,12 +945,12 @@ source of information to decide which repairs it can perform.</p>
         <li class="right" >
           <a href="design-lu-generated-jobs.html" title="Submitting jobs from logical units"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

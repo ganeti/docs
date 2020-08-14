@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gnt-job &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>gnt-job &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Man pages" href="manpages.html" />
     <link rel="next" title="gnt-network" href="man-gnt-network.html" />
     <link rel="prev" title="gnt-instance" href="man-gnt-instance.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="man-gnt-instance.html" title="gnt-instance"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="gnt-job">
 <h1>gnt-job<a class="headerlink" href="#gnt-job" title="Permalink to this headline">¶</a></h1>
@@ -69,14 +67,14 @@ queue.</p>
 <h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="archive">
 <h3>ARCHIVE<a class="headerlink" href="#archive" title="Permalink to this headline">¶</a></h3>
-<p><strong>archive</strong> {id...}</p>
+<p><strong>archive</strong> {job-id...}</p>
 <p>This command can be used to archive job by their IDs. Only jobs
 that have finished execution (i.e either <em>success</em>, <em>error</em> or
 <em>canceled</em> jobs).</p>
 </div>
 <div class="section" id="autoarchive">
 <h3>AUTOARCHIVE<a class="headerlink" href="#autoarchive" title="Permalink to this headline">¶</a></h3>
-<p><strong>autoarchive</strong> {<em>age</em> | <tt class="docutils literal"><span class="pre">all</span></tt>}</p>
+<p><strong>autoarchive</strong> {<em>age</em> | <code class="docutils literal"><span class="pre">all</span></code>}</p>
 <p>Archive jobs by their age. This command can archive jobs older than
 <em>age</em> seconds, or alternatively all finished jobs can be archived
 if the string all is passed.</p>
@@ -92,10 +90,10 @@ if the string all is passed.</p>
 </div>
 <p>Cancel the job(s) identified by the given <em>job id</em>. Only jobs that have
 not yet started to run can be canceled; that is, jobs in either the
-<em>queued</em> or <em>waiting</em> state. To skip a confirmation, pass <tt class="docutils literal"><span class="pre">--force</span></tt>.
-<tt class="docutils literal"><span class="pre">--queued</span></tt> and <tt class="docutils literal"><span class="pre">waiting</span></tt> can be used to cancel all jobs in the
-respective state, <tt class="docutils literal"><span class="pre">--pending</span></tt> includes both.</p>
-<p>If the <tt class="docutils literal"><span class="pre">--kill</span></tt> option is given, jobs will be killed, even if in <em>running</em>
+<em>queued</em> or <em>waiting</em> state. To skip a confirmation, pass <code class="docutils literal"><span class="pre">--force</span></code>.
+<code class="docutils literal"><span class="pre">--queued</span></code> and <code class="docutils literal"><span class="pre">waiting</span></code> can be used to cancel all jobs in the
+respective state, <code class="docutils literal"><span class="pre">--pending</span></code> includes both.</p>
+<p>If the <code class="docutils literal"><span class="pre">--kill</span></code> option is given, jobs will be killed, even if in <em>running</em>
 state, using SIGKILL in the latter case. This is dangerous, as the job will
 not have the chance to do any clean up; so it will most likely leave any
 objects it touched in an inconsistent state.</p>
@@ -104,20 +102,17 @@ objects it touched in an inconsistent state.</p>
 <h3>CHANGE-PRIORITY<a class="headerlink" href="#change-priority" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>change-priority</strong> &#8211;priority {low | normal | high}</div>
-<div class="line">{[&#8211;force] {&#8211;pending | &#8211;queued | &#8211;waiting} |</div>
-<div class="line-block">
-<div class="line"><em>job-id</em> ...}</div>
-</div>
+<div class="line">{[&#8211;force] {&#8211;pending | &#8211;queued | &#8211;waiting} | <em>job-id</em>...}</div>
 </div>
 <p>Changes the priority of one or multiple pending jobs. Jobs currently
 running have only the priority of remaining opcodes changed.
-<tt class="docutils literal"><span class="pre">--priority</span></tt> must be specified. <tt class="docutils literal"><span class="pre">--queued</span></tt> and <tt class="docutils literal"><span class="pre">waiting</span></tt> can be
-used to re-prioritize all jobs in the respective state, <tt class="docutils literal"><span class="pre">--pending</span></tt>
-includes both. To skip a confirmation, pass <tt class="docutils literal"><span class="pre">--force</span></tt>.</p>
+<code class="docutils literal"><span class="pre">--priority</span></code> must be specified. <code class="docutils literal"><span class="pre">--queued</span></code> and <code class="docutils literal"><span class="pre">waiting</span></code> can be
+used to re-prioritize all jobs in the respective state, <code class="docutils literal"><span class="pre">--pending</span></code>
+includes both. To skip a confirmation, pass <code class="docutils literal"><span class="pre">--force</span></code>.</p>
 </div>
 <div class="section" id="info">
 <h3>INFO<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
-<p><strong>info</strong> {<em>id</em>...}</p>
+<p><strong>info</strong> {<em>job-id</em>...}</p>
 <p>Show detailed information about the given job id(s). If no job id
 is given, all jobs are examined (warning, this is a lot of
 information).</p>
@@ -131,67 +126,67 @@ information).</p>
 <p>Lists the jobs and their status. By default, the job id, job
 status, and a small job description is listed, but additional
 parameters can be selected.</p>
-<p>The <tt class="docutils literal"><span class="pre">--no-headers</span></tt> option will skip the initial header line. The
-<tt class="docutils literal"><span class="pre">--separator</span></tt> option takes an argument which denotes what will be
+<p>The <code class="docutils literal"><span class="pre">--no-headers</span></code> option will skip the initial header line. The
+<code class="docutils literal"><span class="pre">--separator</span></code> option takes an argument which denotes what will be
 used between the output fields. Both these options are to help
 scripting.</p>
-<p>The <tt class="docutils literal"><span class="pre">-o</span></tt> option takes a comma-separated list of output fields.
+<p>The <code class="docutils literal"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
 The available fields and their meaning are:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">archived</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">archived</span></code></dt>
 <dd>Whether job is archived</dd>
-<dt><tt class="docutils literal"><span class="pre">end_ts</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">end_ts</span></code></dt>
 <dd>Timestamp of job end (tuple containing seconds and microseconds)</dd>
-<dt><tt class="docutils literal"><span class="pre">id</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">id</span></code></dt>
 <dd>Job ID</dd>
-<dt><tt class="docutils literal"><span class="pre">opend</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">opend</span></code></dt>
 <dd>List of opcode execution end timestamps</dd>
-<dt><tt class="docutils literal"><span class="pre">opexec</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">opexec</span></code></dt>
 <dd>List of opcode execution start timestamps (after acquiring locks)</dd>
-<dt><tt class="docutils literal"><span class="pre">oplog</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">oplog</span></code></dt>
 <dd>List of opcode output logs</dd>
-<dt><tt class="docutils literal"><span class="pre">oppriority</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">oppriority</span></code></dt>
 <dd>List of opcode priorities</dd>
-<dt><tt class="docutils literal"><span class="pre">opresult</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">opresult</span></code></dt>
 <dd>List of opcodes results</dd>
-<dt><tt class="docutils literal"><span class="pre">ops</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">ops</span></code></dt>
 <dd>List of all opcodes</dd>
-<dt><tt class="docutils literal"><span class="pre">opstart</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">opstart</span></code></dt>
 <dd>List of opcode start timestamps (before acquiring locks)</dd>
-<dt><tt class="docutils literal"><span class="pre">opstatus</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">opstatus</span></code></dt>
 <dd>List of opcodes status</dd>
-<dt><tt class="docutils literal"><span class="pre">priority</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">priority</span></code></dt>
 <dd>Current job priority (19 to -20)</dd>
-<dt><tt class="docutils literal"><span class="pre">received_ts</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">received_ts</span></code></dt>
 <dd>Timestamp of when job was received (tuple containing seconds and microseconds)</dd>
-<dt><tt class="docutils literal"><span class="pre">start_ts</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">start_ts</span></code></dt>
 <dd>Timestamp of job start (tuple containing seconds and microseconds)</dd>
-<dt><tt class="docutils literal"><span class="pre">status</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">status</span></code></dt>
 <dd>Job status</dd>
-<dt><tt class="docutils literal"><span class="pre">summary</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">summary</span></code></dt>
 <dd>List of per-opcode summaries</dd>
 </dl>
-<p>If the value of the option starts with the character <tt class="docutils literal"><span class="pre">+</span></tt>, the new
+<p>If the value of the option starts with the character <code class="docutils literal"><span class="pre">+</span></code>, the new
 fields will be added to the default list. This allows one to quickly
 see the default list plus a few other fields, instead of retyping
 the entire list of fields.</p>
-<p>To include archived jobs in the list the <tt class="docutils literal"><span class="pre">--archived</span></tt> option can be
+<p>To include archived jobs in the list the <code class="docutils literal"><span class="pre">--archived</span></code> option can be
 used.</p>
 <p>The following options can be used to show only specific jobs:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">--pending</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--pending</span></code></dt>
 <dd>Show only jobs pending execution.</dd>
-<dt><tt class="docutils literal"><span class="pre">--running</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--running</span></code></dt>
 <dd>Show jobs currently running only.</dd>
-<dt><tt class="docutils literal"><span class="pre">--error</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--error</span></code></dt>
 <dd>Show failed jobs only.</dd>
-<dt><tt class="docutils literal"><span class="pre">--finished</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--finished</span></code></dt>
 <dd>Show finished jobs only.</dd>
 </dl>
 <p>If exactly one argument is given and it appears to be a query filter
 (see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For
-ambiguous cases (e.g. a single field name as a filter) the <tt class="docutils literal"><span class="pre">--filter</span></tt>
-(<tt class="docutils literal"><span class="pre">-F</span></tt>) option forces the argument to be treated as a filter.</p>
+ambiguous cases (e.g. a single field name as a filter) the <code class="docutils literal"><span class="pre">--filter</span></code>
+(<code class="docutils literal"><span class="pre">-F</span></code>) option forces the argument to be treated as a filter.</p>
 </div>
 <div class="section" id="list-fields">
 <h3>LIST-FIELDS<a class="headerlink" href="#list-fields" title="Permalink to this headline">¶</a></h3>
@@ -200,14 +195,14 @@ ambiguous cases (e.g. a single field name as a filter) the <tt class="docutils l
 </div>
 <div class="section" id="wait">
 <h3>WAIT<a class="headerlink" href="#wait" title="Permalink to this headline">¶</a></h3>
-<p><strong>wait</strong> {id}</p>
-<p>Wait for the job by the given <em>id</em> to finish; do not produce
+<p><strong>wait</strong> {<em>job-id</em>}</p>
+<p>Wait for the job by the given <em>job-id</em> to finish; do not produce
 any output.</p>
 </div>
 <div class="section" id="watch">
 <h3>WATCH<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h3>
-<p><strong>watch</strong> {id}</p>
-<p>This command follows the output of the job by the given <em>id</em> and
+<p><strong>watch</strong> {<em>job-id</em>}</p>
+<p>This command follows the output of the job by the given <em>job-id</em> and
 prints it.</p>
 </div>
 </div>
@@ -217,7 +212,7 @@ prints it.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -247,12 +242,14 @@ prints it.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="man-gnt-network.html"
                         title="next chapter">gnt-network</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/man-gnt-job.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-gnt-job.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -269,7 +266,7 @@ prints it.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -278,13 +275,13 @@ prints it.</p>
         <li class="right" >
           <a href="man-gnt-instance.html" title="gnt-instance"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" >Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

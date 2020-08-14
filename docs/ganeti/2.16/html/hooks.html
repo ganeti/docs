@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ganeti customisation using hooks &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Ganeti customisation using hooks &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti automatic instance allocation" href="iallocator.html" />
     <link rel="prev" title="Glossary" href="glossary.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="glossary.html" title="Glossary"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="ganeti-customisation-using-hooks">
 <h1><a class="toc-backref" href="#id1">Ganeti customisation using hooks</a><a class="headerlink" href="#ganeti-customisation-using-hooks" title="Permalink to this headline">¶</a></h1>
@@ -113,8 +111,8 @@
 <li><a class="reference internal" href="#op-cluster-verify-group" id="id47">OP_CLUSTER_VERIFY_GROUP</a></li>
 <li><a class="reference internal" href="#op-cluster-rename" id="id48">OP_CLUSTER_RENAME</a></li>
 <li><a class="reference internal" href="#op-cluster-set-params" id="id49">OP_CLUSTER_SET_PARAMS</a></li>
-<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turnup" id="id50">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></tt></a></li>
-<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turndown" id="id51">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></tt></a></li>
+<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turnup" id="id50">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></code></a></li>
+<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turndown" id="id51">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#obsolete-operations" id="id52">Obsolete operations</a></li>
@@ -133,12 +131,16 @@
 <div class="section" id="introduction">
 <h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In order to allow customisation of operations, Ganeti runs scripts in
-sub-directories of <tt class="docutils literal"><span class="pre">&#64;SYSCONFDIR&#64;/ganeti/hooks</span></tt>. These sub-directories
-are named <tt class="docutils literal"><span class="pre">$hook-$phase.d</span></tt>, where <tt class="docutils literal"><span class="pre">$phase</span></tt> is either <tt class="docutils literal"><span class="pre">pre</span></tt> or
-<tt class="docutils literal"><span class="pre">post</span></tt> and <tt class="docutils literal"><span class="pre">$hook</span></tt> matches the directory name given for a hook (e.g.
-<tt class="docutils literal"><span class="pre">cluster-verify-post.d</span></tt> or <tt class="docutils literal"><span class="pre">node-add-pre.d</span></tt>).</p>
-<p>This is similar to the <tt class="docutils literal"><span class="pre">/etc/network/</span></tt> structure present in Debian
+sub-directories of <code class="docutils literal"><span class="pre">&#64;SYSCONFDIR&#64;/ganeti/hooks</span></code> (that is usually
+<code class="docutils literal"><span class="pre">/etc/ganeti/hooks</span></code>). These sub-directories
+are named <code class="docutils literal"><span class="pre">$hook-$phase.d</span></code>, where <code class="docutils literal"><span class="pre">$phase</span></code> is either <code class="docutils literal"><span class="pre">pre</span></code> or
+<code class="docutils literal"><span class="pre">post</span></code> and <code class="docutils literal"><span class="pre">$hook</span></code> matches the directory name given for a hook (e.g.
+<code class="docutils literal"><span class="pre">cluster-verify-post.d</span></code> or <code class="docutils literal"><span class="pre">node-add-pre.d</span></code>).</p>
+<p>This is similar to the <code class="docutils literal"><span class="pre">/etc/network/</span></code> structure present in Debian
 for network interface handling.</p>
+<p>Note that Ganeti does not create its <code class="docutils literal"><span class="pre">hooks</span></code> directory by default.
+If you want to use hooks scripts, create it on all nodes. This applies
+also to all sub directories such as <code class="docutils literal"><span class="pre">node-add-pre.d</span></code>.</p>
 </div>
 <div class="section" id="organisation">
 <h2><a class="toc-backref" href="#id3">Organisation</a><a class="headerlink" href="#organisation" title="Permalink to this headline">¶</a></h2>
@@ -151,6 +153,10 @@ for network interface handling.</p>
 depending on the operation type.</p>
 <p>Note that, even though we call them scripts, we are actually talking
 about any executable.</p>
+<p>The filenames of the scripts need to match the regular expression
+<code class="docutils literal"><span class="pre">^[a-zA-Z0-9_-]+$</span></code>. This means in particular, that scripts having
+a filename extension (such as <code class="docutils literal"><span class="pre">myhook.sh</span></code>) are silently ignored
+by Ganeti.</p>
 <div class="section" id="pre-scripts">
 <h3><a class="toc-backref" href="#id4"><em>pre</em> scripts</a><a class="headerlink" href="#pre-scripts" title="Permalink to this headline">¶</a></h3>
 <p>The <em>pre</em> scripts have a definite target: to check that the operation
@@ -181,7 +187,7 @@ have been run.</p>
 <h3><a class="toc-backref" href="#id6">Naming</a><a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
 <p>The allowed names for the scripts consist of (similar to <em>run-parts</em>)
 upper and lower case, digits, underscores and hyphens. In other words,
-the regexp <tt class="docutils literal"><span class="pre">^[a-zA-Z0-9_-]+$</span></tt>. Also, non-executable scripts will be
+the regexp <code class="docutils literal"><span class="pre">^[a-zA-Z0-9_-]+$</span></code>. Also, non-executable scripts will be
 ignored.</p>
 </div>
 <div class="section" id="order-of-execution">
@@ -205,7 +211,7 @@ in the scripts.</p>
 <li>no controlling <em>tty</em></li>
 <li>stdin is actually <em>/dev/null</em></li>
 <li>stdout and stderr are directed to files</li>
-<li>PATH is reset to <tt class="docutils literal"><span class="pre">/sbin:/bin:/usr/sbin:/usr/bin</span></tt></li>
+<li>PATH is reset to <code class="docutils literal"><span class="pre">/sbin:/bin:/usr/sbin:/usr/bin</span></code></li>
 <li>the environment is cleared, and only ganeti-specific variables will
 be left</li>
 </ul>
@@ -508,7 +514,7 @@ Depending on the disk template, Ganeti exports some info related to
 the logical id of the disk, that is basically its driver and id.</p>
 <p>The INSTANCE_NICn_NETWORK_* variables are only passed if a NIC&#8217;s network
 parameter is set (that is if the NIC is associated to a network defined
-via <tt class="docutils literal"><span class="pre">gnt-network</span></tt>)</p>
+via <code class="docutils literal"><span class="pre">gnt-network</span></code>)</p>
 <div class="section" id="op-instance-create">
 <h4><a class="toc-backref" href="#id28">OP_INSTANCE_CREATE</a><a class="headerlink" href="#op-instance-create" title="Permalink to this headline">¶</a></h4>
 <p>Creates a new instance.</p>
@@ -900,7 +906,7 @@ cluster verification procedure.</p>
 </table>
 </div>
 <div class="section" id="virtual-operation-op-cluster-ip-turnup">
-<h4><a class="toc-backref" href="#id50">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></tt></a><a class="headerlink" href="#virtual-operation-op-cluster-ip-turnup" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id50">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></code></a><a class="headerlink" href="#virtual-operation-op-cluster-ip-turnup" title="Permalink to this headline">¶</a></h4>
 <p>This doesn&#8217;t correspond to an actual op-code, but it is called when the
 master IP is activated.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -919,7 +925,7 @@ master IP is activated.</p>
 </table>
 </div>
 <div class="section" id="virtual-operation-op-cluster-ip-turndown">
-<h4><a class="toc-backref" href="#id51">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></tt></a><a class="headerlink" href="#virtual-operation-op-cluster-ip-turndown" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id51">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></code></a><a class="headerlink" href="#virtual-operation-op-cluster-ip-turndown" title="Permalink to this headline">¶</a></h4>
 <p>This doesn&#8217;t correspond to an actual op-code, but it is called when the
 master IP is deactivated.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -973,7 +979,7 @@ to the version 2.</dd>
 <dt>OP_CODE</dt>
 <dd>One of the <em>OP_</em> values from the list of operations.</dd>
 <dt>OBJECT_TYPE</dt>
-<dd>One of <tt class="docutils literal"><span class="pre">INSTANCE</span></tt>, <tt class="docutils literal"><span class="pre">NODE</span></tt>, <tt class="docutils literal"><span class="pre">CLUSTER</span></tt>.</dd>
+<dd>One of <code class="docutils literal"><span class="pre">INSTANCE</span></code>, <code class="docutils literal"><span class="pre">NODE</span></code>, <code class="docutils literal"><span class="pre">CLUSTER</span></code>.</dd>
 <dt>DATA_DIR</dt>
 <dd>The path to the Ganeti configuration directory (to read, for
 example, the <em>ssconf</em> files).</dd>
@@ -1113,7 +1119,7 @@ order to guarantee consistency.</dd>
 <h2><a class="toc-backref" href="#id56">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>The startup of an instance will pass this environment to the hook
 script:</p>
-<div class="highlight-python"><pre>GANETI_CLUSTER=cluster1.example.com
+<div class="highlight-python"><div class="highlight"><pre>GANETI_CLUSTER=cluster1.example.com
 GANETI_DATA_DIR=/var/lib/ganeti
 GANETI_FORCE=False
 GANETI_HOOKS_PATH=instance-start
@@ -1137,7 +1143,8 @@ GANETI_INSTANCE_VCPUS=1
 GANETI_MASTER=node1.example.com
 GANETI_OBJECT_TYPE=INSTANCE
 GANETI_OP_CODE=OP_INSTANCE_STARTUP
-GANETI_OP_TARGET=instance2.example.com</pre>
+GANETI_OP_TARGET=instance2.example.com
+</pre></div>
 </div>
 </div>
 </div>
@@ -1146,7 +1153,7 @@ GANETI_OP_TARGET=instance2.example.com</pre>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -1209,8 +1216,8 @@ GANETI_OP_TARGET=instance2.example.com</pre>
 <li><a class="reference internal" href="#op-cluster-verify-group">OP_CLUSTER_VERIFY_GROUP</a></li>
 <li><a class="reference internal" href="#op-cluster-rename">OP_CLUSTER_RENAME</a></li>
 <li><a class="reference internal" href="#op-cluster-set-params">OP_CLUSTER_SET_PARAMS</a></li>
-<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turnup">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></tt></a></li>
-<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turndown">Virtual operation <tt class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></tt></a></li>
+<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turnup">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNUP</span></code></a></li>
+<li><a class="reference internal" href="#virtual-operation-op-cluster-ip-turndown">Virtual operation <code class="docutils literal"><span class="pre">OP_CLUSTER_IP_TURNDOWN</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#obsolete-operations">Obsolete operations</a></li>
@@ -1232,12 +1239,14 @@ GANETI_OP_TARGET=instance2.example.com</pre>
   <h4>Next topic</h4>
   <p class="topless"><a href="iallocator.html"
                         title="next chapter">Ganeti automatic instance allocation</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/hooks.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hooks.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -1254,7 +1263,7 @@ GANETI_OP_TARGET=instance2.example.com</pre>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1263,12 +1272,12 @@ GANETI_OP_TARGET=instance2.example.com</pre>
         <li class="right" >
           <a href="glossary.html" title="Glossary"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

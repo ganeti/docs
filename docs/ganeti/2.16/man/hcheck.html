@@ -4,11 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>HCHECK(1) Ganeti | Version 2.16.0~rc1</title>
+  <title>HCHECK(1) Ganeti | Version 2.16.2</title>
+  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
-<h1 class="title">HCHECK(1) Ganeti | Version 2.16.0~rc1</h1>
+<h1 class="title">HCHECK(1) Ganeti | Version 2.16.2</h1>
 </div>
 <div id="TOC">
 <ul>
@@ -21,24 +22,24 @@
 <li><a href="#copyright">COPYRIGHT</a></li>
 </ul>
 </div>
-<h1 id="name"><a href="#TOC">NAME</a></h1>
+<h1 id="name">NAME</h1>
 <p>hcheck - Cluster checker</p>
-<h1 id="synopsis"><a href="#TOC">SYNOPSIS</a></h1>
+<h1 id="synopsis">SYNOPSIS</h1>
 <p><strong>hcheck</strong> {backend options...} [algorithm options...] [reporting options...]</p>
 <p><strong>hcheck</strong> --version</p>
 <p>Backend options:</p>
-<p>{ <strong>-m</strong> <em>cluster</em> | <strong>-L[</strong> <em>path</em> <strong>] |</strong>-t<em>*</em>data-file* | <strong>-I</strong> <em>path</em> }</p>
+<p>{ <strong>-m</strong> <em>cluster</em> | <strong>-L[</strong> <em>path</em> <strong>] |</strong>-t** <em>data-file</em> | <strong>-I</strong> <em>path</em> }</p>
 <p>Algorithm options:</p>
 <p><strong>[ --no-simulation ]</strong> <strong>[ --max-cpu <em>cpu-ratio</em> ]</strong> <strong>[ --min-disk <em>disk-ratio</em> ]</strong> <strong>[ -l <em>limit</em> ]</strong> <strong>[ -e <em>score</em> ]</strong> <strong>[ -g <em>delta</em> ]</strong> <strong>[ --min-gain-limit <em>threshold</em> ]</strong> <strong>[ -O <em>name...</em> ]</strong> <strong>[ --no-disk-moves ]</strong> <strong>[ --no-instance-moves ]</strong> <strong>[ -U <em>util-file</em> ]</strong> <strong>[ --ignore-dynu ]</strong> <strong>[ --ignore-soft-errors ]</strong> <strong>[ --evac-mode ]</strong> <strong>[ --select-instances <em>inst...</em> ]</strong> <strong>[ --exclude-instances <em>inst...</em> ]</strong> <strong>[ --no-capacity-checks ]</strong></p>
 <p>Reporting options:</p>
-<p><strong>[--machine-readable</strong>[=<em>CHOICE</em>] <strong>]</strong> <strong>[ -p[ <em>fields</em> ] ]</strong> <strong>[ --print-instances ]</strong> <strong>[ -v... | -q ]</strong></p>
-<h1 id="description"><a href="#TOC">DESCRIPTION</a></h1>
+<p><strong>[--machine-readable</strong>[=*CHOICE*] <strong>]</strong> <strong>[ -p[ <em>fields</em> ] ]</strong> <strong>[ --print-instances ]</strong> <strong>[ -v... | -q ]</strong></p>
+<h1 id="description">DESCRIPTION</h1>
 <p>hcheck is the cluster checker. It prints information about cluster's health and checks whether a rebalance done using <strong>hbal</strong> would help.</p>
 <p>This information can be presented in both human-readable and machine-readable way.</p>
 <p>Note that it does not take any action, only performs a rebalance simulation if necessary.</p>
 <p>For more information about the algorithm details check <strong>hbal</strong>(1).</p>
 <p>Additionally, hcheck also checks if the cluster is globally N+1 redundant. That is, it checks for every node, if after failing over the DRBD instances all instances on that node that with disks externally stored can be restarted on some other node.</p>
-<h1 id="options"><a href="#TOC">OPTIONS</a></h1>
+<h1 id="options">OPTIONS</h1>
 <dl>
 <dt>--no-simulation</dt>
 <dd><p>Only perform checks based on current cluster state, without trying to simulate rebalancing.</p>
@@ -48,14 +49,14 @@
 </dd>
 </dl>
 <p>For a detailed description about the options listed above have a look at <strong>htools</strong>(1), <strong>hspace</strong>(1) and <strong>hbal</strong>(1).</p>
-<h1 id="reporting-bugs"><a href="#TOC">REPORTING BUGS</a></h1>
+<h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to <a href="http://code.google.com/p/ganeti/">project website</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
-<h1 id="see-also"><a href="#TOC">SEE ALSO</a></h1>
+<h1 id="see-also">SEE ALSO</h1>
 <p>Ganeti overview and specifications: <strong>ganeti</strong>(7) (general overview), <strong>ganeti-os-interface</strong>(7) (guest OS definitions), <strong>ganeti-extstorage-interface</strong>(7) (external storage providers).</p>
 <p>Ganeti commands: <strong>gnt-cluster</strong>(8) (cluster-wide commands), <strong>gnt-job</strong>(8) (job-related commands), <strong>gnt-node</strong>(8) (node-related commands), <strong>gnt-instance</strong>(8) (instance commands), <strong>gnt-os</strong>(8) (guest OS commands), <strong>gnt-storage</strong>(8) (storage commands), <strong>gnt-group</strong>(8) (node group commands), <strong>gnt-backup</strong>(8) (instance import/export commands), <strong>gnt-debug</strong>(8) (debug commands).</p>
 <p>Ganeti daemons: <strong>ganeti-watcher</strong>(8) (automatic instance restarter), <strong>ganeti-cleaner</strong>(8) (job queue cleaner), <strong>ganeti-noded</strong>(8) (node daemon), <strong>ganeti-rapi</strong>(8) (remote API daemon).</p>
 <p>Ganeti htools: <strong>htools</strong>(1) (generic binary), <strong>hbal</strong>(1) (cluster balancer), <strong>hspace</strong>(1) (capacity calculation), <strong>hail</strong>(1) (IAllocator plugin), <strong>hscan</strong>(1) (data gatherer from remote clusters), <strong>hinfo</strong>(1) (cluster information printer), <strong>mon-collector</strong>(7) (data collectors interface).</p>
-<h1 id="copyright"><a href="#TOC">COPYRIGHT</a></h1>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2006-2015 Google Inc. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>

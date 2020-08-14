@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Design document drafts &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Design document drafts &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Design for a X509 Certificate Authority" href="design-x509-ca.html" />
     <link rel="prev" title="Ganeti 2.16 design" href="design-2.16.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="design-2.16.html" title="Ganeti 2.16 design"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="design-document-drafts">
 <h1>Design document drafts<a class="headerlink" href="#design-document-drafts" title="Permalink to this headline">¶</a></h1>
@@ -76,23 +74,6 @@
 <li class="toctree-l2"><a class="reference internal" href="design-impexp2.html#other-considered-solutions">Other considered solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="design-resource-model.html">Resource model changes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-resource-model.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-resource-model.html#current-situation">Current situation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-resource-model.html#proposed-architecture">Proposed architecture</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-storagetypes.html">Management of storage types and disk templates, incl. storage space reporting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-storagetypes.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-storagetypes.html#proposed-changes">Proposed changes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-glusterfs-ganeti-support.html">GlusterFS Ganeti support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-glusterfs-ganeti-support.html#gluster-overview">Gluster overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-glusterfs-ganeti-support.html#implementation-strategy">Implementation strategy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-glusterfs-ganeti-support.html#future-work">Future work</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="design-hugepages-support.html">Huge Pages Support for Ganeti</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="design-hugepages-support.html#current-state-and-shortcomings">Current State and Shortcomings:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-hugepages-support.html#proposed-changes">Proposed Changes:</a></li>
@@ -100,32 +81,6 @@
 <li class="toctree-l2"><a class="reference internal" href="design-hugepages-support.html#memory-pools">Memory Pools:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-hugepages-support.html#iallocator-changes">iAllocator Changes:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-hugepages-support.html#hbal-changes">hbal Changes:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-ceph-ganeti-support.html">RADOS/Ceph support in Ganeti</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-ceph-ganeti-support.html#objective">Objective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-ceph-ganeti-support.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-ceph-ganeti-support.html#qemu-kvm-direct-rbd-integration">Qemu/KVM Direct RBD Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-ceph-ganeti-support.html#ceph-configuration-on-ganeti-nodes">Ceph configuration on Ganeti nodes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-os.html">Ganeti OS installation redesign</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-os.html#current-state-and-shortcomings">Current state and shortcomings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-os.html#proposed-changes">Proposed changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-os.html#implementation">Implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-os.html#alternatives-to-design-and-implementation">Alternatives to design and implementation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-move-instance-improvements.html">Instance move improvements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-move-instance-improvements.html#the-performance-of-ganeti-moves">The performance of Ganeti moves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-move-instance-improvements.html#zeroing-instance-disks">Zeroing instance disks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-move-instance-improvements.html#lock-reduction">Lock reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-move-instance-improvements.html#introduction-of-changes">Introduction of changes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-node-security.html">Improvements of Node Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-node-security.html#objective">Objective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-node-security.html#detailed-design">Detailed design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="design-ifdown.html">Design for adding ifdown script to KVM</a><ul>
@@ -152,12 +107,6 @@
 <li class="toctree-l2"><a class="reference internal" href="design-network2.html#configuration-changes">Configuration changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-network2.html#exported-variables">Exported variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-network2.html#backwards-compatibility">Backwards Compatibility</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-configlock.html">Removal of the Config Lock Overhead</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-configlock.html#current-state-and-shortcomings">Current state and shortcomings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-configlock.html#proposed-changes-for-an-incremental-improvement">Proposed changes for an incremental improvement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-configlock.html#approaches-considered-but-not-working">Approaches considered, but not working</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="design-multi-storage-htools.html">HTools support for multiple storage units per node</a><ul>
@@ -190,7 +139,7 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="design-2.16.html"
@@ -198,12 +147,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="design-x509-ca.html"
                         title="next chapter">Design for a X509 Certificate Authority</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-draft.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-draft.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -220,7 +171,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -229,12 +180,12 @@
         <li class="right" >
           <a href="design-2.16.html" title="Ganeti 2.16 design"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

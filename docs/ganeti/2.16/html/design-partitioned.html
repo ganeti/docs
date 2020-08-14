@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Partitioned Ganeti &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Partitioned Ganeti &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Performance tests for QA" href="design-performance-tests.html" />
     <link rel="prev" title="Ganeti Instance Import/Export using Open Virtualization Format" href="design-ovf-support.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-ovf-support.html" title="Ganeti Instance Import/Export using Open Virtualization Format"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="partitioned-ganeti">
 <h1><a class="toc-backref" href="#id1">Partitioned Ganeti</a><a class="headerlink" href="#partitioned-ganeti" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-Oct-05</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.7.0, 2.8.0, 2.9.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -100,21 +110,21 @@ we&#8217;ll strive to maintain contention at a minimum, but won&#8217;t try to a
 all possible sources of it.</p>
 <div class="section" id="exclusive-use-of-disks">
 <h3><a class="toc-backref" href="#id4">Exclusive use of disks</a><a class="headerlink" href="#exclusive-use-of-disks" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is a new node parameter. When it&#8217;s enabled, Ganeti
+<p><code class="docutils literal"><span class="pre">exclusive_storage</span></code> is a new node parameter. When it&#8217;s enabled, Ganeti
 will allocate entire disks to instances. Though it&#8217;s possible to think
 of ways of doing something similar for other storage back-ends, this
-design targets only <tt class="docutils literal"><span class="pre">plain</span></tt> and <tt class="docutils literal"><span class="pre">drbd</span></tt>. The name is generic enough
+design targets only <code class="docutils literal"><span class="pre">plain</span></code> and <code class="docutils literal"><span class="pre">drbd</span></code>. The name is generic enough
 in case the feature will be extended to other back-ends. The flag value
-should be homogeneous within a node-group; <tt class="docutils literal"><span class="pre">cluster-verify</span></tt> will report
+should be homogeneous within a node-group; <code class="docutils literal"><span class="pre">cluster-verify</span></code> will report
 any violation of this condition.</p>
 <p>Ganeti will consider each physical volume in the destination volume
 group as a host disk (for proper isolation, an administrator should
 make sure that there aren&#8217;t multiple PVs on the same physical
-disk). When <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is enabled in a node group, all PVs
+disk). When <code class="docutils literal"><span class="pre">exclusive_storage</span></code> is enabled in a node group, all PVs
 in the node group must have the same size (within a certain margin, say
 1%, defined through a new parameter). Ganeti will check this condition
-when the <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> flag is set, whenever a new node is added
-and as part of <tt class="docutils literal"><span class="pre">cluster-verify</span></tt>.</p>
+when the <code class="docutils literal"><span class="pre">exclusive_storage</span></code> flag is set, whenever a new node is added
+and as part of <code class="docutils literal"><span class="pre">cluster-verify</span></code>.</p>
 <p>When creating a new disk for an instance, Ganeti will allocate the
 minimum number of PVs to hold the disk, and those PVs will be excluded
 from the pool of available PVs for further disk creations. The
@@ -139,44 +149,44 @@ on a node, it is natural to assign more spindles to instances than what
 is strictly needed. For this reason, we introduce a new resource:
 spindles. A spindle is a PV in LVM. The number of spindles required for
 a disk of an instance is specified together with the size. Specifying
-the number of spindles is possible only when <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is
+the number of spindles is possible only when <code class="docutils literal"><span class="pre">exclusive_storage</span></code> is
 enabled. It is an error to specify a number of spindles insufficient to
 contain the requested disk size.</p>
-<p>When <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is not enabled, spindles are not used in free
+<p>When <code class="docutils literal"><span class="pre">exclusive_storage</span></code> is not enabled, spindles are not used in free
 space calculation, in allocation algorithms, and policies. When it&#8217;s
-enabled, <tt class="docutils literal"><span class="pre">hspace</span></tt>, <tt class="docutils literal"><span class="pre">hbal</span></tt>, and allocators will use spindles instead
+enabled, <code class="docutils literal"><span class="pre">hspace</span></code>, <code class="docutils literal"><span class="pre">hbal</span></code>, and allocators will use spindles instead
 of disk size for their computation. For each node, the number of all the
 spindles in every LVM group is recorded, and different LVM groups are
 accounted separately in allocation and balancing.</p>
 <p>There is already a concept of spindles in Ganeti. It&#8217;s not related to
-any actual spindle or volume count, but it&#8217;s used in <tt class="docutils literal"><span class="pre">spindle_use</span></tt> to
+any actual spindle or volume count, but it&#8217;s used in <code class="docutils literal"><span class="pre">spindle_use</span></code> to
 measure the pressure of an instance on the storage system and in
-<tt class="docutils literal"><span class="pre">spindle_ratio</span></tt> to balance the I/O load on the nodes. When
-<tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is enabled, these parameters as currently defined
+<code class="docutils literal"><span class="pre">spindle_ratio</span></code> to balance the I/O load on the nodes. When
+<code class="docutils literal"><span class="pre">exclusive_storage</span></code> is enabled, these parameters as currently defined
 won&#8217;t make any sense, so their meaning will be changed in this way:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">spindle_use</span></tt> refers to the resource, hence to the actual spindles
+<li><code class="docutils literal"><span class="pre">spindle_use</span></code> refers to the resource, hence to the actual spindles
 (PVs in LVM), used by an instance. The values specified in the instance
 policy specifications are compared to the run-time numbers of spindle
-used by an instance. The <tt class="docutils literal"><span class="pre">spindle_use</span></tt> back-end parameter will be
+used by an instance. The <code class="docutils literal"><span class="pre">spindle_use</span></code> back-end parameter will be
 ignored.</li>
-<li><tt class="docutils literal"><span class="pre">spindle_ratio</span></tt> in instance policies and <tt class="docutils literal"><span class="pre">spindle_count</span></tt> in node
+<li><code class="docutils literal"><span class="pre">spindle_ratio</span></code> in instance policies and <code class="docutils literal"><span class="pre">spindle_count</span></code> in node
 parameters are ignored, as the exclusive assignment of PVs already
 implies a value of 1.0 for the first, and the second is replaced by
 the actual number of spindles.</li>
 </ul>
-<p>When <tt class="docutils literal"><span class="pre">exclusive_storage</span></tt> is disabled, the existing spindle parameters
+<p>When <code class="docutils literal"><span class="pre">exclusive_storage</span></code> is disabled, the existing spindle parameters
 behave as before.</p>
 </div>
 </div>
 <div class="section" id="dedicated-cpus">
 <h3><a class="toc-backref" href="#id6">Dedicated CPUs</a><a class="headerlink" href="#dedicated-cpus" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">vpcu_ratio</span></tt> can be used to tie the number of VCPUs to the number of
+<p><code class="docutils literal"><span class="pre">vpcu_ratio</span></code> can be used to tie the number of VCPUs to the number of
 CPUs provided by the hardware. We need to take into account the CPU
 usage of the hypervisor. For Xen, this means counting the number of
-VCPUs assigned to <tt class="docutils literal"><span class="pre">Domain-0</span></tt>.</p>
+VCPUs assigned to <code class="docutils literal"><span class="pre">Domain-0</span></code>.</p>
 <p>For KVM, it&#8217;s more difficult to limit the number of CPUs used by the
-node OS. <tt class="docutils literal"><span class="pre">cgroups</span></tt> could be a solution to restrict the node OS to use
+node OS. <code class="docutils literal"><span class="pre">cgroups</span></code> could be a solution to restrict the node OS to use
 some of the CPUs, leaving the other ones to instances and KVM processes.
 For KVM, the number of CPUs for the host system should also be a
 hypervisor parameter (set at the node group level).</p>
@@ -233,7 +243,7 @@ extend the policy by allowing it to contain more occurrences of the
 specifications for both the limits for the instance resources. Each
 specification pair (minimum and maximum) has a unique priority
 associated to it (or in other words, specifications are ordered), which
-is used by <tt class="docutils literal"><span class="pre">hspace</span></tt> (see below). The standard specification doesn&#8217;t
+is used by <code class="docutils literal"><span class="pre">hspace</span></code> (see below). The standard specification doesn&#8217;t
 change: there is one for the whole cluster.</p>
 <p>For example, a policy could be set up to allow instances with this
 constraints:</p>
@@ -247,10 +257,10 @@ legal, as an instance using 4 CPUs, 4 GB of RAM, and 20 GB of disk,
 while an instance using 2 CPUs, 4 GB of RAM and 40 GB of disk would be
 illegal.</p>
 <p>Ganeti will refuse to create (or modify) instances that violate instance
-policy constraints, unless the flag <tt class="docutils literal"><span class="pre">--ignore-ipolicy</span></tt> is passed.</p>
+policy constraints, unless the flag <code class="docutils literal"><span class="pre">--ignore-ipolicy</span></code> is passed.</p>
 <p>While the changes needed to check constraint violations are
-straightforward, <tt class="docutils literal"><span class="pre">hspace</span></tt> behavior needs some adjustments for tiered
-allocation. <tt class="docutils literal"><span class="pre">hspace</span></tt> will start to allocate instances using the
+straightforward, <code class="docutils literal"><span class="pre">hspace</span></code> behavior needs some adjustments for tiered
+allocation. <code class="docutils literal"><span class="pre">hspace</span></code> will start to allocate instances using the
 maximum specification with the highest priority, then it will try to
 lower the most constrained resources (without breaking the policy)
 before moving to the second highest priority, and so on.</p>
@@ -318,7 +328,7 @@ which could be bad with NUMA.</p>
 on a node than there are CPU available. This works as normally CPU usage
 on average is way below 100%. There are ways to share memory pages
 (e.g. KSM, transcendent memory) and disk blocks, so we could add new
-parameters to overcommit memory and disks, similar to <tt class="docutils literal"><span class="pre">vcpu_ratio</span></tt>.</p>
+parameters to overcommit memory and disks, similar to <code class="docutils literal"><span class="pre">vcpu_ratio</span></code>.</p>
 </div>
 </div>
 </div>
@@ -327,7 +337,7 @@ parameters to overcommit memory and disks, similar to <tt class="docutils litera
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -365,12 +375,14 @@ parameters to overcommit memory and disks, similar to <tt class="docutils litera
   <h4>Next topic</h4>
   <p class="topless"><a href="design-performance-tests.html"
                         title="next chapter">Performance tests for QA</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-partitioned.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-partitioned.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -387,7 +399,7 @@ parameters to overcommit memory and disks, similar to <tt class="docutils litera
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -396,12 +408,12 @@ parameters to overcommit memory and disks, similar to <tt class="docutils litera
         <li class="right" >
           <a href="design-ovf-support.html" title="Ganeti Instance Import/Export using Open Virtualization Format"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

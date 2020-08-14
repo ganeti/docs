@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>HTools support for multiple storage units per node &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>HTools support for multiple storage units per node &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,33 +23,43 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Design document drafts" href="design-draft.html" />
     <link rel="next" title="Ganeti Maintenance Daemon" href="design-repaird.html" />
-    <link rel="prev" title="Removal of the Config Lock Overhead" href="design-configlock.html" /> 
+    <link rel="prev" title="Network Management (revised)" href="design-network2.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-repaird.html" title="Ganeti Maintenance Daemon"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="design-configlock.html" title="Removal of the Config Lock Overhead"
+          <a href="design-network2.html" title="Network Management (revised)"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="htools-support-for-multiple-storage-units-per-node">
 <h1><a class="toc-backref" href="#id1">HTools support for multiple storage units per node</a><a class="headerlink" href="#htools-support-for-multiple-storage-units-per-node" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2015-Jan-21</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Draft</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -87,8 +95,8 @@ storage type and that users typically use node groups to differentiate between
 different node storage layouts.</p>
 <p>For the node show action, RAPI only returns</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">dfree</span></tt>: The total amount of free disk space</li>
-<li><tt class="docutils literal"><span class="pre">dtotal</span></tt>: The total amount of disk space</li>
+<li><code class="docutils literal"><span class="pre">dfree</span></code>: The total amount of free disk space</li>
+<li><code class="docutils literal"><span class="pre">dtotal</span></code>: The total amount of disk space</li>
 </ul>
 <p>which is insufficient for the same reasons.</p>
 </div>
@@ -116,9 +124,9 @@ one-by-one.</li>
 </div>
 <div class="section" id="luxi-and-iallocator-protocol-extension">
 <h3><a class="toc-backref" href="#id5">LUXI and IAllocator protocol extension</a><a class="headerlink" href="#luxi-and-iallocator-protocol-extension" title="Permalink to this headline">¶</a></h3>
-<p>The LUXI and IAllocator protocols are extended to include in the <tt class="docutils literal"><span class="pre">node</span></tt>:</p>
+<p>The LUXI and IAllocator protocols are extended to include in the <code class="docutils literal"><span class="pre">node</span></code>:</p>
 <ul>
-<li><p class="first"><tt class="docutils literal"><span class="pre">storage</span></tt>: a list of objects (storage units) with
+<li><p class="first"><code class="docutils literal"><span class="pre">storage</span></code>: a list of objects (storage units) with
 #. Storage unit, containing in order:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -157,7 +165,7 @@ one-by-one.</li>
 </div>
 <p>is a node with an LVM volume group mirrored over DRBD, two file storage
 directories, one half full, one mostly full, and a non-mirrored volume group.</p>
-<p>The storage type <tt class="docutils literal"><span class="pre">drbd8</span></tt> needs to be added in order to differentiate between
+<p>The storage type <code class="docutils literal"><span class="pre">drbd8</span></code> needs to be added in order to differentiate between
 mirrored storage and non-mirrored storage.
 The storage key signals the volume group used and the storage unit takes no
 additional parameters.</p>
@@ -168,9 +176,9 @@ additional parameters.</p>
 <ul>
 <li><p class="first">a new &#8220;storage&#8221; column is added to the node section, which is a semicolon
 separated list of comma separated fields in the order
-#. <tt class="docutils literal"><span class="pre">free</span></tt>
-#. <tt class="docutils literal"><span class="pre">total</span></tt>
-#. <tt class="docutils literal"><span class="pre">sunit</span></tt>, which in itself contains</p>
+#. <code class="docutils literal"><span class="pre">free</span></code>
+#. <code class="docutils literal"><span class="pre">total</span></code>
+#. <code class="docutils literal"><span class="pre">sunit</span></code>, which in itself contains</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>the storage type</li>
@@ -187,9 +195,9 @@ separated list of comma separated fields in the order
 </div>
 <div class="section" id="interpretation">
 <h3><a class="toc-backref" href="#id7">Interpretation</a><a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">hbal</span></tt> and <tt class="docutils literal"><span class="pre">hail</span></tt> will use this information only if available, if the data
-file doesn&#8217;t contain the <tt class="docutils literal"><span class="pre">storage</span></tt> field the old algorithm is used.</p>
-<p>If the node information contains the <tt class="docutils literal"><span class="pre">storage</span></tt> field, hbal and hail will
+<p><code class="docutils literal"><span class="pre">hbal</span></code> and <code class="docutils literal"><span class="pre">hail</span></code> will use this information only if available, if the data
+file doesn&#8217;t contain the <code class="docutils literal"><span class="pre">storage</span></code> field the old algorithm is used.</p>
+<p>If the node information contains the <code class="docutils literal"><span class="pre">storage</span></code> field, hbal and hail will
 assume that only the space compatible with the disk&#8217;s requirements is
 available. For an instance to fit a node, all it&#8217;s disks need to fit there
 separately. For a disk to fit a node, a storage unit of the type of
@@ -197,7 +205,7 @@ the disk needs to have enough free space to contain it. The total free storage
 is not taken into consideration.</p>
 <p>Ignoring the old information will in theory introduce a backwards
 incompatibility: If the total free storage is smaller than to the sum of the
-free storage reported in the <tt class="docutils literal"><span class="pre">storage</span></tt> field a previously illegal move will
+free storage reported in the <code class="docutils literal"><span class="pre">storage</span></code> field a previously illegal move will
 become legal.</p>
 </div>
 <div class="section" id="balancing">
@@ -230,7 +238,7 @@ deviation metric smaller.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -249,17 +257,19 @@ deviation metric smaller.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="design-configlock.html"
-                        title="previous chapter">Removal of the Config Lock Overhead</a></p>
+  <p class="topless"><a href="design-network2.html"
+                        title="previous chapter">Network Management (revised)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-repaird.html"
                         title="next chapter">Ganeti Maintenance Daemon</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-multi-storage-htools.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-multi-storage-htools.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -276,22 +286,22 @@ deviation metric smaller.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="design-repaird.html" title="Ganeti Maintenance Daemon"
              >next</a></li>
         <li class="right" >
-          <a href="design-configlock.html" title="Removal of the Config Lock Overhead"
+          <a href="design-network2.html" title="Network Management (revised)"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hspace &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>hspace &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Man pages" href="manpages.html" />
     <link rel="next" title="hsqueeze" href="man-hsqueeze.html" />
     <link rel="prev" title="hscan" href="man-hscan.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="man-hscan.html" title="hscan"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="hspace">
 <h1>hspace<a class="headerlink" href="#hspace" title="Permalink to this headline">¶</a></h1>
@@ -87,14 +85,14 @@ cluster, until the point where we don&#8217;t have any N+1 possible
 allocation. It uses the exact same allocation algorithm as the hail
 iallocator plugin in <em>allocate</em> mode.</p>
 <p>The output of the program is designed either for human consumption (the
-default) or, when enabled with the <tt class="docutils literal"><span class="pre">--machine-readable</span></tt> option
+default) or, when enabled with the <code class="docutils literal"><span class="pre">--machine-readable</span></code> option
 (described further below), for machine consumption. In the latter case,
 it is intended to interpreted as a shell fragment (or parsed as a
 <em>key=value</em> file). Options which extend the output (e.g. -p, -v) will
 output the additional information on stderr (such that the stdout is
 still parseable).</p>
 <p>By default, the instance specifications will be read from the cluster;
-the options <tt class="docutils literal"><span class="pre">--standard-alloc</span></tt> and <tt class="docutils literal"><span class="pre">--tiered-alloc</span></tt> can be used to
+the options <code class="docutils literal"><span class="pre">--standard-alloc</span></code> and <code class="docutils literal"><span class="pre">--tiered-alloc</span></code> can be used to
 override them.</p>
 <p>The following keys are available in the machine-readable output of the
 script (all prefixed with <em>HTS_</em>):</p>
@@ -201,8 +199,8 @@ having value &#8220;1&#8221;. If this key is not present in the output it means
 that the computation failed and any values present should not be
 relied upon.</dd>
 </dl>
-<p>Many of the <tt class="docutils literal"><span class="pre">INI_</span></tt>/<tt class="docutils literal"><span class="pre">FIN_</span></tt> metrics will be also displayed with a
-<tt class="docutils literal"><span class="pre">TRL_</span></tt> prefix, and denote the cluster status at the end of the tiered
+<p>Many of the <code class="docutils literal"><span class="pre">INI_</span></code>/<code class="docutils literal"><span class="pre">FIN_</span></code> metrics will be also displayed with a
+<code class="docutils literal"><span class="pre">TRL_</span></code> prefix, and denote the cluster status at the end of the tiered
 allocation run.</p>
 <p>The human output format should be self-explanatory, so it is not
 described further.</p>
@@ -275,7 +273,7 @@ saved to a file named <em>filename.alloc</em>, and if tiered allocation is
 enabled, the state after tiered allocation will be saved to
 <em>filename.tiered</em>. This allows re-feeding the cluster state to
 either hspace itself (with different parameters) or for example
-hbal, via the <tt class="docutils literal"><span class="pre">-t</span></tt> option.</dd>
+hbal, via the <code class="docutils literal"><span class="pre">-t</span></code> option.</dd>
 <dt>-t <em>datafile</em>, &#8211;text-data=*datafile*</dt>
 <dd>Backend specification: the name of the file holding node and instance
 information (if not collecting via RAPI or LUXI). This or one of the
@@ -313,7 +311,7 @@ mode. In this mode, the algorithm starts from the given specification
 and allocates until there is no more space; then it decreases the
 specification and tries the allocation again. The decrease is done on
 the metric that last failed during allocation. The argument should
-have the same format as for <tt class="docutils literal"><span class="pre">--standard-alloc</span></tt>.</p>
+have the same format as for <code class="docutils literal"><span class="pre">--standard-alloc</span></code>.</p>
 <p class="last">Also note that the normal allocation and the tiered allocation are
 independent, and both start from the initial cluster state; as such,
 the instance count for these two modes are not related one to
@@ -322,8 +320,8 @@ another.</p>
 <dt>&#8211;machine-readable[=*choice*]</dt>
 <dd>By default, the output of the program is in &#8220;human-readable&#8221; format,
 i.e. text descriptions. By passing this flag you can either enable
-(<tt class="docutils literal"><span class="pre">--machine-readable</span></tt> or <tt class="docutils literal"><span class="pre">--machine-readable=yes</span></tt>) or explicitly
-disable (<tt class="docutils literal"><span class="pre">--machine-readable=no</span></tt>) the machine readable format
+(<code class="docutils literal"><span class="pre">--machine-readable</span></code> or <code class="docutils literal"><span class="pre">--machine-readable=yes</span></code>) or explicitly
+disable (<code class="docutils literal"><span class="pre">--machine-readable=no</span></code>) the machine readable format
 described above.</dd>
 <dt>-v, &#8211;verbose</dt>
 <dd>Increase the output verbosity. Each usage of this option will
@@ -368,7 +366,7 @@ taking into consideration the impact on future placements.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -392,12 +390,14 @@ taking into consideration the impact on future placements.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="man-hsqueeze.html"
                         title="next chapter">hsqueeze</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/man-hspace.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-hspace.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -414,7 +414,7 @@ taking into consideration the impact on future placements.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -423,13 +423,13 @@ taking into consideration the impact on future placements.</p>
         <li class="right" >
           <a href="man-hscan.html" title="hscan"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" >Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

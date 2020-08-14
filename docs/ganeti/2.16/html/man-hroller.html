@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hroller &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>hroller &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="up" title="Man pages" href="manpages.html" />
     <link rel="next" title="hscan" href="man-hscan.html" />
     <link rel="prev" title="hinfo" href="man-hinfo.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +38,15 @@
         <li class="right" >
           <a href="man-hinfo.html" title="hinfo"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="hroller">
 <h1>hroller<a class="headerlink" href="#hroller" title="Permalink to this headline">¶</a></h1>
@@ -141,26 +139,29 @@ maintenances, unless explicitly requested.</p>
 <h3>Online Rolling reboots, using tags<a class="headerlink" href="#online-rolling-reboots-using-tags" title="Permalink to this headline">¶</a></h3>
 <p>Selecting by tags and getting output for one step only can be used for
 planing the next maintenance step.</p>
-<div class="highlight-python"><pre>$ hroller --node-tags needsreboot --one-step-only -L
-'First Reboot Group'
+<div class="highlight-python"><div class="highlight"><pre>$ hroller --node-tags needsreboot --one-step-only -L
+&#39;First Reboot Group&#39;
  node1.example.com
- node3.example.com</pre>
+ node3.example.com
+</pre></div>
 </div>
 <p>Typically these nodes would be drained and migrated.</p>
-<div class="highlight-python"><pre>$ GROUP=`hroller --node-tags needsreboot --one-step-only --no-headers -L`
+<div class="highlight-python"><div class="highlight"><pre>$ GROUP=`hroller --node-tags needsreboot --one-step-only --no-headers -L`
 $ for node in $GROUP; do gnt-node modify -D yes $node; done
-$ for node in $GROUP; do gnt-node migrate -f --submit $node; done</pre>
+$ for node in $GROUP; do gnt-node migrate -f --submit $node; done
+</pre></div>
 </div>
 <p>After maintenance, the tags would be removed and the nodes undrained.</p>
 </div>
 <div class="section" id="offline-rolling-node-reboot-output">
 <h3>Offline Rolling node reboot output<a class="headerlink" href="#offline-rolling-node-reboot-output" title="Permalink to this headline">¶</a></h3>
 <p>If all instances are shut down, usually larger node groups can be found.</p>
-<div class="highlight-python"><pre>$ hroller --offline-maintainance -L
-'Node Reboot Groups'
+<div class="highlight-python"><div class="highlight"><pre>$ hroller --offline-maintainance -L
+&#39;Node Reboot Groups&#39;
 node1.example.com,node3.example.com,node5.example.com
 node8.example.com,node6.example.com,node2.example.com
-node7.example.com,node4.example.com</pre>
+node7.example.com,node4.example.com
+</pre></div>
 </div>
 </div>
 <div class="section" id="rolling-reboots-with-non-redundant-instances">
@@ -170,8 +171,8 @@ out of the nodes to be rebooted. If requested, apropriate locations for
 the non-redundant instances can be shown. The assumption is that instances
 are moved back to their original node after each reboot; these back moves
 are not part of the output.</p>
-<div class="highlight-python"><pre>$ hroller --print-moves -L
-'Node Reboot Groups'
+<div class="highlight-python"><div class="highlight"><pre>$ hroller --print-moves -L
+&#39;Node Reboot Groups&#39;
 node-01-002,node-01-003
   inst-20 node-01-001
   inst-21 node-01-000
@@ -186,7 +187,8 @@ node-01-001,node-01-000
   inst-00 node-01-002
   inst-01 node-01-003
   inst-10 node-01-005
-  inst-11 node-01-004</pre>
+  inst-11 node-01-004
+</pre></div>
 </div>
 </div>
 </div>
@@ -196,7 +198,7 @@ node-01-001,node-01-000
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -225,12 +227,14 @@ node-01-001,node-01-000
   <h4>Next topic</h4>
   <p class="topless"><a href="man-hscan.html"
                         title="next chapter">hscan</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/man-hroller.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-hroller.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -247,7 +251,7 @@ node-01-001,node-01-000
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -256,13 +260,13 @@ node-01-001,node-01-000
         <li class="right" >
           <a href="man-hinfo.html" title="hinfo"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li>
-          <li><a href="manpages.html" >Man pages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

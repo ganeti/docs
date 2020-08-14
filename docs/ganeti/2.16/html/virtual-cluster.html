@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual cluster support &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Virtual cluster support &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti walk-through" href="walkthrough.html" />
     <link rel="prev" title="Upgrade notes" href="upgrade.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,14 +37,14 @@
         <li class="right" >
           <a href="upgrade.html" title="Upgrade notes"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="virtual-cluster-support">
 <h1><a class="toc-backref" href="#id2">Virtual cluster support</a><a class="headerlink" href="#virtual-cluster-support" title="Permalink to this headline">¶</a></h1>
@@ -73,7 +71,7 @@ in a separate <a class="reference internal" href="design-virtual-clusters.html">
 Ganeti daemons) running on the same physical machine within one
 operating system. This way multiple (virtual) nodes can be simulated
 using a single machine. Virtual clusters can be run as a user without
-root privileges (see <a class="reference internal" href="#limitations"><em>limitations</em></a>).</p>
+root privileges (see <a class="reference internal" href="#limitations"><span>limitations</span></a>).</p>
 <p>While not implemented in the helper setup script at the time of this
 writing, virtual clusters can also be split over multiple physical
 machines, allowing for even more virtual nodes.</p>
@@ -97,43 +95,44 @@ root (e.g. powercycle)</li>
 <div class="section" id="basics">
 <h2><a class="toc-backref" href="#id5">Basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
 <p>Ganeti programs act as running on a virtual node if the environment
-variables <tt class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></tt> and <tt class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></tt> are set. The former
+variables <code class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></code> and <code class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></code> are set. The former
 must be an absolute path to a directory with the last component being
-equal to the value of <tt class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></tt>, which contains the name of
+equal to the value of <code class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></code>, which contains the name of
 the virtual node. The reason for this requirement is that one virtual
 node must be able to compute an absolute path on another node for
 copying files via SSH.</p>
-<p>The whole content of <tt class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></tt> is the node directory, its
+<p>The whole content of <code class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></code> is the node directory, its
 parent directory (without hostname) is the cluster directory.</p>
 <p>Example for environment variables:</p>
-<div class="highlight-python"><pre>GANETI_ROOTDIR=/tmp/vcluster/node1.example.com
-GANETI_HOSTNAME=node1.example.com</pre>
+<div class="highlight-python"><div class="highlight"><pre>GANETI_ROOTDIR=/tmp/vcluster/node1.example.com
+GANETI_HOSTNAME=node1.example.com
+</pre></div>
 </div>
 <p>With this example the node directory is
-<tt class="docutils literal"><span class="pre">/tmp/vcluster/node1.example.com</span></tt> and the cluster directory
-<tt class="docutils literal"><span class="pre">/tmp/vcluster</span></tt>.</p>
+<code class="docutils literal"><span class="pre">/tmp/vcluster/node1.example.com</span></code> and the cluster directory
+<code class="docutils literal"><span class="pre">/tmp/vcluster</span></code>.</p>
 </div>
 <div class="section" id="setup">
 <span id="vcluster-setup"></span><h2><a class="toc-backref" href="#id6">Setup</a><a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>A script to configure virtual clusters is included with Ganeti as
-<tt class="docutils literal"><span class="pre">tools/vcluster-setup</span></tt> (usually installed as
-<tt class="docutils literal"><span class="pre">/usr/lib/ganeti/tools/vcluster-setup</span></tt>). Running it with the <tt class="docutils literal"><span class="pre">-h</span></tt>
+<code class="docutils literal"><span class="pre">tools/vcluster-setup</span></code> (usually installed as
+<code class="docutils literal"><span class="pre">/usr/lib/ganeti/tools/vcluster-setup</span></code>). Running it with the <code class="docutils literal"><span class="pre">-h</span></code>
 option prints a usage description. The script creates all necessary
 directories, configures network interfaces, adds or updates entries in
-<tt class="docutils literal"><span class="pre">/etc/hosts</span></tt> and generates a small number of helper scripts.</p>
+<code class="docutils literal"><span class="pre">/etc/hosts</span></code> and generates a small number of helper scripts.</p>
 </div>
 <div class="section" id="use">
 <h2><a class="toc-backref" href="#id7">Use</a><a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
-<p>Once the virtual cluster has been <a class="reference internal" href="#vcluster-setup"><em>set up</em></a>, the
+<p>Once the virtual cluster has been <a class="reference internal" href="#vcluster-setup"><span>set up</span></a>, the
 cluster can be initialized. The instructions for doing so have been
-printed by the <tt class="docutils literal"><span class="pre">vcluster-setup</span></tt> script together with other useful
+printed by the <code class="docutils literal"><span class="pre">vcluster-setup</span></code> script together with other useful
 information, such as the list of virtual nodes. The commands printed
 should be used to configure the list of enabled hypervisors and other
 settings.</p>
-<p>To run commands for a specific virtual node, the script named <tt class="docutils literal"><span class="pre">cmd</span></tt>
+<p>To run commands for a specific virtual node, the script named <code class="docutils literal"><span class="pre">cmd</span></code>
 located in the node directory can be used. It takes a command as its
-argument(s), sets the environment variables <tt class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></tt> and
-<tt class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></tt> and then runs the command. Example:</p>
+argument(s), sets the environment variables <code class="docutils literal"><span class="pre">GANETI_ROOTDIR</span></code> and
+<code class="docutils literal"><span class="pre">GANETI_HOSTNAME</span></code> and then runs the command. Example:</p>
 <div class="highlight-shell-example"><div class="highlight"><pre><span class="c1"># Let&#39;s create a cluster with node1 as its master node</span>
 $ <span class="gs">cd</span> <span class="gs">/tmp/vcluster</span>
 $ <span class="gs">node1.example.com/cmd</span> <span class="gs">gnt-cluster</span> <span class="gs">info</span>
@@ -147,8 +146,8 @@ $ <span class="gs">node1.example.com/cmd</span> <span class="gs">gnt-cluster</sp
 </div>
 <p>Scripts are provided in the cluster root directory to start, stop or
 restart all daemons for all virtual nodes. These are named
-<tt class="docutils literal"><span class="pre">start-all</span></tt>, <tt class="docutils literal"><span class="pre">stop-all</span></tt> and <tt class="docutils literal"><span class="pre">restart-all</span></tt>. <tt class="docutils literal"><span class="pre">ganeti-watcher</span></tt> can
-be run for all virtual nodes using <tt class="docutils literal"><span class="pre">watcher-all</span></tt>.</p>
+<code class="docutils literal"><span class="pre">start-all</span></code>, <code class="docutils literal"><span class="pre">stop-all</span></code> and <code class="docutils literal"><span class="pre">restart-all</span></code>. <code class="docutils literal"><span class="pre">ganeti-watcher</span></code> can
+be run for all virtual nodes using <code class="docutils literal"><span class="pre">watcher-all</span></code>.</p>
 <p>Adding an instance (assuming node1.example.com is the master node as per
 the example above):</p>
 <div class="highlight-shell-example"><div class="highlight"><pre>$ <span class="gs">node1.example.com/cmd</span> <span class="gs">gnt-instance</span> <span class="gs">add</span> <span class="gs">--os-size</span> <span class="gs">1G</span> <span class="gs">\</span>
@@ -163,7 +162,7 @@ the example above):</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -183,12 +182,14 @@ the example above):</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="walkthrough.html"
                         title="next chapter">Ganeti walk-through</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/virtual-cluster.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/virtual-cluster.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -205,7 +206,7 @@ the example above):</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -214,12 +215,12 @@ the example above):</p>
         <li class="right" >
           <a href="upgrade.html" title="Upgrade notes"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Filtering of jobs for the Ganeti job queue &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Filtering of jobs for the Ganeti job queue &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti OS installation redesign" href="design-os.html" />
     <link rel="prev" title="Design for parallelized instance creations and opportunistic locking" href="design-opportunistic-locking.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-opportunistic-locking.html" title="Design for parallelized instance creations and opportunistic locking"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="filtering-of-jobs-for-the-ganeti-job-queue">
 <h1><a class="toc-backref" href="#id1">Filtering of jobs for the Ganeti job queue</a><a class="headerlink" href="#filtering-of-jobs-for-the-ganeti-job-queue" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2013-Jul-24</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.13.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -97,7 +107,7 @@ the queue are delayed until the drain is over.</li>
 <div class="section" id="proposed-changes">
 <h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
 <p>We propose to add filters on the job queue. These will be part of the
-configuration and as such are persisted with it. Conceptionally, the
+configuration and as such are persisted with it. Conceptually, the
 filters are always processed when a job enters the queue and while it
 is still in the queue. Of course, in the implementation, reevaluation
 is only carried out, if something could make the result change, e.g.,
@@ -147,13 +157,13 @@ it will be cancelled.</li>
 rule. Such a rule will never have any direct or indirect effect,
 but it can serve as documentation for a &#8220;normally present, but
 currently disabled&#8221; rule.</li>
-<li>RATE_LIMIT <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is a positive integer. The job will
-be held in the queue while <tt class="docutils literal"><span class="pre">n</span></tt> or more jobs where this rule
+<li>RATE_LIMIT <code class="docutils literal"><span class="pre">n</span></code>, where <code class="docutils literal"><span class="pre">n</span></code> is a positive integer. The job will
+be held in the queue while <code class="docutils literal"><span class="pre">n</span></code> or more jobs where this rule
 applies are running. Jobs that are forked off from luxid are
 considered running. Jobs already running when this rule is added
 are not changed. Logically, this rule is applied job by job
 sequentially, so that the number of jobs where this rule applies
-is limited to <tt class="docutils literal"><span class="pre">n</span></tt> once the jobs running at rule addition have
+is limited to <code class="docutils literal"><span class="pre">n</span></code> once the jobs running at rule addition have
 finished.</li>
 </ul>
 </li>
@@ -177,21 +187,21 @@ means highest priority), then watermark, then UUID.</p>
 predicate and the rest being parameters suitable for that predicate.
 In most cases, the name of the predicate will be a field of a job,
 and there will be a single parameter, which is a boolean expression
-(<tt class="docutils literal"><span class="pre">filter</span></tt>) in the sense
+(<code class="docutils literal"><span class="pre">filter</span></code>) in the sense
 of the Ganeti query language. However, no assumption should be made
 that all predicates are of this shape. More predicates may be added
 in the future.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">jobid</span></tt>. Only parameter is a boolean expression. For this expression,
-there is only one field available, <tt class="docutils literal"><span class="pre">id</span></tt>, which represents the id the job to be
-filtered. In all value positions, the string <tt class="docutils literal"><span class="pre">watermark</span></tt> will be
+<li><code class="docutils literal"><span class="pre">jobid</span></code>. Only parameter is a boolean expression. For this expression,
+there is only one field available, <code class="docutils literal"><span class="pre">id</span></code>, which represents the id the job to be
+filtered. In all value positions, the string <code class="docutils literal"><span class="pre">watermark</span></code> will be
 replaced by the value of the watermark.</li>
-<li><tt class="docutils literal"><span class="pre">opcode</span></tt>. Only parameter is a boolean expression. For this expression, <tt class="docutils literal"><span class="pre">OP_ID</span></tt>
+<li><code class="docutils literal"><span class="pre">opcode</span></code>. Only parameter is a boolean expression. For this expression, <code class="docutils literal"><span class="pre">OP_ID</span></code>
 and all other fields present in the opcode are available. This predicate
 will hold true, if the expression is true for at least one opcode in
 the job.</li>
-<li><tt class="docutils literal"><span class="pre">reason</span></tt>. Only parameter is a boolean expression. For this expression, the three
-fields <tt class="docutils literal"><span class="pre">source</span></tt>, <tt class="docutils literal"><span class="pre">reason</span></tt>, <tt class="docutils literal"><span class="pre">timestamp</span></tt> of reason trail entries
+<li><code class="docutils literal"><span class="pre">reason</span></code>. Only parameter is a boolean expression. For this expression, the three
+fields <code class="docutils literal"><span class="pre">source</span></code>, <code class="docutils literal"><span class="pre">reason</span></code>, <code class="docutils literal"><span class="pre">timestamp</span></code> of reason trail entries
 are available. This predicate is true, if one of the entries of one
 of the opcodes in this job satisfies the expression.</li>
 </ul>
@@ -200,33 +210,33 @@ of the opcodes in this job satisfies the expression.</li>
 <div class="section" id="examples">
 <h2><a class="toc-backref" href="#id7">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Draining the queue.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
- <span class="s">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&quot;jobid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;watermark&quot;</span><span class="p">]]],</span>
- <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;REJECT&quot;</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s2">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;jobid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;watermark&quot;</span><span class="p">]]],</span>
+ <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;REJECT&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Soft draining could be achieved by replacing <tt class="docutils literal"><span class="pre">REJECT</span></tt> by <tt class="docutils literal"><span class="pre">PAUSE</span></tt> in the
+<p>Soft draining could be achieved by replacing <code class="docutils literal"><span class="pre">REJECT</span></code> by <code class="docutils literal"><span class="pre">PAUSE</span></code> in the
 above example.</p>
 <p>Pausing all new jobs not belonging to a specific maintenance.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
- <span class="s">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&quot;reason&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;=~&quot;</span><span class="p">,</span> <span class="s">&quot;reason&quot;</span><span class="p">,</span> <span class="s">&quot;maintenance pink bunny&quot;</span><span class="p">]]],</span>
- <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;ACCEPT&quot;</span><span class="p">}</span>
-<span class="p">{</span><span class="s">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="s">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&quot;jobid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;watermark&quot;</span><span class="p">]]],</span>
- <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;PAUSE&quot;</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s2">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;reason&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;=~&quot;</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">,</span> <span class="s2">&quot;maintenance pink bunny&quot;</span><span class="p">]]],</span>
+ <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;ACCEPT&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s2">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;jobid&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;watermark&quot;</span><span class="p">]]],</span>
+ <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;PAUSE&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Cancelling all queued instance creations and disallowing new such jobs.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="s">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&quot;opcode&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;=&quot;</span><span class="p">,</span> <span class="s">&quot;OP_ID&quot;</span><span class="p">,</span> <span class="s">&quot;OP_INSTANCE_CREATE&quot;</span><span class="p">]]],</span>
- <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;REJECT&quot;</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s2">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;opcode&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_INSTANCE_CREATE&quot;</span><span class="p">]]],</span>
+ <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;REJECT&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Limiting the number of simultaneous instance disk replacements to 10 in order
 to throttle replication traffic.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
- <span class="s">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&quot;opcode&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;=&quot;</span><span class="p">,</span> <span class="s">&quot;OP_ID&quot;</span><span class="p">,</span> <span class="s">&quot;OP_INSTANCE_REPLACE_DISKS&quot;</span><span class="p">]]],</span>
- <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;RATE_LIMIT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+ <span class="s2">&quot;predicates&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;opcode&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_INSTANCE_REPLACE_DISKS&quot;</span><span class="p">]]],</span>
+ <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RATE_LIMIT&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
@@ -267,16 +277,16 @@ useful to have a lightweight way for one-off rate-limiting. One
 example would be evacuating a node but limiting the number of
 simultaneous instance moves to no overload the replication network.</p>
 <p>Therefore, an additional rate limiting is done over the
-<a class="reference internal" href="design-reason-trail.html"><em>Ganeti reason trail</em></a> as follows. <tt class="docutils literal"><span class="pre">reason</span></tt> fields in a reason
-3-tuple starting with <tt class="docutils literal"><span class="pre">rate-limit:n:</span></tt> where <tt class="docutils literal"><span class="pre">n</span></tt> is a positive
+<a class="reference internal" href="design-reason-trail.html"><em>Ganeti reason trail</em></a> as follows. <code class="docutils literal"><span class="pre">reason</span></code> fields in a reason
+3-tuple starting with <code class="docutils literal"><span class="pre">rate-limit:n:</span></code> where <code class="docutils literal"><span class="pre">n</span></code> is a positive
 integer are considered rate-limiting buckets. A job belongs to a
 rate-limiting bucket if it contains at least one op-code with at least
-one reason-trail 3-tuple with that particular <tt class="docutils literal"><span class="pre">reason</span></tt> field. The
+one reason-trail 3-tuple with that particular <code class="docutils literal"><span class="pre">reason</span></code> field. The
 scheduler will ensure that, for each rate-limiting bucket, there are
-at most <tt class="docutils literal"><span class="pre">n</span></tt> jobs belonging to that bucket that are running in
+at most <code class="docutils literal"><span class="pre">n</span></code> jobs belonging to that bucket that are running in
 parallel.</p>
 <p>The limiting in the initial example can then be done as follows.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># gnt-node evacuate --reason=&#39;rate-limit:7:operation pink bunny&#39; node1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># gnt-node evacuate --reason=&#39;rate-limit:7:operation pink bunny&#39; node1</span>
 </pre></div>
 </div>
 </div>
@@ -286,7 +296,7 @@ parallel.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -312,12 +322,14 @@ parallel.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-os.html"
                         title="next chapter">Ganeti OS installation redesign</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-optables.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-optables.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -334,7 +346,7 @@ parallel.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -343,12 +355,12 @@ parallel.</p>
         <li class="right" >
           <a href="design-opportunistic-locking.html" title="Design for parallelized instance creations and opportunistic locking"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

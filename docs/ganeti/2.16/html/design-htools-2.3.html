@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Synchronising htools to Ganeti 2.3 &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Synchronising htools to Ganeti 2.3 &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti 2.4 design" href="design-2.4.html" />
     <link rel="prev" title="Ganeti 2.3 design" href="design-2.3.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-2.3.html" title="Ganeti 2.3 design"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="synchronising-htools-to-ganeti-2-3">
 <h1>Synchronising htools to Ganeti 2.3<a class="headerlink" href="#synchronising-htools-to-ganeti-2-3" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-Mar-18</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.5.0</td>
+</tr>
+</tbody>
+</table>
 <p>Ganeti 2.3 introduces a number of new features that change the cluster
 internals significantly enough that the htools suite needs to be
 updated accordingly in order to function correctly.</p>
@@ -65,27 +75,27 @@ implicit (and hardcoded) to being explicitly exported from Ganeti.</p>
 <div class="section" id="new-instance-parameters">
 <h3>New instance parameters<a class="headerlink" href="#new-instance-parameters" title="Permalink to this headline">¶</a></h3>
 <p>It is presumed that Ganeti will export for all instances a new
-<tt class="docutils literal"><span class="pre">storage_type</span></tt> parameter, that will denote either internal storage
+<code class="docutils literal"><span class="pre">storage_type</span></code> parameter, that will denote either internal storage
 (e.g. <em>plain</em> or <em>drbd</em>), or external storage.</p>
-<p>Furthermore, a new <tt class="docutils literal"><span class="pre">storage_pool</span></tt> parameter will classify, for both
+<p>Furthermore, a new <code class="docutils literal"><span class="pre">storage_pool</span></code> parameter will classify, for both
 internal and external storage, the pool out of which the storage is
-allocated. For internal storage, this will be either <tt class="docutils literal"><span class="pre">lvm</span></tt> (the pool
-that provides space to both <tt class="docutils literal"><span class="pre">plain</span></tt> and <tt class="docutils literal"><span class="pre">drbd</span></tt> instances) or
-<tt class="docutils literal"><span class="pre">file</span></tt> (for file-storage-based instances). For external storage,
+allocated. For internal storage, this will be either <code class="docutils literal"><span class="pre">lvm</span></code> (the pool
+that provides space to both <code class="docutils literal"><span class="pre">plain</span></code> and <code class="docutils literal"><span class="pre">drbd</span></code> instances) or
+<code class="docutils literal"><span class="pre">file</span></code> (for file-storage-based instances). For external storage,
 this will be the respective NAS/SAN/cloud storage that backs up the
 instance. Note that for htools, external storage pools are opaque; we
 only care that they have an identifier, so that we can distinguish
 between two different pools.</p>
 <p>If these two parameters are not present, the instances will be
-presumed to be <tt class="docutils literal"><span class="pre">internal/lvm</span></tt>.</p>
+presumed to be <code class="docutils literal"><span class="pre">internal/lvm</span></code>.</p>
 </div>
 <div class="section" id="new-node-parameters">
 <h3>New node parameters<a class="headerlink" href="#new-node-parameters" title="Permalink to this headline">¶</a></h3>
 <p>For each node, it is expected that Ganeti will export what storage
 types it supports and pools it has access to. So a classic 2.2 cluster
-will have all nodes supporting <tt class="docutils literal"><span class="pre">internal/lvm</span></tt> and/or
-<tt class="docutils literal"><span class="pre">internal/file</span></tt>, whereas a new shared storage only 2.3 cluster could
-have <tt class="docutils literal"><span class="pre">external/my-nas</span></tt> storage.</p>
+will have all nodes supporting <code class="docutils literal"><span class="pre">internal/lvm</span></code> and/or
+<code class="docutils literal"><span class="pre">internal/file</span></code>, whereas a new shared storage only 2.3 cluster could
+have <code class="docutils literal"><span class="pre">external/my-nas</span></code> storage.</p>
 <p>Whatever the mechanism that Ganeti will use internally to configure
 the associations between nodes and storage pools, we consider that
 we&#8217;ll have available two node attributes inside htools: the list of internal
@@ -330,7 +340,7 @@ it might not be the overall best one.</p>
 </div>
 <div class="section" id="node-evacuation-changes">
 <h3>Node evacuation changes<a class="headerlink" href="#node-evacuation-changes" title="Permalink to this headline">¶</a></h3>
-<p>While the basic concept in the <tt class="docutils literal"><span class="pre">multi-evac</span></tt> iallocator
+<p>While the basic concept in the <code class="docutils literal"><span class="pre">multi-evac</span></code> iallocator
 mode remains unchanged (it&#8217;s a simple local group issue), when failing
 to evacuate and running in a super cluster, we could have resources
 available elsewhere in the cluster for evacuation.</p>
@@ -352,7 +362,7 @@ local group, the inter-group relocation won&#8217;t be attempted.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -389,12 +399,14 @@ local group, the inter-group relocation won&#8217;t be attempted.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-2.4.html"
                         title="next chapter">Ganeti 2.4 design</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-htools-2.3.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-htools-2.3.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -411,7 +423,7 @@ local group, the inter-group relocation won&#8217;t be attempted.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -420,12 +432,12 @@ local group, the inter-group relocation won&#8217;t be attempted.</p>
         <li class="right" >
           <a href="design-2.3.html" title="Ganeti 2.3 design"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

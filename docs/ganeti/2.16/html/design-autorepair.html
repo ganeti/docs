@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Instance auto-repair &mdash; Ganeti 2.16.0~rc1 documentation</title>
+    <title>Instance auto-repair &mdash; Ganeti 2.16.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '2.16.0~rc1',
+        URL_ROOT:    './',
+        VERSION:     '2.16.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,12 +23,12 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Ganeti 2.16.0~rc1 documentation" href="index.html" />
+    <link rel="top" title="Ganeti 2.16.2 documentation" href="index.html" />
     <link rel="next" title="Ganeti Bulk Create" href="design-bulk-create.html" />
     <link rel="prev" title="Improving allocation efficiency by considering the total reserved memory" href="design-allocation-efficiency.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -39,17 +37,29 @@
         <li class="right" >
           <a href="design-allocation-efficiency.html" title="Improving allocation efficiency by considering the total reserved memory"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="instance-auto-repair">
 <h1><a class="toc-backref" href="#id1">Instance auto-repair</a><a class="headerlink" href="#instance-auto-repair" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-Sep-03</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.8.0</td>
+</tr>
+</tbody>
+</table>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
@@ -127,16 +137,16 @@ in a cluster or nodegroup which does. Types of repair are in order of
 perceived risk, lower to higher, and each type includes allowing the
 operations in the lower ones:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">fix-storage</span></tt> allows a disk replacement or another operation that
+<li><code class="docutils literal"><span class="pre">fix-storage</span></code> allows a disk replacement or another operation that
 fixes the instance backend storage without affecting the instance
 itself. This can for example recover from a broken drbd secondary, but
 risks data loss if something is wrong on the primary but the secondary
 was somehow recoverable.</li>
-<li><tt class="docutils literal"><span class="pre">migrate</span></tt> allows an instance migration. This can recover from a
+<li><code class="docutils literal"><span class="pre">migrate</span></code> allows an instance migration. This can recover from a
 drained primary, but can cause an instance crash in some cases (bugs).</li>
-<li><tt class="docutils literal"><span class="pre">failover</span></tt> allows instance reboot on the secondary. This can recover
+<li><code class="docutils literal"><span class="pre">failover</span></code> allows instance reboot on the secondary. This can recover
 from an offline primary, but the instance will lose its running state.</li>
-<li><tt class="docutils literal"><span class="pre">reinstall</span></tt> allows disks to be recreated and an instance to be
+<li><code class="docutils literal"><span class="pre">reinstall</span></code> allows disks to be recreated and an instance to be
 reinstalled. This can recover from primary&amp;secondary both being
 offline, or from an offline primary in the case of non-redundant
 instances. It causes data loss.</li>
@@ -147,13 +157,13 @@ a repair of a lower type might not be able to proceed if it detects an
 error condition that requires a more risky or drastic solution, but
 never vice versa (if a worse solution is allowed then so is a better
 one).</p>
-<p>If there are multiple <tt class="docutils literal"><span class="pre">ganeti:watcher:autorepair:&lt;type&gt;</span></tt> tags in an
+<p>If there are multiple <code class="docutils literal"><span class="pre">ganeti:watcher:autorepair:&lt;type&gt;</span></code> tags in an
 object (cluster, node group or instance), the least destructive tag
 takes precedence. When multiplicity happens across objects, the nearest
 tag wins. For example, if in a cluster with two instances, <em>I1</em> and
-<em>I2</em>, <em>I1</em> has <tt class="docutils literal"><span class="pre">failover</span></tt>, and the cluster itself has both
-<tt class="docutils literal"><span class="pre">fix-storage</span></tt> and <tt class="docutils literal"><span class="pre">reinstall</span></tt>, <em>I1</em> will end up with <tt class="docutils literal"><span class="pre">failover</span></tt>
-and <em>I2</em> with <tt class="docutils literal"><span class="pre">fix-storage</span></tt>.</p>
+<em>I2</em>, <em>I1</em> has <code class="docutils literal"><span class="pre">failover</span></code>, and the cluster itself has both
+<code class="docutils literal"><span class="pre">fix-storage</span></code> and <code class="docutils literal"><span class="pre">reinstall</span></code>, <em>I1</em> will end up with <code class="docutils literal"><span class="pre">failover</span></code>
+and <em>I2</em> with <code class="docutils literal"><span class="pre">fix-storage</span></code>.</p>
 </div>
 <div class="section" id="ganeti-watcher-autorepair-suspend-timestamp">
 <h4><a class="toc-backref" href="#id6">ganeti:watcher:autorepair:suspend[:&lt;timestamp&gt;]</a><a class="headerlink" href="#ganeti-watcher-autorepair-suspend-timestamp" title="Permalink to this headline">¶</a></h4>
@@ -170,10 +180,10 @@ programmatically, as no &#8220;lock tag&#8221; or tag &#8220;test-and-set&#8221;
 present at this time. While this is known we won&#8217;t solve these race
 conditions in the first version.</p>
 <p>It might also be useful to easily have an operation that tags all
-instances matching a  filter on some charateristic. But again, this
+instances matching a filter on some characteristic. But again, this
 wouldn&#8217;t be specific to this tag.</p>
 <p>If there are multiple
-<tt class="docutils literal"><span class="pre">ganeti:watcher:autorepair:suspend[:&lt;timestamp&gt;]</span></tt> tags in an object,
+<code class="docutils literal"><span class="pre">ganeti:watcher:autorepair:suspend[:&lt;timestamp&gt;]</span></code> tags in an object,
 the form without timestamp takes precedence (permanent suspension); or,
 if all object tags have a timestamp, the one with the highest timestamp.
 When multiplicity happens across objects, the nearest tag wins, as
@@ -186,14 +196,14 @@ an enable tag to them.</p>
 <div class="section" id="ganeti-watcher-autorepair-pending-type-id-timestamp-jobs">
 <h4><a class="toc-backref" href="#id7">ganeti:watcher:autorepair:pending:&lt;type&gt;:&lt;id&gt;:&lt;timestamp&gt;:&lt;jobs&gt;</a><a class="headerlink" href="#ganeti-watcher-autorepair-pending-type-id-timestamp-jobs" title="Permalink to this headline">¶</a></h4>
 <p>(instance)
-If this tag is present a repair of type <tt class="docutils literal"><span class="pre">type</span></tt> is pending on the
+If this tag is present a repair of type <code class="docutils literal"><span class="pre">type</span></code> is pending on the
 target instance. This means that either jobs are being run, or it&#8217;s
-waiting for resource availability. <tt class="docutils literal"><span class="pre">id</span></tt> is the unique id identifying
-this repair, <tt class="docutils literal"><span class="pre">timestamp</span></tt> is the time when this tag was first applied
-to this instance for this <tt class="docutils literal"><span class="pre">id</span></tt> (we will &#8220;update&#8221; the tag by adding a
+waiting for resource availability. <code class="docutils literal"><span class="pre">id</span></code> is the unique id identifying
+this repair, <code class="docutils literal"><span class="pre">timestamp</span></code> is the time when this tag was first applied
+to this instance for this <code class="docutils literal"><span class="pre">id</span></code> (we will &#8220;update&#8221; the tag by adding a
 &#8220;new copy&#8221; of it and removing the old version as we run more jobs, but
 the timestamp will never change for the same repair)</p>
-<p><tt class="docutils literal"><span class="pre">jobs</span></tt> is the list of jobs already run or being run to repair the
+<p><code class="docutils literal"><span class="pre">jobs</span></code> is the list of jobs already run or being run to repair the
 instance (separated by a plus sign, <em>+</em>). If the instance has just
 been put in pending state but no job has run yet, this list is empty.</p>
 <p>This tag will be set by ganeti if an equivalent autorepair tag is
@@ -205,11 +215,11 @@ order of timestamp.</p>
 <div class="section" id="ganeti-watcher-autorepair-result-type-id-timestamp-result-jobs">
 <h4><a class="toc-backref" href="#id8">ganeti:watcher:autorepair:result:&lt;type&gt;:&lt;id&gt;:&lt;timestamp&gt;:&lt;result&gt;:&lt;jobs&gt;</a><a class="headerlink" href="#ganeti-watcher-autorepair-result-type-id-timestamp-result-jobs" title="Permalink to this headline">¶</a></h4>
 <p>(instance)
-If this tag is present a repair of type <tt class="docutils literal"><span class="pre">type</span></tt> has been performed on
-the instance and has been completed by <tt class="docutils literal"><span class="pre">timestamp</span></tt>. The result is
-either <tt class="docutils literal"><span class="pre">success</span></tt>, <tt class="docutils literal"><span class="pre">failure</span></tt> or <tt class="docutils literal"><span class="pre">enoperm</span></tt>, and jobs is a
+If this tag is present a repair of type <code class="docutils literal"><span class="pre">type</span></code> has been performed on
+the instance and has been completed by <code class="docutils literal"><span class="pre">timestamp</span></code>. The result is
+either <code class="docutils literal"><span class="pre">success</span></code>, <code class="docutils literal"><span class="pre">failure</span></code> or <code class="docutils literal"><span class="pre">enoperm</span></code>, and jobs is a
 <em>+</em>-separated list of jobs that were executed for this repair.</p>
-<p>An <tt class="docutils literal"><span class="pre">enoperm</span></tt> result is returned when the repair was brought on until
+<p>An <code class="docutils literal"><span class="pre">enoperm</span></code> result is returned when the repair was brought on until
 possible, but the repair type doesn&#8217;t consent to proceed further.</p>
 </div>
 </div>
@@ -219,8 +229,8 @@ possible, but the repair type doesn&#8217;t consent to proceed further.</p>
 <div class="section" id="healthy">
 <h4><a class="toc-backref" href="#id10">Healthy</a><a class="headerlink" href="#healthy" title="Permalink to this headline">¶</a></h4>
 <p>The instance lives on only online nodes. The autorepair system will
-never touch these instances. Any <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tags will be removed
-and marked <tt class="docutils literal"><span class="pre">success</span></tt> with no jobs attached to them.</p>
+never touch these instances. Any <code class="docutils literal"><span class="pre">repair:pending</span></code> tags will be removed
+and marked <code class="docutils literal"><span class="pre">success</span></code> with no jobs attached to them.</p>
 <p>This state can transition to:</p>
 <ul class="simple">
 <li>Needs-repair, repair disallowed (node offlined or drained, no
@@ -232,7 +242,7 @@ tag present)</li>
 </div>
 <div class="section" id="suspended">
 <h4><a class="toc-backref" href="#id11">Suspended</a><a class="headerlink" href="#suspended" title="Permalink to this headline">¶</a></h4>
-<p>Whenever a <tt class="docutils literal"><span class="pre">repair:suspend</span></tt> tag is added the autorepair code won&#8217;t
+<p>Whenever a <code class="docutils literal"><span class="pre">repair:suspend</span></code> tag is added the autorepair code won&#8217;t
 touch the instance until the timestamp on the tag has passed, if
 present. The tag will be removed afterwards (and the instance will
 transition to its correct state, depending on its health and other
@@ -249,61 +259,61 @@ finish the repair. The autorepair system will never touch these
 instances, and they can transition to:</p>
 <ul class="simple">
 <li>Healthy (manual repair)</li>
-<li>Pending repair (a <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag is added)</li>
+<li>Pending repair (a <code class="docutils literal"><span class="pre">repair:pending</span></code> tag is added)</li>
 <li>Needs-repair, repair allowed always (an autorepair always tag is added)</li>
 <li>Suspended (a suspend tag is added)</li>
 </ul>
 </div>
 <div class="section" id="needs-repair-repair-allowed-always">
 <h4><a class="toc-backref" href="#id13">Needs-repair, repair allowed always</a><a class="headerlink" href="#needs-repair-repair-allowed-always" title="Permalink to this headline">¶</a></h4>
-<p>A <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag is added, and the instance transitions to the
+<p>A <code class="docutils literal"><span class="pre">repair:pending</span></code> tag is added, and the instance transitions to the
 Pending Repair state. The autorepair tag is preserved.</p>
-<p>Of course if a <tt class="docutils literal"><span class="pre">repair:suspended</span></tt> tag is found no pending tag will be
+<p>Of course if a <code class="docutils literal"><span class="pre">repair:suspended</span></code> tag is found no pending tag will be
 added, and the instance will instead transition to the Suspended state.</p>
 </div>
 <div class="section" id="pending-repair">
 <h4><a class="toc-backref" href="#id14">Pending repair</a><a class="headerlink" href="#pending-repair" title="Permalink to this headline">¶</a></h4>
 <p>When an instance is in this stage the following will happen:</p>
-<p>If a <tt class="docutils literal"><span class="pre">repair:suspended</span></tt> tag is found the instance won&#8217;t be touched and
+<p>If a <code class="docutils literal"><span class="pre">repair:suspended</span></code> tag is found the instance won&#8217;t be touched and
 moved to the Suspended state. Any jobs which were already running will
 be left untouched.</p>
 <p>If there are still jobs running related to the instance and scheduled by
 this repair they will be given more time to run, and the instance will
 be checked again later.  The state transitions to itself.</p>
 <p>If no jobs are running and the instance is detected to be healthy, the
-<tt class="docutils literal"><span class="pre">repair:result</span></tt> tag will be added, and the current active
-<tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag will be removed. It will then transition to the
-Healthy state if there are no <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tags, or to the Pending
+<code class="docutils literal"><span class="pre">repair:result</span></code> tag will be added, and the current active
+<code class="docutils literal"><span class="pre">repair:pending</span></code> tag will be removed. It will then transition to the
+Healthy state if there are no <code class="docutils literal"><span class="pre">repair:pending</span></code> tags, or to the Pending
 state otherwise: there, the instance being healthy, those tags will be
 resolved without any operation as well (note that this is the same as
-transitioning to the Healthy state, where <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tags would
+transitioning to the Healthy state, where <code class="docutils literal"><span class="pre">repair:pending</span></code> tags would
 also be resolved).</p>
 <p>If no jobs are running and the instance still has issues:</p>
 <ul class="simple">
 <li>if the last job(s) failed it can either be retried a few times, if
 deemed to be safe, or the repair can transition to the Failed state.
-The <tt class="docutils literal"><span class="pre">repair:result</span></tt> tag will be added, and the active
-<tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag will be removed (further <tt class="docutils literal"><span class="pre">repair:pending</span></tt>
+The <code class="docutils literal"><span class="pre">repair:result</span></code> tag will be added, and the active
+<code class="docutils literal"><span class="pre">repair:pending</span></code> tag will be removed (further <code class="docutils literal"><span class="pre">repair:pending</span></code>
 tags will not be able to proceed, as explained by the Failed state,
 until the failure state is cleared)</li>
 <li>if the last job(s) succeeded but there are not enough resources to
 proceed, the state will transition to itself and no jobs are
 scheduled. The tag is left untouched (and later checked again). This
-basically just delays any repairs, the current <tt class="docutils literal"><span class="pre">pending</span></tt> tag stays
+basically just delays any repairs, the current <code class="docutils literal"><span class="pre">pending</span></code> tag stays
 active, and any others are untouched).</li>
 <li>if the last job(s) succeeded but the repair type cannot allow to
-proceed any further the <tt class="docutils literal"><span class="pre">repair:result</span></tt> tag is added with an
-<tt class="docutils literal"><span class="pre">enoperm</span></tt> result, and the current <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag is removed.
+proceed any further the <code class="docutils literal"><span class="pre">repair:result</span></code> tag is added with an
+<code class="docutils literal"><span class="pre">enoperm</span></code> result, and the current <code class="docutils literal"><span class="pre">repair:pending</span></code> tag is removed.
 The instance is now back to &#8220;Needs-repair, repair disallowed&#8221;,
 &#8220;Needs-repair, autorepair allowed&#8221;, or &#8220;Pending&#8221; if there is already a
 future tag that can repair the instance.</li>
 <li>if the last job(s) succeeded and the repair can continue new job(s)
-can be submitted, and the <tt class="docutils literal"><span class="pre">repair:pending</span></tt> tag can be updated.</li>
+can be submitted, and the <code class="docutils literal"><span class="pre">repair:pending</span></code> tag can be updated.</li>
 </ul>
 </div>
 <div class="section" id="failed">
 <h4><a class="toc-backref" href="#id15">Failed</a><a class="headerlink" href="#failed" title="Permalink to this headline">¶</a></h4>
-<p>If repairing an instance has failed a <tt class="docutils literal"><span class="pre">repair:result:failure</span></tt> is
+<p>If repairing an instance has failed a <code class="docutils literal"><span class="pre">repair:result:failure</span></code> is
 added. The presence of this tag is used to detect that an instance is in
 this state, and it will not be touched until the failure is investigated
 and the tag is removed.</p>
@@ -314,9 +324,9 @@ and safe to turn back to the normal autorepair system.</p>
 temporarily) to mark the instance as &#8220;not touch&#8221; when we think a human
 needs to look at it. To be decided).</p>
 <p>A graph with the possible transitions follows; note that in the graph,
-following the implementation, the two <tt class="docutils literal"><span class="pre">Needs</span> <span class="pre">repair</span></tt> states have been
-coalesced into one; and the <tt class="docutils literal"><span class="pre">Suspended</span></tt> state disapears, for it
-becames an attribute of the instance object (its auto-repair policy).</p>
+following the implementation, the two <code class="docutils literal"><span class="pre">Needs</span> <span class="pre">repair</span></code> states have been
+coalesced into one; and the <code class="docutils literal"><span class="pre">Suspended</span></code> state disappears, for it
+becomes an attribute of the instance object (its auto-repair policy).</p>
 <p class="graphviz">
 <img src="_images/graphviz-6b2bcdd6461b601f05069bb64e36d2648a3c3e79.png" alt="digraph &quot;auto-repair-states&quot; {
 node     [shape=circle, style=filled, fillcolor=&quot;#BEDEF1&quot;,
@@ -385,11 +395,11 @@ specific fixes)</li>
 </ul>
 <p>Note that more than one of these operations may need to happen before a
 full repair is completed (eg. if a drbd primary goes offline first a
-failover will happen, then a replce-disks).</p>
+failover will happen, then a replace-disks).</p>
 <p>The self-repair tool will first take care of all needs-repair instance
-that can be brought into <tt class="docutils literal"><span class="pre">pending</span></tt> state, and transition them as
+that can be brought into <code class="docutils literal"><span class="pre">pending</span></code> state, and transition them as
 described above.</p>
-<p>Then it will go through any <tt class="docutils literal"><span class="pre">repair:pending</span></tt> instances and handle them
+<p>Then it will go through any <code class="docutils literal"><span class="pre">repair:pending</span></code> instances and handle them
 as described above.</p>
 <p>Note that the repair tool MAY &#8220;group&#8221; instances by performing common
 repair jobs for them (eg: node evacuate).</p>
@@ -426,7 +436,7 @@ node level for some specific types of errors.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -464,12 +474,14 @@ node level for some specific types of errors.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="design-bulk-create.html"
                         title="next chapter">Ganeti Bulk Create</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/design-autorepair.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-autorepair.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -486,7 +498,7 @@ node level for some specific types of errors.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -495,12 +507,12 @@ node level for some specific types of errors.</p>
         <li class="right" >
           <a href="design-allocation-efficiency.html" title="Improving allocation efficiency by considering the total reserved memory"
              >previous</a> |</li>
-        <li><a href="index.html">Ganeti 2.16.0~rc1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 2.16.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

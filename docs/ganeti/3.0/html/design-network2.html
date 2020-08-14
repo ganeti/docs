@@ -1,0 +1,561 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Network Management (revised) &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HTools support for multiple storage units per node" href="design-multi-storage-htools.html" />
+    <link rel="prev" title="DRBD Sync Rate Throttling" href="design-sync-rate-throttling.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-multi-storage-htools.html" title="HTools support for multiple storage units per node"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-sync-rate-throttling.html" title="DRBD Sync Rate Throttling"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="network-management-revised">
+<h1><a class="toc-backref" href="#id1">Network Management (revised)</a><a class="headerlink" href="#network-management-revised" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Sep-26</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Draft</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#network-management-revised" id="id1">Network Management (revised)</a><ul>
+<li><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></li>
+<li><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a><ul>
+<li><a class="reference internal" href="#semantics" id="id4">Semantics</a></li>
+<li><a class="reference internal" href="#split-l2-from-l3" id="id5">Split L2 from L3</a></li>
+<li><a class="reference internal" href="#multiple-subnets-per-network" id="id6">Multiple Subnets per Network</a></li>
+<li><a class="reference internal" href="#multiple-ip-pools-per-subnet" id="id7">Multiple IP pools per Subnet</a></li>
+<li><a class="reference internal" href="#multiple-ips-per-nic" id="id8">Multiple IPs per NIC</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration-changes" id="id9">Configuration changes</a></li>
+<li><a class="reference internal" href="#exported-variables" id="id10">Exported variables</a></li>
+<li><a class="reference internal" href="#backwards-compatibility" id="id11">Backwards Compatibility</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This is a design document detailing how to extend the existing network
+management and make it more flexible and able to deal with more generic
+use cases.</p>
+<div class="section" id="current-state-and-shortcomings">
+<h2><a class="toc-backref" href="#id2">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h2>
+<p>Currently in Ganeti, networks are tightly connected with IP pools,
+since creation of a network implies the existence of one subnet
+and the corresponding IP pool. This design does not allow common
+scenarios like:</p>
+<ul class="simple">
+<li>L2 only networks</li>
+<li>IPv6 only networks</li>
+<li>Networks without an IP pool</li>
+<li>Networks with an IPv6 pool</li>
+<li>Networks with multiple IP pools (alternative to externally reserving
+IPs)</li>
+</ul>
+<p>Additionally one cannot have multiple IP pools inside one network.
+Finally, from the instance perspective, a NIC cannot get more than one
+IPs (v4 and v6).</p>
+</div>
+<div class="section" id="proposed-changes">
+<h2><a class="toc-backref" href="#id3">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Permalink to this headline">¶</a></h2>
+<p>In order to deal with the above shortcomings, we propose to extend
+the existing networks in Ganeti and support:</p>
+<ol class="loweralpha simple">
+<li>Networks with multiple subnets</li>
+<li>Subnets with multiple IP pools</li>
+<li>NICs with multiple IPs from various subnets of a single network</li>
+</ol>
+<p>These changes bring up some design and implementation issues that we
+discuss in the following sections.</p>
+<div class="section" id="semantics">
+<h3><a class="toc-backref" href="#id4">Semantics</a><a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h3>
+<p>Quoting the initial network management design doc “an IP pool consists
+of two bitarrays. Specifically the <code class="docutils literal notranslate"><span class="pre">reservations</span></code> bitarray which holds
+all IP addresses reserved by Ganeti instances and the <code class="docutils literal notranslate"><span class="pre">external</span>
+<span class="pre">reservations</span></code> bitarray with all IPs that are excluded from the IP pool
+and cannot be assigned automatically by Ganeti to instances (via
+ip=pool)”.</p>
+<p>Without violating those semantics, here, we clarify the following
+definitions.</p>
+<p><strong>network</strong>: A cluster level taggable configuration object with a
+user-provider name, (e.g. network1, network2), UUID and MAC prefix.</p>
+<p><strong>L2</strong>: The <cite>mode</cite> and <cite>link</cite> with which we connect a network to a
+nodegroup. A NIC attached to a network will inherit this info, just like
+connecting an Ethernet cable to a physical NIC. In this sense we only
+have one L2 info per NIC.</p>
+<p><strong>L3</strong>: A CIDR and a gateway related to the network. Since a NIC can
+have multiple IPs on the same cable each network can have multiple L3
+info with the restriction that they do not overlap with each other.
+The gateway is optional (just like with current implementation). No
+gateway can be used for private networks that do not have a default
+route.</p>
+<p><strong>subnet</strong>: A subnet is the above L3 info plus some additional information
+(see below).</p>
+<p><strong>ip</strong>: A valid IP should reside in a network’s subnet, and should not
+be used by more than one instance. An IP can be either obtained dynamically
+from a pool or requested explicitly from a subnet (or a pool).</p>
+<p><strong>range</strong>: Sequential IPs inside one subnet calculated either from the
+first IP and a size (e.g. start=192.0.2.10, size=10) or the first IP and
+the last IP (e.g. start=192.0.2.10, end=192.0.2.19). A single IP can
+also be thought of as an IP range with size=1 (see configuration
+changes).</p>
+<p><strong>reservations</strong>: All IPs that are used by instances in the cluster at
+any time.</p>
+<p><strong>external reservations</strong>: All IPs that are supposed to be reserved
+by the admin for either some external component or specific instances.
+If one instance requests an external IP explicitly (ip=192.0.2.100),
+Ganeti will allow the operation only if <code class="docutils literal notranslate"><span class="pre">--force</span></code> is given. Still, the
+admin can externally reserve an IP that is already in use by an
+instance, as happens now. This helps to reserve an IP for future use and
+at the same time prevent any possible race between the instance that
+releases this IP and another that tries to retrieve it.</p>
+<p><strong>pool</strong>: A (range, reservations, name) tuple from which instances can
+dynamically obtain an IP. Reservations is a bitarray with
+length the size of the range, and is needed so that we know which IPs
+are available at any time without querying all instances. The use of
+name is explained below. A subnet can have multiple pools.</p>
+</div>
+<div class="section" id="split-l2-from-l3">
+<h3><a class="toc-backref" href="#id5">Split L2 from L3</a><a class="headerlink" href="#split-l2-from-l3" title="Permalink to this headline">¶</a></h3>
+<p>Currently networks in Ganeti do not separate L2 from L3. This means
+that one cannot use L2 only networks. The reason is because the CIDR
+(passed currently with the <code class="docutils literal notranslate"><span class="pre">--network</span></code> option) and the derived IP pool
+are mandatory. This design makes L3 info optional. This way we can have
+an L2 only network just by connecting a Ganeti network to a nodegroup
+with the desired <cite>mode</cite> and <cite>link</cite>. Then one could add one or more subnets
+to the existing network.</p>
+</div>
+<div class="section" id="multiple-subnets-per-network">
+<h3><a class="toc-backref" href="#id6">Multiple Subnets per Network</a><a class="headerlink" href="#multiple-subnets-per-network" title="Permalink to this headline">¶</a></h3>
+<p>Currently the IPv4 CIDR is mandatory for a network. Also a network can
+obtain at most one IPv4 CIDR and one IPv6 CIDR. These restrictions will
+be lifted.</p>
+<p>This design doc introduces support for multiple subnets per network. The
+L3 info will be moved inside the subnet. A subnet will have a <cite>name</cite> and
+a <cite>uuid</cite> just like NIC and Disk config objects. Additionally it will contain
+the <cite>dhcp</cite> flag which is explained below, and the <cite>pools</cite> and <cite>external</cite>
+fields which are mentioned in the next section. Only the <cite>cidr</cite> will be
+mandatory.</p>
+<p>Any subnet related actions will be done via the new <code class="docutils literal notranslate"><span class="pre">--subnet</span></code> option.
+Its syntax will be similar to <code class="docutils literal notranslate"><span class="pre">--net</span></code>.</p>
+<p>The network’s subnets must not overlap with each other. Logic will
+validate any operations related to reserving/releasing of IPs and check
+whether a requested IP is included inside one of the network’s subnets.
+Just like currently, the L3 info will be exported to NIC configuration
+hooks and scripts as environment variables. The example below adds
+subnets to a network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">add</span><span class="p">:</span><span class="n">cidr</span><span class="o">=</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span><span class="n">gateway</span><span class="o">=</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">,</span><span class="n">dhcp</span><span class="o">=</span><span class="n">true</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">add</span><span class="p">:</span><span class="n">cidr</span><span class="o">=</span><span class="mi">2001</span><span class="p">::</span><span class="o">/</span><span class="mi">64</span><span class="p">,</span><span class="n">gateway</span><span class="o">=</span><span class="mi">2001</span><span class="p">::</span><span class="mi">1</span><span class="p">,</span><span class="n">dhcp</span><span class="o">=</span><span class="n">true</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>To remove a subnet from a network one should use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">some</span><span class="o">-</span><span class="n">ident</span><span class="p">:</span><span class="n">remove</span> <span class="n">network1</span>
+</pre></div>
+</div>
+<p>where some-ident can be either a CIDR, a name or a UUID. Ganeti will
+allow this operation only if no instances use IPs from this subnet.</p>
+<p>Since DHCP is allowed only for a single CIDR on the same cable, the
+subnet must have a <cite>dhcp</cite> flag. Logic must not allow more that one
+subnets of the same version (4 or 6) in the same network to have DHCP enabled.
+To modify a subnet’s name or the dhcp flag one could use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">some</span><span class="o">-</span><span class="n">ident</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">dhcp</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">foo</span> <span class="n">network1</span>
+</pre></div>
+</div>
+<p>This would search for a registered subnet that matches the identifier,
+disable DHCP on it and change its name.
+The <code class="docutils literal notranslate"><span class="pre">dhcp</span></code> parameter is used only for validation purposes and does not
+make Ganeti starting a DHCP service. It will just be exported to
+external scripts (ifup and hooks) and handled accordingly.</p>
+<p>Changing the CIDR or the gateway of a subnet should also be supported.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">some</span><span class="o">-</span><span class="n">ident</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">cidr</span><span class="o">=</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">22</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">some</span><span class="o">-</span><span class="n">ident</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">cidr</span><span class="o">=</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.32</span><span class="o">/</span><span class="mi">28</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">some</span><span class="o">-</span><span class="n">ident</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">gateway</span><span class="o">=</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.40</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>Before expanding a subnet logic should should check for overlapping
+subnets. Shrinking the subnet should be allowed only if the ranges
+that are about to be trimmed are not included either in pool
+reservations or external ranges.</p>
+</div>
+<div class="section" id="multiple-ip-pools-per-subnet">
+<h3><a class="toc-backref" href="#id7">Multiple IP pools per Subnet</a><a class="headerlink" href="#multiple-ip-pools-per-subnet" title="Permalink to this headline">¶</a></h3>
+<p>Currently IP pools are automatically created during network creation and
+include the whole subnet. Some IPs can be excluded from the pool by
+passing them explicitly with <code class="docutils literal notranslate"><span class="pre">--add-reserved-ips</span></code> option.</p>
+<p>Still for IPv6 subnets or even big IPv4 ones this might be insufficient.
+It is impossible to have two bitarrays for a /64 prefix. Even for IPv4
+networks a /20 subnet currently requires 8K long bitarrays. And the
+second 4K is practically useless since the external reservations are way
+less than the actual reservations.</p>
+<p>This design extract IP pool management from the network logic, and pools
+will become optional. Currently the pool is created based on the
+network’s CIDR. With multiple subnets per network, we should be able to
+create and add IP pools to a network (and eventually to the
+corresponding subnet). Each pool will have an optional user friendly
+<cite>name</cite> so that the end user can refer to it (see instance related
+operations).</p>
+<p>The user will be able to obtain dynamically an IP only if we have
+already defined a pool for a network’s subnet. One would use <code class="docutils literal notranslate"><span class="pre">ip=pool</span></code>
+for the first available IP of the first available pool, or
+<code class="docutils literal notranslate"><span class="pre">ip=some-pool-name</span></code> for the first available IP of a specific pool.</p>
+<p>Any pool related actions will be done via the new <code class="docutils literal notranslate"><span class="pre">--pool</span></code> option.</p>
+<p>In order to add a pool a relevant subnet should pre-exist. Overlapping
+pools won’t be allowed. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">add</span><span class="p">:</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.10</span><span class="o">-</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.100</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">pool1</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">add</span><span class="p">:</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.7</span><span class="o">-</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.20</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">add</span><span class="p">:</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.100</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>will first parse and find the ranges. Then for each range, Ganeti will
+try to find a matching subnet meaning that a pool must be a subrange of
+the subnet. If found, the range with empty reservations will be appended
+to the list of the subnet’s pools. Moreover, logic must be added to
+reserve the IPs that are currently in use by instances of this network.</p>
+<p>Adding a pool can be easier if we associate it directly with a subnet.
+For example on could use the following shortcuts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">subnet</span> <span class="n">add</span><span class="p">:</span><span class="n">cidr</span><span class="o">=</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">27</span><span class="p">,</span><span class="n">pool</span> <span class="n">net1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">add</span><span class="p">:</span><span class="n">subnet</span><span class="o">=</span><span class="n">some</span><span class="o">-</span><span class="n">ident</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">add</span><span class="p">:</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">27</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>During pool removal, logic should be added to split pools if ranges
+given overlap existing ones. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">pool</span> <span class="n">remove</span><span class="p">:</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.20</span><span class="o">-</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.50</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>will split the pool previously added (10-100) into two new ones;
+10-19 and 51-100. The corresponding bitarrays will be trimmed
+accordingly. The name will be preserved.</p>
+<p>The same things apply to external reservations. Just like now,
+modifications will take place via the <code class="docutils literal notranslate"><span class="pre">--add|remove-reserved-ips</span></code>
+option. Logic must be added to support IP ranges.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">network</span> <span class="n">modify</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">reserved</span><span class="o">-</span><span class="n">ips</span> <span class="mf">192.0</span><span class="o">.</span><span class="mf">2.20</span><span class="o">-</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.50</span> <span class="n">net1</span>
+</pre></div>
+</div>
+<p>Based on the aforementioned we propose the following changes:</p>
+<ol class="arabic simple">
+<li>Change the IP pool representation in config data.</li>
+</ol>
+<blockquote>
+<div><blockquote>
+<div><p>Existing <cite>reservations</cite> and <cite>external_reservations</cite> bitarrays will be
+removed. Instead, for each subnet we will have:</p>
+<ul class="simple">
+<li><cite>pools</cite>: List of (IP range, reservations bitarray) tuples.</li>
+<li><cite>external</cite>: List of IP ranges</li>
+</ul>
+<p>For external ranges the reservations bitarray is not needed
+since this will be all 1’s.</p>
+<p>A configuration example could be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net1</span> <span class="p">{</span>
+  <span class="n">subnets</span> <span class="p">[</span>
+    <span class="n">uuid1</span> <span class="p">{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">subnet1</span>
+        <span class="n">cidr</span><span class="p">:</span> <span class="mf">192.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span>
+        <span class="n">pools</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span><span class="nb">range</span><span class="p">:</span><span class="n">Range</span><span class="p">(</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.10</span><span class="p">,</span> <span class="mf">192.0</span><span class="o">.</span><span class="mf">2.15</span><span class="p">),</span> <span class="n">reservations</span><span class="p">:</span> <span class="mi">00000</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="n">pool1</span><span class="p">}</span>
+          <span class="p">]</span>
+        <span class="n">reserved</span><span class="p">:</span> <span class="p">[</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.15</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="n">uuid2</span>  <span class="p">{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">subnet2</span>
+        <span class="n">cidr</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">24</span>
+        <span class="n">pools</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span><span class="nb">range</span><span class="p">:</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.8</span><span class="o">/</span><span class="mi">29</span><span class="p">,</span> <span class="n">reservations</span><span class="p">:</span> <span class="mi">00000000</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="n">pool3</span><span class="p">}</span>
+          <span class="p">{</span><span class="nb">range</span><span class="p">:</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.40</span><span class="o">-</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">reservations</span><span class="p">:</span> <span class="mi">000000</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="n">pool3</span><span class="p">}</span>
+          <span class="p">]</span>
+        <span class="n">reserved</span><span class="p">:</span> <span class="p">[</span><span class="n">Range</span><span class="p">(</span><span class="mf">10.0</span><span class="o">.</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.15</span><span class="p">),</span> <span class="mf">10.2</span><span class="o">.</span><span class="mf">4.5</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Range(start, end) will be some json representation of an IPRange().
+We decide not to store external reservations as pools (and in the
+same list) since we get the following advantages:</p>
+</div></blockquote>
+<ul class="simple">
+<li>Keep the existing semantics for pools and external reservations.</li>
+<li>Each list has similar entries: one has pools the other has ranges.
+The pool must have a bitarray, and has an optional name. It is
+meaningless to add a name and a bitarray to external ranges.</li>
+<li>Each list must not have overlapping ranges. Still external
+reservations can overlap with pools.</li>
+<li>The –pool option supports add|remove|modify command just like
+<cite>–net</cite> and <cite>–disk</cite> and operate on single entities (a restriction that
+is not needed for external reservations).</li>
+<li>Another thing, and probably the most important, is that in order to
+get the first available IP, only the reserved list must be checked for
+conflicts. The ipaddr.summarize_address_range(first, last) could be very
+helpful.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Change the network module logic.</li>
+</ol>
+<blockquote>
+<div><p>The above changes should be done in the network module and be transparent
+to the rest of the Ganeti code. If a random IP from the networks is
+requested, Ganeti searches for an available IP from the first pool of
+the first subnet. If it is full it gets to the next pool. Then to the
+next subnet and so on. Of course the <cite>external</cite> IP ranges will be
+excluded. If an IP is explicitly requested, Ganeti will try to find a
+matching subnet. Its pools and external will be checked for
+availability. All this logic will be extracted in a separate class
+with helper methods for easier manipulation of IP ranges and
+bitarrays.</p>
+<p>Bitarray processing can be optimized too. The usage of bitarrays will
+be reduced since (a) we no longer have <cite>external_reservations</cite> and (b)
+pools will have shorter bitarrays (i.e. will not have to cover the whole
+subnet). Besides that, we could keep the bitarrays in memory, so that
+in most cases (e.g. adding/removing reservations, querying), we don’t
+keep converting strings to bitarrays and vice versa. Also, the Haskell
+code could as well keep this in memory as a bitarray, and validate it
+on load.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Changes in config module.</li>
+</ol>
+<blockquote>
+<div>We should not have instances with the same IP inside the same network.
+We introduce _AllIPs() helper config method that will hold all existing
+(IP, network) tuples. Config logic will check this list as well
+before passing it to TemporaryReservationManager.</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Change the query mechanism.</li>
+</ol>
+<blockquote>
+<div><p>Since we have more that one subnets the new <cite>subnets</cite> field will
+include a list of:</p>
+<ul class="simple">
+<li>cidr: IPv4 or IPv6 CIDR</li>
+<li>gateway: IPv4 or IPv6 address</li>
+<li>dhcp: True or False</li>
+<li>name: The user friendly name for the subnet</li>
+</ul>
+<p>Since we want to support small pools inside big subnets, current query
+results are not practical as far as the <cite>map</cite> field is concerned. It
+should be replaced with the new <cite>pools</cite> field for each subnet, which will
+contain:</p>
+<ul class="simple">
+<li>start: The first IP of the pool</li>
+<li>end: The last IP of the pool</li>
+<li>map: A string with ‘X’ for reserved IPs (either external or not) and
+with ‘.’ for all available ones inside the pool</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="multiple-ips-per-nic">
+<h3><a class="toc-backref" href="#id8">Multiple IPs per NIC</a><a class="headerlink" href="#multiple-ips-per-nic" title="Permalink to this headline">¶</a></h3>
+<p>Currently IP is a simple string inside the NIC object and there is a
+one-to-one mapping between the <cite>ip</cite> and the <cite>network</cite> slots. The whole
+logic behind this is that a NIC belongs to a network (cable) and
+inherits its mode and link. This rational will not change.</p>
+<p>Since this design adds support for multiple subnets per network, a NIC
+must be able to obtain multiple IPs from various subnets of the same
+network. Thus we change the <cite>ip</cite> slot into list.</p>
+<p>We introduce a new <cite>ipX</cite> attribute. For backwards compatibility <cite>ip</cite>
+will denote <cite>ip0</cite>.
+During instance related operations one could use something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">instance</span> <span class="n">add</span> <span class="o">--</span><span class="n">net</span> <span class="mi">0</span><span class="p">:</span><span class="n">ip0</span><span class="o">=</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.4</span><span class="p">,</span><span class="n">ip1</span><span class="o">=</span><span class="n">pool</span><span class="p">,</span><span class="n">ip2</span><span class="o">=</span><span class="n">some</span><span class="o">-</span><span class="n">pool</span><span class="o">-</span><span class="n">name</span><span class="p">,</span><span class="n">network</span><span class="o">=</span><span class="n">network1</span> <span class="n">inst1</span>
+<span class="n">gnt</span><span class="o">-</span><span class="n">instance</span> <span class="n">add</span> <span class="o">--</span><span class="n">net</span> <span class="mi">0</span><span class="p">:</span><span class="n">ip</span><span class="o">=</span><span class="n">pool</span><span class="p">,</span><span class="n">network1</span> <span class="n">inst1</span>
+</pre></div>
+</div>
+<p>This will be parsed, converted to a proper list (e.g. ip = [192.0.2.4,
+“pool”, “some-pool-name”]) and finally passed to the corresponding opcode.
+Based on the previous example, here the first IP will match subnet1, the
+second IP will be retrieved from the first available pool of the first
+available subnet, and the third from the pool with the some-pool name.</p>
+<p>During instance modification, the <cite>ip</cite> option will refer to the first IP
+of the NIC, whereas the <cite>ipX</cite> will refer to the X’th IP. As with NICs
+we start counting from 0 so <cite>ip1</cite> will refer to the second IP. For example
+one should pass:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">net</span> <span class="mi">0</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">ip1</span><span class="o">=</span><span class="mf">1.2</span><span class="o">.</span><span class="mf">3.10</span>
+</pre></div>
+</div>
+<p>to change the second IP of the first NIC to 1.2.3.10,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">net</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">add</span><span class="p">,</span><span class="n">ip0</span><span class="o">=</span><span class="n">pool</span><span class="p">,</span><span class="n">ip1</span><span class="o">=</span><span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span><span class="p">,</span><span class="n">network</span><span class="o">=</span><span class="n">test</span>
+</pre></div>
+</div>
+<p>to add a new NIC with two IPs, and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">net</span> <span class="mi">1</span><span class="p">:</span><span class="n">modify</span><span class="p">,</span><span class="n">ip1</span><span class="o">=</span><span class="n">none</span>
+</pre></div>
+</div>
+<p>to remove the second IP of the second NIC.</p>
+</div>
+</div>
+<div class="section" id="configuration-changes">
+<h2><a class="toc-backref" href="#id9">Configuration changes</a><a class="headerlink" href="#configuration-changes" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>IPRange config object:</dt>
+<dd>Introduce new config object that will hold ranges needed by pools, and
+reservations. It will be either a tuple of (start, size, end) or a
+simple string. The <cite>end</cite> is redundant and can derive from start and
+size in runtime, but will appear in the representation for readability
+and debug reasons.</dd>
+<dt>Pool config object:</dt>
+<dd>Introduce new config object to represent a single subnet’s pool. It
+will have the <cite>range</cite>, <cite>reservations</cite>, <cite>name</cite> slots. The range slot
+will be an IPRange config object, the reservations a bitarray and the
+name a simple string.</dd>
+<dt>Subnet config object:</dt>
+<dd>Introduce new config object with slots: <cite>name</cite>, <cite>uuid</cite>, <cite>cidr</cite>,
+<cite>gateway</cite>, <cite>dhcp</cite>, <cite>pools</cite>, <cite>external</cite>. Pools is a list of Pool config
+objects. External is a list of IPRange config objects. All ranges must
+reside inside the subnet’s CIDR. Only <cite>cidr</cite> will be mandatory. The
+<cite>dhcp</cite> attribute will be False by default.</dd>
+<dt>Network config objects:</dt>
+<dd>The L3 and the IP pool representation will change. Specifically all
+slots besides <cite>name</cite>, <cite>mac_prefix</cite>, and <cite>tag</cite> will be removed. Instead
+the slot <cite>subnets</cite> with a list of Subnet config objects will be added.</dd>
+<dt>NIC config objects:</dt>
+<dd>NIC’s network slot will be removed and the <cite>ip</cite> slot will be modified
+to a list of strings.</dd>
+<dt>KVM runtime files:</dt>
+<dd>Any change done in config data must be done also in KVM runtime files.
+For this purpose the existing _UpgradeSerializedRuntime() can be used.</dd>
+</dl>
+</div>
+<div class="section" id="exported-variables">
+<h2><a class="toc-backref" href="#id10">Exported variables</a><a class="headerlink" href="#exported-variables" title="Permalink to this headline">¶</a></h2>
+<p>The exported variables during instance related operations will be just
+like Linux uses aliases for interfaces. Specifically:</p>
+<p><code class="docutils literal notranslate"><span class="pre">IP:i</span></code> for the ith IP.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NETWORK_*:i</span></code> for the ith subnet. * is SUBNET, GATEWAY, DHCP.</p>
+<p>In case of hooks those variables will be prefixed with <code class="docutils literal notranslate"><span class="pre">INSTANCE_NICn</span></code>
+for the nth NIC.</p>
+</div>
+<div class="section" id="backwards-compatibility">
+<h2><a class="toc-backref" href="#id11">Backwards Compatibility</a><a class="headerlink" href="#backwards-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>The existing networks representation will be internally modified.
+They will obtain one subnet, and one pool with range the whole subnet.</p>
+<p>During <cite>gnt-network add</cite> if the deprecated <code class="docutils literal notranslate"><span class="pre">--network</span></code> option is passed
+will still create a network with one subnet, and one IP pool with the
+size of the subnet. Otherwise <code class="docutils literal notranslate"><span class="pre">--subnet</span></code> and <code class="docutils literal notranslate"><span class="pre">--pool</span></code> options
+will be needed.</p>
+<p>The query mechanism will also include the deprecated <cite>map</cite> field. For the
+newly created network this will contain only the mapping of the first
+pool. The deprecated <cite>network</cite>, <cite>gateway</cite>, <cite>network6</cite>, <cite>gateway6</cite> fields
+will point to the first IPv4 and IPv6 subnet accordingly.</p>
+<p>During instance related operation the <cite>ip</cite> argument of the <code class="docutils literal notranslate"><span class="pre">--net</span></code>
+option will refer to the first IP of the NIC.</p>
+<p>Hooks and scripts will still have the same environment exported in case
+of single IP per NIC.</p>
+<p>This design allows more fine-grained configurations which in turn yields
+more flexibility and a wider coverage of use cases. Still basic cases
+(the ones that are currently available) should be easy to set up.
+Documentation will be enriched with examples for both typical and
+advanced use cases of gnt-network.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Network Management (revised)</a><ul>
+<li><a class="reference internal" href="#current-state-and-shortcomings">Current state and shortcomings</a></li>
+<li><a class="reference internal" href="#proposed-changes">Proposed changes</a><ul>
+<li><a class="reference internal" href="#semantics">Semantics</a></li>
+<li><a class="reference internal" href="#split-l2-from-l3">Split L2 from L3</a></li>
+<li><a class="reference internal" href="#multiple-subnets-per-network">Multiple Subnets per Network</a></li>
+<li><a class="reference internal" href="#multiple-ip-pools-per-subnet">Multiple IP pools per Subnet</a></li>
+<li><a class="reference internal" href="#multiple-ips-per-nic">Multiple IPs per NIC</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration-changes">Configuration changes</a></li>
+<li><a class="reference internal" href="#exported-variables">Exported variables</a></li>
+<li><a class="reference internal" href="#backwards-compatibility">Backwards Compatibility</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="design-sync-rate-throttling.html"
+                        title="previous chapter">DRBD Sync Rate Throttling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="design-multi-storage-htools.html"
+                        title="next chapter">HTools support for multiple storage units per node</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-network2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-multi-storage-htools.html" title="HTools support for multiple storage units per node"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-sync-rate-throttling.html" title="DRBD Sync Rate Throttling"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>
