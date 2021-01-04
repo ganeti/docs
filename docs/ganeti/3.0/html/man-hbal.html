@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>hbal &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <title>hbal &#8212; Ganeti 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -30,7 +30,7 @@
         <li class="right" >
           <a href="man-harep.html" title="harep"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
       </ul>
     </div>  
@@ -224,7 +224,7 @@ primary node, in effect simulating the startup of such instances.</p>
 <div class="section" id="desired-location-tags">
 <h3>DESIRED LOCATION TAGS<a class="headerlink" href="#desired-location-tags" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, administrators want specific instances located in a particular,
-typically geographic, location. To suppoer this desired location tags are
+typically geographic, location. To support this desired location tags are
 introduced.</p>
 <p>If the cluster is tagged <em>htools:desiredlocation:x</em> then tags starting with
 <em>x</em> are desired location tags. Instances can be assigned tags of the form <em>x</em>
@@ -268,23 +268,23 @@ with <em>htools:migration:</em> will become the prefix of the migration tags.
 Only those migrations will be taken into consideration where all migration
 tags of the source node are also present on the target node.</dd>
 <dt>cluster tags <em>htools:allowmigration:x::y</em> for migration tags <em>x</em> and <em>y</em></dt>
-<dd>This asserts that a node taged <em>y</em> is able to receive instances in
+<dd>This asserts that a node tagged <em>y</em> is able to receive instances in
 the same way as if they had an <em>x</em> tag.</dd>
 </dl>
 <p>So in the simple case of a hypervisor upgrade, tagging all the nodes
 that have been upgraded with a migration tag suffices. In more complicated
 situations, it is always possible to use a different migration tag for
-each hypervisor used and explictly state the allowed migration directions
+each hypervisor used and explicitly state the allowed migration directions
 by means of <em>htools:allowmigration:</em> tags.</p>
 </div>
 <div class="section" id="location-tags">
 <h3>LOCATION TAGS<a class="headerlink" href="#location-tags" title="Permalink to this headline">¶</a></h3>
 <p>Within a node group, certain nodes might be more likely to fail simultaneously
 due to a common cause of error (e.g., if they share the same power supply unit).
-Ganeti can be made aware of thos common causes of failure by means of tags.</p>
+Ganeti can be made aware of those common causes of failure by means of tags.</p>
 <dl class="docutils">
 <dt>cluster tags <em>htools:nlocation:a</em>, <em>htools:nlocation:b</em>, etc</dt>
-<dd>This make make node tags of the form <em>a:*</em>, <em>b:*</em>, etc be considered
+<dd>This make node tags of the form <em>a:*</em>, <em>b:*</em>, etc be considered
 to have a common cause of failure.</dd>
 </dl>
 <p>Instances with primary and secondary node having a common cause of failure and
@@ -415,7 +415,7 @@ assuming it to be 0. This option will take precedence over any data
 passed by the <code class="docutils literal notranslate"><span class="pre">-U</span></code> option or by the MonDs with the <code class="docutils literal notranslate"><span class="pre">--mond</span></code> and
 the <code class="docutils literal notranslate"><span class="pre">--mond-data</span></code> option.</dd>
 <dt>–ignore-soft-errors</dt>
-<dd>If given, all checks for soft errors will be ommitted when considering
+<dd>If given, all checks for soft errors will be omitted when considering
 balancing moves. In this way, progress can be made in a cluster where
 all nodes are in a policy-wise bad state, like exceeding oversubscription
 ratios on CPU or spindles.</dd>
@@ -443,7 +443,7 @@ The default behavior is to continue with a best guess based on the static
 information.</dd>
 <dt>–mond-data <em>datafile</em></dt>
 <dd>The name of the file holding the data provided by MonD, to override
-quering MonDs over the network. This is mostly used for debugging. The
+querying MonDs over the network. This is mostly used for debugging. The
 file must be in JSON format and present an array of JSON objects ,
 one for every node, with two members. The first member named <code class="docutils literal notranslate"><span class="pre">node</span></code>
 is the name of the node and the second member named <code class="docutils literal notranslate"><span class="pre">reports</span></code> is an
@@ -791,13 +791,13 @@ list (but hopefully will end in the same state).</p>
         <li class="right" >
           <a href="man-harep.html" title="harep"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

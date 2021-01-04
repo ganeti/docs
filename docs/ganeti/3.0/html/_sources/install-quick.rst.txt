@@ -29,7 +29,6 @@ Before installing, please verify that you have the following programs:
   (``rbd.ko``/``libceph.ko``) and userspace utils (``ceph-common``)
 - `LVM2 <http://sourceware.org/lvm2/>`_
 - `OpenSSH <http://www.openssh.com/portable.html>`_
-- `bridge utilities <http://www.linuxfoundation.org/en/Net:Bridge>`_
 - `iproute2 <http://www.linuxfoundation.org/en/Net:Iproute2>`_
 - `arping <http://www.skbuff.net/iputils/>`_ (part of iputils)
 - `ndisc6 <http://www.remlab.net/ndisc6/>`_ (if using IPv6)
@@ -60,7 +59,7 @@ many of them will already be installed on a standard machine. On
 Debian/Ubuntu, you can use this command line to install all required
 packages, except for RBD, DRBD and Xen::
 
-  $ apt-get install lvm2 ssh iproute iputils-arping bridge-utils make m4 \
+  $ apt-get install lvm2 ssh iproute iputils-arping make m4 \
                     ndisc6 python3 python3-openssl openssl \
                     python3-pyparsing python3-simplejson python3-bitarray \
                     python3-pyinotify python3-pycurl socat fping
@@ -126,7 +125,7 @@ Starting with Ganeti 2.7, the Haskell GHC compiler and a few base
 libraries are required in order to build Ganeti (but not to run and
 deploy Ganeti on production machines). More specifically:
 
-- `GHC <http://www.haskell.org/ghc/>`_ version 7 or higher
+- `GHC <http://www.haskell.org/ghc/>`_ version 8.0 or higher
 - or even better, `The Haskell Platform
   <http://hackage.haskell.org/platform/>`_ which gives you a simple way
   to bootstrap Haskell
@@ -181,7 +180,9 @@ Some of these are also available as package in Debian/Ubuntu::
                     libghc-vector-dev libghc-lifted-base-dev \
                     libghc-test-framework-quickcheck2-dev \
                     libghc-test-framework-hunit-dev libghc-temporary-dev \
-                    libghc-old-time-dev libpcre3-dev
+                    libghc-old-time-dev libghc-old-time-dev \
+                    libghc-lifted-base-dev libghc-temporary-dev \
+                    libpcre3-dev
 
 In Fedora, some of them are available via packages as well::
 

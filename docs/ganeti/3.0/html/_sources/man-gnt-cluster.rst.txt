@@ -234,7 +234,7 @@ second network.  If you initialise the cluster with ``-s``, all nodes
 added must have a secondary IP as well.
 
 Note that for Ganeti it doesn't matter if the secondary network is
-actually a separate physical network, or is done using tunneling,
+actually a separate physical network, or is done using tunnelling,
 etc. For performance reasons, it's recommended to use a separate
 network, of course.
 
@@ -279,7 +279,7 @@ The ``--no-ssh-init`` option allows you to initialize the cluster
 without creating or distributing SSH key pairs. This also sets the
 cluster-wide configuration parameter ``modify ssh setup`` to False.
 When adding nodes, Ganeti will consider this parameter to determine
-whether to create and distributed SSH key pairs on new nodes as well.
+whether to create and distribute SSH key pairs on new nodes as well.
 
 The ``--file-storage-dir``, ``--shared-file-storage-dir`` and
 ``--gluster-storage-dir`` options allow you set the directory to use for
@@ -1041,84 +1041,84 @@ otherwise.
 
 List of error codes:
 
-``ENODEHV``
-  Hypervisor parameters verification failure
-``ENODEDRBDVERSION``
-  DRBD version mismatch within a node group
-``ENODEGLUSTERSTORAGEPATHUNUSABLE``
-  Gluster storage path unusable
-``ENODESHAREDFILESTORAGEPATHUNUSABLE``
-  Shared file storage path unusable
-``ENODEORPHANINSTANCE``
-  Unknown intance running on a node
-``ENODETIME``
-  Node returned invalid time
-``ENODEHOOKS``
-  Communication failure in hooks execution
-``ENODERPC``
-  Error during connection to the primary node of an instance
+``ECLUSTERCERT``
+  Cluster certificate files verification failure
+``ECLUSTERCFG``
+  Cluster configuration verification failure
 ``ECLUSTERDANGLINGINST``
   Some instances have a non-existing primary node
-``ENODEN1``
-  Not enough memory to accommodate instance failovers
-``ENODESETUP``
-  Node setup error
+``ECLUSTERDANGLINGNODES``
+  Some nodes belong to non-existing groups
+``ECLUSTERFILECHECK``
+  Cluster configuration verification failure
 ``EGROUPDIFFERENTPVSIZE``
   PVs in the group have different sizes
 ``EINSTANCEBADNODE``
   Instance marked as running lives on an offline node
-``ECLUSTERDANGLINGNODES``
-  Some nodes belong to non-existing groups
-``ENODENET``
-  Network-related node error
-``ENODEUSERSCRIPTS``
-  User scripts not present or not executable
+``EINSTANCEDOWN``
+  Instance not running on its primary node
+``EINSTANCEFAULTYDISK``
+  Impossible to retrieve status for a disk
+``EINSTANCELAYOUT``
+  Instance has multiple secondary nodes
+``EINSTANCEMISSINGCFGPARAMETER``
+  A configuration parameter for an instance is missing
+``EINSTANCEMISSINGDISK``
+  Missing volume on an instance
+``EINSTANCEPOLICY``
+  Instance does not meet policy
+``EINSTANCESPLITGROUPS``
+  Instance with primary and secondary nodes in different groups
+``EINSTANCEUNSUITABLENODE``
+  Instance running on nodes that are not suitable for it
+``EINSTANCEWRONGNODE``
+  Instance running on the wrong node
 ``ENODEDRBD``
   Error parsing the DRBD status file
 ``ENODEDRBDHELPER``
   Error caused by the DRBD helper
-``EINSTANCEUNSUITABLENODE``
-  Instance running on nodes that are not suitable for it
-``ENODEOOBPATH``
-  Invalid Out Of Band path
-``ECLUSTERFILECHECK``
-  Cluster configuration verification failure
+``ENODEDRBDVERSION``
+  DRBD version mismatch within a node group
 ``ENODEFILECHECK``
   Error retrieving the checksum of the node files
-``EINSTANCEDOWN``
-  Instance not running on its primary node
-``ECLUSTERCFG``
-  Cluster configuration verification failure
-``ENODEOS``
-  OS-related node error
-``EINSTANCEWRONGNODE``
-  Instance running on the wrong node
-``ENODEORPHANLV``
-  Unknown LVM logical volume
-``EINSTANCELAYOUT``
-  Instance has multiple secondary nodes
-``ENODELVM``
-  LVM-related node error
-``ENODEVERSION``
-  Protocol version mismatch or Ganeti version mismatch
-``EINSTANCEMISSINGDISK``
-  Missing volume on an instance
-``EINSTANCEMISSINGCFGPARAMETER``
-  A configuration parameter for an instance is missing
 ``ENODEFILESTORAGEPATHS``
   Detected bad file storage paths
 ``ENODEFILESTORAGEPATHUNUSABLE``
   File storage path unusable
-``ECLUSTERCERT``
-  Cluster certificate files verification failure
+``ENODEGLUSTERSTORAGEPATHUNUSABLE``
+  Gluster storage path unusable
+``ENODEHOOKS``
+  Communication failure in hooks execution
+``ENODEHV``
+  Hypervisor parameters verification failure
+``ENODELVM``
+  LVM-related node error
+``ENODEN1``
+  Not enough memory to accommodate instance failovers
+``ENODENET``
+  Network-related node error
+``ENODEOOBPATH``
+  Invalid Out Of Band path
+``ENODEORPHANINSTANCE``
+  Unknown intance running on a node
+``ENODEORPHANLV``
+  Unknown LVM logical volume
+``ENODEOS``
+  OS-related node error
+``ENODERPC``
+  Error during connection to the primary node of an instance
+``ENODESETUP``
+  Node setup error
+``ENODESHAREDFILESTORAGEPATHUNUSABLE``
+  Shared file storage path unusable
 ``ENODESSH``
   SSH-related node error
-``EINSTANCEPOLICY``
-  Instance does not meet policy
-``EINSTANCEFAULTYDISK``
-  Impossible to retrieve status for a disk
-``EINSTANCESPLITGROUPS``
-  Instance with primary and secondary nodes in different groups
+``ENODETIME``
+  Node returned invalid time
+``ENODEUSERSCRIPTS``
+  User scripts not present or not executable
+``ENODEVERSION``
+  Protocol version mismatch or Ganeti version mismatch
 
 VERIFY-DISKS
 ~~~~~~~~~~~~
@@ -1189,7 +1189,7 @@ SEARCH-TAGS
 Searches the tags on all objects in the cluster (the cluster
 itself, the nodes and the instances) for a given pattern. The
 pattern is interpreted as a regular expression and a search will be
-done on it (i.e. the given pattern is not anchored to the beggining
+done on it (i.e. the given pattern is not anchored to the beginning
 of the string; if you want that, prefix the pattern with ^).
 
 If no tags are matching the pattern, the exit code of the command

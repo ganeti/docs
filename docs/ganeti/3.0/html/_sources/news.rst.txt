@@ -5,6 +5,113 @@ News
 ====
 
 
+Version 3.0.0
+-------------
+
+*(Released Wed, 23 Dec 2020)*
+
+Changes since 3.0.0 rc1
+~~~~~~~~~~~~~~~~~~~~~~~
+
+3.0.0 includes only a handful of improvements and fixes since 3.0.0 rc1.
+
+Automatic postcopy migration handling for KVM guests
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ganeti now supports switching a KVM live migration automatically over to
+postcopy mode if the instance's ``migration_caps`` include the
+``postcopy-ram`` capability and the live migration has already completed
+two full memory passes. Postcopy live migration support in Ganeti 3.0 is
+considered experimental; users are encouraged to test it and report
+bugs, but it should be used with care in production environments.
+
+We recommend using postcopy migration with at least QEMU version 3.0;
+QEMU versions before 3.0 do not support limiting the bandwidth of a
+postcopy migration, which might saturate the network and cause
+interference with e.g. DRBD connections. For QEMU 3.0 and on, we apply
+the ``migration_bandwidth`` HV parameter that limits the regular
+live migration bandwidth to the postcopy phase as well.
+
+Thanks to Sascha Lucas and Calum Calder for all the work related to
+postcopy migration.
+
+Other changes
++++++++++++++
+
+Bugfixes:
+ - Fix multi-queue tap creation that was broken by the Python 3
+   migration (#1534)
+ - Make sure we set KVM migration capabilities on both sides of the
+   live migration and clear them once the migration is over (#1525)
+ - Properly cleanup the dedicated spice connection used to set a KVM
+   instance's spice password; this avoids blocking the instance on boot
+   (#1535, #1536)
+ - Fix non-SSL operation for Python daemons, broken by the Python 3
+   migration. This should be only relevant for the RAPI daemon running
+   behind a reverse proxy; noded requires SSL to function properly
+   (#1508, #1538)
+
+Compatibility fixes:
+ - Correctly report the status of user-down KVM instances with QEMU >=
+   3.1 (#1440, #1537)
+
+
+Version 3.0.0 rc1
+-----------------
+
+*(Released Sat, 19 Sep 2020)*
+
+Since releasing 3.0.0 beta1 in June no critical issues have surfaced. This
+release includes some feature and compability improvements but no breaking
+changes.
+
+Upgrade notes
+~~~~~~~~~~~~~
+
+This release comes with the same restrictions as the previous one: to upgrade,
+you either need 2.16.2 or 3.0.0 beta1 installed. Upgrading directly from older
+versions or from the Ganeti-2.17 beta version is not supported. Please refer
+to the 3.0.0 beta1 upgrade notes for more information.
+
+Important changes
+~~~~~~~~~~~~~~~~~
+
+GHC 8.0 through 8.8 compatibility
++++++++++++++++++++++++++++++++++
+
+This release has been built/tested against GHC 8.0 through 8.8 which means it
+should work on most current and near-future distribution versions. Support for
+GHC versions < 8 has already been dropped with the previous Ganeti release.
+Along with this change we have also added compatibility to Cabal version 3.0.
+
+Other notable changes
+~~~~~~~~~~~~~~~~~~~~~
+
+Bugfixes:
+ - Fix distribution of hmac.key to new nodes - this has been pulled from the
+   2.17 tree #(1494)
+
+Compatibility Improvements:
+ - Open vSwitch: Do not fail to add node when the ovs_name or ovs_link already
+   exists (#1495)
+ - Improved support for DRBD >= 8.4 (#1496)
+ - Relax QuickCheck version restriction (#1479)
+
+Documentation Fixes:
+ - Various typos have been fixed (#1483, #1487, #1489, #1501)
+ - Documentation build has been improved (#1500, #1504)
+ - Missing information has been added (#1490, #1505, #1517)
+
+Build Environment:
+ - We now have matrix / nightly builds using Github Actions (#1512)
+ - We now have code analysis through Github CodeQL (#1514)
+
+Misc:
+ - Support other values than 'none' for 'disk_cache' when using RBD (#1516)
+ - The OS install scripts can now query the configured disk size via a new
+   environment variable 'DISK_%N_SIZE' (#1503)
+
+
 Version 3.0.0 beta1
 -------------------
 
@@ -34,7 +141,11 @@ workarounds.
 
 Note that at this time there is no supported upgrade path for users
 running Ganeti-2.17 (i.e. 2.17.0 beta1). Ganeti-2.17 was never
-released, so hopefully no one uses it.
+released, so hopefully no one uses it. In case you are using it, the best 
+option is to downgrade to 2.16 (either via a regular downgrade or manually).
+See Github issue `#1346`_ for a bit more discussion on this topic.
+
+.. _#1346: https://github.com/ganeti/ganeti/issues/1346#issuecomment-642763303
 
 Important changes
 ~~~~~~~~~~~~~~~~~

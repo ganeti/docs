@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-instance &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <title>gnt-instance &#8212; Ganeti 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -30,7 +30,7 @@
         <li class="right" >
           <a href="man-gnt-group.html" title="gnt-group"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
       </ul>
     </div>  
@@ -85,6 +85,7 @@ the Ganeti system.</p>
 <div class="line">[–ignore-ipolicy]</div>
 <div class="line">[–no-wait-for-sync]</div>
 <div class="line">[{-c|–communication=yes|no}]</div>
+<div class="line">[{–tags [: <a class="reference external" href="tag:value">tag:value</a>… ]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Creates a new instance on the specified host. The <em>instance-name</em> argument
@@ -347,7 +348,7 @@ The possible options are:</p>
 </dd>
 <dt>kvm_pci_reservations</dt>
 <dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">The nubmer of PCI slots that QEMU will manage implicitly. By default Ganeti
+<p class="last">The number of PCI slots that QEMU will manage implicitly. By default Ganeti
 will let QEMU use the first 12 slots (i.e. PCI slots 0-11) on its own and
 will start adding disks and NICs from the 13rd slot (i.e. PCI slot 12)
 onwards. So by default one can add 20 PCI devices (32 - 12). To support more
@@ -586,7 +587,7 @@ instance’s startup. For such case it’s recommended to disable this
 option, which is enabled by default.</p>
 <p class="last">Enabling serial console emulation also appends
 <code class="docutils literal notranslate"><span class="pre">&quot;console=ttyS0,&lt;serial_speed&gt;&quot;</span></code> to the end of <code class="docutils literal notranslate"><span class="pre">kernel_args</span></code> in KVM and
-may infere with previous settings.</p>
+may interfere with previous settings.</p>
 </dd>
 <dt>serial_speed</dt>
 <dd><p class="first">Valid for the KVM hypervisor.</p>
@@ -662,7 +663,7 @@ to kvm. The directory is removed when the instance is stopped.</p>
 </dd>
 <dt>user_shutdown</dt>
 <dd><p class="first">Valid for the KVM hypervisor.</p>
-<p>This boolean option determines whether the KVM instance suports user
+<p>This boolean option determines whether the KVM instance supports user
 shutdown detection.  This option does not necessarily require ACPI
 enabled, but ACPI must be enabled for users to poweroff their KVM
 instances.</p>
@@ -805,12 +806,18 @@ the default version supported by your version of kvm is used.</p>
 </dd>
 <dt>migration_caps</dt>
 <dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Enable specific migration capabilities by providing a “:” separated
-list of supported capabilites. QEMU version 1.7.0 defines
-x-rdma-pin-all, auto-converge, zero-blocks, and xbzrle. Please note
-that while a combination of xbzrle and auto-converge might speed up
-the migration process significantly, the first may cause BSOD on
-Windows8r2 instances running on drbd.</p>
+<p>Enable specific migration capabilities by providing a “:” separated
+list of supported capabilities. QEMU version 1.7.0 defines
+x-rdma-pin-all, auto-converge, zero-blocks, and xbzrle.</p>
+<p>QEMU version 2.5 defines x-postcopy-ram and 2.6 renames this to
+postcopy-ram. If x-postcopy-ram or postcopy-ram are enabled, Ganeti will
+automatically move a migration to postcopy mode after a dirty_sync_count
+of 2. Other than normal live migration, that can recover from dying
+destination node, it is not possible to recover from dying source node
+during active postcopy migration.</p>
+<p class="last">Please note that while a combination of xbzrle and auto-converge
+might speed up the migration process significantly, the first may
+cause BSOD on Windows8r2 instances running on drbd.</p>
 </dd>
 <dt>kvm_path</dt>
 <dd><p class="first">Valid for the KVM hypervisor.</p>
@@ -832,7 +839,7 @@ when dealing with broken or malicious virtio-net drivers.</p>
 parallelize packets sending or receiving. Tap devices will be
 created with MULTI_QUEUE (IFF_MULTI_QUEUE) support. This only
 works with KVM paravirtual nics (virtio-net) and the maximum
-number of queues is limited to <code class="docutils literal notranslate"><span class="pre">8</span></code>. Tehnically this is an
+number of queues is limited to <code class="docutils literal notranslate"><span class="pre">8</span></code>. Technically this is an
 extension of <code class="docutils literal notranslate"><span class="pre">vnet_hdr</span></code> which must be enabled for multiqueue
 support.</p>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">1</span></code> queue, it effectively disables multiqueue support
@@ -937,7 +944,7 @@ that should not be logged or saved to configuration with
 <div><ul class="simple">
 <li>Launching the daemons in debug mode will cause debug logging to
 happen, which leaks private and secret parameters to the log files.
-Do not use the debug mode in production. Deamons will emit a warning
+Do not use the debug mode in production. Daemons will emit a warning
 on startup if they are in debug mode.</li>
 <li>You will have to pass again all <code class="docutils literal notranslate"><span class="pre">--os-parameters-secret</span></code> parameters
 should you want to reinstall this instance.</li>
@@ -962,7 +969,7 @@ of enabled disk templates, which can be adjusted cluster-wide with
 <dt>file</dt>
 <dd>Disk devices will be regular files.</dd>
 <dt>sharedfile</dt>
-<dd>Disk devices will be regulare files on a shared directory.</dd>
+<dd>Disk devices will be regular files on a shared directory.</dd>
 <dt>plain</dt>
 <dd>Disk devices will be logical volumes.</dd>
 <dt>drbd</dt>
@@ -1008,11 +1015,13 @@ better performance. Especially if you use a network file system
 <dt>blktap2</dt>
 <dd>Analogous to the blktap driver, but used by newer versions of Xen.</dd>
 </dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occuring
+<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-c</span></code> and <code class="docutils literal notranslate"><span class="pre">--communication</span></code> specify whether to enable/disable
 instance communication, which is a communication mechanism between the
 instance and the host.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--tags</span></code> allows tags to be applied to the instance, typically to
+influence the allocator. Multiple tags can be separated with commas.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code class="docutils literal notranslate"><span class="pre">--submit</span></code> and other common
 options.</p>
 <p>Example:</p>
@@ -1910,7 +1919,7 @@ identifier. An instance can not have two disks with the same name.</dd>
 <p>The <code class="docutils literal notranslate"><span class="pre">--net</span> <span class="pre">*N*:add[,options..]</span></code> will add a new network interface to
 the instance. The available options are the same as in the <strong>add</strong>
 command (<code class="docutils literal notranslate"><span class="pre">mac</span></code>, <code class="docutils literal notranslate"><span class="pre">ip</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code>, <code class="docutils literal notranslate"><span class="pre">mode</span></code>, <code class="docutils literal notranslate"><span class="pre">network</span></code>). The
-<code class="docutils literal notranslate"><span class="pre">--net</span> <span class="pre">*ID*,remove</span></code> will remove the intances’ NIC with <em>ID</em> identifier,
+<code class="docutils literal notranslate"><span class="pre">--net</span> <span class="pre">*ID*,remove</span></code> will remove the instances’ NIC with <em>ID</em> identifier,
 which can be the index of the NIC, the NIC’s name or the NIC’s UUID.
 The <code class="docutils literal notranslate"><span class="pre">--net</span> <span class="pre">*ID*:modify[,options..]</span></code> option will change the parameters of
 the instance network interface with the <em>ID</em> identifier.</p>
@@ -1929,7 +1938,7 @@ turned offline only if it was previously down. The <code class="docutils literal
 fails if the instance was not in the <code class="docutils literal notranslate"><span class="pre">offline</span></code> state, otherwise it
 changes instance’s state to <code class="docutils literal notranslate"><span class="pre">down</span></code>. These modifications take effect
 immediately.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occuring
+<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">--hotplug</span></code> is given any disk and NIC modifications will take
 effect without the need of actual reboot. Please note that this feature
@@ -2428,7 +2437,7 @@ marked offline first to succeed.</p>
 minutes) to wait before forcing the shutdown (xm destroy in xen,
 killing the kvm process, for kvm). By default two minutes are given
 to each instance to stop.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occuring
+<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--cleanup</span></code> option is passed, the operation changes from
 performing a failover to attempting recovery from a failed previous failover.
@@ -2496,7 +2505,7 @@ ignored.</p>
 it already can determine that a migration won’t work (e.g. if the
 instance is shut down). Please note that the fallback will not happen
 during execution. If a migration fails during execution it still fails.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occuring
+<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
 <p>Normally, Ganeti will verify that the hypervisor versions on source
 and target are compatible and error out if they are not. If
@@ -2555,7 +2564,7 @@ are given to each instance to stop.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--ignore-consistency</span></code> option will make Ganeti ignore any errors
 in trying to shutdown the instance on its node; useful if the
 hypervisor is broken and you want to recover the data.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occuring
+<p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code class="docutils literal notranslate"><span class="pre">--submit</span></code> and other common
 options.</p>
@@ -2715,13 +2724,13 @@ will be interpreted as stdin.</p>
         <li class="right" >
           <a href="man-gnt-group.html" title="gnt-group"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

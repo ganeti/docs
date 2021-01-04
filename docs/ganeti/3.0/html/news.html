@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>News &#8212; Ganeti 3.0.0~beta1 documentation</title>
+    <title>News &#8212; Ganeti 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -30,7 +30,7 @@
         <li class="right" >
           <a href="move-instance.html" title="Moving instances between clusters"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -41,6 +41,120 @@
             
   <div class="section" id="news">
 <h1>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-3-0-0">
+<h2>Version 3.0.0<a class="headerlink" href="#version-3-0-0" title="Permalink to this headline">¶</a></h2>
+<p><em>(Released Wed, 23 Dec 2020)</em></p>
+<div class="section" id="changes-since-3-0-0-rc1">
+<h3>Changes since 3.0.0 rc1<a class="headerlink" href="#changes-since-3-0-0-rc1" title="Permalink to this headline">¶</a></h3>
+<p>3.0.0 includes only a handful of improvements and fixes since 3.0.0 rc1.</p>
+<div class="section" id="automatic-postcopy-migration-handling-for-kvm-guests">
+<h4>Automatic postcopy migration handling for KVM guests<a class="headerlink" href="#automatic-postcopy-migration-handling-for-kvm-guests" title="Permalink to this headline">¶</a></h4>
+<p>Ganeti now supports switching a KVM live migration automatically over to
+postcopy mode if the instance’s <code class="docutils literal notranslate"><span class="pre">migration_caps</span></code> include the
+<code class="docutils literal notranslate"><span class="pre">postcopy-ram</span></code> capability and the live migration has already completed
+two full memory passes. Postcopy live migration support in Ganeti 3.0 is
+considered experimental; users are encouraged to test it and report
+bugs, but it should be used with care in production environments.</p>
+<p>We recommend using postcopy migration with at least QEMU version 3.0;
+QEMU versions before 3.0 do not support limiting the bandwidth of a
+postcopy migration, which might saturate the network and cause
+interference with e.g. DRBD connections. For QEMU 3.0 and on, we apply
+the <code class="docutils literal notranslate"><span class="pre">migration_bandwidth</span></code> HV parameter that limits the regular
+live migration bandwidth to the postcopy phase as well.</p>
+<p>Thanks to Sascha Lucas and Calum Calder for all the work related to
+postcopy migration.</p>
+</div>
+<div class="section" id="other-changes">
+<h4>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Fix multi-queue tap creation that was broken by the Python 3
+migration (#1534)</li>
+<li>Make sure we set KVM migration capabilities on both sides of the
+live migration and clear them once the migration is over (#1525)</li>
+<li>Properly cleanup the dedicated spice connection used to set a KVM
+instance’s spice password; this avoids blocking the instance on boot
+(#1535, #1536)</li>
+<li>Fix non-SSL operation for Python daemons, broken by the Python 3
+migration. This should be only relevant for the RAPI daemon running
+behind a reverse proxy; noded requires SSL to function properly
+(#1508, #1538)</li>
+</ul>
+</dd>
+<dt>Compatibility fixes:</dt>
+<dd><ul class="first last simple">
+<li>Correctly report the status of user-down KVM instances with QEMU &gt;=
+3.1 (#1440, #1537)</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="version-3-0-0-rc1">
+<h2>Version 3.0.0 rc1<a class="headerlink" href="#version-3-0-0-rc1" title="Permalink to this headline">¶</a></h2>
+<p><em>(Released Sat, 19 Sep 2020)</em></p>
+<p>Since releasing 3.0.0 beta1 in June no critical issues have surfaced. This
+release includes some feature and compability improvements but no breaking
+changes.</p>
+<div class="section" id="upgrade-notes">
+<h3>Upgrade notes<a class="headerlink" href="#upgrade-notes" title="Permalink to this headline">¶</a></h3>
+<p>This release comes with the same restrictions as the previous one: to upgrade,
+you either need 2.16.2 or 3.0.0 beta1 installed. Upgrading directly from older
+versions or from the Ganeti-2.17 beta version is not supported. Please refer
+to the 3.0.0 beta1 upgrade notes for more information.</p>
+</div>
+<div class="section" id="important-changes">
+<h3>Important changes<a class="headerlink" href="#important-changes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ghc-8-0-through-8-8-compatibility">
+<h4>GHC 8.0 through 8.8 compatibility<a class="headerlink" href="#ghc-8-0-through-8-8-compatibility" title="Permalink to this headline">¶</a></h4>
+<p>This release has been built/tested against GHC 8.0 through 8.8 which means it
+should work on most current and near-future distribution versions. Support for
+GHC versions &lt; 8 has already been dropped with the previous Ganeti release.
+Along with this change we have also added compatibility to Cabal version 3.0.</p>
+</div>
+</div>
+<div class="section" id="other-notable-changes">
+<h3>Other notable changes<a class="headerlink" href="#other-notable-changes" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Bugfixes:</dt>
+<dd><ul class="first last simple">
+<li>Fix distribution of hmac.key to new nodes - this has been pulled from the
+2.17 tree #(1494)</li>
+</ul>
+</dd>
+<dt>Compatibility Improvements:</dt>
+<dd><ul class="first last simple">
+<li>Open vSwitch: Do not fail to add node when the ovs_name or ovs_link already
+exists (#1495)</li>
+<li>Improved support for DRBD &gt;= 8.4 (#1496)</li>
+<li>Relax QuickCheck version restriction (#1479)</li>
+</ul>
+</dd>
+<dt>Documentation Fixes:</dt>
+<dd><ul class="first last simple">
+<li>Various typos have been fixed (#1483, #1487, #1489, #1501)</li>
+<li>Documentation build has been improved (#1500, #1504)</li>
+<li>Missing information has been added (#1490, #1505, #1517)</li>
+</ul>
+</dd>
+<dt>Build Environment:</dt>
+<dd><ul class="first last simple">
+<li>We now have matrix / nightly builds using Github Actions (#1512)</li>
+<li>We now have code analysis through Github CodeQL (#1514)</li>
+</ul>
+</dd>
+<dt>Misc:</dt>
+<dd><ul class="first last simple">
+<li>Support other values than ‘none’ for ‘disk_cache’ when using RBD (#1516)</li>
+<li>The OS install scripts can now query the configured disk size via a new
+environment variable ‘DISK_%N_SIZE’ (#1503)</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
 <div class="section" id="version-3-0-0-beta1">
 <h2>Version 3.0.0 beta1<a class="headerlink" href="#version-3-0-0-beta1" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 5 Jun 2020)</em></p>
@@ -51,8 +165,8 @@ contributors exclusively. As of May 2020, Google transferred the
 maintenance of Ganeti to the community. We would like to thank Google
 for the support and resources it granted to the project and for allowing
 the community to carry it forward!</p>
-<div class="section" id="upgrade-notes">
-<h3>Upgrade notes<a class="headerlink" href="#upgrade-notes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Upgrade notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Ganeti versions earlier than 2.16.2 will refuse to upgrade to 3.0 using
 <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">upgrade</span></code>. If you are using your distribution packages, chances
 are their maintainers will provide a smooth upgrade path from older
@@ -62,10 +176,12 @@ upgrading to 3.0, or consult Github issue <a class="reference external" href="ht
 workarounds.</p>
 <p>Note that at this time there is no supported upgrade path for users
 running Ganeti-2.17 (i.e. 2.17.0 beta1). Ganeti-2.17 was never
-released, so hopefully no one uses it.</p>
+released, so hopefully no one uses it. In case you are using it, the best
+option is to downgrade to 2.16 (either via a regular downgrade or manually).
+See Github issue <a class="reference external" href="https://github.com/ganeti/ganeti/issues/1346#issuecomment-642763303">#1346</a> for a bit more discussion on this topic.</p>
 </div>
-<div class="section" id="important-changes">
-<h3>Important changes<a class="headerlink" href="#important-changes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Important changes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="python-3-6-required">
 <h4>Python &gt;=3.6 required<a class="headerlink" href="#python-3-6-required" title="Permalink to this headline">¶</a></h4>
 <p>This release switches the whole Ganeti codebase over to Python 3. Python
@@ -101,8 +217,8 @@ to be enabled externally, using <code class="docutils literal notranslate"><span
 <span class="pre">vlan_filtering</span> <span class="pre">1</span></code>.</p>
 </div>
 </div>
-<div class="section" id="other-notable-changes">
-<h3>Other notable changes<a class="headerlink" href="#other-notable-changes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Other notable changes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>Bugfixes:</dt>
 <dd><ul class="first last simple">
@@ -162,8 +278,8 @@ notably queries like <code class="docutils literal notranslate"><span class="pre
 <h2>Version 2.16.1<a class="headerlink" href="#version-2-16-1" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 1 Apr 2019)</em></p>
 <p>This is a bugfix and compatibility release.</p>
-<div class="section" id="id3">
-<h3>Important changes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Important changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="updated-x-509-certificate-signing-algorithm">
 <h4>Updated X.509 certificate signing algorithm<a class="headerlink" href="#updated-x-509-certificate-signing-algorithm" title="Permalink to this headline">¶</a></h4>
 <p>Ganeti now uses the SHA-256 digest algorithm to sign all generated
@@ -614,14 +730,14 @@ repeated job submission</li>
 <div class="section" id="version-2-15-1">
 <h2>Version 2.15.1<a class="headerlink" href="#version-2-15-1" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 7 Sep 2015)</em></p>
-<div class="section" id="id4">
-<h3>New features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>New features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The ext template now allows userspace-only disks to be used</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>Bugfixes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Bugfixes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed the silently broken ‘gnt-instance replace-disks –ignore-ipolicy’
 command.</li>
@@ -636,8 +752,8 @@ command.</li>
 <div class="section" id="version-2-15-0">
 <h2>Version 2.15.0<a class="headerlink" href="#version-2-15-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Wed, 29 Jul 2015)</em></p>
-<div class="section" id="id6">
-<h3>Incompatible/important changes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Incompatible/important changes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In order to improve allocation efficiency when using DRBD, the cluster
 metric now takes the total reserved memory into account. A consequence
@@ -651,15 +767,15 @@ it necessary to rerun ‘gnt-cluster renew-crypto –new-node-certificates’
 after the cluster is fully upgraded to 2.14.1</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>New features<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>New features<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>On dedicated clusters, hail will now favour allocations filling up
 nodes efficiently over balanced allocations.</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>New dependencies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>New dependencies<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The indirect dependency on Haskell package ‘case-insensitive’ is now
 explicit.</li>
@@ -689,8 +805,8 @@ are listed in the latest 2.15 entry.</p>
 <div class="section" id="version-2-14-2">
 <h2>Version 2.14.2<a class="headerlink" href="#version-2-14-2" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Tue, 15 Dec 2015)</em></p>
-<div class="section" id="id9">
-<h3>Important changes and security notes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Important changes and security notes<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -723,8 +839,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id10">
-<h3>Minor changes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Minor changes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Allow disk attachment to diskless instances</li>
 <li>Calculate correct affected nodes set in InstanceChangeGroup
@@ -762,8 +878,8 @@ repeated job submission</li>
 <div class="section" id="version-2-14-1">
 <h2>Version 2.14.1<a class="headerlink" href="#version-2-14-1" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 10 Jul 2015)</em></p>
-<div class="section" id="id11">
-<h3>Incompatible/important changes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>Incompatible/important changes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The SSH security changes reduced the number of nodes which can SSH into
 other nodes. Unfortunately enough, the Ganeti implementation of migration
@@ -780,8 +896,8 @@ it necessary to rerun ‘gnt-cluster renew-crypto –new-node-certificates’
 after the cluster is fully upgraded to 2.14.1</li>
 </ul>
 </div>
-<div class="section" id="other-changes">
-<h3>Other Changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>Other Changes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">htools</span></code> now properly work also on shared-storage clusters.</li>
 <li>Instance moves now work properly also for the plain disk template.</li>
@@ -793,8 +909,8 @@ after the cluster is fully upgraded to 2.14.1</li>
 <div class="section" id="version-2-14-0">
 <h2>Version 2.14.0<a class="headerlink" href="#version-2-14-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Tue, 2 Jun 2015)</em></p>
-<div class="section" id="id12">
-<h3>New features<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>New features<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The build system now enforces external Haskell dependencies to lie in
 a supported range as declared by our new ganeti.cabal file.</li>
@@ -811,14 +927,14 @@ instance allocation and creation.</li>
 and <code class="docutils literal notranslate"><span class="pre">close</span></code> scripts.</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>New dependencies<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>New dependencies<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Building the Haskell part of Ganeti now requires Cabal and cabal-install.</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>Known issues<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>Known issues<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Under certain conditions instance doesn’t get unpaused after live
 migration (issue #1050)</li>
@@ -841,8 +957,8 @@ race condition with a signal sent to the job.</li>
 <p><em>(Released Tue, 19 May 2015)</em></p>
 <p>This was the second release candidate in the 2.14 series. All important
 changes are listed in the 2.14.0 entry.</p>
-<div class="section" id="id15">
-<h3>Since 2.14.0 rc1<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>Since 2.14.0 rc1<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>private parameters are now properly exported to instance create scripts</li>
 <li>unnecessary config unlocks and upgrades have been removed, improving
@@ -900,8 +1016,8 @@ are listed in the latest 2.14 entry.</p>
 <div class="section" id="version-2-13-3">
 <h2>Version 2.13.3<a class="headerlink" href="#version-2-13-3" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 14 Dec 2015)</em></p>
-<div class="section" id="id16">
-<h3>Important changes and security notes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>Important changes and security notes<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -934,8 +1050,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id17">
-<h3>Minor changes<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3>Minor changes<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Calculate correct affected nodes set in InstanceChangeGroup
 (Issue 1144)</li>
@@ -967,8 +1083,8 @@ repeated job submission</li>
 <div class="section" id="version-2-13-2">
 <h2>Version 2.13.2<a class="headerlink" href="#version-2-13-2" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 13 Jul 2015)</em></p>
-<div class="section" id="id18">
-<h3>Incompatible/important changes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h3>Incompatible/important changes<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>This release contains a fix for the problem that different encodings in
 SSL certificates can break RPC communication (issue 1094). The fix makes
@@ -999,8 +1115,8 @@ restart the RAPI</li>
 <div class="section" id="version-2-13-1">
 <h2>Version 2.13.1<a class="headerlink" href="#version-2-13-1" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Tue, 16 Jun 2015)</em></p>
-<div class="section" id="id19">
-<h3>Incompatible/important changes<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h3>Incompatible/important changes<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The SSH security changes reduced the number of nodes which can SSH into
 other nodes. Unfortunately enough, the Ganeti implementation of migration
@@ -1013,8 +1129,8 @@ consequence of this change, Xen instance migrations using xl cannot occur
 between nodes running 2.13.0 and 2.13.1.</li>
 </ul>
 </div>
-<div class="section" id="id20">
-<h3>Other fixes and known issues<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>Other fixes and known issues<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <p>Inherited from 2.12:</p>
 <ul class="simple">
 <li>Fixed Issue #1082: RAPI is unresponsive after master-failover</li>
@@ -1037,8 +1153,8 @@ cherrypicked from 2.14)</li>
 <div class="section" id="version-2-13-0">
 <h2>Version 2.13.0<a class="headerlink" href="#version-2-13-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Tue, 28 Apr 2015)</em></p>
-<div class="section" id="id21">
-<h3>Incompatible/important changes<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h3>Incompatible/important changes<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Ganeti now internally retries the instance creation opcode if opportunistic
 locking did not acquire nodes with enough free resources. The internal retry
@@ -1062,8 +1178,8 @@ other hypervisors. OS script changes should not be necessary. LXC version
 1.0.0 or higher required.</li>
 </ul>
 </div>
-<div class="section" id="id22">
-<h3>New features<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id27">
+<h3>New features<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A new job filter rules system allows to define iptables-like rules for the
 job scheduler, making it easier to (soft-)drain the job queue, perform
@@ -1084,8 +1200,8 @@ different template combinations. When available, more efficient conversions
 will be used, otherwise the disks are simply copied over.</li>
 </ul>
 </div>
-<div class="section" id="id23">
-<h3>New dependencies<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id28">
+<h3>New dependencies<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The monitoring daemon uses the PSQueue library. Be sure to install it
 if you use Mond.</li>
@@ -1130,8 +1246,8 @@ are listed in the latest 2.13 entry.</p>
 <div class="section" id="version-2-12-6">
 <h2>Version 2.12.6<a class="headerlink" href="#version-2-12-6" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 14 Dec 2015)</em></p>
-<div class="section" id="id24">
-<h3>Important changes and security notes<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h3>Important changes and security notes<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -1164,8 +1280,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id25">
-<h3>Minor changes<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id30">
+<h3>Minor changes<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Calculate correct affected nodes set in InstanceChangeGroup
 (Issue 1144)</li>
@@ -1192,8 +1308,8 @@ repeated job submission</li>
 <div class="section" id="version-2-12-5">
 <h2>Version 2.12.5<a class="headerlink" href="#version-2-12-5" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 13 Jul 2015)</em></p>
-<div class="section" id="id26">
-<h3>Incompatible/important changes<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h3>Incompatible/important changes<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>This release contains a fix for the problem that different encodings in
 SSL certificates can break RPC communication (issue 1094). The fix makes
@@ -1227,8 +1343,8 @@ restart the RAPI</li>
 <li>Fixed Issue #1113: Reduce amount of logging on successful requests</li>
 </ul>
 </div>
-<div class="section" id="id27">
-<h3>Known issues<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id32">
+<h3>Known issues<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Issue #1104: gnt-backup: dh key too small</li>
 </ul>
@@ -1248,8 +1364,8 @@ non-default VGs as missing</li>
 <li>Adapt for compilation with GHC7.8 (compiles with warnings;
 cherrypicked from 2.14)</li>
 </ul>
-<div class="section" id="id28">
-<h3>Known issues<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id33">
+<h3>Known issues<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
 <p>Pending since 2.12.2:</p>
 <ul class="simple">
 <li>Under certain conditions instance doesn’t get unpaused after live
@@ -1289,8 +1405,8 @@ high minor numbers</li>
 <li>Fixed Issue 1059: Luxid fails if DNS returns an IPv6 address that does
 not reverse resolve</li>
 </ul>
-<div class="section" id="id29">
-<h3>Known issues<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id34">
+<h3>Known issues<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 <p>Pending since 2.12.2:</p>
 <ul class="simple">
 <li>GHC 7.8 introduced some incompatible changes, so currently Ganeti
@@ -1336,8 +1452,8 @@ transitional states</li>
 <ul class="simple">
 <li>Fix file descriptor leak in Confd client</li>
 </ul>
-<div class="section" id="id30">
-<h3>Known issues<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id35">
+<h3>Known issues<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>GHC 7.8 introduced some incompatible changes, so currently Ganeti
 2.12. doesn’t compile on GHC 7.8</li>
@@ -1377,8 +1493,8 @@ scripts.</li>
 <div class="section" id="version-2-12-0">
 <h2>Version 2.12.0<a class="headerlink" href="#version-2-12-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 10 Oct 2014)</em></p>
-<div class="section" id="id31">
-<h3>Incompatible/important changes<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id36">
+<h3>Incompatible/important changes<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Ganeti is now distributed under the 2-clause BSD license.
 See the COPYING file.</li>
@@ -1388,8 +1504,8 @@ invariants in the system (see “New features”). The logging has been kept as
 it aids diagnostics and development.</li>
 </ul>
 </div>
-<div class="section" id="id32">
-<h3>New features<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id37">
+<h3>New features<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>OS install script parameters now come in public, private and secret
 varieties:<ul>
@@ -1427,8 +1543,8 @@ It is also possible to run Ganeti without the daemon, if desired.</li>
 as well.</li>
 </ul>
 </div>
-<div class="section" id="id33">
-<h3>New dependencies<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<h3>New dependencies<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The KVM CPU pinning no longer uses the affinity python package, but psutil
 instead. The package is still optional and needed only if the feature is to
@@ -1448,8 +1564,8 @@ to disk in the job queue.</li>
 implemented yet.</li>
 </ul>
 </div>
-<div class="section" id="id34">
-<h3>Known issues<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id39">
+<h3>Known issues<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><em>Wrong UDP checksums in DHCP network packets:</em>
 If an instance communicates with the metadata daemon and uses DHCP to
@@ -1542,8 +1658,8 @@ are listed in the latest 2.12 entry.</p>
 <div class="section" id="version-2-11-8">
 <h2>Version 2.11.8<a class="headerlink" href="#version-2-11-8" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 14 Dec 2015)</em></p>
-<div class="section" id="id35">
-<h3>Important changes and security notes<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id40">
+<h3>Important changes and security notes<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -1576,8 +1692,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id36">
-<h3>Minor changes<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id41">
+<h3>Minor changes<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Make htools tolerate missing “dtotal” and “dfree” on luxi</li>
 <li>Fix default for –default-iallocator-params</li>
@@ -1775,8 +1891,8 @@ back.</li>
 <div class="section" id="version-2-11-0">
 <h2>Version 2.11.0<a class="headerlink" href="#version-2-11-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 25 Apr 2014)</em></p>
-<div class="section" id="id37">
-<h3>Incompatible/important changes<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id42">
+<h3>Incompatible/important changes<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">gnt-node</span> <span class="pre">list</span></code> no longer shows disk space information for shared file
 disk templates because it is not a node attribute. (For example, if you have
@@ -1803,8 +1919,8 @@ certificates of all nodes. After a cluster upgrade from pre-2.11, run
 this to create client certificates and activate this feature.</li>
 </ul>
 </div>
-<div class="section" id="id38">
-<h3>New features<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id43">
+<h3>New features<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Instance moves, backups and imports can now use compression to transfer the
 instance data.</li>
@@ -1822,8 +1938,8 @@ been added. It suggests nodes to power up or down and corresponding instance
 moves.</li>
 </ul>
 </div>
-<div class="section" id="id39">
-<h3>New dependencies<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id44">
+<h3>New dependencies<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
 <p>The following new dependencies have been added:</p>
 <p>For Haskell:</p>
 <ul class="simple">
@@ -1932,8 +2048,8 @@ are listed in the latest 2.11 entry.</p>
 <div class="section" id="version-2-10-8">
 <h2>Version 2.10.8<a class="headerlink" href="#version-2-10-8" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 11 Dec 2015)</em></p>
-<div class="section" id="id40">
-<h3>Important changes and security notes<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id45">
+<h3>Important changes and security notes<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -1966,8 +2082,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id41">
-<h3>Minor changes<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id46">
+<h3>Minor changes<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Make htools tolerate missing “dtotal” and “dfree” on luxi</li>
 <li>At IAlloc backend guess state from admin state</li>
@@ -2143,8 +2259,8 @@ compatible way (issue 716)</li>
 <div class="section" id="version-2-10-0">
 <h2>Version 2.10.0<a class="headerlink" href="#version-2-10-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Thu, 20 Feb 2014)</em></p>
-<div class="section" id="id42">
-<h3>Incompatible/important changes<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id47">
+<h3>Incompatible/important changes<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Adding disks with ‘gnt-instance modify’ now waits for the disks to sync per
 default. Specify –no-wait-for-sync to override this behavior.</li>
@@ -2161,8 +2277,8 @@ file-based storage types.</li>
 as empty strings (and not “None”) during ‘instance-migrate’ related hooks.</li>
 </ul>
 </div>
-<div class="section" id="id43">
-<h3>New features<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id48">
+<h3>New features<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">KVM hypervisors can now access RBD storage directly without having to
 go through a block device.</p>
@@ -2195,8 +2311,8 @@ be migratable (due to core change of runtime files)</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id44">
-<h3>Misc changes<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id49">
+<h3>Misc changes<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A new test framework for logical units was introduced and the test
 coverage for logical units was improved significantly.</li>
@@ -2210,8 +2326,8 @@ are part of a port of instance queries to Haskell.  As a result, these
 changes will be part of the next release of Ganeti.</li>
 </ul>
 </div>
-<div class="section" id="id45">
-<h3>New dependencies<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id50">
+<h3>New dependencies<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
 <p>The following new dependencies have been added/updated.</p>
 <p>Python</p>
 <ul class="simple">
@@ -2324,8 +2440,8 @@ time and while being modified</li>
 <p><em>(Released Wed, 27 Nov 2013)</em></p>
 <p>This was the first beta release of the 2.10 series. All important changes
 are listed in the latest 2.10 entry.</p>
-<div class="section" id="id46">
-<h3>Known issues<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id51">
+<h3>Known issues<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
 <p>The following issues are known to be present in the beta and will be fixed
 before rc1.</p>
 <ul class="simple">
@@ -2339,8 +2455,8 @@ before rc1.</p>
 <div class="section" id="version-2-9-7">
 <h2>Version 2.9.7<a class="headerlink" href="#version-2-9-7" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Fri, 11 Dec 2015)</em></p>
-<div class="section" id="id47">
-<h3>Important changes and security notes<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id52">
+<h3>Important changes and security notes<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
 <p>Security release.</p>
 <p>CVE-2015-7944</p>
 <p>Ganeti provides a RESTful control interface called the RAPI. Its HTTPS
@@ -2373,8 +2489,8 @@ Since attackers with node access are capable of accessing some and
 potentially all data even without the secret, we do not recommend that
 the secret be changed for existing instances.</p>
 </div>
-<div class="section" id="id48">
-<h3>Minor changes<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id53">
+<h3>Minor changes<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>gnt-instance replace-disks no longer crashes when –ignore-policy is
 passed to it</li>
@@ -2497,8 +2613,8 @@ setup (issue 608)</li>
 <div class="section" id="version-2-9-0">
 <h2>Version 2.9.0<a class="headerlink" href="#version-2-9-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Tue, 5 Nov 2013)</em></p>
-<div class="section" id="id49">
-<h3>Incompatible/important changes<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id54">
+<h3>Incompatible/important changes<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>hroller now also plans for capacity to move non-redundant instances off
 any node to be rebooted; the old behavior of completely ignoring any
@@ -2530,8 +2646,8 @@ disk templates are ensured to be a subset of the cluster-wide enabled
 disk templates.</li>
 </ul>
 </div>
-<div class="section" id="id50">
-<h3>New features<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id55">
+<h3>New features<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>DRBD 8.4 support. Depending on the installed DRBD version, Ganeti now uses
 the correct command syntax. It is possible to use different DRBD versions
@@ -2549,8 +2665,8 @@ presenting them over the monitoring daemon interface.</li>
 <li>The ConfD client is now IPv6 compatible.</li>
 </ul>
 </div>
-<div class="section" id="id51">
-<h3>New dependencies<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id56">
+<h3>New dependencies<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
 <p>The following new dependencies have been added.</p>
 <p>Python</p>
 <ul class="simple">
@@ -2675,8 +2791,8 @@ time and while being modified</li>
 <div class="section" id="version-2-8-0">
 <h2>Version 2.8.0<a class="headerlink" href="#version-2-8-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Mon, 30 Sep 2013)</em></p>
-<div class="section" id="id52">
-<h3>Incompatible/important changes<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id57">
+<h3>Incompatible/important changes<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Instance policy can contain multiple instance specs, as described in
 the “Constrained instance sizes” section of <a class="reference internal" href="design-partitioned.html"><span class="doc">Partitioned Ganeti</span></a>. As a consequence, it’s not possible to partially change
@@ -2693,8 +2809,8 @@ was extracted, listens on the local LUXI socket and responds to live queries.
 This allows finer grained permissions if using separate users.</li>
 </ul>
 </div>
-<div class="section" id="id53">
-<h3>New features<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id58">
+<h3>New features<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <a class="reference internal" href="rapi.html"><span class="doc">Remote API</span></a> daemon now supports a command line flag
 to always require authentication, <code class="docutils literal notranslate"><span class="pre">--require-authentication</span></code>. It can
@@ -2751,8 +2867,8 @@ user-group membership relations that need to be established. The syntax of
 these files will remain stable in all future versions.</li>
 </ul>
 </div>
-<div class="section" id="id54">
-<h3>New dependencies<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id59">
+<h3>New dependencies<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
 <p>The following new dependencies have been added:</p>
 <p>For Haskell:
 - The <code class="docutils literal notranslate"><span class="pre">curl</span></code> library is not optional anymore for compiling the Haskell code.
@@ -2858,8 +2974,8 @@ was previously displayed as a raw list by mistake</li>
 <div class="section" id="version-2-7-0">
 <h2>Version 2.7.0<a class="headerlink" href="#version-2-7-0" title="Permalink to this headline">¶</a></h2>
 <p><em>(Released Thu, 04 Jul 2013)</em></p>
-<div class="section" id="id55">
-<h3>Incompatible/important changes<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id60">
+<h3>Incompatible/important changes<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Instance policies for disk size were documented to be on a per-disk
 basis, but hail applied them to the sum of all disks. This has been
@@ -2900,8 +3016,8 @@ the flag is not reset after a master failover.</li>
 is recommended. 2.6 will be mandatory from the 2.8 series.</li>
 </ul>
 </div>
-<div class="section" id="id56">
-<h3>New features<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id61">
+<h3>New features<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New network management functionality to support automatic allocation
 of IP addresses and managing of network parameters. See
@@ -2948,8 +3064,8 @@ specified on the <code class="docutils literal notranslate"><span class="pre">$s
 reasons. The file is not copied automatically.</li>
 </ul>
 </div>
-<div class="section" id="id57">
-<h3>Misc changes<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id62">
+<h3>Misc changes<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Diskless instances are now externally mirrored (Issue 237). This for
 now has only been tested in conjunction with explicit target nodes for
@@ -3183,8 +3299,8 @@ restart Ganeti daemons soon after the upgrade, otherwise most
 pausing/resuming the watcher, cancelling and archiving jobs, querying
 the cluster configuration) will fail.</p>
 </div>
-<div class="section" id="id58">
-<h3>New features<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id63">
+<h3>New features<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="instance-run-status">
 <h4>Instance run status<a class="headerlink" href="#instance-run-status" title="Permalink to this headline">¶</a></h4>
 <p>The current <code class="docutils literal notranslate"><span class="pre">admin_up</span></code> field, which used to denote whether an instance
@@ -3637,8 +3753,8 @@ removal.</li>
 <li>Includes all bugfixes made in the 2.4 series</li>
 </ul>
 </div>
-<div class="section" id="id59">
-<h3>New features<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id64">
+<h3>New features<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The ganeti-htools project has been merged into the ganeti-core source
 tree and will be built as part of Ganeti (see <a class="reference internal" href="install-quick.html"><span class="doc">Ganeti quick installation guide</span></a>).</li>
@@ -4134,8 +4250,8 @@ use of special settings on reinstallation (e.g. for preserving data)</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id60">
-<h3>Misc<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id65">
+<h3>Misc<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added IPv6 support in import/export</li>
 <li>Pause DRBD synchronization while wiping disks on instance creation</li>
@@ -4540,8 +4656,8 @@ this feature, before using it, by checking for its presence in the
 <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">info</span></code> or <code class="docutils literal notranslate"><span class="pre">gnt-node</span> <span class="pre">list</span></code>
 (requires the python-roman module to be installed, in order to work).</p>
 </div>
-<div class="section" id="id61">
-<h3>Other changes<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id66">
+<h3>Other changes<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
 <p>As usual many internal code refactorings, documentation updates, and
 such. Among others:</p>
 <blockquote>
@@ -4573,8 +4689,8 @@ you need the en_US.UTF-8 locale enabled to build Ganeti from git.</li>
 <p><em>(Released Fri, 7 May 2010)</em></p>
 <p>Another release with a long development cycle, during which many
 different features were added.</p>
-<div class="section" id="id62">
-<h3>Significant features<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id67">
+<h3>Significant features<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
 <p>The KVM hypervisor now can run the individual instances as non-root, to
 reduce the impact of a VM being hijacked due to bugs in the
 hypervisor. It is possible to run all instances as a single (non-root)
@@ -4614,8 +4730,8 @@ number of NICs.</p>
 <p>Cluster verify has added a few new checks: SSL certificates validity,
 /etc/hosts consistency across the cluster, etc.</p>
 </div>
-<div class="section" id="id63">
-<h3>Other changes<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id68">
+<h3>Other changes<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
 <p>As usual, many internal changes were done, documentation fixes,
 etc. Among others:</p>
 <ul class="simple">
@@ -4721,8 +4837,8 @@ proper use of <code class="docutils literal notranslate"><span class="pre">__slo
 <li>Many documentation fixes based on feedback from users</li>
 </ul>
 </div>
-<div class="section" id="id64">
-<h3>New features<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id69">
+<h3>New features<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added an “early_release” more for instance replace disks and node
 evacuate, where we release locks earlier and thus allow higher
@@ -5352,15 +5468,32 @@ post-configuration update hook)</li>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">News</a><ul>
-<li><a class="reference internal" href="#version-3-0-0-beta1">Version 3.0.0 beta1</a><ul>
+<li><a class="reference internal" href="#version-3-0-0">Version 3.0.0</a><ul>
+<li><a class="reference internal" href="#changes-since-3-0-0-rc1">Changes since 3.0.0 rc1</a><ul>
+<li><a class="reference internal" href="#automatic-postcopy-migration-handling-for-kvm-guests">Automatic postcopy migration handling for KVM guests</a></li>
+<li><a class="reference internal" href="#other-changes">Other changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#version-3-0-0-rc1">Version 3.0.0 rc1</a><ul>
 <li><a class="reference internal" href="#upgrade-notes">Upgrade notes</a></li>
 <li><a class="reference internal" href="#important-changes">Important changes</a><ul>
+<li><a class="reference internal" href="#ghc-8-0-through-8-8-compatibility">GHC 8.0 through 8.8 compatibility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-notable-changes">Other notable changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#version-3-0-0-beta1">Version 3.0.0 beta1</a><ul>
+<li><a class="reference internal" href="#id1">Upgrade notes</a></li>
+<li><a class="reference internal" href="#id4">Important changes</a><ul>
 <li><a class="reference internal" href="#python-3-6-required">Python &gt;=3.6 required</a></li>
 <li><a class="reference internal" href="#ghc-8-required">GHC &gt;= 8 required</a></li>
 <li><a class="reference internal" href="#vlan-aware-bridging">VLAN-aware bridging</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-notable-changes">Other notable changes</a></li>
+<li><a class="reference internal" href="#id5">Other notable changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-16-2">Version 2.16.2</a><ul>
@@ -5369,7 +5502,7 @@ post-configuration update hook)</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-16-1">Version 2.16.1</a><ul>
-<li><a class="reference internal" href="#id3">Important changes</a><ul>
+<li><a class="reference internal" href="#id7">Important changes</a><ul>
 <li><a class="reference internal" href="#updated-x-509-certificate-signing-algorithm">Updated X.509 certificate signing algorithm</a></li>
 <li><a class="reference internal" href="#qemu-3-1-compatibility">QEMU 3.1 compatibility</a></li>
 <li><a class="reference internal" href="#newer-ghc-support">Newer GHC support</a></li>
@@ -5404,14 +5537,14 @@ post-configuration update hook)</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-15-1">Version 2.15.1</a><ul>
-<li><a class="reference internal" href="#id4">New features</a></li>
-<li><a class="reference internal" href="#id5">Bugfixes</a></li>
+<li><a class="reference internal" href="#id8">New features</a></li>
+<li><a class="reference internal" href="#id9">Bugfixes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-15-0">Version 2.15.0</a><ul>
-<li><a class="reference internal" href="#id6">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id7">New features</a></li>
-<li><a class="reference internal" href="#id8">New dependencies</a></li>
+<li><a class="reference internal" href="#id10">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id11">New features</a></li>
+<li><a class="reference internal" href="#id12">New dependencies</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-15-0-rc1">Version 2.15.0 rc1</a><ul>
@@ -5420,24 +5553,24 @@ post-configuration update hook)</li>
 </li>
 <li><a class="reference internal" href="#version-2-15-0-beta1">Version 2.15.0 beta1</a></li>
 <li><a class="reference internal" href="#version-2-14-2">Version 2.14.2</a><ul>
-<li><a class="reference internal" href="#id9">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id10">Minor changes</a></li>
+<li><a class="reference internal" href="#id13">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id14">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-14-1">Version 2.14.1</a><ul>
-<li><a class="reference internal" href="#id11">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#other-changes">Other Changes</a></li>
+<li><a class="reference internal" href="#id15">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id16">Other Changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-14-0">Version 2.14.0</a><ul>
-<li><a class="reference internal" href="#id12">New features</a></li>
-<li><a class="reference internal" href="#id13">New dependencies</a></li>
-<li><a class="reference internal" href="#id14">Known issues</a></li>
+<li><a class="reference internal" href="#id17">New features</a></li>
+<li><a class="reference internal" href="#id18">New dependencies</a></li>
+<li><a class="reference internal" href="#id19">Known issues</a></li>
 <li><a class="reference internal" href="#since-2-14-0-rc1">Since 2.14.0 rc1</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-14-0-rc2">Version 2.14.0 rc2</a><ul>
-<li><a class="reference internal" href="#id15">Since 2.14.0 rc1</a></li>
+<li><a class="reference internal" href="#id20">Since 2.14.0 rc1</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-14-0-rc1">Version 2.14.0 rc1</a><ul>
@@ -5450,24 +5583,24 @@ post-configuration update hook)</li>
 </li>
 <li><a class="reference internal" href="#version-2-14-0-beta1">Version 2.14.0 beta1</a></li>
 <li><a class="reference internal" href="#version-2-13-3">Version 2.13.3</a><ul>
-<li><a class="reference internal" href="#id16">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id17">Minor changes</a></li>
+<li><a class="reference internal" href="#id21">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id22">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-13-2">Version 2.13.2</a><ul>
-<li><a class="reference internal" href="#id18">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id23">Incompatible/important changes</a></li>
 <li><a class="reference internal" href="#other-fixes-and-known-issues">Other fixes and known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-13-1">Version 2.13.1</a><ul>
-<li><a class="reference internal" href="#id19">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id20">Other fixes and known issues</a></li>
+<li><a class="reference internal" href="#id24">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id25">Other fixes and known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-13-0">Version 2.13.0</a><ul>
-<li><a class="reference internal" href="#id21">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id22">New features</a></li>
-<li><a class="reference internal" href="#id23">New dependencies</a></li>
+<li><a class="reference internal" href="#id26">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id27">New features</a></li>
+<li><a class="reference internal" href="#id28">New dependencies</a></li>
 <li><a class="reference internal" href="#since-2-13-0-rc1">Since 2.13.0 rc1</a></li>
 </ul>
 </li>
@@ -5477,35 +5610,35 @@ post-configuration update hook)</li>
 </li>
 <li><a class="reference internal" href="#version-2-13-0-beta1">Version 2.13.0 beta1</a></li>
 <li><a class="reference internal" href="#version-2-12-6">Version 2.12.6</a><ul>
-<li><a class="reference internal" href="#id24">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id25">Minor changes</a></li>
+<li><a class="reference internal" href="#id29">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id30">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-12-5">Version 2.12.5</a><ul>
-<li><a class="reference internal" href="#id26">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id31">Incompatible/important changes</a></li>
 <li><a class="reference internal" href="#fixed-and-improvements">Fixed and improvements</a></li>
-<li><a class="reference internal" href="#id27">Known issues</a></li>
+<li><a class="reference internal" href="#id32">Known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-12-4">Version 2.12.4</a><ul>
-<li><a class="reference internal" href="#id28">Known issues</a></li>
+<li><a class="reference internal" href="#id33">Known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-12-3">Version 2.12.3</a><ul>
-<li><a class="reference internal" href="#id29">Known issues</a></li>
+<li><a class="reference internal" href="#id34">Known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-12-2">Version 2.12.2</a><ul>
-<li><a class="reference internal" href="#id30">Known issues</a></li>
+<li><a class="reference internal" href="#id35">Known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-12-1">Version 2.12.1</a></li>
 <li><a class="reference internal" href="#version-2-12-0">Version 2.12.0</a><ul>
-<li><a class="reference internal" href="#id31">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id32">New features</a></li>
-<li><a class="reference internal" href="#id33">New dependencies</a></li>
+<li><a class="reference internal" href="#id36">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id37">New features</a></li>
+<li><a class="reference internal" href="#id38">New dependencies</a></li>
 <li><a class="reference internal" href="#incomplete-features">Incomplete features</a></li>
-<li><a class="reference internal" href="#id34">Known issues</a></li>
+<li><a class="reference internal" href="#id39">Known issues</a></li>
 <li><a class="reference internal" href="#since-2-12-0-rc2">Since 2.12.0 rc2</a></li>
 </ul>
 </li>
@@ -5519,8 +5652,8 @@ post-configuration update hook)</li>
 </li>
 <li><a class="reference internal" href="#version-2-12-0-beta1">Version 2.12.0 beta1</a></li>
 <li><a class="reference internal" href="#version-2-11-8">Version 2.11.8</a><ul>
-<li><a class="reference internal" href="#id35">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id36">Minor changes</a></li>
+<li><a class="reference internal" href="#id40">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id41">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-11-7">Version 2.11.7</a></li>
@@ -5531,17 +5664,17 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-11-2">Version 2.11.2</a></li>
 <li><a class="reference internal" href="#version-2-11-1">Version 2.11.1</a></li>
 <li><a class="reference internal" href="#version-2-11-0">Version 2.11.0</a><ul>
-<li><a class="reference internal" href="#id37">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id38">New features</a></li>
-<li><a class="reference internal" href="#id39">New dependencies</a></li>
+<li><a class="reference internal" href="#id42">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id43">New features</a></li>
+<li><a class="reference internal" href="#id44">New dependencies</a></li>
 <li><a class="reference internal" href="#since-2-11-0-rc1">Since 2.11.0 rc1</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-11-0-rc1">Version 2.11.0 rc1</a></li>
 <li><a class="reference internal" href="#version-2-11-0-beta1">Version 2.11.0 beta1</a></li>
 <li><a class="reference internal" href="#version-2-10-8">Version 2.10.8</a><ul>
-<li><a class="reference internal" href="#id40">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id41">Minor changes</a></li>
+<li><a class="reference internal" href="#id45">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id46">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-10-7">Version 2.10.7</a></li>
@@ -5552,10 +5685,10 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-10-2">Version 2.10.2</a></li>
 <li><a class="reference internal" href="#version-2-10-1">Version 2.10.1</a></li>
 <li><a class="reference internal" href="#version-2-10-0">Version 2.10.0</a><ul>
-<li><a class="reference internal" href="#id42">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id43">New features</a></li>
-<li><a class="reference internal" href="#id44">Misc changes</a></li>
-<li><a class="reference internal" href="#id45">New dependencies</a></li>
+<li><a class="reference internal" href="#id47">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id48">New features</a></li>
+<li><a class="reference internal" href="#id49">Misc changes</a></li>
+<li><a class="reference internal" href="#id50">New dependencies</a></li>
 <li><a class="reference internal" href="#since-2-10-0-rc3">Since 2.10.0 rc3</a></li>
 </ul>
 </li>
@@ -5563,12 +5696,12 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-10-0-rc2">Version 2.10.0 rc2</a></li>
 <li><a class="reference internal" href="#version-2-10-0-rc1">Version 2.10.0 rc1</a></li>
 <li><a class="reference internal" href="#version-2-10-0-beta1">Version 2.10.0 beta1</a><ul>
-<li><a class="reference internal" href="#id46">Known issues</a></li>
+<li><a class="reference internal" href="#id51">Known issues</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-9-7">Version 2.9.7</a><ul>
-<li><a class="reference internal" href="#id47">Important changes and security notes</a></li>
-<li><a class="reference internal" href="#id48">Minor changes</a></li>
+<li><a class="reference internal" href="#id52">Important changes and security notes</a></li>
+<li><a class="reference internal" href="#id53">Minor changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-9-6">Version 2.9.6</a></li>
@@ -5578,9 +5711,9 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-9-2">Version 2.9.2</a></li>
 <li><a class="reference internal" href="#version-2-9-1">Version 2.9.1</a></li>
 <li><a class="reference internal" href="#version-2-9-0">Version 2.9.0</a><ul>
-<li><a class="reference internal" href="#id49">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id50">New features</a></li>
-<li><a class="reference internal" href="#id51">New dependencies</a></li>
+<li><a class="reference internal" href="#id54">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id55">New features</a></li>
+<li><a class="reference internal" href="#id56">New dependencies</a></li>
 <li><a class="reference internal" href="#since-2-9-0-rc3">Since 2.9.0 rc3</a></li>
 </ul>
 </li>
@@ -5593,9 +5726,9 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-8-2">Version 2.8.2</a></li>
 <li><a class="reference internal" href="#version-2-8-1">Version 2.8.1</a></li>
 <li><a class="reference internal" href="#version-2-8-0">Version 2.8.0</a><ul>
-<li><a class="reference internal" href="#id52">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id53">New features</a></li>
-<li><a class="reference internal" href="#id54">New dependencies</a></li>
+<li><a class="reference internal" href="#id57">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id58">New features</a></li>
+<li><a class="reference internal" href="#id59">New dependencies</a></li>
 <li><a class="reference internal" href="#since-2-8-0-rc3">Since 2.8.0 rc3</a></li>
 </ul>
 </li>
@@ -5606,9 +5739,9 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-7-2">Version 2.7.2</a></li>
 <li><a class="reference internal" href="#version-2-7-1">Version 2.7.1</a></li>
 <li><a class="reference internal" href="#version-2-7-0">Version 2.7.0</a><ul>
-<li><a class="reference internal" href="#id55">Incompatible/important changes</a></li>
-<li><a class="reference internal" href="#id56">New features</a></li>
-<li><a class="reference internal" href="#id57">Misc changes</a></li>
+<li><a class="reference internal" href="#id60">Incompatible/important changes</a></li>
+<li><a class="reference internal" href="#id61">New features</a></li>
+<li><a class="reference internal" href="#id62">Misc changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-7-0-rc3">Version 2.7.0 rc3</a></li>
@@ -5620,7 +5753,7 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-6-2">Version 2.6.2</a></li>
 <li><a class="reference internal" href="#version-2-6-1">Version 2.6.1</a></li>
 <li><a class="reference internal" href="#version-2-6-0">Version 2.6.0</a><ul>
-<li><a class="reference internal" href="#id58">New features</a><ul>
+<li><a class="reference internal" href="#id63">New features</a><ul>
 <li><a class="reference internal" href="#instance-run-status">Instance run status</a></li>
 <li><a class="reference internal" href="#instance-policies-and-specs">Instance policies and specs</a></li>
 <li><a class="reference internal" href="#instance-migration-behaviour">Instance migration behaviour</a></li>
@@ -5650,7 +5783,7 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-5-1">Version 2.5.1</a></li>
 <li><a class="reference internal" href="#version-2-5-0">Version 2.5.0</a><ul>
 <li><a class="reference internal" href="#incompatible-important-changes-and-bugfixes">Incompatible/important changes and bugfixes</a></li>
-<li><a class="reference internal" href="#id59">New features</a></li>
+<li><a class="reference internal" href="#id64">New features</a></li>
 <li><a class="reference internal" href="#node-group-improvements">Node group improvements</a></li>
 <li><a class="reference internal" href="#misc">Misc</a></li>
 </ul>
@@ -5682,7 +5815,7 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#user-visible">User-visible</a></li>
 <li><a class="reference internal" href="#integration">Integration</a></li>
 <li><a class="reference internal" href="#remote-api">Remote API</a></li>
-<li><a class="reference internal" href="#id60">Misc</a></li>
+<li><a class="reference internal" href="#id65">Misc</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-3-1">Version 2.3.1</a></li>
@@ -5707,19 +5840,19 @@ post-configuration update hook)</li>
 <li><a class="reference internal" href="#version-2-1-4">Version 2.1.4</a></li>
 <li><a class="reference internal" href="#version-2-1-3">Version 2.1.3</a><ul>
 <li><a class="reference internal" href="#significant-features">Significant features</a></li>
-<li><a class="reference internal" href="#id61">Other changes</a></li>
+<li><a class="reference internal" href="#id66">Other changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-1-2-1">Version 2.1.2.1</a></li>
 <li><a class="reference internal" href="#version-2-1-2">Version 2.1.2</a><ul>
-<li><a class="reference internal" href="#id62">Significant features</a></li>
-<li><a class="reference internal" href="#id63">Other changes</a></li>
+<li><a class="reference internal" href="#id67">Significant features</a></li>
+<li><a class="reference internal" href="#id68">Other changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-1-1">Version 2.1.1</a><ul>
 <li><a class="reference internal" href="#major-changes">Major changes</a></li>
 <li><a class="reference internal" href="#bug-fixes">Bug fixes</a></li>
-<li><a class="reference internal" href="#id64">New features</a></li>
+<li><a class="reference internal" href="#id69">New features</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#version-2-1-0">Version 2.1.0</a><ul>
@@ -5792,12 +5925,12 @@ post-configuration update hook)</li>
         <li class="right" >
           <a href="move-instance.html" title="Moving instances between clusters"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0~beta1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>
