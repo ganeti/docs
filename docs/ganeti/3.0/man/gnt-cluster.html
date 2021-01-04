@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-cluster(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>gnt-cluster(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">gnt-cluster(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">gnt-cluster(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -159,15 +159,15 @@
 <p>This commands is only run once initially on the first node of the cluster. It will initialize the cluster configuration, setup the ssh-keys, start the daemons on the master node, etc. in order to have a working one-node cluster.</p>
 <p>Note that the <em>cluster-name</em> is not any random name. It has to be resolvable to an IP address using DNS, and it is best if you give the fully-qualified domain name. This hostname must resolve to an IP address reserved exclusively for this purpose, i.e. not already in use.</p>
 <p>The cluster can run in two modes: single-home or dual-homed. In the first case, all traffic (both public traffic, inter-node traffic and data replication traffic) goes over the same interface. In the dual-homed case, the data replication traffic goes over the second network. The <code>-s (--secondary-ip)</code> option here marks the cluster as dual-homed and its parameter represents this node's address on the second network. If you initialise the cluster with <code>-s</code>, all nodes added must have a secondary IP as well.</p>
-<p>Note that for Ganeti it doesn't matter if the secondary network is actually a separate physical network, or is done using tunneling, etc. For performance reasons, it's recommended to use a separate network, of course.</p>
-<p>The <code>--vg-name</code> option will let you specify a volume group different than &quot;xenvg&quot; for Ganeti to use when creating instance disks. This volume group must have the same name on all nodes. Once the cluster is initialized this can be altered by using the <strong>modify</strong> command. Note that if the volume group name is modified after the cluster creation and DRBD support is enabled you might have to manually modify the metavg as well.</p>
+<p>Note that for Ganeti it doesn't matter if the secondary network is actually a separate physical network, or is done using tunnelling, etc. For performance reasons, it's recommended to use a separate network, of course.</p>
+<p>The <code>--vg-name</code> option will let you specify a volume group different than "xenvg" for Ganeti to use when creating instance disks. This volume group must have the same name on all nodes. Once the cluster is initialized this can be altered by using the <strong>modify</strong> command. Note that if the volume group name is modified after the cluster creation and DRBD support is enabled you might have to manually modify the metavg as well.</p>
 <p>If you don't want to use lvm storage at all use the <code>--enabled-disk-templates</code> option to restrict the set of enabled disk templates. Once the cluster is initialized you can change this setup with the <strong>modify</strong> command.</p>
 <p>The <code>--master-netdev</code> option is useful for specifying a different interface on which the master will activate its IP address. It's important that all nodes have this interface because you'll need it for a master failover.</p>
 <p>The <code>--master-netmask</code> option allows to specify a netmask for the master IP. The netmask must be specified as an integer, and will be interpreted as a CIDR netmask. The default value is 32 for an IPv4 address and 128 for an IPv6 address.</p>
 <p>The <code>--use-external-mip-script</code> option allows to specify whether to use an user-supplied master IP address setup script, whose location is <code>/etc/ganeti/scripts/master-ip-setup</code>. If the option value is set to False, the default script (located at <code>/usr/local/lib/ganeti/tools/master-ip-setup</code>) will be executed.</p>
 <p>The <code>-m (--mac-prefix)</code> option will let you specify a three byte prefix under which the virtual MAC addresses of your instances will be generated. The prefix must be specified in the format <code>XX:XX:XX</code> and the default is <code>aa:00:00</code>.</p>
 <p>The <code>--no-etc-hosts</code> option allows you to initialize the cluster without modifying the /etc/hosts file.</p>
-<p>The <code>--no-ssh-init</code> option allows you to initialize the cluster without creating or distributing SSH key pairs. This also sets the cluster-wide configuration parameter <code>modify ssh setup</code> to False. When adding nodes, Ganeti will consider this parameter to determine whether to create and distributed SSH key pairs on new nodes as well.</p>
+<p>The <code>--no-ssh-init</code> option allows you to initialize the cluster without creating or distributing SSH key pairs. This also sets the cluster-wide configuration parameter <code>modify ssh setup</code> to False. When adding nodes, Ganeti will consider this parameter to determine whether to create and distribute SSH key pairs on new nodes as well.</p>
 <p>The <code>--file-storage-dir</code>, <code>--shared-file-storage-dir</code> and <code>--gluster-storage-dir</code> options allow you set the directory to use for storing the instance disk files when using respectively the file storage backend, the shared file storage backend and the gluster storage backend. Note that these directories must be an allowed directory for file storage. Those directories are specified in the <code>/etc/ganeti/file-storage-paths</code> file. The file storage directory can also be a subdirectory of an allowed one. The file storage directory should be present on all nodes.</p>
 <p>The <code>--prealloc-wipe-disks</code> sets a cluster wide configuration value for wiping disks prior to allocation and size changes (<code>gnt-instance grow-disk</code>). This increases security on instance level as the instance can't access untouched data from its underlying storage.</p>
 <p>The <code>--enabled-hypervisors</code> option allows you to set the list of hypervisors that will be enabled for this cluster. Instance hypervisors can only be chosen from the list of enabled hypervisors, and the first entry of this list will be used by default. Currently, the following hypervisors are available:</p>
@@ -194,7 +194,7 @@
 <dl>
 <dt>migration_port</dt>
 <dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
-<p>This options specifies the TCP port to use for live-migration when using the xm toolstack. The same port should be configured on all nodes in the <code>/etc/xen/xend-config.sxp</code> file, under the key &quot;xend-relocation-port&quot;.</p>
+<p>This options specifies the TCP port to use for live-migration when using the xm toolstack. The same port should be configured on all nodes in the <code>/etc/xen/xend-config.sxp</code> file, under the key "xend-relocation-port".</p>
 </dd>
 <dt>migration_bandwidth</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
@@ -242,7 +242,7 @@
 <dd><p>Number of stripes to use for meta LVs.</p>
 </dd>
 <dt>disk-barriers</dt>
-<dd><p>What kind of barriers to <strong>disable</strong> for disks. It can either assume the value &quot;n&quot;, meaning no barrier disabled, or a non-empty string containing a subset of the characters &quot;bfd&quot;. &quot;b&quot; means disable disk barriers, &quot;f&quot; means disable disk flushes, &quot;d&quot; disables disk drains.</p>
+<dd><p>What kind of barriers to <strong>disable</strong> for disks. It can either assume the value "n", meaning no barrier disabled, or a non-empty string containing a subset of the characters "bfd". "b" means disable disk barriers, "f" means disable disk flushes, "d" disables disk drains.</p>
 </dd>
 <dt>meta-barriers</dt>
 <dd><p>Boolean value indicating whether the meta barriers should be disabled (True) or not (False).</p>
@@ -257,7 +257,7 @@
 <dd><p>String containing additional parameters to be appended to the arguments list of <code>drbdsetup net</code>.</p>
 </dd>
 <dt>protocol</dt>
-<dd><p>Replication protocol for the DRBD device. Has to be either &quot;A&quot;, &quot;B&quot; or &quot;C&quot;. Refer to the DRBD documentation for further information about the differences between the protocols.</p>
+<dd><p>Replication protocol for the DRBD device. Has to be either "A", "B" or "C". Refer to the DRBD documentation for further information about the differences between the protocols.</p>
 </dd>
 <dt>dynamic-resync</dt>
 <dd><p>Boolean indicating whether to use the dynamic resync speed controller or not. If enabled, c-plan-ahead must be non-zero and all the c-* parameters will be used by DRBD. Otherwise, the value of resync-rate will be used as a static resync speed.</p>
@@ -292,7 +292,7 @@
 <dt>access</dt>
 <dd><p>If 'userspace', instances will access their disks directly without going through a block device, avoiding expensive context switches with kernel space and the potential for <a href="http://tracker.ceph.com/issues/3076">deadlocks</a> in low memory scenarios.</p>
 <p>The default value is 'kernelspace' and it disables this behaviour. This setting may only be changed to 'userspace' if all instance disks in the affected group or cluster can be accessed in userspace.</p>
-<p>Attempts to use this feature without rbd support compiled in KVM result in a &quot;no such file or directory&quot; error messages.</p>
+<p>Attempts to use this feature without rbd support compiled in KVM result in a "no such file or directory" error messages.</p>
 </dd>
 </dl>
 <p>The option <code>--maintain-node-health</code> allows one to enable/disable automatic maintenance actions on nodes. Currently these include automatic shutdown of instances and deactivation of DRBD devices on offline nodes; in the future it might be extended to automatic removal of unknown LVM volumes, etc. Note that this option is only useful if the use of <code>ganeti-confd</code> was enabled at compilation.</p>
@@ -487,122 +487,122 @@
 <p>The <code>--verify-ssh-clutter</code> option checks if more than one SSH key for the same '<a href="mailto:user@hostname">user@hostname</a>' pair exists in the 'authorized_keys' file. This is only checked for hostnames of nodes which belong to the cluster. This check is optional, because there might be other systems manipulating the 'authorized_keys' files, which would cause too many false positives otherwise.</p>
 <p>List of error codes:</p>
 <dl>
-<dt><code>ECLUSTERFILECHECK</code></dt>
-<dd><p>Cluster configuration verification failure</p>
-</dd>
 <dt><code>ECLUSTERCERT</code></dt>
 <dd><p>Cluster certificate files verification failure</p>
-</dd>
-<dt><code>ECLUSTERDANGLINGINST</code></dt>
-<dd><p>Some instances have a non-existing primary node</p>
-</dd>
-<dt><code>EINSTANCEPOLICY</code></dt>
-<dd><p>Instance does not meet policy</p>
-</dd>
-<dt><code>ENODEOS</code></dt>
-<dd><p>OS-related node error</p>
-</dd>
-<dt><code>ENODEORPHANLV</code></dt>
-<dd><p>Unknown LVM logical volume</p>
-</dd>
-<dt><code>EINSTANCEMISSINGDISK</code></dt>
-<dd><p>Missing volume on an instance</p>
-</dd>
-<dt><code>EINSTANCEUNSUITABLENODE</code></dt>
-<dd><p>Instance running on nodes that are not suitable for it</p>
 </dd>
 <dt><code>ECLUSTERCFG</code></dt>
 <dd><p>Cluster configuration verification failure</p>
 </dd>
-<dt><code>ENODEFILECHECK</code></dt>
-<dd><p>Error retrieving the checksum of the node files</p>
+<dt><code>ECLUSTERDANGLINGINST</code></dt>
+<dd><p>Some instances have a non-existing primary node</p>
 </dd>
 <dt><code>ECLUSTERDANGLINGNODES</code></dt>
 <dd><p>Some nodes belong to non-existing groups</p>
 </dd>
-<dt><code>ENODESETUP</code></dt>
-<dd><p>Node setup error</p>
-</dd>
-<dt><code>ENODENET</code></dt>
-<dd><p>Network-related node error</p>
-</dd>
-<dt><code>ENODESSH</code></dt>
-<dd><p>SSH-related node error</p>
-</dd>
-<dt><code>EINSTANCEDOWN</code></dt>
-<dd><p>Instance not running on its primary node</p>
-</dd>
-<dt><code>ENODERPC</code></dt>
-<dd><p>Error during connection to the primary node of an instance</p>
+<dt><code>ECLUSTERFILECHECK</code></dt>
+<dd><p>Cluster configuration verification failure</p>
 </dd>
 <dt><code>EGROUPDIFFERENTPVSIZE</code></dt>
 <dd><p>PVs in the group have different sizes</p>
 </dd>
-<dt><code>ENODEHOOKS</code></dt>
-<dd><p>Communication failure in hooks execution</p>
+<dt><code>EINSTANCEBADNODE</code></dt>
+<dd><p>Instance marked as running lives on an offline node</p>
 </dd>
-<dt><code>ENODEDRBD</code></dt>
-<dd><p>Error parsing the DRBD status file</p>
-</dd>
-<dt><code>ENODEDRBDVERSION</code></dt>
-<dd><p>DRBD version mismatch within a node group</p>
-</dd>
-<dt><code>ENODEORPHANINSTANCE</code></dt>
-<dd><p>Unknown intance running on a node</p>
-</dd>
-<dt><code>ENODELVM</code></dt>
-<dd><p>LVM-related node error</p>
-</dd>
-<dt><code>ENODEDRBDHELPER</code></dt>
-<dd><p>Error caused by the DRBD helper</p>
-</dd>
-<dt><code>ENODEVERSION</code></dt>
-<dd><p>Protocol version mismatch or Ganeti version mismatch</p>
+<dt><code>EINSTANCEDOWN</code></dt>
+<dd><p>Instance not running on its primary node</p>
 </dd>
 <dt><code>EINSTANCEFAULTYDISK</code></dt>
 <dd><p>Impossible to retrieve status for a disk</p>
 </dd>
+<dt><code>EINSTANCELAYOUT</code></dt>
+<dd><p>Instance has multiple secondary nodes</p>
+</dd>
 <dt><code>EINSTANCEMISSINGCFGPARAMETER</code></dt>
 <dd><p>A configuration parameter for an instance is missing</p>
 </dd>
-<dt><code>ENODESHAREDFILESTORAGEPATHUNUSABLE</code></dt>
-<dd><p>Shared file storage path unusable</p>
+<dt><code>EINSTANCEMISSINGDISK</code></dt>
+<dd><p>Missing volume on an instance</p>
 </dd>
-<dt><code>EINSTANCEBADNODE</code></dt>
-<dd><p>Instance marked as running lives on an offline node</p>
-</dd>
-<dt><code>ENODEFILESTORAGEPATHUNUSABLE</code></dt>
-<dd><p>File storage path unusable</p>
-</dd>
-<dt><code>ENODEHV</code></dt>
-<dd><p>Hypervisor parameters verification failure</p>
-</dd>
-<dt><code>ENODEFILESTORAGEPATHS</code></dt>
-<dd><p>Detected bad file storage paths</p>
-</dd>
-<dt><code>EINSTANCEWRONGNODE</code></dt>
-<dd><p>Instance running on the wrong node</p>
-</dd>
-<dt><code>ENODEN1</code></dt>
-<dd><p>Not enough memory to accommodate instance failovers</p>
-</dd>
-<dt><code>ENODEGLUSTERSTORAGEPATHUNUSABLE</code></dt>
-<dd><p>Gluster storage path unusable</p>
-</dd>
-<dt><code>ENODETIME</code></dt>
-<dd><p>Node returned invalid time</p>
+<dt><code>EINSTANCEPOLICY</code></dt>
+<dd><p>Instance does not meet policy</p>
 </dd>
 <dt><code>EINSTANCESPLITGROUPS</code></dt>
 <dd><p>Instance with primary and secondary nodes in different groups</p>
 </dd>
+<dt><code>EINSTANCEUNSUITABLENODE</code></dt>
+<dd><p>Instance running on nodes that are not suitable for it</p>
+</dd>
+<dt><code>EINSTANCEWRONGNODE</code></dt>
+<dd><p>Instance running on the wrong node</p>
+</dd>
+<dt><code>ENODEDRBD</code></dt>
+<dd><p>Error parsing the DRBD status file</p>
+</dd>
+<dt><code>ENODEDRBDHELPER</code></dt>
+<dd><p>Error caused by the DRBD helper</p>
+</dd>
+<dt><code>ENODEDRBDVERSION</code></dt>
+<dd><p>DRBD version mismatch within a node group</p>
+</dd>
+<dt><code>ENODEFILECHECK</code></dt>
+<dd><p>Error retrieving the checksum of the node files</p>
+</dd>
+<dt><code>ENODEFILESTORAGEPATHS</code></dt>
+<dd><p>Detected bad file storage paths</p>
+</dd>
+<dt><code>ENODEFILESTORAGEPATHUNUSABLE</code></dt>
+<dd><p>File storage path unusable</p>
+</dd>
+<dt><code>ENODEGLUSTERSTORAGEPATHUNUSABLE</code></dt>
+<dd><p>Gluster storage path unusable</p>
+</dd>
+<dt><code>ENODEHOOKS</code></dt>
+<dd><p>Communication failure in hooks execution</p>
+</dd>
+<dt><code>ENODEHV</code></dt>
+<dd><p>Hypervisor parameters verification failure</p>
+</dd>
+<dt><code>ENODELVM</code></dt>
+<dd><p>LVM-related node error</p>
+</dd>
+<dt><code>ENODEN1</code></dt>
+<dd><p>Not enough memory to accommodate instance failovers</p>
+</dd>
+<dt><code>ENODENET</code></dt>
+<dd><p>Network-related node error</p>
+</dd>
 <dt><code>ENODEOOBPATH</code></dt>
 <dd><p>Invalid Out Of Band path</p>
+</dd>
+<dt><code>ENODEORPHANINSTANCE</code></dt>
+<dd><p>Unknown intance running on a node</p>
+</dd>
+<dt><code>ENODEORPHANLV</code></dt>
+<dd><p>Unknown LVM logical volume</p>
+</dd>
+<dt><code>ENODEOS</code></dt>
+<dd><p>OS-related node error</p>
+</dd>
+<dt><code>ENODERPC</code></dt>
+<dd><p>Error during connection to the primary node of an instance</p>
+</dd>
+<dt><code>ENODESETUP</code></dt>
+<dd><p>Node setup error</p>
+</dd>
+<dt><code>ENODESHAREDFILESTORAGEPATHUNUSABLE</code></dt>
+<dd><p>Shared file storage path unusable</p>
+</dd>
+<dt><code>ENODESSH</code></dt>
+<dd><p>SSH-related node error</p>
+</dd>
+<dt><code>ENODETIME</code></dt>
+<dd><p>Node returned invalid time</p>
 </dd>
 <dt><code>ENODEUSERSCRIPTS</code></dt>
 <dd><p>User scripts not present or not executable</p>
 </dd>
-<dt><code>EINSTANCELAYOUT</code></dt>
-<dd><p>Instance has multiple secondary nodes</p>
+<dt><code>ENODEVERSION</code></dt>
+<dd><p>Protocol version mismatch or Ganeti version mismatch</p>
 </dd>
 </dl>
 <h2 id="verify-disks">VERIFY-DISKS</h2>
@@ -627,7 +627,7 @@
 <p>If the <code>--from</code> option is given, the list of tags to be removed will be extended with the contents of that file (each line becomes a tag). In this case, there is not need to pass tags on the command line (if you do, tags from both sources will be removed). A file name of - will be interpreted as stdin.</p>
 <h3 id="search-tags">SEARCH-TAGS</h3>
 <p><strong>search-tags</strong> {<em>pattern</em>}</p>
-<p>Searches the tags on all objects in the cluster (the cluster itself, the nodes and the instances) for a given pattern. The pattern is interpreted as a regular expression and a search will be done on it (i.e. the given pattern is not anchored to the beggining of the string; if you want that, prefix the pattern with ^).</p>
+<p>Searches the tags on all objects in the cluster (the cluster itself, the nodes and the instances) for a given pattern. The pattern is interpreted as a regular expression and a search will be done on it (i.e. the given pattern is not anchored to the beginning of the string; if you want that, prefix the pattern with ^).</p>
 <p>If no tags are matching the pattern, the exit code of the command will be one. If there is at least one match, the exit code will be zero. Each match is listed on one line, the object and the tag separated by a space. The cluster will be listed as /cluster, a node will be listed as /nodes/<em>name</em>, and an instance as /instances/<em>name</em>. Example:</p>
 <pre><code># gnt-cluster search-tags time
 /cluster ctime:2007-09-01
@@ -644,6 +644,6 @@
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

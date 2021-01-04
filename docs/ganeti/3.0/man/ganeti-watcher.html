@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-watcher(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>ganeti-watcher(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -76,8 +76,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">ganeti-watcher(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">ganeti-watcher(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -104,12 +104,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>--rapi-ip</code> option needs to be set if the RAPI daemon was started with a particular IP (using the <code>-b</code> option). The two options need to be exactly the same to ensure that the watcher can reach the RAPI interface.</p>
 <h2 id="master-operations">Master operations</h2>
 <p>Its primary function is to try to keep running all instances which are marked as <em>up</em> in the configuration file, by trying to start them a limited number of times.</p>
-<p>Another function is to &quot;repair&quot; DRBD links by reactivating the block devices of instances which have secondaries on nodes that have been rebooted.</p>
+<p>Another function is to "repair" DRBD links by reactivating the block devices of instances which have secondaries on nodes that have been rebooted.</p>
 <p>Additionally, it will verify and repair degraded DRBD disks; this will not happen, if the <code>--no-verify-disks</code> option is given.</p>
 <p>The watcher will also archive old jobs (older than the age given via the <code>--job-age</code> option, which defaults to 6 hours), in order to keep the job queue manageable.</p>
 <h2 id="node-operations">Node operations</h2>
 <p>The watcher will restart any down daemons that are appropriate for the current node.</p>
-<p>In addition, it will execute any scripts which exist under the &quot;watcher&quot; directory in the Ganeti hooks directory (<code>/etc/ganeti/hooks</code>). This should be used for lightweight actions, like starting any extra daemons.</p>
+<p>In addition, it will execute any scripts which exist under the "watcher" directory in the Ganeti hooks directory (<code>/etc/ganeti/hooks</code>). This should be used for lightweight actions, like starting any extra daemons.</p>
 <p>If the cluster parameter <code>maintain_node_health</code> is enabled, then the watcher will also shutdown instances and DRBD devices if the node is declared as offline by known master candidates.</p>
 <p>The watcher does synchronous queries but will submit jobs for executing the changes. Due to locking, it could be that the jobs execute much later than the watcher submits them.</p>
 <h1 id="files">FILES</h1>
@@ -131,6 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

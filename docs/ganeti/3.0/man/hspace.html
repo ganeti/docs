@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HSPACE(1) Ganeti | Version 3.0.0~beta1</title>
+  <title>HSPACE(1) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">HSPACE(1) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">HSPACE(1) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -39,7 +39,7 @@
 <p>Backend options:</p>
 <p>{ <strong>-m</strong> <em>cluster</em> | <strong>-L[</strong> <em>path</em> <strong>]</strong> | <strong>-t</strong> <em>data-file</em> | <strong>--simulate</strong> <em>spec</em> | <strong>-I</strong> <em>path</em> }</p>
 <p>Algorithm options:</p>
-<p><strong>[ --max-cpu <em>cpu-ratio</em> ]</strong> <strong>[ --min-disk <em>disk-ratio</em> ]</strong> <strong>[ -O <em>name...</em> ]</strong> <strong>[ --independent-groups ]</strong> <strong>[ --no-capacity-checks ]</strong></p>
+<p><strong>[ --max-cpu *cpu-ratio* ]</strong> <strong>[ --min-disk *disk-ratio* ]</strong> <strong>[ -O *name...* ]</strong> <strong>[ --independent-groups ]</strong> <strong>[ --no-capacity-checks ]</strong></p>
 <p>Request options:</p>
 <p><strong>[--disk-template</strong> <em>template</em> <strong>]</strong></p>
 <p><strong>[--standard-alloc</strong> <em>disk,ram,cpu</em> <strong>]</strong></p>
@@ -51,7 +51,7 @@
 <p>The program will try to place instances, all of the same size, on the cluster, until the point where we don't have any N+1 possible allocation. It uses the exact same allocation algorithm as the hail iallocator plugin in <em>allocate</em> mode.</p>
 <p>The output of the program is designed either for human consumption (the default) or, when enabled with the <code>--machine-readable</code> option (described further below), for machine consumption. In the latter case, it is intended to interpreted as a shell fragment (or parsed as a <em>key=value</em> file). Options which extend the output (e.g. -p, -v) will output the additional information on stderr (such that the stdout is still parseable).</p>
 <p>By default, the instance specifications will be read from the cluster; the options <code>--standard-alloc</code> and <code>--tiered-alloc</code> can be used to override them.</p>
-<p>The following keys are available in the machine-readable output of the script (all prefixed with <em><a href="">HTS</a></em>):</p>
+<p>The following keys are available in the machine-readable output of the script (all prefixed with <em>HTS_</em>):</p>
 <dl>
 <dt>SPEC_MEM, SPEC_DSK, SPEC_CPU, SPEC_RQN, SPEC_DISK_TEMPLATE, SPEC_SPN</dt>
 <dd><p>These represent the specifications of the instance model used for allocation (the memory, disk, cpu, requested nodes, disk template, spindles).</p>
@@ -111,7 +111,7 @@
 <dd><p>This parameter holds the pairs of specifications and counts of instances that can be created in the <em>tiered allocation</em> mode. The value of the key is a space-separated list of values; each value is of the form <em>memory,disk,vcpu,spindles=count</em> where the memory, disk and vcpu are the values for the current spec, and count is how many instances of this spec can be created. A complete value for this variable could be: <strong>4096,102400,2,1=225 2560,102400,2,1=20 512,102400,2,1=21</strong>.</p>
 </dd>
 <dt>KM_USED_CPU, KM_USED_NPU, KM_USED_MEM, KM_USED_DSK</dt>
-<dd><p>These represents the metrics of used resources at the start of the computation (only for tiered allocation mode). The NPU value is &quot;normalized&quot; CPU count, i.e. the number of virtual CPUs divided by the maximum ratio of the virtual to physical CPUs.</p>
+<dd><p>These represents the metrics of used resources at the start of the computation (only for tiered allocation mode). The NPU value is "normalized" CPU count, i.e. the number of virtual CPUs divided by the maximum ratio of the virtual to physical CPUs.</p>
 </dd>
 <dt>KM_POOL_CPU, KM_POOL_NPU, KM_POOL_MEM, KM_POOL_DSK</dt>
 <dd><p>These represents the total resources allocated during the tiered allocation process. In effect, they represent how much is readily available for allocation.</p>
@@ -126,13 +126,13 @@
 <dd><p>The number of instances allocated (delta between FIN_INST_CNT and INI_INST_CNT).</p>
 </dd>
 <dt>ALLOC_FAIL*_CNT</dt>
-<dd><p>For the last attemp at allocations (which would have increased FIN_INST_CNT with one, if it had succeeded), this is the count of the failure reasons per failure type; currently defined are FAILMEM, FAILDISK and FAILCPU which represent errors due to not enough memory, disk and CPUs, and FAILN1 which represents a non N+1 compliant cluster on which we can't allocate instances at all.</p>
+<dd><p>For the last attempt at allocations (which would have increased FIN_INST_CNT with one, if it had succeeded), this is the count of the failure reasons per failure type; currently defined are FAILMEM, FAILDISK and FAILCPU which represent errors due to not enough memory, disk and CPUs, and FAILN1 which represents a non N+1 compliant cluster on which we can't allocate instances at all.</p>
 </dd>
 <dt>ALLOC_FAIL_REASON</dt>
 <dd><p>The reason for most of the failures, being one of the above FAIL* strings.</p>
 </dd>
 <dt>OK</dt>
-<dd><p>A marker representing the successful end of the computation, and having value &quot;1&quot;. If this key is not present in the output it means that the computation failed and any values present should not be relied upon.</p>
+<dd><p>A marker representing the successful end of the computation, and having value "1". If this key is not present in the output it means that the computation failed and any values present should not be relied upon.</p>
 </dd>
 </dl>
 <p>Many of the <code>INI_</code>/<code>FIN_</code> metrics will be also displayed with a <code>TRL_</code> prefix, and denote the cluster status at the end of the tiered allocation run.</p>
@@ -173,7 +173,7 @@
 <li>instances won't be placed on these nodes, not even temporarily; e.g. the <em>replace primary</em> move is not available if the secondary node is offline, since this move requires a failover.</li>
 <li>these nodes will not be included in the score calculation (except for the percentage of instances on offline nodes)</li>
 </ul>
-<p>Note that the algorithm will also mark as offline any nodes which are reported by RAPI as such, or that have &quot;?&quot; in file-based input in any numeric fields.</p>
+<p>Note that the algorithm will also mark as offline any nodes which are reported by RAPI as such, or that have "?" in file-based input in any numeric fields.</p>
 </dd>
 <dt>-S <em>filename</em>, --save-cluster=*filename*</dt>
 <dd><p>If given, the state of the cluster at the end of the allocation is saved to a file named <em>filename.alloc</em>, and if tiered allocation is enabled, the state after tiered allocation will be saved to <em>filename.tiered</em>. This allows re-feeding the cluster state to either hspace itself (with different parameters) or for example hbal, via the <code>-t</code> option.</p>
@@ -196,7 +196,7 @@
 <ul>
 <li>the disk size of the instance (units can be used)</li>
 <li>the memory size of the instance (units can be used)</li>
-<li>the vcpu count for the insance</li>
+<li>the vcpu count for the instance</li>
 </ul>
 <p>An example description would be <em>100G,4g,2</em> describing an instance specification of 100GB of disk space, 4GiB of memory and 2 VCPUs.</p>
 </dd>
@@ -205,7 +205,7 @@
 <p>Also note that the normal allocation and the tiered allocation are independent, and both start from the initial cluster state; as such, the instance count for these two modes are not related one to another.</p>
 </dd>
 <dt>--machine-readable[=*choice*]</dt>
-<dd><p>By default, the output of the program is in &quot;human-readable&quot; format, i.e. text descriptions. By passing this flag you can either enable (<code>--machine-readable</code> or <code>--machine-readable=yes</code>) or explicitly disable (<code>--machine-readable=no</code>) the machine readable format described above.</p>
+<dd><p>By default, the output of the program is in "human-readable" format, i.e. text descriptions. By passing this flag you can either enable (<code>--machine-readable</code> or <code>--machine-readable=yes</code>) or explicitly disable (<code>--machine-readable=no</code>) the machine readable format described above.</p>
 </dd>
 <dt>-v, --verbose</dt>
 <dd><p>Increase the output verbosity. Each usage of this option will increase the verbosity (currently more than 2 doesn't make sense) from the default of one.</p>
@@ -237,6 +237,6 @@
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

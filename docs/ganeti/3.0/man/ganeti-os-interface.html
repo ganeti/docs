@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-os-interface(7) Ganeti | Version 3.0.0~beta1</title>
+  <title>ganeti-os-interface(7) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -76,8 +76,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">ganeti-os-interface(7) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">ganeti-os-interface(7) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -144,6 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt><a href="">DISK</a>%N_PATH</dt>
 <dd><p>The path to the storage for disk N of the instance. This might be either a block device or a regular file, in which case the OS scripts should use <code>losetup</code> (if they need to mount it). E.g. the first disk of the instance might be exported as <code>DISK_0_PATH=/dev/drbd0</code>. If the disk is only accessible via a userspace URI, this not be set.</p>
+</dd>
+<dt><a href="">DISK</a>%N_SIZE</dt>
+<dd><p>The configured size of disk N in mebibytes (available since Ganeti 3.0).</p>
 </dd>
 <dt><a href="">DISK</a>%N_URI</dt>
 <dd><p>The userspace URI to the storage for disk N of the instance, if configured.</p>
@@ -226,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dl>
 <h1 id="executable-scripts">EXECUTABLE SCRIPTS</h1>
 <h2 id="create">create</h2>
-<p>The <strong>create</strong> command is used for creating a new instance from scratch. It has no additional environment variables bside the common ones.</p>
+<p>The <strong>create</strong> command is used for creating a new instance from scratch. It has no additional environment variables beside the common ones.</p>
 <p>The <code>INSTANCE_NAME</code> variable denotes the name of the instance, which is guaranteed to resolve to an IP address. The create script should configure the instance according to this name. It can configure the IP statically or not, depending on the deployment environment.</p>
 <p>The <code>INSTANCE_REINSTALL</code> variable is set to <code>1</code> when this create request is reinstalling an existing instance, rather than creating a new one. This can be used, for example, to preserve some data in the old instance in an OS-specific way.</p>
 <h2 id="export">export</h2>
@@ -317,6 +320,6 @@ root_size The size of the root partition, in GiB</code></pre>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

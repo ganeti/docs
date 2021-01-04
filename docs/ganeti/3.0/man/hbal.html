@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HBAL(1) Ganeti | Version 3.0.0~beta1</title>
+  <title>HBAL(1) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">HBAL(1) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">HBAL(1) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -50,12 +50,12 @@
 <p>Backend options:</p>
 <p>{ <strong>-m</strong> <em>cluster</em> | <strong>-L[</strong> <em>path</em> <strong>] [-X]</strong> | <strong>-t</strong> <em>data-file</em> | <strong>-I</strong> <em>path</em> }</p>
 <p>Algorithm options:</p>
-<p><strong>[ --max-cpu <em>cpu-ratio</em> ]</strong> <strong>[ --min-disk <em>disk-ratio</em> ]</strong> <strong>[ -l <em>limit</em> ]</strong> <strong>[ -e <em>score</em> ]</strong> <strong>[ -g <em>delta</em> ]</strong> <strong>[ --min-gain-limit <em>threshold</em> ]</strong> <strong>[ -O <em>name...</em> ]</strong> <strong>[ --no-disk-moves ]</strong> <strong>[ --no-instance-moves ]</strong> <strong>[ -U <em>util-file</em> ]</strong> <strong>[ --ignore-dynu ]</strong> <strong>[ --ignore-soft-errors ]</strong> <strong>[ --mond <em>yes|no</em> ]</strong> <strong>[ --mond-xen ]</strong> <strong>[ --exit-on-missing-mond-data ]</strong> <strong>[ --evac-mode ]</strong> <strong>[ --restricted-migration ]</strong> <strong>[ --select-instances <em>inst...</em> ]</strong> <strong>[ --exclude-instances <em>inst...</em> ]</strong></p>
+<p><strong>[ --max-cpu *cpu-ratio* ]</strong> <strong>[ --min-disk *disk-ratio* ]</strong> <strong>[ -l *limit* ]</strong> <strong>[ -e *score* ]</strong> <strong>[ -g *delta* ]</strong> <strong>[ --min-gain-limit *threshold* ]</strong> <strong>[ -O *name...* ]</strong> <strong>[ --no-disk-moves ]</strong> <strong>[ --no-instance-moves ]</strong> <strong>[ -U *util-file* ]</strong> <strong>[ --ignore-dynu ]</strong> <strong>[ --ignore-soft-errors ]</strong> <strong>[ --mond *yes|no* ]</strong> <strong>[ --mond-xen ]</strong> <strong>[ --exit-on-missing-mond-data ]</strong> <strong>[ --evac-mode ]</strong> <strong>[ --restricted-migration ]</strong> <strong>[ --select-instances *inst...* ]</strong> <strong>[ --exclude-instances *inst...* ]</strong></p>
 <p>Reporting options:</p>
-<p><strong>[ -C[ <em>file</em> ] ]</strong> <strong>[ -p[ <em>fields</em> ] ]</strong> <strong>[ --print-instances ]</strong> <strong>[ -S <em>file</em> ]</strong> <strong>[ -v... | -q ]</strong></p>
+<p><strong>[ -C[ *file* ] ]</strong> <strong>[ -p[ *fields* ] ]</strong> <strong>[ --print-instances ]</strong> <strong>[ -S *file* ]</strong> <strong>[ -v... | -q ]</strong></p>
 <h1 id="description">DESCRIPTION</h1>
 <p>hbal is a cluster balancer that looks at the current state of the cluster (nodes with their total and free disk, memory, etc.) and instance placement and computes a series of steps designed to bring the cluster into a better state.</p>
-<p>The algorithm used is designed to be stable (i.e. it will give you the same results when restarting it from the middle of the solution) and reasonably fast. It is not, however, designed to be a perfect algorithm: it is possible to make it go into a corner from which it can find no improvement, because it looks only one &quot;step&quot; ahead.</p>
+<p>The algorithm used is designed to be stable (i.e. it will give you the same results when restarting it from the middle of the solution) and reasonably fast. It is not, however, designed to be a perfect algorithm: it is possible to make it go into a corner from which it can find no improvement, because it looks only one "step" ahead.</p>
 <p>The program accesses the cluster state via Rapi or Luxi. It also requests data over the network from all MonDs with the --mond option. Currently it uses only data produced by CPUload collector.</p>
 <p>By default, the program will show the solution incrementally as it is computed, in a somewhat cryptic format; for getting the actual Ganeti command list, use the <strong>-C</strong> option.</p>
 <h2 id="algorithm">ALGORITHM</h2>
@@ -104,7 +104,7 @@
 <h2 id="offline-instances">OFFLINE INSTANCES</h2>
 <p>Since current Ganeti versions do not report the memory used by offline (down) instances, ignoring the run status of instances will cause wrong calculations. For this reason, the algorithm subtracts the memory size of down instances from the free node memory of their primary node, in effect simulating the startup of such instances.</p>
 <h2 id="desired-location-tags">DESIRED LOCATION TAGS</h2>
-<p>Sometimes, administrators want specific instances located in a particular, typically geographic, location. To suppoer this desired location tags are introduced.</p>
+<p>Sometimes, administrators want specific instances located in a particular, typically geographic, location. To support this desired location tags are introduced.</p>
 <p>If the cluster is tagged <em>htools:desiredlocation:x</em> then tags starting with <em>x</em> are desired location tags. Instances can be assigned tags of the form <em>x</em> that means that instance wants to be placed on a node tagged with a location tag <em>x</em>. (That means that cluster should be tagged <em>htools:nlocation:x</em> too).</p>
 <p>Instance pinning is just heuristics, not a hard enforced requirement; it will only be achieved by the cluster metrics favouring such placements.</p>
 <h2 id="exclusion-tags">EXCLUSION TAGS</h2>
@@ -126,15 +126,15 @@
 <dd><p>This make make node tags of the form <em>a:*</em>, <em>b:*</em>, etc be considered migration restriction. More precisely, the suffix of cluster tags starting with <em>htools:migration:</em> will become the prefix of the migration tags. Only those migrations will be taken into consideration where all migration tags of the source node are also present on the target node.</p>
 </dd>
 <dt>cluster tags <em>htools:allowmigration:x::y</em> for migration tags <em>x</em> and <em>y</em></dt>
-<dd><p>This asserts that a node taged <em>y</em> is able to receive instances in the same way as if they had an <em>x</em> tag.</p>
+<dd><p>This asserts that a node tagged <em>y</em> is able to receive instances in the same way as if they had an <em>x</em> tag.</p>
 </dd>
 </dl>
-<p>So in the simple case of a hypervisor upgrade, tagging all the nodes that have been upgraded with a migration tag suffices. In more complicated situations, it is always possible to use a different migration tag for each hypervisor used and explictly state the allowed migration directions by means of <em>htools:allowmigration:</em> tags.</p>
+<p>So in the simple case of a hypervisor upgrade, tagging all the nodes that have been upgraded with a migration tag suffices. In more complicated situations, it is always possible to use a different migration tag for each hypervisor used and explicitly state the allowed migration directions by means of <em>htools:allowmigration:</em> tags.</p>
 <h2 id="location-tags">LOCATION TAGS</h2>
-<p>Within a node group, certain nodes might be more likely to fail simultaneously due to a common cause of error (e.g., if they share the same power supply unit). Ganeti can be made aware of thos common causes of failure by means of tags.</p>
+<p>Within a node group, certain nodes might be more likely to fail simultaneously due to a common cause of error (e.g., if they share the same power supply unit). Ganeti can be made aware of those common causes of failure by means of tags.</p>
 <dl>
 <dt>cluster tags <em>htools:nlocation:a</em>, <em>htools:nlocation:b</em>, etc</dt>
-<dd><p>This make make node tags of the form <em>a:*</em>, <em>b:*</em>, etc be considered to have a common cause of failure.</p>
+<dd><p>This make node tags of the form <em>a:*</em>, <em>b:*</em>, etc be considered to have a common cause of failure.</p>
 </dd>
 </dl>
 <p>Instances with primary and secondary node having a common cause of failure and instances sharing the same exclusion tag with primary nodes having a common failure are considered badly placed. While such placements are always allowed, they count heavily towards the cluster score.</p>
@@ -143,7 +143,7 @@
 <dl>
 <dt>-C, --print-commands</dt>
 <dd><p>Print the command list at the end of the run. Without this, the program will only show a shorter, but cryptic output.</p>
-<p>Note that the moves list will be split into independent steps, called &quot;jobsets&quot;, but only for visual inspection, not for actually parallelisation. It is not possible to parallelise these directly when executed via &quot;gnt-instance&quot; commands, since a compound command (e.g. failover and replace-disks) must be executed serially. Parallel execution is only possible when using the Luxi backend and the <em>-L</em> option.</p>
+<p>Note that the moves list will be split into independent steps, called "jobsets", but only for visual inspection, not for actually parallelisation. It is not possible to parallelise these directly when executed via "gnt-instance" commands, since a compound command (e.g. failover and replace-disks) must be executed serially. Parallel execution is only possible when using the Luxi backend and the <em>-L</em> option.</p>
 <p>The algorithm for splitting the moves into jobsets is by accumulating moves until the next move is touching nodes already touched by the current moves; this means we can't execute in parallel (due to resource allocation in Ganeti) and thus we start a new jobset.</p>
 </dd>
 <dt>-p, --print-nodes</dt>
@@ -158,7 +158,7 @@
 <li>instances won't be placed on these nodes, not even temporarily; e.g. the <em>replace primary</em> move is not available if the secondary node is offline, since this move requires a failover.</li>
 <li>these nodes will not be included in the score calculation (except for the percentage of instances on offline nodes)</li>
 </ul>
-<p>Note that algorithm will also mark as offline any nodes which are reported by RAPI as such, or that have &quot;?&quot; in file-based input in any numeric fields.</p>
+<p>Note that algorithm will also mark as offline any nodes which are reported by RAPI as such, or that have "?" in file-based input in any numeric fields.</p>
 </dd>
 <dt>-e <em>score</em>, --min-score=*score*</dt>
 <dd><p>This parameter denotes how much above the N+1 bound the cluster score can for us to be happy with and alters the computation in two ways:</p>
@@ -175,10 +175,10 @@
 <dd><p>The above min-gain option will only take effect if the cluster score is already below <em>threshold</em> (defaults to 0.1). The rationale behind this setting is that at high cluster scores (badly balanced clusters), we don't want to abort the rebalance too quickly, as later gains might still be significant. However, under the threshold, the total gain is only the threshold value, so we can exit early.</p>
 </dd>
 <dt>--no-disk-moves</dt>
-<dd><p>This parameter prevents hbal from using disk move (i.e. &quot;gnt-instance replace-disks&quot;) operations. This will result in a much quicker balancing, but of course the improvements are limited. It is up to the user to decide when to use one or another.</p>
+<dd><p>This parameter prevents hbal from using disk move (i.e. "gnt-instance replace-disks") operations. This will result in a much quicker balancing, but of course the improvements are limited. It is up to the user to decide when to use one or another.</p>
 </dd>
 <dt>--no-instance-moves</dt>
-<dd><p>This parameter prevents hbal from using instance moves (i.e. &quot;gnt-instance migrate/failover&quot;) operations. This will only use the slow disk-replacement operations, and will also provide a worse balance, but can be useful if moving instances around is deemed unsafe or not preferred.</p>
+<dd><p>This parameter prevents hbal from using instance moves (i.e. "gnt-instance migrate/failover") operations. This will only use the slow disk-replacement operations, and will also provide a worse balance, but can be useful if moving instances around is deemed unsafe or not preferred.</p>
 </dd>
 <dt>--evac-mode</dt>
 <dd><p>This parameter restricts the list of instances considered for moving to the ones living on offline/drained nodes. It can be used as a (bulk) replacement for Ganeti's own <em>gnt-node evacuate</em>, with the note that it doesn't guarantee full evacuation.</p>
@@ -193,17 +193,17 @@
 <dd><p>This parameter marks the given instances (as a comma-separated list) from being moved during the rebalance.</p>
 </dd>
 <dt>-U <em>util-file</em></dt>
-<dd><p>This parameter specifies a file holding instance dynamic utilisation information that will be used to tweak the balancing algorithm to equalise load on the nodes (as opposed to static resource usage). The file is in the format &quot;instance_name cpu_util mem_util disk_util net_util&quot; where the &quot;_util&quot; parameters are interpreted as numbers and the instance name must match exactly the instance as read from Ganeti. In case of unknown instance names, the program will abort.</p>
+<dd><p>This parameter specifies a file holding instance dynamic utilisation information that will be used to tweak the balancing algorithm to equalise load on the nodes (as opposed to static resource usage). The file is in the format "instance_name cpu_util mem_util disk_util net_util" where the "_util" parameters are interpreted as numbers and the instance name must match exactly the instance as read from Ganeti. In case of unknown instance names, the program will abort.</p>
 <p>If not given, the default values are one for all metrics and thus dynamic utilisation has only one effect on the algorithm: the equalisation of the secondary instances across nodes (this is the only metric that is not tracked by another, dedicated value, and thus the disk load of instances will cause secondary instance equalisation). Note that value of one will also influence slightly the primary instance count, but that is already tracked via other metrics and thus the influence of the dynamic utilisation will be practically insignificant.</p>
 </dd>
 <dt>--ignore-dynu</dt>
 <dd><p>If given, all dynamic utilisation information will be ignored by assuming it to be 0. This option will take precedence over any data passed by the <code>-U</code> option or by the MonDs with the <code>--mond</code> and the <code>--mond-data</code> option.</p>
 </dd>
 <dt>--ignore-soft-errors</dt>
-<dd><p>If given, all checks for soft errors will be ommitted when considering balancing moves. In this way, progress can be made in a cluster where all nodes are in a policy-wise bad state, like exceeding oversubscription ratios on CPU or spindles.</p>
+<dd><p>If given, all checks for soft errors will be omitted when considering balancing moves. In this way, progress can be made in a cluster where all nodes are in a policy-wise bad state, like exceeding oversubscription ratios on CPU or spindles.</p>
 </dd>
 <dt>-S <em>filename</em>, --save-cluster=*filename*</dt>
-<dd><p>If given, the state of the cluster before the balancing is saved to the given file plus the extension &quot;original&quot; (i.e. <em>filename</em>.original), and the state at the end of the balancing is saved to the given file plus the extension &quot;balanced&quot; (i.e. <em>filename</em>.balanced). This allows re-feeding the cluster state to either hbal itself or for example hspace via the <code>-t</code> option.</p>
+<dd><p>If given, the state of the cluster before the balancing is saved to the given file plus the extension "original" (i.e. <em>filename</em>.original), and the state at the end of the balancing is saved to the given file plus the extension "balanced" (i.e. <em>filename</em>.balanced). This allows re-feeding the cluster state to either hbal itself or for example hspace via the <code>-t</code> option.</p>
 </dd>
 <dt>-t <em>datafile</em>, --text-data=*datafile*</dt>
 <dd><p>Backend specification: the name of the file holding node and instance information (if not collecting via RAPI or LUXI). This or one of the other backends must be selected. The option is described in the man page <strong>htools</strong>(1).</p>
@@ -218,7 +218,7 @@
 <dd><p>If given, abort if the data obtainable from querying MonDs is incomplete. The default behavior is to continue with a best guess based on the static information.</p>
 </dd>
 <dt>--mond-data <em>datafile</em></dt>
-<dd><p>The name of the file holding the data provided by MonD, to override quering MonDs over the network. This is mostly used for debugging. The file must be in JSON format and present an array of JSON objects , one for every node, with two members. The first member named <code>node</code> is the name of the node and the second member named <code>reports</code> is an array of report objects. The report objects must be in the same format as produced by the monitoring agent.</p>
+<dd><p>The name of the file holding the data provided by MonD, to override querying MonDs over the network. This is mostly used for debugging. The file must be in JSON format and present an array of JSON objects , one for every node, with two members. The first member named <code>node</code> is the name of the node and the second member named <code>reports</code> is an array of report objects. The report objects must be in the same format as produced by the monitoring agent.</p>
 </dd>
 <dt>-m <em>cluster</em></dt>
 <dd><p>Backend specification: collect data directly from the <em>cluster</em> given as an argument via RAPI. The option is described in the man page <strong>htools</strong>(1).</p>
@@ -424,6 +424,6 @@ N1 Name   t_mem f_mem r_mem t_dsk f_dsk pri sec  p_fmem  p_fdsk
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

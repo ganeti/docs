@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-backup(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>gnt-backup(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">gnt-backup(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">gnt-backup(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -74,7 +74,7 @@
 [--submit] [--print-jobid]<br />
 {<em>instance-name</em>}</div>
 <p>Imports a new instance from an export residing on <em>source-node</em> in <em>source-dir</em>. <em>instance-name</em> must be in DNS and resolve to a IP in the same network as the nodes in the cluster. If the source node and directory are not passed, the last backup in the cluster is used, as visible with the <strong>list</strong> command.</p>
-<p>The <code>disk</code> option specifies the parameters for the disks of the instance. The numbering of disks starts at zero. For each disk, at least the size needs to be given, and optionally the access mode (read-only or the default of read-write) and LVM volume group can also be specified. The size is interpreted (when no unit is given) in mebibytes. You can also use one of the suffixes m, g or t to specificy the exact the units used; these suffixes map to mebibytes, gibibytes and tebibytes.</p>
+<p>The <code>disk</code> option specifies the parameters for the disks of the instance. The numbering of disks starts at zero. For each disk, at least the size needs to be given, and optionally the access mode (read-only or the default of read-write) and LVM volume group can also be specified. The size is interpreted (when no unit is given) in mebibytes. You can also use one of the suffixes m, g or t to specify the exact the units used; these suffixes map to mebibytes, gibibytes and tebibytes.</p>
 <p>Alternatively, a single-disk instance can be created via the <code>-s</code> option which takes a single argument, the size of the disk. This is similar to the Ganeti 1.2 version (but will only create one disk).</p>
 <p>If no disk information is passed, the disk configuration saved at export time will be used.</p>
 <p>The minimum disk specification is therefore empty (export information will be used), a single disk can be specified as <code>--disk 0:size=20G</code> (or <code>-s 20G</code> when using the <code>-s</code> option), and a three-disk instance can be specified as <code>--disk 0:size=20G --disk 1:size=4G --disk 2:size=100G</code>.</p>
@@ -132,7 +132,7 @@
 <p>The optional second value of the <code>--node</code> is used for the drbd template and specifies the remote node.</p>
 <p>The <code>--compress</code> option is used to specify which compression mode is used for moves during the import. Valid values are 'none' (the default) and 'gzip'.</p>
 <p>The <code>--src-dir</code> option allows importing instances from a directory below <code>/srv/ganeti/export</code>.</p>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>Since many of the parameters are by default read from the exported instance information and used as such, the new instance will have all parameters explicitly specified, the opposite of a newly added instance which has most parameters specified via cluster defaults. To change the import behaviour to recognize parameters whose saved value matches the current cluster default and mark it as such (default value), pass the <code>--identify-defaults</code> option. This will affect the hypervisor, backend and NIC parameters, both read from the export file and passed in via the command line.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example for identical instance import:</p>
@@ -176,6 +176,6 @@
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

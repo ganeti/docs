@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-instance(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>gnt-instance(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -76,8 +76,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">gnt-instance(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">gnt-instance(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -155,6 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [--ignore-ipolicy]<br />
 [--no-wait-for-sync]<br />
 [{-cno}]<br />
+[{--tags [: <a href="tag:value">tag:value</a>... ]<br />
 {<em>instance-name</em>}</div>
 <p>Creates a new instance on the specified host. The <em>instance-name</em> argument must be in DNS, but depending on the bridge/routing setup, need not be in the same network as the nodes in the cluster.</p>
 <p>The <code>disk</code> option specifies the parameters for the disks of the instance. The numbering of disks starts at zero, and at least one disk needs to be passed. For each disk, either the size or the adoption source needs to be given. The size is interpreted (when no unit is given) in mebibytes. You can also use one of the suffixes <em>m</em>, <em>g</em> or <em>t</em> to specify the exact the units used; these suffixes map to mebibytes, gibibytes and tebibytes. Each disk can also take these parameters (all optional):</p>
@@ -210,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dd><p>in bridged and openvswitch mode specifies the VLANs that the NIC will be connected to. To connect as an access port use <code>n</code> or <code>.n</code> with <strong>n</strong> being the VLAN ID. To connect as an trunk port use <code>:n[:n]</code>. A hybrid port can be created with <code>.n:n[:n]</code>. For bridged mode, the bridge needs VLAN filtering enabled. Assuming a bridge named <strong>gnt-br</strong>, this is accomplished by running <code>ip link set dev gnt-br type bridge vlan_filtering 1</code>.</p>
 </dd>
 </dl>
-<p>Of these &quot;mode&quot; and &quot;link&quot; are NIC parameters, and inherit their default at cluster level. Alternatively, if no network is desired for the instance, you can prevent the default of one NIC with the <code>--no-nics</code> option.</p>
+<p>Of these "mode" and "link" are NIC parameters, and inherit their default at cluster level. Alternatively, if no network is desired for the instance, you can prevent the default of one NIC with the <code>--no-nics</code> option.</p>
 <p>The <code>-o (--os-type)</code> option specifies the operating system to be installed. The available operating systems can be listed with <strong>gnt-os list</strong>. Passing <code>--no-install</code> will however skip the OS installation, allowing a manual import if so desired. Note that the no-installation mode will automatically disable the start-up of the instance (without an OS, it most likely won't be able to start-up successfully).</p>
 <p>Passing the <code>--forthcoming</code> option, Ganeti will not at all try to create the instance or its disks. Instead the instance will only be added to the configuration, so that the resources are reserved. If the <code>--commit</code> option is passed, then it is a prerequisite that an instance with that name has already been added to the configuration as a forthcoming instance and the request is to replace this instance by the newly created real one. Note that if the reason for reserving an instance is that DNS names still need to be propagated, the reservation has to be done with <code>--no-name-check</code> and <code>--no-ip-check</code> as these options are not implied by <code>--forthcoming</code>.</p>
 <p>The <code>-B (--backend-parameters)</code> option specifies the backend parameters for the instance. If no such parameters are specified, the values are inherited from the cluster. Possible parameters are:</p>
@@ -254,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 </dl>
 <p>The default is not to set an HVM boot order, which is interpreted as 'dc'.</p>
-<p>For KVM the boot order is either &quot;floppy&quot;, &quot;cdrom&quot;, &quot;disk&quot; or &quot;network&quot;. Please note that older versions of KVM couldn't netboot from virtio interfaces. This has been fixed in more recent versions and is confirmed to work at least with qemu-kvm 0.11.1. Also note that if you have set the <code>kernel_path</code> option, that will be used for booting, and this setting will be silently ignored.</p>
+<p>For KVM the boot order is either "floppy", "cdrom", "disk" or "network". Please note that older versions of KVM couldn't netboot from virtio interfaces. This has been fixed in more recent versions and is confirmed to work at least with qemu-kvm 0.11.1. Also note that if you have set the <code>kernel_path</code> option, that will be used for booting, and this setting will be silently ignored.</p>
 </dd>
 <dt>blockdev_prefix</dt>
 <dd><p>Valid for the Xen HVM and PVM hypervisors.</p>
@@ -306,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>kvm_pci_reservations</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>The nubmer of PCI slots that QEMU will manage implicitly. By default Ganeti will let QEMU use the first 12 slots (i.e. PCI slots 0-11) on its own and will start adding disks and NICs from the 13rd slot (i.e. PCI slot 12) onwards. So by default one can add 20 PCI devices (32 - 12). To support more than that, this hypervisor parameter should be set accordingly (e.g. to 8).</p>
+<p>The number of PCI slots that QEMU will manage implicitly. By default Ganeti will let QEMU use the first 12 slots (i.e. PCI slots 0-11) on its own and will start adding disks and NICs from the 13rd slot (i.e. PCI slot 12) onwards. So by default one can add 20 PCI devices (32 - 12). To support more than that, this hypervisor parameter should be set accordingly (e.g. to 8).</p>
 </dd>
 <dt>disk_type</dt>
 <dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
@@ -429,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>cpu_type</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
 <p>This parameter determines the emulated cpu for the instance. If this parameter is empty (which is the default configuration), it will not be passed to KVM.</p>
-<p>Be aware of setting this parameter to <code>&quot;host&quot;</code> if you have nodes with different CPUs from each other. Live migration may stop working in this situation.</p>
+<p>Be aware of setting this parameter to <code>"host"</code> if you have nodes with different CPUs from each other. Live migration may stop working in this situation.</p>
 <p>For more information please refer to the KVM manual.</p>
 </dd>
 <dt>acpi</dt>
@@ -460,8 +461,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>kernel_args</dt>
 <dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
 <p>This options specifies extra arguments to the kernel that will be loaded. This is always used for Xen PVM, while for KVM it is only used if the <code>kernel_path</code> option is also specified.</p>
-<p>The default setting for this value is simply <code>&quot;ro&quot;</code>, which mounts the root disk (initially) in read-only one. For example, setting this to single will cause the instance to start in single-user mode.</p>
-<p>Note that the hypervisor setting <code>serial_console</code> appends <code>&quot;console=ttyS0,&lt;serial_speed&gt;&quot;</code> to the end of <code>kernel_args</code> in KVM.</p>
+<p>The default setting for this value is simply <code>"ro"</code>, which mounts the root disk (initially) in read-only one. For example, setting this to single will cause the instance to start in single-user mode.</p>
+<p>Note that the hypervisor setting <code>serial_console</code> appends <code>"console=ttyS0,&lt;serial_speed&gt;"</code> to the end of <code>kernel_args</code> in KVM.</p>
 </dd>
 <dt>initrd_path</dt>
 <dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
@@ -475,7 +476,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>serial_console</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
 <p>This boolean option specifies whether to emulate a serial console for the instance. Note that some versions of KVM have a bug that will make an instance hang when configured to use the serial console unless a connection is made to it within about 2 seconds of the instance's startup. For such case it's recommended to disable this option, which is enabled by default.</p>
-<p>Enabling serial console emulation also appends <code>&quot;console=ttyS0,&lt;serial_speed&gt;&quot;</code> to the end of <code>kernel_args</code> in KVM and may infere with previous settings.</p>
+<p>Enabling serial console emulation also appends <code>"console=ttyS0,&lt;serial_speed&gt;"</code> to the end of <code>kernel_args</code> in KVM and may interfere with previous settings.</p>
 </dd>
 <dt>serial_speed</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
@@ -491,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>disk_discard</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>discard is one of &quot;ignore&quot;, &quot;unmap&quot; or &quot;default&quot; and controls whether discard (also known as trim or unmap) requests are ignored or passed to the filesystem. Some machine types may not support discard requests. For compatibility with older qemu versions &quot;default&quot; will not pass any discard option to KVM.</p>
+<p>discard is one of "ignore", "unmap" or "default" and controls whether discard (also known as trim or unmap) requests are ignored or passed to the filesystem. Some machine types may not support discard requests. For compatibility with older qemu versions "default" will not pass any discard option to KVM.</p>
 </dd>
 <dt>security_model</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
@@ -520,7 +521,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>user_shutdown</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>This boolean option determines whether the KVM instance suports user shutdown detection. This option does not necessarily require ACPI enabled, but ACPI must be enabled for users to poweroff their KVM instances.</p>
+<p>This boolean option determines whether the KVM instance supports user shutdown detection. This option does not necessarily require ACPI enabled, but ACPI must be enabled for users to poweroff their KVM instances.</p>
 <p>If it is set to <code>true</code>, the user can shutdown this KVM instance and its status is reported as <code>USER_down</code>.</p>
 <p>It is set to <code>false</code> by default.</p>
 </dd>
@@ -532,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>cpu_mask</dt>
 <dd><p>Valid for the Xen, KVM and LXC hypervisors.</p>
 <p>The processes belonging to the given instance are only scheduled on the specified CPUs.</p>
-<p>The format of the mask can be given in three forms. First, the word &quot;all&quot;, which signifies the common case where all VCPUs can live on any CPU, based on the hypervisor's decisions.</p>
+<p>The format of the mask can be given in three forms. First, the word "all", which signifies the common case where all VCPUs can live on any CPU, based on the hypervisor's decisions.</p>
 <p>Second, a comma-separated list of CPU IDs or CPU ID ranges. The ranges are defined by a lower and higher boundary, separated by a dash, and the boundaries are inclusive. In this form, all VCPUs of the instance will be mapped on the selected list of CPUs. Example: <code>0-2,5</code>, mapping all VCPUs (no matter how many) onto physical CPUs 0, 1, 2 and 5.</p>
 <p>The last form is used for explicit control of VCPU-CPU pinnings. In this form, the list of VCPU mappings is given as a colon (:) separated list, whose elements are the possible values for the second or first form above. In this form, the number of elements in the colon-separated list _<a href="">must</a> equal the number of VCPUs of the instance.</p>
 <p>Example:</p>
@@ -565,11 +566,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>usb_mouse</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>This option specifies the usb mouse type to be used. It can be &quot;mouse&quot; or &quot;tablet&quot;. When using VNC it's recommended to set it to &quot;tablet&quot;.</p>
+<p>This option specifies the usb mouse type to be used. It can be "mouse" or "tablet". When using VNC it's recommended to set it to "tablet".</p>
 </dd>
 <dt>keymap</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>This option specifies the keyboard mapping to be used. It is only needed when using the VNC console. For example: &quot;fr&quot; or &quot;en-gb&quot;.</p>
+<p>This option specifies the keyboard mapping to be used. It is only needed when using the VNC console. For example: "fr" or "en-gb".</p>
 </dd>
 <dt>reboot_behavior</dt>
 <dd><p>Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
@@ -590,7 +591,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>soundhw</dt>
 <dd><p>Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
-<p>Comma separated list of emulated sounds cards, or &quot;all&quot; to enable all the available ones. See the <strong>qemu</strong>(1) manpage for valid options and additional details.</p>
+<p>Comma separated list of emulated sounds cards, or "all" to enable all the available ones. See the <strong>qemu</strong>(1) manpage for valid options and additional details.</p>
 </dd>
 <dt>cpuid</dt>
 <dd><p>Valid for the XEN hypervisor.</p>
@@ -616,7 +617,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>migration_caps</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>Enable specific migration capabilities by providing a &quot;:&quot; separated list of supported capabilites. QEMU version 1.7.0 defines x-rdma-pin-all, auto-converge, zero-blocks, and xbzrle. Please note that while a combination of xbzrle and auto-converge might speed up the migration process significantly, the first may cause BSOD on Windows8r2 instances running on drbd.</p>
+<p>Enable specific migration capabilities by providing a ":" separated list of supported capabilities. QEMU version 1.7.0 defines x-rdma-pin-all, auto-converge, zero-blocks, and xbzrle.</p>
+<p>QEMU version 2.5 defines x-postcopy-ram and 2.6 renames this to postcopy-ram. If x-postcopy-ram or postcopy-ram are enabled, Ganeti will automatically move a migration to postcopy mode after a dirty_sync_count of 2. Other than normal live migration, that can recover from dying destination node, it is not possible to recover from dying source node during active postcopy migration.</p>
+<p>Please note that while a combination of xbzrle and auto-converge might speed up the migration process significantly, the first may cause BSOD on Windows8r2 instances running on drbd.</p>
 </dd>
 <dt>kvm_path</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
@@ -630,32 +633,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>virtio_net_queues</dt>
 <dd><p>Valid for the KVM hypervisor.</p>
-<p>Set a number of queues (file descriptors) for tap device to parallelize packets sending or receiving. Tap devices will be created with MULTI_QUEUE (IFF_MULTI_QUEUE) support. This only works with KVM paravirtual nics (virtio-net) and the maximum number of queues is limited to <code>8</code>. Tehnically this is an extension of <code>vnet_hdr</code> which must be enabled for multiqueue support.</p>
+<p>Set a number of queues (file descriptors) for tap device to parallelize packets sending or receiving. Tap devices will be created with MULTI_QUEUE (IFF_MULTI_QUEUE) support. This only works with KVM paravirtual nics (virtio-net) and the maximum number of queues is limited to <code>8</code>. Technically this is an extension of <code>vnet_hdr</code> which must be enabled for multiqueue support.</p>
 <p>If set to <code>1</code> queue, it effectively disables multiqueue support on the tap and virio-net devices.</p>
 <p>For instances it is necessary to manually set number of queues (on Linux using: <code>ethtool -L ethX combined $queues</code>).</p>
 <p>It is set to <code>1</code> by default.</p>
 </dd>
 <dt>startup_timeout</dt>
 <dd><p>Valid for the LXC hypervisor.</p>
-<p>This integer option specifies the number of seconds to wait for the state of an LXC container changes to &quot;RUNNING&quot; after startup, as reported by lxc-wait. Otherwise we assume an error has occurred and report it.</p>
+<p>This integer option specifies the number of seconds to wait for the state of an LXC container changes to "RUNNING" after startup, as reported by lxc-wait. Otherwise we assume an error has occurred and report it.</p>
 <p>It is set to <code>30</code> by default.</p>
 </dd>
 <dt>extra_cgroups</dt>
 <dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the list of cgroup subsystems that will be mounted alongside the needed ones before starting LXC containers.</p>
-<p>Since LXC version &gt;= 1.0.0, LXC strictly requires all cgroup subsystems to be mounted before starting a container. Users can control the list of desired cgroup subsystems for LXC containers by specifying the lxc.cgroup.use parameter in the LXC system configuration file(see: <strong>lxc.system.conf</strong>(5)). Its default value is &quot;@kernel&quot; which means all cgroup kernel subsystems.</p>
+<p>Since LXC version &gt;= 1.0.0, LXC strictly requires all cgroup subsystems to be mounted before starting a container. Users can control the list of desired cgroup subsystems for LXC containers by specifying the lxc.cgroup.use parameter in the LXC system configuration file(see: <strong>lxc.system.conf</strong>(5)). Its default value is "@kernel" which means all cgroup kernel subsystems.</p>
 <p>The LXC hypervisor of Ganeti ensures that all cgroup subsystems needed to start an LXC container are mounted, as well as the subsystems specified in this parameter. The needed subsystems are currently <code>cpuset</code>, <code>memory</code>, <code>devices</code>, and <code>cpuacct</code>.</p>
-<p>The value of this parameter should be a list of cgroup subsystems separated by a comma(e.g., &quot;net_cls,perf_event,blkio&quot;).</p>
+<p>The value of this parameter should be a list of cgroup subsystems separated by a comma(e.g., "net_cls,perf_event,blkio").</p>
 <p>If this parameter is not specified, a list of subsystems will be taken from /proc/cgroups instead.</p>
 </dd>
 <dt>drop_capabilities</dt>
 <dd><p>Valid for the LXC hypervisor.</p>
-<p>This option specifies the list of capabilities which should be dropped for a LXC container. Each value of this option must be in the same form as the lxc.cap.drop configuration parameter of <strong>lxc.container.conf</strong>(5). It is the lower case of the capability name without the &quot;CAP_&quot; prefix (e.g., &quot;sys_module,sys_time&quot;). See <strong>capabilities</strong>(7) for more details about Linux capabilities. Note that some capabilities are required by the LXC container (see: <strong>lxc.container.conf</strong>(5)). Also note that the CAP_SYS_BOOT is required(should not be dropped) to perform the soft reboot for the LXC container.</p>
+<p>This option specifies the list of capabilities which should be dropped for a LXC container. Each value of this option must be in the same form as the lxc.cap.drop configuration parameter of <strong>lxc.container.conf</strong>(5). It is the lower case of the capability name without the "CAP_" prefix (e.g., "sys_module,sys_time"). See <strong>capabilities</strong>(7) for more details about Linux capabilities. Note that some capabilities are required by the LXC container (see: <strong>lxc.container.conf</strong>(5)). Also note that the CAP_SYS_BOOT is required(should not be dropped) to perform the soft reboot for the LXC container.</p>
 <p>The default value is <code>mac_override,sys_boot,sys_module,sys_time</code>.</p>
 </dd>
 <dt>devices</dt>
 <dd><p>Valid for the LXC hypervisor.</p>
-<p>This option specifies the list of devices that can be accessed from inside of the LXC container. Each value of this option must have the same form as the lxc.cgroup.devices.allow configuration parameter of <strong>lxc.container.conf</strong>(5). It consists of the type(a: all, b: block, c: character), the major-minor pair, and the access type sequence(r: read, w: write, m: mknod), e.g. &quot;c 1:3 rw&quot;. If you'd like to allow the LXC container to access /dev/null and /dev/zero with read-write access, you can set this parameter to: &quot;c 1:3 rw,c 1:5 rw&quot;. The LXC hypervisor drops all direct device access by default, so if you want to allow the LXC container to access an additional device which is not included in the default value of this parameter, you have to set this parameter manually.</p>
+<p>This option specifies the list of devices that can be accessed from inside of the LXC container. Each value of this option must have the same form as the lxc.cgroup.devices.allow configuration parameter of <strong>lxc.container.conf</strong>(5). It consists of the type(a: all, b: block, c: character), the major-minor pair, and the access type sequence(r: read, w: write, m: mknod), e.g. "c 1:3 rw". If you'd like to allow the LXC container to access /dev/null and /dev/zero with read-write access, you can set this parameter to: "c 1:3 rw,c 1:5 rw". The LXC hypervisor drops all direct device access by default, so if you want to allow the LXC container to access an additional device which is not included in the default value of this parameter, you have to set this parameter manually.</p>
 <p>By default, this parameter contains (/dev/null, /dev/zero, /dev/full, /dev/random, /dev/urandom, /dev/aio, /dev/tty, /dev/console, /dev/ptmx and first block of Unix98 PTY slaves) with read-write(rw) access.</p>
 </dd>
 <dt>extra_config</dt>
@@ -674,7 +677,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can also specify OS parameters that should not be logged but reused at the next reinstall with <code>--os-parameters-private</code> and OS parameters that should not be logged or saved to configuration with <code>--os-parameters-secret</code>. Bear in mind that:</p>
 <blockquote>
 <ul>
-<li>Launching the daemons in debug mode will cause debug logging to happen, which leaks private and secret parameters to the log files. Do not use the debug mode in production. Deamons will emit a warning on startup if they are in debug mode.</li>
+<li>Launching the daemons in debug mode will cause debug logging to happen, which leaks private and secret parameters to the log files. Do not use the debug mode in production. Daemons will emit a warning on startup if they are in debug mode.</li>
 <li>You will have to pass again all <code>--os-parameters-secret</code> parameters should you want to reinstall this instance.</li>
 </ul>
 </blockquote>
@@ -689,7 +692,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dd><p>Disk devices will be regular files.</p>
 </dd>
 <dt>sharedfile</dt>
-<dd><p>Disk devices will be regulare files on a shared directory.</p>
+<dd><p>Disk devices will be regular files on a shared directory.</p>
 </dd>
 <dt>plain</dt>
 <dd><p>Disk devices will be logical volumes.</p>
@@ -722,8 +725,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dd><p>Analogous to the blktap driver, but used by newer versions of Xen.</p>
 </dd>
 </dl>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>The <code>-c</code> and <code>--communication</code> specify whether to enable/disable instance communication, which is a communication mechanism between the instance and the host.</p>
+<p>The <code>--tags</code> allows tags to be applied to the instance, typically to influence the allocator. Multiple tags can be separated with commas.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
 <pre><code># gnt-instance add -t file --disk 0:size=30g -B maxmem=512 -o debian-etch \
@@ -767,7 +771,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dd><p>A dictionary with the hypervisor options. If not passed, the default hypervisor options will be inherited.</p>
 </dd>
 <dt>nics</dt>
-<dd><p>List of NICs that will be created for the instance. Each entry should be a dict, with mac, ip, mode and link as possible keys. Please don't provide the &quot;mac, ip, mode, link&quot; parent keys if you use this method for specifying NICs.</p>
+<dd><p>List of NICs that will be created for the instance. Each entry should be a dict, with mac, ip, mode and link as possible keys. Please don't provide the "mac, ip, mode, link" parent keys if you use this method for specifying NICs.</p>
 </dd>
 <dt>pnode, snode</dt>
 <dd><p>The primary and optionally the secondary node to use for the instance (in case an iallocator script is not used). If those parameters are given, they have to be given consistently for all instances in the batch operation.</p>
@@ -842,25 +846,25 @@ Submitted jobs 37, 38</code></pre>
 <dd><p>Desired state of the instance</p>
 </dd>
 <dt><code>be/always_failover</code></dt>
-<dd><p>The &quot;always_failover&quot; backend parameter</p>
+<dd><p>The "always_failover" backend parameter</p>
 </dd>
 <dt><code>be/auto_balance</code></dt>
-<dd><p>The &quot;auto_balance&quot; backend parameter</p>
+<dd><p>The "auto_balance" backend parameter</p>
 </dd>
 <dt><code>be/maxmem</code></dt>
-<dd><p>The &quot;maxmem&quot; backend parameter</p>
+<dd><p>The "maxmem" backend parameter</p>
 </dd>
 <dt><code>be/memory</code></dt>
-<dd><p>The &quot;maxmem&quot; backend parameter</p>
+<dd><p>The "maxmem" backend parameter</p>
 </dd>
 <dt><code>be/minmem</code></dt>
-<dd><p>The &quot;minmem&quot; backend parameter</p>
+<dd><p>The "minmem" backend parameter</p>
 </dd>
 <dt><code>be/spindle_use</code></dt>
-<dd><p>The &quot;spindle_use&quot; backend parameter</p>
+<dd><p>The "spindle_use" backend parameter</p>
 </dd>
 <dt><code>be/vcpus</code></dt>
-<dd><p>The &quot;vcpus&quot; backend parameter</p>
+<dd><p>The "vcpus" backend parameter</p>
 </dd>
 <dt><code>beparams</code></dt>
 <dd><p>Backend parameters (merged)</p>
@@ -1106,250 +1110,250 @@ Submitted jobs 37, 38</code></pre>
 <dd><p>Whether the Instance is forthcoming</p>
 </dd>
 <dt><code>hv/acpi</code></dt>
-<dd><p>The &quot;acpi&quot; hypervisor parameter</p>
+<dd><p>The "acpi" hypervisor parameter</p>
 </dd>
 <dt><code>hv/blockdev_prefix</code></dt>
-<dd><p>The &quot;blockdev_prefix&quot; hypervisor parameter</p>
+<dd><p>The "blockdev_prefix" hypervisor parameter</p>
 </dd>
 <dt><code>hv/boot_order</code></dt>
-<dd><p>The &quot;boot_order&quot; hypervisor parameter</p>
+<dd><p>The "boot_order" hypervisor parameter</p>
 </dd>
 <dt><code>hv/bootloader_args</code></dt>
-<dd><p>The &quot;bootloader_args&quot; hypervisor parameter</p>
+<dd><p>The "bootloader_args" hypervisor parameter</p>
 </dd>
 <dt><code>hv/bootloader_path</code></dt>
-<dd><p>The &quot;bootloader_path&quot; hypervisor parameter</p>
+<dd><p>The "bootloader_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cdrom2_image_path</code></dt>
-<dd><p>The &quot;cdrom2_image_path&quot; hypervisor parameter</p>
+<dd><p>The "cdrom2_image_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cdrom_disk_type</code></dt>
-<dd><p>The &quot;cdrom_disk_type&quot; hypervisor parameter</p>
+<dd><p>The "cdrom_disk_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cdrom_image_path</code></dt>
-<dd><p>The &quot;cdrom_image_path&quot; hypervisor parameter</p>
+<dd><p>The "cdrom_image_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_cap</code></dt>
-<dd><p>The &quot;cpu_cap&quot; hypervisor parameter</p>
+<dd><p>The "cpu_cap" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_cores</code></dt>
-<dd><p>The &quot;cpu_cores&quot; hypervisor parameter</p>
+<dd><p>The "cpu_cores" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_mask</code></dt>
-<dd><p>The &quot;cpu_mask&quot; hypervisor parameter</p>
+<dd><p>The "cpu_mask" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_sockets</code></dt>
-<dd><p>The &quot;cpu_sockets&quot; hypervisor parameter</p>
+<dd><p>The "cpu_sockets" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_threads</code></dt>
-<dd><p>The &quot;cpu_threads&quot; hypervisor parameter</p>
+<dd><p>The "cpu_threads" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_type</code></dt>
-<dd><p>The &quot;cpu_type&quot; hypervisor parameter</p>
+<dd><p>The "cpu_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpu_weight</code></dt>
-<dd><p>The &quot;cpu_weight&quot; hypervisor parameter</p>
+<dd><p>The "cpu_weight" hypervisor parameter</p>
 </dd>
 <dt><code>hv/cpuid</code></dt>
-<dd><p>The &quot;cpuid&quot; hypervisor parameter</p>
+<dd><p>The "cpuid" hypervisor parameter</p>
 </dd>
 <dt><code>hv/device_model</code></dt>
-<dd><p>The &quot;device_model&quot; hypervisor parameter</p>
+<dd><p>The "device_model" hypervisor parameter</p>
 </dd>
 <dt><code>hv/devices</code></dt>
-<dd><p>The &quot;devices&quot; hypervisor parameter</p>
+<dd><p>The "devices" hypervisor parameter</p>
 </dd>
 <dt><code>hv/disk_aio</code></dt>
-<dd><p>The &quot;disk_aio&quot; hypervisor parameter</p>
+<dd><p>The "disk_aio" hypervisor parameter</p>
 </dd>
 <dt><code>hv/disk_cache</code></dt>
-<dd><p>The &quot;disk_cache&quot; hypervisor parameter</p>
+<dd><p>The "disk_cache" hypervisor parameter</p>
 </dd>
 <dt><code>hv/disk_discard</code></dt>
-<dd><p>The &quot;disk_discard&quot; hypervisor parameter</p>
+<dd><p>The "disk_discard" hypervisor parameter</p>
 </dd>
 <dt><code>hv/disk_type</code></dt>
-<dd><p>The &quot;disk_type&quot; hypervisor parameter</p>
+<dd><p>The "disk_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/drop_capabilities</code></dt>
-<dd><p>The &quot;drop_capabilities&quot; hypervisor parameter</p>
+<dd><p>The "drop_capabilities" hypervisor parameter</p>
 </dd>
 <dt><code>hv/extra_cgroups</code></dt>
-<dd><p>The &quot;extra_cgroups&quot; hypervisor parameter</p>
+<dd><p>The "extra_cgroups" hypervisor parameter</p>
 </dd>
 <dt><code>hv/extra_config</code></dt>
-<dd><p>The &quot;extra_config&quot; hypervisor parameter</p>
+<dd><p>The "extra_config" hypervisor parameter</p>
 </dd>
 <dt><code>hv/floppy_image_path</code></dt>
-<dd><p>The &quot;floppy_image_path&quot; hypervisor parameter</p>
+<dd><p>The "floppy_image_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/init_script</code></dt>
-<dd><p>The &quot;init_script&quot; hypervisor parameter</p>
+<dd><p>The "init_script" hypervisor parameter</p>
 </dd>
 <dt><code>hv/initrd_path</code></dt>
-<dd><p>The &quot;initrd_path&quot; hypervisor parameter</p>
+<dd><p>The "initrd_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kernel_args</code></dt>
-<dd><p>The &quot;kernel_args&quot; hypervisor parameter</p>
+<dd><p>The "kernel_args" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kernel_path</code></dt>
-<dd><p>The &quot;kernel_path&quot; hypervisor parameter</p>
+<dd><p>The "kernel_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/keymap</code></dt>
-<dd><p>The &quot;keymap&quot; hypervisor parameter</p>
+<dd><p>The "keymap" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kvm_extra</code></dt>
-<dd><p>The &quot;kvm_extra&quot; hypervisor parameter</p>
+<dd><p>The "kvm_extra" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kvm_flag</code></dt>
-<dd><p>The &quot;kvm_flag&quot; hypervisor parameter</p>
+<dd><p>The "kvm_flag" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kvm_path</code></dt>
-<dd><p>The &quot;kvm_path&quot; hypervisor parameter</p>
+<dd><p>The "kvm_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/kvm_pci_reservations</code></dt>
-<dd><p>The &quot;kvm_pci_reservations&quot; hypervisor parameter</p>
+<dd><p>The "kvm_pci_reservations" hypervisor parameter</p>
 </dd>
 <dt><code>hv/machine_version</code></dt>
-<dd><p>The &quot;machine_version&quot; hypervisor parameter</p>
+<dd><p>The "machine_version" hypervisor parameter</p>
 </dd>
 <dt><code>hv/mem_path</code></dt>
-<dd><p>The &quot;mem_path&quot; hypervisor parameter</p>
+<dd><p>The "mem_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/migration_caps</code></dt>
-<dd><p>The &quot;migration_caps&quot; hypervisor parameter</p>
+<dd><p>The "migration_caps" hypervisor parameter</p>
 </dd>
 <dt><code>hv/migration_downtime</code></dt>
-<dd><p>The &quot;migration_downtime&quot; hypervisor parameter</p>
+<dd><p>The "migration_downtime" hypervisor parameter</p>
 </dd>
 <dt><code>hv/nic_type</code></dt>
-<dd><p>The &quot;nic_type&quot; hypervisor parameter</p>
+<dd><p>The "nic_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/num_ttys</code></dt>
-<dd><p>The &quot;num_ttys&quot; hypervisor parameter</p>
+<dd><p>The "num_ttys" hypervisor parameter</p>
 </dd>
 <dt><code>hv/pae</code></dt>
-<dd><p>The &quot;pae&quot; hypervisor parameter</p>
+<dd><p>The "pae" hypervisor parameter</p>
 </dd>
 <dt><code>hv/pci_pass</code></dt>
-<dd><p>The &quot;pci_pass&quot; hypervisor parameter</p>
+<dd><p>The "pci_pass" hypervisor parameter</p>
 </dd>
 <dt><code>hv/reboot_behavior</code></dt>
-<dd><p>The &quot;reboot_behavior&quot; hypervisor parameter</p>
+<dd><p>The "reboot_behavior" hypervisor parameter</p>
 </dd>
 <dt><code>hv/root_path</code></dt>
-<dd><p>The &quot;root_path&quot; hypervisor parameter</p>
+<dd><p>The "root_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/scsi_controller_type</code></dt>
-<dd><p>The &quot;scsi_controller_type&quot; hypervisor parameter</p>
+<dd><p>The "scsi_controller_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/security_domain</code></dt>
-<dd><p>The &quot;security_domain&quot; hypervisor parameter</p>
+<dd><p>The "security_domain" hypervisor parameter</p>
 </dd>
 <dt><code>hv/security_model</code></dt>
-<dd><p>The &quot;security_model&quot; hypervisor parameter</p>
+<dd><p>The "security_model" hypervisor parameter</p>
 </dd>
 <dt><code>hv/serial_console</code></dt>
-<dd><p>The &quot;serial_console&quot; hypervisor parameter</p>
+<dd><p>The "serial_console" hypervisor parameter</p>
 </dd>
 <dt><code>hv/serial_speed</code></dt>
-<dd><p>The &quot;serial_speed&quot; hypervisor parameter</p>
+<dd><p>The "serial_speed" hypervisor parameter</p>
 </dd>
 <dt><code>hv/soundhw</code></dt>
-<dd><p>The &quot;soundhw&quot; hypervisor parameter</p>
+<dd><p>The "soundhw" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_bind</code></dt>
-<dd><p>The &quot;spice_bind&quot; hypervisor parameter</p>
+<dd><p>The "spice_bind" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_image_compression</code></dt>
-<dd><p>The &quot;spice_image_compression&quot; hypervisor parameter</p>
+<dd><p>The "spice_image_compression" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_ip_version</code></dt>
-<dd><p>The &quot;spice_ip_version&quot; hypervisor parameter</p>
+<dd><p>The "spice_ip_version" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_jpeg_wan_compression</code></dt>
-<dd><p>The &quot;spice_jpeg_wan_compression&quot; hypervisor parameter</p>
+<dd><p>The "spice_jpeg_wan_compression" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_password_file</code></dt>
-<dd><p>The &quot;spice_password_file&quot; hypervisor parameter</p>
+<dd><p>The "spice_password_file" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_playback_compression</code></dt>
-<dd><p>The &quot;spice_playback_compression&quot; hypervisor parameter</p>
+<dd><p>The "spice_playback_compression" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_streaming_video</code></dt>
-<dd><p>The &quot;spice_streaming_video&quot; hypervisor parameter</p>
+<dd><p>The "spice_streaming_video" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_tls_ciphers</code></dt>
-<dd><p>The &quot;spice_tls_ciphers&quot; hypervisor parameter</p>
+<dd><p>The "spice_tls_ciphers" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_use_tls</code></dt>
-<dd><p>The &quot;spice_use_tls&quot; hypervisor parameter</p>
+<dd><p>The "spice_use_tls" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_use_vdagent</code></dt>
-<dd><p>The &quot;spice_use_vdagent&quot; hypervisor parameter</p>
+<dd><p>The "spice_use_vdagent" hypervisor parameter</p>
 </dd>
 <dt><code>hv/spice_zlib_glz_wan_compression</code></dt>
-<dd><p>The &quot;spice_zlib_glz_wan_compression&quot; hypervisor parameter</p>
+<dd><p>The "spice_zlib_glz_wan_compression" hypervisor parameter</p>
 </dd>
 <dt><code>hv/startup_timeout</code></dt>
-<dd><p>The &quot;startup_timeout&quot; hypervisor parameter</p>
+<dd><p>The "startup_timeout" hypervisor parameter</p>
 </dd>
 <dt><code>hv/usb_devices</code></dt>
-<dd><p>The &quot;usb_devices&quot; hypervisor parameter</p>
+<dd><p>The "usb_devices" hypervisor parameter</p>
 </dd>
 <dt><code>hv/usb_mouse</code></dt>
-<dd><p>The &quot;usb_mouse&quot; hypervisor parameter</p>
+<dd><p>The "usb_mouse" hypervisor parameter</p>
 </dd>
 <dt><code>hv/use_bootloader</code></dt>
-<dd><p>The &quot;use_bootloader&quot; hypervisor parameter</p>
+<dd><p>The "use_bootloader" hypervisor parameter</p>
 </dd>
 <dt><code>hv/use_chroot</code></dt>
-<dd><p>The &quot;use_chroot&quot; hypervisor parameter</p>
+<dd><p>The "use_chroot" hypervisor parameter</p>
 </dd>
 <dt><code>hv/use_guest_agent</code></dt>
-<dd><p>The &quot;use_guest_agent&quot; hypervisor parameter</p>
+<dd><p>The "use_guest_agent" hypervisor parameter</p>
 </dd>
 <dt><code>hv/use_localtime</code></dt>
-<dd><p>The &quot;use_localtime&quot; hypervisor parameter</p>
+<dd><p>The "use_localtime" hypervisor parameter</p>
 </dd>
 <dt><code>hv/user_shutdown</code></dt>
-<dd><p>The &quot;user_shutdown&quot; hypervisor parameter</p>
+<dd><p>The "user_shutdown" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vga</code></dt>
-<dd><p>The &quot;vga&quot; hypervisor parameter</p>
+<dd><p>The "vga" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vhost_net</code></dt>
-<dd><p>The &quot;vhost_net&quot; hypervisor parameter</p>
+<dd><p>The "vhost_net" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vif_script</code></dt>
-<dd><p>The &quot;vif_script&quot; hypervisor parameter</p>
+<dd><p>The "vif_script" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vif_type</code></dt>
-<dd><p>The &quot;vif_type&quot; hypervisor parameter</p>
+<dd><p>The "vif_type" hypervisor parameter</p>
 </dd>
 <dt><code>hv/viridian</code></dt>
-<dd><p>The &quot;viridian&quot; hypervisor parameter</p>
+<dd><p>The "viridian" hypervisor parameter</p>
 </dd>
 <dt><code>hv/virtio_net_queues</code></dt>
-<dd><p>The &quot;virtio_net_queues&quot; hypervisor parameter</p>
+<dd><p>The "virtio_net_queues" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnc_bind_address</code></dt>
-<dd><p>The &quot;vnc_bind_address&quot; hypervisor parameter</p>
+<dd><p>The "vnc_bind_address" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnc_password_file</code></dt>
-<dd><p>The &quot;vnc_password_file&quot; hypervisor parameter</p>
+<dd><p>The "vnc_password_file" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnc_tls</code></dt>
-<dd><p>The &quot;vnc_tls&quot; hypervisor parameter</p>
+<dd><p>The "vnc_tls" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnc_x509_path</code></dt>
-<dd><p>The &quot;vnc_x509_path&quot; hypervisor parameter</p>
+<dd><p>The "vnc_x509_path" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnc_x509_verify</code></dt>
-<dd><p>The &quot;vnc_x509_verify&quot; hypervisor parameter</p>
+<dd><p>The "vnc_x509_verify" hypervisor parameter</p>
 </dd>
 <dt><code>hv/vnet_hdr</code></dt>
-<dd><p>The &quot;vnet_hdr&quot; hypervisor parameter</p>
+<dd><p>The "vnet_hdr" hypervisor parameter</p>
 </dd>
 <dt><code>hvparams</code></dt>
 <dd><p>Hypervisor parameters (merged)</p>
@@ -1697,7 +1701,7 @@ Submitted jobs 37, 38</code></pre>
 <dd><p>Node group UUIDs of secondary nodes</p>
 </dd>
 <dt><code>status</code></dt>
-<dd><p>Instance status; &quot;running&quot; if instance is set to be running and actually is, &quot;ADMIN_down&quot; if instance is stopped and is not running, &quot;ERROR_wrongnode&quot; if instance running, but not on its designated primary node, &quot;ERROR_up&quot; if instance should be stopped, but is actually running, &quot;ERROR_down&quot; if instance should run, but doesn't, &quot;ERROR_nodedown&quot; if instance's primary node is down, &quot;ERROR_nodeoffline&quot; if instance's primary node is marked offline, &quot;ADMIN_offline&quot; if instance is offline and does not use dynamic, &quot;USER_down&quot; if the user shutdown the instance resources</p>
+<dd><p>Instance status; "running" if instance is set to be running and actually is, "ADMIN_down" if instance is stopped and is not running, "ERROR_wrongnode" if instance running, but not on its designated primary node, "ERROR_up" if instance should be stopped, but is actually running, "ERROR_down" if instance should run, but doesn't, "ERROR_nodedown" if instance's primary node is down, "ERROR_nodeoffline" if instance's primary node is marked offline, "ADMIN_offline" if instance is offline and does not use dynamic, "USER_down" if the user shutdown the instance resources</p>
 </dd>
 <dt><code>tags</code></dt>
 <dd><p>Tags</p>
@@ -1706,7 +1710,7 @@ Submitted jobs 37, 38</code></pre>
 <dd><p>Instance UUID</p>
 </dd>
 <dt><code>vcpus</code></dt>
-<dd><p>The &quot;vcpus&quot; backend parameter</p>
+<dd><p>The "vcpus" backend parameter</p>
 </dd>
 </dl>
 <p>If the value of the option starts with the character <code>+</code>, the new field(s) will be added to the default list. This allows one to quickly see the default list plus a few other fields, instead of retyping the entire list of fields.</p>
@@ -1766,11 +1770,11 @@ Submitted jobs 37, 38</code></pre>
 <dd><p>This option specifies a name for the disk, which can be used as a disk identifier. An instance can not have two disks with the same name.</p>
 </dd>
 </dl>
-<p>The <code>--net *N*:add[,options..]</code> will add a new network interface to the instance. The available options are the same as in the <strong>add</strong> command (<code>mac</code>, <code>ip</code>, <code>link</code>, <code>mode</code>, <code>network</code>). The <code>--net *ID*,remove</code> will remove the intances' NIC with <em>ID</em> identifier, which can be the index of the NIC, the NIC's name or the NIC's UUID. The <code>--net *ID*:modify[,options..]</code> option will change the parameters of the instance network interface with the <em>ID</em> identifier.</p>
+<p>The <code>--net *N*:add[,options..]</code> will add a new network interface to the instance. The available options are the same as in the <strong>add</strong> command (<code>mac</code>, <code>ip</code>, <code>link</code>, <code>mode</code>, <code>network</code>). The <code>--net *ID*,remove</code> will remove the instances' NIC with <em>ID</em> identifier, which can be the index of the NIC, the NIC's name or the NIC's UUID. The <code>--net *ID*:modify[,options..]</code> option will change the parameters of the instance network interface with the <em>ID</em> identifier.</p>
 <p>The option <code>-o (--os-type)</code> will change the OS name for the instance (without reinstallation). In case an OS variant is specified that is not found, then by default the modification is refused, unless <code>--force-variant</code> is passed. An invalid OS will also be refused, unless the <code>--force</code> option is given.</p>
 <p>The option <code>--new-primary</code> will set the new primary node of an instance assuming the disks have already been moved manually. Unless the <code>--force</code> option is given, it is verified that the instance is no longer running on its current primary node.</p>
 <p>The <code>--online</code> and <code>--offline</code> options are used to transition an instance into and out of the <code>offline</code> state. An instance can be turned offline only if it was previously down. The <code>--online</code> option fails if the instance was not in the <code>offline</code> state, otherwise it changes instance's state to <code>down</code>. These modifications take effect immediately.</p>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>If <code>--hotplug</code> is given any disk and NIC modifications will take effect without the need of actual reboot. Please note that this feature is currently supported only for KVM hypervisor and there are some restrictions: a) NIC/Disk hot-remove should work for QEMU versions &gt;= 1.0 b) instances with chroot or pool/user security model support disk hot-add only for QEMU version &gt; 1.7 where add-fd QMP command exists c) if hotplug fails (for any reason) a warning is printed but execution is continued d) for existing NIC modification interactive verification is needed unless <code>--force</code> option is passed.</p>
 <p>If <code>--hotplug-if-possible</code> is given then ganeti won't abort in case hotplug is not supported. It will continue execution and modification will take place after reboot. This covers use cases where instances are not running or hypervisor is not KVM.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
@@ -1845,7 +1849,7 @@ Submitted jobs 37, 38</code></pre>
 <p>The <code>-H (--hypervisor-parameters)</code> and <code>-B (--backend-parameters)</code> options specify temporary hypervisor and backend parameters that can be used to start an instance with modified parameters. They can be useful for quick testing without having to modify an instance back and forth, e.g.:</p>
 <pre><code># gnt-instance start -H kernel_args=&quot;single&quot; instance1
 # gnt-instance start -B maxmem=2048 instance2</code></pre>
-<p>The first form will start the instance instance1 in single-user mode, and the instance instance2 with 2GB of RAM (this time only, unless that is the actual instance memory size already). Note that the values override the instance parameters (and not extend them): an instance with &quot;kernel_args=ro&quot; when started with -H kernel_args=single will result in &quot;single&quot;, not &quot;ro single&quot;.</p>
+<p>The first form will start the instance instance1 in single-user mode, and the instance instance2 with 2GB of RAM (this time only, unless that is the actual instance memory size already). Note that the values override the instance parameters (and not extend them): an instance with "kernel_args=ro" when started with -H kernel_args=single will result in "single", not "ro single".</p>
 <p>The <code>--paused</code> option is only valid for Xen and kvm hypervisors. This pauses the instance at the start of bootup, awaiting <code>gnt-instance console</code> to unpause it, allowing the entire boot process to be monitored for debugging.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
@@ -1892,7 +1896,7 @@ Submitted jobs 37, 38</code></pre>
 <h3 id="console">CONSOLE</h3>
 <p><strong>console</strong> [--show-cmd] {<em>instance</em>}</p>
 <p>Connects to the console of the given instance. If the instance is not up, an error is returned. Use the <code>--show-cmd</code> option to display the command instead of executing it.</p>
-<p>For HVM instances, this will attempt to connect to the serial console of the instance. To connect to the virtualized &quot;physical&quot; console of a HVM instance, use a VNC client with the connection info from the <strong>info</strong> command.</p>
+<p>For HVM instances, this will attempt to connect to the serial console of the instance. To connect to the virtualized "physical" console of a HVM instance, use a VNC client with the connection info from the <strong>info</strong> command.</p>
 <p>For Xen/kvm instances, if the instance is paused, this attempts to unpause the instance after waiting a few seconds for the connection to the console to be made.</p>
 <p>Example:</p>
 <pre><code># gnt-instance console instance1.example.com</code></pre>
@@ -1977,7 +1981,7 @@ node1.example.com:disk/1:/dev/drbd1</code></pre>
 <p>If the instance's disk template is of type drbd, the target node is automatically selected as the drbd's secondary node. Changing the secondary node is possible with a replace-disks operation.</p>
 <p>Normally the failover will check the consistency of the disks before failing over the instance. If you are trying to migrate instances off a dead node, this will fail. Use the <code>--ignore-consistency</code> option for this purpose. Note that this option can be dangerous as errors in shutting down the instance will be ignored, resulting in possibly having the instance running on two machines in parallel (on disconnected DRBD drives). This flag requires the source node to be marked offline first to succeed.</p>
 <p>The <code>--shutdown-timeout</code> is used to specify how much time (in minutes) to wait before forcing the shutdown (xm destroy in xen, killing the kvm process, for kvm). By default two minutes are given to each instance to stop.</p>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>If the <code>--cleanup</code> option is passed, the operation changes from performing a failover to attempting recovery from a failed previous failover. In this mode, Ganeti checks if the instance runs on the correct node (and updates its configuration if not) and ensures the instance's disks are configured correctly.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
@@ -1994,11 +1998,11 @@ node1.example.com:disk/1:/dev/drbd1</code></pre>
 <p>If the instance's disk template is of type sharedfile, blockdev, rbd or ext, then you can explicitly specify the target node (which can be any node) using the <code>-n</code> or <code>--target-node</code> option, or specify an iallocator plugin using the <code>-I</code> or <code>--iallocator</code> option. If you omit both, the default iallocator will be used to specify the target node. Alternatively, the default iallocator can be requested by specifying <code>.</code> as the name of the plugin.</p>
 <p>If the instance's disk template is of type drbd, the target node is automatically selected as the drbd's secondary node. Changing the secondary node is possible with a replace-disks operation.</p>
 <p>The migration command needs a perfectly healthy instance for drbd instances, as we rely on the dual-master capability of drbd8 and the disks of the instance are not allowed to be degraded.</p>
-<p>The <code>--non-live</code> and <code>--migration-mode=non-live</code> options will switch (for the hypervisors that support it) between a &quot;fully live&quot; (i.e. the interruption is as minimal as possible) migration and one in which the instance is frozen, its state saved and transported to the remote node, and then resumed there. This all depends on the hypervisor support for two different methods. In any case, it is not an error to pass this parameter (it will just be ignored if the hypervisor doesn't support it). The option <code>--migration-mode=live</code> option will request a fully-live migration. The default, when neither option is passed, depends on the hypervisor parameters (and can be viewed with the <strong>gnt-cluster info</strong> command).</p>
+<p>The <code>--non-live</code> and <code>--migration-mode=non-live</code> options will switch (for the hypervisors that support it) between a "fully live" (i.e. the interruption is as minimal as possible) migration and one in which the instance is frozen, its state saved and transported to the remote node, and then resumed there. This all depends on the hypervisor support for two different methods. In any case, it is not an error to pass this parameter (it will just be ignored if the hypervisor doesn't support it). The option <code>--migration-mode=live</code> option will request a fully-live migration. The default, when neither option is passed, depends on the hypervisor parameters (and can be viewed with the <strong>gnt-cluster info</strong> command).</p>
 <p>If the <code>--cleanup</code> option is passed, the operation changes from migration to attempting recovery from a failed previous migration. In this mode, Ganeti checks if the instance runs on the correct node (and updates its configuration if not) and ensures the instances' disks are configured correctly. In this mode, the <code>--non-live</code> option is ignored.</p>
 <p>The option <code>-f</code> will skip the prompting for confirmation.</p>
 <p>If <code>--allow-failover</code> is specified it tries to fallback to failover if it already can determine that a migration won't work (e.g. if the instance is shut down). Please note that the fallback will not happen during execution. If a migration fails during execution it still fails.</p>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>Normally, Ganeti will verify that the hypervisor versions on source and target are compatible and error out if they are not. If <code>--ignore-hvversions</code> is given, Ganeti will only warn in this case.</p>
 <p>The <code>--no-runtime-changes</code> option forbids migrate to alter an instance's runtime before migrating it (eg. ballooning an instance down because the target node doesn't have enough available memory).</p>
 <p>If an instance has the backend parameter <code>always_failover</code> set to true, then the migration is automatically converted into a failover.</p>
@@ -2034,7 +2038,7 @@ Migrating instance instance1.example.com
 <p>The <code>--compress</code> option is used to specify which compression mode is used during the move. Valid values are 'none' (the default) and any values specified in the 'compression_tools' cluster parameter.</p>
 <p>The <code>--shutdown-timeout</code> is used to specify how much time (in minutes) to wait before forcing the shutdown (e.g. <code>xm destroy</code> in XEN, killing the kvm process for KVM, etc.). By default two minutes are given to each instance to stop.</p>
 <p>The <code>--ignore-consistency</code> option will make Ganeti ignore any errors in trying to shutdown the instance on its node; useful if the hypervisor is broken and you want to recover the data.</p>
-<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occuring during this operation are ignored.</p>
+<p>If <code>--ignore-ipolicy</code> is given any instance policy violations occurring during this operation are ignored.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code>--submit</code> and other common options.</p>
 <p>Example:</p>
 <pre><code># gnt-instance move -n node3.example.com instance1.example.com</code></pre>
@@ -2070,6 +2074,6 @@ Migrating instance instance1.example.com
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

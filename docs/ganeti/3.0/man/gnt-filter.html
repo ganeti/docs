@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-filter(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>gnt-filter(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">gnt-filter(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">gnt-filter(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -58,7 +58,7 @@
 <li>ACCEPT. The job will be accepted; no further filter rules are applied.</li>
 <li>PAUSE. The job will be accepted to the queue and remain there; however, it is not executed. Has no effect if the job is already running.</li>
 <li>REJECT. The job is rejected. If it is already in the queue, it will be cancelled.</li>
-<li>CONTINUE. The filtering continues processing with the next rule. Such a rule will never have any direct or indirect effect, but it can serve as documentation for a &quot;normally present, but currently disabled&quot; rule.</li>
+<li>CONTINUE. The filtering continues processing with the next rule. Such a rule will never have any direct or indirect effect, but it can serve as documentation for a "normally present, but currently disabled" rule.</li>
 <li>RATE_LIMIT <code>n</code>, where <code>n</code> is a positive integer. The job will be held in the queue while <code>n</code> or more jobs where this rule applies are running. Jobs already running when this rule is added are not changed. Logically, this rule is applied job by job sequentially, so that the number of jobs where this rule applies is limited to <code>n</code> once the jobs running at rule addition have finished.</li>
 </ul></li>
 <li>A reason trail, in the same format as reason trails for job opcodes (see the <code>--reason</code> option in <strong>ganeti</strong>(7)). This allows to find out which maintenance (or other reason) caused the addition of this filter rule.</li>
@@ -145,6 +145,6 @@ gnt-filter add --priority=1 &#39;--predicates=[[&quot;jobid&quot;, [&quot;&gt;&q
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

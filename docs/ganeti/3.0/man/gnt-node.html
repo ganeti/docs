@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-node(8) Ganeti | Version 3.0.0~beta1</title>
+  <title>gnt-node(8) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">gnt-node(8) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">gnt-node(8) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -117,7 +117,7 @@
 <pre><code># gnt-node failover node1.example.com</code></pre>
 <h2 id="info">INFO</h2>
 <p><strong>info</strong> [<em>node</em>...]</p>
-<p>Show detailed information about the nodes in the cluster. If you don't give any arguments, all nodes will be shows, otherwise the output will be restricted to the given names.</p>
+<p>Show detailed information about the nodes in the cluster. If you don't give any arguments, all nodes will be shown, otherwise the output will be restricted to the given names.</p>
 <h2 id="list">LIST</h2>
 <div class="line-block"><strong>list</strong><br />
 [--no-headers] [--separator=*SEPARATOR*]<br />
@@ -198,28 +198,28 @@
 <dd><p>Node name</p>
 </dd>
 <dt><code>ndp/cpu_speed</code></dt>
-<dd><p>The &quot;cpu_speed&quot; node parameter</p>
+<dd><p>The "cpu_speed" node parameter</p>
 </dd>
 <dt><code>ndp/exclusive_storage</code></dt>
-<dd><p>The &quot;exclusive_storage&quot; node parameter</p>
+<dd><p>The "exclusive_storage" node parameter</p>
 </dd>
 <dt><code>ndp/oob_program</code></dt>
-<dd><p>The &quot;oob_program&quot; node parameter</p>
+<dd><p>The "oob_program" node parameter</p>
 </dd>
 <dt><code>ndp/ovs</code></dt>
-<dd><p>The &quot;ovs&quot; node parameter</p>
+<dd><p>The "ovs" node parameter</p>
 </dd>
 <dt><code>ndp/ovs_link</code></dt>
-<dd><p>The &quot;ovs_link&quot; node parameter</p>
+<dd><p>The "ovs_link" node parameter</p>
 </dd>
 <dt><code>ndp/ovs_name</code></dt>
-<dd><p>The &quot;ovs_name&quot; node parameter</p>
+<dd><p>The "ovs_name" node parameter</p>
 </dd>
 <dt><code>ndp/spindle_count</code></dt>
-<dd><p>The &quot;spindle_count&quot; node parameter</p>
+<dd><p>The "spindle_count" node parameter</p>
 </dd>
 <dt><code>ndp/ssh_port</code></dt>
-<dd><p>The &quot;ssh_port&quot; node parameter</p>
+<dd><p>The "ssh_port" node parameter</p>
 </dd>
 <dt><code>ndparams</code></dt>
 <dd><p>Merged node parameters</p>
@@ -240,7 +240,7 @@
 <dd><p>Whether node is thought to be powered on</p>
 </dd>
 <dt><code>role</code></dt>
-<dd><p>Node role; &quot;M&quot; for master, &quot;C&quot; for master candidate, &quot;R&quot; for regular, &quot;D&quot; for drained, &quot;O&quot; for offline</p>
+<dd><p>Node role; "M" for master, "C" for master candidate, "R" for regular, "D" for drained, "O" for offline</p>
 </dd>
 <dt><code>serial_no</code></dt>
 <dd><p>Node object serial number, incremented on each modification</p>
@@ -271,7 +271,7 @@
 </dd>
 </dl>
 <p>If the value of the option starts with the character <code>+</code>, the new fields will be added to the default list. This allows one to quickly see the default list plus a few other fields, instead of retyping the entire list of fields.</p>
-<p>Note that some of these fields are known from the configuration of the cluster (e.g. <code>name</code>, <code>pinst</code>, <code>sinst</code>, <code>pip</code>, <code>sip</code>) and thus the master does not need to contact the node for this data (making the listing fast if only fields from this set are selected), whereas the other fields are &quot;live&quot; fields and require a query to the cluster nodes.</p>
+<p>Note that some of these fields are known from the configuration of the cluster (e.g. <code>name</code>, <code>pinst</code>, <code>sinst</code>, <code>pip</code>, <code>sip</code>) and thus the master does not need to contact the node for this data (making the listing fast if only fields from this set are selected), whereas the other fields are "live" fields and require a query to the cluster nodes.</p>
 <p>Depending on the virtualization type and implementation details, the <code>mtotal</code>, <code>mnode</code> and <code>mfree</code> fields may have slightly varying meanings. For example, some solutions share the node memory with the pool of memory used for instances (KVM), whereas others have separate memory for the node and for the instances (Xen).</p>
 <p>Note that the field 'dtotal' and 'dfree' refer to the storage type that is defined by the default disk template. The default disk template is the first on in the list of cluster-wide enabled disk templates and can be set with <code>gnt-cluster modify</code>. Currently, only the disk templates 'plain', 'drbd', 'file', and 'sharedfile' support storage reporting, for all others '0' is displayed.</p>
 <p>If exactly one argument is given and it appears to be a query filter (see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For ambiguous cases (e.g. a single field name as a filter) the <code>--filter</code> (<code>-F</code>) option forces the argument to be treated as a filter (e.g. <code>gnt-node list -F master_candidate</code>).</p>
@@ -363,7 +363,7 @@
 <dd><p>the logical volume size</p>
 </dd>
 <dt>instance</dt>
-<dd><p>The name of the instance to which this volume belongs, or (in case it's an orphan volume) the character &quot;-&quot;</p>
+<dd><p>The name of the instance to which this volume belongs, or (in case it's an orphan volume) the character "-"</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -404,7 +404,7 @@ node1.example.com /dev/hdc1 xenvg instance1.example.com-sda_11001.data 256  inst
 <dd><p>whether we the unit is available for allocation (only lvm-pv can change this setting, the other types always report true)</p>
 </dd>
 </dl>
-<p>Note that for the &quot;file&quot; type, the total disk space might not equal to the sum of used and free, due to the method Ganeti uses to compute each of them. The total and free values are computed as the total and free space values for the filesystem to which the directory belongs, but the used space is computed from the used space under that directory <em>only</em>, which might not be necessarily the root of the filesystem, and as such there could be files outside the file storage directory using disk space and causing a mismatch in the values.</p>
+<p>Note that for the "file" type, the total disk space might not equal to the sum of used and free, due to the method Ganeti uses to compute each of them. The total and free values are computed as the total and free space values for the filesystem to which the directory belongs, but the used space is computed from the used space under that directory <em>only</em>, which might not be necessarily the root of the filesystem, and as such there could be files outside the file storage directory using disk space and causing a mismatch in the values.</p>
 <p>Example:</p>
 <pre><code>node1# gnt-node list-storage node2
 Node  Type   Name        Size Used   Free Allocatable
@@ -413,13 +413,13 @@ node2 lvm-pv /dev/sdb1 698.6G   0M 698.6G Y</code></pre>
 <h2 id="modify-storage">MODIFY-STORAGE</h2>
 <div class="line-block"><strong>modify-storage</strong> [--allocatable={yes|no}] [--submit] [--print-jobid]<br />
 {<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</div>
-<p>Modifies storage volumes on a node. Only LVM physical volumes can be modified at the moment. They have a storage type of &quot;lvm-pv&quot;.</p>
+<p>Modifies storage volumes on a node. Only LVM physical volumes can be modified at the moment. They have a storage type of "lvm-pv".</p>
 <p>Example:</p>
 <pre><code># gnt-node modify-storage --allocatable no node5.example.com lvm-pv /dev/sdb1</code></pre>
 <h2 id="repair-storage">REPAIR-STORAGE</h2>
 <div class="line-block"><strong>repair-storage</strong> [--ignore-consistency] ]--submit]<br />
 {<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</div>
-<p>Repairs a storage volume on a node. Only LVM volume groups can be repaired at this time. They have the storage type &quot;lvm-vg&quot;.</p>
+<p>Repairs a storage volume on a node. Only LVM volume groups can be repaired at this time. They have the storage type "lvm-vg".</p>
 <p>On LVM volume groups, <strong>repair-storage</strong> runs <code>vgreduce --removemissing</code>.</p>
 <p><strong>Caution:</strong> Running this command can lead to data loss. Use it with care.</p>
 <p>The <code>--ignore-consistency</code> option will ignore any inconsistent disks (on the nodes paired with this one). Use of this option is most likely to lead to data-loss.</p>
@@ -477,6 +477,6 @@ node2 lvm-pv /dev/sdb1 698.6G   0M 698.6G Y</code></pre>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

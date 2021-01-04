@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HAIL(1) Ganeti | Version 3.0.0~beta1</title>
+  <title>HAIL(1) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">HAIL(1) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">HAIL(1) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -66,13 +66,13 @@
 <dd><p>If given the program will query all MonDs to fetch data from the supported data collectors over the network.</p>
 </dd>
 <dt>--mond-data <em>datafile</em></dt>
-<dd><p>The name of the file holding the data provided by MonD, to override quering MonDs over the network. This is mostly used for debugging. The file must be in JSON format and present an array of JSON objects , one for every node, with two members. The first member named <code>node</code> is the name of the node and the second member named <code>reports</code> is an array of report objects. The report objects must be in the same format as produced by the monitoring agent.</p>
+<dd><p>The name of the file holding the data provided by MonD, to override querying MonDs over the network. This is mostly used for debugging. The file must be in JSON format and present an array of JSON objects , one for every node, with two members. The first member named <code>node</code> is the name of the node and the second member named <code>reports</code> is an array of report objects. The report objects must be in the same format as produced by the monitoring agent.</p>
 </dd>
 <dt>--ignore-dynu</dt>
 <dd><p>If given, all dynamic utilisation information will be ignored by assuming it to be 0. This option will take precedence over any data passed by the MonDs with the <code>--mond</code> and the <code>--mond-data</code> option.</p>
 </dd>
 <dt>--ignore-soft-errors</dt>
-<dd><p>If given, all checks for soft errors will be ommitted when searching for possible allocations. In this way a useful decission can be made even in overloaded clusters.</p>
+<dd><p>If given, all checks for soft errors will be omitted when searching for possible allocations. In this way a useful decision can be made even in overloaded clusters.</p>
 </dd>
 <dt>--no-capacity-checks</dt>
 <dd><p>Normally, hail will only consider those allocations where all instances of a node can immediately restarted should that node fail. With this option given, hail will check only N+1 redundancy for DRBD instances.</p>
@@ -96,7 +96,7 @@
 <li>get all cluster tags starting with <strong>htools:iextags:</strong></li>
 <li>use their suffix as the prefix for exclusion tags</li>
 </ul>
-<p>For example, given a cluster tag like <strong>htools:iextags:service</strong>, all instance tags of the form <strong><a href="service:X" class="uri">service:X</a></strong> will be considered as exclusion tags, meaning that (e.g.) two instances which both have a tag <strong><a href="service:foo" class="uri">service:foo</a></strong> will not be placed on the same primary node.</p>
+<p>For example, given a cluster tag like <strong>htools:iextags:service</strong>, all instance tags of the form <strong>service:X</strong> will be considered as exclusion tags, meaning that (e.g.) two instances which both have a tag <strong>service:foo</strong> will not be placed on the same primary node.</p>
 <h1 id="options-1">OPTIONS</h1>
 <p>The options that can be passed to the program are as follows:</p>
 <h1 id="exit-status">EXIT STATUS</h1>
@@ -115,6 +115,6 @@
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>

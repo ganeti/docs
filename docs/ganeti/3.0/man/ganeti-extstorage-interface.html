@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-extstorage-interface(7) Ganeti | Version 3.0.0~beta1</title>
+  <title>ganeti-extstorage-interface(7) Ganeti | Version 3.0.0</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -13,8 +13,8 @@
   </style>
 </head>
 <body>
-<header>
-<h1 class="title">ganeti-extstorage-interface(7) Ganeti | Version 3.0.0~beta1</h1>
+<header id="title-block-header">
+<h1 class="title">ganeti-extstorage-interface(7) Ganeti | Version 3.0.0</h1>
 </header>
 <nav id="TOC">
 <ul>
@@ -66,7 +66,7 @@
 <dd><p>Available only to the <strong>create</strong> and <strong>grow</strong> scripts. The volume's size in mebibytes.</p>
 </dd>
 <dt>VOL_NEW_SIZE</dt>
-<dd><p>Available only to the <strong>grow</strong> script. It declares the new size of the volume after grow (in mebibytes). To find the amount of grow, the scipt should calculate the number VOL_NEW_SIZE - VOL_SIZE.</p>
+<dd><p>Available only to the <strong>grow</strong> script. It declares the new size of the volume after grow (in mebibytes). To find the amount of grow, the script should calculate the number VOL_NEW_SIZE - VOL_SIZE.</p>
 </dd>
 <dt><a href="">EXTP</a><em>name</em></dt>
 <dd><p>Each ExtStorage parameter (see below) will be exported in its own variable, prefixed with <code>EXTP_</code>, and upper-cased. For example, a <code>fromsnap</code> parameter will be exported as <code>EXTP_FROMSNAP</code>.</p>
@@ -120,7 +120,7 @@
 <p>This command is used to grow an existing volume of the external storage.</p>
 <p>The <code>VOL_NAME</code> variable denotes the volume to grow.</p>
 <p>The <code>VOL_SIZE</code> variable denotes the current volume's size (in mebibytes). The <code>VOL_NEW_SIZE</code> variable denotes the final size after the volume has been grown (in mebibytes).</p>
-<p>The amount of grow can be easily calculated by the scipt and is:</p>
+<p>The amount of grow can be easily calculated by the script and is:</p>
 <p>grow_amount = VOL_NEW_SIZE - VOL_SIZE (in mebibytes)</p>
 <p>Ganeti ensures that: <code>VOL_NEW_SIZE</code> &gt; <code>VOL_SIZE</code></p>
 <p>If the script returns successfully, then the volume inside the external storage will have a new size of <code>VOL_NEW_SIZE</code>. This isn't immediately reflected to the instance's disk. See <code>gnt-instance grow</code> for more details on when the running instance becomes aware of its grown disk.</p>
@@ -189,6 +189,6 @@ nas_ip The IP of the NAS appliance</code></pre>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
 <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </body>
 </html>
