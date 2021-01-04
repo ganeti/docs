@@ -100,7 +100,7 @@
 <a name="line-91"></a>      <span class='hs-varid'>fromContainer</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Map.fromList</span> <span class='hs-varop'>$</span> <span class='hs-varid'>zip</span> <span class='hs-varid'>names</span> <span class='hs-varid'>configs</span> <span class='hs-layout'>}</span>
 <a name="line-92"></a>
 <a name="line-93"></a><a name="instance%20Arbitrary%20BS.ByteString"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Arbitrary</span> <span class='hs-conid'>BS.ByteString</span> <span class='hs-keyword'>where</span>
-<a name="line-94"></a>  <span class='hs-varid'>arbitrary</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>fmap</span> <span class='hs-conid'>UTF8.fromString</span> <span class='hs-varid'>arbitrary</span>
+<a name="line-94"></a>  <span class='hs-varid'>arbitrary</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>genPrintableByteString</span>
 <a name="line-95"></a>
 <a name="line-96"></a><span class='hs-varop'>$</span><span class='hs-layout'>(</span><span class='hs-varid'>genArbitrary</span> <span class='hs-chr'>'</span><span class='hs-chr'>'</span><span class='hs-conid'>PartialNDParams</span><span class='hs-layout'>)</span>
 <a name="line-97"></a>

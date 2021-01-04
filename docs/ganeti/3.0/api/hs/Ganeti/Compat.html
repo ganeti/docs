@@ -91,24 +91,29 @@
 <a name="line-82"></a><span class='hs-definition'>toInotifyPath</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>id</span>
 <a name="line-83"></a><span class='hs-cpp'>#endif</span>
 <a name="line-84"></a>
-<a name="line-85"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- | MonadFail.Fail instance definitions for JSON results</span>
-<a name="line-86"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- Required as of GHC 8.6 because MonadFailDesugaring is on by default:</span>
-<a name="line-87"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- https://gitlab.haskell.org/ghc/ghc/wikis/migration/8.6</span>
-<a name="line-88"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Fail.MonadFail</span> <span class='hs-conid'>Text.JSON.Result</span> <span class='hs-keyword'>where</span>
-<a name="line-89"></a>  <span class='hs-varid'>fail</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Fail.fail</span>
-<a name="line-90"></a>
-<a name="line-91"></a><a name="Pid"></a><span class='hs-comment'>-- | Process 1.6.3. introduced the getPid function, for older versions</span>
-<a name="line-92"></a><a name="Pid"></a><span class='hs-comment'>-- provide an implemention here (https://github.com/haskell/process/pull/109)</span>
-<a name="line-93"></a><a name="Pid"></a><span class='hs-keyword'>type</span> <span class='hs-conid'>Pid</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>CPid</span>
-<a name="line-94"></a><a name="getPid'"></a><span class='hs-definition'>getPid'</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>ProcessHandle</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>IO</span> <span class='hs-layout'>(</span><span class='hs-conid'>Maybe</span> <span class='hs-conid'>Pid</span><span class='hs-layout'>)</span>
-<a name="line-95"></a><span class='hs-cpp'>#if MIN_VERSION_process(1,6,3)</span>
-<a name="line-96"></a><span class='hs-definition'>getPid'</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getPid</span>
-<a name="line-97"></a><span class='hs-cpp'>#else</span>
-<a name="line-98"></a><span class='hs-definition'>getPid'</span> <span class='hs-layout'>(</span><span class='hs-conid'>ProcessHandle</span> <span class='hs-varid'>mh</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
-<a name="line-99"></a>  <span class='hs-varid'>p_</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>readMVar</span> <span class='hs-varid'>mh</span>
-<a name="line-100"></a>  <span class='hs-keyword'>case</span> <span class='hs-varid'>p_</span> <span class='hs-keyword'>of</span>
-<a name="line-101"></a>    <span class='hs-conid'>OpenHandle</span> <span class='hs-varid'>pid</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>return</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varid'>pid</span>
-<a name="line-102"></a>    <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>return</span> <span class='hs-conid'>Nothing</span>
-<a name="line-103"></a><span class='hs-cpp'>#endif</span>
+<a name="line-85"></a><span class='hs-cpp'>#if !MIN_VERSION_json(0,10,0)</span>
+<a name="line-86"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- | MonadFail.Fail instance definitions for JSON results</span>
+<a name="line-87"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>--</span>
+<a name="line-88"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- Required as of GHC 8.6 because MonadFailDesugaring is on by</span>
+<a name="line-89"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- default:</span>
+<a name="line-90"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- &lt;https://gitlab.haskell.org/ghc/ghc/wikis/migration/8.6&gt;. Added</span>
+<a name="line-91"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-comment'>-- upstream in version 0.10.</span>
+<a name="line-92"></a><a name="instance%20Fail.MonadFail%20Text.JSON.Result"></a><span class='hs-keyword'>instance</span> <span class='hs-conid'>Fail.MonadFail</span> <span class='hs-conid'>Text.JSON.Result</span> <span class='hs-keyword'>where</span>
+<a name="line-93"></a>  <span class='hs-varid'>fail</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Fail.fail</span>
+<a name="line-94"></a><span class='hs-cpp'>#endif</span>
+<a name="line-95"></a>
+<a name="line-96"></a><a name="Pid"></a><span class='hs-comment'>-- | Process 1.6.3. introduced the getPid function, for older versions</span>
+<a name="line-97"></a><a name="Pid"></a><span class='hs-comment'>-- provide an implemention here (https://github.com/haskell/process/pull/109)</span>
+<a name="line-98"></a><a name="Pid"></a><span class='hs-keyword'>type</span> <span class='hs-conid'>Pid</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>CPid</span>
+<a name="line-99"></a><a name="getPid'"></a><span class='hs-definition'>getPid'</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>ProcessHandle</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>IO</span> <span class='hs-layout'>(</span><span class='hs-conid'>Maybe</span> <span class='hs-conid'>Pid</span><span class='hs-layout'>)</span>
+<a name="line-100"></a><span class='hs-cpp'>#if MIN_VERSION_process(1,6,3)</span>
+<a name="line-101"></a><span class='hs-definition'>getPid'</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getPid</span>
+<a name="line-102"></a><span class='hs-cpp'>#else</span>
+<a name="line-103"></a><span class='hs-definition'>getPid'</span> <span class='hs-layout'>(</span><span class='hs-conid'>ProcessHandle</span> <span class='hs-varid'>mh</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
+<a name="line-104"></a>  <span class='hs-varid'>p_</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>readMVar</span> <span class='hs-varid'>mh</span>
+<a name="line-105"></a>  <span class='hs-keyword'>case</span> <span class='hs-varid'>p_</span> <span class='hs-keyword'>of</span>
+<a name="line-106"></a>    <span class='hs-conid'>OpenHandle</span> <span class='hs-varid'>pid</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>return</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varid'>pid</span>
+<a name="line-107"></a>    <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>return</span> <span class='hs-conid'>Nothing</span>
+<a name="line-108"></a><span class='hs-cpp'>#endif</span>
 </pre></body>
 </html>
