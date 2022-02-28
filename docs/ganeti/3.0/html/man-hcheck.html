@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>hcheck &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hcheck &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="hinfo" href="man-hinfo.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-hbal.html" title="hbal"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hcheck</a></li> 
       </ul>
     </div>  
 
@@ -49,31 +48,31 @@
 <div class="section" id="synopsis">
 <h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <p><strong>hcheck</strong> {backend options…} [algorithm options…] [reporting options…]</p>
-<p><strong>hcheck</strong> –version</p>
+<p><strong>hcheck</strong> --version</p>
 <p>Backend options:</p>
 <p>{ <strong>-m</strong> <em>cluster</em> | <strong>-L[</strong> <em>path</em> <strong>] | **-t</strong> <em>data-file</em> |
 <strong>-I</strong> <em>path</em> }</p>
 <p>Algorithm options:</p>
-<p><strong>[ –no-simulation ]</strong>
-<strong>[ –max-cpu *cpu-ratio* ]</strong>
-<strong>[ –min-disk *disk-ratio* ]</strong>
+<p><strong>[ --no-simulation ]</strong>
+<strong>[ --max-cpu *cpu-ratio* ]</strong>
+<strong>[ --min-disk *disk-ratio* ]</strong>
 <strong>[ -l *limit* ]</strong>
 <strong>[ -e *score* ]</strong>
-<strong>[ -g *delta* ]</strong> <strong>[ –min-gain-limit *threshold* ]</strong>
+<strong>[ -g *delta* ]</strong> <strong>[ --min-gain-limit *threshold* ]</strong>
 <strong>[ -O *name…* ]</strong>
-<strong>[ –no-disk-moves ]</strong>
-<strong>[ –no-instance-moves ]</strong>
+<strong>[ --no-disk-moves ]</strong>
+<strong>[ --no-instance-moves ]</strong>
 <strong>[ -U *util-file* ]</strong>
-<strong>[ –ignore-dynu ]</strong>
-<strong>[ –ignore-soft-errors ]</strong>
-<strong>[ –evac-mode ]</strong>
-<strong>[ –select-instances *inst…* ]</strong>
-<strong>[ –exclude-instances *inst…* ]</strong>
-<strong>[ –no-capacity-checks ]</strong></p>
+<strong>[ --ignore-dynu ]</strong>
+<strong>[ --ignore-soft-errors ]</strong>
+<strong>[ --evac-mode ]</strong>
+<strong>[ --select-instances *inst…* ]</strong>
+<strong>[ --exclude-instances *inst…* ]</strong>
+<strong>[ --no-capacity-checks ]</strong></p>
 <p>Reporting options:</p>
-<p><strong>[–machine-readable**[=*CHOICE*] **]</strong>
+<p><strong>[--machine-readable**[=*CHOICE*] **]</strong>
 <strong>[ -p[ *fields* ] ]</strong>
-<strong>[ –print-instances ]</strong>
+<strong>[ --print-instances ]</strong>
 <strong>[ -v… | -q ]</strong></p>
 </div>
 <div class="section" id="description">
@@ -92,14 +91,14 @@ on some other node.</p>
 </div>
 <div class="section" id="options">
 <h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>–no-simulation</dt>
-<dd>Only perform checks based on current cluster state, without trying
-to simulate rebalancing.</dd>
-<dt>–no-capacity-checks</dt>
-<dd>Do not check for global N+1 redundancy, i.e., do not warn if the
+<dl class="simple">
+<dt>--no-simulation</dt><dd><p>Only perform checks based on current cluster state, without trying
+to simulate rebalancing.</p>
+</dd>
+<dt>--no-capacity-checks</dt><dd><p>Do not check for global N+1 redundancy, i.e., do not warn if the
 shared-storage instances of one node cannot be moved to the others
-should that node fail.</dd>
+should that node fail.</p>
+</dd>
 </dl>
 <p>For a detailed description about the options listed above have a look at
 <strong>htools</strong>(1), <strong>hspace</strong>(1) and <strong>hbal</strong>(1).</p>
@@ -107,6 +106,7 @@ should that node fail.</dd>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -137,17 +137,15 @@ should that node fail.</dd>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -161,13 +159,14 @@ should that node fail.</dd>
         <li class="right" >
           <a href="man-hbal.html" title="hbal"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hcheck</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-job &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-job &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-network" href="man-gnt-network.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-instance.html" title="gnt-instance"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-job</a></li> 
       </ul>
     </div>  
 
@@ -75,7 +74,7 @@ if the string all is passed.</p>
 <h3>CANCEL<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>cancel</strong></div>
-<div class="line">{[–force] [–kill] {–pending | –queued | –waiting} |</div>
+<div class="line">{[--force] [--kill] {--pending | --queued | --waiting} |</div>
 <div class="line-block">
 <div class="line"><em>job-id</em> …}</div>
 </div>
@@ -93,8 +92,8 @@ objects it touched in an inconsistent state.</p>
 <div class="section" id="change-priority">
 <h3>CHANGE-PRIORITY<a class="headerlink" href="#change-priority" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>change-priority</strong> –priority {low | normal | high}</div>
-<div class="line">{[–force] {–pending | –queued | –waiting} | <em>job-id</em>…}</div>
+<div class="line"><strong>change-priority</strong> --priority {low | normal | high}</div>
+<div class="line">{[--force] {--pending | --queued | --waiting} | <em>job-id</em>…}</div>
 </div>
 <p>Changes the priority of one or multiple pending jobs. Jobs currently
 running have only the priority of remaining opcodes changed.
@@ -112,8 +111,8 @@ information).</p>
 <div class="section" id="list">
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list</strong> [–no-headers] [–separator=*SEPARATOR*]</div>
-<div class="line">[-o <em>[+]FIELD,…</em>] [–filter] [job-id…]</div>
+<div class="line"><strong>list</strong> [--no-headers] [--separator=*SEPARATOR*]</div>
+<div class="line">[-o <em>[+]FIELD,…</em>] [--filter] [job-id…]</div>
 </div>
 <p>Lists the jobs and their status. By default, the job id, job
 status, and a small job description is listed, but additional
@@ -124,39 +123,39 @@ used between the output fields. Both these options are to help
 scripting.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
 The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">archived</span></code></dt>
-<dd>Whether job is archived</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">end_ts</span></code></dt>
-<dd>Timestamp of job end (tuple containing seconds and microseconds)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">id</span></code></dt>
-<dd>Job ID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">opend</span></code></dt>
-<dd>List of opcode execution end timestamps</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">opexec</span></code></dt>
-<dd>List of opcode execution start timestamps (after acquiring locks)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">oplog</span></code></dt>
-<dd>List of opcode output logs</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">oppriority</span></code></dt>
-<dd>List of opcode priorities</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">opresult</span></code></dt>
-<dd>List of opcodes results</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ops</span></code></dt>
-<dd>List of all opcodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">opstart</span></code></dt>
-<dd>List of opcode start timestamps (before acquiring locks)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">opstatus</span></code></dt>
-<dd>List of opcodes status</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code></dt>
-<dd>Current job priority (19 to -20)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">received_ts</span></code></dt>
-<dd>Timestamp of when job was received (tuple containing seconds and microseconds)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">start_ts</span></code></dt>
-<dd>Timestamp of job start (tuple containing seconds and microseconds)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">status</span></code></dt>
-<dd>Job status</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">summary</span></code></dt>
-<dd>List of per-opcode summaries</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">archived</span></code></dt><dd><p>Whether job is archived</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">end_ts</span></code></dt><dd><p>Timestamp of job end (tuple containing seconds and microseconds)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">id</span></code></dt><dd><p>Job ID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opend</span></code></dt><dd><p>List of opcode execution end timestamps</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opexec</span></code></dt><dd><p>List of opcode execution start timestamps (after acquiring locks)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oplog</span></code></dt><dd><p>List of opcode output logs</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oppriority</span></code></dt><dd><p>List of opcode priorities</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opresult</span></code></dt><dd><p>List of opcodes results</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ops</span></code></dt><dd><p>List of all opcodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opstart</span></code></dt><dd><p>List of opcode start timestamps (before acquiring locks)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">opstatus</span></code></dt><dd><p>List of opcodes status</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code></dt><dd><p>Current job priority (19 to -20)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">received_ts</span></code></dt><dd><p>Timestamp of when job was received (tuple containing seconds and microseconds)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">start_ts</span></code></dt><dd><p>Timestamp of job start (tuple containing seconds and microseconds)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">status</span></code></dt><dd><p>Job status</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">summary</span></code></dt><dd><p>List of per-opcode summaries</p>
+</dd>
 </dl>
 <p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
 fields will be added to the default list. This allows one to quickly
@@ -165,15 +164,15 @@ the entire list of fields.</p>
 <p>To include archived jobs in the list the <code class="docutils literal notranslate"><span class="pre">--archived</span></code> option can be
 used.</p>
 <p>The following options can be used to show only specific jobs:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">--pending</span></code></dt>
-<dd>Show only jobs pending execution.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">--running</span></code></dt>
-<dd>Show jobs currently running only.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">--error</span></code></dt>
-<dd>Show failed jobs only.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">--finished</span></code></dt>
-<dd>Show finished jobs only.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">--pending</span></code></dt><dd><p>Show only jobs pending execution.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--running</span></code></dt><dd><p>Show jobs currently running only.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--error</span></code></dt><dd><p>Show failed jobs only.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--finished</span></code></dt><dd><p>Show finished jobs only.</p>
+</dd>
 </dl>
 <p>If exactly one argument is given and it appears to be a query filter
 (see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For
@@ -201,6 +200,7 @@ prints it.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -242,17 +242,15 @@ prints it.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -266,13 +264,14 @@ prints it.</p>
         <li class="right" >
           <a href="man-gnt-instance.html" title="gnt-instance"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-job</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

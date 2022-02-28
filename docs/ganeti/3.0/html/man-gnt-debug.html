@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-debug &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-debug &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-filter" href="man-gnt-filter.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-cluster.html" title="gnt-cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-debug</a></li> 
       </ul>
     </div>  
 
@@ -58,10 +57,10 @@
 <h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="iallocator">
 <h3>IALLOCATOR<a class="headerlink" href="#iallocator" title="Permalink to this headline">¶</a></h3>
-<p><strong>iallocator</strong> [–debug] [–dir <em>direction</em>] {–algorithm
-<em>allocator</em> } [–mode <em>mode</em>] [–mem <em>memory</em>] [–disks <em>diskS</em>]
-[–disk-template <em>template</em>] [–nics <em>nics</em>] [–os-type <em>OS</em>]
-[–vcpus <em>vcpus</em>] [–tags <em>tags</em>] {<em>instance-name</em>}</p>
+<p><strong>iallocator</strong> [--debug] [--dir <em>direction</em>] {--algorithm
+<em>allocator</em> } [--mode <em>mode</em>] [--mem <em>memory</em>] [--disks <em>diskS</em>]
+[--disk-template <em>template</em>] [--nics <em>nics</em>] [--os-type <em>OS</em>]
+[--vcpus <em>vcpus</em>] [--tags <em>tags</em>] {<em>instance-name</em>}</p>
 <p>Executes a test run of the <em>iallocator</em> framework.</p>
 <p>The command will build input for a given iallocator script (named
 with the <code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> option), and either show this input data
@@ -77,7 +76,7 @@ this framework, see the HTML or PDF documentation.</p>
 </div>
 <div class="section" id="delay">
 <h3>DELAY<a class="headerlink" href="#delay" title="Permalink to this headline">¶</a></h3>
-<p><strong>delay</strong> [–debug] [–no-master] [–interruptible] [-n <em>node-name</em>…]
+<p><strong>delay</strong> [--debug] [--no-master] [--interruptible] [-n <em>node-name</em>…]
 {<em>duration</em>}</p>
 <p>Run a test opcode (a sleep) on the master and on selected nodes
 (via an RPC call). This serves no other purpose but to execute a
@@ -94,8 +93,8 @@ number.</p>
 </div>
 <div class="section" id="submit-job">
 <h3>SUBMIT-JOB<a class="headerlink" href="#submit-job" title="Permalink to this headline">¶</a></h3>
-<p><strong>submit-job</strong> [–verbose] [–timing-stats] [–job-repeat <em>n</em>]
-[–op-repeat <em>n</em>] [–each] {opcodes_file…}</p>
+<p><strong>submit-job</strong> [--verbose] [--timing-stats] [--job-repeat <em>n</em>]
+[--op-repeat <em>n</em>] [--each] {opcodes_file…}</p>
 <p>This command builds a list of opcodes from files in JSON format and
 submits a job per file to the master daemon. It can be used to test
 options that are not available via command line.</p>
@@ -127,8 +126,8 @@ failed jobs deliberately.</p>
 <div class="section" id="locks">
 <h3>LOCKS<a class="headerlink" href="#locks" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>locks</strong> [–no-headers] [–separator=*separator*] [-v]</div>
-<div class="line">[-o <em>[+]field,…</em>] [–interval=*seconds*]</div>
+<div class="line"><strong>locks</strong> [--no-headers] [--separator=*separator*] [-v]</div>
+<div class="line">[-o <em>[+]field,…</em>] [--interval=*seconds*]</div>
 </div>
 <p>Shows a list of locks in the master daemon.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--no-headers</span></code> option will skip the initial header line. The
@@ -139,15 +138,15 @@ scripting.</p>
 special field states (see <strong>ganeti</strong>(7)).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
 The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">mode</span></code></dt>
-<dd>Mode in which the lock is currently acquired (exclusive or shared)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd>Lock name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">owner</span></code></dt>
-<dd>Current lock owner(s)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pending</span></code></dt>
-<dd>Threads waiting for the lock</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">mode</span></code></dt><dd><p>Mode in which the lock is currently acquired (exclusive or shared)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Lock name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">owner</span></code></dt><dd><p>Current lock owner(s)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pending</span></code></dt><dd><p>Threads waiting for the lock</p>
+</dd>
 </dl>
 <p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
 fields will be added to the default list. This allows one to quickly
@@ -203,6 +202,7 @@ master candidates.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -243,17 +243,15 @@ master candidates.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -267,13 +265,14 @@ master candidates.</p>
         <li class="right" >
           <a href="man-gnt-cluster.html" title="gnt-cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-debug</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

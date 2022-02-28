@@ -4,25 +4,28 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti(7) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>ganeti(7) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">ganeti(7) Ganeti | Version 3.0.0</h1>
+<h1 class="title">ganeti(7) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
 <li><a href="#description">DESCRIPTION</a></li>
 <li><a href="#quick-start">Quick start</a></li>
-<li><a href="#cluster-architecture">Cluster architecture</a><ul>
+<li><a href="#cluster-architecture">Cluster architecture</a>
+<ul>
 <li><a href="#node-roles">Node roles</a></li>
 <li><a href="#node-flags">Node flags</a></li>
 <li><a href="#node-parameters">Node Parameters</a></li>
@@ -31,12 +34,14 @@
 <li><a href="#cluster-configuration">Cluster configuration</a></li>
 <li><a href="#jobs">Jobs</a></li>
 </ul></li>
-<li><a href="#common-command-line-features">Common command line features</a><ul>
+<li><a href="#common-command-line-features">Common command line features</a>
+<ul>
 <li><a href="#options">Options</a></li>
 <li><a href="#defaults">Defaults</a></li>
 <li><a href="#debug-options">Debug options</a></li>
 </ul></li>
-<li><a href="#field-formatting">Field formatting</a><ul>
+<li><a href="#field-formatting">Field formatting</a>
+<ul>
 <li><a href="#key-value-parameters">Key-value parameters</a></li>
 <li><a href="#query-filters">Query filters</a></li>
 </ul></li>
@@ -155,7 +160,7 @@
 </dl>
 <p>Note that currently this option is unused by Ganeti; values will be recorded but will not influence the Ganeti operation.</p>
 <h2 id="cluster-configuration">Cluster configuration</h2>
-<p>The master node keeps and is responsible for the cluster configuration. On the filesystem, this is stored under the <code>/var/ganeti/lib</code> directory, and if the master daemon is stopped it can be backed up normally.</p>
+<p>The master node keeps and is responsible for the cluster configuration. On the filesystem, this is stored under the <code>/usr/local/var/ganeti/lib</code> directory, and if the master daemon is stopped it can be backed up normally.</p>
 <p>The master daemon will replicate the configuration database called <code>config.data</code> and the job files to all the nodes in the master candidate role. It will also distribute a copy of some configuration values via the <em>ssconf</em> files, which are stored in the same directory and start with a <code>ssconf_</code> prefix, to all nodes.</p>
 <h2 id="jobs">Jobs</h2>
 <p>All cluster modification are done via jobs. A job consists of one or more opcodes, and the list of opcodes is processed serially. If an opcode fails, the entire job is failed and later opcodes are no longer processed. A job can be in one of the following states:</p>

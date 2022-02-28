@@ -64,7 +64,7 @@ the current node.
 
 In addition, it will execute any scripts which exist under the
 "watcher" directory in the Ganeti hooks directory
-(``/etc/ganeti/hooks``). This should be used for lightweight
+(``/usr/local/etc/ganeti/hooks``). This should be used for lightweight
 actions, like starting any extra daemons.
 
 If the cluster parameter ``maintain_node_health`` is enabled, then the
@@ -79,9 +79,9 @@ FILES
 -----
 
 The command has a set of state files (one per group) located at
-``/var/lib/ganeti/watcher.GROUP-UUID.data`` (only used on the
+``/usr/local/var/lib/ganeti/watcher.GROUP-UUID.data`` (only used on the
 master) and a log file at
-``/var/log/ganeti/watcher.log``. Removal of either file(s)
+``/usr/local/var/log/ganeti/watcher.log``. Removal of either file(s)
 will not affect correct operation; the removal of the state file will
 just cause the restart counters for the instances to reset to zero, and
 mark nodes as freshly rebooted (so for example DRBD minors will be
@@ -93,9 +93,9 @@ reboot of all nodes, so in this case, you can remove all state files:
 
 .. code-block:: bash
 
-    rm -f /var/lib/ganeti/watcher.*.data
-    rm -f /var/lib/ganeti/watcher.*.instance-status
-    rm -f /var/lib/ganeti/instance-status
+    rm -f /usr/local/var/lib/ganeti/watcher.*.data
+    rm -f /usr/local/var/lib/ganeti/watcher.*.instance-status
+    rm -f /usr/local/var/lib/ganeti/instance-status
 
 And then re-run the watcher.
 

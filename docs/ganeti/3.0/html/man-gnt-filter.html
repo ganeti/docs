@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-filter &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-filter &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-group" href="man-gnt-group.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-debug.html" title="gnt-debug"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-filter</a></li> 
       </ul>
     </div>  
 
@@ -58,68 +57,64 @@ determine which jobs should be accepted, rejected, paused or
 rate-limited.</p>
 <p>Filter rules consist of the following:</p>
 <ul>
-<li><p class="first">A <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, used to refer to existing filters.</p>
-</li>
-<li><p class="first">A <code class="docutils literal notranslate"><span class="pre">watermark</span></code>. This is the highest job id ever used, as valid in
-the moment when the filter was added or replaced.</p>
-</li>
-<li><p class="first">A <code class="docutils literal notranslate"><span class="pre">priority</span></code>. This is a non-negative integer. Filters are processed
+<li><p>A <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, used to refer to existing filters.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">watermark</span></code>. This is the highest job id ever used, as valid in
+the moment when the filter was added or replaced.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">priority</span></code>. This is a non-negative integer. Filters are processed
 in order of increasing priority. While there
 is a well-defined order in which rules of the same priority are
 evaluated (increasing watermark, then the UUID, are taken as tie
 breakers), it is not recommended to have rules of the same priority
-that overlap and have different actions associated.</p>
-</li>
-<li><p class="first">A list of <code class="docutils literal notranslate"><span class="pre">predicates</span></code> to be matched against the job.</p>
+that overlap and have different actions associated.</p></li>
+<li><p>A list of <code class="docutils literal notranslate"><span class="pre">predicates</span></code> to be matched against the job.</p>
 <p>A predicate is a list, with the first element being the name of the
 predicate and the rest being parameters suitable for that predicate.
 Most predicates take a single parameter, which is a boolean expression
 formulated in the of the Ganeti query language.
 The currently supported predicate names are:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">jobid</span></code>. Only parameter is a boolean expression.
+<li><p><code class="docutils literal notranslate"><span class="pre">jobid</span></code>. Only parameter is a boolean expression.
 For this expression, there is only one field available, <code class="docutils literal notranslate"><span class="pre">id</span></code>,
 which represents the id the job to be filtered.
 In all value positions, the string <code class="docutils literal notranslate"><span class="pre">watermark</span></code> is replaced by
-the value of the watermark of the filter rule.</li>
-<li><code class="docutils literal notranslate"><span class="pre">opcode</span></code>. Only parameter is a boolean expression.
+the value of the watermark of the filter rule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opcode</span></code>. Only parameter is a boolean expression.
 For this expression, <code class="docutils literal notranslate"><span class="pre">OP_ID</span></code> and all other fields present in the
 opcode are available. This predicate will hold true, if the
-expression is true for at least one opcode in the job.</li>
-<li><code class="docutils literal notranslate"><span class="pre">reason</span></code>. Only parameter is a boolean expression.
+expression is true for at least one opcode in the job.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reason</span></code>. Only parameter is a boolean expression.
 For this expression, the three fields <code class="docutils literal notranslate"><span class="pre">source</span></code>, <code class="docutils literal notranslate"><span class="pre">reason</span></code>,
 <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> of reason trail entries are available.
 This predicate is true, if one of the entries of one of the opcodes
-in this job satisfies the expression.</li>
+in this job satisfies the expression.</p></li>
 </ul>
 </li>
-<li><p class="first">An <code class="docutils literal notranslate"><span class="pre">action</span></code>. One of:</p>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">action</span></code>. One of:</p>
 <ul class="simple">
-<li>ACCEPT. The job will be accepted; no further filter rules
-are applied.</li>
-<li>PAUSE. The job will be accepted to the queue and remain there;
+<li><p>ACCEPT. The job will be accepted; no further filter rules
+are applied.</p></li>
+<li><p>PAUSE. The job will be accepted to the queue and remain there;
 however, it is not executed.
-Has no effect if the job is already running.</li>
-<li>REJECT. The job is rejected. If it is already in the queue,
-it will be cancelled.</li>
-<li>CONTINUE. The filtering continues processing with the next
+Has no effect if the job is already running.</p></li>
+<li><p>REJECT. The job is rejected. If it is already in the queue,
+it will be cancelled.</p></li>
+<li><p>CONTINUE. The filtering continues processing with the next
 rule. Such a rule will never have any direct or indirect effect,
 but it can serve as documentation for a “normally present, but
-currently disabled” rule.</li>
-<li>RATE_LIMIT <code class="docutils literal notranslate"><span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is a positive integer. The job will
+currently disabled” rule.</p></li>
+<li><p>RATE_LIMIT <code class="docutils literal notranslate"><span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is a positive integer. The job will
 be held in the queue while <code class="docutils literal notranslate"><span class="pre">n</span></code> or more jobs where this rule
 applies are running. Jobs already running when this rule is added
 are not changed. Logically, this rule is applied job by job
 sequentially, so that the number of jobs where this rule applies
 is limited to <code class="docutils literal notranslate"><span class="pre">n</span></code> once the jobs running at rule addition have
-finished.</li>
+finished.</p></li>
 </ul>
 </li>
-<li><p class="first">A reason trail, in the same format as reason trails for job opcodes
+<li><p>A reason trail, in the same format as reason trails for job opcodes
 (see the <code class="docutils literal notranslate"><span class="pre">--reason</span></code> option in <strong>ganeti</strong>(7)).
 This allows to find out which maintenance (or other reason) caused
-the addition of this filter rule.</p>
-</li>
+the addition of this filter rule.</p></li>
 </ul>
 </div>
 <div class="section" id="commands">
@@ -128,9 +123,9 @@ the addition of this filter rule.</p>
 <h3>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>add</strong></div>
-<div class="line">[–priority=*priority*]</div>
-<div class="line">[–predicates=*predicates*]</div>
-<div class="line">[–action=*action*]</div>
+<div class="line">[--priority=*priority*]</div>
+<div class="line">[--predicates=*predicates*]</div>
+<div class="line">[--action=*action*]</div>
 </div>
 <p>Creates a new filter rule. A UUID is automatically assigned.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--priority</span></code> option sets the priority of the filter.
@@ -151,10 +146,10 @@ options.</p>
 <h3>REPLACE<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>replace</strong></div>
-<div class="line">[–priority=*priority*]</div>
-<div class="line">[–predicates=*predicates*]</div>
-<div class="line">[–action=*action*]</div>
-<div class="line">[–reason=*reason*]</div>
+<div class="line">[--priority=*priority*]</div>
+<div class="line">[--predicates=*predicates*]</div>
+<div class="line">[--action=*action*]</div>
+<div class="line">[--reason=*reason*]</div>
 <div class="line">{<em>filter-uuid</em>}</div>
 </div>
 <p>Replaces a filter rule, or creates one if it doesn’t already exist.</p>
@@ -173,7 +168,7 @@ options.</p>
 <div class="section" id="list">
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list</strong> [–no-headers] [–separator=*separator*] [-v]</div>
+<div class="line"><strong>list</strong> [--no-headers] [--separator=*separator*] [-v]</div>
 <div class="line">[-o <em>[+]field,…</em>] [filter-uuid…]</div>
 </div>
 <p>Lists all existing filters in the cluster. If no filter UUIDs are given,
@@ -190,19 +185,19 @@ be added to the default list. This allows to quickly see the default
 list plus a few other fields, instead of retyping the entire list of
 fields.</p>
 <p>The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">action</span></code></dt>
-<dd>Action</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">predicates</span></code></dt>
-<dd>Predicates</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code></dt>
-<dd>Priority</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">reason_trail</span></code></dt>
-<dd>Reason trail</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt>
-<dd>Network UUID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">watermark</span></code></dt>
-<dd>Watermark</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">action</span></code></dt><dd><p>Action</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">predicates</span></code></dt><dd><p>Predicates</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">priority</span></code></dt><dd><p>Priority</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">reason_trail</span></code></dt><dd><p>Reason trail</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt><dd><p>Network UUID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">watermark</span></code></dt><dd><p>Watermark</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="list-fields">
@@ -244,6 +239,7 @@ order to throttle replication traffic.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -283,17 +279,15 @@ order to throttle replication traffic.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -307,13 +301,14 @@ order to throttle replication traffic.</p>
         <li class="right" >
           <a href="man-gnt-debug.html" title="gnt-debug"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-filter</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

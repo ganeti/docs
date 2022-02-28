@@ -4,19 +4,21 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-kvmd(8) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>ganeti-kvmd(8) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">ganeti-kvmd(8) Ganeti | Version 3.0.0</h1>
+<h1 class="title">ganeti-kvmd(8) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
@@ -35,7 +37,7 @@
 <p>The KVM daemon is responsible for determining whether a given KVM instance was shutdown by an administrator or a user.</p>
 <p>The KVM daemon monitors, using <code>inotify</code>, KVM instances through their QMP sockets, which are provided by KVM. Using the QMP sockets, the KVM daemon listens for particular shutdown, powerdown, and stop events which will determine if a given instance was shutdown by the user or Ganeti, and this result is communicated to Ganeti via a special file in the filesystem.</p>
 <h1 id="files">FILES</h1>
-<p>The KVM daemon monitors Qmp sockets of KVM instances, which are created in the KVM control directory, located under <code>/var/run/ganeti/kvm-hypervisor/ctrl/</code>. The KVM daemon also creates shutdown files in this directory. Finally, the KVM daemon's log file is located under <code>/var/log/ganeti/ganeti-kvmd.log</code>. Removal of the KVM control directory, the shutdown files, or the log file, will lead to no errors on the KVM daemon.</p>
+<p>The KVM daemon monitors Qmp sockets of KVM instances, which are created in the KVM control directory, located under <code>/usr/local/var/run/ganeti/kvm-hypervisor/ctrl/</code>. The KVM daemon also creates shutdown files in this directory. Finally, the KVM daemon's log file is located under <code>/usr/local/var/log/ganeti/ganeti-kvmd.log</code>. Removal of the KVM control directory, the shutdown files, or the log file, will lead to no errors on the KVM daemon.</p>
 <h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to the <a href="https://github.com/ganeti/ganeti/issues">project's issue tracker</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
 <h1 id="see-also">SEE ALSO</h1>

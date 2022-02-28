@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Design for import/export version 2 &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design for import/export version 2 &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Huge Pages Support for Ganeti" href="design-hugepages-support.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="design-http-server.html" title="Design for replacing Ganeti’s HTTP server"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Design for import/export version 2</a></li> 
       </ul>
     </div>  
 
@@ -42,56 +41,57 @@
             
   <div class="section" id="design-for-import-export-version-2">
 <h1><a class="toc-backref" href="#id2">Design for import/export version 2</a><a class="headerlink" href="#design-for-import-export-version-2" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body"><p class="first">2011-Mar-23</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body"><p class="first">Draft</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Depends-On:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="design-x509-ca.html"><span class="doc">Design for a X509 Certificate Authority</span></a></li>
-<li><a class="reference internal" href="design-http-server.html"><span class="doc">Design for replacing Ganeti’s HTTP server</span></a></li>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2011-Mar-23</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Draft</p>
+</dd>
+<dt class="field-odd">Depends-On</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="design-x509-ca.html"><span class="doc">Design for a X509 Certificate Authority</span></a></p></li>
+<li><p><a class="reference internal" href="design-http-server.html"><span class="doc">Design for replacing Ganeti’s HTTP server</span></a></p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#design-for-import-export-version-2" id="id2">Design for import/export version 2</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id3">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposed-changes" id="id4">Proposed changes</a><ul>
-<li><a class="reference internal" href="#software-requirements" id="id5">Software requirements</a></li>
-<li><a class="reference internal" href="#transport" id="id6">Transport</a></li>
-<li><a class="reference internal" href="#ssl-certificates" id="id7">SSL certificates</a></li>
-<li><a class="reference internal" href="#source" id="id8">Source</a><ul>
-<li><a class="reference internal" href="#option-1-cgi" id="id9">Option 1: CGI</a></li>
-<li><a class="reference internal" href="#option-2-fastcgi" id="id10">Option 2: FastCGI</a></li>
+<li><p><a class="reference internal" href="#design-for-import-export-version-2" id="id2">Design for import/export version 2</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id3">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id4">Proposed changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#software-requirements" id="id5">Software requirements</a></p></li>
+<li><p><a class="reference internal" href="#transport" id="id6">Transport</a></p></li>
+<li><p><a class="reference internal" href="#ssl-certificates" id="id7">SSL certificates</a></p></li>
+<li><p><a class="reference internal" href="#source" id="id8">Source</a></p>
+<ul>
+<li><p><a class="reference internal" href="#option-1-cgi" id="id9">Option 1: CGI</a></p></li>
+<li><p><a class="reference internal" href="#option-2-fastcgi" id="id10">Option 2: FastCGI</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#destination" id="id11">Destination</a></li>
+<li><p><a class="reference internal" href="#destination" id="id11">Destination</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-big-picture-for-instance-moves" id="id12">The big picture for instance moves</a></li>
-<li><a class="reference internal" href="#http-resources-on-source" id="id13">HTTP resources on source</a></li>
-<li><a class="reference internal" href="#code-samples" id="id14">Code samples</a><ul>
-<li><a class="reference internal" href="#pycurl-to-file" id="id15">pycURL to file</a></li>
+<li><p><a class="reference internal" href="#the-big-picture-for-instance-moves" id="id12">The big picture for instance moves</a></p></li>
+<li><p><a class="reference internal" href="#http-resources-on-source" id="id13">HTTP resources on source</a></p></li>
+<li><p><a class="reference internal" href="#code-samples" id="id14">Code samples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pycurl-to-file" id="id15">pycURL to file</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#backwards-compatibility" id="id16">Backwards compatibility</a><ul>
-<li><a class="reference internal" href="#version-1" id="id17">Version 1</a></li>
-<li><a class="reference internal" href="#exp-size-fd" id="id18"><code class="docutils literal notranslate"><span class="pre">EXP_SIZE_FD</span></code></a></li>
-<li><a class="reference internal" href="#compression" id="id19">Compression</a></li>
+<li><p><a class="reference internal" href="#backwards-compatibility" id="id16">Backwards compatibility</a></p>
+<ul>
+<li><p><a class="reference internal" href="#version-1" id="id17">Version 1</a></p></li>
+<li><p><a class="reference internal" href="#exp-size-fd" id="id18"><code class="docutils literal notranslate"><span class="pre">EXP_SIZE_FD</span></code></a></p></li>
+<li><p><a class="reference internal" href="#compression" id="id19">Compression</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#notes" id="id20">Notes</a></li>
-<li><a class="reference internal" href="#performance-considerations" id="id21">Performance considerations</a></li>
-<li><a class="reference internal" href="#other-considered-solutions" id="id22">Other considered solutions</a></li>
+<li><p><a class="reference internal" href="#notes" id="id20">Notes</a></p></li>
+<li><p><a class="reference internal" href="#performance-considerations" id="id21">Performance considerations</a></p></li>
+<li><p><a class="reference internal" href="#other-considered-solutions" id="id22">Other considered solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -133,8 +133,8 @@ but usually ended up doing raw data dumps.</p>
 the source. The active side is swapped. This design assumes the
 following design documents have been implemented:</p>
 <ul class="simple">
-<li><a class="reference internal" href="design-x509-ca.html"><span class="doc">Design for a X509 Certificate Authority</span></a></li>
-<li><a class="reference internal" href="design-http-server.html"><span class="doc">Design for replacing Ganeti’s HTTP server</span></a></li>
+<li><p><a class="reference internal" href="design-x509-ca.html"><span class="doc">Design for a X509 Certificate Authority</span></a></p></li>
+<li><p><a class="reference internal" href="design-http-server.html"><span class="doc">Design for replacing Ganeti’s HTTP server</span></a></p></li>
 </ul>
 <p>The following design is mostly targetted at inter-cluster instance
 moves. Intra-cluster import and export use the same technology, but do
@@ -146,9 +146,9 @@ arise, they can be re-added later.</p>
 <div class="section" id="software-requirements">
 <h3><a class="toc-backref" href="#id5">Software requirements</a><a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>HTTP client: cURL/pycURL (already used for inter-node RPC and RAPI
-client)</li>
-<li>Authentication: X509 certificates (server and client)</li>
+<li><p>HTTP client: cURL/pycURL (already used for inter-node RPC and RAPI
+client)</p></li>
+<li><p>Authentication: X509 certificates (server and client)</p></li>
 </ul>
 </div>
 <div class="section" id="transport">
@@ -311,38 +311,40 @@ networks unable to talk to IPv6 networks).</p>
 <div class="section" id="the-big-picture-for-instance-moves">
 <h2><a class="toc-backref" href="#id12">The big picture for instance moves</a><a class="headerlink" href="#the-big-picture-for-instance-moves" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">OpInstanceImportPrepare</span></code> (destination cluster)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpInstanceImportPrepare</span></code> (destination cluster)</p></li>
 </ol>
 <blockquote>
-<div>Create RSA key and CSR (certificate signing request), return signed
-with cluster domain secret.</div></blockquote>
+<div><p>Create RSA key and CSR (certificate signing request), return signed
+with cluster domain secret.</p>
+</div></blockquote>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">OpBackupPrepare</span></code> (source cluster)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpBackupPrepare</span></code> (source cluster)</p></li>
 </ol>
 <blockquote>
-<div>Becomes a no-op in version 2, but see <a class="reference internal" href="#backwards-compat"><span class="std std-ref">Backwards compatibility</span></a>.</div></blockquote>
+<div><p>Becomes a no-op in version 2, but see <a class="reference internal" href="#backwards-compat"><span class="std std-ref">Backwards compatibility</span></a>.</p>
+</div></blockquote>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">OpBackupExport</span></code> (source cluster)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpBackupExport</span></code> (source cluster)</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li>Receives destination cluster’s CSR, verifies signature using
-cluster domain secret.</li>
-<li>Creates certificates using CSR and <a class="reference internal" href="design-x509-ca.html"><span class="doc">cluster CA</span></a>, one for each disk</li>
-<li>Stop instance, create snapshots, start instance</li>
-<li>Prepare HTTP resources on node</li>
-<li>Send certificates, URLs and CA certificate to job submitter using
-feedback mechanism</li>
-<li>Wait for all transfers to finish or fail (with timeout)</li>
-<li>Remove snapshots</li>
+<li><p>Receives destination cluster’s CSR, verifies signature using
+cluster domain secret.</p></li>
+<li><p>Creates certificates using CSR and <a class="reference internal" href="design-x509-ca.html"><span class="doc">cluster CA</span></a>, one for each disk</p></li>
+<li><p>Stop instance, create snapshots, start instance</p></li>
+<li><p>Prepare HTTP resources on node</p></li>
+<li><p>Send certificates, URLs and CA certificate to job submitter using
+feedback mechanism</p></li>
+<li><p>Wait for all transfers to finish or fail (with timeout)</p></li>
+<li><p>Remove snapshots</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code> (destination cluster)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code> (destination cluster)</p></li>
 </ol>
 <blockquote>
 <div><ul>
-<li><p class="first">Receives certificates signed by destination cluster, verifies
+<li><p>Receives certificates signed by destination cluster, verifies
 certificates and URLs using cluster domain secret</p>
 <p>Note that the parameters should be implemented in a generic way
 allowing future extensions, e.g. to download disk images from a
@@ -350,15 +352,11 @@ public, remote server. The cluster domain secret allows Ganeti to
 check data received from a third party, but since this won’t work
 with such extensions, other checks will have to be designed.</p>
 </li>
-<li><p class="first">Create block devices</p>
-</li>
-<li><p class="first">Download every disk from source, verified using remote’s CA and
-authenticated using signed certificates</p>
-</li>
-<li><p class="first">Destroy RSA key and certificates</p>
-</li>
-<li><p class="first">Start instance</p>
-</li>
+<li><p>Create block devices</p></li>
+<li><p>Download every disk from source, verified using remote’s CA and
+authenticated using signed certificates</p></li>
+<li><p>Destroy RSA key and certificates</p></li>
+<li><p>Start instance</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -369,16 +367,14 @@ machine. The transfer ID is generated while preparing the export and is
 unique per disk and instance. No caching should be used and the
 <code class="docutils literal notranslate"><span class="pre">Pragma</span></code> (HTTP/1.0) and <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> (HTTP/1.1) headers set
 accordingly by the server.</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/transfers/[transfer_id]/contents</span></code></dt>
-<dd><p class="first">Dump disk contents. Important request headers:</p>
-<dl class="last docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Accept</span></code> (<span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.1)</dt>
-<dd><p class="first">Specify preferred media types. Only one type is supported in the
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/transfers/[transfer_id]/contents</span></code></dt><dd><p>Dump disk contents. Important request headers:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">Accept</span></code> (<span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.1)</dt><dd><p>Specify preferred media types. Only one type is supported in the
 initial implementation:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">application/octet-stream</span></code></dt>
-<dd>Request raw disk content.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">application/octet-stream</span></code></dt><dd><p>Request raw disk content.</p>
+</dd>
 </dl>
 <p>If support for more media types were to be implemented in the
 future, the “q” parameter used for “indicating a relative quality
@@ -387,24 +383,22 @@ expected, but can be ignored.</p>
 <p>If support for OS scripts were to be re-added in the future, the
 MIME type <code class="docutils literal notranslate"><span class="pre">application/x-ganeti-instance-export</span></code> is hereby
 reserved for disk dumps using an export script.</p>
-<p class="last">If the source can not satisfy the request the response status code
+<p>If the source can not satisfy the request the response status code
 will be 406 (Not Acceptable). Successful requests will specify the
 used media type using the <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header. Unless only
 exactly one media type is requested, the client must handle the
 different response types.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Accept-Encoding</span></code> (<span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.3)</dt>
-<dd><p class="first">Specify desired content coding. Supported are <code class="docutils literal notranslate"><span class="pre">identity</span></code> for
+<dt><code class="docutils literal notranslate"><span class="pre">Accept-Encoding</span></code> (<span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.3)</dt><dd><p>Specify desired content coding. Supported are <code class="docutils literal notranslate"><span class="pre">identity</span></code> for
 uncompressed data, <code class="docutils literal notranslate"><span class="pre">gzip</span></code> for compressed data and <code class="docutils literal notranslate"><span class="pre">*</span></code> for any.
 The response will include a <code class="docutils literal notranslate"><span class="pre">Content-Encoding</span></code> header with the
 actual coding used. If the client specifies an unknown coding, the
 response status code will be 406 (Not Acceptable).</p>
-<p class="last">If the client specifically needs compressed data (see
+<p>If the client specifically needs compressed data (see
 <a class="reference internal" href="#impexp2-compression"><span class="std std-ref">Compression</span></a>) but only gets <code class="docutils literal notranslate"><span class="pre">identity</span></code>, it can
 either compress locally or abort the request.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Range</span></code> (<span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.35)</dt>
-<dd><p class="first">Raw disk dumps can be resumed using this header (e.g. after a
+<dt><code class="docutils literal notranslate"><span class="pre">Range</span></code> (<span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 14.35)</dt><dd><p>Raw disk dumps can be resumed using this header (e.g. after a
 network issue).</p>
 <p>If this header was given in the request and the source supports
 resuming, the status code of the response will be 206 (Partial
@@ -417,15 +411,15 @@ somehow implemented, doing so would be of doubtful benefit for
 import/export.</p>
 <p>For raw data dumps handling ranges is pretty straightforward by just
 dumping the requested range.</p>
-<p class="last">cURL will fail with the error code <code class="docutils literal notranslate"><span class="pre">CURLE_RANGE_ERROR</span></code> if a
+<p>cURL will fail with the error code <code class="docutils literal notranslate"><span class="pre">CURLE_RANGE_ERROR</span></code> if a
 request included a range but the server can’t handle it. The request
 must be retried without a range.</p>
 </dd>
 </dl>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/transfers/[transfer_id]/done</span></code></dt>
-<dd>Use this resource to notify the source when transfer is finished (even
-if not successful). The status code will be 204 (No Content).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/transfers/[transfer_id]/done</span></code></dt><dd><p>Use this resource to notify the source when transfer is finished (even
+if not successful). The status code will be 204 (No Content).</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="code-samples">
@@ -558,6 +552,7 @@ server and backend.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -612,17 +607,15 @@ server and backend.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -636,13 +629,14 @@ server and backend.</p>
         <li class="right" >
           <a href="design-http-server.html" title="Design for replacing Ganeti’s HTTP server"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Design for import/export version 2</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

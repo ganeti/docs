@@ -4,19 +4,21 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-cleaner(8) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>ganeti-cleaner(8) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">ganeti-cleaner(8) Ganeti | Version 3.0.0</h1>
+<h1 class="title">ganeti-cleaner(8) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
@@ -32,8 +34,8 @@
 <p><strong>ganeti-cleaner</strong> node|master</p>
 <h1 id="description">DESCRIPTION</h1>
 <p>The <strong>ganeti-cleaner</strong> is a periodically run script to remove old files. It can clean either node-specific or master-specific files.</p>
-<p>When called with <code>node</code> as argument, it will cleanup expired X509 certificates and keys from <code>/var/run/ganeti/crypto</code>, as well as outdated <strong>ganeti-watcher</strong> information.</p>
-<p>When called with <code>master</code> as argument, it will instead automatically remove all files older than 21 days from <code>/var/lib/ganeti/queue/archive</code>.</p>
+<p>When called with <code>node</code> as argument, it will cleanup expired X509 certificates and keys from <code>/usr/local/var/run/ganeti/crypto</code>, as well as outdated <strong>ganeti-watcher</strong> information.</p>
+<p>When called with <code>master</code> as argument, it will instead automatically remove all files older than 21 days from <code>/usr/local/var/lib/ganeti/queue/archive</code>.</p>
 <h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to the <a href="https://github.com/ganeti/ganeti/issues">project's issue tracker</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
 <h1 id="see-also">SEE ALSO</h1>

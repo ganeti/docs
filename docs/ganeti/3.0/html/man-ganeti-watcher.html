@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ganeti-watcher &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ganeti-watcher &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ganeti-wconfd" href="man-ganeti-wconfd.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti-rapi.html" title="ganeti-rapi"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-watcher</a></li> 
       </ul>
     </div>  
 
@@ -48,8 +47,8 @@
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><strong>ganeti-watcher</strong> [–debug] [–job-age=*age* ] [–ignore-pause]
-[–rapi-ip=*IP*] [–no-verify-disks]</p>
+<p><strong>ganeti-watcher</strong> [--debug] [--job-age=*age* ] [--ignore-pause]
+[--rapi-ip=*IP*] [--no-verify-disks]</p>
 </div>
 <div class="section" id="description">
 <h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
@@ -89,7 +88,7 @@ to keep the job queue manageable.</p>
 the current node.</p>
 <p>In addition, it will execute any scripts which exist under the
 “watcher” directory in the Ganeti hooks directory
-(<code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code>). This should be used for lightweight
+(<code class="docutils literal notranslate"><span class="pre">/usr/local/etc/ganeti/hooks</span></code>). This should be used for lightweight
 actions, like starting any extra daemons.</p>
 <p>If the cluster parameter <code class="docutils literal notranslate"><span class="pre">maintain_node_health</span></code> is enabled, then the
 watcher will also shutdown instances and DRBD devices if the node is
@@ -102,9 +101,9 @@ execute much later than the watcher submits them.</p>
 <div class="section" id="files">
 <h2>FILES<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
 <p>The command has a set of state files (one per group) located at
-<code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/watcher.GROUP-UUID.data</span></code> (only used on the
+<code class="docutils literal notranslate"><span class="pre">/usr/local/var/lib/ganeti/watcher.GROUP-UUID.data</span></code> (only used on the
 master) and a log file at
-<code class="docutils literal notranslate"><span class="pre">/var/log/ganeti/watcher.log</span></code>. Removal of either file(s)
+<code class="docutils literal notranslate"><span class="pre">/usr/local/var/log/ganeti/watcher.log</span></code>. Removal of either file(s)
 will not affect correct operation; the removal of the state file will
 just cause the restart counters for the instances to reset to zero, and
 mark nodes as freshly rebooted (so for example DRBD minors will be
@@ -112,9 +111,9 @@ re-activated).</p>
 <p>In some cases, it’s even desirable to reset the watcher state, for
 example after maintenance actions, or when you want to simulate the
 reboot of all nodes, so in this case, you can remove all state files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -f /var/lib/ganeti/watcher.*.data
-rm -f /var/lib/ganeti/watcher.*.instance-status
-rm -f /var/lib/ganeti/instance-status
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -f /usr/local/var/lib/ganeti/watcher.*.data
+rm -f /usr/local/var/lib/ganeti/watcher.*.instance-status
+rm -f /usr/local/var/lib/ganeti/instance-status
 </pre></div>
 </div>
 <p>And then re-run the watcher.</p>
@@ -122,6 +121,7 @@ rm -f /var/lib/ganeti/instance-status
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -156,17 +156,15 @@ rm -f /var/lib/ganeti/instance-status
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -180,13 +178,14 @@ rm -f /var/lib/ganeti/instance-status
         <li class="right" >
           <a href="man-ganeti-rapi.html" title="ganeti-rapi"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-watcher</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

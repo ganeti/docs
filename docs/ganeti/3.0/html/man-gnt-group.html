@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-group &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-group &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-instance" href="man-gnt-instance.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-filter.html" title="gnt-filter"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-group</a></li> 
       </ul>
     </div>  
 
@@ -60,16 +59,16 @@ the Ganeti system.</p>
 <div class="section" id="add">
 <h3>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>add</strong> [–submit] [–print-jobid]</div>
-<div class="line">[–node-parameters=*NDPARAMS*]</div>
-<div class="line">[–alloc-policy=*POLICY*]</div>
-<div class="line">[{-D|–disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
-<div class="line">[–ipolicy-bounds-specs <em>bound_ispecs</em>]</div>
-<div class="line">[–ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–ipolicy-spindle-ratio <em>ratio</em>]</div>
-<div class="line">[–ipolicy-vcpu-ratio <em>ratio</em>]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
+<div class="line"><strong>add</strong> [--submit] [--print-jobid]</div>
+<div class="line">[--node-parameters=*NDPARAMS*]</div>
+<div class="line">[--alloc-policy=*POLICY*]</div>
+<div class="line">[{-D|--disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
+<div class="line">[--ipolicy-bounds-specs <em>bound_ispecs</em>]</div>
+<div class="line">[--ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--ipolicy-spindle-ratio <em>ratio</em>]</div>
+<div class="line">[--ipolicy-vcpu-ratio <em>ratio</em>]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
 <div class="line">{<em>group-name</em>}</div>
 </div>
 <p>Creates a new group with the given name. The node group will be
@@ -80,18 +79,18 @@ information about supported key=value pairs and their corresponding
 options.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--alloc-policy</span></code> option allows you to set an allocation policy for
 the group at creation time. Possible values are:</p>
-<dl class="docutils">
-<dt>unallocable</dt>
-<dd>nodes in the group should not be candidates for instance allocation,
+<dl class="simple">
+<dt>unallocable</dt><dd><p>nodes in the group should not be candidates for instance allocation,
 and the operation (e.g., instance creation) should fail if only
-groups in this state could be found to satisfy the requirements.</dd>
-<dt>last_resort</dt>
-<dd>nodes in the group should not be used for instance allocations,
-unless this would be the only way to have the operation succeed.</dd>
-<dt>preferred</dt>
-<dd>nodes in the group can be used freely for allocation of instances
+groups in this state could be found to satisfy the requirements.</p>
+</dd>
+<dt>last_resort</dt><dd><p>nodes in the group should not be used for instance allocations,
+unless this would be the only way to have the operation succeed.</p>
+</dd>
+<dt>preferred</dt><dd><p>nodes in the group can be used freely for allocation of instances
 (this is the default). Note that prioritization among groups in this
-state will be deferred to the iallocator plugin that’s being used.</dd>
+state will be deferred to the iallocator plugin that’s being used.</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">-D</span> <span class="pre">(--disk-parameters)</span></code> option allows you to set the disk
 parameters for the node group; please see the section about
@@ -106,7 +105,7 @@ options.</p>
 <h3>ASSIGN-NODES<a class="headerlink" href="#assign-nodes" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>assign-nodes</strong></div>
-<div class="line">[–force] [–submit] [–print-jobid]</div>
+<div class="line">[--force] [--submit] [--print-jobid]</div>
 <div class="line">{<em>group-name</em>} {<em>node-name</em>…}</div>
 </div>
 <p>Assigns one or more nodes to the specified group, moving them from their
@@ -122,16 +121,16 @@ options.</p>
 <div class="section" id="modify">
 <h3>MODIFY<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>modify</strong> [–submit] [–print-jobid]</div>
-<div class="line">[–node-parameters=*NDPARAMS*]</div>
-<div class="line">[–alloc-policy=*POLICY*]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
-<div class="line">[{-D|–disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
-<div class="line">[–ipolicy-bounds-specs <em>bound_ispecs</em>]</div>
-<div class="line">[–ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–ipolicy-spindle-ratio <em>ratio</em>]</div>
-<div class="line">[–ipolicy-vcpu-ratio <em>ratio</em>]</div>
+<div class="line"><strong>modify</strong> [--submit] [--print-jobid]</div>
+<div class="line">[--node-parameters=*NDPARAMS*]</div>
+<div class="line">[--alloc-policy=*POLICY*]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
+<div class="line">[{-D|--disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
+<div class="line">[--ipolicy-bounds-specs <em>bound_ispecs</em>]</div>
+<div class="line">[--ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--ipolicy-spindle-ratio <em>ratio</em>]</div>
+<div class="line">[--ipolicy-vcpu-ratio <em>ratio</em>]</div>
 <div class="line">{<em>group</em>}</div>
 </div>
 <p>Modifies some parameters from the node group.</p>
@@ -149,7 +148,7 @@ options.</p>
 <div class="section" id="remove">
 <h3>REMOVE<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>remove</strong> [–submit] [–print-jobid] {<em>group</em>}</div>
+<div class="line"><strong>remove</strong> [--submit] [--print-jobid] {<em>group</em>}</div>
 </div>
 <p>Deletes the indicated node group, which must be empty. There must always be at
 least one group, so the last group cannot be removed.</p>
@@ -159,8 +158,8 @@ options.</p>
 <div class="section" id="list">
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list</strong> [–no-headers] [–separator=*SEPARATOR*] [-v]</div>
-<div class="line">[-o <em>[+]FIELD,…</em>] [–filter] [<em>group-name</em>…]</div>
+<div class="line"><strong>list</strong> [--no-headers] [--separator=*SEPARATOR*] [-v]</div>
+<div class="line">[-o <em>[+]FIELD,…</em>] [--filter] [<em>group-name</em>…]</div>
 </div>
 <p>Lists all existing node groups in the cluster.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--no-headers</span></code> option will skip the initial header line. The
@@ -175,57 +174,57 @@ fields will be added to the default list. This allows one to quickly
 see the default list plus a few other fields, instead of retyping
 the entire list of fields.</p>
 <p>The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">alloc_policy</span></code></dt>
-<dd>Allocation policy for group</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt>
-<dd>Creation timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_diskparams</span></code></dt>
-<dd>Custom disk parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_ipolicy</span></code></dt>
-<dd>Custom instance policy limitations</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_ndparams</span></code></dt>
-<dd>Custom node parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">diskparams</span></code></dt>
-<dd>Disk parameters (merged)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ipolicy</span></code></dt>
-<dd>Instance policy limitations (merged)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt>
-<dd>Modification timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd>Group name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/cpu_speed</span></code></dt>
-<dd>The “cpu_speed” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/exclusive_storage</span></code></dt>
-<dd>The “exclusive_storage” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/oob_program</span></code></dt>
-<dd>The “oob_program” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs</span></code></dt>
-<dd>The “ovs” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_link</span></code></dt>
-<dd>The “ovs_link” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_name</span></code></dt>
-<dd>The “ovs_name” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/spindle_count</span></code></dt>
-<dd>The “spindle_count” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ssh_port</span></code></dt>
-<dd>The “ssh_port” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndparams</span></code></dt>
-<dd>Node parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">node_cnt</span></code></dt>
-<dd>Number of nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">node_list</span></code></dt>
-<dd>List of nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pinst_cnt</span></code></dt>
-<dd>Number of primary instances</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pinst_list</span></code></dt>
-<dd>List of primary instances</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt>
-<dd>Group object serial number, incremented on each modification</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt>
-<dd>Tags</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt>
-<dd>Group UUID</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">alloc_policy</span></code></dt><dd><p>Allocation policy for group</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt><dd><p>Creation timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_diskparams</span></code></dt><dd><p>Custom disk parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_ipolicy</span></code></dt><dd><p>Custom instance policy limitations</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_ndparams</span></code></dt><dd><p>Custom node parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">diskparams</span></code></dt><dd><p>Disk parameters (merged)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ipolicy</span></code></dt><dd><p>Instance policy limitations (merged)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt><dd><p>Modification timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Group name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/cpu_speed</span></code></dt><dd><p>The “cpu_speed” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/exclusive_storage</span></code></dt><dd><p>The “exclusive_storage” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/oob_program</span></code></dt><dd><p>The “oob_program” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs</span></code></dt><dd><p>The “ovs” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_link</span></code></dt><dd><p>The “ovs_link” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_name</span></code></dt><dd><p>The “ovs_name” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/spindle_count</span></code></dt><dd><p>The “spindle_count” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ssh_port</span></code></dt><dd><p>The “ssh_port” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndparams</span></code></dt><dd><p>Node parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">node_cnt</span></code></dt><dd><p>Number of nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">node_list</span></code></dt><dd><p>List of nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pinst_cnt</span></code></dt><dd><p>Number of primary instances</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pinst_list</span></code></dt><dd><p>List of primary instances</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt><dd><p>Group object serial number, incremented on each modification</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt><dd><p>Tags</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt><dd><p>Group UUID</p>
+</dd>
 </dl>
 <p>If exactly one argument is given and it appears to be a query filter
 (see <strong>ganeti</strong>(7)), the query result is filtered accordingly. For
@@ -242,7 +241,7 @@ only the named groups will be listed.</p>
 <div class="section" id="rename">
 <h3>RENAME<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>rename</strong> [–submit] [–print-jobid] {<em>oldname</em>} {<em>newname</em>}</div>
+<div class="line"><strong>rename</strong> [--submit] [--print-jobid] {<em>oldname</em>} {<em>newname</em>}</div>
 </div>
 <p>Renames a given group from <em>oldname</em> to <em>newname</em>.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code class="docutils literal notranslate"><span class="pre">--submit</span></code> and other common
@@ -251,8 +250,8 @@ options.</p>
 <div class="section" id="evacuate">
 <h3>EVACUATE<a class="headerlink" href="#evacuate" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>evacuate</strong> [–submit] [–print-jobid] [–sequential] [–force-failover]</div>
-<div class="line">[–iallocator <em>name</em>] [–to <em>group</em>…] {<em>source-group</em>}</div>
+<div class="line"><strong>evacuate</strong> [--submit] [--print-jobid] [--sequential] [--force-failover]</div>
+<div class="line">[--iallocator <em>name</em>] [--to <em>group</em>…] {<em>source-group</em>}</div>
 </div>
 <p>This command will move all instances out of the given node group.
 Instances are placed in a new group by an iallocator, either given on
@@ -277,7 +276,7 @@ options.</p>
 <h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="add-tags">
 <h4>ADD-TAGS<a class="headerlink" href="#add-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>add-tags</strong> [–from <em>file</em>] {<em>group</em>} {<em>tag</em>…}</p>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>group</em>} {<em>tag</em>…}</p>
 <p>Add tags to the given node group. If any of the tags contains invalid
 characters, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags will be extended
@@ -293,7 +292,7 @@ stdin.</p>
 </div>
 <div class="section" id="remove-tags">
 <h4>REMOVE-TAGS<a class="headerlink" href="#remove-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>remove-tags</strong> [–from <em>file</em>] {<em>group</em>} {<em>tag</em>…}</p>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>group</em>} {<em>tag</em>…}</p>
 <p>Remove tags from the given node group. If any of the tags are not
 existing on the node, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags to be removed will
@@ -310,7 +309,7 @@ be interpreted as stdin.</p>
 </div>
 <div class="section" id="show-ispecs-cmd">
 <h3>SHOW-ISPECS-CMD<a class="headerlink" href="#show-ispecs-cmd" title="Permalink to this headline">¶</a></h3>
-<p><strong>show-ispecs-cmd</strong> [–include-defaults] [<em>group</em>…]</p>
+<p><strong>show-ispecs-cmd</strong> [--include-defaults] [<em>group</em>…]</p>
 <p>Shows the command line that can be used to recreate the given groups (or
 all groups, if none is given) with the same options relative to specs in
 the instance policies.</p>
@@ -322,6 +321,7 @@ that a group overrides.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -370,17 +370,15 @@ that a group overrides.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -394,13 +392,14 @@ that a group overrides.</p>
         <li class="right" >
           <a href="man-gnt-filter.html" title="gnt-filter"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-group</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

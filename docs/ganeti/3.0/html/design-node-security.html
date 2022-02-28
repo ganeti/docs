@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Improvements of Node Security &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Improvements of Node Security &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti Node OOB Management Framework" href="design-oob.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-node-add.html" title="Design for adding a node to a cluster"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Improvements of Node Security</a></li> 
       </ul>
     </div>  
 
@@ -41,18 +40,17 @@
             
   <div class="section" id="improvements-of-node-security">
 <h1><a class="toc-backref" href="#id3">Improvements of Node Security</a><a class="headerlink" href="#improvements-of-node-security" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2013-Dec-05</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Partially Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.11.0, 2.12.0, 2.13.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2013-Dec-05</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Partially Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.11.0, 2.12.0, 2.13.0</p>
+</dd>
+</dl>
 <p>This document describes an enhancement of Ganeti’s security by restricting
 the distribution of security-sensitive data to the master and master
 candidates only.</p>
@@ -61,35 +59,40 @@ is neither master nor master-candidate.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#improvements-of-node-security" id="id3">Improvements of Node Security</a><ul>
-<li><a class="reference internal" href="#objective" id="id4">Objective</a></li>
-<li><a class="reference internal" href="#detailed-design" id="id5">Detailed design</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id6">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposal-concerning-ssh-host-key-distribution" id="id7">Proposal concerning SSH host key distribution</a><ul>
-<li><a class="reference internal" href="#rapi" id="id8">RAPI</a></li>
-<li><a class="reference internal" href="#cluster-initialization" id="id9">Cluster initialization</a></li>
-<li><a class="reference internal" href="#re-adding-nodes-to-a-cluster" id="id10">(Re-)Adding nodes to a cluster</a></li>
-<li><a class="reference internal" href="#pro-and-demoting-a-node-to-from-master-candidate" id="id11">Pro- and demoting a node to/from master candidate</a></li>
-<li><a class="reference internal" href="#offlining-and-onlining-a-node" id="id12">Offlining and onlining a node</a></li>
-<li><a class="reference internal" href="#cluster-verify" id="id13">Cluster verify</a></li>
-<li><a class="reference internal" href="#upgrades" id="id14">Upgrades</a></li>
-<li><a class="reference internal" href="#downgrades" id="id15">Downgrades</a></li>
-<li><a class="reference internal" href="#renew-crypto" id="id16">Renew-Crypto</a></li>
-<li><a class="reference internal" href="#compliance-to-no-ssh-init-and-no-node-setup" id="id17">Compliance to –no-ssh-init and –no-node-setup</a></li>
+<li><p><a class="reference internal" href="#improvements-of-node-security" id="id3">Improvements of Node Security</a></p>
+<ul>
+<li><p><a class="reference internal" href="#objective" id="id4">Objective</a></p></li>
+<li><p><a class="reference internal" href="#detailed-design" id="id5">Detailed design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id6">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposal-concerning-ssh-host-key-distribution" id="id7">Proposal concerning SSH host key distribution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rapi" id="id8">RAPI</a></p></li>
+<li><p><a class="reference internal" href="#cluster-initialization" id="id9">Cluster initialization</a></p></li>
+<li><p><a class="reference internal" href="#re-adding-nodes-to-a-cluster" id="id10">(Re-)Adding nodes to a cluster</a></p></li>
+<li><p><a class="reference internal" href="#pro-and-demoting-a-node-to-from-master-candidate" id="id11">Pro- and demoting a node to/from master candidate</a></p></li>
+<li><p><a class="reference internal" href="#offlining-and-onlining-a-node" id="id12">Offlining and onlining a node</a></p></li>
+<li><p><a class="reference internal" href="#cluster-verify" id="id13">Cluster verify</a></p></li>
+<li><p><a class="reference internal" href="#upgrades" id="id14">Upgrades</a></p></li>
+<li><p><a class="reference internal" href="#downgrades" id="id15">Downgrades</a></p></li>
+<li><p><a class="reference internal" href="#renew-crypto" id="id16">Renew-Crypto</a></p></li>
+<li><p><a class="reference internal" href="#compliance-to-no-ssh-init-and-no-node-setup" id="id17">Compliance to –no-ssh-init and –no-node-setup</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#proposal-regarding-node-daemon-certificates" id="id18">Proposal regarding node daemon certificates</a><ul>
-<li><a class="reference internal" href="#id1" id="id19">Cluster initialization</a></li>
-<li><a class="reference internal" href="#re-adding-nodes" id="id20">(Re-)Adding nodes</a></li>
-<li><a class="reference internal" href="#promotion-and-demotion-of-master-candidates" id="id21">Promotion and demotion of master candidates</a></li>
-<li><a class="reference internal" href="#id2" id="id22">Cluster verify</a></li>
-<li><a class="reference internal" href="#crypto-renewal" id="id23">Crypto renewal</a></li>
+<li><p><a class="reference internal" href="#proposal-regarding-node-daemon-certificates" id="id18">Proposal regarding node daemon certificates</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id19">Cluster initialization</a></p></li>
+<li><p><a class="reference internal" href="#re-adding-nodes" id="id20">(Re-)Adding nodes</a></p></li>
+<li><p><a class="reference internal" href="#promotion-and-demotion-of-master-candidates" id="id21">Promotion and demotion of master candidates</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id22">Cluster verify</a></p></li>
+<li><p><a class="reference internal" href="#crypto-renewal" id="id23">Crypto renewal</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#further-considerations" id="id24">Further considerations</a><ul>
-<li><a class="reference internal" href="#watcher" id="id25">Watcher</a></li>
-<li><a class="reference internal" href="#other-keys-and-daemons" id="id26">Other Keys and Daemons</a></li>
-<li><a class="reference internal" href="#related-and-future-work" id="id27">Related and Future Work</a></li>
+<li><p><a class="reference internal" href="#further-considerations" id="id24">Further considerations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#watcher" id="id25">Watcher</a></p></li>
+<li><p><a class="reference internal" href="#other-keys-and-daemons" id="id26">Other Keys and Daemons</a></p></li>
+<li><p><a class="reference internal" href="#related-and-future-work" id="id27">Related and Future Work</a></p></li>
 </ul>
 </li>
 </ul>
@@ -124,10 +127,10 @@ surface for the hypervisor exploitation.</p>
 <h3><a class="toc-backref" href="#id6">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h3>
 <p>Currently (as of 2.10), all nodes hold the following information:</p>
 <ul class="simple">
-<li>the ssh host keys (public and private)</li>
-<li>the ssh root keys (public and private)</li>
-<li>node daemon certificate (the SSL client certificate and its
-corresponding private key)</li>
+<li><p>the ssh host keys (public and private)</p></li>
+<li><p>the ssh root keys (public and private)</p></li>
+<li><p>node daemon certificate (the SSL client certificate and its
+corresponding private key)</p></li>
 </ul>
 <p>Concerning ssh, this setup contains the following security issue. Since
 all nodes of a cluster can ssh as root into any other cluster node, one
@@ -152,40 +155,40 @@ root keys are untouched by this design.</p>
 keys of the master candidates get added to the <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file
 of all nodes. This has the advantages, that:</p>
 <ul class="simple">
-<li>Only master candidates can ssh into other nodes, thus compromised
-nodes cannot compromise the cluster further.</li>
-<li>One can remove a compromised master candidate from a cluster
+<li><p>Only master candidates can ssh into other nodes, thus compromised
+nodes cannot compromise the cluster further.</p></li>
+<li><p>One can remove a compromised master candidate from a cluster
 (including removing it’s public key from all nodes’ <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>
 file) without having to regenerate and distribute new ssh keys for all
 master candidates. (Even though it is be good practice to do that anyway,
 since the compromising of the other master candidates might have taken
-place already.)</li>
-<li>If a (uncompromised) master candidate is offlined to be sent for
+place already.)</p></li>
+<li><p>If a (uncompromised) master candidate is offlined to be sent for
 repair due to a hardware failure before Ganeti can remove any keys
 from it (for example when the network adapter of the machine is broken),
 we don’t have to worry about the keys being on a machine that is
-physically accessible.</li>
+physically accessible.</p></li>
 </ul>
 <p>To ensure security while transferring public key information and
 updating the <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>, there are several other changes
 necessary:</p>
 <ul class="simple">
-<li>Any distribution of keys (in this case only public keys) is done via
+<li><p>Any distribution of keys (in this case only public keys) is done via
 SSH and not via RPC. An attacker who has RPC control should not be
 able to get SSH access where he did not have SSH access before
-already.</li>
-<li>The only RPC calls that are made in this context are from the master
+already.</p></li>
+<li><p>The only RPC calls that are made in this context are from the master
 daemon to the node daemon on its own host and noded ensures as much
 as possible that the change to be made does not harm the cluster’s
-security boundary.</li>
-<li>The nodes that are potential master candidates keep a list of public
+security boundary.</p></li>
+<li><p>The nodes that are potential master candidates keep a list of public
 keys of potential master candidates of the cluster in a separate
 file called <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> to keep track of which keys could
 possibly be added <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files of the nodes. We come
 to what “potential” means in this case in the next section. The key
 list is only transferred via SSH or written directly by noded. It
 is not stored in the cluster config, because the config is
-distributed via RPC.</li>
+distributed via RPC.</p></li>
 </ul>
 <p>The following sections describe in detail which Ganeti commands are
 affected by the proposed changes.</p>
@@ -202,26 +205,26 @@ access and a compromised normal node, one can make this node a master
 candidate and then still have the power to compromise the whole cluster.</p>
 <p>To mitigate this issue, we propose the following changes:</p>
 <ul class="simple">
-<li>Add a flag <code class="docutils literal notranslate"><span class="pre">master_capability_rapi_modifiable</span></code> to the cluster
+<li><p>Add a flag <code class="docutils literal notranslate"><span class="pre">master_capability_rapi_modifiable</span></code> to the cluster
 configuration which indicates whether or not it should be possible
 to modify the <code class="docutils literal notranslate"><span class="pre">master_capable</span></code> flag of nodes via RAPI. The flag is
 set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default and can itself only be changed on the
 commandline. In this design doc, we refer to the flag as the
-“rapi flag” from here on.</li>
-<li>Only if the <code class="docutils literal notranslate"><span class="pre">master_capability_rapi_modifiable</span></code> switch is set to
+“rapi flag” from here on.</p></li>
+<li><p>Only if the <code class="docutils literal notranslate"><span class="pre">master_capability_rapi_modifiable</span></code> switch is set to
 <code class="docutils literal notranslate"><span class="pre">True</span></code>, it is possible to modify the master-capability flag of
-nodes.</li>
+nodes.</p></li>
 </ul>
 <p>With this setup, there are the following definitions of “potential
 master candidates” depending on the rapi flag:</p>
 <ul class="simple">
-<li>If the rapi flag is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, all cluster nodes are potential
+<li><p>If the rapi flag is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, all cluster nodes are potential
 master candidates, because as described above, all of them can
 eventually be made master candidates via RAPI and thus security-wise,
-we haven’t won anything above the current SSH handling.</li>
-<li>If the rapi flag is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, only the master capable nodes
+we haven’t won anything above the current SSH handling.</p></li>
+<li><p>If the rapi flag is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, only the master capable nodes
 are considered potential master candidates, as it is not possible to
-make them master candidates via RAPI at all.</li>
+make them master candidates via RAPI at all.</p></li>
 </ul>
 <p>Note that when the rapi flag is changed, the state of the
 <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file on all nodes  has to be updated accordingly.
@@ -246,15 +249,15 @@ unlikely to be widely used.</p>
 <p>On cluster initialization, the following steps are taken in
 bootstrap.py:</p>
 <ul class="simple">
-<li>A public/private key pair is generated (as before), but only used
+<li><p>A public/private key pair is generated (as before), but only used
 by the first (and thus master) node. In particular, the private key
-never leaves the node.</li>
-<li>A mapping of node UUIDs to public SSH keys is created and stored
+never leaves the node.</p></li>
+<li><p>A mapping of node UUIDs to public SSH keys is created and stored
 as text file in <code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/ganeti_pub_keys</span></code> only accessible
 by root (permissions 0600). The master node’s uuid and its public
 key is added as first entry. The format of the file is one
-line per node, each line composed as <code class="docutils literal notranslate"><span class="pre">node_uuid</span> <span class="pre">ssh_key</span></code>.</li>
-<li>The node’s public key is added to it’s own <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</li>
+line per node, each line composed as <code class="docutils literal notranslate"><span class="pre">node_uuid</span> <span class="pre">ssh_key</span></code>.</p></li>
+<li><p>The node’s public key is added to it’s own <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</p></li>
 </ul>
 </div>
 <div class="section" id="re-adding-nodes-to-a-cluster">
@@ -264,35 +267,35 @@ every node that gets added to the cluster.</p>
 <p>Adding a new node will require the following steps.</p>
 <p>In gnt_node.py:</p>
 <ul class="simple">
-<li>On the new node, a new public/private SSH key pair is generated.</li>
-<li>The public key of the new node is fetched (via SSH) to the master
+<li><p>On the new node, a new public/private SSH key pair is generated.</p></li>
+<li><p>The public key of the new node is fetched (via SSH) to the master
 node and if it is a potential master candidate (see definition above),
-it is added to the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> list on the master node.</li>
-<li>The public keys of all current master candidates are added to the
-new node’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file (also via SSH).</li>
+it is added to the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> list on the master node.</p></li>
+<li><p>The public keys of all current master candidates are added to the
+new node’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file (also via SSH).</p></li>
 </ul>
 <p>In LUNodeAdd in cmdlib/node.py:</p>
 <ul class="simple">
-<li>The LUNodeAdd determines whether or not the new node is a master
+<li><p>The LUNodeAdd determines whether or not the new node is a master
 candidate and in any case updates the cluster’s configuration with the
-new nodes information. (This is not changed by the proposed design.)</li>
-<li>If the new node is a master candidate, we make an RPC call to the node
+new nodes information. (This is not changed by the proposed design.)</p></li>
+<li><p>If the new node is a master candidate, we make an RPC call to the node
 daemon of the master node to add the new node’s public key to all
 nodes’ <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files. The implementation of this RPC call
 has to be extra careful as described in the next steps, because
-compromised RPC security should not compromise SSH security.</li>
+compromised RPC security should not compromise SSH security.</p></li>
 </ul>
 <p>RPC call execution in noded (on master node):</p>
 <ul class="simple">
-<li>Check that the public key of the new node is in the
+<li><p>Check that the public key of the new node is in the
 <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file of the master node to make sure that no keys
 of nodes outside the Ganeti cluster and no keys that are not potential
-master candidates gain SSH access in the cluster.</li>
-<li>Via SSH, transfer the new node’s public key to all nodes (including
-the new node) and add it to their <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file is transferred via SSH to all
+master candidates gain SSH access in the cluster.</p></li>
+<li><p>Via SSH, transfer the new node’s public key to all nodes (including
+the new node) and add it to their <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file is transferred via SSH to all
 potential master candidates nodes except the master node
-(including the new one).</li>
+(including the new one).</p></li>
 </ul>
 <p>In case of readding a node that used to be in the cluster before,
 handling of the SSH keys would basically be the same, in particular also
@@ -315,17 +318,17 @@ LUNodeAdd …” on.</p>
 RPC call to the master node’s node daemon as for adding a node.</p>
 <p>In the RPC call, noded will perform the following steps:</p>
 <ul class="simple">
-<li>Check that the public key of the node to be demoted is indeed in the
+<li><p>Check that the public key of the node to be demoted is indeed in the
 <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file to avoid deleting ssh keys of machines that
 don’t belong to the cluster (and thus potentially lock out the
-administrator).</li>
-<li>Via SSH, remove the key from all node’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files.</li>
+administrator).</p></li>
+<li><p>Via SSH, remove the key from all node’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files.</p></li>
 </ul>
 <p>This affected the behavior of the following commands:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd>gnt-node modify –master-candidate=yes
-gnt-node modify –master-candidate=no [–auto-promote]</dd>
+<dl class="simple">
+<dt>::</dt><dd><p>gnt-node modify –master-candidate=yes
+gnt-node modify –master-candidate=no [–auto-promote]</p>
+</dd>
 </dl>
 <p>If the node has been master candidate already before the command to promote
 it was issued, Ganeti does not do anything.</p>
@@ -342,10 +345,10 @@ candidate again if it was so before. The handling of the keys should be done
 in the same way as when the node is explicitly promoted or demoted to or from
 master candidate. See the previous section for details.</p>
 <p>This affects the command:</p>
-<dl class="docutils">
-<dt>::</dt>
-<dd>gnt-node modify –offline=yes
-gnt-node modify –offline=no [–auto-promote]</dd>
+<dl class="simple">
+<dt>::</dt><dd><p>gnt-node modify –offline=yes
+gnt-node modify –offline=no [–auto-promote]</p>
+</dd>
 </dl>
 <p>For offlining, the removal of the keys is particularly important, as the
 detection of a compromised node might be the very reason for the offlining.
@@ -360,16 +363,16 @@ because currently Ganeti does not even try to remove any keys.</p>
 <p>So far, <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">verify</span></code> checks the SSH connectivity of all nodes to
 all other nodes. We propose to replace this by the following checks:</p>
 <ul class="simple">
-<li>For all master candidates, we check if they can connect any other node
-in the cluster (other master candidates and normal nodes).</li>
-<li>We check if the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file contains keys of nodes that
+<li><p>For all master candidates, we check if they can connect any other node
+in the cluster (other master candidates and normal nodes).</p></li>
+<li><p>We check if the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code> file contains keys of nodes that
 are no longer in the cluster or that are not potential master
-candidates.</li>
-<li>For all normal nodes, we check if their key does not appear in other
+candidates.</p></li>
+<li><p>For all normal nodes, we check if their key does not appear in other
 node’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>. For now, we will only emit a warning
 rather than an error if this check fails, because Ganeti might be
 run in a setup where Ganeti is not the only system manipulating the
-SSH keys.</li>
+SSH keys.</p></li>
 </ul>
 </div>
 <div class="section" id="upgrades">
@@ -378,11 +381,11 @@ SSH keys.</li>
 proposed in this design, the upgrade procedure has to involve the
 following steps in the post-upgrade hook:</p>
 <ul class="simple">
-<li>For all nodes, new SSH key pairs are generated.</li>
-<li>All nodes and their public keys are added to the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code>
-file and the file is copied to all nodes.</li>
-<li>All keys of master candidate nodes are added to the
-<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files of all other nodes.</li>
+<li><p>For all nodes, new SSH key pairs are generated.</p></li>
+<li><p>All nodes and their public keys are added to the <code class="docutils literal notranslate"><span class="pre">ganeti_pub_keys</span></code>
+file and the file is copied to all nodes.</p></li>
+<li><p>All keys of master candidate nodes are added to the
+<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> files of all other nodes.</p></li>
 </ul>
 <p>Since this upgrade significantly changes the configuration of the
 clusters’ nodes, we will add a note to the UPGRADE notes to make the
@@ -396,10 +399,10 @@ will be backed up and not simply overridden.</p>
 <h4><a class="toc-backref" href="#id15">Downgrades</a><a class="headerlink" href="#downgrades" title="Permalink to this headline">¶</a></h4>
 <p>These downgrading steps will be implemented from 2.13 to 2.12:</p>
 <ul class="simple">
-<li>The master node’s private/public key pair will be distributed to all
-nodes (via SSH) and the individual SSH keys will be backed up.</li>
-<li>The obsolete individual ssh keys will be removed from all nodes’
-<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</li>
+<li><p>The master node’s private/public key pair will be distributed to all
+nodes (via SSH) and the individual SSH keys will be backed up.</p></li>
+<li><p>The obsolete individual ssh keys will be removed from all nodes’
+<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file.</p></li>
 </ul>
 </div>
 <div class="section" id="renew-crypto">
@@ -429,7 +432,7 @@ new design as well.</p>
 <p>Regarding the node daemon certificates, we propose the following changes
 in the design.</p>
 <ul class="simple">
-<li>Instead of using the same certificate for all nodes as both, server
+<li><p>Instead of using the same certificate for all nodes as both, server
 and client certificate, we generate a common server certificate (and
 the corresponding private key) for all nodes and a different client
 certificate (and the corresponding private key) for each node. The
@@ -437,95 +440,95 @@ server certificate will be self-signed. The client certificate will
 be signed by the server certificate. The client certificates will
 use the node UUID as serial number to ensure uniqueness within the
 cluster. They will use the host’s hostname as the certificate
-common name (CN).</li>
-<li>In addition, we store a mapping of
+common name (CN).</p></li>
+<li><p>In addition, we store a mapping of
 (node UUID, client certificate digest) in the cluster’s configuration
 and ssconf for hosts that are master or master candidate.
 The client certificate digest is a hash of the client certificate.
 We suggest a ‘sha1’ hash here. We will call this mapping ‘candidate map’
-from here on.</li>
-<li>The node daemon will be modified in a way that on an incoming RPC
+from here on.</p></li>
+<li><p>The node daemon will be modified in a way that on an incoming RPC
 request, it first performs a client verification (same as before) to
 ensure that the requesting host is indeed the holder of the
 corresponding private key. Additionally, it compares the digest of
 the certificate of the incoming request to the respective entry of
 the candidate map. If the digest does not match the entry of the host
 in the mapping or is not included in the mapping at all, the SSL
-connection is refused.</li>
+connection is refused.</p></li>
 </ul>
 <p>This design has the following advantages:</p>
 <ul class="simple">
-<li>A compromised normal node cannot issue RPC calls, because it will
+<li><p>A compromised normal node cannot issue RPC calls, because it will
 not be in the candidate map. (See the <code class="docutils literal notranslate"><span class="pre">Drawbacks</span></code> section regarding
-an indirect way of achieving this though.)</li>
-<li>A compromised master candidate would be able to issue RPC requests,
+an indirect way of achieving this though.)</p></li>
+<li><p>A compromised master candidate would be able to issue RPC requests,
 but on detection of its compromised state, it can be removed from the
 cluster (and thus from the candidate map) without the need for
 redistribution of any certificates, because the other master candidates
 can continue using their own certificates. However, it is best
 practice to issue a complete key renewal even in this case, unless one
 can ensure no actions compromising other nodes have not already been
-carried out.</li>
-<li>A compromised node would not be able to use the other (possibly master
+carried out.</p></li>
+<li><p>A compromised node would not be able to use the other (possibly master
 candidate) nodes’ information from the candidate map to issue RPCs,
 because the config just stores the digests and not the certificate
-itself.</li>
-<li>A compromised node would be able to obtain another node’s certificate
+itself.</p></li>
+<li><p>A compromised node would be able to obtain another node’s certificate
 by waiting for incoming RPCs from this other node. However, the node
 cannot use the certificate to issue RPC calls, because the SSL client
 verification would require the node to hold the corresponding private
-key as well.</li>
+key as well.</p></li>
 </ul>
 <p>Drawbacks of this design:</p>
 <ul class="simple">
-<li>Complexity of node and certificate management will be increased (see
-following sections for details).</li>
-<li>If the candidate map is not distributed fast enough to all nodes after
+<li><p>Complexity of node and certificate management will be increased (see
+following sections for details).</p></li>
+<li><p>If the candidate map is not distributed fast enough to all nodes after
 an update of the configuration, it might be possible to issue RPC calls
 from a compromised master candidate node that has been removed
 from the Ganeti cluster already. However, this is still a better
 situation than before and an inherent problem when one wants to
-distinguish between master candidates and normal nodes.</li>
-<li>A compromised master candidate would still be able to issue RPC calls,
+distinguish between master candidates and normal nodes.</p></li>
+<li><p>A compromised master candidate would still be able to issue RPC calls,
 if it uses ssh to retrieve another master candidate’s client
 certificate and the corresponding private SSL key. This is an issue
 even with the first part of the improved handling of ssh keys in this
 design (limiting ssh keys to master candidates), but it will be
 eliminated with the second part of the design (separate ssh keys for
-each master candidate).</li>
-<li>Even though this proposal is an improvement towards the previous
+each master candidate).</p></li>
+<li><p>Even though this proposal is an improvement towards the previous
 situation in Ganeti, it still does not use the full power of SSL. For
-further improvements, see Section “Related and future work”.</li>
-<li>Signing the client certificates with the server certificate will
+further improvements, see Section “Related and future work”.</p></li>
+<li><p>Signing the client certificates with the server certificate will
 increase the complexity of the renew-crypto, as a renewal of the
 server certificates requires the renewal (and signing) of all client
-certificates as well.</li>
+certificates as well.</p></li>
 </ul>
 <p>Alternative proposals:</p>
 <ul class="simple">
-<li>The initial version of this document described a setup where the
+<li><p>The initial version of this document described a setup where the
 client certificates were also self-signed. This led to a serious
 problem (Issue 1094), which would only have been solvable by
 distributing all client certificates to all nodes and load them
 as trusted CAs. As this would have resulted in having to restart
 noded on all nodes every time a node is added, removed, demoted
 or promoted, this was not feasible and we switched to client
-certificates which are signed by the server certificate.</li>
-<li>Instead of generating a client certificate per node, one could think
+certificates which are signed by the server certificate.</p></li>
+<li><p>Instead of generating a client certificate per node, one could think
 of just generating two different client certificates, one for normal
 nodes and one for master candidates. Noded could then just check if
 the requesting node has the master candidate certificate. Drawback of
 this proposal is that once one master candidate gets compromised, all
 master candidates would need to get a new certificate even if the
 compromised master candidate had not yet fetched the certificates
-from the other master candidates via ssh.</li>
-<li>In addition to our main proposal, one could think of including a
+from the other master candidates via ssh.</p></li>
+<li><p>In addition to our main proposal, one could think of including a
 piece of data (for example the node’s host name or UUID) in the RPC
 call which is encrypted with the requesting node’s private key. The
 node daemon could check if the datum can be decrypted using the node’s
 certificate. However, this would ensure similar functionality as
 SSL’s built-in client verification and add significant complexity
-to Ganeti’s RPC protocol.</li>
+to Ganeti’s RPC protocol.</p></li>
 </ul>
 <p>In the following sections, we describe how our design affects various
 Ganeti operations.</p>
@@ -571,15 +574,15 @@ gets removed and the updated configuration gets redistributed.</p>
 <h4><a class="toc-backref" href="#id22">Cluster verify</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Cluster verify will be extended by the following checks:</p>
 <ul class="simple">
-<li>Whether each entry in the candidate map indeed corresponds to a master
-candidate.</li>
-<li>Whether the master candidate’s certificate digest match their entry
-in the candidate map.</li>
-<li>Whether no node tries to use the certificate of another node. In
+<li><p>Whether each entry in the candidate map indeed corresponds to a master
+candidate.</p></li>
+<li><p>Whether the master candidate’s certificate digest match their entry
+in the candidate map.</p></li>
+<li><p>Whether no node tries to use the certificate of another node. In
 particular, it is important to check that no normal node tries to
-use the certificate of a master candidate.</li>
-<li>Whether there are still self-signed client certificates in use (from
-a pre 2.12.4 Ganeti version).</li>
+use the certificate of a master candidate.</p></li>
+<li><p>Whether there are still self-signed client certificates in use (from
+a pre 2.12.4 Ganeti version).</p></li>
 </ul>
 </div>
 <div class="section" id="crypto-renewal">
@@ -628,25 +631,25 @@ in this design so far. Also, other daemons than the ones mentioned so far
 perform intra-cluster communication. Neither the keys nor the daemons will
 be affected by this design for several reasons:</p>
 <ul class="simple">
-<li>The hmac key used by ConfD (see <a class="reference internal" href="design-2.1.html"><span class="doc">Ganeti 2.1 design</span></a>): the hmac key is still
+<li><p>The hmac key used by ConfD (see <a class="reference internal" href="design-2.1.html"><span class="doc">Ganeti 2.1 design</span></a>): the hmac key is still
 distributed to all nodes, because it was designed to be used for
 communicating with ConfD, which should be possible from all nodes.
 For example, the monitoring daemon which runs on all nodes uses it to
 retrieve information from ConfD. However, since communication with ConfD
 is read-only, a compromised node holding the hmac key does not enable an
-attacker to change the cluster’s state.</li>
-<li>The WConfD daemon writes the configuration to all master candidates
+attacker to change the cluster’s state.</p></li>
+<li><p>The WConfD daemon writes the configuration to all master candidates
 via RPC. Since it only runs on the master node, it’s ability to run
-RPC requests is maintained with this design.</li>
-<li>The rapi SSL key certificate and rapi user/password file ‘rapi_users’ is
+RPC requests is maintained with this design.</p></li>
+<li><p>The rapi SSL key certificate and rapi user/password file ‘rapi_users’ is
 already only copied to the master candidates (see <a class="reference internal" href="design-2.1.html"><span class="doc">Ganeti 2.1 design</span></a>,
-Section <code class="docutils literal notranslate"><span class="pre">Redistribute</span> <span class="pre">Config</span></code>).</li>
-<li>The spice certificates are still distributed to all nodes, since it should
-be possible to use spice to access VMs on any cluster node.</li>
-<li>The cluster domain secret is used for inter-cluster instance moves.
+Section <code class="docutils literal notranslate"><span class="pre">Redistribute</span> <span class="pre">Config</span></code>).</p></li>
+<li><p>The spice certificates are still distributed to all nodes, since it should
+be possible to use spice to access VMs on any cluster node.</p></li>
+<li><p>The cluster domain secret is used for inter-cluster instance moves.
 Since instances can be moved from any normal node of the source cluster to
 any normal node of the destination cluster, the presence of this
-secret on all nodes is necessary.</li>
+secret on all nodes is necessary.</p></li>
 </ul>
 </div>
 <div class="section" id="related-and-future-work">
@@ -656,30 +659,30 @@ As a trade-off wrt to complexity and implementation effort, we did not
 implement them yet (as of version 2.11) but describe them here for
 future reference.</p>
 <ul class="simple">
-<li>The server certificate is currently self-signed and the client certificates
+<li><p>The server certificate is currently self-signed and the client certificates
 are signed by the server certificate. It would increase the security if they
 were signed by a common CA. There is already a design doc for a Ganeti CA
 which was suggested in a different context (related to import/export).
 This would also be a benefit for the RPC calls. See design doc
 <a class="reference internal" href="design-impexp2.html"><span class="doc">Design for import/export version 2</span></a> for more information. Implementing a CA is rather
 complex, because it would mean also to support renewing the CA certificate and
-providing and supporting infrastructure to revoke compromised certificates.</li>
-<li>An extension of the previous suggestion would be to even enable the
+providing and supporting infrastructure to revoke compromised certificates.</p></li>
+<li><p>An extension of the previous suggestion would be to even enable the
 system administrator to use an external CA. Especially in bigger
 setups, where already an SSL infrastructure exists, it would be useful
 if Ganeti can simply be integrated with it, rather than forcing the
-user to use the Ganeti CA.</li>
-<li>Ganeti RPC calls are currently done without checking if the hostname
+user to use the Ganeti CA.</p></li>
+<li><p>Ganeti RPC calls are currently done without checking if the hostname
 of the node complies with the common name of the certificate. This
 might be a desirable feature, but would increase the effort when a
-node is renamed.</li>
-<li>The typical use case for SSL is to have one certificate per node
+node is renamed.</p></li>
+<li><p>The typical use case for SSL is to have one certificate per node
 rather than one shared certificate (Ganeti’s noded server certificate)
 and a client certificate. One could change the design in a way that
 only one certificate per node is used, but this would require a common
 CA so that the validity of the certificate can be established by every
-node in the cluster.</li>
-<li>With the proposed design, the serial numbers of the client
+node in the cluster.</p></li>
+<li><p>With the proposed design, the serial numbers of the client
 certificates are set to the node UUIDs. This is technically also not
 complying to how SSL is supposed to be used, as the serial numbers
 should reflect the enumeration of certificates created by the CA. Once
@@ -688,7 +691,7 @@ accordingly. The implementation of the proposed design also has the
 drawback of the serial number not changing even if the certificate is
 replaced by a new one (for example when calling <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">renew-</span>
 <span class="pre">crypt</span></code>), which also does not comply to way SSL was designed to be
-used.</li>
+used.</p></li>
 </ul>
 </div>
 </div>
@@ -696,6 +699,7 @@ used.</li>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -754,17 +758,15 @@ used.</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -778,12 +780,13 @@ used.</li>
         <li class="right" >
           <a href="design-node-add.html" title="Design for adding a node to a cluster"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Improvements of Node Security</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

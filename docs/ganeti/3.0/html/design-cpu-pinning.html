@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti CPU Pinning &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti CPU Pinning &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Allocation for Partitioned Ganeti" href="design-dedicated-allocation.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-cpu-speed.html" title="Taking relative CPU speed into account"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti CPU Pinning</a></li> 
       </ul>
     </div>  
 
@@ -41,18 +40,17 @@
             
   <div class="section" id="ganeti-cpu-pinning">
 <h1>Ganeti CPU Pinning<a class="headerlink" href="#ganeti-cpu-pinning" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-May-28</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.6.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2011-May-28</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.6.0</p>
+</dd>
+</dl>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <p>This document defines Ganeti’s support for CPU pinning (aka CPU
@@ -70,11 +68,10 @@ follows:</p>
 </div>
 <p>cpu-pinning-info can be any of the following:</p>
 <ul>
-<li><p class="first">One vCPU mapping, which can be the word “all” or a combination
+<li><p>One vCPU mapping, which can be the word “all” or a combination
 of CPU numbers and ranges separated by comma. In this case, all
-vCPUs will be mapped to the indicated list.</p>
-</li>
-<li><p class="first">A list of vCPU mappings, separated by a colon ‘:’. In this case
+vCPUs will be mapped to the indicated list.</p></li>
+<li><p>A list of vCPU mappings, separated by a colon ‘:’. In this case
 each vCPU is mapped to an entry in the list, and the size of the
 list must match the number of vCPUs defined for the instance. This
 is enforced when setting CPU pinning or when setting the number of
@@ -187,11 +184,11 @@ or through the configuration file.</p>
 file, it is straight forward to use the same method for CPU pinning.
 There are 2 different parameters that control Xen’s CPU pinning and
 configuration:</p>
-<dl class="docutils">
-<dt>vcpus</dt>
-<dd>controls the number of vCPUs</dd>
-<dt>cpus</dt>
-<dd>maps vCPUs to physical CPUs</dd>
+<dl class="simple">
+<dt>vcpus</dt><dd><p>controls the number of vCPUs</p>
+</dd>
+<dt>cpus</dt><dd><p>maps vCPUs to physical CPUs</p>
+</dd>
 </dl>
 <p>When no pinning is required (pinning information is “all”), the
 “cpus” entry is removed from the configuration file.</p>
@@ -220,11 +217,11 @@ to start execution.</p>
 <p>For example, a sequence of commands to control CPU affinity under KVM
 may be:</p>
 <ul class="simple">
-<li>Start KVM: <code class="docutils literal notranslate"><span class="pre">/usr/bin/kvm</span> <span class="pre">…</span> <span class="pre">&lt;kvm-command-line-options&gt;</span> <span class="pre">…</span> <span class="pre">-S</span></code></li>
-<li>Use socat to connect to monitor</li>
-<li>send <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">cpus</span></code> to monitor to get thread/vCPU information</li>
-<li>call <code class="docutils literal notranslate"><span class="pre">sched_setaffinity</span></code> for each thread with the CPU mask</li>
-<li>send <code class="docutils literal notranslate"><span class="pre">cont</span></code> to KVM’s monitor</li>
+<li><p>Start KVM: <code class="docutils literal notranslate"><span class="pre">/usr/bin/kvm</span> <span class="pre">…</span> <span class="pre">&lt;kvm-command-line-options&gt;</span> <span class="pre">…</span> <span class="pre">-S</span></code></p></li>
+<li><p>Use socat to connect to monitor</p></li>
+<li><p>send <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">cpus</span></code> to monitor to get thread/vCPU information</p></li>
+<li><p>call <code class="docutils literal notranslate"><span class="pre">sched_setaffinity</span></code> for each thread with the CPU mask</p></li>
+<li><p>send <code class="docutils literal notranslate"><span class="pre">cont</span></code> to KVM’s monitor</p></li>
 </ul>
 <p>A CPU mask is a hexadecimal bit mask where each bit represents one
 physical CPU. See man page for <em class="manpage">sched_setaffinity(2)</em> for more
@@ -242,17 +239,18 @@ more than 63 CPUs.</p>
 <div class="section" id="alternative-design-options">
 <h2>Alternative Design Options<a class="headerlink" href="#alternative-design-options" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>There’s an option to ignore the limitations of the underlying
+<li><p>There’s an option to ignore the limitations of the underlying
 hypervisor and instead of requiring explicit pinning information
 for <em>all</em> vCPUs, assume a mapping of “all” to vCPUs not mentioned.
 This can lead to inadvertent missing information, but either way,
 since using cpu-pinning options is probably not going to be
-frequent, there’s no real advantage.</li>
+frequent, there’s no real advantage.</p></li>
 </ol>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -289,17 +287,15 @@ frequent, there’s no real advantage.</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -313,12 +309,13 @@ frequent, there’s no real advantage.</li>
         <li class="right" >
           <a href="design-cpu-speed.html" title="Taking relative CPU speed into account"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti CPU Pinning</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

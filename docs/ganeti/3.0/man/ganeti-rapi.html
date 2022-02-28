@@ -4,19 +4,21 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ganeti-rapi(8) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>ganeti-rapi(8) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">ganeti-rapi(8) Ganeti | Version 3.0.0</h1>
+<h1 class="title">ganeti-rapi(8) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
@@ -39,10 +41,10 @@
 <p>The daemon will listen to the "ganeti-rapi" TCP port, as listed in the system services database, or if not defined, to port 5080 by default. The port can be overridden by passing the <code>-p</code> option. The <code>-b</code> option can be used to specify the address to bind to (defaults to <code>0.0.0.0</code>). Note that if you specify the address, the watcher needs to be informed about it using its option <code>--rapi-ip</code>, otherwise it will not be able to reach the RAPI interface and will attempt to restart it all the time. Alternatively to setting the IP with <code>--b</code>, the <code>-i</code> option can be used to specify the interface to bind do.</p>
 <p>The maximum number of simultaneous client connections may be configured with the <code>--max-clients</code> option. This defaults to 20. Connections above this count are accepted, but no responses are sent until enough connections are closed.</p>
 <p>See the <em>Ganeti remote API</em> documentation for further information.</p>
-<p>Requests are logged to <code>/var/log/ganeti/rapi-daemon.log</code>, in the same format as for the node and master daemon.</p>
+<p>Requests are logged to <code>/usr/local/var/log/ganeti/rapi-daemon.log</code>, in the same format as for the node and master daemon.</p>
 <h1 id="access-controls">ACCESS CONTROLS</h1>
 <p>Most query operations are allowed without authentication. Only the modification operations require authentication, in the form of basic authentication. Specify the <code>--require-authentication</code> command line flag to always require authentication.</p>
-<p>The users and their rights are defined in the <code>/var/lib/ganeti/rapi/users</code> file. The format of this file is described in the Ganeti documentation (<code>rapi.html</code>).</p>
+<p>The users and their rights are defined in the <code>/usr/local/var/lib/ganeti/rapi/users</code> file. The format of this file is described in the Ganeti documentation (<code>rapi.html</code>).</p>
 <h1 id="reporting-bugs">REPORTING BUGS</h1>
 <p>Report bugs to the <a href="https://github.com/ganeti/ganeti/issues">project's issue tracker</a> or contact the developers using the <a href="ganeti@googlegroups.com">Ganeti mailing list</a>.</p>
 <h1 id="see-also">SEE ALSO</h1>

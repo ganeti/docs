@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>File-based Storage &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File-based Storage &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti file-based disks ownership" href="design-file-based-disks-ownership.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-disk-conversion.html" title="Conversion between disk templates"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">File-based Storage</a></li> 
       </ul>
     </div>  
 
@@ -41,18 +40,17 @@
             
   <div class="section" id="file-based-storage">
 <h1>File-based Storage<a class="headerlink" href="#file-based-storage" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2014-Jan-27</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.0.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2014-Jan-27</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.0.0</p>
+</dd>
+</dl>
 <p>This page describes the proposed file-based storage for the 2.0 version
 of Ganeti. The project consists in extending Ganeti in order to support
 a filesystem image as Virtual Block Device (VBD) in Dom0 as the primary
@@ -61,21 +59,21 @@ storage for a VM.</p>
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <p>Goals:</p>
 <ul class="simple">
-<li>file-based storage for virtual machines running in a Xen-based
-Ganeti cluster</li>
-<li>failover of file-based virtual machines between cluster-nodes</li>
-<li>export/import file-based virtual machines</li>
-<li>reuse existing image files</li>
-<li>allow Ganeti to initialize the cluster without checking for a volume
-group (e.g. xenvg)</li>
+<li><p>file-based storage for virtual machines running in a Xen-based
+Ganeti cluster</p></li>
+<li><p>failover of file-based virtual machines between cluster-nodes</p></li>
+<li><p>export/import file-based virtual machines</p></li>
+<li><p>reuse existing image files</p></li>
+<li><p>allow Ganeti to initialize the cluster without checking for a volume
+group (e.g. xenvg)</p></li>
 </ul>
 <p>Non Goals:</p>
 <ul class="simple">
-<li>any kind of data mirroring between clusters for file-based instances
-(this should be achieved by using shared storage)</li>
-<li>special support for live-migration</li>
-<li>encryption of VBDs</li>
-<li>compression of VBDs</li>
+<li><p>any kind of data mirroring between clusters for file-based instances
+(this should be achieved by using shared storage)</p></li>
+<li><p>special support for live-migration</p></li>
+<li><p>encryption of VBDs</p></li>
+<li><p>compression of VBDs</p></li>
 </ul>
 </div>
 <div class="section" id="background">
@@ -99,17 +97,17 @@ the primary storage for a VM. One file represents one VBD.</p>
 <h3>Advantages/Disadvantages<a class="headerlink" href="#advantages-disadvantages" title="Permalink to this headline">¶</a></h3>
 <p>Advantages of file-backed VBD:</p>
 <ul class="simple">
-<li>support of sparse allocation</li>
-<li>easy from a management/backup point of view (e.g. you can just copy
-the files around)</li>
-<li>external storage (e.g. SAN, NAS) can be used to store VMs</li>
+<li><p>support of sparse allocation</p></li>
+<li><p>easy from a management/backup point of view (e.g. you can just copy
+the files around)</p></li>
+<li><p>external storage (e.g. SAN, NAS) can be used to store VMs</p></li>
 </ul>
 <p>Disadvantages of file-backed VBD:
 * possible performance loss for I/O-intensive workloads</p>
 <ul class="simple">
-<li>using sparse files requires care to ensure the sparseness is
+<li><p>using sparse files requires care to ensure the sparseness is
 preserved when copying, and there is no header in which metadata
-relating back to the VM can be stored</li>
+relating back to the VM can be stored</p></li>
 </ul>
 </div>
 <div class="section" id="xen-related-specifications">
@@ -126,31 +124,31 @@ underlying Xen hypervisor.</p>
 * easy to set up</p>
 <p>Disadvantages:</p>
 <ul class="simple">
-<li>buffer writes very aggressively, which can affect guest filesystem
-correctness in the event of a host crash</li>
-<li>can even cause out-of-memory kernel crashes in Dom0 under heavy
-write load</li>
-<li>substantial slowdowns under heavy I/O workloads</li>
-<li>the default number of supported loopdevices is only 8</li>
-<li>doesn’t support QCOW files</li>
+<li><p>buffer writes very aggressively, which can affect guest filesystem
+correctness in the event of a host crash</p></li>
+<li><p>can even cause out-of-memory kernel crashes in Dom0 under heavy
+write load</p></li>
+<li><p>substantial slowdowns under heavy I/O workloads</p></li>
+<li><p>the default number of supported loopdevices is only 8</p></li>
+<li><p>doesn’t support QCOW files</p></li>
 </ul>
 </div>
 <div class="section" id="blktap-driver">
 <h5><code class="docutils literal notranslate"><span class="pre">blktap</span></code> driver<a class="headerlink" href="#blktap-driver" title="Permalink to this headline">¶</a></h5>
 <p>Advantages:</p>
 <ul class="simple">
-<li>higher performance than loopback driver</li>
-<li>more scalable</li>
-<li>better safety properties for VBD data</li>
-<li>Xen-team strongly encourages use</li>
-<li>already in Xen tree</li>
-<li>supports QCOW files</li>
-<li>asynchronous driver (i.e. high performance)</li>
+<li><p>higher performance than loopback driver</p></li>
+<li><p>more scalable</p></li>
+<li><p>better safety properties for VBD data</p></li>
+<li><p>Xen-team strongly encourages use</p></li>
+<li><p>already in Xen tree</p></li>
+<li><p>supports QCOW files</p></li>
+<li><p>asynchronous driver (i.e. high performance)</p></li>
 </ul>
 <p>Disadvantages:</p>
 <ul class="simple">
-<li>not enabled in most precompiled kernels</li>
-<li>stable, but not as much tested as loopback driver</li>
+<li><p>not enabled in most precompiled kernels</p></li>
+<li><p>stable, but not as much tested as loopback driver</p></li>
 </ul>
 </div>
 <div class="section" id="ublkback-driver">
@@ -160,13 +158,14 @@ write load</li>
 plugins”.</p>
 <p>Furthermore, the Roadmap includes the following:</p>
 <blockquote>
-<div>“… A special high-performance qcow plugin is also under
+<div><p>“… A special high-performance qcow plugin is also under
 development, that supports better metadata caching, asynchronous IO,
 and allows request reordering with appropriate safety barriers to
 enforce correctness. It remains both forward and backward compatible
 with existing qcow disk images, but makes adjustments to qemu’s
 default allocation policy when creating new disks such as to
-optimize performance.”</div></blockquote>
+optimize performance.”</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="file-types">
@@ -179,20 +178,20 @@ optimize performance.”</div></blockquote>
 * simple and easily exportable</p>
 <p>Disadvantages:</p>
 <ul class="simple">
-<li>Underlying filesystem needs to support sparse files (most
-filesystems do, though)</li>
+<li><p>Underlying filesystem needs to support sparse files (most
+filesystems do, though)</p></li>
 </ul>
 </div>
 <div class="section" id="qcow-disk-image-file">
 <h5>QCOW disk image file<a class="headerlink" href="#qcow-disk-image-file" title="Permalink to this headline">¶</a></h5>
 <p>Advantages:</p>
 <ul class="simple">
-<li>Smaller file size, even on filesystems which don’t support holes
-(i.e. sparse files)</li>
-<li>Snapshot support, where the image only represents changes made to an
-underlying disk image</li>
-<li>Optional zlib based compression</li>
-<li>Optional AES encryption</li>
+<li><p>Smaller file size, even on filesystems which don’t support holes
+(i.e. sparse files)</p></li>
+<li><p>Snapshot support, where the image only represents changes made to an
+underlying disk image</p></li>
+<li><p>Optional zlib based compression</p></li>
+<li><p>Optional AES encryption</p></li>
 </ul>
 <p>Disadvantages:
 * Resizing not supported yet (it’s on the way)</p>
@@ -210,18 +209,18 @@ synchronous and thus slow.</p>
 <div class="section" id="terminology">
 <h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><strong>VBD</strong> (Virtual Block Device): Persistent storage available to a
+<li><p><strong>VBD</strong> (Virtual Block Device): Persistent storage available to a
 virtual machine, providing the abstraction of an actual block
 storage device. VBDs may be actual block devices, filesystem images,
-or remote/network storage.</li>
-<li><strong>Dom0</strong> (Domain 0): The first domain to be started on a Xen
-machine.  Domain 0 is responsible for managing the system.</li>
-<li><strong>VM</strong> (Virtual Machine): The environment in which a hosted
+or remote/network storage.</p></li>
+<li><p><strong>Dom0</strong> (Domain 0): The first domain to be started on a Xen
+machine.  Domain 0 is responsible for managing the system.</p></li>
+<li><p><strong>VM</strong> (Virtual Machine): The environment in which a hosted
 operating system runs, providing the abstraction of a dedicated
 machine. A VM may be identical to the underlying hardware (as in
 full virtualization, or it may differ, as in paravirtualization). In
-the case of Xen the domU (unprivileged domain) instance is meant.</li>
-<li><strong>QCOW</strong>: QEMU (a processor emulator) image format.</li>
+the case of Xen the domU (unprivileged domain) instance is meant.</p></li>
+<li><p><strong>QCOW</strong>: QEMU (a processor emulator) image format.</p></li>
 </ul>
 </div>
 <div class="section" id="implementation">
@@ -234,7 +233,8 @@ utility.</p>
 <h5>Add Instance<a class="headerlink" href="#add-instance" title="Permalink to this headline">¶</a></h5>
 <p>Example:</p>
 <blockquote>
-<div>gnt-instance add -t <a class="reference external" href="file:[path">file:[path</a>=[,driver=loop[,reuse[,…]]]] –disk 0:size=5G –disk 1:size=10G -n node -o debian-etch instance2</div></blockquote>
+<div><p>gnt-instance add -t <a class="reference external" href="file:[path">file:[path</a>=[,driver=loop[,reuse[,…]]]] –disk 0:size=5G –disk 1:size=10G -n node -o debian-etch instance2</p>
+</div></blockquote>
 <p>This will create a file-based instance with e.g. the following files:
 * <code class="docutils literal notranslate"><span class="pre">/sda</span></code> -&gt; 5GB
 * <code class="docutils literal notranslate"><span class="pre">/sdb</span></code> -&gt; 10GB</p>
@@ -367,6 +367,7 @@ document.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -447,17 +448,15 @@ document.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -471,12 +470,13 @@ document.</p>
         <li class="right" >
           <a href="design-disk-conversion.html" title="Conversion between disk templates"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">File-based Storage</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

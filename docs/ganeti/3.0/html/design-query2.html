@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Query version 2 design &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query version 2 design &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Splitting the query and job execution paths" href="design-query-splitting.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-plain-redundancy.html" title="Redundancy for the plain disk template"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Query version 2 design</a></li> 
       </ul>
     </div>  
 
@@ -41,37 +40,39 @@
             
   <div class="section" id="query-version-2-design">
 <h1><a class="toc-backref" href="#id8">Query version 2 design</a><a class="headerlink" href="#query-version-2-design" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2010-Nov-12</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.4.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2010-Nov-12</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.4.0</p>
+</dd>
+</dl>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#query-version-2-design" id="id8">Query version 2 design</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id9">Current state and shortcomings</a><ul>
-<li><a class="reference internal" href="#proposed-changes" id="id10">Proposed changes</a><ul>
-<li><a class="reference internal" href="#regular-expressions" id="id11">Regular expressions</a></li>
-<li><a class="reference internal" href="#item-types" id="id12">Item types</a></li>
-<li><a class="reference internal" href="#data-query" id="id13">Data query</a></li>
-<li><a class="reference internal" href="#fields-query" id="id14">Fields query</a></li>
-<li><a class="reference internal" href="#field-definition" id="id15">Field definition</a></li>
-<li><a class="reference internal" href="#old-result-format" id="id16">Old result format</a></li>
-<li><a class="reference internal" href="#luxi" id="id17">LUXI</a></li>
-<li><a class="reference internal" href="#python" id="id18">Python</a></li>
-<li><a class="reference internal" href="#rapi" id="id19">RAPI</a></li>
-<li><a class="reference internal" href="#cli-programs" id="id20">CLI programs</a></li>
+<li><p><a class="reference internal" href="#query-version-2-design" id="id8">Query version 2 design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id9">Current state and shortcomings</a></p>
+<ul>
+<li><p><a class="reference internal" href="#proposed-changes" id="id10">Proposed changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#regular-expressions" id="id11">Regular expressions</a></p></li>
+<li><p><a class="reference internal" href="#item-types" id="id12">Item types</a></p></li>
+<li><p><a class="reference internal" href="#data-query" id="id13">Data query</a></p></li>
+<li><p><a class="reference internal" href="#fields-query" id="id14">Fields query</a></p></li>
+<li><p><a class="reference internal" href="#field-definition" id="id15">Field definition</a></p></li>
+<li><p><a class="reference internal" href="#old-result-format" id="id16">Old result format</a></p></li>
+<li><p><a class="reference internal" href="#luxi" id="id17">LUXI</a></p></li>
+<li><p><a class="reference internal" href="#python" id="id18">Python</a></p></li>
+<li><p><a class="reference internal" href="#rapi" id="id19">RAPI</a></p></li>
+<li><p><a class="reference internal" href="#cli-programs" id="id20">CLI programs</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-discussed-solutions" id="id21">Other discussed solutions</a></li>
+<li><p><a class="reference internal" href="#other-discussed-solutions" id="id21">Other discussed solutions</a></p></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +92,7 @@ fields’ values.</p>
 ambiguities. Additionally it can’t mark fields as “not found” as the
 list of returned columns must match the fields requested.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cli</span><span class="o">.</span><span class="n">GetClient</span><span class="p">()</span><span class="o">.</span><span class="n">QueryNodes</span><span class="p">([],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;mfree&quot;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cli</span><span class="o">.</span><span class="n">GetClient</span><span class="p">()</span><span class="o">.</span><span class="n">QueryNodes</span><span class="p">([],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;mfree&quot;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="go">[</span>
 <span class="go">  [&#39;node1.example.com&#39;, &#39;192.0.2.18&#39;, 14800],</span>
 <span class="go">  [&#39;node2.example.com&#39;, &#39;192.0.2.19&#39;, 31280]</span>
@@ -101,7 +102,7 @@ list of returned columns must match the fields requested.</p>
 <p>There is no way for clients to determine the list of possible fields,
 meaning they have to be hardcoded. Selecting unknown fields raises
 an exception:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cli</span><span class="o">.</span><span class="n">GetClient</span><span class="p">()</span><span class="o">.</span><span class="n">QueryNodes</span><span class="p">([],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;UnknownField&quot;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cli</span><span class="o">.</span><span class="n">GetClient</span><span class="p">()</span><span class="o">.</span><span class="n">QueryNodes</span><span class="p">([],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;UnknownField&quot;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="go">ganeti.errors.OpPrereqError: (u&#39;Unknown output fields selected: UnknownField&#39;, u&#39;wrong_input&#39;)</span>
 </pre></div>
 </div>
@@ -127,41 +128,41 @@ for de-/serializing.</p>
 expressions, all of which can easily be turned into static field names.
 Therefore their use in field names is dropped. Reasons:</p>
 <ul class="simple">
-<li>When regexps are used and a field name is not listed as a simple
+<li><p>When regexps are used and a field name is not listed as a simple
 string in the field dictionary, all keys in the field dictionary have
 to be checked whether they’re a regular expression object and if so,
-matched (see <code class="docutils literal notranslate"><span class="pre">utils.FindMatch</span></code>).</li>
-<li>Code becomes simpler. There would be no need anymore to care about
+matched (see <code class="docutils literal notranslate"><span class="pre">utils.FindMatch</span></code>).</p></li>
+<li><p>Code becomes simpler. There would be no need anymore to care about
 regular expressions as field names—they’d all be simple strings, even
 if there are many more. The list of field names would be static once
-built at module-load time.</li>
-<li>There’s the issue of formatting titles for the clients. Should it be
+built at module-load time.</p></li>
+<li><p>There’s the issue of formatting titles for the clients. Should it be
 done in the server? In the client? The field definition’s title would
 contain backreferences to the regexp groups in the field name
 (<code class="docutils literal notranslate"><span class="pre">re.MatchObject.expand</span></code> can be used). With just strings, the field
-definitions can be passed directly to the client. They’re static.</li>
-<li>Only a side note: In the memory consumed for 1’000
+definitions can be passed directly to the client. They’re static.</p></li>
+<li><p>Only a side note: In the memory consumed for 1’000
 <code class="docutils literal notranslate"><span class="pre">_sre.SRE_Pattern</span></code> objects (as returned by <code class="docutils literal notranslate"><span class="pre">re.compile</span></code> for an
 expression with one group) one can easily store 10’000 strings of the
 same length (the regexp objects keep the expression string around, so
-compiling the expression always uses more memory).</li>
+compiling the expression always uses more memory).</p></li>
 </ul>
 </div>
 <div class="section" id="item-types">
 <span id="id1"></span><h4><a class="toc-backref" href="#id12">Item types</a><a class="headerlink" href="#item-types" title="Permalink to this headline">¶</a></h4>
 <p>The proposal is to implement this new interface for the following
 items:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">instance</span></code></dt>
-<dd>Instances</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">node</span></code></dt>
-<dd>Nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">job</span></code></dt>
-<dd>Jobs</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">lock</span></code></dt>
-<dd>Locks</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">os</span></code></dt>
-<dd>Operating systems</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">instance</span></code></dt><dd><p>Instances</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">node</span></code></dt><dd><p>Nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">job</span></code></dt><dd><p>Jobs</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">lock</span></code></dt><dd><p>Locks</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">os</span></code></dt><dd><p>Operating systems</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="data-query">
@@ -169,17 +170,15 @@ items:</p>
 <div class="section" id="request">
 <span id="data-query-request"></span><h5>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h5>
 <p>The request is a dictionary with the following entries:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">what</span></code> (string, required)</dt>
-<dd>An <a class="reference internal" href="#item-types"><span class="std std-ref">item type</span></a>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of strings, required)</dt>
-<dd><p class="first">List of names of fields to return. Example:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;mem&quot;</span><span class="p">,</span> <span class="s2">&quot;nic0.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;disk0.size&quot;</span><span class="p">,</span> <span class="s2">&quot;disk1.size&quot;</span><span class="p">]</span>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">what</span></code> (string, required)</dt><dd><p>An <a class="reference internal" href="#item-types"><span class="std std-ref">item type</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of strings, required)</dt><dd><p>List of names of fields to return. Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;mem&quot;</span><span class="p">,</span> <span class="s2">&quot;nic0.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;disk0.size&quot;</span><span class="p">,</span> <span class="s2">&quot;disk1.size&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">filter</span></code> (optional)</dt>
-<dd><p class="first">This will be used to filter queries. In this implementation only names
+<dt><code class="docutils literal notranslate"><span class="pre">filter</span></code> (optional)</dt><dd><p>This will be used to filter queries. In this implementation only names
 can be filtered to replace the previous <code class="docutils literal notranslate"><span class="pre">names</span></code> parameter to
 queries. An empty filter (<code class="docutils literal notranslate"><span class="pre">None</span></code>) will return all items. To retrieve
 specific names, the filter must be specified as follows, with the
@@ -191,7 +190,7 @@ inner part repeated for each name:</p>
 extensions will be made in the future to allow for more operators and
 fields. Such extensions might include a Python-style “in” operator,
 but for simplicity only “=” is supported in this implementation.</p>
-<p class="last">To reiterate: Filters for this implementation must consist of exactly
+<p>To reiterate: Filters for this implementation must consist of exactly
 one OR expression (<code class="docutils literal notranslate"><span class="pre">[&quot;|&quot;,</span> <span class="pre">...]</span></code>) and one or more name equality filters
 (<code class="docutils literal notranslate"><span class="pre">[&quot;=&quot;,</span> <span class="pre">&quot;name&quot;,</span> <span class="pre">&quot;...&quot;]</span></code>).</p>
 </dd>
@@ -203,30 +202,29 @@ opcodes have to be used instead.</p>
 <div class="section" id="response">
 <span id="data-query-response"></span><h5>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h5>
 <p>The result is a dictionary with the following entries:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>)</dt>
-<dd>In-order list of a <a class="reference internal" href="#field-def"><span class="std std-ref">field definition</span></a> for each
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>)</dt><dd><p>In-order list of a <a class="reference internal" href="#field-def"><span class="std std-ref">field definition</span></a> for each
 requested field, unknown fields are returned with the kind
-<code class="docutils literal notranslate"><span class="pre">unknown</span></code>. Length must be equal to number of requested fields.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data</span></code> (list of lists of tuples)</dt>
-<dd><p class="first">List of lists, one list for each item found. Each item’s list must
+<code class="docutils literal notranslate"><span class="pre">unknown</span></code>. Length must be equal to number of requested fields.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">data</span></code> (list of lists of tuples)</dt><dd><p>List of lists, one list for each item found. Each item’s list must
 have one entry for each field listed in <code class="docutils literal notranslate"><span class="pre">fields</span></code> (meaning their
 length is equal). Each field entry is a tuple of <code class="docutils literal notranslate"><span class="pre">(status,</span> <span class="pre">value)</span></code>.
 <code class="docutils literal notranslate"><span class="pre">status</span></code> must be one of the following values:</p>
-<dl class="last docutils">
-<dt>Normal (numeric 0)</dt>
-<dd>Value is available and matches the kind in the <a class="reference internal" href="#field-def"><span class="std std-ref">field
-definition</span></a>.</dd>
-<dt>Unknown field (numeric 1)</dt>
-<dd>Field for this column is not known. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</dd>
-<dt>No data (numeric 2)</dt>
-<dd>Exact meaning depends on query, e.g. node is unreachable or marked
-offline. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</dd>
-<dt>Value unavailable for item (numeric 3)</dt>
-<dd>Used if, for example, NIC 3 is requested for an instance with only
-one network interface. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</dd>
-<dt>Resource offline (numeric 4)</dt>
-<dd>Used if resource is marked offline. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</dd>
+<dl class="simple">
+<dt>Normal (numeric 0)</dt><dd><p>Value is available and matches the kind in the <a class="reference internal" href="#field-def"><span class="std std-ref">field
+definition</span></a>.</p>
+</dd>
+<dt>Unknown field (numeric 1)</dt><dd><p>Field for this column is not known. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt>No data (numeric 2)</dt><dd><p>Exact meaning depends on query, e.g. node is unreachable or marked
+offline. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt>Value unavailable for item (numeric 3)</dt><dd><p>Used if, for example, NIC 3 is requested for an instance with only
+one network interface. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt>Resource offline (numeric 4)</dt><dd><p>Used if resource is marked offline. Value must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -237,7 +235,7 @@ one network interface. Value must be <code class="docutils literal notranslate">
     <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mfree&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;MemFree&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="p">},</span>
     <span class="c1"># Unknown field</span>
-    <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mtotal&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;MemTotal&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nic0.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nic.IP/0&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nic1.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nic.IP/1&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="p">},</span>
@@ -245,13 +243,13 @@ one network interface. Value must be <code class="docutils literal notranslate">
     <span class="p">],</span>
 
   <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4096</span><span class="p">),</span>
-     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">None</span><span class="p">)],</span>
-    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">96</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span>
+    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4096</span><span class="p">),</span>
+     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
+    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">96</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span>
      <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.21&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.39&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;192.0.2.90&quot;</span><span class="p">)],</span>
     <span class="c1"># Node not available, can&#39;t get &quot;mfree&quot; or &quot;mtotal&quot;</span>
-    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.30&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">None</span><span class="p">)],</span>
+    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;node3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;192.0.2.30&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
     <span class="p">],</span>
 <span class="p">}</span>
 </pre></div>
@@ -263,13 +261,12 @@ one network interface. Value must be <code class="docutils literal notranslate">
 <div class="section" id="fields-query-request">
 <span id="id4"></span><h5>Request<a class="headerlink" href="#fields-query-request" title="Permalink to this headline">¶</a></h5>
 <p>The request is a dictionary with the following entries:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">what</span></code> (string, required)</dt>
-<dd>An <a class="reference internal" href="#item-types"><span class="std std-ref">item type</span></a>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of strings, optional)</dt>
-<dd><p class="first">List of names of fields to return. If not set, all fields are
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">what</span></code> (string, required)</dt><dd><p>An <a class="reference internal" href="#item-types"><span class="std std-ref">item type</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of strings, optional)</dt><dd><p>List of names of fields to return. If not set, all fields are
 returned. Example:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;mem&quot;</span><span class="p">,</span> <span class="s2">&quot;nic0.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;disk0.size&quot;</span><span class="p">,</span> <span class="s2">&quot;disk1.size&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;mem&quot;</span><span class="p">,</span> <span class="s2">&quot;nic0.ip&quot;</span><span class="p">,</span> <span class="s2">&quot;disk0.size&quot;</span><span class="p">,</span> <span class="s2">&quot;disk1.size&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </dd>
@@ -278,11 +275,11 @@ returned. Example:</p>
 <div class="section" id="fields-query-response">
 <span id="id5"></span><h5>Response<a class="headerlink" href="#fields-query-response" title="Permalink to this headline">¶</a></h5>
 <p>The result is a dictionary with the following entries:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>)</dt>
-<dd>List of a <a class="reference internal" href="#field-def"><span class="std std-ref">field definition</span></a> for each field. If
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fields</span></code> (list of <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>)</dt><dd><p>List of a <a class="reference internal" href="#field-def"><span class="std std-ref">field definition</span></a> for each field. If
 <code class="docutils literal notranslate"><span class="pre">fields</span></code> was set in the request and contained an unknown field, it
-is returned as type <code class="docutils literal notranslate"><span class="pre">unknown</span></code>.</dd>
+is returned as type <code class="docutils literal notranslate"><span class="pre">unknown</span></code>.</p>
+</dd>
 </dl>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -309,36 +306,35 @@ is returned as type <code class="docutils literal notranslate"><span class="pre"
 <div class="section" id="field-definition">
 <span id="field-def"></span><h4><a class="toc-backref" href="#id15">Field definition</a><a class="headerlink" href="#field-definition" title="Permalink to this headline">¶</a></h4>
 <p>A field definition is a dictionary with the following entries:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code> (string)</dt>
-<dd>Field name. Must only contain characters matching <code class="docutils literal notranslate"><span class="pre">[a-z0-9/._]</span></code>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">title</span></code> (string)</dt>
-<dd>Human-readable title to use in output. Must not contain whitespace.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">kind</span></code> (string)</dt>
-<dd><p class="first">Field type, one of the following:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">unknown</span></code></dt>
-<dd>Unknown field</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">text</span></code></dt>
-<dd>String</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span></code></dt>
-<dd>Boolean, true/false</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">number</span></code></dt>
-<dd>Numeric</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">unit</span></code></dt>
-<dd>Numeric, in megabytes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></dt>
-<dd>Unix timestamp in seconds since the epoch</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">other</span></code></dt>
-<dd>Free-form type, depending on query</dd>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code> (string)</dt><dd><p>Field name. Must only contain characters matching <code class="docutils literal notranslate"><span class="pre">[a-z0-9/._]</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">title</span></code> (string)</dt><dd><p>Human-readable title to use in output. Must not contain whitespace.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">kind</span></code> (string)</dt><dd><p>Field type, one of the following:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">unknown</span></code></dt><dd><p>Unknown field</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">text</span></code></dt><dd><p>String</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bool</span></code></dt><dd><p>Boolean, true/false</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">number</span></code></dt><dd><p>Numeric</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unit</span></code></dt><dd><p>Numeric, in megabytes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></dt><dd><p>Unix timestamp in seconds since the epoch</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">other</span></code></dt><dd><p>Free-form type, depending on query</p>
+</dd>
 </dl>
-<p class="last">More types can be added in the future, so clients should default to
+<p>More types can be added in the future, so clients should default to
 formatting any unknown types the same way as “other”, which should be
 a string representation in most cases.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">doc</span></code> (string)</dt>
-<dd>Human-readable description. Must start with uppercase character and
-must not end with punctuation or contain newlines.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">doc</span></code> (string)</dt><dd><p>Human-readable description. Must start with uppercase character and
+must not end with punctuation or contain newlines.</p>
+</dd>
 </dl>
 <p>Example 1 (item name):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -379,14 +375,14 @@ and whether to use locking. These will continue to work and return the
 <a class="reference internal" href="#old-result-format"><span class="std std-ref">old result format</span></a>. Only clients using the
 new calls described below will be able to make use of new features such
 as filters. Two new calls are introduced:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Query</span></code></dt>
-<dd>Execute a query on items, optionally filtered. Takes a single
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Query</span></code></dt><dd><p>Execute a query on items, optionally filtered. Takes a single
 parameter, a <a class="reference internal" href="#data-query-request"><span class="std std-ref">query object</span></a> encoded as a
-dictionary and returns a <a class="reference internal" href="#data-query-response"><span class="std std-ref">data query response</span></a>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">QueryFields</span></code></dt>
-<dd>Return list of supported fields as <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>. Takes a single parameter, a <a class="reference internal" href="#fields-query-request"><span class="std std-ref">fields query object</span></a> encoded as a dictionary and returns a
-<a class="reference internal" href="#fields-query-response"><span class="std std-ref">fields query response</span></a>.</dd>
+dictionary and returns a <a class="reference internal" href="#data-query-response"><span class="std std-ref">data query response</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">QueryFields</span></code></dt><dd><p>Return list of supported fields as <a class="reference internal" href="#field-def"><span class="std std-ref">field definitions</span></a>. Takes a single parameter, a <a class="reference internal" href="#fields-query-request"><span class="std std-ref">fields query object</span></a> encoded as a dictionary and returns a
+<a class="reference internal" href="#fields-query-response"><span class="std std-ref">fields query response</span></a>.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="python">
@@ -409,10 +405,10 @@ are a lot more verbose, flexible and extensible.</p>
 <p>Command line programs might have difficulties to display the verbose
 status data to the user. There are several options:</p>
 <ul class="simple">
-<li>Use colours to indicate missing values</li>
-<li>Display status as value in parentheses, e.g. “(unavailable)”</li>
-<li>Hide unknown columns from the result table and print a warning</li>
-<li>Exit with non-zero code to indicate failures and/or missing data</li>
+<li><p>Use colours to indicate missing values</p></li>
+<li><p>Display status as value in parentheses, e.g. “(unavailable)”</p></li>
+<li><p>Hide unknown columns from the result table and print a warning</p></li>
+<li><p>Exit with non-zero code to indicate failures and/or missing data</p></li>
 </ul>
 <p>Some are better for interactive usage, some better for use by other
 programs. It is expected that a combination will be used. The column
@@ -430,6 +426,7 @@ could explicitly query for it.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -481,17 +478,15 @@ could explicitly query for it.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -505,12 +500,13 @@ could explicitly query for it.</p>
         <li class="right" >
           <a href="design-plain-redundancy.html" title="Redundancy for the plain disk template"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Query version 2 design</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

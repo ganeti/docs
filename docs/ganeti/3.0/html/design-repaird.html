@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti Maintenance Daemon &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti Maintenance Daemon &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="KVM + SCSI" href="design-scsi-kvm.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="design-multi-storage-htools.html" title="HTools support for multiple storage units per node"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti Maintenance Daemon</a></li> 
       </ul>
     </div>  
 
@@ -45,20 +44,24 @@
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#ganeti-maintenance-daemon" id="id3">Ganeti Maintenance Daemon</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id4">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposed-changes" id="id5">Proposed changes</a><ul>
-<li><a class="reference internal" href="#self-diagnose-data-collector" id="id6">Self-diagnose data collector</a><ul>
-<li><a class="reference internal" href="#protocol" id="id7">Protocol</a></li>
-<li><a class="reference internal" href="#security-considerations" id="id8">Security considerations</a></li>
+<li><p><a class="reference internal" href="#ganeti-maintenance-daemon" id="id3">Ganeti Maintenance Daemon</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id4">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id5">Proposed changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#self-diagnose-data-collector" id="id6">Self-diagnose data collector</a></p>
+<ul>
+<li><p><a class="reference internal" href="#protocol" id="id7">Protocol</a></p></li>
+<li><p><a class="reference internal" href="#security-considerations" id="id8">Security considerations</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#repair-event-life-cycle" id="id9">Repair-event life cycle</a></li>
-<li><a class="reference internal" href="#repair-daemon" id="id10">Repair daemon</a><ul>
-<li><a class="reference internal" href="#external-reporting-protocol" id="id11">External Reporting Protocol</a></li>
-<li><a class="reference internal" href="#state" id="id12">State</a></li>
-<li><a class="reference internal" href="#superseeding-harep-and-implicit-balancing" id="id13">Superseeding <code class="docutils literal notranslate"><span class="pre">harep</span></code> and implicit balancing</a></li>
-<li><a class="reference internal" href="#mode-of-operation" id="id14">Mode of operation</a></li>
+<li><p><a class="reference internal" href="#repair-event-life-cycle" id="id9">Repair-event life cycle</a></p></li>
+<li><p><a class="reference internal" href="#repair-daemon" id="id10">Repair daemon</a></p>
+<ul>
+<li><p><a class="reference internal" href="#external-reporting-protocol" id="id11">External Reporting Protocol</a></p></li>
+<li><p><a class="reference internal" href="#state" id="id12">State</a></p></li>
+<li><p><a class="reference internal" href="#superseeding-harep-and-implicit-balancing" id="id13">Superseeding <code class="docutils literal notranslate"><span class="pre">harep</span></code> and implicit balancing</a></p></li>
+<li><p><a class="reference internal" href="#mode-of-operation" id="id14">Mode of operation</a></p></li>
 </ul>
 </li>
 </ul>
@@ -224,26 +227,27 @@ following requests will be supported.</p>
 <p>Returns a list of all non-cleared incidents. Each incident is reported
 as a JSON object with at least the following information.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">id</span></code> The unique identifier assigned to the event.</li>
-<li><code class="docutils literal notranslate"><span class="pre">node</span></code> The UUID of the node on which the even was observed.</li>
-<li><code class="docutils literal notranslate"><span class="pre">original</span></code> The very JSON object reported by self-diagnose data collector.</li>
-<li><code class="docutils literal notranslate"><span class="pre">repair-status</span></code> A string describing the progress made on this event so
-far. It is one of the following.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">noted</span></code> The event has been observed, but no action has been taken yet</li>
-<li><code class="docutils literal notranslate"><span class="pre">pending</span></code> At least one job has been submitted in reaction to the event
-and none of the submitted jobs has failed so far.</li>
-<li><code class="docutils literal notranslate"><span class="pre">canceled</span></code> The event has been canceled, i.e., ordered to be ignored, but
-is still observed.</li>
-<li><code class="docutils literal notranslate"><span class="pre">failed</span></code> At least one of the submitted jobs has failed. To avoid further
-damage, the repair daemon will not take any further action for this event.</li>
-<li><code class="docutils literal notranslate"><span class="pre">completed</span></code> All Ganeti actions associated with this event have been
-completed successfully, including tagging the node.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> The unique identifier assigned to the event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node</span></code> The UUID of the node on which the even was observed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">original</span></code> The very JSON object reported by self-diagnose data collector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repair-status</span></code> A string describing the progress made on this event so
+far. It is one of the following.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">noted</span></code> The event has been observed, but no action has been taken yet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pending</span></code> At least one job has been submitted in reaction to the event
+and none of the submitted jobs has failed so far.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">canceled</span></code> The event has been canceled, i.e., ordered to be ignored, but
+is still observed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">failed</span></code> At least one of the submitted jobs has failed. To avoid further
+damage, the repair daemon will not take any further action for this event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">completed</span></code> All Ganeti actions associated with this event have been
+completed successfully, including tagging the node.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">jobs</span></code> The list of the numbers of ganeti jobs submitted in response to
-this event.</li>
-<li><code class="docutils literal notranslate"><span class="pre">tag</span></code> A string that is the tag that either has been added to the node, or,
-if the repair event is not yet finalized, will be added in case of success.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jobs</span></code> The list of the numbers of ganeti jobs submitted in response to
+this event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tag</span></code> A string that is the tag that either has been added to the node, or,
+if the repair event is not yet finalized, will be added in case of success.</p></li>
 </ul>
 </div>
 </div>
@@ -299,6 +303,7 @@ submitted at once. As they do not conflict they will be able to run in parallel.
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -355,17 +360,15 @@ submitted at once. As they do not conflict they will be able to run in parallel.
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -379,13 +382,14 @@ submitted at once. As they do not conflict they will be able to run in parallel.
         <li class="right" >
           <a href="design-multi-storage-htools.html" title="HTools support for multiple storage units per node"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti Maintenance Daemon</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

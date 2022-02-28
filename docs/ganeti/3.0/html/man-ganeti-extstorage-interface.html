@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ganeti-extstorage-interface &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ganeti-extstorage-interface &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ganeti-kvmd" href="man-ganeti-kvmd.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti-confd.html" title="ganeti-confd"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-extstorage-interface</a></li> 
       </ul>
     </div>  
 
@@ -74,39 +73,39 @@ being passed to scripts, therefore they will not inherit the environment
 in with which the ganeti node daemon was started. If you depend on any
 environment variables (non-Ganeti), then you will need to define or
 source them appropriately.</p>
-<dl class="docutils">
-<dt>VOL_NAME</dt>
-<dd>The name of the volume. This is unique for Ganeti and it uses it
+<dl class="simple">
+<dt>VOL_NAME</dt><dd><p>The name of the volume. This is unique for Ganeti and it uses it
 to refer to a specific volume inside the external storage. Its
 format is <code class="docutils literal notranslate"><span class="pre">UUID.ext.diskX</span></code> where <code class="docutils literal notranslate"><span class="pre">UUID</span></code> is produced by Ganeti
 and is unique inside the Ganeti context. <code class="docutils literal notranslate"><span class="pre">X</span></code> is the number of the
-disk count.</dd>
-<dt>VOL_SIZE</dt>
-<dd>Available only to the <strong>create</strong> and <strong>grow</strong> scripts. The volume’s
-size in mebibytes.</dd>
-<dt>VOL_NEW_SIZE</dt>
-<dd>Available only to the <strong>grow</strong> script. It declares the new size of
+disk count.</p>
+</dd>
+<dt>VOL_SIZE</dt><dd><p>Available only to the <strong>create</strong> and <strong>grow</strong> scripts. The volume’s
+size in mebibytes.</p>
+</dd>
+<dt>VOL_NEW_SIZE</dt><dd><p>Available only to the <strong>grow</strong> script. It declares the new size of
 the volume after grow (in mebibytes). To find the amount of grow,
-the script should calculate the number VOL_NEW_SIZE - VOL_SIZE.</dd>
-<dt>EXTP_*name*</dt>
-<dd>Each ExtStorage parameter (see below) will be exported in its own
+the script should calculate the number VOL_NEW_SIZE - VOL_SIZE.</p>
+</dd>
+<dt>EXTP_*name*</dt><dd><p>Each ExtStorage parameter (see below) will be exported in its own
 variable, prefixed with <code class="docutils literal notranslate"><span class="pre">EXTP_</span></code>, and upper-cased. For example, a
-<code class="docutils literal notranslate"><span class="pre">fromsnap</span></code> parameter will be exported as <code class="docutils literal notranslate"><span class="pre">EXTP_FROMSNAP</span></code>.</dd>
-<dt>VOL_METADATA</dt>
-<dd>Available only to the <strong>setinfo</strong> script. A string containing
+<code class="docutils literal notranslate"><span class="pre">fromsnap</span></code> parameter will be exported as <code class="docutils literal notranslate"><span class="pre">EXTP_FROMSNAP</span></code>.</p>
+</dd>
+<dt>VOL_METADATA</dt><dd><p>Available only to the <strong>setinfo</strong> script. A string containing
 metadata to be associated with the volume. Currently, Ganeti sets
-this value to <code class="docutils literal notranslate"><span class="pre">originstname+X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the instance’s name.</dd>
-<dt>VOL_CNAME</dt>
-<dd>The human-readable name of the Disk config object (optional).</dd>
-<dt>VOL_UUID</dt>
-<dd>The uuid of the Disk config object.</dd>
-<dt>VOL_SNAPSHOT_NAME</dt>
-<dd>The name of the volume’s snapshot.</dd>
-<dt>VOL_SNAPSHOT_SIZE</dt>
-<dd>The size of the volume’s snapshot.</dd>
-<dt>VOL_OPEN_EXCLUSIVE</dt>
-<dd>Whether the volume will be opened for exclusive access or not.
-This will be False (denoting shared access) during migration.</dd>
+this value to <code class="docutils literal notranslate"><span class="pre">originstname+X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the instance’s name.</p>
+</dd>
+<dt>VOL_CNAME</dt><dd><p>The human-readable name of the Disk config object (optional).</p>
+</dd>
+<dt>VOL_UUID</dt><dd><p>The uuid of the Disk config object.</p>
+</dd>
+<dt>VOL_SNAPSHOT_NAME</dt><dd><p>The name of the volume’s snapshot.</p>
+</dd>
+<dt>VOL_SNAPSHOT_SIZE</dt><dd><p>The size of the volume’s snapshot.</p>
+</dd>
+<dt>VOL_OPEN_EXCLUSIVE</dt><dd><p>Whether the volume will be opened for exclusive access or not.
+This will be False (denoting shared access) during migration.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -317,6 +316,7 @@ number of arguments or when the first argument is <code class="docutils literal 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -372,17 +372,15 @@ number of arguments or when the first argument is <code class="docutils literal 
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -396,13 +394,14 @@ number of arguments or when the first argument is <code class="docutils literal 
         <li class="right" >
           <a href="man-ganeti-confd.html" title="ganeti-confd"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-extstorage-interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>
