@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Chained jobs &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chained jobs &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Unit tests for cmdlib / LogicalUnit’s" href="design-cmdlib-unittests.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-ceph-ganeti-support.html" title="RADOS/Ceph support in Ganeti"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Chained jobs</a></li> 
       </ul>
     </div>  
 
@@ -41,34 +40,37 @@
             
   <div class="section" id="chained-jobs">
 <h1><a class="toc-backref" href="#id1">Chained jobs</a><a class="headerlink" href="#chained-jobs" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-Jul-14</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.5.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2011-Jul-14</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.5.0</p>
+</dd>
+</dl>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#chained-jobs" id="id1">Chained jobs</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a><ul>
-<li><a class="reference internal" href="#implementation-details" id="id4">Implementation details</a><ul>
-<li><a class="reference internal" href="#status-while-waiting-for-dependencies" id="id5">Status while waiting for dependencies</a></li>
-<li><a class="reference internal" href="#cost-of-deserialization" id="id6">Cost of deserialization</a></li>
+<li><p><a class="reference internal" href="#chained-jobs" id="id1">Chained jobs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#implementation-details" id="id4">Implementation details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#status-while-waiting-for-dependencies" id="id5">Status while waiting for dependencies</a></p></li>
+<li><p><a class="reference internal" href="#cost-of-deserialization" id="id6">Cost of deserialization</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-discussed-solutions" id="id7">Other discussed solutions</a><ul>
-<li><a class="reference internal" href="#job-level-attribute" id="id8">Job-level attribute</a></li>
-<li><a class="reference internal" href="#client-side-logic" id="id9">Client-side logic</a></li>
+<li><p><a class="reference internal" href="#other-discussed-solutions" id="id7">Other discussed solutions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#job-level-attribute" id="id8">Job-level attribute</a></p></li>
+<li><p><a class="reference internal" href="#client-side-logic" id="id9">Client-side logic</a></p></li>
 </ul>
 </li>
 </ul>
@@ -78,9 +80,9 @@
 <p>This is a design document about the innards of Ganeti’s job processing.
 Readers are advised to study previous design documents on the topic:</p>
 <ul class="simple">
-<li><a class="reference internal" href="design-2.0.html#jqueue-original-design"><span class="std std-ref">Original job queue</span></a></li>
-<li><a class="reference internal" href="design-2.3.html#jqueue-job-priority-design"><span class="std std-ref">Job priorities</span></a></li>
-<li><a class="reference internal" href="design-lu-generated-jobs.html"><span class="doc">LU-generated jobs</span></a></li>
+<li><p><a class="reference internal" href="design-2.0.html#jqueue-original-design"><span class="std std-ref">Original job queue</span></a></p></li>
+<li><p><a class="reference internal" href="design-2.3.html#jqueue-job-priority-design"><span class="std std-ref">Job priorities</span></a></p></li>
+<li><p><a class="reference internal" href="design-lu-generated-jobs.html"><span class="doc">LU-generated jobs</span></a></p></li>
 </ul>
 <div class="section" id="current-state-and-shortcomings">
 <h2><a class="toc-backref" href="#id2">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h2>
@@ -111,7 +113,7 @@ be submitted in the right order.</p>
 <p>The new attribute’s value would be a list of two-valued tuples. Each
 tuple contains a job ID and a list of requested status for the job
 depended upon. Only final status are accepted
-(<code class="docutils literal notranslate"><span class="pre">success,</span> <span class="pre">canceled,</span> <span class="pre">error</span></code>). An empty list is
+(<code class="docutils literal notranslate"><span class="pre">success,</span> <span class="pre">error,</span> <span class="pre">canceled</span></code>). An empty list is
 equivalent to specifying all final status (except
 <code class="docutils literal notranslate"><span class="pre">canceled</span></code>, which is treated specially).
 An opcode runs only once all its dependency requirements have been
@@ -153,8 +155,8 @@ interface.</p>
   <span class="s2">&quot;ops&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;OP_ID&quot;</span><span class="o">:</span> <span class="s2">&quot;OP_NODE_SET_PARAMS&quot;</span><span class="p">,</span>
       <span class="s2">&quot;depend&quot;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">[</span><span class="mi">6151</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]],</span>
-        <span class="p">[</span><span class="mi">7687</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]],</span>
+        <span class="p">[</span><span class="mf">6151</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]],</span>
+        <span class="p">[</span><span class="mf">7687</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]],</span>
         <span class="p">],</span>
       <span class="s2">&quot;offline&quot;</span><span class="o">:</span> <span class="nx">True</span><span class="p">,</span> <span class="p">},</span>
     <span class="p">],</span>
@@ -171,49 +173,47 @@ opcode locks the job is in the “waiting” status (the constant is named
 <code class="docutils literal notranslate"><span class="pre">JOB_STATUS_WAITLOCK</span></code>, but the actual value is <code class="docutils literal notranslate"><span class="pre">waiting</span></code>). There the
 following possibilities:</p>
 <ol class="arabic">
-<li><p class="first">Introduce a new status, e.g. “waitdeps”.</p>
+<li><p>Introduce a new status, e.g. “waitdeps”.</p>
 <p>Pro:</p>
 <ul class="simple">
-<li>Clients know for sure a job is waiting for dependencies, not locks</li>
+<li><p>Clients know for sure a job is waiting for dependencies, not locks</p></li>
 </ul>
 <p>Con:</p>
 <ul class="simple">
-<li>Code and tests would have to be updated/extended for the new status</li>
-<li>List of possible state transitions certainly wouldn’t get simpler</li>
-<li>Breaks backwards compatibility, older clients might get confused</li>
+<li><p>Code and tests would have to be updated/extended for the new status</p></li>
+<li><p>List of possible state transitions certainly wouldn’t get simpler</p></li>
+<li><p>Breaks backwards compatibility, older clients might get confused</p></li>
 </ul>
 </li>
-<li><p class="first">Use existing “waiting” status.</p>
+<li><p>Use existing “waiting” status.</p>
 <p>Pro:</p>
 <ul class="simple">
-<li>No client changes necessary, less code churn (note that there are
-clients which don’t live in Ganeti core)</li>
-<li>Clients don’t need to know the difference between waiting for a job
-and waiting for a lock; it doesn’t make a difference</li>
-<li>Fewer state transitions (see commit <code class="docutils literal notranslate"><span class="pre">5fd6b69479c0</span></code>, which removed
-many state transitions and disk writes)</li>
+<li><p>No client changes necessary, less code churn (note that there are
+clients which don’t live in Ganeti core)</p></li>
+<li><p>Clients don’t need to know the difference between waiting for a job
+and waiting for a lock; it doesn’t make a difference</p></li>
+<li><p>Fewer state transitions (see commit <code class="docutils literal notranslate"><span class="pre">5fd6b69479c0</span></code>, which removed
+many state transitions and disk writes)</p></li>
 </ul>
 <p>Con:</p>
 <ul class="simple">
-<li>Not immediately visible what a job is waiting for, but it’s the
+<li><p>Not immediately visible what a job is waiting for, but it’s the
 same issue with locks; this is the reason why the lock monitor
 (<code class="docutils literal notranslate"><span class="pre">gnt-debug</span> <span class="pre">locks</span></code>) was introduced; job dependencies can be shown
-as “locks” in the monitor</li>
+as “locks” in the monitor</p></li>
 </ul>
 </li>
 </ol>
 <p>Based on these arguments, the proposal is to do the following:</p>
 <ul>
-<li><p class="first">Rename <code class="docutils literal notranslate"><span class="pre">JOB_STATUS_WAITLOCK</span></code> constant to <code class="docutils literal notranslate"><span class="pre">JOB_STATUS_WAITING</span></code> to
-reflect its actual meaning: the job is waiting for something</p>
-</li>
-<li><p class="first">While waiting for dependencies and locks, jobs are in the “waiting”
-status</p>
-</li>
-<li><p class="first">Export dependency information in lock monitor; example output:</p>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">JOB_STATUS_WAITLOCK</span></code> constant to <code class="docutils literal notranslate"><span class="pre">JOB_STATUS_WAITING</span></code> to
+reflect its actual meaning: the job is waiting for something</p></li>
+<li><p>While waiting for dependencies and locks, jobs are in the “waiting”
+status</p></li>
+<li><p>Export dependency information in lock monitor; example output:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Name</span>      <span class="nx">Mode</span> <span class="nx">Owner</span> <span class="nx">Pending</span>
-<span class="nx">job</span><span class="o">/</span><span class="mi">27491</span> <span class="o">-</span>    <span class="o">-</span>     <span class="nx">success</span><span class="o">:</span><span class="nx">job</span><span class="o">/</span><span class="mi">34709</span><span class="p">,</span><span class="nx">job</span><span class="o">/</span><span class="mi">21459</span>
-<span class="nx">job</span><span class="o">/</span><span class="mi">21459</span> <span class="o">-</span>    <span class="o">-</span>     <span class="nx">success</span><span class="p">,</span><span class="nx">error</span><span class="o">:</span><span class="nx">job</span><span class="o">/</span><span class="mi">14513</span>
+<span class="nx">job</span><span class="o">/</span><span class="mf">27491</span> <span class="o">-</span>    <span class="o">-</span>     <span class="nx">success</span><span class="o">:</span><span class="nx">job</span><span class="o">/</span><span class="mf">34709</span><span class="p">,</span><span class="nx">job</span><span class="o">/</span><span class="mf">21459</span>
+<span class="nx">job</span><span class="o">/</span><span class="mf">21459</span> <span class="o">-</span>    <span class="o">-</span>     <span class="nx">success</span><span class="p">,</span><span class="nx">error</span><span class="o">:</span><span class="nx">job</span><span class="o">/</span><span class="mf">14513</span>
 </pre></div>
 </div>
 </li>
@@ -273,6 +273,7 @@ clients is difficult if not impossible.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -313,17 +314,15 @@ clients is difficult if not impossible.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -337,12 +336,13 @@ clients is difficult if not impossible.</p>
         <li class="right" >
           <a href="design-ceph-ganeti-support.html" title="RADOS/Ceph support in Ganeti"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Chained jobs</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

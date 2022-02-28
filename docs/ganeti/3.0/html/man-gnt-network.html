@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-network &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-network &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-node" href="man-gnt-node.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-job.html" title="gnt-job"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-network</a></li> 
       </ul>
     </div>  
 
@@ -71,13 +70,13 @@ in a future version.</p>
 <div class="line-block">
 <div class="line"><strong>add</strong></div>
 <div class="line">–network=*network*</div>
-<div class="line">[–gateway=*gateway*]</div>
-<div class="line">[–add-reserved-ips=*reserved-ips*]</div>
-<div class="line">[–network6=*network6*]</div>
-<div class="line">[–gateway6=*gateway6*]</div>
-<div class="line">[–mac-prefix=*macprefix*]</div>
-<div class="line">[–submit] [–print-jobid]</div>
-<div class="line">[–no-conflicts-check]</div>
+<div class="line">[--gateway=*gateway*]</div>
+<div class="line">[--add-reserved-ips=*reserved-ips*]</div>
+<div class="line">[--network6=*network6*]</div>
+<div class="line">[--gateway6=*gateway6*]</div>
+<div class="line">[--mac-prefix=*macprefix*]</div>
+<div class="line">[--submit] [--print-jobid]</div>
+<div class="line">[--no-conflicts-check]</div>
 <div class="line">{<em>network-name</em>}</div>
 </div>
 <p>Creates a new network with the given name. The network will be unused
@@ -104,13 +103,13 @@ options.</p>
 <h3>MODIFY<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>modify</strong></div>
-<div class="line">[–gateway=*gateway*]</div>
-<div class="line">[–add-reserved-ips=*reserved-ips*]</div>
-<div class="line">[–remove-reserved-ips=*reserved-ips*]</div>
-<div class="line">[–network6=*network6*]</div>
-<div class="line">[–gateway6=*gateway6*]</div>
-<div class="line">[–mac-prefix=*macprefix*]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line">[--gateway=*gateway*]</div>
+<div class="line">[--add-reserved-ips=*reserved-ips*]</div>
+<div class="line">[--remove-reserved-ips=*reserved-ips*]</div>
+<div class="line">[--network6=*network6*]</div>
+<div class="line">[--gateway6=*gateway6*]</div>
+<div class="line">[--mac-prefix=*macprefix*]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>network</em>}</div>
 </div>
 <p>Modifies parameters from the network.</p>
@@ -123,7 +122,7 @@ options.</p>
 <div class="section" id="remove">
 <h3>REMOVE<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>remove</strong> [–submit] [–print-jobid] {<em>network</em>}</div>
+<div class="line"><strong>remove</strong> [--submit] [--print-jobid] {<em>network</em>}</div>
 </div>
 <p>Deletes the indicated network, which must be not connected to any node group.</p>
 <p>See <strong>ganeti</strong>(7) for a description of <code class="docutils literal notranslate"><span class="pre">--submit</span></code> and other common options.</p>
@@ -131,7 +130,7 @@ options.</p>
 <div class="section" id="list">
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list</strong> [–no-headers] [–separator=*separator*] [-v]</div>
+<div class="line"><strong>list</strong> [--no-headers] [--separator=*separator*] [-v]</div>
 <div class="line">[-o <em>[+]field,…</em>] [network-name…]</div>
 </div>
 <p>Lists all existing networks in the cluster. If no group names are given,
@@ -148,45 +147,45 @@ be added to the default list. This allows to quickly see the default
 list plus a few other fields, instead of retyping the entire list of
 fields.</p>
 <p>The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt>
-<dd>Creation timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">external_reservations</span></code></dt>
-<dd>External reservations</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">free_count</span></code></dt>
-<dd>Number of available addresses</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">gateway</span></code></dt>
-<dd>IPv4 gateway</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">gateway6</span></code></dt>
-<dd>IPv6 gateway</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">group_cnt</span></code></dt>
-<dd>Number of nodegroups</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">group_list</span></code></dt>
-<dd>List of nodegroups (group name, NIC mode, NIC link)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">inst_cnt</span></code></dt>
-<dd>Number of instances</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">inst_list</span></code></dt>
-<dd>List of instances</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mac_prefix</span></code></dt>
-<dd>MAC address prefix</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">map</span></code></dt>
-<dd>Actual mapping</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt>
-<dd>Modification timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd>Name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">network</span></code></dt>
-<dd>IPv4 subnet</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">network6</span></code></dt>
-<dd>IPv6 subnet</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">reserved_count</span></code></dt>
-<dd>Number of reserved addresses</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt>
-<dd>Network object serial number, incremented on each modification</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt>
-<dd>Tags</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt>
-<dd>Network UUID</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt><dd><p>Creation timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">external_reservations</span></code></dt><dd><p>External reservations</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">free_count</span></code></dt><dd><p>Number of available addresses</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gateway</span></code></dt><dd><p>IPv4 gateway</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">gateway6</span></code></dt><dd><p>IPv6 gateway</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">group_cnt</span></code></dt><dd><p>Number of nodegroups</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">group_list</span></code></dt><dd><p>List of nodegroups (group name, NIC mode, NIC link)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">inst_cnt</span></code></dt><dd><p>Number of instances</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">inst_list</span></code></dt><dd><p>List of instances</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mac_prefix</span></code></dt><dd><p>MAC address prefix</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">map</span></code></dt><dd><p>Actual mapping</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt><dd><p>Modification timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">network</span></code></dt><dd><p>IPv4 subnet</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">network6</span></code></dt><dd><p>IPv6 subnet</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">reserved_count</span></code></dt><dd><p>Number of reserved addresses</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt><dd><p>Network object serial number, incremented on each modification</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt><dd><p>Tags</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt><dd><p>Network UUID</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="list-fields">
@@ -205,8 +204,8 @@ fields.</p>
 <h3>CONNECT<a class="headerlink" href="#connect" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>connect</strong></div>
-<div class="line">[–no-conflicts-check]</div>
-<div class="line">[{-N|–nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
+<div class="line">[--no-conflicts-check]</div>
+<div class="line">[{-N|--nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
 <div class="line">{<em>network</em>} [<em>groups</em>…]</div>
 </div>
 <p>Connect a network to given node groups (all if not specified) with the
@@ -229,7 +228,7 @@ is possible only if no instance is using the network.</p>
 <h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="add-tags">
 <h4>ADD-TAGS<a class="headerlink" href="#add-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>add-tags</strong> [–from <em>file</em>] {<em>network</em>} {<em>tag</em>…}</p>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>network</em>} {<em>tag</em>…}</p>
 <p>Add tags to the given network. If any of the tags contains invalid
 characters, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags will be extended
@@ -245,7 +244,7 @@ stdin.</p>
 </div>
 <div class="section" id="remove-tags">
 <h4>REMOVE-TAGS<a class="headerlink" href="#remove-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>remove-tags</strong> [–from <em>file</em>] {<em>network</em>} {<em>tag</em>…}</p>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>network</em>} {<em>tag</em>…}</p>
 <p>Remove tags from the given network. If any of the tags are not existing
 on the network, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags to be removed will
@@ -259,6 +258,7 @@ be interpreted as stdin.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -306,17 +306,15 @@ be interpreted as stdin.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -330,13 +328,14 @@ be interpreted as stdin.</p>
         <li class="right" >
           <a href="man-gnt-job.html" title="gnt-job"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-network</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti installation tutorial &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti installation tutorial &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti quick installation guide" href="install-quick.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="iallocator.html" title="Ganeti automatic instance allocation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti installation tutorial</a></li> 
       </ul>
     </div>  
 
@@ -45,56 +44,66 @@
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#ganeti-installation-tutorial" id="id3">Ganeti installation tutorial</a><ul>
-<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
-<li><a class="reference internal" href="#installing-the-base-system-and-base-components" id="id5">Installing the base system and base components</a><ul>
-<li><a class="reference internal" href="#hardware-requirements" id="id6">Hardware requirements</a></li>
-<li><a class="reference internal" href="#installing-the-base-system" id="id7">Installing the base system</a><ul>
-<li><a class="reference internal" href="#hostname-issues" id="id8">Hostname issues</a></li>
+<li><p><a class="reference internal" href="#ganeti-installation-tutorial" id="id3">Ganeti installation tutorial</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id4">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#installing-the-base-system-and-base-components" id="id5">Installing the base system and base components</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hardware-requirements" id="id6">Hardware requirements</a></p></li>
+<li><p><a class="reference internal" href="#installing-the-base-system" id="id7">Installing the base system</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hostname-issues" id="id8">Hostname issues</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-the-hypervisor" id="id9">Installing The Hypervisor</a><ul>
-<li><a class="reference internal" href="#xen-settings" id="id10">Xen settings</a></li>
-<li><a class="reference internal" href="#selecting-the-instance-kernel" id="id11">Selecting the instance kernel</a></li>
+<li><p><a class="reference internal" href="#installing-the-hypervisor" id="id9">Installing The Hypervisor</a></p>
+<ul>
+<li><p><a class="reference internal" href="#xen-settings" id="id10">Xen settings</a></p></li>
+<li><p><a class="reference internal" href="#selecting-the-instance-kernel" id="id11">Selecting the instance kernel</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-drbd" id="id12">Installing DRBD</a></li>
-<li><a class="reference internal" href="#installing-rbd" id="id13">Installing RBD</a><ul>
-<li><a class="reference internal" href="#rados-cluster" id="id14">RADOS Cluster</a></li>
-<li><a class="reference internal" href="#kernel-modules" id="id15">Kernel Modules</a></li>
-<li><a class="reference internal" href="#userspace-utils" id="id16">Userspace Utils</a></li>
-<li><a class="reference internal" href="#kvm-userspace-access" id="id17">KVM userspace access</a></li>
-<li><a class="reference internal" href="#configuration-file" id="id18">Configuration file</a></li>
+<li><p><a class="reference internal" href="#installing-drbd" id="id12">Installing DRBD</a></p></li>
+<li><p><a class="reference internal" href="#installing-rbd" id="id13">Installing RBD</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rados-cluster" id="id14">RADOS Cluster</a></p></li>
+<li><p><a class="reference internal" href="#kernel-modules" id="id15">Kernel Modules</a></p></li>
+<li><p><a class="reference internal" href="#userspace-utils" id="id16">Userspace Utils</a></p></li>
+<li><p><a class="reference internal" href="#kvm-userspace-access" id="id17">KVM userspace access</a></p></li>
+<li><p><a class="reference internal" href="#configuration-file" id="id18">Configuration file</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-gluster" id="id19">Installing Gluster</a><ul>
-<li><a class="reference internal" href="#id2" id="id20">KVM userspace access</a></li>
+<li><p><a class="reference internal" href="#installing-gluster" id="id19">Installing Gluster</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id20">KVM userspace access</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-required-software" id="id21">Other required software</a></li>
+<li><p><a class="reference internal" href="#other-required-software" id="id21">Other required software</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#setting-up-the-environment-for-ganeti" id="id22">Setting up the environment for Ganeti</a><ul>
-<li><a class="reference internal" href="#configuring-the-network" id="id23">Configuring the network</a></li>
-<li><a class="reference internal" href="#configuring-lvm" id="id24">Configuring LVM</a></li>
-<li><a class="reference internal" href="#installing-ganeti" id="id25">Installing Ganeti</a><ul>
-<li><a class="reference internal" href="#what-gets-installed" id="id26">What gets installed</a></li>
+<li><p><a class="reference internal" href="#setting-up-the-environment-for-ganeti" id="id22">Setting up the environment for Ganeti</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuring-the-network" id="id23">Configuring the network</a></p></li>
+<li><p><a class="reference internal" href="#configuring-lvm" id="id24">Configuring LVM</a></p></li>
+<li><p><a class="reference internal" href="#installing-ganeti" id="id25">Installing Ganeti</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-gets-installed" id="id26">What gets installed</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-the-operating-system-support-packages" id="id27">Installing the Operating System support packages</a></li>
-<li><a class="reference internal" href="#initializing-the-cluster" id="id28">Initializing the cluster</a><ul>
-<li><a class="reference internal" href="#hypervisor-network-cluster-parameters" id="id29">Hypervisor/Network/Cluster parameters</a></li>
+<li><p><a class="reference internal" href="#installing-the-operating-system-support-packages" id="id27">Installing the Operating System support packages</a></p></li>
+<li><p><a class="reference internal" href="#initializing-the-cluster" id="id28">Initializing the cluster</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hypervisor-network-cluster-parameters" id="id29">Hypervisor/Network/Cluster parameters</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#joining-the-nodes-to-the-cluster" id="id30">Joining the nodes to the cluster</a></li>
-<li><a class="reference internal" href="#separate-replication-network" id="id31">Separate replication network</a></li>
-<li><a class="reference internal" href="#testing-the-setup" id="id32">Testing the setup</a><ul>
-<li><a class="reference internal" href="#cluster-burnin" id="id33">Cluster burnin</a></li>
+<li><p><a class="reference internal" href="#joining-the-nodes-to-the-cluster" id="id30">Joining the nodes to the cluster</a></p></li>
+<li><p><a class="reference internal" href="#separate-replication-network" id="id31">Separate replication network</a></p></li>
+<li><p><a class="reference internal" href="#testing-the-setup" id="id32">Testing the setup</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cluster-burnin" id="id33">Cluster burnin</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#further-steps" id="id34">Further steps</a></li>
+<li><p><a class="reference internal" href="#further-steps" id="id34">Further steps</a></p></li>
 </ul>
 </li>
 </ul>
@@ -118,8 +127,8 @@ to be familiar with your distribution, its package management system,
 and Xen or KVM before trying to use Ganeti.</p>
 <p>This document is divided into two main sections:</p>
 <ul class="simple">
-<li>Installation of the base system and base components</li>
-<li>Configuration of the environment for Ganeti</li>
+<li><p>Installation of the base system and base components</p></li>
+<li><p>Configuration of the environment for Ganeti</p></li>
 </ul>
 <p>Each of these is divided into sub-sections. While a full Ganeti system
 will need all of the steps specified, some are not strictly required for
@@ -167,7 +176,7 @@ administration much easier.</p>
 name. In other words, you should use <em>node1.example.com</em> as a hostname
 and not just <em>node1</em>.</p>
 <div class="admonition-debian admonition">
-<p class="first admonition-title">Debian</p>
+<p class="admonition-title">Debian</p>
 <p>Debian usually configures the hostname differently than you need it
 for Ganeti. For example, this is what it puts in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> in
 certain situations:</p>
@@ -180,14 +189,14 @@ certain situations:</p>
 192.0.2.1       node1.example.com node1
 </pre></div>
 </div>
-<p class="last">replacing <code class="docutils literal notranslate"><span class="pre">192.0.2.1</span></code> with your node’s address. Also, the file
+<p>replacing <code class="docutils literal notranslate"><span class="pre">192.0.2.1</span></code> with your node’s address. Also, the file
 <code class="docutils literal notranslate"><span class="pre">/etc/hostname</span></code> which configures the hostname of the system
 should contain <code class="docutils literal notranslate"><span class="pre">node1.example.com</span></code> and not just <code class="docutils literal notranslate"><span class="pre">node1</span></code> (you
 need to run the command <code class="docutils literal notranslate"><span class="pre">/etc/init.d/hostname.sh</span> <span class="pre">start</span></code> after
 changing the file).</p>
 </div>
 <div class="admonition-why-a-fully-qualified-host-name admonition">
-<p class="first admonition-title">Why a fully qualified host name</p>
+<p class="admonition-title">Why a fully qualified host name</p>
 <p>Although most distributions use only the short name in the
 /etc/hostname file, we still think Ganeti nodes should use the full
 name. The reason for this is that calling ‘hostname –fqdn’ requires
@@ -196,7 +205,7 @@ is your domain name. Since Ganeti can be used among other things to
 host DNS servers, we don’t want to depend on them as much as
 possible, and we’d rather have the uname() syscall return the full
 node name.</p>
-<p class="last">We haven’t ever found any breakage in using a full hostname on a
+<p>We haven’t ever found any breakage in using a full hostname on a
 Linux system, and anyway we recommend to have only a minimal
 installation on Ganeti nodes, and to use instances (or other
 dedicated machines) to run the rest of your network services. By
@@ -222,8 +231,8 @@ distributions this might involve configuring GRUB appropriately, whereas
 others will configure it automatically when you install the respective
 kernels. For KVM no reboot should be necessary.</p>
 <div class="admonition-xen-on-debian admonition">
-<p class="first admonition-title">Xen on Debian</p>
-<p class="last">Under Debian you can install the relevant <code class="docutils literal notranslate"><span class="pre">xen-linux-system</span></code>
+<p class="admonition-title">Xen on Debian</p>
+<p>Under Debian you can install the relevant <code class="docutils literal notranslate"><span class="pre">xen-linux-system</span></code>
 package, which will pull in both the hypervisor and the relevant
 kernel. Also, if you are installing a 32-bit system, you should
 install the <code class="docutils literal notranslate"><span class="pre">libc6-xen</span></code> package (run <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span>
@@ -250,11 +259,11 @@ take effect. The best way to do this depends on your distribution.</p>
 <p>After you have installed Xen, you need to tell Ganeti exactly what
 kernel to use for the instances it will create. This is done by creating
 a symlink from your actual kernel to <code class="docutils literal notranslate"><span class="pre">/boot/vmlinuz-3-xenU</span></code>, and one
-from your initrd to <code class="docutils literal notranslate"><span class="pre">/boot/initrd-3-xenU</span></code> <a class="footnote-reference" href="#defkernel" id="id1">[1]</a>. Note that
+from your initrd to <code class="docutils literal notranslate"><span class="pre">/boot/initrd-3-xenU</span></code> <a class="footnote-reference brackets" href="#defkernel" id="id1">1</a>. Note that
 if you don’t use an initrd for the domU kernel, you don’t need to create
 the initrd symlink.</p>
 <div class="admonition-debian admonition">
-<p class="first admonition-title">Debian</p>
+<p class="admonition-title">Debian</p>
 <p>After installation of the <code class="docutils literal notranslate"><span class="pre">xen-linux-system</span></code> package, you need to
 run (replace the exact version number with the one you have):</p>
 <div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">cd</span> <span class="gs">/boot</span>
@@ -265,9 +274,9 @@ $ <span class="gs">ln</span> <span class="gs">-s</span> <span class="gs">initrd.
 <p>By default, the initrd doesn’t contain the Xen block drivers needed
 to mount the root device, so it is recommended to update the initrd
 by following these two steps:</p>
-<ul class="last simple">
-<li>edit <code class="docutils literal notranslate"><span class="pre">/etc/initramfs-tools/modules</span></code> and add <code class="docutils literal notranslate"><span class="pre">xen_blkfront</span></code></li>
-<li>run <code class="docutils literal notranslate"><span class="pre">update-initramfs</span> <span class="pre">-u</span></code></li>
+<ul class="simple">
+<li><p>edit <code class="docutils literal notranslate"><span class="pre">/etc/initramfs-tools/modules</span></code> and add <code class="docutils literal notranslate"><span class="pre">xen_blkfront</span></code></p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">update-initramfs</span> <span class="pre">-u</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -300,7 +309,7 @@ per node (both primary and secondary, when using only one disk per
 instance). You can increase the number up to 255 if you need more
 instances on a node.</p>
 <div class="admonition-debian admonition">
-<p class="first admonition-title">Debian</p>
+<p class="admonition-title">Debian</p>
 <p>On Debian, you only need to install the drbd utils with the
 following command, making sure you are running the target (Xen or
 KVM) kernel:</p>
@@ -319,7 +328,7 @@ $ <span class="gs">modprobe</span> <span class="gs">drbd</span>
 in the <code class="docutils literal notranslate"><span class="pre">/etc/drbd.conf</span></code> file, so that the init script doesn’t try to
 configure any drbd devices. You can do this by prefixing all
 <em>resource</em> lines in the file with the keyword <em>skip</em>, like this:</p>
-<div class="last highlight-text notranslate"><div class="highlight"><pre><span></span>skip {
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>skip {
   resource r0 {
     ...
   }
@@ -342,8 +351,8 @@ the rbd disk template). RBD-based instances can failover or migrate to
 any other node in the ganeti cluster, enabling you to exploit of all
 Ganeti’s high availabilily (HA) features.</p>
 <div class="admonition attention">
-<p class="first admonition-title">Attention</p>
-<p class="last">Be careful though: rbd is still experimental! For now it is
+<p class="admonition-title">Attention</p>
+<p>Be careful though: rbd is still experimental! For now it is
 recommended only for testing purposes.  No sensitive data should be
 stored there.</p>
 </div>
@@ -376,10 +385,10 @@ include them.</p>
 <p>The RBD template has been tested with <code class="docutils literal notranslate"><span class="pre">ceph-common</span></code> v0.38 and
 above. We recommend using the latest version of <code class="docutils literal notranslate"><span class="pre">ceph-common</span></code>.</p>
 <div class="admonition-debian admonition">
-<p class="first admonition-title">Debian</p>
+<p class="admonition-title">Debian</p>
 <p>On Debian, you can just install the RBD/Ceph userspace utils with
 the following command:</p>
-<div class="last highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">ceph-common</span>
+<div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">ceph-common</span>
 </pre></div>
 </div>
 </div>
@@ -395,9 +404,9 @@ like the following. Note, that you possibly need to follow the more
 general installation instructions before invoking this command (see
 <a class="reference internal" href="#initializing-the-cluster">Initializing the cluster</a> ).</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>$ gnt-cluster init </dt>
-<dd>–enabled-disk-templates=rbd –ipolicy-disk-templates=rbd –enabled-hypervisors=kvm -D rbd:access=userspace</dd>
+<div><dl class="simple">
+<dt>$ gnt-cluster init </dt><dd><p>–enabled-disk-templates=rbd –ipolicy-disk-templates=rbd –enabled-hypervisors=kvm -D rbd:access=userspace</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>(You may want to enable more templates than just <code class="docutils literal notranslate"><span class="pre">rbd</span></code>.)</p>
@@ -411,9 +420,9 @@ group level with <code class="docutils literal notranslate"><span class="pre">gn
 (<code class="docutils literal notranslate"><span class="pre">ceph.conf</span></code>) in <code class="docutils literal notranslate"><span class="pre">/etc/ceph</span></code>. For the rbd userspace utils, you’ll
 only need to specify the IP addresses of the RADOS Cluster monitors.</p>
 <div class="admonition-ceph-conf admonition">
-<p class="first admonition-title">ceph.conf</p>
+<p class="admonition-title">ceph.conf</p>
 <p>Sample configuration file:</p>
-<div class="last highlight-text notranslate"><div class="highlight"><pre><span></span>[mon.a]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[mon.a]
        host = example_monitor_host1
        mon addr = 1.2.3.4:6789
 [mon.b]
@@ -482,7 +491,7 @@ KVM, and in the main table under Xen).</p>
 Under KVM everything should work, but you’ll need to configure your
 switches outside of Ganeti (as for bridges).</p>
 <div class="admonition-bridging-issues-with-certain-kernels admonition">
-<p class="first admonition-title">Bridging issues with certain kernels</p>
+<p class="admonition-title">Bridging issues with certain kernels</p>
 <p>Some kernel versions (e.g. 2.6.32) have an issue where the bridge
 will automatically change its <code class="docutils literal notranslate"><span class="pre">MAC</span></code> address to the lower-numbered
 slave on port addition and removal. This means that, depending on
@@ -497,15 +506,15 @@ configuration snippet:</p>
 <div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>up ip link set addr $(cat /sys/class/net/$IFACE/address) dev $IFACE
 </pre></div>
 </div>
-<p class="last">which will “set” the bridge address to the initial one, disallowing
+<p>which will “set” the bridge address to the initial one, disallowing
 changes.</p>
 </div>
 <div class="admonition-bridging-under-debian admonition">
-<p class="first admonition-title">Bridging under Debian</p>
+<p class="admonition-title">Bridging under Debian</p>
 <p>The recommended way to configure the Xen bridge is to edit your
 <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code> file and substitute your normal
 Ethernet stanza with the following snippet:</p>
-<div class="last highlight-shell-example notranslate"><div class="highlight"><pre><span></span>auto xen-br0
+<div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>auto xen-br0
 iface xen-br0 inet static
    address <span class="nv">YOUR_IP_ADDRESS</span>
    netmask <span class="nv">YOUR_NETMASK</span>
@@ -624,21 +633,21 @@ a sample logrotate snippet is provided in the source at
 <p>The above <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> invocation, or installing via your
 distribution mechanisms, will install on the system:</p>
 <ul class="simple">
-<li>a set of python libraries under the <em>ganeti</em> namespace (depending on
+<li><p>a set of python libraries under the <em>ganeti</em> namespace (depending on
 the python version this can be located in either
-<code class="docutils literal notranslate"><span class="pre">lib/python-$ver/site-packages</span></code> or various other locations)</li>
-<li>a set of programs under <code class="docutils literal notranslate"><span class="pre">/usr/local/sbin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/sbin</span></code></li>
-<li>if the htools component was enabled, a set of programs under
-<code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/bin/</span></code></li>
-<li>man pages for the above programs</li>
-<li>a set of tools under the <code class="docutils literal notranslate"><span class="pre">lib/ganeti/tools</span></code> directory</li>
-<li>an example iallocator script (see the admin guide for details) under
-<code class="docutils literal notranslate"><span class="pre">lib/ganeti/iallocators</span></code></li>
-<li>a cron job that is needed for cluster maintenance</li>
-<li>an init script or systemd unit files for automatic startup of Ganeti daemons</li>
-<li>provided but not installed automatically by <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> is a bash
+<code class="docutils literal notranslate"><span class="pre">lib/python-$ver/site-packages</span></code> or various other locations)</p></li>
+<li><p>a set of programs under <code class="docutils literal notranslate"><span class="pre">/usr/local/sbin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/sbin</span></code></p></li>
+<li><p>if the htools component was enabled, a set of programs under
+<code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/bin/</span></code></p></li>
+<li><p>man pages for the above programs</p></li>
+<li><p>a set of tools under the <code class="docutils literal notranslate"><span class="pre">lib/ganeti/tools</span></code> directory</p></li>
+<li><p>an example iallocator script (see the admin guide for details) under
+<code class="docutils literal notranslate"><span class="pre">lib/ganeti/iallocators</span></code></p></li>
+<li><p>a cron job that is needed for cluster maintenance</p></li>
+<li><p>an init script or systemd unit files for automatic startup of Ganeti daemons</p></li>
+<li><p>provided but not installed automatically by <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> is a bash
 completion script that hopefully will ease working with the many
-cluster commands</li>
+cluster commands</p></li>
 </ul>
 </div>
 </div>
@@ -667,18 +676,18 @@ partition the instance’s disk in
 <code class="docutils literal notranslate"><span class="pre">/etc/default/ganeti-instance-debootstrap</span></code>, you will need <em>kpartx</em>
 installed.</p>
 <div class="admonition-debian admonition">
-<p class="first admonition-title">Debian</p>
+<p class="admonition-title">Debian</p>
 <p>Use this command on all nodes to install the required packages:</p>
 <div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">debootstrap</span> <span class="gs">dump</span> <span class="gs">kpartx</span>
 </pre></div>
 </div>
 <p>Or alternatively install the OS definition from the Debian package:</p>
-<div class="last highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">ganeti-instance-debootstrap</span>
+<div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>$ <span class="gs">apt-get</span> <span class="gs">install</span> <span class="gs">ganeti-instance-debootstrap</span>
 </pre></div>
 </div>
 </div>
 <div class="admonition-kvm admonition">
-<p class="first admonition-title">KVM</p>
+<p class="admonition-title">KVM</p>
 <p>In order for debootstrap instances to be able to shutdown cleanly
 they must have basic ACPI support installed inside the instance. Which
 packages are needed depend on the exact flavor of Debian or Ubuntu
@@ -688,7 +697,7 @@ Squeeze:</p>
 <div class="highlight-shell-example notranslate"><div class="highlight"><pre><span></span>EXTRA_PKGS=&quot;acpi-support-base,console-tools,udev&quot;
 </pre></div>
 </div>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">kbd</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">console-tools</span></code>, and more packages
+<p><code class="docutils literal notranslate"><span class="pre">kbd</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">console-tools</span></code>, and more packages
 can be added, of course, if needed.</p>
 </div>
 <p>Please refer to the <code class="docutils literal notranslate"><span class="pre">README</span></code> file of <code class="docutils literal notranslate"><span class="pre">ganeti-instance-debootstrap</span></code> for
@@ -751,12 +760,12 @@ change them either at cluster init time, or later with <code class="docutils lit
 <p>Your instance types, networking environment, hypervisor type and version
 may all affect what kind of parameters should be used on your cluster.</p>
 <div class="admonition-kvm admonition">
-<p class="first admonition-title">KVM</p>
+<p class="admonition-title">KVM</p>
 <p>Instances are by default configured to use a host kernel, and to be
 reached via serial console, which works nice for Linux paravirtualized
 instances. If you want fully virtualized instances you may want to
 handle their kernel inside the instance, and to use VNC.</p>
-<p class="last">Some versions of KVM have a bug that will make an instance hang when
+<p>Some versions of KVM have a bug that will make an instance hang when
 configured to use the serial console (which is the default) unless a
 connection is made to it within about 2 seconds of the instance’s
 startup. For such case it’s recommended to disable the
@@ -796,9 +805,9 @@ node1.example.com 197404 197404   2047  1896   125     0     0
 </div>
 <p>The above shows a couple of things:</p>
 <ul class="simple">
-<li>The various Ganeti daemons can talk to each other</li>
-<li>Ganeti can examine the storage of the node (DTotal/DFree)</li>
-<li>Ganeti can talk to the selected hypervisor (MTotal/MNode/MFree)</li>
+<li><p>The various Ganeti daemons can talk to each other</p></li>
+<li><p>Ganeti can examine the storage of the node (DTotal/DFree)</p></li>
+<li><p>Ganeti can talk to the selected hypervisor (MTotal/MNode/MFree)</p></li>
 </ul>
 <div class="section" id="cluster-burnin">
 <h4><a class="toc-backref" href="#id33">Cluster burnin</a><a class="headerlink" href="#cluster-burnin" title="Permalink to this headline">¶</a></h4>
@@ -817,18 +826,18 @@ the various commands (<a class="reference internal" href="man-ganeti.html"><span
 <a class="reference internal" href="man-gnt-node.html"><span class="doc">gnt-node(8)</span></a>, <a class="reference internal" href="man-gnt-instance.html"><span class="doc">gnt-instance(8)</span></a>,
 <a class="reference internal" href="man-gnt-job.html"><span class="doc">gnt-job(8)</span></a>).</p>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="defkernel" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The kernel and initrd paths can be changed at either
+<dl class="footnote brackets">
+<dt class="label" id="defkernel"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The kernel and initrd paths can be changed at either
 cluster level (which changes the default for all instances) or at
-instance level.</td></tr>
-</tbody>
-</table>
+instance level.</p>
+</dd>
+</dl>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -904,17 +913,15 @@ instance level.</td></tr>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -928,12 +935,13 @@ instance level.</td></tr>
         <li class="right" >
           <a href="iallocator.html" title="Ganeti automatic instance allocation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti installation tutorial</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

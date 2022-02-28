@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Security in Ganeti &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security in Ganeti &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Upgrade notes" href="upgrade.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="rapi.html" title="Ganeti remote API"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Security in Ganeti</a></li> 
       </ul>
     </div>  
 
@@ -59,21 +58,22 @@ joined to a cluster, there are no changes to the system.</p>
 <p>For a host that has been joined to the cluster, there are very important
 changes:</p>
 <ul class="simple">
-<li>The host will have its SSH host key replaced with the one of the
+<li><p>The host will have its SSH host key replaced with the one of the
 cluster (which is the one the initial node had at the cluster
-creation)</li>
-<li>A new public key will be added to root’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file,
+creation)</p></li>
+<li><p>A new public key will be added to root’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file,
 granting root access to all nodes of the cluster. The private part of
-the key is also distributed to all nodes. Old files are renamed.</li>
-<li>Communication between nodes is encrypted using SSL/TLS. A common key
+the key is also distributed to all nodes. Old files are renamed.</p></li>
+<li><p>Communication between nodes is encrypted using SSL/TLS. A common key
 and certificate combo is shared between all nodes of the cluster.  At
-this time, no CA is used.</li>
-<li>The Ganeti node daemon will accept RPC requests from any host that is
+this time, no CA is used.</p></li>
+<li><p>The Ganeti node daemon will accept RPC requests from any host that is
 master candidate within the cluster, and the operations it will
-do as a result of these requests are:<ul>
-<li>running commands under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code> directory</li>
-<li>creating DRBD disks between it and the IP it has been told</li>
-<li>overwrite a defined list of files on the host</li>
+do as a result of these requests are:</p>
+<ul>
+<li><p>running commands under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code> directory</p></li>
+<li><p>creating DRBD disks between it and the IP it has been told</p></li>
+<li><p>overwrite a defined list of files on the host</p></li>
 </ul>
 </li>
 </ul>
@@ -84,12 +84,12 @@ determined by the weakest node.</p>
 <p>Note that only the SSH key will allow other machines to run any command
 on this node; the RPC method will run only:</p>
 <ul class="simple">
-<li>well defined commands to create, remove, activate logical volumes,
-drbd devices, start/stop instances, etc;</li>
-<li>run well-defined SSH commands on other nodes in the cluster</li>
-<li>scripts under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code> directory</li>
-<li>scripts under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> directory, if
-this feature has been enabled at build time (see below)</li>
+<li><p>well defined commands to create, remove, activate logical volumes,
+drbd devices, start/stop instances, etc;</p></li>
+<li><p>run well-defined SSH commands on other nodes in the cluster</p></li>
+<li><p>scripts under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code> directory</p></li>
+<li><p>scripts under the <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> directory, if
+this feature has been enabled at build time (see below)</p></li>
 </ul>
 <p>It is therefore important to make sure that the contents of the
 <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/hooks</span></code> and <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code>
@@ -101,12 +101,12 @@ administrator to run any commands in the
 <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> directory, if the feature has been
 enabled at build time, subject to the following restrictions:</p>
 <ul class="simple">
-<li>No parameters may be passed</li>
-<li>No absolute or relative path may be passed, only a filename</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> directory must
-be owned by root:root and have mode 0755 or stricter</li>
-<li>Executables must be regular files or symlinks, and must be executable
-by root:root</li>
+<li><p>No parameters may be passed</p></li>
+<li><p>No absolute or relative path may be passed, only a filename</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> directory must
+be owned by root:root and have mode 0755 or stricter</p></li>
+<li><p>Executables must be regular files or symlinks, and must be executable
+by root:root</p></li>
 </ul>
 <p>Note that it’s not possible to list the contents of the directory, and
 there is an intentional delay when trying to execute a non-existing
@@ -122,10 +122,10 @@ site decision whether to enable or not the restricted commands feature.</p>
 <p>As mentioned above, there are multiple ways of communication between
 cluster nodes:</p>
 <ul class="simple">
-<li>SSH-based, for high-volume traffic like image dumps or for low-level
-command, e.g. restarting the Ganeti node daemon</li>
-<li>RPC communication between master and nodes</li>
-<li>DRBD real-time disk replication traffic</li>
+<li><p>SSH-based, for high-volume traffic like image dumps or for low-level
+command, e.g. restarting the Ganeti node daemon</p></li>
+<li><p>RPC communication between master and nodes</p></li>
+<li><p>DRBD real-time disk replication traffic</p></li>
 </ul>
 <p>The SSH traffic is protected (after the initial login to a new node) by
 the cluster-wide shared SSH key.</p>
@@ -174,14 +174,14 @@ SSL certificates). This makes it a bit more sensitive to bugs (a remote
 attacker could get direct access to the intra-cluster RPC), so to harden
 security it’s recommended to:</p>
 <ul class="simple">
-<li>disable confd at build time if it (and <code class="docutils literal notranslate"><span class="pre">luxid</span></code>) is not needed in
-your setup.</li>
-<li>configure Ganeti (at build time) to use separate users, so that the
+<li><p>disable confd at build time if it (and <code class="docutils literal notranslate"><span class="pre">luxid</span></code>) is not needed in
+your setup.</p></li>
+<li><p>configure Ganeti (at build time) to use separate users, so that the
 confd daemon doesn’t also have access to the server SSL/TLS
-certificates.</li>
-<li>add firewall rules to protect the <code class="docutils literal notranslate"><span class="pre">confd</span></code> port or bind it to a
+certificates.</p></li>
+<li><p>add firewall rules to protect the <code class="docutils literal notranslate"><span class="pre">confd</span></code> port or bind it to a
 trusted address. Make sure that all nodes can access the daemon, as
-the monitoring daemon requires it.</li>
+the monitoring daemon requires it.</p></li>
 </ul>
 </div>
 <div class="section" id="monitoring-daemon">
@@ -235,9 +235,9 @@ library lacking necessary features. To protect yourself from these, the
 use of a HTTPS proxy handling this correctly is needed (e.g. nginx).
 Useful options for setting RAPI up for cooperation with the proxy are:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">PORT</span></code> for allowing the default RAPI port to be used by the
-proxy</li>
-<li><code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code> to disable SSL as it will be handled by the proxy anyway</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">PORT</span></code> for allowing the default RAPI port to be used by the
+proxy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code> to disable SSL as it will be handled by the proxy anyway</p></li>
 </ul>
 </div>
 <div class="section" id="inter-cluster-instance-moves">
@@ -289,6 +289,7 @@ from a jailbroken instance.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -327,17 +328,15 @@ from a jailbroken instance.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -351,12 +350,13 @@ from a jailbroken instance.</p>
         <li class="right" >
           <a href="rapi.html" title="Ganeti remote API"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Security in Ganeti</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

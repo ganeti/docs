@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ganeti-os-interface &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ganeti-os-interface &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ganeti-rapi" href="man-ganeti-rapi.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti-noded.html" title="ganeti-noded"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-os-interface</a></li> 
       </ul>
     </div>  
 
@@ -69,115 +68,114 @@ being passed to scripts, therefore they will not inherit the environment
 in with which the ganeti node daemon was started. If you depend on any
 environment variables (non-Ganeti), then you will need to define or
 source them appropriately.</p>
-<dl class="docutils">
-<dt>OS_API_VERSION</dt>
-<dd>The OS API version that the rest of the environment conforms to.</dd>
-<dt>INSTANCE_NAME</dt>
-<dd>The instance name the script should operate on.</dd>
-<dt>INSTANCE_OS, OS_NAME</dt>
-<dd><p class="first">Both names point to the name of the instance’s OS as Ganeti knows
+<dl>
+<dt>OS_API_VERSION</dt><dd><p>The OS API version that the rest of the environment conforms to.</p>
+</dd>
+<dt>INSTANCE_NAME</dt><dd><p>The instance name the script should operate on.</p>
+</dd>
+<dt>INSTANCE_OS, OS_NAME</dt><dd><p>Both names point to the name of the instance’s OS as Ganeti knows
 it. This can simplify the OS scripts by providing the same scripts
 under multiple names, and then the scripts can use this name to
 alter their behaviour.</p>
-<p class="last">With OS API 15 changing the script behavior based on this variable
+<p>With OS API 15 changing the script behavior based on this variable
 is deprecated: OS_VARIANT should be used instead (see below).</p>
 </dd>
-<dt>OS_VARIANT</dt>
-<dd>The variant of the OS which should be installed. Each OS must
+<dt>OS_VARIANT</dt><dd><p>The variant of the OS which should be installed. Each OS must
 support all variants listed under its variants.list file, and may
 support more. Any more supported variants should be properly
-documented in the per-OS documentation.</dd>
-<dt>HYPERVISOR</dt>
-<dd>The hypervisor of this instance.</dd>
-<dt>DISK_COUNT</dt>
-<dd>The number of disks the instance has. The actual disk definitions are
+documented in the per-OS documentation.</p>
+</dd>
+<dt>HYPERVISOR</dt><dd><p>The hypervisor of this instance.</p>
+</dd>
+<dt>DISK_COUNT</dt><dd><p>The number of disks the instance has. The actual disk definitions are
 in a set of additional variables. The instance’s disk will be
-numbered from 0 to this value minus one.</dd>
-<dt>DISK_%N_PATH</dt>
-<dd>The path to the storage for disk N of the instance. This might be
+numbered from 0 to this value minus one.</p>
+</dd>
+<dt>DISK_%N_PATH</dt><dd><p>The path to the storage for disk N of the instance. This might be
 either a block device or a regular file, in which case the OS
 scripts should use <code class="docutils literal notranslate"><span class="pre">losetup</span></code> (if they need to mount it). E.g. the
 first disk of the instance might be exported as
 <code class="docutils literal notranslate"><span class="pre">DISK_0_PATH=/dev/drbd0</span></code>. If the disk is only accessible via a
-userspace URI, this not be set.</dd>
-<dt>DISK_%N_SIZE</dt>
-<dd>The configured size of disk N in mebibytes (available since Ganeti 3.0).</dd>
-<dt>DISK_%N_URI</dt>
-<dd>The userspace URI to the storage for disk N of the instance, if
-configured.</dd>
-<dt>DISK_%N_ACCESS</dt>
-<dd>This is how the hypervisor will export the instance disks: either
-read-write (<code class="docutils literal notranslate"><span class="pre">rw</span></code>) or read-only (<code class="docutils literal notranslate"><span class="pre">ro</span></code>).</dd>
-<dt>DISK_%N_UUID</dt>
-<dd>The uuid associated with the N-th disk of the instance.</dd>
-<dt>DISK_%N_NAME</dt>
-<dd>(Optional) The name, if any, associated with the N-th disk of the instance.</dd>
-<dt>DISK_%N_FRONTEND_TYPE</dt>
-<dd>(Optional) If applicable to the current hypervisor type: the type
+userspace URI, this not be set.</p>
+</dd>
+<dt>DISK_%N_SIZE</dt><dd><p>The configured size of disk N in mebibytes (available since Ganeti 3.0).</p>
+</dd>
+<dt>DISK_%N_URI</dt><dd><p>The userspace URI to the storage for disk N of the instance, if
+configured.</p>
+</dd>
+<dt>DISK_%N_ACCESS</dt><dd><p>This is how the hypervisor will export the instance disks: either
+read-write (<code class="docutils literal notranslate"><span class="pre">rw</span></code>) or read-only (<code class="docutils literal notranslate"><span class="pre">ro</span></code>).</p>
+</dd>
+<dt>DISK_%N_UUID</dt><dd><p>The uuid associated with the N-th disk of the instance.</p>
+</dd>
+<dt>DISK_%N_NAME</dt><dd><p>(Optional) The name, if any, associated with the N-th disk of the instance.</p>
+</dd>
+<dt>DISK_%N_FRONTEND_TYPE</dt><dd><p>(Optional) If applicable to the current hypervisor type: the type
 of the device exported by the hypervisor. For example, the Xen HVM
 hypervisor can export disks as either <code class="docutils literal notranslate"><span class="pre">paravirtual</span></code> or
-<code class="docutils literal notranslate"><span class="pre">ioemu</span></code>.</dd>
-<dt>DISK_%N_BACKEND_TYPE</dt>
-<dd>How files are visible on the node side. This can be either
+<code class="docutils literal notranslate"><span class="pre">ioemu</span></code>.</p>
+</dd>
+<dt>DISK_%N_BACKEND_TYPE</dt><dd><p>How files are visible on the node side. This can be either
 <code class="docutils literal notranslate"><span class="pre">block</span></code> (when using block devices) or <code class="docutils literal notranslate"><span class="pre">file:type</span></code>, where
 <code class="docutils literal notranslate"><span class="pre">type</span></code> is either <code class="docutils literal notranslate"><span class="pre">loop</span></code>, <code class="docutils literal notranslate"><span class="pre">blktap</span></code> or <code class="docutils literal notranslate"><span class="pre">blktap2</span></code>, depending on how the
 hypervisor will be configured.  Note that not all backend types apply to all
-hypervisors.</dd>
-<dt>NIC_COUNT</dt>
-<dd>Similar to the <code class="docutils literal notranslate"><span class="pre">DISK_COUNT</span></code>, this represents the number of NICs
-of the instance.</dd>
-<dt>NIC_%N_MAC</dt>
-<dd>The MAC address associated with this interface.</dd>
-<dt>NIC_%N_UUID</dt>
-<dd>The uuid associated with the N-th NIC of the instance.</dd>
-<dt>NIC_%N_NAME</dt>
-<dd>(Optional) The name, if any, associated with the N-th NIC of the instance.</dd>
-<dt>NIC_%N_IP</dt>
-<dd>The IP address, if any, associated with the N-th NIC of the
-instance.</dd>
-<dt>NIC_%N_MODE</dt>
-<dd>The NIC mode, routed, bridged or openvswitch</dd>
-<dt>NIC_%N_BRIDGE</dt>
-<dd>The bridge to which this NIC will be attached. This variable is
-defined only when the NIC is in bridged mode.</dd>
-<dt>NIC_%N_LINK</dt>
-<dd>In bridged or openvswitch mode, this is the interface to which the
+hypervisors.</p>
+</dd>
+<dt>NIC_COUNT</dt><dd><p>Similar to the <code class="docutils literal notranslate"><span class="pre">DISK_COUNT</span></code>, this represents the number of NICs
+of the instance.</p>
+</dd>
+<dt>NIC_%N_MAC</dt><dd><p>The MAC address associated with this interface.</p>
+</dd>
+<dt>NIC_%N_UUID</dt><dd><p>The uuid associated with the N-th NIC of the instance.</p>
+</dd>
+<dt>NIC_%N_NAME</dt><dd><p>(Optional) The name, if any, associated with the N-th NIC of the instance.</p>
+</dd>
+<dt>NIC_%N_IP</dt><dd><p>The IP address, if any, associated with the N-th NIC of the
+instance.</p>
+</dd>
+<dt>NIC_%N_MODE</dt><dd><p>The NIC mode, routed, bridged or openvswitch</p>
+</dd>
+<dt>NIC_%N_BRIDGE</dt><dd><p>The bridge to which this NIC will be attached. This variable is
+defined only when the NIC is in bridged mode.</p>
+</dd>
+<dt>NIC_%N_LINK</dt><dd><p>In bridged or openvswitch mode, this is the interface to which the
 NIC will be attached (same as <code class="docutils literal notranslate"><span class="pre">NIC_%N_BRIDGE</span></code> for bridged). In
 routed mode it is the routing table which will be used by the
-hypervisor to insert the appropriate routes.</dd>
-<dt>NIC_%N_FRONTEND_TYPE</dt>
-<dd>(Optional) If applicable, the type of the exported NIC to the
+hypervisor to insert the appropriate routes.</p>
+</dd>
+<dt>NIC_%N_FRONTEND_TYPE</dt><dd><p>(Optional) If applicable, the type of the exported NIC to the
 instance, this can be one of: <code class="docutils literal notranslate"><span class="pre">rtl8139</span></code>, <code class="docutils literal notranslate"><span class="pre">ne2k_pci</span></code>,
-<code class="docutils literal notranslate"><span class="pre">ne2k_isa</span></code>, <code class="docutils literal notranslate"><span class="pre">paravirtual</span></code>.</dd>
-<dt>NIC_%d_NETWORK_NAME</dt>
-<dd>(Optional) If a NIC network is specified, the network’s name.</dd>
-<dt>NIC_%d_NETWORK_UUID</dt>
-<dd>(Optional) If a NIC network is specified, the network’s uuid.</dd>
-<dt>NIC_%d_NETWORK_FAMILY</dt>
-<dd>(Optional) If a NIC network is specified, the network’s family.</dd>
-<dt>NIC_%d_NETWORK_SUBNET</dt>
-<dd>(Optional) If a NIC network is specified, the network’s IPv4 subnet.</dd>
-<dt>NIC_%d_NETWORK_GATEWAY</dt>
-<dd>(Optional) If a NIC network is specified, the network’s IPv4
-gateway.</dd>
-<dt>NIC_%d_NETWORK_SUBNET6</dt>
-<dd>(Optional) If a NIC network is specified, the network’s IPv6 subnet.</dd>
-<dt>NIC_%d_NETWORK_GATEWAY6</dt>
-<dd>(Optional) If a NIC network is specified, the network’s IPv6
-gateway.</dd>
-<dt>NIC_%d_NETWORK_MAC_PREFIX</dt>
-<dd>(Optional) If a NIC network is specified, the network’s mac prefix.</dd>
-<dt>NIC_%d_NETWORK_TAGS</dt>
-<dd>(Optional) If a NIC network is specified, the network’s tags, space
-separated.</dd>
-<dt>OSP_*name*</dt>
-<dd>Each OS parameter (see below) will be exported in its own
+<code class="docutils literal notranslate"><span class="pre">ne2k_isa</span></code>, <code class="docutils literal notranslate"><span class="pre">paravirtual</span></code>.</p>
+</dd>
+<dt>NIC_%d_NETWORK_NAME</dt><dd><p>(Optional) If a NIC network is specified, the network’s name.</p>
+</dd>
+<dt>NIC_%d_NETWORK_UUID</dt><dd><p>(Optional) If a NIC network is specified, the network’s uuid.</p>
+</dd>
+<dt>NIC_%d_NETWORK_FAMILY</dt><dd><p>(Optional) If a NIC network is specified, the network’s family.</p>
+</dd>
+<dt>NIC_%d_NETWORK_SUBNET</dt><dd><p>(Optional) If a NIC network is specified, the network’s IPv4 subnet.</p>
+</dd>
+<dt>NIC_%d_NETWORK_GATEWAY</dt><dd><p>(Optional) If a NIC network is specified, the network’s IPv4
+gateway.</p>
+</dd>
+<dt>NIC_%d_NETWORK_SUBNET6</dt><dd><p>(Optional) If a NIC network is specified, the network’s IPv6 subnet.</p>
+</dd>
+<dt>NIC_%d_NETWORK_GATEWAY6</dt><dd><p>(Optional) If a NIC network is specified, the network’s IPv6
+gateway.</p>
+</dd>
+<dt>NIC_%d_NETWORK_MAC_PREFIX</dt><dd><p>(Optional) If a NIC network is specified, the network’s mac prefix.</p>
+</dd>
+<dt>NIC_%d_NETWORK_TAGS</dt><dd><p>(Optional) If a NIC network is specified, the network’s tags, space
+separated.</p>
+</dd>
+<dt>OSP_*name*</dt><dd><p>Each OS parameter (see below) will be exported in its own
 variable, prefixed with <code class="docutils literal notranslate"><span class="pre">OSP_</span></code>, and upper-cased. For example, a
-<code class="docutils literal notranslate"><span class="pre">dhcp</span></code> parameter will be exported as <code class="docutils literal notranslate"><span class="pre">OSP_DHCP</span></code>.</dd>
-<dt>DEBUG_LEVEL</dt>
-<dd>If non-zero, this should cause the OS script to generate verbose
+<code class="docutils literal notranslate"><span class="pre">dhcp</span></code> parameter will be exported as <code class="docutils literal notranslate"><span class="pre">OSP_DHCP</span></code>.</p>
+</dd>
+<dt>DEBUG_LEVEL</dt><dd><p>If non-zero, this should cause the OS script to generate verbose
 logs of its execution, for troubleshooting purposes. Currently
-only <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> are valid values.</dd>
+only <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> are valid values.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -206,17 +204,17 @@ given block device. The output of this program will be passed
 during restore to the <strong>import</strong> command.</p>
 <p>The specific disk to backup is denoted by four additional environment
 variables:</p>
-<dl class="docutils">
-<dt>EXPORT_INDEX</dt>
-<dd>The index in the instance disks structure (and could be used for
-example to skip the second disk if not needed for backup).</dd>
-<dt>EXPORT_DISK_PATH</dt>
-<dd>Alias for <code class="docutils literal notranslate"><span class="pre">DISK_N_PATH</span></code>. It is duplicated here for easier usage
-by shell scripts (rather than parse the <code class="docutils literal notranslate"><span class="pre">DISK_...</span></code> variables).</dd>
-<dt>EXPORT_DISK_URI</dt>
-<dd>Alias for <code class="docutils literal notranslate"><span class="pre">DISK_N_URI</span></code>, analagous to <code class="docutils literal notranslate"><span class="pre">EXPORT_DISK_PATH</span></code>.</dd>
-<dt>EXPORT_DEVICE</dt>
-<dd>Historical alias for <code class="docutils literal notranslate"><span class="pre">EXPORT_DISK_PATH</span></code>.</dd>
+<dl class="simple">
+<dt>EXPORT_INDEX</dt><dd><p>The index in the instance disks structure (and could be used for
+example to skip the second disk if not needed for backup).</p>
+</dd>
+<dt>EXPORT_DISK_PATH</dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">DISK_N_PATH</span></code>. It is duplicated here for easier usage
+by shell scripts (rather than parse the <code class="docutils literal notranslate"><span class="pre">DISK_...</span></code> variables).</p>
+</dd>
+<dt>EXPORT_DISK_URI</dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">DISK_N_URI</span></code>, analagous to <code class="docutils literal notranslate"><span class="pre">EXPORT_DISK_PATH</span></code>.</p>
+</dd>
+<dt>EXPORT_DEVICE</dt><dd><p>Historical alias for <code class="docutils literal notranslate"><span class="pre">EXPORT_DISK_PATH</span></code>.</p>
+</dd>
 </dl>
 <p>To provide the user with an estimate on how long the export will take,
 a predicted size can be written to the file descriptor passed in the
@@ -383,6 +381,7 @@ definition to version 5 by creating the rename script simply as:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -441,17 +440,15 @@ definition to version 5 by creating the rename script simply as:</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -465,13 +462,14 @@ definition to version 5 by creating the rename script simply as:</p>
         <li class="right" >
           <a href="man-ganeti-noded.html" title="ganeti-noded"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-os-interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

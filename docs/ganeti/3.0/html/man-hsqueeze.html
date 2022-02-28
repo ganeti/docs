@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>hsqueeze &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hsqueeze &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="htools" href="man-htools.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-hspace.html" title="hspace"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hsqueeze</a></li> 
       </ul>
     </div>  
 
@@ -49,12 +48,12 @@
 <div class="section" id="synopsis">
 <h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
 <p><strong>hsqueeze</strong> {backend options…} [algorithm options…] [reporting options…]</p>
-<p><strong>hsqueeze</strong> –version</p>
+<p><strong>hsqueeze</strong> --version</p>
 <p>Backend options:</p>
 <p>{ <strong>-L[</strong> <em>path</em> <strong>]</strong> [-X]** | <strong>-t</strong> <em>data-file</em> }</p>
 <p>Algorithm options:</p>
-<p><strong>[ –minimal-resources=*factor* ]</strong>
-<strong>[ –target-resources=*factor* ]</strong></p>
+<p><strong>[ --minimal-resources=*factor* ]</strong>
+<strong>[ --target-resources=*factor* ]</strong></p>
 <p>Reporting options:</p>
 <p><strong>[ -S *file* ]</strong>
 <strong>[ -C[*file*] ]</strong></p>
@@ -83,54 +82,50 @@ instances.</p>
 </div>
 <div class="section" id="options">
 <h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>-L [<em>path</em>]</dt>
-<dd>Backend specification: collect data directly from the master daemon,
+<dl class="simple">
+<dt>-L [<em>path</em>]</dt><dd><p>Backend specification: collect data directly from the master daemon,
 which is to be contacted via LUXI (an internal Ganeti protocol). The
-option is described in the man page <strong>htools</strong>(1).</dd>
+option is described in the man page <strong>htools</strong>(1).</p>
+</dd>
 </dl>
-<table class="docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-X</span></kbd></td>
-<td><p class="first">When using the Luxi backend, hsqueeze can also execute the given
+<dl class="option-list">
+<dt><kbd><span class="option">-X</span></kbd></dt>
+<dd><p>When using the Luxi backend, hsqueeze can also execute the given
 commands.</p>
-<p class="last">The execution of the job series can be interrupted, see below for
+<p>The execution of the job series can be interrupted, see below for
 signal handling.</p>
-</td></tr>
-</tbody>
-</table>
-<dl class="docutils">
-<dt>-S <em>filename</em>, –save-cluster=*filename*</dt>
-<dd>If given, the state of the cluster before the squeezing is saved to
+</dd>
+</dl>
+<dl class="simple">
+<dt>-S <em>filename</em>, --save-cluster=*filename*</dt><dd><p>If given, the state of the cluster before the squeezing is saved to
 the given file plus the extension “original”
 (i.e. <em>filename</em>.original), and the state at the end of the
 squeezing operation is saved to the given file plus the extension “squeezed”
-(i.e. <em>filename</em>.squeezed).</dd>
-<dt>-C[<em>filename</em>], –print-commands[=*filename*]</dt>
-<dd>If given, a shell script containing the commands to squeeze or unsqueeze
+(i.e. <em>filename</em>.squeezed).</p>
+</dd>
+<dt>-C[<em>filename</em>], --print-commands[=*filename*]</dt><dd><p>If given, a shell script containing the commands to squeeze or unsqueeze
 the cluster are saved in a file with the given name; if no name is provided,
-they are printed to stdout.</dd>
-<dt>-t <em>datafile</em>, –text-data=*datafile*</dt>
-<dd>Backend specification: the name of the file holding node and instance
+they are printed to stdout.</p>
+</dd>
+<dt>-t <em>datafile</em>, --text-data=*datafile*</dt><dd><p>Backend specification: the name of the file holding node and instance
 information (if not collecting LUXI). This or one of the
 other backends must be selected. The option is described in the man
-page <strong>htools</strong>(1).</dd>
-<dt>–minimal-resources=*factor*</dt>
-<dd>Specify the amount of resources to be free on each node for hsqueeze not to
+page <strong>htools</strong>(1).</p>
+</dd>
+<dt>--minimal-resources=*factor*</dt><dd><p>Specify the amount of resources to be free on each node for hsqueeze not to
 consider onlining additional nodes. The value is reported a multiple of the
-standard instance specification, as taken from the instance policy.</dd>
-<dt>–target-resources=*factor*</dt>
-<dd>Specify the amount of resources to remain free on any node after squeezing.
+standard instance specification, as taken from the instance policy.</p>
+</dd>
+<dt>--target-resources=*factor*</dt><dd><p>Specify the amount of resources to remain free on any node after squeezing.
 The value is reported a multiple of the standard instance specification, as
-taken from the instance policy.</dd>
+taken from the instance policy.</p>
+</dd>
 </dl>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -164,17 +159,15 @@ taken from the instance policy.</dd>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -188,13 +181,14 @@ taken from the instance policy.</dd>
         <li class="right" >
           <a href="man-hspace.html" title="hspace"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hsqueeze</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hotplug &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotplug &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Detection of user-initiated shutdown from inside an instance" href="design-internal-shutdown.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-hsqueeze.html" title="HSqueeze tool"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hotplug</a></li> 
       </ul>
     </div>  
 
@@ -41,35 +40,37 @@
             
   <div class="section" id="hotplug">
 <h1><a class="toc-backref" href="#id1">Hotplug</a><a class="headerlink" href="#hotplug" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2013-Jul-24</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.10.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2013-Jul-24</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.10.0</p>
+</dd>
+</dl>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#hotplug" id="id1">Hotplug</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a></li>
-<li><a class="reference internal" href="#design-decisions" id="id4">Design decisions</a><ul>
-<li><a class="reference internal" href="#configuration-changes" id="id5">Configuration changes</a></li>
-<li><a class="reference internal" href="#backend-changes" id="id6">Backend changes</a></li>
-<li><a class="reference internal" href="#hypervisor-changes" id="id7">Hypervisor changes</a></li>
-<li><a class="reference internal" href="#user-interface" id="id8">User interface</a><ul>
-<li><a class="reference internal" href="#enabling-hotplug" id="id9">Enabling hotplug</a></li>
-<li><a class="reference internal" href="#nic-hotplug" id="id10">NIC Hotplug</a></li>
-<li><a class="reference internal" href="#disk-hotplug" id="id11">Disk Hotplug</a></li>
+<li><p><a class="reference internal" href="#hotplug" id="id1">Hotplug</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a></p></li>
+<li><p><a class="reference internal" href="#design-decisions" id="id4">Design decisions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuration-changes" id="id5">Configuration changes</a></p></li>
+<li><p><a class="reference internal" href="#backend-changes" id="id6">Backend changes</a></p></li>
+<li><p><a class="reference internal" href="#hypervisor-changes" id="id7">Hypervisor changes</a></p></li>
+<li><p><a class="reference internal" href="#user-interface" id="id8">User interface</a></p>
+<ul>
+<li><p><a class="reference internal" href="#enabling-hotplug" id="id9">Enabling hotplug</a></p></li>
+<li><p><a class="reference internal" href="#nic-hotplug" id="id10">NIC Hotplug</a></p></li>
+<li><p><a class="reference internal" href="#disk-hotplug" id="id11">Disk Hotplug</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dealing-with-chroot-and-uid-pool-and-disks-in-general" id="id12">Dealing with chroot and uid pool (and disks in general)</a></li>
+<li><p><a class="reference internal" href="#dealing-with-chroot-and-uid-pool-and-disks-in-general" id="id12">Dealing with chroot and uid pool (and disks in general)</a></p></li>
 </ul>
 </li>
 </ul>
@@ -192,7 +193,7 @@ and remove entries to reflect the current PCI configuration.</p>
 <h3><a class="toc-backref" href="#id6">Backend changes</a><a class="headerlink" href="#backend-changes" title="Permalink to this headline">¶</a></h3>
 <p>Introduce one new RPC call:</p>
 <ul class="simple">
-<li>hotplug_device(DEVICE_TYPE, ACTION, device, …)</li>
+<li><p>hotplug_device(DEVICE_TYPE, ACTION, device, …)</p></li>
 </ul>
 <p>where DEVICE_TYPE can be either NIC or Disk, and ACTION either REMOVE or ADD.</p>
 </div>
@@ -225,8 +226,8 @@ instance, after installing a version that supports hotplugging we
 have the restriction that hotplug will not be supported for existing
 devices. The reason is that old runtime files lack of:</p>
 <ol class="arabic simple">
-<li>Device pci configuration info.</li>
-<li>Separate block device entry.</li>
+<li><p>Device pci configuration info.</p></li>
+<li><p>Separate block device entry.</p></li>
 </ol>
 <p>Hotplug will be supported only for KVM in the first implementation. For
 all other hypervisors, backend will raise an Exception case hotplug is
@@ -264,9 +265,9 @@ support only disk addition/deletion.</p>
 case where the kvm process will not run with root privileges.
 Specifically:</p>
 <ul class="simple">
-<li>in case of chroot, the kvm process cannot see the newly created device</li>
-<li>in case of uid pool security model, the kvm process is not allowed
-to access the device</li>
+<li><p>in case of chroot, the kvm process cannot see the newly created device</p></li>
+<li><p>in case of uid pool security model, the kvm process is not allowed
+to access the device</p></li>
 </ul>
 <p>For NIC hotplug we address this problem by using the <code class="docutils literal notranslate"><span class="pre">getfd</span></code> QMP
 command and passing the file descriptor to the kvm process over the
@@ -285,6 +286,7 @@ and notify the user with the corresponding warning.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -326,17 +328,15 @@ and notify the user with the corresponding warning.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -350,12 +350,13 @@ and notify the user with the corresponding warning.</p>
         <li class="right" >
           <a href="design-hsqueeze.html" title="HSqueeze tool"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hotplug</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

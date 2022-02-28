@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-cluster &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-cluster &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-debug" href="man-gnt-debug.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-backup.html" title="gnt-backup"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-cluster</a></li> 
       </ul>
     </div>  
 
@@ -101,7 +100,7 @@ on all nodes, run:</p>
 <div class="section" id="copyfile">
 <h3>COPYFILE<a class="headerlink" href="#copyfile" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>copyfile</strong> [–use-replication-network] [-n <em>node-name</em>] [-g <em>group</em>]</div>
+<div class="line"><strong>copyfile</strong> [--use-replication-network] [-n <em>node-name</em>] [-g <em>group</em>]</div>
 <div class="line">{<em>file</em>}</div>
 </div>
 <p>Copies a file to all or to some nodes. The argument specifies the
@@ -120,7 +119,7 @@ named nodes.</p>
 </div>
 <div class="section" id="deactivate-master-ip">
 <h3>DEACTIVATE-MASTER-IP<a class="headerlink" href="#deactivate-master-ip" title="Permalink to this headline">¶</a></h3>
-<p><strong>deactivate-master-ip</strong> [–yes]</p>
+<p><strong>deactivate-master-ip</strong> [--yes]</p>
 <p>Deactivates the master IP on the master node.</p>
 <p>This should be run only locally or on a connection to the node ip
 directly, as a connection to the master ip will be broken by this
@@ -129,15 +128,15 @@ unless the <code class="docutils literal notranslate"><span class="pre">--yes</s
 </div>
 <div class="section" id="destroy">
 <h3>DESTROY<a class="headerlink" href="#destroy" title="Permalink to this headline">¶</a></h3>
-<p><strong>destroy</strong> {–yes-do-it}</p>
+<p><strong>destroy</strong> {--yes-do-it}</p>
 <p>Remove all configuration files related to the cluster, so that a
 <strong>gnt-cluster init</strong> can be done again afterwards.</p>
 <p>Since this is a dangerous command, you are required to pass the
-argument <em>–yes-do-it.</em></p>
+argument <em>--yes-do-it.</em></p>
 </div>
 <div class="section" id="epo">
 <h3>EPO<a class="headerlink" href="#epo" title="Permalink to this headline">¶</a></h3>
-<p><strong>epo</strong> [–on] [–groups|–all] [–power-delay] <em>arguments</em></p>
+<p><strong>epo</strong> [--on] [--groups|--all] [--power-delay] <em>arguments</em></p>
 <p>Performs an emergency power-off on nodes given as arguments. If
 <code class="docutils literal notranslate"><span class="pre">--groups</span></code> is given, arguments are node groups. If <code class="docutils literal notranslate"><span class="pre">--all</span></code> is
 provided, the whole cluster will be shut down.</p>
@@ -159,7 +158,7 @@ another node not affected.</p>
 </div>
 <div class="section" id="info">
 <h3>INFO<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
-<p><strong>info</strong> [–roman]</p>
+<p><strong>info</strong> [--roman]</p>
 <p>Shows runtime cluster information: cluster name, architecture (32
 or 64 bit), master node, node list and instance list.</p>
 <p>Passing the <code class="docutils literal notranslate"><span class="pre">--roman</span></code> option gnt-cluster info will try to print
@@ -176,50 +175,50 @@ same options relative to specs in the instance policies.</p>
 <h3>INIT<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>init</strong></div>
-<div class="line">[{-s|–secondary-ip} <em>secondary_ip</em>]</div>
-<div class="line">[–vg-name <em>vg-name</em>]</div>
-<div class="line">[–master-netdev <em>interface-name</em>]</div>
-<div class="line">[–master-netmask <em>netmask</em>]</div>
-<div class="line">[–use-external-mip-script {yes | no}]</div>
-<div class="line">[{-m|–mac-prefix} <em>mac-prefix</em>]</div>
-<div class="line">[–no-etc-hosts]</div>
-<div class="line">[–no-ssh-init]</div>
-<div class="line">[–file-storage-dir <em>dir</em>]</div>
-<div class="line">[–shared-file-storage-dir <em>dir</em>]</div>
-<div class="line">[–gluster-storage-dir <em>dir</em>]</div>
-<div class="line">[–enabled-hypervisors <em>hypervisors</em>]</div>
-<div class="line">[{-H|–hypervisor-parameters} <em>hypervisor</em>:<em>hv-param*=*value*[,*hv-param*=*value</em>…]]</div>
-<div class="line">[{-B|–backend-parameters} <em>be-param*=*value*[,*be-param*=*value</em>…]]</div>
-<div class="line">[{-N|–nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
-<div class="line">[{-D|–disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
-<div class="line">[–maintain-node-health {yes | no}]</div>
-<div class="line">[–uid-pool <em>user-id pool definition</em>]</div>
-<div class="line">[{-I|–default-iallocator} <em>default instance allocator</em>]</div>
-<div class="line">[–default-iallocator-params <em>ial-param*=*value</em>,*ial-param*=*value*]</div>
-<div class="line">[–primary-ip-version <em>version</em>]</div>
-<div class="line">[–prealloc-wipe-disks {yes | no}]</div>
-<div class="line">[–node-parameters <em>ndparams</em>]</div>
-<div class="line">[{-C|–candidate-pool-size} <em>candidate_pool_size</em>]</div>
-<div class="line">[–specs-cpu-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
-<div class="line">[–specs-disk-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
-<div class="line">[–specs-disk-size <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
-<div class="line">[–specs-mem-size <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
-<div class="line">[–specs-nic-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
-<div class="line">[–ipolicy-std-specs <em>spec*=*value</em> [,*spec*=*value*…]]</div>
-<div class="line">[–ipolicy-bounds-specs <em>bounds_ispecs</em>]</div>
-<div class="line">[–ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–ipolicy-spindle-ratio <em>ratio</em>]</div>
-<div class="line">[–ipolicy-vcpu-ratio <em>ratio</em>]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
-<div class="line">[–drbd-usermode-helper <em>helper</em>]</div>
-<div class="line">[–enabled-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–install-image <em>image</em>]</div>
-<div class="line">[–zeroing-image <em>image</em>]</div>
-<div class="line">[–compression-tools [<em>tool</em>, [<em>tool</em>]]]</div>
-<div class="line">[–user-shutdown {yes | no}]</div>
-<div class="line">[–ssh-key-type <em>type</em>]</div>
-<div class="line">[–ssh-key-bits <em>bits</em>]</div>
+<div class="line">[{-s|--secondary-ip} <em>secondary_ip</em>]</div>
+<div class="line">[--vg-name <em>vg-name</em>]</div>
+<div class="line">[--master-netdev <em>interface-name</em>]</div>
+<div class="line">[--master-netmask <em>netmask</em>]</div>
+<div class="line">[--use-external-mip-script {yes | no}]</div>
+<div class="line">[{-m|--mac-prefix} <em>mac-prefix</em>]</div>
+<div class="line">[--no-etc-hosts]</div>
+<div class="line">[--no-ssh-init]</div>
+<div class="line">[--file-storage-dir <em>dir</em>]</div>
+<div class="line">[--shared-file-storage-dir <em>dir</em>]</div>
+<div class="line">[--gluster-storage-dir <em>dir</em>]</div>
+<div class="line">[--enabled-hypervisors <em>hypervisors</em>]</div>
+<div class="line">[{-H|--hypervisor-parameters} <em>hypervisor</em>:<em>hv-param*=*value*[,*hv-param*=*value</em>…]]</div>
+<div class="line">[{-B|--backend-parameters} <em>be-param*=*value*[,*be-param*=*value</em>…]]</div>
+<div class="line">[{-N|--nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
+<div class="line">[{-D|--disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
+<div class="line">[--maintain-node-health {yes | no}]</div>
+<div class="line">[--uid-pool <em>user-id pool definition</em>]</div>
+<div class="line">[{-I|--default-iallocator} <em>default instance allocator</em>]</div>
+<div class="line">[--default-iallocator-params <em>ial-param*=*value</em>,*ial-param*=*value*]</div>
+<div class="line">[--primary-ip-version <em>version</em>]</div>
+<div class="line">[--prealloc-wipe-disks {yes | no}]</div>
+<div class="line">[--node-parameters <em>ndparams</em>]</div>
+<div class="line">[{-C|--candidate-pool-size} <em>candidate_pool_size</em>]</div>
+<div class="line">[--specs-cpu-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
+<div class="line">[--specs-disk-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
+<div class="line">[--specs-disk-size <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
+<div class="line">[--specs-mem-size <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
+<div class="line">[--specs-nic-count <em>spec-param*=*value</em> [,*spec-param*=*value*…]]</div>
+<div class="line">[--ipolicy-std-specs <em>spec*=*value</em> [,*spec*=*value*…]]</div>
+<div class="line">[--ipolicy-bounds-specs <em>bounds_ispecs</em>]</div>
+<div class="line">[--ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--ipolicy-spindle-ratio <em>ratio</em>]</div>
+<div class="line">[--ipolicy-vcpu-ratio <em>ratio</em>]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
+<div class="line">[--drbd-usermode-helper <em>helper</em>]</div>
+<div class="line">[--enabled-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--install-image <em>image</em>]</div>
+<div class="line">[--zeroing-image <em>image</em>]</div>
+<div class="line">[--compression-tools [<em>tool</em>, [<em>tool</em>]]]</div>
+<div class="line">[--user-shutdown {yes | no}]</div>
+<div class="line">[--ssh-key-type <em>type</em>]</div>
+<div class="line">[--ssh-key-bits <em>bits</em>]</div>
 <div class="line">{<em>cluster-name</em>}</div>
 </div>
 <p>This commands is only run once initially on the first node of the
@@ -264,7 +263,7 @@ interpreted as a CIDR netmask. The default value is 32 for an IPv4
 address and 128 for an IPv6 address.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--use-external-mip-script</span></code> option allows to specify whether to
 use an user-supplied master IP address setup script, whose location is
-<code class="docutils literal notranslate"><span class="pre">/etc/ganeti/scripts/master-ip-setup</span></code>. If the option value is
+<code class="docutils literal notranslate"><span class="pre">/usr/local/etc/ganeti/scripts/master-ip-setup</span></code>. If the option value is
 set to False, the default script (located at
 <code class="docutils literal notranslate"><span class="pre">/usr/local/lib/ganeti/tools/master-ip-setup</span></code>) will be executed.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">(--mac-prefix)</span></code> option will let you specify a three byte
@@ -284,7 +283,7 @@ storing the instance disk files when using respectively the file storage
 backend, the shared file storage backend and the gluster storage
 backend. Note that these directories must be an allowed directory for
 file storage. Those directories are specified in the
-<code class="docutils literal notranslate"><span class="pre">/etc/ganeti/file-storage-paths</span></code> file.
+<code class="docutils literal notranslate"><span class="pre">/usr/local/etc/ganeti/file-storage-paths</span></code> file.
 The file storage directory can also be a subdirectory of an allowed one.
 The file storage directory should be present on all nodes.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--prealloc-wipe-disks</span></code> sets a cluster wide configuration value
@@ -296,18 +295,18 @@ hypervisors that will be enabled for this cluster. Instance
 hypervisors can only be chosen from the list of enabled
 hypervisors, and the first entry of this list will be used by
 default. Currently, the following hypervisors are available:</p>
-<dl class="docutils">
-<dt>xen-pvm</dt>
-<dd>Xen PVM hypervisor</dd>
-<dt>xen-hvm</dt>
-<dd>Xen HVM hypervisor</dd>
-<dt>kvm</dt>
-<dd>Linux KVM hypervisor</dd>
-<dt>chroot</dt>
-<dd>a simple chroot manager that starts chroot based on a script at the
-root of the filesystem holding the chroot</dd>
-<dt>fake</dt>
-<dd>fake hypervisor for development/testing</dd>
+<dl class="simple">
+<dt>xen-pvm</dt><dd><p>Xen PVM hypervisor</p>
+</dd>
+<dt>xen-hvm</dt><dd><p>Xen HVM hypervisor</p>
+</dd>
+<dt>kvm</dt><dd><p>Linux KVM hypervisor</p>
+</dd>
+<dt>chroot</dt><dd><p>a simple chroot manager that starts chroot based on a script at the
+root of the filesystem holding the chroot</p>
+</dd>
+<dt>fake</dt><dd><p>fake hypervisor for development/testing</p>
+</dd>
 </dl>
 <p>Either a single hypervisor name or a comma-separated list of
 hypervisor names can be specified. If this option is not specified,
@@ -327,19 +326,17 @@ comma-separated list of key=value pairs. The keys available for each
 hypervisors are detailed in the <strong>gnt-instance</strong>(8) man page, in the
 <strong>add</strong> command plus the following parameters which are only
 configurable globally (at cluster level):</p>
-<dl class="docutils">
-<dt>migration_port</dt>
-<dd><p class="first">Valid for the Xen PVM and KVM hypervisors.</p>
-<p class="last">This options specifies the TCP port to use for live-migration when
+<dl>
+<dt>migration_port</dt><dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
+<p>This options specifies the TCP port to use for live-migration when
 using the xm toolstack. The same port should be configured on all
 nodes in the <code class="docutils literal notranslate"><span class="pre">/etc/xen/xend-config.sxp</span></code> file, under the
 key “xend-relocation-port”.</p>
 </dd>
-<dt>migration_bandwidth</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>migration_bandwidth</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This option specifies the maximum bandwidth that KVM will use for
 instance live migrations. The value is in MiB/s.</p>
-<p class="last">This option is only effective with kvm versions &gt;= 78 and qemu-kvm
+<p>This option is only effective with kvm versions &gt;= 78 and qemu-kvm
 versions &gt;= 0.10.0.</p>
 </dd>
 </dl>
@@ -347,43 +344,43 @@ versions &gt;= 0.10.0.</p>
 backend parameters for the cluster. The parameter format is a
 comma-separated list of key=value pairs with the following supported
 keys:</p>
-<dl class="docutils">
-<dt>vcpus</dt>
-<dd>Number of VCPUs to set for an instance by default, must be an
-integer, will be set to 1 if no specified.</dd>
-<dt>maxmem</dt>
-<dd>Maximum amount of memory to allocate for an instance by default, can
+<dl class="simple">
+<dt>vcpus</dt><dd><p>Number of VCPUs to set for an instance by default, must be an
+integer, will be set to 1 if no specified.</p>
+</dd>
+<dt>maxmem</dt><dd><p>Maximum amount of memory to allocate for an instance by default, can
 be either an integer or an integer followed by a unit (M for
 mebibytes and G for gibibytes are supported), will be set to 128M if
-not specified.</dd>
-<dt>minmem</dt>
-<dd>Minimum amount of memory to allocate for an instance by default, can
+not specified.</p>
+</dd>
+<dt>minmem</dt><dd><p>Minimum amount of memory to allocate for an instance by default, can
 be either an integer or an integer followed by a unit (M for
 mebibytes and G for gibibytes are supported), will be set to 128M if
-not specified.</dd>
-<dt>auto_balance</dt>
-<dd>Value of the auto_balance flag for instances to use by default,
-will be set to true if not specified.</dd>
-<dt>always_failover</dt>
-<dd>Default value for the <code class="docutils literal notranslate"><span class="pre">always_failover</span></code> flag for instances; if
-not set, <code class="docutils literal notranslate"><span class="pre">False</span></code> is used.</dd>
+not specified.</p>
+</dd>
+<dt>auto_balance</dt><dd><p>Value of the auto_balance flag for instances to use by default,
+will be set to true if not specified.</p>
+</dd>
+<dt>always_failover</dt><dd><p>Default value for the <code class="docutils literal notranslate"><span class="pre">always_failover</span></code> flag for instances; if
+not set, <code class="docutils literal notranslate"><span class="pre">False</span></code> is used.</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">-N</span> <span class="pre">(--nic-parameters)</span></code> option allows you to set the default
 network interface parameters for the cluster. The parameter format is a
 comma-separated list of key=value pairs with the following supported
 keys:</p>
-<dl class="docutils">
-<dt>mode</dt>
-<dd>The default NIC mode, one of <code class="docutils literal notranslate"><span class="pre">routed</span></code>, <code class="docutils literal notranslate"><span class="pre">bridged</span></code> or
-<code class="docutils literal notranslate"><span class="pre">openvswitch</span></code>.</dd>
-<dt>link</dt>
-<dd>In <code class="docutils literal notranslate"><span class="pre">bridged</span></code> or <code class="docutils literal notranslate"><span class="pre">openvswitch</span></code> mode the default interface where
+<dl class="simple">
+<dt>mode</dt><dd><p>The default NIC mode, one of <code class="docutils literal notranslate"><span class="pre">routed</span></code>, <code class="docutils literal notranslate"><span class="pre">bridged</span></code> or
+<code class="docutils literal notranslate"><span class="pre">openvswitch</span></code>.</p>
+</dd>
+<dt>link</dt><dd><p>In <code class="docutils literal notranslate"><span class="pre">bridged</span></code> or <code class="docutils literal notranslate"><span class="pre">openvswitch</span></code> mode the default interface where
 to attach NICs. In <code class="docutils literal notranslate"><span class="pre">routed</span></code> mode it represents an
 hypervisor-vif-script dependent value to allow different instance
 groups. For example under the KVM default network script it is
 interpreted as a routing table number or name. Openvswitch support
 is also hypervisor dependent and currently works for the default KVM
-network script. Under Xen a custom network script must be provided.</dd>
+network script. Under Xen a custom network script must be provided.</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">-D</span> <span class="pre">(--disk-parameters)</span></code> option allows you to set the default disk
 template parameters at cluster level. The format used for this option is
@@ -396,77 +393,76 @@ modified at node group level using the <strong>gnt-group</strong>(8) command.</p
 <p>The following is the list of disk parameters available for the <strong>drbd</strong>
 template, with measurement units specified in square brackets at the end
 of the description (when applicable):</p>
-<dl class="docutils">
-<dt>resync-rate</dt>
-<dd>Static re-synchronization rate. [KiB/s]</dd>
-<dt>data-stripes</dt>
-<dd>Number of stripes to use for data LVs.</dd>
-<dt>meta-stripes</dt>
-<dd>Number of stripes to use for meta LVs.</dd>
-<dt>disk-barriers</dt>
-<dd>What kind of barriers to <strong>disable</strong> for disks. It can either assume
+<dl class="simple">
+<dt>resync-rate</dt><dd><p>Static re-synchronization rate. [KiB/s]</p>
+</dd>
+<dt>data-stripes</dt><dd><p>Number of stripes to use for data LVs.</p>
+</dd>
+<dt>meta-stripes</dt><dd><p>Number of stripes to use for meta LVs.</p>
+</dd>
+<dt>disk-barriers</dt><dd><p>What kind of barriers to <strong>disable</strong> for disks. It can either assume
 the value “n”, meaning no barrier disabled, or a non-empty string
 containing a subset of the characters “bfd”. “b” means disable disk
-barriers, “f” means disable disk flushes, “d” disables disk drains.</dd>
-<dt>meta-barriers</dt>
-<dd>Boolean value indicating whether the meta barriers should be
-disabled (True) or not (False).</dd>
-<dt>metavg</dt>
-<dd>String containing the name of the default LVM volume group for DRBD
+barriers, “f” means disable disk flushes, “d” disables disk drains.</p>
+</dd>
+<dt>meta-barriers</dt><dd><p>Boolean value indicating whether the meta barriers should be
+disabled (True) or not (False).</p>
+</dd>
+<dt>metavg</dt><dd><p>String containing the name of the default LVM volume group for DRBD
 metadata. By default, it is set to <code class="docutils literal notranslate"><span class="pre">xenvg</span></code>. It can be overridden
 during the instance creation process by using the <code class="docutils literal notranslate"><span class="pre">metavg</span></code> key of
-the <code class="docutils literal notranslate"><span class="pre">--disk</span></code> parameter.</dd>
-<dt>disk-custom</dt>
-<dd>String containing additional parameters to be appended to the
-arguments list of <code class="docutils literal notranslate"><span class="pre">drbdsetup</span> <span class="pre">disk</span></code>.</dd>
-<dt>net-custom</dt>
-<dd>String containing additional parameters to be appended to the
-arguments list of <code class="docutils literal notranslate"><span class="pre">drbdsetup</span> <span class="pre">net</span></code>.</dd>
-<dt>protocol</dt>
-<dd>Replication protocol for the DRBD device. Has to be either “A”, “B”
+the <code class="docutils literal notranslate"><span class="pre">--disk</span></code> parameter.</p>
+</dd>
+<dt>disk-custom</dt><dd><p>String containing additional parameters to be appended to the
+arguments list of <code class="docutils literal notranslate"><span class="pre">drbdsetup</span> <span class="pre">disk</span></code>.</p>
+</dd>
+<dt>net-custom</dt><dd><p>String containing additional parameters to be appended to the
+arguments list of <code class="docutils literal notranslate"><span class="pre">drbdsetup</span> <span class="pre">net</span></code>.</p>
+</dd>
+<dt>protocol</dt><dd><p>Replication protocol for the DRBD device. Has to be either “A”, “B”
 or “C”. Refer to the DRBD documentation for further information
-about the differences between the protocols.</dd>
-<dt>dynamic-resync</dt>
-<dd>Boolean indicating whether to use the dynamic resync speed
+about the differences between the protocols.</p>
+</dd>
+<dt>dynamic-resync</dt><dd><p>Boolean indicating whether to use the dynamic resync speed
 controller or not. If enabled, c-plan-ahead must be non-zero and all
 the c-* parameters will be used by DRBD. Otherwise, the value of
-resync-rate will be used as a static resync speed.</dd>
-<dt>c-plan-ahead</dt>
-<dd>Agility factor of the dynamic resync speed controller. (the higher,
+resync-rate will be used as a static resync speed.</p>
+</dd>
+<dt>c-plan-ahead</dt><dd><p>Agility factor of the dynamic resync speed controller. (the higher,
 the slower the algorithm will adapt the resync speed). A value of 0
-(that is the default) disables the controller. [ds]</dd>
-<dt>c-fill-target</dt>
-<dd>Maximum amount of in-flight resync data for the dynamic resync speed
-controller. [sectors]</dd>
-<dt>c-delay-target</dt>
-<dd>Maximum estimated peer response latency for the dynamic resync speed
-controller. [ds]</dd>
-<dt>c-min-rate</dt>
-<dd>Minimum resync speed for the dynamic resync speed controller. [KiB/s]</dd>
-<dt>c-max-rate</dt>
-<dd>Upper bound on resync speed for the dynamic resync speed controller.
-[KiB/s]</dd>
+(that is the default) disables the controller. [ds]</p>
+</dd>
+<dt>c-fill-target</dt><dd><p>Maximum amount of in-flight resync data for the dynamic resync speed
+controller. [sectors]</p>
+</dd>
+<dt>c-delay-target</dt><dd><p>Maximum estimated peer response latency for the dynamic resync speed
+controller. [ds]</p>
+</dd>
+<dt>c-min-rate</dt><dd><p>Minimum resync speed for the dynamic resync speed controller. [KiB/s]</p>
+</dd>
+<dt>c-max-rate</dt><dd><p>Upper bound on resync speed for the dynamic resync speed controller.
+[KiB/s]</p>
+</dd>
 </dl>
 <p>List of parameters available for the <strong>plain</strong> template:</p>
-<dl class="docutils">
-<dt>stripes</dt>
-<dd>Number of stripes to use for new LVs.</dd>
+<dl class="simple">
+<dt>stripes</dt><dd><p>Number of stripes to use for new LVs.</p>
+</dd>
 </dl>
 <p>List of parameters available for the <strong>rbd</strong> template:</p>
-<dl class="docutils">
-<dt>pool</dt>
-<dd>The RADOS cluster pool, inside which all rbd volumes will reside.
+<dl>
+<dt>pool</dt><dd><p>The RADOS cluster pool, inside which all rbd volumes will reside.
 When a new RADOS cluster is deployed, the default pool to put rbd
-volumes (Images in RADOS terminology) is ‘rbd’.</dd>
-<dt>access</dt>
-<dd><p class="first">If ‘userspace’, instances will access their disks directly without
+volumes (Images in RADOS terminology) is ‘rbd’.</p>
+</dd>
+<dt>access</dt><dd><p>If ‘userspace’, instances will access their disks directly without
 going through a block device, avoiding expensive context switches
 with kernel space and the potential for <a class="reference external" href="http://tracker.ceph.com/issues/3076">deadlocks</a> in low memory
 scenarios.</p>
 <p>The default value is ‘kernelspace’ and it disables this behaviour.
 This setting may only be changed to ‘userspace’ if all instance
 disks in the affected group or cluster can be accessed in userspace.</p>
-<p class="last">Attempts to use this feature without rbd support compiled in KVM
+<p>Attempts to use this feature without rbd support compiled in KVM
 result in a “no such file or directory” error messages.</p>
 </dd>
 </dl>
@@ -517,12 +513,12 @@ specifications pairs can be added by using <code class="docutils literal notrans
 <code class="docutils literal notranslate"><span class="pre">--ipolicy-std-specs</span></code> option takes a list of parameter/value pairs.
 For both options, <em>param</em> can be:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">cpu-count</span></code>: number of VCPUs for an instance</li>
-<li><code class="docutils literal notranslate"><span class="pre">disk-count</span></code>: number of disk for an instance</li>
-<li><code class="docutils literal notranslate"><span class="pre">disk-size</span></code>: size of each disk</li>
-<li><code class="docutils literal notranslate"><span class="pre">memory-size</span></code>: instance memory</li>
-<li><code class="docutils literal notranslate"><span class="pre">nic-count</span></code>: number of network interface</li>
-<li><code class="docutils literal notranslate"><span class="pre">spindle-use</span></code>: spindle usage for an instance</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpu-count</span></code>: number of VCPUs for an instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disk-count</span></code>: number of disk for an instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disk-size</span></code>: size of each disk</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">memory-size</span></code>: instance memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nic-count</span></code>: number of network interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spindle-use</span></code>: spindle usage for an instance</p></li>
 </ul>
 <p>For the <code class="docutils literal notranslate"><span class="pre">--specs-...</span></code> options, each option can have three values:
 <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code>, which can also be modified on group level
@@ -530,12 +526,12 @@ For both options, <em>param</em> can be:</p>
 Please note, that <code class="docutils literal notranslate"><span class="pre">std</span></code> values are not the same as defaults set by
 <code class="docutils literal notranslate"><span class="pre">--beparams</span></code>, but they are used for the capacity calculations.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--specs-cpu-count</span></code> limits the number of VCPUs that can be used by an
-instance.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--specs-disk-count</span></code> limits the number of disks</li>
-<li><code class="docutils literal notranslate"><span class="pre">--specs-disk-size</span></code> limits the disk size for every disk used</li>
-<li><code class="docutils literal notranslate"><span class="pre">--specs-mem-size</span></code> limits the amount of memory available</li>
-<li><code class="docutils literal notranslate"><span class="pre">--specs-nic-count</span></code> sets limits on the number of NICs used</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--specs-cpu-count</span></code> limits the number of VCPUs that can be used by an
+instance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--specs-disk-count</span></code> limits the number of disks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--specs-disk-size</span></code> limits the disk size for every disk used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--specs-mem-size</span></code> limits the amount of memory available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--specs-nic-count</span></code> sets limits on the number of NICs used</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">--ipolicy-spindle-ratio</span></code> option takes a decimal number. The
 <code class="docutils literal notranslate"><span class="pre">--ipolicy-disk-templates</span></code> option takes a comma-separated list of disk
@@ -543,8 +539,8 @@ templates. This list of disk templates must be a subset of the list
 of cluster-wide enabled disk templates (which can be set with
 <code class="docutils literal notranslate"><span class="pre">--enabled-disk-templates</span></code>).</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--ipolicy-spindle-ratio</span></code> limits the instances-spindles ratio</li>
-<li><code class="docutils literal notranslate"><span class="pre">--ipolicy-vcpu-ratio</span></code> limits the vcpu-cpu ratio</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ipolicy-spindle-ratio</span></code> limits the instances-spindles ratio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ipolicy-vcpu-ratio</span></code> limits the vcpu-cpu ratio</p></li>
 </ul>
 <p>All the instance policy elements can be overridden at group level. Group
 level overrides can be removed by specifying <code class="docutils literal notranslate"><span class="pre">default</span></code> as the value of
@@ -594,17 +590,17 @@ commands on nodes. The supported types are currently ‘dsa’, ‘rsa’, and
 ‘ecdsa’. The supported bit sizes vary across keys, reflecting the
 options <strong>ssh-keygen</strong>(1) exposes. These are currently:</p>
 <ul class="simple">
-<li>dsa: 1024 bits</li>
-<li>rsa: &gt;=768 bits</li>
-<li>ecdsa: 256, 384, or 521 bits</li>
+<li><p>dsa: 1024 bits</p></li>
+<li><p>rsa: &gt;=768 bits</p></li>
+<li><p>ecdsa: 256, 384, or 521 bits</p></li>
 </ul>
 <p>Ganeti defaults to using 2048-bit RSA keys.</p>
 </div>
 <div class="section" id="master-failover">
 <h3>MASTER-FAILOVER<a class="headerlink" href="#master-failover" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>master-failover</strong> [–no-voting] [–yes-do-it]</div>
-<div class="line">[–ignore-offline-nodes]</div>
+<div class="line"><strong>master-failover</strong> [--no-voting] [--yes-do-it]</div>
+<div class="line">[--ignore-offline-nodes]</div>
 </div>
 <p>Failover the master role to the current node.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--no-voting</span></code> option skips the remote node agreement checks.
@@ -645,49 +641,49 @@ be 1.</p>
 <div class="section" id="modify">
 <h3>MODIFY<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>modify</strong> [–submit] [–print-jobid]</div>
-<div class="line">[–force]</div>
-<div class="line">[–vg-name <em>vg-name</em>]</div>
-<div class="line">[–enabled-hypervisors <em>hypervisors</em>]</div>
-<div class="line">[{-H|–hypervisor-parameters} <em>hypervisor</em>:<em>hv-param*=*value*[,*hv-param*=*value</em>…]]</div>
-<div class="line">[{-B|–backend-parameters} <em>be-param*=*value*[,*be-param*=*value</em>…]]</div>
-<div class="line">[{-N|–nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
-<div class="line">[{-D|–disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
-<div class="line">[–uid-pool <em>user-id pool definition</em>]</div>
-<div class="line">[–add-uids <em>user-id pool definition</em>]</div>
-<div class="line">[–remove-uids <em>user-id pool definition</em>]</div>
-<div class="line">[{-C|–candidate-pool-size} <em>candidate_pool_size</em>]</div>
-<div class="line">[–max-running-jobs <em>count</em> ]</div>
-<div class="line">[–max-tracked-jobs <em>count</em> ]</div>
-<div class="line">[–maintain-node-health {yes | no}]</div>
-<div class="line">[–prealloc-wipe-disks {yes | no}]</div>
-<div class="line">[{-I|–default-iallocator} <em>default instance allocator</em>]</div>
-<div class="line">[–default-iallocator-params <em>ial-param*=*value</em>,*ial-param*=*value*]</div>
-<div class="line">[–reserved-lvs=*NAMES*]</div>
-<div class="line">[–node-parameters <em>ndparams</em>]</div>
-<div class="line">[{-m|–mac-prefix} <em>mac-prefix</em>]</div>
-<div class="line">[–master-netdev <em>interface-name</em>]</div>
-<div class="line">[–master-netmask <em>netmask</em>]</div>
-<div class="line">[–modify-etc-hosts {yes | no}]</div>
-<div class="line">[–use-external-mip-script {yes | no}]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
-<div class="line">[–ipolicy-std-specs <em>spec*=*value</em> [,*spec*=*value*…]]</div>
-<div class="line">[–ipolicy-bounds-specs <em>bounds_ispecs</em>]</div>
-<div class="line">[–ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–ipolicy-spindle-ratio <em>ratio</em>]</div>
-<div class="line">[–ipolicy-vcpu-ratio <em>ratio</em>]</div>
-<div class="line">[–enabled-disk-templates <em>template</em> [,*template*…]]</div>
-<div class="line">[–drbd-usermode-helper <em>helper</em>]</div>
-<div class="line">[–file-storage-dir <em>dir</em>]</div>
-<div class="line">[–shared-file-storage-dir <em>dir</em>]</div>
-<div class="line">[–compression-tools [<em>tool</em>, [<em>tool</em>]]]</div>
-<div class="line">[–instance-communication-network <em>network</em>]</div>
-<div class="line">[–install-image <em>image</em>]</div>
-<div class="line">[–zeroing-image <em>image</em>]</div>
-<div class="line">[–user-shutdown {yes | no}]</div>
-<div class="line">[–enabled-data-collectors <em>collectors</em>]</div>
-<div class="line">[–data-collector-interval <em>intervals</em>]</div>
+<div class="line"><strong>modify</strong> [--submit] [--print-jobid]</div>
+<div class="line">[--force]</div>
+<div class="line">[--vg-name <em>vg-name</em>]</div>
+<div class="line">[--enabled-hypervisors <em>hypervisors</em>]</div>
+<div class="line">[{-H|--hypervisor-parameters} <em>hypervisor</em>:<em>hv-param*=*value*[,*hv-param*=*value</em>…]]</div>
+<div class="line">[{-B|--backend-parameters} <em>be-param*=*value*[,*be-param*=*value</em>…]]</div>
+<div class="line">[{-N|--nic-parameters} <em>nic-param*=*value*[,*nic-param*=*value</em>…]]</div>
+<div class="line">[{-D|--disk-parameters} <em>disk-template</em>:<em>disk-param*=*value*[,*disk-param*=*value</em>…]]</div>
+<div class="line">[--uid-pool <em>user-id pool definition</em>]</div>
+<div class="line">[--add-uids <em>user-id pool definition</em>]</div>
+<div class="line">[--remove-uids <em>user-id pool definition</em>]</div>
+<div class="line">[{-C|--candidate-pool-size} <em>candidate_pool_size</em>]</div>
+<div class="line">[--max-running-jobs <em>count</em> ]</div>
+<div class="line">[--max-tracked-jobs <em>count</em> ]</div>
+<div class="line">[--maintain-node-health {yes | no}]</div>
+<div class="line">[--prealloc-wipe-disks {yes | no}]</div>
+<div class="line">[{-I|--default-iallocator} <em>default instance allocator</em>]</div>
+<div class="line">[--default-iallocator-params <em>ial-param*=*value</em>,*ial-param*=*value*]</div>
+<div class="line">[--reserved-lvs=*NAMES*]</div>
+<div class="line">[--node-parameters <em>ndparams</em>]</div>
+<div class="line">[{-m|--mac-prefix} <em>mac-prefix</em>]</div>
+<div class="line">[--master-netdev <em>interface-name</em>]</div>
+<div class="line">[--master-netmask <em>netmask</em>]</div>
+<div class="line">[--modify-etc-hosts {yes | no}]</div>
+<div class="line">[--use-external-mip-script {yes | no}]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
+<div class="line">[--ipolicy-std-specs <em>spec*=*value</em> [,*spec*=*value*…]]</div>
+<div class="line">[--ipolicy-bounds-specs <em>bounds_ispecs</em>]</div>
+<div class="line">[--ipolicy-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--ipolicy-spindle-ratio <em>ratio</em>]</div>
+<div class="line">[--ipolicy-vcpu-ratio <em>ratio</em>]</div>
+<div class="line">[--enabled-disk-templates <em>template</em> [,*template*…]]</div>
+<div class="line">[--drbd-usermode-helper <em>helper</em>]</div>
+<div class="line">[--file-storage-dir <em>dir</em>]</div>
+<div class="line">[--shared-file-storage-dir <em>dir</em>]</div>
+<div class="line">[--compression-tools [<em>tool</em>, [<em>tool</em>]]]</div>
+<div class="line">[--instance-communication-network <em>network</em>]</div>
+<div class="line">[--install-image <em>image</em>]</div>
+<div class="line">[--zeroing-image <em>image</em>]</div>
+<div class="line">[--user-shutdown {yes | no}]</div>
+<div class="line">[--enabled-data-collectors <em>collectors</em>]</div>
+<div class="line">[--data-collector-interval <em>intervals</em>]</div>
 </div>
 <p>Modify the options for the cluster.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--vg-name</span></code>, <code class="docutils literal notranslate"><span class="pre">--enabled-hypervisors</span></code>, <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">(--hypervisor-parameters)</span></code>,
@@ -775,7 +771,7 @@ seconds.</p>
 </div>
 <div class="section" id="redist-conf">
 <h3>REDIST-CONF<a class="headerlink" href="#redist-conf" title="Permalink to this headline">¶</a></h3>
-<p><strong>redist-conf</strong> [–submit] [–print-jobid]</p>
+<p><strong>redist-conf</strong> [--submit] [--print-jobid]</p>
 <p>This command forces a full push of configuration files from the
 master node to the other nodes in the cluster. This is normally not
 needed, but can be run if the <strong>verify</strong> complains about
@@ -798,14 +794,14 @@ the <code class="docutils literal notranslate"><span class="pre">-f</span></code
 <h3>RENEW-CRYPTO<a class="headerlink" href="#renew-crypto" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>renew-crypto</strong> [-f]</div>
-<div class="line">[–new-cluster-certificate] | [–new-node-certificates]</div>
-<div class="line">[–new-confd-hmac-key]</div>
-<div class="line">[–new-rapi-certificate] [–rapi-certificate <em>rapi-cert</em>]</div>
-<div class="line">[–new-spice-certificate | –spice-certificate <em>spice-cert</em></div>
-<div class="line">–spice-ca-certificate <em>spice-ca-cert</em>]</div>
-<div class="line">[–new-ssh-keys] [–no-ssh-key-check]</div>
-<div class="line">[–new-cluster-domain-secret] [–cluster-domain-secret <em>filename</em>]</div>
-<div class="line">[–ssh-key-type <em>type</em>] | [–ssh-key-bits <em>bits</em>]</div>
+<div class="line">[--new-cluster-certificate] | [--new-node-certificates]</div>
+<div class="line">[--new-confd-hmac-key]</div>
+<div class="line">[--new-rapi-certificate] [--rapi-certificate <em>rapi-cert</em>]</div>
+<div class="line">[--new-spice-certificate | --spice-certificate <em>spice-cert</em></div>
+<div class="line">--spice-ca-certificate <em>spice-ca-cert</em>]</div>
+<div class="line">[--new-ssh-keys] [--no-ssh-key-check]</div>
+<div class="line">[--new-cluster-domain-secret] [--cluster-domain-secret <em>filename</em>]</div>
+<div class="line">[--ssh-key-type <em>type</em>] | [--ssh-key-bits <em>bits</em>]</div>
 </div>
 <p>This command will stop all Ganeti daemons in the cluster and start
 them again once the new certificates and keys are replicated. The
@@ -856,7 +852,7 @@ arguments are given, all instances will be checked. When exclusive
 storage is active, also spindles are updated.</p>
 <p>Note that only active disks can be checked by this command; in case
 a disk cannot be activated it’s advised to use
-<strong>gnt-instance activate-disks –ignore-size …</strong> to force
+<strong>gnt-instance activate-disks --ignore-size …</strong> to force
 activation without regard to the current size.</p>
 <p>When all the disk sizes are consistent, the command will return no
 output. Otherwise it will log details about the inconsistencies in
@@ -877,9 +873,9 @@ upgrade was in progress.</p>
 <div class="section" id="verify">
 <h3>VERIFY<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>verify</strong> [–no-nplus1-mem] [–node-group <em>nodegroup</em>]</div>
-<div class="line">[–error-codes] [{-I|–ignore-errors} <em>errorcode</em>]</div>
-<div class="line">[{-I|–ignore-errors} <em>errorcode</em>…]</div>
+<div class="line"><strong>verify</strong> [--no-nplus1-mem] [--node-group <em>nodegroup</em>]</div>
+<div class="line">[--error-codes] [{-I|--ignore-errors} <em>errorcode</em>]</div>
+<div class="line">[{-I|--ignore-errors} <em>errorcode</em>…]</div>
 <div class="line">[–verify-ssh-clutter]</div>
 </div>
 <p>Verify correctness of cluster configuration. This is safe with
@@ -895,17 +891,17 @@ operations are ongoing in other groups.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--error-codes</span></code> option outputs each error in the following
 parseable format: <em>ftype</em>:<em>ecode</em>:<em>edomain</em>:<em>name</em>:<em>msg</em>.
 These fields have the following meaning:</p>
-<dl class="docutils">
-<dt>ftype</dt>
-<dd>Failure type. Can be <em>WARNING</em> or <em>ERROR</em>.</dd>
-<dt>ecode</dt>
-<dd>Error code of the failure. See below for a list of error codes.</dd>
-<dt>edomain</dt>
-<dd>Can be <em>cluster</em>, <em>node</em> or <em>instance</em>.</dd>
-<dt>name</dt>
-<dd>Contains the name of the item that is affected from the failure.</dd>
-<dt>msg</dt>
-<dd>Contains a descriptive error message about the error</dd>
+<dl class="simple">
+<dt>ftype</dt><dd><p>Failure type. Can be <em>WARNING</em> or <em>ERROR</em>.</p>
+</dd>
+<dt>ecode</dt><dd><p>Error code of the failure. See below for a list of error codes.</p>
+</dd>
+<dt>edomain</dt><dd><p>Can be <em>cluster</em>, <em>node</em> or <em>instance</em>.</p>
+</dd>
+<dt>name</dt><dd><p>Contains the name of the item that is affected from the failure.</p>
+</dd>
+<dt>msg</dt><dd><p>Contains a descriptive error message about the error</p>
+</dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">verify</span></code> will have a non-zero exit code if at least one of
 the failures that are found are of type <em>ERROR</em>.</p>
@@ -925,90 +921,90 @@ optional, because there might be other systems manipulating the
 ‘authorized_keys’ files, which would cause too many false positives
 otherwise.</p>
 <p>List of error codes:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERCERT</span></code></dt>
-<dd>Cluster certificate files verification failure</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERCFG</span></code></dt>
-<dd>Cluster configuration verification failure</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERDANGLINGINST</span></code></dt>
-<dd>Some instances have a non-existing primary node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERDANGLINGNODES</span></code></dt>
-<dd>Some nodes belong to non-existing groups</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERFILECHECK</span></code></dt>
-<dd>Cluster configuration verification failure</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EGROUPDIFFERENTPVSIZE</span></code></dt>
-<dd>PVs in the group have different sizes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEBADNODE</span></code></dt>
-<dd>Instance marked as running lives on an offline node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEDOWN</span></code></dt>
-<dd>Instance not running on its primary node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEFAULTYDISK</span></code></dt>
-<dd>Impossible to retrieve status for a disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCELAYOUT</span></code></dt>
-<dd>Instance has multiple secondary nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEMISSINGCFGPARAMETER</span></code></dt>
-<dd>A configuration parameter for an instance is missing</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEMISSINGDISK</span></code></dt>
-<dd>Missing volume on an instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEPOLICY</span></code></dt>
-<dd>Instance does not meet policy</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCESPLITGROUPS</span></code></dt>
-<dd>Instance with primary and secondary nodes in different groups</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEUNSUITABLENODE</span></code></dt>
-<dd>Instance running on nodes that are not suitable for it</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEWRONGNODE</span></code></dt>
-<dd>Instance running on the wrong node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBD</span></code></dt>
-<dd>Error parsing the DRBD status file</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBDHELPER</span></code></dt>
-<dd>Error caused by the DRBD helper</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBDVERSION</span></code></dt>
-<dd>DRBD version mismatch within a node group</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILECHECK</span></code></dt>
-<dd>Error retrieving the checksum of the node files</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILESTORAGEPATHS</span></code></dt>
-<dd>Detected bad file storage paths</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILESTORAGEPATHUNUSABLE</span></code></dt>
-<dd>File storage path unusable</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEGLUSTERSTORAGEPATHUNUSABLE</span></code></dt>
-<dd>Gluster storage path unusable</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEHOOKS</span></code></dt>
-<dd>Communication failure in hooks execution</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEHV</span></code></dt>
-<dd>Hypervisor parameters verification failure</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODELVM</span></code></dt>
-<dd>LVM-related node error</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEN1</span></code></dt>
-<dd>Not enough memory to accommodate instance failovers</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODENET</span></code></dt>
-<dd>Network-related node error</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEOOBPATH</span></code></dt>
-<dd>Invalid Out Of Band path</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEORPHANINSTANCE</span></code></dt>
-<dd>Unknown intance running on a node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEORPHANLV</span></code></dt>
-<dd>Unknown LVM logical volume</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEOS</span></code></dt>
-<dd>OS-related node error</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODERPC</span></code></dt>
-<dd>Error during connection to the primary node of an instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODESETUP</span></code></dt>
-<dd>Node setup error</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODESHAREDFILESTORAGEPATHUNUSABLE</span></code></dt>
-<dd>Shared file storage path unusable</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODESSH</span></code></dt>
-<dd>SSH-related node error</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODETIME</span></code></dt>
-<dd>Node returned invalid time</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEUSERSCRIPTS</span></code></dt>
-<dd>User scripts not present or not executable</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ENODEVERSION</span></code></dt>
-<dd>Protocol version mismatch or Ganeti version mismatch</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERCERT</span></code></dt><dd><p>Cluster certificate files verification failure</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERCFG</span></code></dt><dd><p>Cluster configuration verification failure</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERDANGLINGINST</span></code></dt><dd><p>Some instances have a non-existing primary node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERDANGLINGNODES</span></code></dt><dd><p>Some nodes belong to non-existing groups</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ECLUSTERFILECHECK</span></code></dt><dd><p>Cluster configuration verification failure</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EGROUPDIFFERENTPVSIZE</span></code></dt><dd><p>PVs in the group have different sizes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEBADNODE</span></code></dt><dd><p>Instance marked as running lives on an offline node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEDOWN</span></code></dt><dd><p>Instance not running on its primary node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEFAULTYDISK</span></code></dt><dd><p>Impossible to retrieve status for a disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCELAYOUT</span></code></dt><dd><p>Instance has multiple secondary nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEMISSINGCFGPARAMETER</span></code></dt><dd><p>A configuration parameter for an instance is missing</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEMISSINGDISK</span></code></dt><dd><p>Missing volume on an instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEPOLICY</span></code></dt><dd><p>Instance does not meet policy</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCESPLITGROUPS</span></code></dt><dd><p>Instance with primary and secondary nodes in different groups</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEUNSUITABLENODE</span></code></dt><dd><p>Instance running on nodes that are not suitable for it</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EINSTANCEWRONGNODE</span></code></dt><dd><p>Instance running on the wrong node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBD</span></code></dt><dd><p>Error parsing the DRBD status file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBDHELPER</span></code></dt><dd><p>Error caused by the DRBD helper</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEDRBDVERSION</span></code></dt><dd><p>DRBD version mismatch within a node group</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILECHECK</span></code></dt><dd><p>Error retrieving the checksum of the node files</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILESTORAGEPATHS</span></code></dt><dd><p>Detected bad file storage paths</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEFILESTORAGEPATHUNUSABLE</span></code></dt><dd><p>File storage path unusable</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEGLUSTERSTORAGEPATHUNUSABLE</span></code></dt><dd><p>Gluster storage path unusable</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEHOOKS</span></code></dt><dd><p>Communication failure in hooks execution</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEHV</span></code></dt><dd><p>Hypervisor parameters verification failure</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODELVM</span></code></dt><dd><p>LVM-related node error</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEN1</span></code></dt><dd><p>Not enough memory to accommodate instance failovers</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODENET</span></code></dt><dd><p>Network-related node error</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEOOBPATH</span></code></dt><dd><p>Invalid Out Of Band path</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEORPHANINSTANCE</span></code></dt><dd><p>Unknown intance running on a node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEORPHANLV</span></code></dt><dd><p>Unknown LVM logical volume</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEOS</span></code></dt><dd><p>OS-related node error</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODERPC</span></code></dt><dd><p>Error during connection to the primary node of an instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODESETUP</span></code></dt><dd><p>Node setup error</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODESHAREDFILESTORAGEPATHUNUSABLE</span></code></dt><dd><p>Shared file storage path unusable</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODESSH</span></code></dt><dd><p>SSH-related node error</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODETIME</span></code></dt><dd><p>Node returned invalid time</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEUSERSCRIPTS</span></code></dt><dd><p>User scripts not present or not executable</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ENODEVERSION</span></code></dt><dd><p>Protocol version mismatch or Ganeti version mismatch</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="verify-disks">
 <h3>VERIFY-DISKS<a class="headerlink" href="#verify-disks" title="Permalink to this headline">¶</a></h3>
-<p><strong>verify-disks</strong> [–node-group <em>nodegroup</em>]</p>
+<p><strong>verify-disks</strong> [--node-group <em>nodegroup</em>]</p>
 <p>The command checks which instances have degraded DRBD disks and
 activates the disks of those instances.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">--node-group</span></code>, restrict the verification to those nodes and
@@ -1027,7 +1023,7 @@ consistent.</p>
 <h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="add-tags">
 <h4>ADD-TAGS<a class="headerlink" href="#add-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>add-tags</strong> [–from <em>file</em>] {<em>tag</em>…}</p>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>tag</em>…}</p>
 <p>Add tags to the cluster. If any of the tags contains invalid
 characters, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags will be
@@ -1043,7 +1039,7 @@ interpreted as stdin.</p>
 </div>
 <div class="section" id="remove-tags">
 <h4>REMOVE-TAGS<a class="headerlink" href="#remove-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>remove-tags</strong> [–from <em>file</em>] {<em>tag</em>…}</p>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>tag</em>…}</p>
 <p>Remove tags from the cluster. If any of the tags are not existing
 on the cluster, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags to be removed will
@@ -1077,6 +1073,7 @@ node will be listed as /nodes/<em>name</em>, and an instance as
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1139,17 +1136,15 @@ node will be listed as /nodes/<em>name</em>, and an instance as
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1163,13 +1158,14 @@ node will be listed as /nodes/<em>name</em>, and an instance as
         <li class="right" >
           <a href="man-gnt-backup.html" title="gnt-backup"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-cluster</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

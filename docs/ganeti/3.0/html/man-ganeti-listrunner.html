@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ganeti-listrunner &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ganeti-listrunner &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ganeti-luxid" href="man-ganeti-luxid.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti-kvmd.html" title="ganeti-kvmd"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-listrunner</a></li> 
       </ul>
     </div>  
 
@@ -72,32 +71,32 @@ per  host  is written.</p>
 <div class="section" id="options">
 <h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p>The options that can be passed to the program are as follows:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">-l</span></code> <em>logdir</em></dt>
-<dd>The directory under which the logfiles files should be written.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-x</span></code> <em>executable</em></dt>
-<dd>The executable to copy and run on the target hosts.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-c</span></code> <em>shell-cmd</em></dt>
-<dd>The shell command to run on the remote hosts.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-f</span></code> <em>hostfile</em></dt>
-<dd>The file with the target hosts, one hostname per line.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code> <em>hostlist</em></dt>
-<dd>Comma-separated list of target hosts.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-a</span></code> <em>aux-file</em></dt>
-<dd>A file to copy to the target hosts. Can be given multiple times, in which case
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-l</span></code> <em>logdir</em></dt><dd><p>The directory under which the logfiles files should be written.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-x</span></code> <em>executable</em></dt><dd><p>The executable to copy and run on the target hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-c</span></code> <em>shell-cmd</em></dt><dd><p>The shell command to run on the remote hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-f</span></code> <em>hostfile</em></dt><dd><p>The file with the target hosts, one hostname per line.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code> <em>hostlist</em></dt><dd><p>Comma-separated list of target hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-a</span></code> <em>aux-file</em></dt><dd><p>A file to copy to the target hosts. Can be given multiple times, in which case
 all files will be copied to the temporary directory. The executable or the
 shell command will be run from the (temporary) directory where these files
-have been copied.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-b</span></code> <em>batch-size</em></dt>
-<dd>The host list will be split into batches of batch-size which will be processed
+have been copied.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-b</span></code> <em>batch-size</em></dt><dd><p>The host list will be split into batches of batch-size which will be processed
 in parallel. The default if 15, and should be increased if faster processing
-is needed.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-u</span></code> <em>username</em></dt>
-<dd>Username to connect as instead of the default root username.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-A</span></code></dt>
-<dd>Use an existing ssh-agent instead of password authentication.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">--args</span></code></dt>
-<dd>Arguments to pass to executable (<code class="docutils literal notranslate"><span class="pre">-x</span></code>).</dd>
+is needed.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-u</span></code> <em>username</em></dt><dd><p>Username to connect as instead of the default root username.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-A</span></code></dt><dd><p>Use an existing ssh-agent instead of password authentication.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--args</span></code></dt><dd><p>Arguments to pass to executable (<code class="docutils literal notranslate"><span class="pre">-x</span></code>).</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="exit-status">
@@ -125,6 +124,7 @@ is needed.</dd>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -158,17 +158,15 @@ is needed.</dd>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -182,13 +180,14 @@ is needed.</dd>
         <li class="right" >
           <a href="man-ganeti-kvmd.html" title="ganeti-kvmd"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-listrunner</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

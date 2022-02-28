@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-node &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-node &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-os" href="man-gnt-os.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-network.html" title="gnt-network"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-node</a></li> 
       </ul>
     </div>  
 
@@ -60,13 +59,13 @@ Ganeti system.</p>
 <div class="section" id="add">
 <h3>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>add</strong> [–readd] [{-s|–secondary-ip} <em>secondary_ip</em>]</div>
-<div class="line">[{-g|–node-group} <em>nodegroup</em>]</div>
-<div class="line">[–master-capable=``yes|no``] [–vm-capable=``yes|no``]</div>
-<div class="line">[–node-parameters <em>ndparams</em>]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
-<div class="line">[–no-node-setup]</div>
+<div class="line"><strong>add</strong> [--readd] [{-s|--secondary-ip} <em>secondary_ip</em>]</div>
+<div class="line">[{-g|--node-group} <em>nodegroup</em>]</div>
+<div class="line">[--master-capable=``yes|no``] [--vm-capable=``yes|no``]</div>
+<div class="line">[--node-parameters <em>ndparams</em>]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
+<div class="line">[--no-node-setup]</div>
 <div class="line">{<em>node-name</em>}</div>
 </div>
 <p>Adds the given node to the cluster.</p>
@@ -124,10 +123,10 @@ to clean remains of the previous cluster from the node.</p>
 <div class="section" id="evacuate">
 <h3>EVACUATE<a class="headerlink" href="#evacuate" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>evacuate</strong> [-f] [–early-release] [–submit] [–print-jobid]</div>
-<div class="line">[{-I|–iallocator} <em>name</em> | {-n|–new-secondary} <em>destination_node</em>]</div>
+<div class="line"><strong>evacuate</strong> [-f] [--early-release] [--submit] [--print-jobid]</div>
+<div class="line">[{-I|--iallocator} <em>name</em> | {-n|--new-secondary} <em>destination_node</em>]</div>
 <div class="line">[–ignore-soft-errors]</div>
-<div class="line">[{-p|–primary-only} | {-s|–secondary-only} ]</div>
+<div class="line">[{-p|--primary-only} | {-s|--secondary-only} ]</div>
 <div class="line-block">
 <div class="line">{<em>node</em>}</div>
 </div>
@@ -139,11 +138,11 @@ instances are evacuated. It works only for instances having a drbd disk
 template.</p>
 <p>The new location for the instances can be specified in two ways:</p>
 <ul class="simple">
-<li>as a single node for all instances, via the <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">(--new-secondary)</span></code>
-option</li>
-<li>or via the <code class="docutils literal notranslate"><span class="pre">-I</span> <span class="pre">(--iallocator)</span></code> option, giving a script name as
+<li><p>as a single node for all instances, via the <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">(--new-secondary)</span></code>
+option</p></li>
+<li><p>or via the <code class="docutils literal notranslate"><span class="pre">-I</span> <span class="pre">(--iallocator)</span></code> option, giving a script name as
 parameter (or <code class="docutils literal notranslate"><span class="pre">.</span></code> to use the default allocator), so each instance
-will be in turn placed on the (per the script) optimal node</li>
+will be in turn placed on the (per the script) optimal node</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">--early-release</span></code> changes the code so that the old storage on
 node being evacuated is removed early (before the resync is
@@ -157,14 +156,14 @@ potential recovery).</p>
 <p>Note that this command is equivalent to using per-instance commands for
 each affected instance individually:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--primary-only</span></code> is equivalent to performing <code class="docutils literal notranslate"><span class="pre">gnt-instance</span>
+<li><p><code class="docutils literal notranslate"><span class="pre">--primary-only</span></code> is equivalent to performing <code class="docutils literal notranslate"><span class="pre">gnt-instance</span>
 <span class="pre">migrate</span></code> for every primary instance running on the node that can be
 migrated and <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">failover</span></code> for every primary instance that
-cannot be migrated.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--secondary-only</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">replace-disks</span></code>
+cannot be migrated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--secondary-only</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">replace-disks</span></code>
 in secondary node change mode (<code class="docutils literal notranslate"><span class="pre">--new-secondary</span></code>) for every DRBD
-instance that the node is a secondary for.</li>
-<li>when neither of the above is done a combination of the two cases is run</li>
+instance that the node is a secondary for.</p></li>
+<li><p>when neither of the above is done a combination of the two cases is run</p></li>
 </ul>
 <p>Note that the iallocator currently only considers disk information of
 the default disk template, even if the instance’s disk templates differ
@@ -187,7 +186,7 @@ secondaries.</p>
 </div>
 <div class="section" id="failover">
 <h3>FAILOVER<a class="headerlink" href="#failover" title="Permalink to this headline">¶</a></h3>
-<p><strong>failover</strong> [-f] [–ignore-consistency] {<em>node</em>}</p>
+<p><strong>failover</strong> [-f] [--ignore-consistency] {<em>node</em>}</p>
 <p>This command will fail over all instances having the given node as
 primary to their secondary nodes. This works only for instances having
 a drbd disk template.</p>
@@ -214,9 +213,9 @@ output will be restricted to the given names.</p>
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>list</strong></div>
-<div class="line">[–no-headers] [–separator=*SEPARATOR*]</div>
-<div class="line">[–units=*UNITS*] [-v] [{-o|–output} <em>[+]FIELD,…</em>]</div>
-<div class="line">[–filter]</div>
+<div class="line">[--no-headers] [--separator=*SEPARATOR*]</div>
+<div class="line">[--units=*UNITS*] [-v] [{-o|--output} <em>[+]FIELD,…</em>]</div>
+<div class="line">[--filter]</div>
 <div class="line">[<em>node-name</em>…]</div>
 </div>
 <p>Lists the nodes in the cluster.</p>
@@ -236,99 +235,99 @@ give inconsistent results for the free disk/memory.</p>
 special field states (see <strong>ganeti</strong>(7)).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">(--output)</span></code> option takes a comma-separated list of output
 fields. The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">bootid</span></code></dt>
-<dd>Random UUID renewed for each system reboot, can be used for detecting reboots by tracking changes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">cnodes</span></code></dt>
-<dd>Number of NUMA domains on node (if exported by hypervisor)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">cnos</span></code></dt>
-<dd>Number of logical processors used by the node OS (dom0 for Xen)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">csockets</span></code></dt>
-<dd>Number of physical CPU sockets (if exported by hypervisor)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt>
-<dd>Creation timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ctotal</span></code></dt>
-<dd>Number of logical processors</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_ndparams</span></code></dt>
-<dd>Custom node parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">dfree</span></code></dt>
-<dd>Available storage space in storage unit</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk_state</span></code></dt>
-<dd>Disk state</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">drained</span></code></dt>
-<dd>Whether node is drained</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">dtotal</span></code></dt>
-<dd>Total storage space in storage unit used for instance disk allocation</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">group</span></code></dt>
-<dd>Node group</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">group.uuid</span></code></dt>
-<dd>UUID of node group</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv_state</span></code></dt>
-<dd>Hypervisor state</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">master</span></code></dt>
-<dd>Whether node is master</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">master_candidate</span></code></dt>
-<dd>Whether node is a master candidate</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">master_capable</span></code></dt>
-<dd>Whether node can become a master candidate</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mfree</span></code></dt>
-<dd>Memory available for instance allocations</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mnode</span></code></dt>
-<dd>Amount of memory used by node (dom0 for Xen)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt>
-<dd>Modification timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mtotal</span></code></dt>
-<dd>Total amount of memory of physical machine</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd>Node name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/cpu_speed</span></code></dt>
-<dd>The “cpu_speed” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/exclusive_storage</span></code></dt>
-<dd>The “exclusive_storage” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/oob_program</span></code></dt>
-<dd>The “oob_program” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs</span></code></dt>
-<dd>The “ovs” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_link</span></code></dt>
-<dd>The “ovs_link” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_name</span></code></dt>
-<dd>The “ovs_name” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/spindle_count</span></code></dt>
-<dd>The “spindle_count” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndp/ssh_port</span></code></dt>
-<dd>The “ssh_port” node parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ndparams</span></code></dt>
-<dd>Merged node parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">offline</span></code></dt>
-<dd>Whether node is marked offline</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pinst_cnt</span></code></dt>
-<dd>Number of instances with this node as primary</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pinst_list</span></code></dt>
-<dd>List of instances with this node as primary</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pip</span></code></dt>
-<dd>Primary IP address</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">powered</span></code></dt>
-<dd>Whether node is thought to be powered on</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">role</span></code></dt>
-<dd>Node role; “M” for master, “C” for master candidate, “R” for regular, “D” for drained, “O” for offline</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt>
-<dd>Node object serial number, incremented on each modification</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sinst_cnt</span></code></dt>
-<dd>Number of instances with this node as secondary</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sinst_list</span></code></dt>
-<dd>List of instances with this node as secondary</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sip</span></code></dt>
-<dd>Secondary IP address</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">spfree</span></code></dt>
-<dd>Available spindles in volume group (exclusive storage only)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sptotal</span></code></dt>
-<dd>Total spindles in volume group (exclusive storage only)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt>
-<dd>Tags</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt>
-<dd>Node UUID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">vm_capable</span></code></dt>
-<dd>Whether node can host instances</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">bootid</span></code></dt><dd><p>Random UUID renewed for each system reboot, can be used for detecting reboots by tracking changes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cnodes</span></code></dt><dd><p>Number of NUMA domains on node (if exported by hypervisor)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cnos</span></code></dt><dd><p>Number of logical processors used by the node OS (dom0 for Xen)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">csockets</span></code></dt><dd><p>Number of physical CPU sockets (if exported by hypervisor)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt><dd><p>Creation timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ctotal</span></code></dt><dd><p>Number of logical processors</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_ndparams</span></code></dt><dd><p>Custom node parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">dfree</span></code></dt><dd><p>Available storage space in storage unit</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk_state</span></code></dt><dd><p>Disk state</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">drained</span></code></dt><dd><p>Whether node is drained</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">dtotal</span></code></dt><dd><p>Total storage space in storage unit used for instance disk allocation</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">group</span></code></dt><dd><p>Node group</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">group.uuid</span></code></dt><dd><p>UUID of node group</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv_state</span></code></dt><dd><p>Hypervisor state</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">master</span></code></dt><dd><p>Whether node is master</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">master_candidate</span></code></dt><dd><p>Whether node is a master candidate</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">master_capable</span></code></dt><dd><p>Whether node can become a master candidate</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mfree</span></code></dt><dd><p>Memory available for instance allocations</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mnode</span></code></dt><dd><p>Amount of memory used by node (dom0 for Xen)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt><dd><p>Modification timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mtotal</span></code></dt><dd><p>Total amount of memory of physical machine</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Node name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/cpu_speed</span></code></dt><dd><p>The “cpu_speed” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/exclusive_storage</span></code></dt><dd><p>The “exclusive_storage” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/oob_program</span></code></dt><dd><p>The “oob_program” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs</span></code></dt><dd><p>The “ovs” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_link</span></code></dt><dd><p>The “ovs_link” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ovs_name</span></code></dt><dd><p>The “ovs_name” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/spindle_count</span></code></dt><dd><p>The “spindle_count” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndp/ssh_port</span></code></dt><dd><p>The “ssh_port” node parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ndparams</span></code></dt><dd><p>Merged node parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">offline</span></code></dt><dd><p>Whether node is marked offline</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pinst_cnt</span></code></dt><dd><p>Number of instances with this node as primary</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pinst_list</span></code></dt><dd><p>List of instances with this node as primary</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pip</span></code></dt><dd><p>Primary IP address</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">powered</span></code></dt><dd><p>Whether node is thought to be powered on</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">role</span></code></dt><dd><p>Node role; “M” for master, “C” for master candidate, “R” for regular, “D” for drained, “O” for offline</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt><dd><p>Node object serial number, incremented on each modification</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sinst_cnt</span></code></dt><dd><p>Number of instances with this node as secondary</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sinst_list</span></code></dt><dd><p>List of instances with this node as secondary</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sip</span></code></dt><dd><p>Secondary IP address</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">spfree</span></code></dt><dd><p>Available spindles in volume group (exclusive storage only)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sptotal</span></code></dt><dd><p>Total spindles in volume group (exclusive storage only)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt><dd><p>Tags</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt><dd><p>Node UUID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vm_capable</span></code></dt><dd><p>Whether node can host instances</p>
+</dd>
 </dl>
 <p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
 fields will be added to the default list. This allows one to quickly
@@ -360,24 +359,24 @@ only the given nodes will be listed.</p>
 </div>
 <div class="section" id="list-drbd">
 <h3>LIST-DRBD<a class="headerlink" href="#list-drbd" title="Permalink to this headline">¶</a></h3>
-<p><strong>list-drbd</strong> [–no-headers] [–separator=*SEPARATOR*] <em>node</em></p>
+<p><strong>list-drbd</strong> [--no-headers] [--separator=*SEPARATOR*] <em>node</em></p>
 <p>Lists the mapping of DRBD minors for a given node. This outputs a static
 list of fields (it doesn’t accept the <code class="docutils literal notranslate"><span class="pre">--output</span></code> option), as follows:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Node</span></code></dt>
-<dd>The (full) name of the node we are querying</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Minor</span></code></dt>
-<dd>The DRBD minor</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Instance</span></code></dt>
-<dd>The instance the DRBD minor belongs to</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Disk</span></code></dt>
-<dd>The disk index that the DRBD minor belongs to</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Role</span></code></dt>
-<dd>Either <code class="docutils literal notranslate"><span class="pre">primary</span></code> or <code class="docutils literal notranslate"><span class="pre">secondary</span></code>, denoting the role of the node for
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Node</span></code></dt><dd><p>The (full) name of the node we are querying</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Minor</span></code></dt><dd><p>The DRBD minor</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Instance</span></code></dt><dd><p>The instance the DRBD minor belongs to</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Disk</span></code></dt><dd><p>The disk index that the DRBD minor belongs to</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Role</span></code></dt><dd><p>Either <code class="docutils literal notranslate"><span class="pre">primary</span></code> or <code class="docutils literal notranslate"><span class="pre">secondary</span></code>, denoting the role of the node for
 the instance (note: this is not the live status of the DRBD device,
-but the configuration value)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">PeerNode</span></code></dt>
-<dd>The node that the minor is connected to on the other end</dd>
+but the configuration value)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PeerNode</span></code></dt><dd><p>The node that the minor is connected to on the other end</p>
+</dd>
 </dl>
 <p>This command can be used as a reverse lookup (from node and minor) to a
 given instance, which can be useful when debugging DRBD issues.</p>
@@ -394,8 +393,8 @@ Haskell version of confd (again selected at build time).</p>
 <div class="section" id="migrate">
 <h3>MIGRATE<a class="headerlink" href="#migrate" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>migrate</strong> [-f] [–non-live] [–migration-mode=live|non-live]</div>
-<div class="line">[–ignore-ipolicy] [–submit] [–print-jobid] {<em>node</em>}</div>
+<div class="line"><strong>migrate</strong> [-f] [--non-live] [--migration-mode=live|non-live]</div>
+<div class="line">[--ignore-ipolicy] [--submit] [--print-jobid] {<em>node</em>}</div>
 </div>
 <p>This command will migrate all instances having the given node as
 primary to their secondary nodes. This works only for instances
@@ -415,15 +414,15 @@ options.</p>
 <div class="section" id="modify">
 <h3>MODIFY<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>modify</strong> [-f] [–submit] [–print-jobid]</div>
-<div class="line">[{-C|–master-candidate} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>]</div>
-<div class="line">[{-D|–drained} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>] [{-O|–offline} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>]</div>
-<div class="line">[–master-capable=``yes|no``] [–vm-capable=``yes|no``] [–auto-promote]</div>
-<div class="line">[{-s|–secondary-ip} <em>secondary_ip</em>]</div>
-<div class="line">[–node-parameters <em>ndparams</em>]</div>
-<div class="line">[–node-powered=``yes|no``]</div>
-<div class="line">[–hypervisor-state <em>hvstate</em>]</div>
-<div class="line">[–disk-state <em>diskstate</em>]</div>
+<div class="line"><strong>modify</strong> [-f] [--submit] [--print-jobid]</div>
+<div class="line">[{-C|--master-candidate} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>]</div>
+<div class="line">[{-D|--drained} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>] [{-O|--offline} <code class="docutils literal notranslate"><span class="pre">yes|no</span></code>]</div>
+<div class="line">[--master-capable=``yes|no``] [--vm-capable=``yes|no``] [--auto-promote]</div>
+<div class="line">[{-s|--secondary-ip} <em>secondary_ip</em>]</div>
+<div class="line">[--node-parameters <em>ndparams</em>]</div>
+<div class="line">[--node-powered=``yes|no``]</div>
+<div class="line">[--hypervisor-state <em>hvstate</em>]</div>
+<div class="line">[--disk-state <em>diskstate</em>]</div>
 <div class="line">{<em>node-name</em>}</div>
 </div>
 <p>This command changes the role of the node. Each options takes
@@ -473,8 +472,8 @@ migrated to another cluster before.</p>
 <div class="section" id="volumes">
 <h3>VOLUMES<a class="headerlink" href="#volumes" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>volumes</strong> [–no-headers] [–human-readable]</div>
-<div class="line">[–separator=*SEPARATOR*] [{-o|–output} <em>FIELDS</em>]</div>
+<div class="line"><strong>volumes</strong> [--no-headers] [--human-readable]</div>
+<div class="line">[--separator=*SEPARATOR*] [{-o|--output} <em>FIELDS</em>]</div>
 <div class="line">[<em>node-name</em>…]</div>
 </div>
 <p>Lists all logical volumes and their physical disks from the node(s)
@@ -491,20 +490,20 @@ parsing by scripts. In both cases, the <code class="docutils literal notranslate
 used to enforce a given output unit.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">(--output)</span></code> option takes a comma-separated list of output
 fields. The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt>node</dt>
-<dd>the node name on which the volume exists</dd>
-<dt>phys</dt>
-<dd>the physical drive (on which the LVM physical volume lives)</dd>
-<dt>vg</dt>
-<dd>the volume group name</dd>
-<dt>name</dt>
-<dd>the logical volume name</dd>
-<dt>size</dt>
-<dd>the logical volume size</dd>
-<dt>instance</dt>
-<dd>The name of the instance to which this volume belongs, or (in case
-it’s an orphan volume) the character “-“</dd>
+<dl class="simple">
+<dt>node</dt><dd><p>the node name on which the volume exists</p>
+</dd>
+<dt>phys</dt><dd><p>the physical drive (on which the LVM physical volume lives)</p>
+</dd>
+<dt>vg</dt><dd><p>the volume group name</p>
+</dd>
+<dt>name</dt><dd><p>the logical volume name</p>
+</dd>
+<dt>size</dt><dd><p>the logical volume size</p>
+</dd>
+<dt>instance</dt><dd><p>The name of the instance to which this volume belongs, or (in case
+it’s an orphan volume) the character “-“</p>
+</dd>
 </dl>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># gnt-node volumes node5.example.com</span>
@@ -517,9 +516,9 @@ it’s an orphan volume) the character “-“</dd>
 <div class="section" id="list-storage">
 <h3>LIST-STORAGE<a class="headerlink" href="#list-storage" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list-storage</strong> [–no-headers] [–human-readable]</div>
-<div class="line">[–separator=*SEPARATOR*] [–storage-type=*STORAGE_TYPE*]</div>
-<div class="line">[{-o|–output} <em>FIELDS</em>]</div>
+<div class="line"><strong>list-storage</strong> [--no-headers] [--human-readable]</div>
+<div class="line">[--separator=*SEPARATOR*] [--storage-type=*STORAGE_TYPE*]</div>
+<div class="line">[{-o|--output} <em>FIELDS</em>]</div>
 <div class="line">[<em>node-name</em>…]</div>
 </div>
 <p>Lists the available storage units and their details for the given
@@ -538,23 +537,23 @@ used to enforce a given output unit.</p>
 type. Possible choices are lvm-pv, lvm-vg, file, sharedfile and gluster.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">(--output)</span></code> option takes a comma-separated list of output
 fields. The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt>node</dt>
-<dd>the node name on which the volume exists</dd>
-<dt>type</dt>
-<dd>the type of the storage unit (currently just what is passed in via
-<code class="docutils literal notranslate"><span class="pre">--storage-type</span></code>)</dd>
-<dt>name</dt>
-<dd>the path/identifier of the storage unit</dd>
-<dt>size</dt>
-<dd>total size of the unit; for the file type see a note below</dd>
-<dt>used</dt>
-<dd>used space in the unit; for the file type see a note below</dd>
-<dt>free</dt>
-<dd>available disk space</dd>
-<dt>allocatable</dt>
-<dd>whether we the unit is available for allocation (only lvm-pv can
-change this setting, the other types always report true)</dd>
+<dl class="simple">
+<dt>node</dt><dd><p>the node name on which the volume exists</p>
+</dd>
+<dt>type</dt><dd><p>the type of the storage unit (currently just what is passed in via
+<code class="docutils literal notranslate"><span class="pre">--storage-type</span></code>)</p>
+</dd>
+<dt>name</dt><dd><p>the path/identifier of the storage unit</p>
+</dd>
+<dt>size</dt><dd><p>total size of the unit; for the file type see a note below</p>
+</dd>
+<dt>used</dt><dd><p>used space in the unit; for the file type see a note below</p>
+</dd>
+<dt>free</dt><dd><p>available disk space</p>
+</dd>
+<dt>allocatable</dt><dd><p>whether we the unit is available for allocation (only lvm-pv can
+change this setting, the other types always report true)</p>
+</dd>
 </dl>
 <p>Note that for the “file” type, the total disk space might not equal
 to the sum of used and free, due to the method Ganeti uses to
@@ -576,7 +575,7 @@ mismatch in the values.</p>
 <div class="section" id="modify-storage">
 <h3>MODIFY-STORAGE<a class="headerlink" href="#modify-storage" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>modify-storage</strong> [–allocatable={yes|no}] [–submit] [–print-jobid]</div>
+<div class="line"><strong>modify-storage</strong> [--allocatable={yes|no}] [--submit] [--print-jobid]</div>
 <div class="line">{<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</div>
 </div>
 <p>Modifies storage volumes on a node. Only LVM physical volumes can
@@ -589,7 +588,7 @@ be modified at the moment. They have a storage type of “lvm-pv”.</p>
 <div class="section" id="repair-storage">
 <h3>REPAIR-STORAGE<a class="headerlink" href="#repair-storage" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>repair-storage</strong> [–ignore-consistency] ]–submit]</div>
+<div class="line"><strong>repair-storage</strong> [--ignore-consistency] ]--submit]</div>
 <div class="line">{<em>node-name</em>} {<em>storage-type</em>} {<em>volume-name</em>}</div>
 </div>
 <p>Repairs a storage volume on a node. Only LVM volume groups can be
@@ -608,7 +607,7 @@ most likely to lead to data-loss.</p>
 </div>
 <div class="section" id="powercycle">
 <h3>POWERCYCLE<a class="headerlink" href="#powercycle" title="Permalink to this headline">¶</a></h3>
-<p><strong>powercycle</strong> [–yes] [–force] [–submit] [–print-jobid] {<em>node-name</em>}</p>
+<p><strong>powercycle</strong> [--yes] [--force] [--submit] [--print-jobid] {<em>node-name</em>}</p>
 <p>This command (tries to) forcefully reboot a node. It is a command
 that can be used if the node environment is broken, such that the
 admin can no longer login over SSH, but the Ganeti node daemon is
@@ -661,12 +660,12 @@ annotated in the command line output.</p>
 <div class="section" id="restricted-command">
 <h3>RESTRICTED-COMMAND<a class="headerlink" href="#restricted-command" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>restricted-command</strong> [-M] [–sync]</div>
+<div class="line"><strong>restricted-command</strong> [-M] [--sync]</div>
 <div class="line">{ -g <em>group</em> <em>command</em> | <em>command</em> <em>node-name</em>… }</div>
 </div>
 <p>Executes a restricted command on the specified nodes. Restricted commands are
 not arbitrary, but must reside in
-<code class="docutils literal notranslate"><span class="pre">/etc/ganeti/restricted-commands</span></code> on a node, either as a regular
+<code class="docutils literal notranslate"><span class="pre">/usr/local/etc/ganeti/restricted-commands</span></code> on a node, either as a regular
 file or as a symlink. The directory must be owned by root and not be
 world- or group-writable. If a command fails verification or otherwise
 fails to start, the node daemon log must be consulted for more detailed
@@ -689,7 +688,7 @@ in exclusive mode.</p>
 <h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="add-tags">
 <h4>ADD-TAGS<a class="headerlink" href="#add-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>add-tags</strong> [–from <em>file</em>] {<em>node-name</em>} {<em>tag</em>…}</p>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>node-name</em>} {<em>tag</em>…}</p>
 <p>Add tags to the given node. If any of the tags contains invalid
 characters, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags will be
@@ -705,7 +704,7 @@ interpreted as stdin.</p>
 </div>
 <div class="section" id="remove-tags">
 <h4>REMOVE-TAGS<a class="headerlink" href="#remove-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>remove-tags</strong> [–from <em>file</em>] {<em>node-name</em>} {<em>tag</em>…}</p>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>node-name</em>} {<em>tag</em>…}</p>
 <p>Remove tags from the given node. If any of the tags are not
 existing on the node, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags to be removed will
@@ -719,6 +718,7 @@ be interpreted as stdin.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -775,17 +775,15 @@ be interpreted as stdin.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -799,13 +797,14 @@ be interpreted as stdin.</p>
         <li class="right" >
           <a href="man-gnt-network.html" title="gnt-network"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-node</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

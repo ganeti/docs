@@ -4,24 +4,27 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-node(8) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>gnt-node(8) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">gnt-node(8) Ganeti | Version 3.0.0</h1>
+<h1 class="title">gnt-node(8) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
 <li><a href="#description">DESCRIPTION</a></li>
-<li><a href="#commands">COMMANDS</a><ul>
+<li><a href="#commands">COMMANDS</a>
+<ul>
 <li><a href="#add">ADD</a></li>
 <li><a href="#evacuate">EVACUATE</a></li>
 <li><a href="#failover">FAILOVER</a></li>
@@ -40,7 +43,8 @@
 <li><a href="#power">POWER</a></li>
 <li><a href="#health">HEALTH</a></li>
 <li><a href="#restricted-command">RESTRICTED-COMMAND</a></li>
-<li><a href="#tags">Tags</a><ul>
+<li><a href="#tags">Tags</a>
+<ul>
 <li><a href="#add-tags">ADD-TAGS</a></li>
 <li><a href="#list-tags">LIST-TAGS</a></li>
 <li><a href="#remove-tags">REMOVE-TAGS</a></li>
@@ -446,7 +450,7 @@ node2 lvm-pv /dev/sdb1 698.6G   0M 698.6G Y</code></pre>
 <h2 id="restricted-command">RESTRICTED-COMMAND</h2>
 <div class="line-block"><strong>restricted-command</strong> [-M] [--sync]<br />
 { -g <em>group</em> <em>command</em> | <em>command</em> <em>node-name</em>... }</div>
-<p>Executes a restricted command on the specified nodes. Restricted commands are not arbitrary, but must reside in <code>/etc/ganeti/restricted-commands</code> on a node, either as a regular file or as a symlink. The directory must be owned by root and not be world- or group-writable. If a command fails verification or otherwise fails to start, the node daemon log must be consulted for more detailed information.</p>
+<p>Executes a restricted command on the specified nodes. Restricted commands are not arbitrary, but must reside in <code>/usr/local/etc/ganeti/restricted-commands</code> on a node, either as a regular file or as a symlink. The directory must be owned by root and not be world- or group-writable. If a command fails verification or otherwise fails to start, the node daemon log must be consulted for more detailed information.</p>
 <p>Example for running a command on two nodes:</p>
 <pre><code># gnt-node restricted-command mycommand \
   node1.example.com node2.example.com</code></pre>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Splitting the query and job execution paths &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splitting the query and job execution paths &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti reason trail" href="design-reason-trail.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-query2.html" title="Query version 2 design"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Splitting the query and job execution paths</a></li> 
       </ul>
     </div>  
 
@@ -41,24 +40,23 @@
             
   <div class="section" id="splitting-the-query-and-job-execution-paths">
 <h1>Splitting the query and job execution paths<a class="headerlink" href="#splitting-the-query-and-job-execution-paths" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2012-May-07</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.7.0, 2.8.0, 2.9.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2012-May-07</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.7.0, 2.8.0, 2.9.0</p>
+</dd>
+</dl>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Currently, the master daemon does two main roles:</p>
 <ul class="simple">
-<li>execute jobs that change the cluster state</li>
-<li>respond to queries</li>
+<li><p>execute jobs that change the cluster state</p></li>
+<li><p>respond to queries</p></li>
 </ul>
 <p>Due to the technical details of the implementation, the job execution
 and query paths interact with each other, and for example the “masterd
@@ -82,10 +80,10 @@ functionality is folded into confd, remains to be seen).</p>
 except that job submission will be disabled. If so configured (at
 build time), clients will be changed to:</p>
 <ul class="simple">
-<li>keep sending REQ_SUBMIT_JOB, REQ_SUBMIT_MANY_JOBS, and all requests
-except REQ_QUERY_* to the masterd socket (but also QR_LOCK)</li>
-<li>redirect all REQ_QUERY_* requests to the new Luxi socket of the new
-daemon (except generic query with QR_LOCK)</li>
+<li><p>keep sending REQ_SUBMIT_JOB, REQ_SUBMIT_MANY_JOBS, and all requests
+except REQ_QUERY_* to the masterd socket (but also QR_LOCK)</p></li>
+<li><p>redirect all REQ_QUERY_* requests to the new Luxi socket of the new
+daemon (except generic query with QR_LOCK)</p></li>
 </ul>
 <p>This new daemon will serve both pure configuration queries (which
 confd can already serve), and run-time queries (which currently only
@@ -113,12 +111,12 @@ shutdown of the master daemon practically “breaks” the entire Ganeti
 functionality (no job execution nor queries, not even connecting to
 the instance console), to a split model:</p>
 <ul class="simple">
-<li>if just masterd is stopped, then other cluster functionality remains
+<li><p>if just masterd is stopped, then other cluster functionality remains
 available: listing instances, connecting to the console of an
-instance, etc.</li>
-<li>if just “luxid” is stopped, masterd can still process jobs, and one
-can furthermore run queries from other nodes (MCs)</li>
-<li>only if both are stopped, we end up with the previous state</li>
+instance, etc.</p></li>
+<li><p>if just “luxid” is stopped, masterd can still process jobs, and one
+can furthermore run queries from other nodes (MCs)</p></li>
+<li><p>only if both are stopped, we end up with the previous state</p></li>
 </ul>
 <p>This will help, for example, in the case where the master node has
 crashed and we haven’t failed it over yet: querying and investigating
@@ -186,6 +184,7 @@ interface and it is consistent.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -222,17 +221,15 @@ interface and it is consistent.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -246,12 +243,13 @@ interface and it is consistent.</p>
         <li class="right" >
           <a href="design-query2.html" title="Query version 2 design"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Splitting the query and job execution paths</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti Instance Import/Export using Open Virtualization Format &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti Instance Import/Export using Open Virtualization Format &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Partitioned Ganeti" href="design-partitioned.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-os.html" title="Ganeti OS installation redesign"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti Instance Import/Export using Open Virtualization Format</a></li> 
       </ul>
     </div>  
 
@@ -41,18 +40,17 @@
             
   <div class="section" id="ganeti-instance-import-export-using-open-virtualization-format">
 <h1>Ganeti Instance Import/Export using Open Virtualization Format<a class="headerlink" href="#ganeti-instance-import-export-using-open-virtualization-format" title="Permalink to this headline">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2011-Jul-22</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body">Implemented</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Ganeti-Version:</th><td class="field-body">2.6.0</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Created</dt>
+<dd class="field-odd"><p>2011-Jul-22</p>
+</dd>
+<dt class="field-even">Status</dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version</dt>
+<dd class="field-odd"><p>2.6.0</p>
+</dd>
+</dl>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Open Virtualization Format is an open standard for packaging
@@ -91,10 +89,10 @@ hardware.</p>
 <p>OVF package should contain exactly one file with <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> extension,
 which is an XML file specifying the following (per virtual machine):</p>
 <ul class="simple">
-<li>virtual disks</li>
-<li>network description</li>
-<li>list of virtual hardware</li>
-<li>operating system, if any</li>
+<li><p>virtual disks</p></li>
+<li><p>network description</p></li>
+<li><p>list of virtual hardware</p></li>
+<li><p>operating system, if any</p></li>
 </ul>
 <p>Each of the elements in <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file may, if desired, contain a
 human-readable description to every piece of information given.</p>
@@ -113,28 +111,28 @@ to be present.</p>
 interested in is which formats are supported by VM managers that
 currently use OVF.</p>
 <ul class="simple">
-<li>VMWare: <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code> (which comes in at least 3 different flavours:
-<code class="docutils literal notranslate"><span class="pre">sparse</span></code>, <code class="docutils literal notranslate"><span class="pre">compressed</span></code> and <code class="docutils literal notranslate"><span class="pre">streamOptimized</span></code>)</li>
-<li>VirtualBox: <code class="docutils literal notranslate"><span class="pre">.vdi</span></code> (VirtualBox’s format), <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code>, <code class="docutils literal notranslate"><span class="pre">.vhd</span></code>
-(Microsoft and XenServer); export disk format is always <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code></li>
-<li>XenServer: <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code>, <code class="docutils literal notranslate"><span class="pre">.vhd</span></code>; export disk format is always
-<code class="docutils literal notranslate"><span class="pre">.vhd</span></code></li>
-<li>Red Hat Enterprise Virtualization: <code class="docutils literal notranslate"><span class="pre">.raw</span></code> (raw disk format),
-<code class="docutils literal notranslate"><span class="pre">.cow</span></code> (qemu’s <code class="docutils literal notranslate"><span class="pre">QCOW2</span></code>)</li>
-<li>other: AbiCloud, OpenNode Cloud, SUSE Studio, Morfeo Claudia,
-OpenStack: mostly <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code></li>
+<li><p>VMWare: <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code> (which comes in at least 3 different flavours:
+<code class="docutils literal notranslate"><span class="pre">sparse</span></code>, <code class="docutils literal notranslate"><span class="pre">compressed</span></code> and <code class="docutils literal notranslate"><span class="pre">streamOptimized</span></code>)</p></li>
+<li><p>VirtualBox: <code class="docutils literal notranslate"><span class="pre">.vdi</span></code> (VirtualBox’s format), <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code>, <code class="docutils literal notranslate"><span class="pre">.vhd</span></code>
+(Microsoft and XenServer); export disk format is always <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code></p></li>
+<li><p>XenServer: <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code>, <code class="docutils literal notranslate"><span class="pre">.vhd</span></code>; export disk format is always
+<code class="docutils literal notranslate"><span class="pre">.vhd</span></code></p></li>
+<li><p>Red Hat Enterprise Virtualization: <code class="docutils literal notranslate"><span class="pre">.raw</span></code> (raw disk format),
+<code class="docutils literal notranslate"><span class="pre">.cow</span></code> (qemu’s <code class="docutils literal notranslate"><span class="pre">QCOW2</span></code>)</p></li>
+<li><p>other: AbiCloud, OpenNode Cloud, SUSE Studio, Morfeo Claudia,
+OpenStack: mostly <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code></p></li>
 </ul>
 <p>In our implementation of the OVF we allow a choice between raw, cow and
 vmdk disk formats for both import and export. Other formats convertable
 using <code class="docutils literal notranslate"><span class="pre">qemu-img</span></code> are allowed in import mode, but not tested.
 The justification is the following:</p>
 <ul class="simple">
-<li>Raw format is supported as it is the main format of disk images used
-in Ganeti, thus it is effortless to provide support for this format</li>
-<li>Cow is used in Qemu</li>
-<li>Vmdk is most commonly supported in virtualization software, it also
+<li><p>Raw format is supported as it is the main format of disk images used
+in Ganeti, thus it is effortless to provide support for this format</p></li>
+<li><p>Cow is used in Qemu</p></li>
+<li><p>Vmdk is most commonly supported in virtualization software, it also
 has the advantage of producing relatively small disk images, which
-is extremely important advantage when moving instances.</li>
+is extremely important advantage when moving instances.</p></li>
 </ul>
 </div>
 </div>
@@ -180,8 +178,8 @@ information.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Tags with <code class="docutils literal notranslate"><span class="pre">gnt:</span></code> prefix are Ganeti-specific and are not a part of
+<p class="admonition-title">Note</p>
+<p>Tags with <code class="docutils literal notranslate"><span class="pre">gnt:</span></code> prefix are Ganeti-specific and are not a part of
 OVF standard.</p>
 </div>
 <p>Whereas Ganeti’s export info is of the following form, <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> showing
@@ -247,8 +245,8 @@ cause to skip the non-standard information.</p>
 will also have to recompute sha1 sum (<code class="docutils literal notranslate"><span class="pre">sha1sum</span></code> command) of the .ovf
 file and update your <code class="docutils literal notranslate"><span class="pre">.mf</span></code> file with new value.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Manual change option is only recommended when you have exported your
+<p class="admonition-title">Note</p>
+<p>Manual change option is only recommended when you have exported your
 instance with <code class="docutils literal notranslate"><span class="pre">-format</span></code> option other that <code class="docutils literal notranslate"><span class="pre">raw</span></code> or selected
 <code class="docutils literal notranslate"><span class="pre">--compress</span></code>. It saves you the time of converting or compressing
 the disk image.</p>
@@ -459,28 +457,25 @@ It also contains a set of functions that read the options provided in
 the command line.</p>
 <p>Typical workflow for the import is very simple:</p>
 <ul>
-<li><p class="first">read the <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file into memory</p>
-</li>
-<li><p class="first">verify manifest</p>
-</li>
-<li><p class="first">parse each element of the configuration file: name, disk template,
+<li><p>read the <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file into memory</p></li>
+<li><p>verify manifest</p></li>
+<li><p>parse each element of the configuration file: name, disk template,
 hypervisor, operating system, backend parameters, network and disks</p>
 <blockquote>
 <div><ul>
-<li><p class="first">check if option for the element can be read from command line
+<li><p>check if option for the element can be read from command line
 options</p>
 <blockquote>
 <div><ul class="simple">
-<li>if yes: parse options from command line</li>
-<li>otherwise: read the appropriate portion of <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file</li>
+<li><p>if yes: parse options from command line</p></li>
+<li><p>otherwise: read the appropriate portion of <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">save gathered information in <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file</p>
-</li>
+<li><p>save gathered information in <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file</p></li>
 </ul>
 </div>
 <div class="section" id="export">
@@ -494,37 +489,38 @@ command line and performs necessary operations like disk conversion, disk
 compression, manifest creation and OVA package creation.</p>
 <p>Typical workflow for the export is even simpler, than for the import:</p>
 <ul class="simple">
-<li>read the <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file into memory</li>
-<li>gather information about certain parts of the instance, convert and
-compress disks if desired</li>
-<li>save each of these elements as a fragment of XML tree</li>
-<li>save the XML tree as <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file</li>
-<li>create manifest file and fill it with appropriate checksums</li>
-<li>if <code class="docutils literal notranslate"><span class="pre">--ova</span></code> option was chosen, pack the results into <code class="docutils literal notranslate"><span class="pre">.ova</span></code> tarfile</li>
+<li><p>read the <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file into memory</p></li>
+<li><p>gather information about certain parts of the instance, convert and
+compress disks if desired</p></li>
+<li><p>save each of these elements as a fragment of XML tree</p></li>
+<li><p>save the XML tree as <code class="docutils literal notranslate"><span class="pre">.ovf</span></code> file</p></li>
+<li><p>create manifest file and fill it with appropriate checksums</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">--ova</span></code> option was chosen, pack the results into <code class="docutils literal notranslate"><span class="pre">.ova</span></code> tarfile</p></li>
 </ul>
 </div>
 <div class="section" id="work-in-progress">
 <h3>Work in progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>conversion to/from raw disk should be quicker</li>
-<li>add graphic card memory to export information (12 MB of memory)</li>
-<li>space requirements for conversion + compression + ova are currently
-enormous</li>
-<li>add support for disks in chunks</li>
-<li>add support for certificates</li>
-<li>investigate why VMWare’s ovftool does not work with ovfconverter’s
+<li><p>conversion to/from raw disk should be quicker</p></li>
+<li><p>add graphic card memory to export information (12 MB of memory)</p></li>
+<li><p>space requirements for conversion + compression + ova are currently
+enormous</p></li>
+<li><p>add support for disks in chunks</p></li>
+<li><p>add support for certificates</p></li>
+<li><p>investigate why VMWare’s ovftool does not work with ovfconverter’s
 compression and ova packaging – maybe noteworty: if OVA archive does
 not have a disk (i.e. in OVA package there is only .ovf ad .mf file),
-then the ovftool works</li>
-<li>investigate why new versions of VirtualBox have problems with OVF
+then the ovftool works</p></li>
+<li><p>investigate why new versions of VirtualBox have problems with OVF
 created by ovfconverter (everything works fine with 3.16 version, but
-not with 4.0)</li>
+not with 4.0)</p></li>
 </ul>
 </div>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -594,17 +590,15 @@ not with 4.0)</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -618,12 +612,13 @@ not with 4.0)</li>
         <li class="right" >
           <a href="design-os.html" title="Ganeti OS installation redesign"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti Instance Import/Export using Open Virtualization Format</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

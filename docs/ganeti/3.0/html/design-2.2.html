@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti 2.2 design &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti 2.2 design &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti 2.3 design" href="design-2.3.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="design-2.1.html" title="Ganeti 2.1 design"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 2.2 design</a></li> 
       </ul>
     </div>  
 
@@ -49,43 +48,53 @@ adding new features and improvements over 2.1, in a timely fashion.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#ganeti-2-2-design" id="id10">Ganeti 2.2 design</a><ul>
-<li><a class="reference internal" href="#core-changes" id="id11">Core changes</a><ul>
-<li><a class="reference internal" href="#master-daemon-scaling-improvements" id="id12">Master Daemon Scaling improvements</a><ul>
-<li><a class="reference internal" href="#current-state-and-shortcomings" id="id13">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#proposed-changes" id="id14">Proposed changes</a></li>
+<li><p><a class="reference internal" href="#ganeti-2-2-design" id="id10">Ganeti 2.2 design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#core-changes" id="id11">Core changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#master-daemon-scaling-improvements" id="id12">Master Daemon Scaling improvements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id13">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id14">Proposed changes</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#inter-cluster-instance-moves" id="id15">Inter-cluster instance moves</a><ul>
-<li><a class="reference internal" href="#id3" id="id16">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#id4" id="id17">Proposed changes</a></li>
+<li><p><a class="reference internal" href="#inter-cluster-instance-moves" id="id15">Inter-cluster instance moves</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id16">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id17">Proposed changes</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#privilege-separation" id="id18">Privilege separation</a><ul>
-<li><a class="reference internal" href="#id5" id="id19">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#implementation" id="id20">Implementation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#feature-changes" id="id21">Feature changes</a><ul>
-<li><a class="reference internal" href="#kvm-security" id="id22">KVM Security</a><ul>
-<li><a class="reference internal" href="#id6" id="id23">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#id7" id="id24">Proposed changes</a></li>
-<li><a class="reference internal" href="#implementation-plan" id="id25">Implementation plan</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#new-os-states" id="id26">New OS states</a><ul>
-<li><a class="reference internal" href="#id8" id="id27">Current state and shortcomings</a></li>
-<li><a class="reference internal" href="#id9" id="id28">Proposed changes</a></li>
+<li><p><a class="reference internal" href="#privilege-separation" id="id18">Privilege separation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id19">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id20">Implementation</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#external-interface-changes" id="id29">External interface changes</a><ul>
-<li><a class="reference internal" href="#os-api" id="id30">OS API</a><ul>
-<li><a class="reference internal" href="#os-version" id="id31">OS version</a></li>
-<li><a class="reference internal" href="#parameters" id="id32">Parameters</a></li>
+<li><p><a class="reference internal" href="#feature-changes" id="id21">Feature changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#kvm-security" id="id22">KVM Security</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id23">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id24">Proposed changes</a></p></li>
+<li><p><a class="reference internal" href="#implementation-plan" id="id25">Implementation plan</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#new-os-states" id="id26">New OS states</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id27">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id28">Proposed changes</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#external-interface-changes" id="id29">External interface changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#os-api" id="id30">OS API</a></p>
+<ul>
+<li><p><a class="reference internal" href="#os-version" id="id31">OS version</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id32">Parameters</a></p></li>
 </ul>
 </li>
 </ul>
@@ -96,10 +105,10 @@ adding new features and improvements over 2.1, in a timely fashion.</p>
 </div>
 <p>As for 2.1 we divide the 2.2 design into three areas:</p>
 <ul class="simple">
-<li>core changes, which affect the master daemon/job queue/locking or
-all/most logical units</li>
-<li>logical unit/feature changes</li>
-<li>external interface changes (e.g. command line, OS API, hooks, …)</li>
+<li><p>core changes, which affect the master daemon/job queue/locking or
+all/most logical units</p></li>
+<li><p>logical unit/feature changes</p></li>
+<li><p>external interface changes (e.g. command line, OS API, hooks, …)</p></li>
 </ul>
 <div class="section" id="core-changes">
 <h2><a class="toc-backref" href="#id11">Core changes</a><a class="headerlink" href="#core-changes" title="Permalink to this headline">¶</a></h2>
@@ -109,15 +118,15 @@ all/most logical units</li>
 <h4><a class="toc-backref" href="#id13">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Permalink to this headline">¶</a></h4>
 <p>Currently the Ganeti master daemon is based on four sets of threads:</p>
 <ul class="simple">
-<li>The main thread (1 thread) just accepts connections on the master
-socket</li>
-<li>The client worker pool (16 threads) handles those connections,
+<li><p>The main thread (1 thread) just accepts connections on the master
+socket</p></li>
+<li><p>The client worker pool (16 threads) handles those connections,
 one thread per connected socket, parses luxi requests, and sends data
-back to the clients</li>
-<li>The job queue worker pool (25 threads) executes the actual jobs
-submitted by the clients</li>
-<li>The rpc worker pool (10 threads) interacts with the nodes via
-http-based-rpc</li>
+back to the clients</p></li>
+<li><p>The job queue worker pool (25 threads) executes the actual jobs
+submitted by the clients</p></li>
+<li><p>The rpc worker pool (10 threads) interacts with the nodes via
+http-based-rpc</p></li>
 </ul>
 <p>This means that every masterd currently runs 52 threads to do its job.
 Being able to reduce the number of thread sets would make the master’s
@@ -154,49 +163,49 @@ submit more jobs.</p>
 the following job queue methods (called by the client workers).</p>
 <blockquote>
 <div><ul class="simple">
-<li>AddNode</li>
-<li>RemoveNode</li>
-<li>SubmitJob</li>
-<li>SubmitManyJobs</li>
-<li>WaitForJobChanges</li>
-<li>CancelJob</li>
-<li>ArchiveJob</li>
-<li>AutoArchiveJobs</li>
-<li>QueryJobs</li>
-<li>Shutdown</li>
+<li><p>AddNode</p></li>
+<li><p>RemoveNode</p></li>
+<li><p>SubmitJob</p></li>
+<li><p>SubmitManyJobs</p></li>
+<li><p>WaitForJobChanges</p></li>
+<li><p>CancelJob</p></li>
+<li><p>ArchiveJob</p></li>
+<li><p>AutoArchiveJobs</p></li>
+<li><p>QueryJobs</p></li>
+<li><p>Shutdown</p></li>
 </ul>
 </div></blockquote>
 <p>Moreover the job queue lock is acquired outside of the job queue in two
 other classes:</p>
 <blockquote>
 <div><ul class="simple">
-<li>jqueue._JobQueueWorker (in RunTask) before executing the opcode, after
-finishing its executing and when handling an exception.</li>
-<li>jqueue._OpExecCallbacks (in NotifyStart and Feedback) when the
+<li><p>jqueue._JobQueueWorker (in RunTask) before executing the opcode, after
+finishing its executing and when handling an exception.</p></li>
+<li><p>jqueue._OpExecCallbacks (in NotifyStart and Feedback) when the
 processor (mcpu.Processor) is about to start working on the opcode
 (after acquiring the necessary locks) and when any data is sent back
-via the feedback function.</li>
+via the feedback function.</p></li>
 </ul>
 </div></blockquote>
 <p>Of those the major critical points are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Submit[Many]Job, QueryJobs, WaitForJobChanges, which can easily slow
+<li><p>Submit[Many]Job, QueryJobs, WaitForJobChanges, which can easily slow
 down and block client threads up to making the respective clients
-time out.</li>
-<li>The code paths in NotifyStart, Feedback, and RunTask, which slow
-down job processing between clients and otherwise non-related jobs.</li>
+time out.</p></li>
+<li><p>The code paths in NotifyStart, Feedback, and RunTask, which slow
+down job processing between clients and otherwise non-related jobs.</p></li>
 </ul>
 </div></blockquote>
 <p>To increase the pain:</p>
 <blockquote>
 <div><ul class="simple">
-<li>WaitForJobChanges is a bad offender because it’s implemented with a
+<li><p>WaitForJobChanges is a bad offender because it’s implemented with a
 notified condition which awakes waiting threads, who then try to
-acquire the global lock again</li>
-<li>Many should-be-fast code paths are slowed down by replicating the
+acquire the global lock again</p></li>
+<li><p>Many should-be-fast code paths are slowed down by replicating the
 change to remote nodes, and thus waiting, with the lock held, on
-remote rpcs to complete (starting, finishing, and submitting jobs)</li>
+remote rpcs to complete (starting, finishing, and submitting jobs)</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -239,15 +248,15 @@ data, and not in fetching/serializing it.</p>
 <p>Other features to look at, when implementing this code are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Possibility not to need the job lock to know which updates to push:
+<li><p>Possibility not to need the job lock to know which updates to push:
 if the thread producing the data pushed a copy of the update for the
 waiting clients, the thread sending it won’t need to acquire the
-lock again to fetch the actual data.</li>
-<li>Possibility to signal clients about to time out, when no update has
+lock again to fetch the actual data.</p></li>
+<li><p>Possibility to signal clients about to time out, when no update has
 been received, not to despair and to keep waiting (luxi level
-keepalive).</li>
-<li>Possibility to defer updates if they are too frequent, providing
-them at a maximum rate (lower priority).</li>
+keepalive).</p></li>
+<li><p>Possibility to defer updates if they are too frequent, providing
+them at a maximum rate (lower priority).</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -257,20 +266,20 @@ them at a maximum rate (lower priority).</li>
 code paths in the following ways, initially:</p>
 <blockquote>
 <div><ul class="simple">
-<li>A per-job lock will be introduced. All operations affecting only one
+<li><p>A per-job lock will be introduced. All operations affecting only one
 job (for example feedback, starting/finishing notifications,
 subscribing to or watching a job) will only require the job lock.
 This should be a leaf lock, but if a situation arises in which it
 must be acquired together with the global job queue lock the global
-one must always be acquired last (for the global section).</li>
-<li>The locks will be converted to a sharedlock. Any read-only operation
-will be able to proceed in parallel.</li>
-<li>During remote update (which happens already per-job) we’ll drop the
+one must always be acquired last (for the global section).</p></li>
+<li><p>The locks will be converted to a sharedlock. Any read-only operation
+will be able to proceed in parallel.</p></li>
+<li><p>During remote update (which happens already per-job) we’ll drop the
 job lock level to shared mode, so that activities reading the lock
 (for example job change notifications or QueryJobs calls) will be
-able to proceed in parallel.</li>
-<li>The wait for job changes improvements proposed above will be
-implemented.</li>
+able to proceed in parallel.</p></li>
+<li><p>The wait for job changes improvements proposed above will be
+implemented.</p></li>
 </ul>
 </div></blockquote>
 <p>In the future other improvements may include splitting off some of the
@@ -368,71 +377,77 @@ directly, where it’ll be written to the new block device directly again.</p>
 <div class="section" id="workflow">
 <h5>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h5>
 <ol class="arabic simple">
-<li>Third party tells source cluster to shut down instance, asks for the
-instance specification and for the public part of an encryption key<ul>
-<li>Instance information can already be retrieved using an existing API
-(<code class="docutils literal notranslate"><span class="pre">OpInstanceQueryData</span></code>).</li>
-<li>An RSA encryption key and a corresponding self-signed X509
+<li><p>Third party tells source cluster to shut down instance, asks for the
+instance specification and for the public part of an encryption key</p>
+<ul class="simple">
+<li><p>Instance information can already be retrieved using an existing API
+(<code class="docutils literal notranslate"><span class="pre">OpInstanceQueryData</span></code>).</p></li>
+<li><p>An RSA encryption key and a corresponding self-signed X509
 certificate is generated using the “openssl” command. This key will
-be used to encrypt the data sent to the destination cluster.<ul>
-<li>Private keys never leave the cluster.</li>
-<li>The public part (the X509 certificate) is signed using HMAC with
-salting and a secret shared between Ganeti clusters.</li>
+be used to encrypt the data sent to the destination cluster.</p>
+<ul>
+<li><p>Private keys never leave the cluster.</p></li>
+<li><p>The public part (the X509 certificate) is signed using HMAC with
+salting and a secret shared between Ganeti clusters.</p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Third party tells destination cluster to create an instance with the
+<li><p>Third party tells destination cluster to create an instance with the
 same specifications as on source cluster and to prepare for an
 instance move with the key received from the source cluster and
-receives the public part of the destination’s encryption key<ul>
-<li>The current API to create instances (<code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code>) will be
-extended to support an import from a remote cluster.</li>
-<li>A valid, unexpired X509 certificate signed with the destination
+receives the public part of the destination’s encryption key</p>
+<ul class="simple">
+<li><p>The current API to create instances (<code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code>) will be
+extended to support an import from a remote cluster.</p></li>
+<li><p>A valid, unexpired X509 certificate signed with the destination
 cluster’s secret will be required. By verifying the signature, we
-know the third party didn’t modify the certificate.<ul>
-<li>The private keys never leave their cluster, hence the third party
+know the third party didn’t modify the certificate.</p>
+<ul>
+<li><p>The private keys never leave their cluster, hence the third party
 can not decrypt or intercept the instance’s data by modifying the
-IP address or port sent by the destination cluster.</li>
+IP address or port sent by the destination cluster.</p></li>
 </ul>
 </li>
-<li>The destination cluster generates another key and certificate,
+<li><p>The destination cluster generates another key and certificate,
 signs and sends it to the third party, who will have to pass it to
 the API for exporting an instance (<code class="docutils literal notranslate"><span class="pre">OpBackupExport</span></code>). This
 certificate is used to ensure we’re sending the disk data to the
-correct destination cluster.</li>
-<li>Once a disk can be imported, the API sends the destination
+correct destination cluster.</p></li>
+<li><p>Once a disk can be imported, the API sends the destination
 information (IP address and TCP port) together with an HMAC
-signature to the third party.</li>
+signature to the third party.</p></li>
 </ul>
 </li>
-<li>Third party hands public part of the destination’s encryption key
+<li><p>Third party hands public part of the destination’s encryption key
 together with all necessary information to source cluster and tells
-it to start the move<ul>
-<li>The existing API for exporting instances (<code class="docutils literal notranslate"><span class="pre">OpBackupExport</span></code>)
-will be extended to export instances to remote clusters.</li>
+it to start the move</p>
+<ul class="simple">
+<li><p>The existing API for exporting instances (<code class="docutils literal notranslate"><span class="pre">OpBackupExport</span></code>)
+will be extended to export instances to remote clusters.</p></li>
 </ul>
 </li>
-<li>Source cluster connects to destination cluster for each disk and
+<li><p>Source cluster connects to destination cluster for each disk and
 transfers its data using the instance OS definition’s export and
-import scripts<ul>
-<li>Before starting, the source cluster must verify the HMAC signature
+import scripts</p>
+<ul class="simple">
+<li><p>Before starting, the source cluster must verify the HMAC signature
 of the certificate and destination information (IP address and TCP
-port).</li>
-<li>When connecting to the remote machine, strong certificate checks
-must be employed.</li>
+port).</p></li>
+<li><p>When connecting to the remote machine, strong certificate checks
+must be employed.</p></li>
 </ul>
 </li>
-<li>Due to the asynchronous nature of the whole process, the destination
+<li><p>Due to the asynchronous nature of the whole process, the destination
 cluster checks whether all disks have been transferred every time
 after transferring a single disk; if so, it destroys the encryption
-key</li>
-<li>After sending all disks, the source cluster destroys its key</li>
-<li>Destination cluster runs OS definition’s rename script to adjust
-instance settings if needed (e.g. IP address)</li>
-<li>Destination cluster starts the instance if requested at the beginning
-by the third party</li>
-<li>Source cluster removes the instance if requested</li>
+key</p></li>
+<li><p>After sending all disks, the source cluster destroys its key</p></li>
+<li><p>Destination cluster runs OS definition’s rename script to adjust
+instance settings if needed (e.g. IP address)</p></li>
+<li><p>Destination cluster starts the instance if requested at the beginning
+by the third party</p></li>
+<li><p>Source cluster removes the instance if requested</p></li>
 </ol>
 </div>
 <div class="section" id="instance-move-in-pseudo-code">
@@ -440,7 +455,7 @@ by the third party</li>
 <p>The following pseudo code describes a script moving instances between
 clusters and what happens on both clusters.</p>
 <ol class="arabic">
-<li><p class="first">Script is started, gets the instance name and destination cluster:</p>
+<li><p>Script is started, gets the instance name and destination cluster:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">dest_cluster_name</span><span class="p">)</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
 <span class="c1"># Get destination cluster object</span>
@@ -451,7 +466,7 @@ clusters and what happens on both clusters.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Script tells source cluster to stop instance:</p>
+<li><p>Script tells source cluster to stop instance:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop instance</span>
 <span class="n">src_cluster</span><span class="o">.</span><span class="n">StopInstance</span><span class="p">(</span><span class="n">instance_name</span><span class="p">)</span>
 
@@ -462,7 +477,7 @@ clusters and what happens on both clusters.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">CreateX509Certificate</span></code> on source cluster:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">CreateX509Certificate</span></code> on source cluster:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">key_file</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">()</span>
 <span class="n">cert_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.cert&quot;</span> <span class="o">%</span> <span class="n">key_file</span>
 <span class="n">RunCmd</span><span class="p">([</span><span class="s2">&quot;/usr/bin/openssl&quot;</span><span class="p">,</span> <span class="s2">&quot;req&quot;</span><span class="p">,</span> <span class="s2">&quot;-new&quot;</span><span class="p">,</span>
@@ -489,14 +504,14 @@ clusters and what happens on both clusters.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Script creates instance on destination cluster and waits for move to
+<li><p>Script creates instance on destination cluster and waits for move to
 finish:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dest_cluster</span><span class="o">.</span><span class="n">CreateInstance</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">REMOTE_IMPORT</span><span class="p">,</span>
                             <span class="n">spec</span><span class="o">=</span><span class="n">inst_spec</span><span class="p">,</span>
                             <span class="n">source_cert</span><span class="o">=</span><span class="n">src_cert</span><span class="p">)</span>
 
 <span class="c1"># Wait until destination cluster gives us its certificate</span>
-<span class="n">dest_cert</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">dest_cert</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">disk_info</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">dest_cert</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">disk_info</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">inst_spec</span><span class="o">.</span><span class="n">disks</span><span class="p">)):</span>
   <span class="n">tmp</span> <span class="o">=</span> <span class="n">dest_cluster</span><span class="o">.</span><span class="n">WaitOutput</span><span class="p">()</span>
@@ -512,12 +527,12 @@ finish:</p>
                          <span class="n">key_name</span><span class="o">=</span><span class="n">src_key_name</span><span class="p">,</span>
                          <span class="n">dest_cert</span><span class="o">=</span><span class="n">dest_cert</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Instance </span><span class="si">%s</span><span class="s2"> sucessfully moved to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Instance </span><span class="si">%s</span><span class="s2"> sucessfully moved to </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
        <span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">dest_cluster</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">CreateInstance</span></code> on destination cluster:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">CreateInstance</span></code> on destination cluster:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># …</span>
 
 <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">REMOTE_IMPORT</span><span class="p">:</span>
@@ -542,8 +557,8 @@ finish:</p>
     <span class="n">RunCmd</span><span class="p">((</span><span class="s2">&quot;socat&quot;</span>
             <span class="s2">&quot; OPENSSL-LISTEN:</span><span class="si">%s</span><span class="s2">,…,key=</span><span class="si">%s</span><span class="s2">,cert=</span><span class="si">%s</span><span class="s2">,cafile=</span><span class="si">%s</span><span class="s2">,verify=1&quot;</span>
             <span class="s2">&quot; stdout &gt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
-           <span class="n">port</span><span class="p">,</span> <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-           <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="n">src_cert_file</span><span class="p">)</span>
+           <span class="n">port</span><span class="p">,</span> <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+           <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">src_cert_file</span><span class="p">)</span>
     <span class="n">SendToClient</span><span class="p">(</span><span class="s2">&quot;send-disk-to&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
 
   <span class="n">DestroyX509Cert</span><span class="p">(</span><span class="n">key_name</span><span class="p">)</span>
@@ -552,7 +567,7 @@ finish:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ExportDisk</span></code> on source cluster:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExportDisk</span></code> on source cluster:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure certificate was not modified since it was generated by</span>
 <span class="c1"># destination cluster (which must use the same secret)</span>
 <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">utils</span><span class="o">.</span><span class="n">VerifySignedX509Cert</span><span class="p">(</span><span class="n">cert_pem</span><span class="p">,</span>
@@ -569,8 +584,8 @@ finish:</p>
         <span class="s2">&quot; OPENSSL:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">,…,key=</span><span class="si">%s</span><span class="s2">,cert=</span><span class="si">%s</span><span class="s2">,cafile=</span><span class="si">%s</span><span class="s2">,verify=1&quot;</span>
         <span class="s2">&quot; &lt; /dev/disk…&quot;</span><span class="p">)</span> <span class="o">%</span>
        <span class="n">disk</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">disk</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
-       <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-       <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="n">dest_cert_file</span><span class="p">)</span>
+       <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+       <span class="n">GetRsaKeyPath</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">private</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">dest_cert_file</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">all_disks_done</span><span class="p">:</span>
   <span class="n">DestroyX509Cert</span><span class="p">(</span><span class="n">key_name</span><span class="p">)</span>
@@ -582,29 +597,29 @@ finish:</p>
 <div class="section" id="miscellaneous-notes">
 <h5>Miscellaneous notes<a class="headerlink" href="#miscellaneous-notes" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
-<li>A very similar system could also be used for instance exports within
+<li><p>A very similar system could also be used for instance exports within
 the same cluster. Currently OpenSSH is being used, but could be
-replaced by socat and SSL/TLS.</li>
-<li>During the design of intra-cluster instance moves we also discussed
-encrypting instance exports using GnuPG.</li>
-<li>While most instances should have exactly the same configuration as
+replaced by socat and SSL/TLS.</p></li>
+<li><p>During the design of intra-cluster instance moves we also discussed
+encrypting instance exports using GnuPG.</p></li>
+<li><p>While most instances should have exactly the same configuration as
 on the source cluster, setting them up with a different disk layout
-might be helpful in some use-cases.</li>
-<li>A cleanup operation, similar to the one available for failed instance
-migrations, should be provided.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ganeti-watcher</span></code> should remove instances pending a move from another
+might be helpful in some use-cases.</p></li>
+<li><p>A cleanup operation, similar to the one available for failed instance
+migrations, should be provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ganeti-watcher</span></code> should remove instances pending a move from another
 cluster after a certain amount of time. This takes care of failures
-somewhere in the process.</li>
-<li>RSA keys can be generated using the existing
+somewhere in the process.</p></li>
+<li><p>RSA keys can be generated using the existing
 <code class="docutils literal notranslate"><span class="pre">bootstrap.GenerateSelfSignedSslCert</span></code> function, though it might be
 useful to not write both parts into a single file, requiring small
 changes to the function. The public part always starts with
 <code class="docutils literal notranslate"><span class="pre">-----BEGIN</span> <span class="pre">CERTIFICATE-----</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">-----END</span>
-<span class="pre">CERTIFICATE-----</span></code>.</li>
-<li>The source and destination cluster might be different when it comes
+<span class="pre">CERTIFICATE-----</span></code>.</p></li>
+<li><p>The source and destination cluster might be different when it comes
 to available hypervisors, kernels, etc. The destination cluster should
 refuse to accept an instance move if it can’t fulfill an instance’s
-requirements.</li>
+requirements.</p></li>
 </ul>
 </div>
 </div>
@@ -667,18 +682,18 @@ doesn’t protect the instances between each other, unless care is taken
 to specify a different user for each. This would prevent the worst
 attacks, including:</p>
 <ul class="simple">
-<li>logging in to other nodes</li>
-<li>administering the Ganeti cluster</li>
-<li>subverting other services</li>
+<li><p>logging in to other nodes</p></li>
+<li><p>administering the Ganeti cluster</p></li>
+<li><p>subverting other services</p></li>
 </ul>
 <p>But the following would remain an option:</p>
 <ul class="simple">
-<li>terminate other VMs (but not start them again, as that requires root
-privileges to set up networking) (unless different users are used)</li>
-<li>trace other VMs, and probably subvert them and access their data
-(unless different users are used)</li>
-<li>send network traffic from the node</li>
-<li>read unprotected data on the node filesystem</li>
+<li><p>terminate other VMs (but not start them again, as that requires root
+privileges to set up networking) (unless different users are used)</p></li>
+<li><p>trace other VMs, and probably subvert them and access their data
+(unless different users are used)</p></li>
+<li><p>send network traffic from the node</p></li>
+<li><p>read unprotected data on the node filesystem</p></li>
 </ul>
 </div>
 <div class="section" id="running-kvm-in-a-chroot-slightly-harder">
@@ -689,17 +704,17 @@ area up so that the instance disks and control sockets are accessible,
 so it would require slightly more work at the Ganeti level.</p>
 <p>Breaking out in a chroot would mean:</p>
 <ul class="simple">
-<li>a lot less options to find a local privilege escalation vector</li>
-<li>the impossibility to write local data, if the chroot is set up
-correctly</li>
-<li>the impossibility to read filesystem data on the host</li>
+<li><p>a lot less options to find a local privilege escalation vector</p></li>
+<li><p>the impossibility to write local data, if the chroot is set up
+correctly</p></li>
+<li><p>the impossibility to read filesystem data on the host</p></li>
 </ul>
 <p>It would still be possible though to:</p>
 <ul class="simple">
-<li>terminate other VMs</li>
-<li>trace other VMs, and possibly subvert them (if a tracer can be
-installed in the chroot)</li>
-<li>send network traffic from the node</li>
+<li><p>terminate other VMs</p></li>
+<li><p>trace other VMs, and possibly subvert them (if a tracer can be
+installed in the chroot)</p></li>
+<li><p>send network traffic from the node</p></li>
 </ul>
 </div>
 <div class="section" id="running-kvm-with-a-pool-of-users-slightly-harder">
@@ -938,6 +953,7 @@ scripts).</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1041,17 +1057,15 @@ scripts).</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1065,12 +1079,13 @@ scripts).</p>
         <li class="right" >
           <a href="design-2.1.html" title="Ganeti 2.1 design"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 2.2 design</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

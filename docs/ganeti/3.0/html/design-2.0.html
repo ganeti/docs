@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ganeti 2.0 design &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganeti 2.0 design &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ganeti 2.1 design" href="design-2.1.html" />
@@ -30,7 +28,8 @@
         <li class="right" >
           <a href="index.html" title="Welcome to Ganeti’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 2.0 design</a></li> 
       </ul>
     </div>  
 
@@ -48,19 +47,22 @@ paving the way for additional features in future 2.x versions.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#ganeti-2-0-design" id="id9">Ganeti 2.0 design</a><ul>
-<li><a class="reference internal" href="#objective" id="id10">Objective</a></li>
-<li><a class="reference internal" href="#background" id="id11">Background</a><ul>
-<li><a class="reference internal" href="#scalability-problems" id="id12">Scalability problems</a></li>
-<li><a class="reference internal" href="#artificial-restrictions" id="id13">Artificial restrictions</a></li>
-<li><a class="reference internal" href="#architecture-issues" id="id14">Architecture issues</a></li>
+<li><p><a class="reference internal" href="#ganeti-2-0-design" id="id9">Ganeti 2.0 design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#objective" id="id10">Objective</a></p></li>
+<li><p><a class="reference internal" href="#background" id="id11">Background</a></p>
+<ul>
+<li><p><a class="reference internal" href="#scalability-problems" id="id12">Scalability problems</a></p></li>
+<li><p><a class="reference internal" href="#artificial-restrictions" id="id13">Artificial restrictions</a></p></li>
+<li><p><a class="reference internal" href="#architecture-issues" id="id14">Architecture issues</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#overview" id="id15">Overview</a></li>
-<li><a class="reference internal" href="#detailed-design" id="id16">Detailed design</a><ul>
-<li><a class="reference internal" href="#core-changes" id="id17">Core changes</a></li>
-<li><a class="reference internal" href="#feature-changes" id="id18">Feature changes</a></li>
-<li><a class="reference internal" href="#interface-changes" id="id19">Interface changes</a></li>
+<li><p><a class="reference internal" href="#overview" id="id15">Overview</a></p></li>
+<li><p><a class="reference internal" href="#detailed-design" id="id16">Detailed design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#core-changes" id="id17">Core changes</a></p></li>
+<li><p><a class="reference internal" href="#feature-changes" id="id18">Feature changes</a></p></li>
+<li><p><a class="reference internal" href="#interface-changes" id="id19">Interface changes</a></p></li>
 </ul>
 </li>
 </ul>
@@ -80,23 +82,22 @@ then the restrictions.</p>
 cluster administration and imposes a very rigid model. It has the
 following main scalability issues:</p>
 <ul class="simple">
-<li>only one operation at a time on the cluster <a class="footnote-reference" href="#id2" id="id1">[1]</a></li>
-<li>poor handling of node failures in the cluster</li>
-<li>mixing hypervisors in a cluster not allowed</li>
+<li><p>only one operation at a time on the cluster <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p></li>
+<li><p>poor handling of node failures in the cluster</p></li>
+<li><p>mixing hypervisors in a cluster not allowed</p></li>
 </ul>
 <p>It also has a number of artificial restrictions, due to historical
 design:</p>
 <ul class="simple">
-<li>fixed number of disks (two) per instance</li>
-<li>fixed number of NICs</li>
+<li><p>fixed number of disks (two) per instance</p></li>
+<li><p>fixed number of NICs</p></li>
 </ul>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Replace disks will release the lock, but this is an exception
-and not a recommended way to operate</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Replace disks will release the lock, but this is an exception
+and not a recommended way to operate</p>
+</dd>
+</dl>
 <p>The 2.0 version is intended to address some of these problems, and
 create a more flexible code base for future developments.</p>
 <p>Among these problems, the single-operation at a time restriction is
@@ -109,10 +110,10 @@ while an OS installation is running.</p>
 <p>Ganeti 1.2 has a single global lock, which is used for all cluster
 operations.  This has been painful at various times, for example:</p>
 <ul class="simple">
-<li>It is impossible for two people to efficiently interact with a cluster
-(for example for debugging) at the same time.</li>
-<li>When batch jobs are running it’s impossible to do other work (for
-example failovers/fixes) on a cluster.</li>
+<li><p>It is impossible for two people to efficiently interact with a cluster
+(for example for debugging) at the same time.</p></li>
+<li><p>When batch jobs are running it’s impossible to do other work (for
+example failovers/fixes) on a cluster.</p></li>
 </ul>
 <p>This poses scalability problems: as clusters grow in node and instance
 size it’s a lot more likely that operations which one could conceive
@@ -196,11 +197,11 @@ daemon, which will be the only entity to talk to the node daemons.</p>
 <h2><a class="toc-backref" href="#id16">Detailed design</a><a class="headerlink" href="#detailed-design" title="Permalink to this headline">¶</a></h2>
 <p>The changes for 2.0 can be split into roughly three areas:</p>
 <ul class="simple">
-<li>core changes that affect the design of the software</li>
-<li>features (or restriction removals) but which do not have a wide
-impact on the design</li>
-<li>user-level and API-level changes which translate into differences for
-the operation of the cluster</li>
+<li><p>core changes that affect the design of the software</p></li>
+<li><p>features (or restriction removals) but which do not have a wide
+impact on the design</p></li>
+<li><p>user-level and API-level changes which translate into differences for
+the operation of the cluster</p></li>
 </ul>
 <div class="section" id="core-changes">
 <h3><a class="toc-backref" href="#id17">Core changes</a><a class="headerlink" href="#core-changes" title="Permalink to this headline">¶</a></h3>
@@ -227,23 +228,23 @@ doc/ directory.</p>
 <h4>Master daemon<a class="headerlink" href="#master-daemon" title="Permalink to this headline">¶</a></h4>
 <p>In Ganeti 2.0, we will have the following <em>entities</em>:</p>
 <ul class="simple">
-<li>the master daemon (on the master node)</li>
-<li>the node daemon (on all nodes)</li>
-<li>the command line tools (on the master node)</li>
-<li>the RAPI daemon (on the master node)</li>
+<li><p>the master daemon (on the master node)</p></li>
+<li><p>the node daemon (on all nodes)</p></li>
+<li><p>the command line tools (on the master node)</p></li>
+<li><p>the RAPI daemon (on the master node)</p></li>
 </ul>
 <p>The master-daemon related interaction paths are:</p>
 <ul class="simple">
-<li>(CLI tools/RAPI daemon) and the master daemon, via the so called
-<em>LUXI</em> API</li>
-<li>the master daemon and the node daemons, via the node RPC</li>
+<li><p>(CLI tools/RAPI daemon) and the master daemon, via the so called
+<em>LUXI</em> API</p></li>
+<li><p>the master daemon and the node daemons, via the node RPC</p></li>
 </ul>
 <p>There are also some additional interaction paths for exceptional cases:</p>
 <ul class="simple">
-<li>CLI tools might access via SSH the nodes (for <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">copyfile</span></code>
-and <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">command</span></code>)</li>
-<li>master failover is a special case when a non-master node will SSH
-and do node-RPC calls to the current master</li>
+<li><p>CLI tools might access via SSH the nodes (for <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">copyfile</span></code>
+and <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">command</span></code>)</p></li>
+<li><p>master failover is a special case when a non-master node will SSH
+and do node-RPC calls to the current master</p></li>
 </ul>
 <p>The protocol between the master daemon and the node daemons will be
 changed from (Ganeti 1.2) Twisted PB (perspective broker) to HTTP(S),
@@ -272,8 +273,8 @@ permissions on the Unix socket itself will determine the access
 rights.</p>
 <p>We will have two main classes of operations over this API:</p>
 <ul class="simple">
-<li>cluster query functions</li>
-<li>job related functions</li>
+<li><p>cluster query functions</p></li>
+<li><p>job related functions</p></li>
 </ul>
 <p>The cluster query functions are usually short-duration, and are the
 equivalent of the <code class="docutils literal notranslate"><span class="pre">OP_QUERY_*</span></code> opcodes in Ganeti 1.2 (and they are
@@ -281,10 +282,10 @@ internally implemented still with these opcodes). The clients are
 guaranteed to receive the response in a reasonable time via a timeout.</p>
 <p>The job-related functions will be:</p>
 <ul class="simple">
-<li>submit job</li>
-<li>query job (which could also be categorized in the query-functions)</li>
-<li>archive job (see the job queue design doc)</li>
-<li>wait for job change, which allows a client to wait without polling</li>
+<li><p>submit job</p></li>
+<li><p>query job (which could also be categorized in the query-functions)</p></li>
+<li><p>archive job (see the job queue design doc)</p></li>
+<li><p>wait for job change, which allows a client to wait without polling</p></li>
 </ul>
 <p>For more details of the actual operation list, see the <a class="reference internal" href="#job-queue">Job Queue</a>.</p>
 <p>Both requests and responses will consist of a JSON-encoded message
@@ -292,39 +293,35 @@ followed by the <code class="docutils literal notranslate"><span class="pre">ETX
 valid character in JSON messages and thus can serve as a message
 delimiter. The contents of the messages will be a dictionary with two
 fields:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">method:</th><td class="field-body">the name of the method called</td>
-</tr>
-<tr class="field-even field"><th class="field-name">args:</th><td class="field-body">the arguments to the method, as a list (no keyword arguments allowed)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">method</dt>
+<dd class="field-odd"><p>the name of the method called</p>
+</dd>
+<dt class="field-even">args</dt>
+<dd class="field-even"><p>the arguments to the method, as a list (no keyword arguments allowed)</p>
+</dd>
+</dl>
 <p>Responses will follow the same format, with the two fields being:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">success:</th><td class="field-body">a boolean denoting the success of the operation</td>
-</tr>
-<tr class="field-even field"><th class="field-name">result:</th><td class="field-body">the actual result, or error message in case of failure</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">success</dt>
+<dd class="field-odd"><p>a boolean denoting the success of the operation</p>
+</dd>
+<dt class="field-even">result</dt>
+<dd class="field-even"><p>the actual result, or error message in case of failure</p>
+</dd>
+</dl>
 <p>There are two special value for the result field:</p>
 <ul class="simple">
-<li>in the case that the operation failed, and this field is a list of
+<li><p>in the case that the operation failed, and this field is a list of
 length two, the client library will try to interpret is as an
 exception, the first element being the exception type and the second
 one the actual exception arguments; this will allow a simple method of
-passing Ganeti-related exception across the interface</li>
-<li>for the <em>WaitForChange</em> call (that waits on the server for a job to
+passing Ganeti-related exception across the interface</p></li>
+<li><p>for the <em>WaitForChange</em> call (that waits on the server for a job to
 change status), if the result is equal to <code class="docutils literal notranslate"><span class="pre">nochange</span></code> instead of the
 usual result for this call (a list of changes), then the library will
 internally retry the call; this is done in order to differentiate
-internally between master daemon hung and job simply not changed</li>
+internally between master daemon hung and job simply not changed</p></li>
 </ul>
 <p>Users of the API that don’t use the provided python library should
 take care of the above two cases.</p>
@@ -336,11 +333,11 @@ new requests from the clients, and that does the setup/shutdown of the
 other thread (pools).</p>
 <p>There will two other classes of threads in the daemon:</p>
 <ul class="simple">
-<li>job processing threads, part of a thread pool, and which are
+<li><p>job processing threads, part of a thread pool, and which are
 long-lived, started at daemon startup and terminated only at shutdown
-time</li>
-<li>client I/O threads, which are the ones that talk the local protocol
-(LUXI) to the clients, and are short-lived</li>
+time</p></li>
+<li><p>client I/O threads, which are the ones that talk the local protocol
+(LUXI) to the clients, and are short-lived</p></li>
 </ul>
 </div>
 <div class="section" id="master-startup-failover">
@@ -356,28 +353,25 @@ to have more resilience for the master role.</p>
 transition to the master role, either at startup time or at node
 failover:</p>
 <ol class="arabic">
-<li><p class="first">read the configuration file and parse the node list
-contained within</p>
-</li>
-<li><p class="first">query all the nodes and make sure we obtain an agreement via
+<li><p>read the configuration file and parse the node list
+contained within</p></li>
+<li><p>query all the nodes and make sure we obtain an agreement via
 a quorum of at least half plus one nodes for the following:</p>
 <blockquote>
 <div><ul class="simple">
-<li>we have the latest configuration and job list (as
+<li><p>we have the latest configuration and job list (as
 determined by the serial number on the configuration and
-highest job ID on the job queue)</li>
-<li>if we are not failing over (but just starting), the
-quorum agrees that we are the designated master</li>
-<li>if any of the above is false, we prevent the current operation
-(i.e. we don’t become the master)</li>
+highest job ID on the job queue)</p></li>
+<li><p>if we are not failing over (but just starting), the
+quorum agrees that we are the designated master</p></li>
+<li><p>if any of the above is false, we prevent the current operation
+(i.e. we don’t become the master)</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">at this point, the node transitions to the master role</p>
-</li>
-<li><p class="first">for all the in-progress jobs, mark them as failed, with
-reason unknown or something similar (master failed, etc.)</p>
-</li>
+<li><p>at this point, the node transitions to the master role</p></li>
+<li><p>for all the in-progress jobs, mark them as failed, with
+reason unknown or something similar (master failed, etc.)</p></li>
 </ol>
 <p>Since due to exceptional conditions we could have a situation in which
 no node can become the master due to inconsistent data, we will have
@@ -396,11 +390,11 @@ to standard logging calls, and only the setup will be custom.</p>
 <p>With this change, we will remove the separate debug/info/error logs,
 and instead have always one logfile per daemon model:</p>
 <ul class="simple">
-<li>master-daemon.log for the master daemon</li>
-<li>node-daemon.log for the node daemon (this is the same as in 1.2)</li>
-<li>rapi-daemon.log for the RAPI daemon logs</li>
-<li>rapi-access.log, an additional log file for the RAPI that will be
-in the standard HTTP log format for possible parsing by other tools</li>
+<li><p>master-daemon.log for the master daemon</p></li>
+<li><p>node-daemon.log for the node daemon (this is the same as in 1.2)</p></li>
+<li><p>rapi-daemon.log for the RAPI daemon logs</p></li>
+<li><p>rapi-access.log, an additional log file for the RAPI that will be
+in the standard HTTP log format for possible parsing by other tools</p></li>
 </ul>
 <p>Since the <a class="reference internal" href="glossary.html#term-watcher"><span class="xref std std-term">watcher</span></a> will only submit jobs to the master for
 startup of the instances, its log file will contain less information
@@ -422,29 +416,29 @@ overhead should be minimal.</p>
 touching the cluster configuration model. The reasons we have not
 chosen this approach is:</p>
 <ul class="simple">
-<li>the speed of reading and unserializing the cluster state
+<li><p>the speed of reading and unserializing the cluster state
 today is not small enough that we can ignore it; the addition of
 the job queue will make the startup cost even higher. While this
 runtime cost is low, it can be on the order of a few seconds on
 bigger clusters, which for very quick commands is comparable to
-the actual duration of the computation itself</li>
-<li>individual commands would make it harder to implement a
+the actual duration of the computation itself</p></li>
+<li><p>individual commands would make it harder to implement a
 fire-and-forget job request, along the lines “start this
 instance but do not wait for it to finish”; it would require a
 model of backgrounding the operation and other things that are
-much better served by a daemon-based model</li>
+much better served by a daemon-based model</p></li>
 </ul>
 <p>Another area of discussion is moving away from Twisted in this new
 implementation. While Twisted has its advantages, there are also many
 disadvantages to using it:</p>
 <ul class="simple">
-<li>first and foremost, it’s not a library, but a framework; thus, if
+<li><p>first and foremost, it’s not a library, but a framework; thus, if
 you use twisted, all the code needs to be ‘twiste-ized’ and written
 in an asynchronous manner, using deferreds; while this method works,
 it’s not a common way to code and it requires that the entire process
 workflow is based around a single <em>reactor</em> (Twisted name for a main
-loop)</li>
-<li>the more advanced granular locking that we want to implement would
+loop)</p></li>
+<li><p>the more advanced granular locking that we want to implement would
 require, if written in the async-manner, deep integration with the
 Twisted stack, to such an extend that business-logic is inseparable
 from the protocol coding; we felt that this is an unreasonable
@@ -454,7 +448,7 @@ comparison, the threaded approach combined with HTTPs protocol
 required (for the first iteration) absolutely no changes from the 1.2
 code, and later changes for optimizing the inter-node RPC calls
 required just syntactic changes (e.g.  <code class="docutils literal notranslate"><span class="pre">rpc.call_...</span></code> to
-<code class="docutils literal notranslate"><span class="pre">self.rpc.call_...</span></code>)</li>
+<code class="docutils literal notranslate"><span class="pre">self.rpc.call_...</span></code>)</p></li>
 </ul>
 <p>Another issue is with the Twisted API stability - during the Ganeti
 1.x lifetime, we had to to implement many times workarounds to changes
@@ -472,9 +466,9 @@ concurrently run operations don’t step on each other toes and break the
 cluster.</p>
 <p>This design addresses how we are going to deal with locking so that:</p>
 <ul class="simple">
-<li>we preserve data coherency</li>
-<li>we prevent deadlocks</li>
-<li>we prevent job starvation</li>
+<li><p>we preserve data coherency</p></li>
+<li><p>we prevent deadlocks</p></li>
+<li><p>we prevent job starvation</p></li>
 </ul>
 <p>Reaching the maximum possible parallelism is a Non-Goal. We have
 identified a set of operations that are currently bottlenecks and need
@@ -488,12 +482,12 @@ synchronization lock needed internally by the code is outside its scope.</p>
 <h5>Library details<a class="headerlink" href="#library-details" title="Permalink to this headline">¶</a></h5>
 <p>The proposed library has these features:</p>
 <ul class="simple">
-<li>internally managing all the locks, making the implementation
-transparent from their usage</li>
-<li>automatically grabbing multiple locks in the right order (avoid
-deadlock)</li>
-<li>ability to transparently handle conversion to more granularity</li>
-<li>support asynchronous operation (future goal)</li>
+<li><p>internally managing all the locks, making the implementation
+transparent from their usage</p></li>
+<li><p>automatically grabbing multiple locks in the right order (avoid
+deadlock)</p></li>
+<li><p>ability to transparently handle conversion to more granularity</p></li>
+<li><p>support asynchronous operation (future goal)</p></li>
 </ul>
 <p>Locking will be valid only on the master node and will not be a
 distributed operation. Therefore, in case of master failure, the
@@ -515,9 +509,9 @@ order will be checked for, and fail.</p>
 <h5>The Locks<a class="headerlink" href="#the-locks" title="Permalink to this headline">¶</a></h5>
 <p>At the first stage we have decided to provide the following locks:</p>
 <ul class="simple">
-<li>One “config file” lock</li>
-<li>One lock per node in the cluster</li>
-<li>One lock per instance in the cluster</li>
+<li><p>One “config file” lock</p></li>
+<li><p>One lock per node in the cluster</p></li>
+<li><p>One lock per instance in the cluster</p></li>
 </ul>
 <p>All the instance locks will need to be taken before the node locks, and
 the node locks before the config lock. Locks will need to be acquired at
@@ -526,9 +520,9 @@ will be dealt within the locking library, which, for simplicity, will
 just use alphabetical order.</p>
 <p>Each lock has the following three possible statuses:</p>
 <ul class="simple">
-<li>unlocked (anyone can grab the lock)</li>
-<li>shared (anyone can grab/have the lock but only in shared mode)</li>
-<li>exclusive (no one else can grab/have the lock)</li>
+<li><p>unlocked (anyone can grab the lock)</p></li>
+<li><p>shared (anyone can grab/have the lock but only in shared mode)</p></li>
+<li><p>exclusive (no one else can grab/have the lock)</p></li>
 </ul>
 </div>
 <div class="section" id="handling-conversion-to-more-granularity">
@@ -575,9 +569,9 @@ fail if the request is impossible or somehow erroneous.</p>
 <p>In the future we may want to implement different types of asynchronous
 operations such as:</p>
 <ul class="simple">
-<li>try to acquire this lock set and fail if not possible</li>
-<li>try to acquire one of these lock sets and return the first one you
-were able to get (or after a timeout) (select/poll like)</li>
+<li><p>try to acquire this lock set and fail if not possible</p></li>
+<li><p>try to acquire one of these lock sets and return the first one you
+were able to get (or after a timeout) (select/poll like)</p></li>
 </ul>
 <p>These operations can be used to prioritize operations based on available
 locks, rather than making them just blindly queue for acquiring them.
@@ -661,31 +655,30 @@ will generate N opcodes of type replace disks).</p>
 <div class="section" id="job-executionlife-of-a-ganeti-job">
 <h5>Job execution—“Life of a Ganeti job”<a class="headerlink" href="#job-executionlife-of-a-ganeti-job" title="Permalink to this headline">¶</a></h5>
 <ol class="arabic simple">
-<li>Job gets submitted by the client. A new job identifier is generated
+<li><p>Job gets submitted by the client. A new job identifier is generated
 and assigned to the job. The job is then automatically replicated
-<a class="footnote-reference" href="#replic" id="id4">[2]</a> to all nodes in the cluster. The identifier is returned to
-the client.</li>
-<li>A pool of worker threads waits for new jobs. If all are busy, the job
+<a class="footnote-reference brackets" href="#replic" id="id4">2</a> to all nodes in the cluster. The identifier is returned to
+the client.</p></li>
+<li><p>A pool of worker threads waits for new jobs. If all are busy, the job
 has to wait and the first worker finishing its work will grab it.
-Otherwise any of the waiting threads will pick up the new job.</li>
-<li>Client waits for job status updates by calling a waiting RPC
+Otherwise any of the waiting threads will pick up the new job.</p></li>
+<li><p>Client waits for job status updates by calling a waiting RPC
 function. Log message may be shown to the user. Until the job is
-started, it can also be canceled.</li>
-<li>As soon as the job is finished, its final result and status can be
-retrieved from the server.</li>
-<li>If the client archives the job, it gets moved to a history directory.
-There will be a method to archive all jobs older than a a given age.</li>
+started, it can also be canceled.</p></li>
+<li><p>As soon as the job is finished, its final result and status can be
+retrieved from the server.</p></li>
+<li><p>If the client archives the job, it gets moved to a history directory.
+There will be a method to archive all jobs older than a a given age.</p></li>
 </ol>
-<table class="docutils footnote" frame="void" id="replic" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>We need replication in order to maintain the consistency
+<dl class="footnote brackets">
+<dt class="label" id="replic"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>We need replication in order to maintain the consistency
 across all nodes in the system; the master node only differs in the
 fact that now it is running the master daemon, but it if fails and we
 do a master failover, the jobs are still visible on the new master
-(though marked as failed).</td></tr>
-</tbody>
-</table>
+(though marked as failed).</p>
+</dd>
+</dl>
 <p>Failures to replicate a job to other nodes will be only flagged as
 errors in the master daemon log if more than half of the nodes failed,
 otherwise we ignore the failure, and rely on the fact that the next
@@ -700,18 +693,18 @@ list and jobs themselves at master daemon startup.</p>
 using JSON (standard serialization mechanism in Ganeti).</p>
 <p>The choice of storing each job in its own file was made because:</p>
 <ul class="simple">
-<li>a file can be atomically replaced</li>
-<li>a file can easily be replicated to other nodes</li>
-<li>checking consistency across nodes can be implemented very easily,
-since all job files should be (at a given moment in time) identical</li>
+<li><p>a file can be atomically replaced</p></li>
+<li><p>a file can easily be replicated to other nodes</p></li>
+<li><p>checking consistency across nodes can be implemented very easily,
+since all job files should be (at a given moment in time) identical</p></li>
 </ul>
 <p>The other possible choices that were discussed and discounted were:</p>
 <ul class="simple">
-<li>single big file with all job data: not feasible due to difficult
-updates</li>
-<li>in-process databases: hard to replicate the entire database to the
+<li><p>single big file with all job data: not feasible due to difficult
+updates</p></li>
+<li><p>in-process databases: hard to replicate the entire database to the
 other nodes, and replicating individual operations does not mean wee
-keep consistency</li>
+keep consistency</p></li>
 </ul>
 </div>
 <div class="section" id="queue-structure">
@@ -741,54 +734,54 @@ is used for the whole job queue.</p>
 <div class="section" id="internal-rpc">
 <h5>Internal RPC<a class="headerlink" href="#internal-rpc" title="Permalink to this headline">¶</a></h5>
 <p>RPC calls available between Ganeti master and node daemons:</p>
-<dl class="docutils">
-<dt>jobqueue_update(file_name, content)</dt>
-<dd>Writes a file in the job queue directory.</dd>
-<dt>jobqueue_purge()</dt>
-<dd>Cleans the job queue directory completely, including archived job.</dd>
-<dt>jobqueue_rename(old, new)</dt>
-<dd>Renames a file in the job queue directory.</dd>
+<dl class="simple">
+<dt>jobqueue_update(file_name, content)</dt><dd><p>Writes a file in the job queue directory.</p>
+</dd>
+<dt>jobqueue_purge()</dt><dd><p>Cleans the job queue directory completely, including archived job.</p>
+</dd>
+<dt>jobqueue_rename(old, new)</dt><dd><p>Renames a file in the job queue directory.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="client-rpc">
 <h5>Client RPC<a class="headerlink" href="#client-rpc" title="Permalink to this headline">¶</a></h5>
 <p>RPC between Ganeti clients and the Ganeti master daemon supports the
 following operations:</p>
-<dl class="docutils">
-<dt>SubmitJob(ops)</dt>
-<dd>Submits a list of opcodes and returns the job identifier. The
+<dl class="simple">
+<dt>SubmitJob(ops)</dt><dd><p>Submits a list of opcodes and returns the job identifier. The
 identifier is guaranteed to be unique during the lifetime of a
-cluster.</dd>
-<dt>WaitForJobChange(job_id, fields, […], timeout)</dt>
-<dd>This function waits until a job changes or a timeout expires. The
+cluster.</p>
+</dd>
+<dt>WaitForJobChange(job_id, fields, […], timeout)</dt><dd><p>This function waits until a job changes or a timeout expires. The
 condition for when a job changed is defined by the fields passed and
-the last log message received.</dd>
-<dt>QueryJobs(job_ids, fields)</dt>
-<dd>Returns field values for the job identifiers passed.</dd>
-<dt>CancelJob(job_id)</dt>
-<dd>Cancels the job specified by identifier. This operation may fail if
-the job is already running, canceled or finished.</dd>
-<dt>ArchiveJob(job_id)</dt>
-<dd>Moves a job into the …/archive/ directory. This operation will fail if
-the job has not been canceled or finished.</dd>
+the last log message received.</p>
+</dd>
+<dt>QueryJobs(job_ids, fields)</dt><dd><p>Returns field values for the job identifiers passed.</p>
+</dd>
+<dt>CancelJob(job_id)</dt><dd><p>Cancels the job specified by identifier. This operation may fail if
+the job is already running, canceled or finished.</p>
+</dd>
+<dt>ArchiveJob(job_id)</dt><dd><p>Moves a job into the …/archive/ directory. This operation will fail if
+the job has not been canceled or finished.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="job-and-opcode-status">
 <h5>Job and opcode status<a class="headerlink" href="#job-and-opcode-status" title="Permalink to this headline">¶</a></h5>
 <p>Each job and each opcode has, at any time, one of the following states:</p>
-<dl class="docutils">
-<dt>Queued</dt>
-<dd>The job/opcode was submitted, but did not yet start.</dd>
-<dt>Waiting</dt>
-<dd>The job/opcode is waiting for a lock to proceed.</dd>
-<dt>Running</dt>
-<dd>The job/opcode is running.</dd>
-<dt>Canceled</dt>
-<dd>The job/opcode was canceled before it started.</dd>
-<dt>Success</dt>
-<dd>The job/opcode ran and finished successfully.</dd>
-<dt>Error</dt>
-<dd>The job/opcode was aborted with an error.</dd>
+<dl class="simple">
+<dt>Queued</dt><dd><p>The job/opcode was submitted, but did not yet start.</p>
+</dd>
+<dt>Waiting</dt><dd><p>The job/opcode is waiting for a lock to proceed.</p>
+</dd>
+<dt>Running</dt><dd><p>The job/opcode is running.</p>
+</dd>
+<dt>Canceled</dt><dd><p>The job/opcode was canceled before it started.</p>
+</dd>
+<dt>Success</dt><dd><p>The job/opcode ran and finished successfully.</p>
+</dd>
+<dt>Error</dt><dd><p>The job/opcode was aborted with an error.</p>
+</dd>
 </dl>
 <p>If the master is aborted while a job is running, the job will be set to
 the Error status once the master started again.</p>
@@ -813,32 +806,28 @@ way to prevent new jobs entering the queue.</p>
 <p>Across all cluster configuration data, we have multiple classes of
 parameters:</p>
 <ol class="upperalpha simple">
-<li>cluster-wide parameters (e.g. name of the cluster, the master);
+<li><p>cluster-wide parameters (e.g. name of the cluster, the master);
 these are the ones that we have today, and are unchanged from the
-current model</li>
-<li>node parameters</li>
-<li>instance specific parameters, e.g. the name of disks (LV), that
-cannot be shared with other instances</li>
-<li>instance parameters, that are or can be the same for many
+current model</p></li>
+<li><p>node parameters</p></li>
+<li><p>instance specific parameters, e.g. the name of disks (LV), that
+cannot be shared with other instances</p></li>
+<li><p>instance parameters, that are or can be the same for many
 instances, but are not hypervisor related; e.g. the number of VCPUs,
-or the size of memory</li>
-<li>instance parameters that are hypervisor specific (e.g. kernel_path
-or PAE mode)</li>
+or the size of memory</p></li>
+<li><p>instance parameters that are hypervisor specific (e.g. kernel_path
+or PAE mode)</p></li>
 </ol>
 <p>The following definitions for instance parameters will be used below:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">hypervisor parameter:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">a hypervisor parameter (or hypervisor specific parameter) is defined
+<dl class="field-list">
+<dt class="field-odd">hypervisor parameter</dt>
+<dd class="field-odd"><p>a hypervisor parameter (or hypervisor specific parameter) is defined
 as a parameter that is interpreted by the hypervisor support code in
 Ganeti and usually is specific to a particular hypervisor (like the
-kernel path for <a class="reference internal" href="glossary.html#term-pvm"><span class="xref std std-term">PVM</span></a> which makes no sense for <a class="reference internal" href="glossary.html#term-hvm"><span class="xref std std-term">HVM</span></a>).</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">backend parameter:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">a backend parameter is defined as an instance parameter that can be
+kernel path for <a class="reference internal" href="glossary.html#term-PVM"><span class="xref std std-term">PVM</span></a> which makes no sense for <a class="reference internal" href="glossary.html#term-HVM"><span class="xref std std-term">HVM</span></a>).</p>
+</dd>
+<dt class="field-even">backend parameter</dt>
+<dd class="field-even"><p>a backend parameter is defined as an instance parameter that can be
 shared among a list of instances, and is either generic enough not
 to be tied to a given hypervisor or cannot influence at all the
 hypervisor behaviour.</p>
@@ -846,15 +835,12 @@ hypervisor behaviour.</p>
 <p>All these parameters will be encoded into constants.py with the prefix
 “BE_” and the whole list of parameters will exist in the set
 “BES_PARAMETERS”</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">proper parameter:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last">a parameter whose value is unique to the instance (e.g. the name of a
+</dd>
+<dt class="field-odd">proper parameter</dt>
+<dd class="field-odd"><p>a parameter whose value is unique to the instance (e.g. the name of a
 LV, or the MAC of a NIC)</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>As a general rule, for all kind of parameters, “None” (or in
 JSON-speak, “nil”) will no longer be a valid value for a parameter. As
 such, only non-default parameters will be saved as part of objects in
@@ -865,11 +851,11 @@ the serialization step, reducing the size of the serialized format.</p>
 Cluster object. In addition, two new attributes at this level will
 hold defaults for the instances:</p>
 <ul class="simple">
-<li>hvparams, a dictionary indexed by hypervisor type, holding default
+<li><p>hvparams, a dictionary indexed by hypervisor type, holding default
 values for hypervisor parameters that are not defined/overridden by
-the instances of this hypervisor type</li>
-<li>beparams, a dictionary holding (for 2.0) a single element ‘default’,
-which holds the default value for backend parameters</li>
+the instances of this hypervisor type</p></li>
+<li><p>beparams, a dictionary holding (for 2.0) a single element ‘default’,
+which holds the default value for backend parameters</p></li>
 </ul>
 </div>
 <div class="section" id="node-parameters">
@@ -905,27 +891,27 @@ exported as of the same type).</p>
 <p>Starting from the 1.2 list of instance parameters, here is how they
 will be mapped to the three classes of parameters:</p>
 <ul class="simple">
-<li>name (P)</li>
-<li>primary_node (P)</li>
-<li>os (P)</li>
-<li>hypervisor (P)</li>
-<li>status (P)</li>
-<li>memory (BE)</li>
-<li>vcpus (BE)</li>
-<li>nics (P)</li>
-<li>disks (P)</li>
-<li>disk_template (P)</li>
-<li>network_port (P)</li>
-<li>kernel_path (HV)</li>
-<li>initrd_path (HV)</li>
-<li>hvm_boot_order (HV)</li>
-<li>hvm_acpi (HV)</li>
-<li>hvm_pae (HV)</li>
-<li>hvm_cdrom_image_path (HV)</li>
-<li>hvm_nic_type (HV)</li>
-<li>hvm_disk_type (HV)</li>
-<li>vnc_bind_address (HV)</li>
-<li>serial_no (P)</li>
+<li><p>name (P)</p></li>
+<li><p>primary_node (P)</p></li>
+<li><p>os (P)</p></li>
+<li><p>hypervisor (P)</p></li>
+<li><p>status (P)</p></li>
+<li><p>memory (BE)</p></li>
+<li><p>vcpus (BE)</p></li>
+<li><p>nics (P)</p></li>
+<li><p>disks (P)</p></li>
+<li><p>disk_template (P)</p></li>
+<li><p>network_port (P)</p></li>
+<li><p>kernel_path (HV)</p></li>
+<li><p>initrd_path (HV)</p></li>
+<li><p>hvm_boot_order (HV)</p></li>
+<li><p>hvm_acpi (HV)</p></li>
+<li><p>hvm_pae (HV)</p></li>
+<li><p>hvm_cdrom_image_path (HV)</p></li>
+<li><p>hvm_nic_type (HV)</p></li>
+<li><p>hvm_disk_type (HV)</p></li>
+<li><p>vnc_bind_address (HV)</p></li>
+<li><p>serial_no (P)</p></li>
 </ul>
 </div>
 <div class="section" id="parameter-validation">
@@ -934,38 +920,35 @@ will be mapped to the three classes of parameters:</p>
 be required from the hypervisor support implementations in Ganeti.</p>
 <p>The hypervisor support  implementation API will be extended with the
 following features:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">PARAMETERS:</th><td class="field-body">class-level attribute holding the list of valid parameters
-for this hypervisor</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">CheckParamSyntax(hvparams):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">checks that the given parameters are
+<dl class="field-list simple">
+<dt class="field-odd">PARAMETERS</dt>
+<dd class="field-odd"><p>class-level attribute holding the list of valid parameters
+for this hypervisor</p>
+</dd>
+<dt class="field-even">CheckParamSyntax(hvparams)</dt>
+<dd class="field-even"><p>checks that the given parameters are
 valid (as in the names are valid) for this hypervisor; usually just
 comparing <code class="docutils literal notranslate"><span class="pre">hvparams.keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">cls.PARAMETERS</span></code>; this is a class
 method that can be called from within master code (i.e. cmdlib) and
-should be safe to do so</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">ValidateParameters(hvparams):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">verifies the values of the provided
+should be safe to do so</p>
+</dd>
+<dt class="field-odd">ValidateParameters(hvparams)</dt>
+<dd class="field-odd"><p>verifies the values of the provided
 parameters against this hypervisor; this is a method that will be
 called on the target node, from backend.py code, and as such can
-make node-specific checks (e.g. kernel_path checking)</td>
-</tr>
-</tbody>
-</table>
+make node-specific checks (e.g. kernel_path checking)</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="default-value-application">
 <h5>Default value application<a class="headerlink" href="#default-value-application" title="Permalink to this headline">¶</a></h5>
 <p>The application of defaults to an instance is done in the Cluster
 object, via two new methods as follows:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Cluster.FillHV(instance)</span></code>, returns ‘filled’ hvparams dict, based on
-instance’s hvparams and cluster’s <code class="docutils literal notranslate"><span class="pre">hvparams[instance.hypervisor]</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Cluster.FillBE(instance,</span> <span class="pre">be_type=&quot;default&quot;)</span></code>, which returns the
-beparams dict, based on the instance and cluster beparams</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cluster.FillHV(instance)</span></code>, returns ‘filled’ hvparams dict, based on
+instance’s hvparams and cluster’s <code class="docutils literal notranslate"><span class="pre">hvparams[instance.hypervisor]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cluster.FillBE(instance,</span> <span class="pre">be_type=&quot;default&quot;)</span></code>, which returns the
+beparams dict, based on the instance and cluster beparams</p></li>
 </ul>
 <p>The FillHV/BE transformations will be used, for example, in the
 RpcRunner when sending an instance for activation/stop, and the sent
@@ -978,16 +961,16 @@ know about defaults).</p>
 <p>The parameter changes will have impact on the OpCodes, especially on
 the following ones:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code>, where the new hv and be parameters will be sent
+<li><p><code class="docutils literal notranslate"><span class="pre">OpInstanceCreate</span></code>, where the new hv and be parameters will be sent
 as dictionaries; note that all hv and be parameters are now optional,
-as the values can be instead taken from the cluster</li>
-<li><code class="docutils literal notranslate"><span class="pre">OpInstanceQuery</span></code>, where we have to be able to query these new
+as the values can be instead taken from the cluster</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpInstanceQuery</span></code>, where we have to be able to query these new
 parameters; the syntax for names will be <code class="docutils literal notranslate"><span class="pre">hvparam/$NAME</span></code> and
 <code class="docutils literal notranslate"><span class="pre">beparam/$NAME</span></code> for querying an individual parameter out of one
 dictionary, and <code class="docutils literal notranslate"><span class="pre">hvparams</span></code>, respectively <code class="docutils literal notranslate"><span class="pre">beparams</span></code>, for the whole
-dictionaries</li>
-<li><code class="docutils literal notranslate"><span class="pre">OpModifyInstance</span></code>, where the the modified parameters are sent as
-dictionaries</li>
+dictionaries</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpModifyInstance</span></code>, where the the modified parameters are sent as
+dictionaries</p></li>
 </ul>
 <p>Additionally, we will need new OpCodes to modify the cluster-level
 defaults for the be/hv sets of parameters.</p>
@@ -1032,29 +1015,29 @@ job and configuration data propagation.</p>
 cluster tries to maintain (preferably automatically).</p>
 <p>This will impact the cluster operations as follows:</p>
 <ul class="simple">
-<li>jobs and config data will be replicated only to a fixed set of nodes</li>
-<li>master fail-over will only be possible to a node in the candidate pool</li>
-<li>cluster verify needs changing to account for these two roles</li>
-<li>external scripts will no longer have access to the configuration
-file (this is not recommended anyway)</li>
+<li><p>jobs and config data will be replicated only to a fixed set of nodes</p></li>
+<li><p>master fail-over will only be possible to a node in the candidate pool</p></li>
+<li><p>cluster verify needs changing to account for these two roles</p></li>
+<li><p>external scripts will no longer have access to the configuration
+file (this is not recommended anyway)</p></li>
 </ul>
 <p>The caveats of this change are:</p>
 <ul class="simple">
-<li>if all candidates are lost (completely), cluster configuration is
-lost (but it should be backed up external to the cluster anyway)</li>
-<li>failed nodes which are candidate must be dealt with properly, so
+<li><p>if all candidates are lost (completely), cluster configuration is
+lost (but it should be backed up external to the cluster anyway)</p></li>
+<li><p>failed nodes which are candidate must be dealt with properly, so
 that we don’t lose too many candidates at the same time; this will be
-reported in cluster verify</li>
-<li>the ‘all equal’ concept of ganeti is no longer true</li>
-<li>the partial distribution of config data means that all nodes will
-have to revert to ssconf files for master info (as in 1.2)</li>
+reported in cluster verify</p></li>
+<li><p>the ‘all equal’ concept of ganeti is no longer true</p></li>
+<li><p>the partial distribution of config data means that all nodes will
+have to revert to ssconf files for master info (as in 1.2)</p></li>
 </ul>
 <p>Advantages:</p>
 <ul class="simple">
-<li>speed on a 100+ nodes simulated cluster is greatly enhanced, even
+<li><p>speed on a 100+ nodes simulated cluster is greatly enhanced, even
 for a simple operation; <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">remove</span></code> on a diskless instance
-remove goes from ~9seconds to ~2 seconds</li>
-<li>node failure of non-candidates will be less impacting on the cluster</li>
+remove goes from ~9seconds to ~2 seconds</p></li>
+<li><p>node failure of non-candidates will be less impacting on the cluster</p></li>
 </ul>
 <p>The default value for the candidate pool size will be set to 10 but
 this can be changed at cluster creation and modified any time later.</p>
@@ -1075,39 +1058,40 @@ RPC calls, will not be master candidates, and will not be able to host
 instances as primaries.</p>
 <p>Setting this attribute on a node:</p>
 <ul class="simple">
-<li>will not be allowed if the node is the master</li>
-<li>will not be allowed if the node has primary instances</li>
-<li>will cause the node to be demoted from the master candidate role (if
-it was), possibly causing another node to be promoted to that role</li>
+<li><p>will not be allowed if the node is the master</p></li>
+<li><p>will not be allowed if the node has primary instances</p></li>
+<li><p>will cause the node to be demoted from the master candidate role (if
+it was), possibly causing another node to be promoted to that role</p></li>
 </ul>
 <p>This attribute will impact the cluster operations as follows:</p>
 <ul class="simple">
-<li>querying these nodes for anything will fail instantly in the RPC
-library, with a specific RPC error (RpcResult.offline == True)</li>
-<li>they will be listed in the Other section of cluster verify</li>
+<li><p>querying these nodes for anything will fail instantly in the RPC
+library, with a specific RPC error (RpcResult.offline == True)</p></li>
+<li><p>they will be listed in the Other section of cluster verify</p></li>
 </ul>
 <p>The code is changed in the following ways:</p>
 <ul class="simple">
-<li>RPC calls were be converted to skip such nodes:<ul>
-<li>RpcRunner-instance-based RPC calls are easy to convert</li>
-<li>static/classmethod RPC calls are harder to convert, and were left
-alone</li>
+<li><p>RPC calls were be converted to skip such nodes:</p>
+<ul>
+<li><p>RpcRunner-instance-based RPC calls are easy to convert</p></li>
+<li><p>static/classmethod RPC calls are harder to convert, and were left
+alone</p></li>
 </ul>
 </li>
-<li>the RPC results were unified so that this new result state (offline)
-can be differentiated</li>
-<li>master voting still queries in repair nodes, as we need to ensure
+<li><p>the RPC results were unified so that this new result state (offline)
+can be differentiated</p></li>
+<li><p>master voting still queries in repair nodes, as we need to ensure
 consistency in case the (wrong) masters have old data, and nodes have
-come back from repairs</li>
+come back from repairs</p></li>
 </ul>
 <p>Caveats:</p>
 <ul class="simple">
-<li>some operation semantics are less clear (e.g. what to do on instance
+<li><p>some operation semantics are less clear (e.g. what to do on instance
 start with offline secondary?); for now, these will just fail as if
-the flag is not set (but faster)</li>
-<li>2-node cluster with one node offline needs manual startup of the
+the flag is not set (but faster)</p></li>
+<li><p>2-node cluster with one node offline needs manual startup of the
 master with a special flag to skip voting (as the master can’t get a
-quorum there)</li>
+quorum there)</p></li>
 </ul>
 <p>One of the advantages of implementing this flag is that it will allow
 in the future automation tools to automatically put the node in
@@ -1115,10 +1099,10 @@ repairs and recover from this state, and the code (should/will) handle
 this much better than just timing out. So, future possible
 improvements (for later versions):</p>
 <ul class="simple">
-<li>watcher will detect nodes which fail RPC calls, will attempt to ssh
-to them, if failure will put them offline</li>
-<li>watcher will try to ssh and query the offline nodes, if successful
-will take them off the repair list</li>
+<li><p>watcher will detect nodes which fail RPC calls, will attempt to ssh
+to them, if failure will put them offline</p></li>
+<li><p>watcher will try to ssh and query the offline nodes, if successful
+will take them off the repair list</p></li>
 </ul>
 <p>Alternatives considered: The RPC call model in 2.0 is, by default,
 much nicer - errors are logged in the background, and job/opcode
@@ -1132,13 +1116,13 @@ errors, but an offline node).</p>
 <p>Due to parallel execution of jobs in Ganeti 2.0, we could have the
 following situation:</p>
 <ul class="simple">
-<li>gnt-node migrate + failover is run</li>
-<li>gnt-node evacuate is run, which schedules a long-running 6-opcode
-job for the node</li>
-<li>partway through, a new job comes in that runs an iallocator script,
-which finds the above node as empty and a very good candidate</li>
-<li>gnt-node evacuate has finished, but now it has to be run again, to
-clean the above instance(s)</li>
+<li><p>gnt-node migrate + failover is run</p></li>
+<li><p>gnt-node evacuate is run, which schedules a long-running 6-opcode
+job for the node</p></li>
+<li><p>partway through, a new job comes in that runs an iallocator script,
+which finds the above node as empty and a very good candidate</p></li>
+<li><p>gnt-node evacuate has finished, but now it has to be run again, to
+clean the above instance(s)</p></li>
 </ul>
 <p>In order to prevent this situation, and to be able to get nodes into
 proper offline status easily, a new <em>drained</em> flag was added to the
@@ -1167,8 +1151,8 @@ and via RAPI, see the respective man pages for the exact names.</p>
 <h3><a class="toc-backref" href="#id18">Feature changes</a><a class="headerlink" href="#feature-changes" title="Permalink to this headline">¶</a></h3>
 <p>The main feature-level changes will be:</p>
 <ul class="simple">
-<li>a number of disk related changes</li>
-<li>removal of fixed two-disk, one-nic per instance limitation</li>
+<li><p>a number of disk related changes</p></li>
+<li><p>removal of fixed two-disk, one-nic per instance limitation</p></li>
 </ul>
 <div class="section" id="disk-handling-changes">
 <h4>Disk handling changes<a class="headerlink" href="#disk-handling-changes" title="Permalink to this headline">¶</a></h4>
@@ -1181,26 +1165,26 @@ needed.</p>
 ‘rare’ events, and that each of them needs to be manually handled in
 order to ensure data safety; however, both these assumptions are false:</p>
 <ul class="simple">
-<li>disk failures can be a common occurrence, based on usage patterns or
-cluster size</li>
-<li>our disk setup is robust enough (referring to DRBD8 + LVM) that we
-could automate more of the recovery</li>
+<li><p>disk failures can be a common occurrence, based on usage patterns or
+cluster size</p></li>
+<li><p>our disk setup is robust enough (referring to DRBD8 + LVM) that we
+could automate more of the recovery</p></li>
 </ul>
 <p>Note that we still don’t have fully-automated disk recovery as a goal,
 but our goal is to reduce the manual work needed.</p>
 <p>As such, we plan the following main changes:</p>
 <ul class="simple">
-<li>DRBD8 is much more flexible and stable than its previous version
+<li><p>DRBD8 is much more flexible and stable than its previous version
 (0.7), such that removing the support for the <code class="docutils literal notranslate"><span class="pre">remote_raid1</span></code>
-template and focusing only on DRBD8 is easier</li>
-<li>dynamic discovery of DRBD devices is not actually needed in a cluster
+template and focusing only on DRBD8 is easier</p></li>
+<li><p>dynamic discovery of DRBD devices is not actually needed in a cluster
 that where the DRBD namespace is controlled by Ganeti; switching to a
 static assignment (done at either instance creation time or change
 secondary time) will change the disk activation time from O(n) to
-O(1), which on big clusters is a significant gain</li>
-<li>remove the hard dependency on LVM (currently all available storage
+O(1), which on big clusters is a significant gain</p></li>
+<li><p>remove the hard dependency on LVM (currently all available storage
 types are ultimately backed by LVM volumes) by introducing file-based
-storage</li>
+storage</p></li>
 </ul>
 <p>Additionally, a number of smaller enhancements are also planned:
 - support variable number of disks
@@ -1208,13 +1192,13 @@ storage</li>
 <p>Future enhancements in the 2.x series, which do not require base design
 changes, might include:</p>
 <ul class="simple">
-<li>enhancement of the LVM allocation method in order to try to keep
+<li><p>enhancement of the LVM allocation method in order to try to keep
 all of an instance’s virtual disks on the same physical
-disks</li>
-<li>add support for DRBD8 authentication at handshake time in
-order to ensure each device connects to the correct peer</li>
-<li>remove the restrictions on failover only to the secondary
-which creates very strict rules on cluster allocation</li>
+disks</p></li>
+<li><p>add support for DRBD8 authentication at handshake time in
+order to ensure each device connects to the correct peer</p></li>
+<li><p>remove the restrictions on failover only to the secondary
+which creates very strict rules on cluster allocation</p></li>
 </ul>
 <div class="section" id="drbd-minor-allocation">
 <h5>DRBD minor allocation<a class="headerlink" href="#drbd-minor-allocation" title="Permalink to this headline">¶</a></h5>
@@ -1291,22 +1275,20 @@ steps needed. We can safely automate some of the steps, more
 specifically the <code class="docutils literal notranslate"><span class="pre">vgreduce</span> <span class="pre">--removemissing</span></code> using the following
 method:</p>
 <ol class="arabic simple">
-<li>check if all nodes have consistent volume groups</li>
-<li>if yes, and previous status was yes, do nothing</li>
-<li>if yes, and previous status was no, save status and restart</li>
-<li>if no, and previous status was no, do nothing</li>
-<li><dl class="first docutils">
-<dt>if no, and previous status was yes:</dt>
-<dd><ol class="first last arabic">
-<li>if more than one node is inconsistent, do nothing</li>
-<li><dl class="first docutils">
-<dt>if only one node is inconsistent:</dt>
-<dd><ol class="first last arabic">
-<li>run <code class="docutils literal notranslate"><span class="pre">vgreduce</span> <span class="pre">--removemissing</span></code></li>
-<li>log this occurrence in the Ganeti log in a form that
-can be used for monitoring</li>
-<li>[FUTURE] run <code class="docutils literal notranslate"><span class="pre">replace-disks</span></code> for all
-instances affected</li>
+<li><p>check if all nodes have consistent volume groups</p></li>
+<li><p>if yes, and previous status was yes, do nothing</p></li>
+<li><p>if yes, and previous status was no, save status and restart</p></li>
+<li><p>if no, and previous status was no, do nothing</p></li>
+<li><dl class="simple">
+<dt>if no, and previous status was yes:</dt><dd><ol class="arabic simple">
+<li><p>if more than one node is inconsistent, do nothing</p></li>
+<li><dl class="simple">
+<dt>if only one node is inconsistent:</dt><dd><ol class="arabic simple">
+<li><p>run <code class="docutils literal notranslate"><span class="pre">vgreduce</span> <span class="pre">--removemissing</span></code></p></li>
+<li><p>log this occurrence in the Ganeti log in a form that
+can be used for monitoring</p></li>
+<li><p>[FUTURE] run <code class="docutils literal notranslate"><span class="pre">replace-disks</span></code> for all
+instances affected</p></li>
 </ol>
 </dd>
 </dl>
@@ -1323,12 +1305,12 @@ instances affected</li>
 <em>failover to any</em> functionality, removing many of the layout
 restrictions of a cluster:</p>
 <ul class="simple">
-<li>the need to reserve memory on the current secondary: this gets reduced
-to a must to reserve memory anywhere on the cluster</li>
-<li>the need to first failover and then replace secondary for an
+<li><p>the need to reserve memory on the current secondary: this gets reduced
+to a must to reserve memory anywhere on the cluster</p></li>
+<li><p>the need to first failover and then replace secondary for an
 instance: with failover-to-any, we can directly failover to
 another node, which also does the replace disks at the same
-step</li>
+step</p></li>
 </ul>
 <p>In the following, we denote the current primary by P1, the current
 secondary by S1, and the new primary and secondaries by P2 and S2. P2
@@ -1336,24 +1318,24 @@ is fixed to the node the user chooses, but the choice of S2 can be
 made between P1 and S1. This choice can be constrained, depending on
 which of P1 and S1 has failed.</p>
 <ul class="simple">
-<li>if P1 has failed, then S1 must become S2, and live migration is not
-possible</li>
-<li>if S1 has failed, then P1 must become S2, and live migration could be
-possible (in theory, but this is not a design goal for 2.0)</li>
+<li><p>if P1 has failed, then S1 must become S2, and live migration is not
+possible</p></li>
+<li><p>if S1 has failed, then P1 must become S2, and live migration could be
+possible (in theory, but this is not a design goal for 2.0)</p></li>
 </ul>
 <p>The algorithm for performing the failover is straightforward:</p>
 <ul class="simple">
-<li>verify that S2 (the node the user has chosen to keep as secondary) has
-valid data (is consistent)</li>
-<li>tear down the current DRBD association and setup a DRBD pairing
+<li><p>verify that S2 (the node the user has chosen to keep as secondary) has
+valid data (is consistent)</p></li>
+<li><p>tear down the current DRBD association and setup a DRBD pairing
 between P2 (P2 is indicated by the user) and S2; since P2 has no data,
-it will start re-syncing from S2</li>
-<li>as soon as P2 is in state SyncTarget (i.e. after the resync has
+it will start re-syncing from S2</p></li>
+<li><p>as soon as P2 is in state SyncTarget (i.e. after the resync has
 started but before it has finished), we can promote it to primary role
-(r/w) and start the instance on P2</li>
-<li>as soon as the P2?S2 sync has finished, we can remove
+(r/w) and start the instance on P2</p></li>
+<li><p>as soon as the P2?S2 sync has finished, we can remove
 the old data on the old node that has not been chosen for
-S2</li>
+S2</p></li>
 </ul>
 <p>Caveats: during the P2?S2 sync, a (non-transient) network error
 will cause I/O errors on the instance, so (if a longer instance
@@ -1415,16 +1397,16 @@ changes.</p>
 The interface is composed by a series of scripts which get called with
 certain parameters to perform OS-dependent operations on the cluster.
 The current scripts are:</p>
-<dl class="docutils">
-<dt>create</dt>
-<dd>called when a new instance is added to the cluster</dd>
-<dt>export</dt>
-<dd>called to export an instance disk to a stream</dd>
-<dt>import</dt>
-<dd>called to import from a stream to a new instance</dd>
-<dt>rename</dt>
-<dd>called to perform the os-specific operations necessary for renaming an
-instance</dd>
+<dl class="simple">
+<dt>create</dt><dd><p>called when a new instance is added to the cluster</p>
+</dd>
+<dt>export</dt><dd><p>called to export an instance disk to a stream</p>
+</dd>
+<dt>import</dt><dd><p>called to import from a stream to a new instance</p>
+</dd>
+<dt>rename</dt><dd><p>called to perform the os-specific operations necessary for renaming an
+instance</p>
+</dd>
 </dl>
 <p>Currently these scripts suffer from the limitations of Ganeti 1.2: for
 example they accept exactly one block and one swap devices to operate
@@ -1455,21 +1437,21 @@ using only the information a script needs.</p>
 <h5>The Scripts<a class="headerlink" href="#the-scripts" title="Permalink to this headline">¶</a></h5>
 <p>As in Ganeti 1.2, every OS which wants to be installed in Ganeti needs
 to support the following functionality, through scripts:</p>
-<dl class="docutils">
-<dt>create:</dt>
-<dd>used to create a new instance running that OS. This script should
+<dl class="simple">
+<dt>create:</dt><dd><p>used to create a new instance running that OS. This script should
 prepare the block devices, and install them so that the new OS can
-boot under the specified hypervisor.</dd>
-<dt>export (optional):</dt>
-<dd>used to export an installed instance using the given OS to a format
-which can be used to import it back into a new instance.</dd>
-<dt>import (optional):</dt>
-<dd>used to import an exported instance into a new one. This script is
+boot under the specified hypervisor.</p>
+</dd>
+<dt>export (optional):</dt><dd><p>used to export an installed instance using the given OS to a format
+which can be used to import it back into a new instance.</p>
+</dd>
+<dt>import (optional):</dt><dd><p>used to import an exported instance into a new one. This script is
 similar to create, but the new instance should have the content of the
-export, rather than contain a pristine installation.</dd>
-<dt>rename (optional):</dt>
-<dd>used to perform the internal OS-specific operations needed to rename
-an instance.</dd>
+export, rather than contain a pristine installation.</p>
+</dd>
+<dt>rename (optional):</dt><dd><p>used to perform the internal OS-specific operations needed to rename
+an instance.</p>
+</dd>
 </dl>
 <p>If any optional script is not implemented Ganeti will refuse to perform
 the given operation on instances using the non-implementing OS. Of
@@ -1480,17 +1462,17 @@ support the either the export or the import operation but not both.</p>
 <p>We expect the following incompatibilities between the OS scripts for 1.2
 and the ones for 2.0:</p>
 <ul class="simple">
-<li>Input parameters: in 1.2 those were passed on the command line, in 2.0
+<li><p>Input parameters: in 1.2 those were passed on the command line, in 2.0
 we’ll use environment variables, as there will be a lot more
-information and not all OSes may care about all of it.</li>
-<li>Number of calls: export scripts will be called once for each device
+information and not all OSes may care about all of it.</p></li>
+<li><p>Number of calls: export scripts will be called once for each device
 the instance has, and import scripts once for every exported disk.
 Imported instances will be forced to have a number of disks greater or
-equal to the one of the export.</li>
-<li>Some scripts are not compulsory: if such a script is missing the
+equal to the one of the export.</p></li>
+<li><p>Some scripts are not compulsory: if such a script is missing the
 relevant operations will be forbidden for instances of that OS. This
 makes it easier to distinguish between unsupported operations and
-no-op ones (if any).</li>
+no-op ones (if any).</p></li>
 </ul>
 </div>
 <div class="section" id="input">
@@ -1498,44 +1480,44 @@ no-op ones (if any).</li>
 <p>Rather than using command line flags, as they do now, scripts will
 accept inputs from environment variables. We expect the following input
 values:</p>
-<dl class="docutils">
-<dt>OS_API_VERSION</dt>
-<dd>The version of the OS API that the following parameters comply with;
+<dl class="simple">
+<dt>OS_API_VERSION</dt><dd><p>The version of the OS API that the following parameters comply with;
 this is used so that in the future we could have OSes supporting
 multiple versions and thus Ganeti send the proper version in this
-parameter</dd>
-<dt>INSTANCE_NAME</dt>
-<dd>Name of the instance acted on</dd>
-<dt>HYPERVISOR</dt>
-<dd>The hypervisor the instance should run on (e.g. ‘xen-pvm’, ‘xen-hvm’,
-‘kvm’)</dd>
-<dt>DISK_COUNT</dt>
-<dd>The number of disks this instance will have</dd>
-<dt>NIC_COUNT</dt>
-<dd>The number of NICs this instance will have</dd>
-<dt>DISK_&lt;N&gt;_PATH</dt>
-<dd>Path to the Nth disk.</dd>
-<dt>DISK_&lt;N&gt;_ACCESS</dt>
-<dd>W if read/write, R if read only. OS scripts are not supposed to touch
-read-only disks, but will be passed them to know.</dd>
-<dt>DISK_&lt;N&gt;_FRONTEND_TYPE</dt>
-<dd>Type of the disk as seen by the instance. Can be ‘scsi’, ‘ide’,
-‘virtio’</dd>
-<dt>DISK_&lt;N&gt;_BACKEND_TYPE</dt>
-<dd>Type of the disk as seen from the node. Can be ‘block’, ‘<a class="reference external" href="file:loop">file:loop</a>’ or
-‘<a class="reference external" href="file:blktap">file:blktap</a>’</dd>
-<dt>NIC_&lt;N&gt;_MAC</dt>
-<dd>Mac address for the Nth network interface</dd>
-<dt>NIC_&lt;N&gt;_IP</dt>
-<dd>Ip address for the Nth network interface, if available</dd>
-<dt>NIC_&lt;N&gt;_BRIDGE</dt>
-<dd>Node bridge the Nth network interface will be connected to</dd>
-<dt>NIC_&lt;N&gt;_FRONTEND_TYPE</dt>
-<dd>Type of the Nth NIC as seen by the instance. For example ‘virtio’,
-‘rtl8139’, etc.</dd>
-<dt>DEBUG_LEVEL</dt>
-<dd>Whether more out should be produced, for debugging purposes. Currently
-the only valid values are 0 and 1.</dd>
+parameter</p>
+</dd>
+<dt>INSTANCE_NAME</dt><dd><p>Name of the instance acted on</p>
+</dd>
+<dt>HYPERVISOR</dt><dd><p>The hypervisor the instance should run on (e.g. ‘xen-pvm’, ‘xen-hvm’,
+‘kvm’)</p>
+</dd>
+<dt>DISK_COUNT</dt><dd><p>The number of disks this instance will have</p>
+</dd>
+<dt>NIC_COUNT</dt><dd><p>The number of NICs this instance will have</p>
+</dd>
+<dt>DISK_&lt;N&gt;_PATH</dt><dd><p>Path to the Nth disk.</p>
+</dd>
+<dt>DISK_&lt;N&gt;_ACCESS</dt><dd><p>W if read/write, R if read only. OS scripts are not supposed to touch
+read-only disks, but will be passed them to know.</p>
+</dd>
+<dt>DISK_&lt;N&gt;_FRONTEND_TYPE</dt><dd><p>Type of the disk as seen by the instance. Can be ‘scsi’, ‘ide’,
+‘virtio’</p>
+</dd>
+<dt>DISK_&lt;N&gt;_BACKEND_TYPE</dt><dd><p>Type of the disk as seen from the node. Can be ‘block’, ‘<a class="reference external" href="file:loop">file:loop</a>’ or
+‘<a class="reference external" href="file:blktap">file:blktap</a>’</p>
+</dd>
+<dt>NIC_&lt;N&gt;_MAC</dt><dd><p>Mac address for the Nth network interface</p>
+</dd>
+<dt>NIC_&lt;N&gt;_IP</dt><dd><p>Ip address for the Nth network interface, if available</p>
+</dd>
+<dt>NIC_&lt;N&gt;_BRIDGE</dt><dd><p>Node bridge the Nth network interface will be connected to</p>
+</dd>
+<dt>NIC_&lt;N&gt;_FRONTEND_TYPE</dt><dd><p>Type of the Nth NIC as seen by the instance. For example ‘virtio’,
+‘rtl8139’, etc.</p>
+</dd>
+<dt>DEBUG_LEVEL</dt><dd><p>Whether more out should be produced, for debugging purposes. Currently
+the only valid values are 0 and 1.</p>
+</dd>
 </dl>
 <p>These are only the basic variables we are thinking of now, but more
 may come during the implementation and they will be documented in the
@@ -1543,19 +1525,19 @@ may come during the implementation and they will be documented in the
 available to all scripts.</p>
 <p>Some scripts will need a few more information to work. These will have
 per-script variables, such as for example:</p>
-<dl class="docutils">
-<dt>OLD_INSTANCE_NAME</dt>
-<dd>rename: the name the instance should be renamed from.</dd>
-<dt>EXPORT_DEVICE</dt>
-<dd>export: device to be exported, a snapshot of the actual device. The
-data must be exported to stdout.</dd>
-<dt>EXPORT_INDEX</dt>
-<dd>export: sequential number of the instance device targeted.</dd>
-<dt>IMPORT_DEVICE</dt>
-<dd>import: device to send the data to, part of the new instance. The data
-must be imported from stdin.</dd>
-<dt>IMPORT_INDEX</dt>
-<dd>import: sequential number of the instance device targeted.</dd>
+<dl class="simple">
+<dt>OLD_INSTANCE_NAME</dt><dd><p>rename: the name the instance should be renamed from.</p>
+</dd>
+<dt>EXPORT_DEVICE</dt><dd><p>export: device to be exported, a snapshot of the actual device. The
+data must be exported to stdout.</p>
+</dd>
+<dt>EXPORT_INDEX</dt><dd><p>export: sequential number of the instance device targeted.</p>
+</dd>
+<dt>IMPORT_DEVICE</dt><dd><p>import: device to send the data to, part of the new instance. The data
+must be imported from stdin.</p>
+</dd>
+<dt>IMPORT_INDEX</dt><dd><p>import: sequential number of the instance device targeted.</p>
+</dd>
 </dl>
 <p>(Rationale for INSTANCE_NAME as an environment variable: the instance
 name is always needed and we could pass it on the command line. On the
@@ -1620,8 +1602,8 @@ daemon. Communication is done through the LUXI library to the master
 daemon. In order to keep communication asynchronous, RAPI processes two
 types of client requests:</p>
 <ul class="simple">
-<li>queries: server is able to answer immediately</li>
-<li>job submission: some time is required for a useful response</li>
+<li><p>queries: server is able to answer immediately</p></li>
+<li><p>job submission: some time is required for a useful response</p></li>
 </ul>
 <p>In the query case requested data is sent back to client in the HTTP
 response body. Typical examples of queries would be: list of nodes,
@@ -1642,10 +1624,10 @@ methods: GET, POST, DELETE, PUT.</p>
 <p>For example in Ganeti’s case we can have a set of URI:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances/{instancename}</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances/{instancename}/tag</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">/{clustername}/tag</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances/{instancename}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/{clustername}/instances/{instancename}/tag</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/{clustername}/tag</span></code></p></li>
 </ul>
 </div></blockquote>
 <p>A GET request to <code class="docutils literal notranslate"><span class="pre">/{clustername}/instances</span></code> will return the list of
@@ -1681,12 +1663,12 @@ poll periodically for updates to the job; an alternative would be to
 allow the client to request a callback, or a ‘wait for updates’ call.</p>
 <p>The callback model was not considered due to the following two issues:</p>
 <ul class="simple">
-<li>callbacks would require a new model of allowed callback URLs,
-together with a method of managing these</li>
-<li>callbacks only work when the client and the master are in the same
+<li><p>callbacks would require a new model of allowed callback URLs,
+together with a method of managing these</p></li>
+<li><p>callbacks only work when the client and the master are in the same
 security domain, and they fail in the other cases (e.g. when there is
 a firewall between the client and the RAPI daemon that only allows
-client-to-RAPI calls, which is usual in DMZ cases)</li>
+client-to-RAPI calls, which is usual in DMZ cases)</p></li>
 </ul>
 <p>The ‘wait for updates’ method is not suited to the HTTP protocol,
 where requests are supposed to be short-lived.</p>
@@ -1699,50 +1681,54 @@ handle instance resources like disks or network interfaces. This
 requires some noticeable changes in the way command line arguments are
 handled.</p>
 <ul class="simple">
-<li>extend and modify command line syntax to support new features</li>
-<li>ensure consistent patterns in command line arguments to reduce
-cognitive load</li>
+<li><p>extend and modify command line syntax to support new features</p></li>
+<li><p>ensure consistent patterns in command line arguments to reduce
+cognitive load</p></li>
 </ul>
 <p>The design changes that require these changes are, in no particular
 order:</p>
 <ul class="simple">
-<li>flexible instance disk handling: support a variable number of disks
-with varying properties per instance,</li>
-<li>flexible instance network interface handling: support a variable
-number of network interfaces with varying properties per instance</li>
-<li>multiple hypervisors: multiple hypervisors can be active on the same
-cluster, each supporting different parameters,</li>
-<li>support for device type CDROM (via ISO image)</li>
+<li><p>flexible instance disk handling: support a variable number of disks
+with varying properties per instance,</p></li>
+<li><p>flexible instance network interface handling: support a variable
+number of network interfaces with varying properties per instance</p></li>
+<li><p>multiple hypervisors: multiple hypervisors can be active on the same
+cluster, each supporting different parameters,</p></li>
+<li><p>support for device type CDROM (via ISO image)</p></li>
 </ul>
 <p>As such, there are several areas of Ganeti where the command line
 arguments will change:</p>
 <ul class="simple">
-<li>Cluster configuration<ul>
-<li>cluster initialization</li>
-<li>cluster default configuration</li>
+<li><p>Cluster configuration</p>
+<ul>
+<li><p>cluster initialization</p></li>
+<li><p>cluster default configuration</p></li>
 </ul>
 </li>
-<li>Instance configuration<ul>
-<li>handling of network cards for instances,</li>
-<li>handling of disks for instances,</li>
-<li>handling of CDROM devices and</li>
-<li>handling of hypervisor specific options.</li>
+<li><p>Instance configuration</p>
+<ul>
+<li><p>handling of network cards for instances,</p></li>
+<li><p>handling of disks for instances,</p></li>
+<li><p>handling of CDROM devices and</p></li>
+<li><p>handling of hypervisor specific options.</p></li>
 </ul>
 </li>
 </ul>
 <p>There are several areas of Ganeti where the command line arguments
 will change:</p>
 <ul class="simple">
-<li>Cluster configuration<ul>
-<li>cluster initialization</li>
-<li>cluster default configuration</li>
+<li><p>Cluster configuration</p>
+<ul>
+<li><p>cluster initialization</p></li>
+<li><p>cluster default configuration</p></li>
 </ul>
 </li>
-<li>Instance configuration<ul>
-<li>handling of network cards for instances,</li>
-<li>handling of disks for instances,</li>
-<li>handling of CDROM devices and</li>
-<li>handling of hypervisor specific options.</li>
+<li><p>Instance configuration</p>
+<ul>
+<li><p>handling of network cards for instances,</p></li>
+<li><p>handling of disks for instances,</p></li>
+<li><p>handling of CDROM devices and</p></li>
+<li><p>handling of hypervisor specific options.</p></li>
 </ul>
 </li>
 </ul>
@@ -1759,113 +1745,105 @@ class (disk or network) for each instance.</p>
 <p>The commands for gnt-instance will be modified and extended to allow
 for the new functionality:</p>
 <ul class="simple">
-<li>the add command will be extended to support the new device and
-hypervisor options,</li>
-<li>the modify command continues to handle all modifications to
+<li><p>the add command will be extended to support the new device and
+hypervisor options,</p></li>
+<li><p>the modify command continues to handle all modifications to
 instances, but will be extended with new arguments for handling
-devices.</li>
+devices.</p></li>
 </ul>
 </div>
 <div class="section" id="network-device-options">
 <h5>Network Device Options<a class="headerlink" href="#network-device-options" title="Permalink to this headline">¶</a></h5>
 <p>The generic format of the network device option is:</p>
 <blockquote>
-<div>–net $DEVNUM[:$OPTION=$VALUE][,$OPTION=VALUE]</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">$DEVNUM:</th><td class="field-body">device number, unsigned integer, starting at 0,</td>
-</tr>
-<tr class="field-even field"><th class="field-name">$OPTION:</th><td class="field-body">device option, string,</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">$VALUE:</th><td class="field-body">device option value, string.</td>
-</tr>
-</tbody>
-</table>
+<div><p>–net $DEVNUM[:$OPTION=$VALUE][,$OPTION=VALUE]</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">$DEVNUM</dt>
+<dd class="field-odd"><p>device number, unsigned integer, starting at 0,</p>
+</dd>
+<dt class="field-even">$OPTION</dt>
+<dd class="field-even"><p>device option, string,</p>
+</dd>
+<dt class="field-odd">$VALUE</dt>
+<dd class="field-odd"><p>device option value, string.</p>
+</dd>
+</dl>
 <p>Currently, the following device options will be defined (open to
 further changes):</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">mac:</th><td class="field-body">MAC address of the network interface, accepts either a valid
+<dl class="field-list simple">
+<dt class="field-odd">mac</dt>
+<dd class="field-odd"><p>MAC address of the network interface, accepts either a valid
 MAC address or the string ‘auto’. If ‘auto’ is specified, a new MAC
 address will be generated randomly. If the mac device option is not
-specified, the default value ‘auto’ is assumed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">bridge:</th><td class="field-body">network bridge the network interface is connected
+specified, the default value ‘auto’ is assumed.</p>
+</dd>
+<dt class="field-even">bridge</dt>
+<dd class="field-even"><p>network bridge the network interface is connected
 to. Accepts either a valid bridge name (the specified bridge must
 exist on the node(s)) as string or the string ‘auto’. If ‘auto’ is
 specified, the default brigde is used. If the bridge option is not
-specified, the default value ‘auto’ is assumed.</td>
-</tr>
-</tbody>
-</table>
+specified, the default value ‘auto’ is assumed.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="disk-device-options">
 <h5>Disk Device Options<a class="headerlink" href="#disk-device-options" title="Permalink to this headline">¶</a></h5>
 <p>The generic format of the disk device option is:</p>
 <blockquote>
-<div>–disk $DEVNUM[:$OPTION=$VALUE][,$OPTION=VALUE]</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">$DEVNUM:</th><td class="field-body">device number, unsigned integer, starting at 0,</td>
-</tr>
-<tr class="field-even field"><th class="field-name">$OPTION:</th><td class="field-body">device option, string,</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">$VALUE:</th><td class="field-body">device option value, string.</td>
-</tr>
-</tbody>
-</table>
+<div><p>–disk $DEVNUM[:$OPTION=$VALUE][,$OPTION=VALUE]</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">$DEVNUM</dt>
+<dd class="field-odd"><p>device number, unsigned integer, starting at 0,</p>
+</dd>
+<dt class="field-even">$OPTION</dt>
+<dd class="field-even"><p>device option, string,</p>
+</dd>
+<dt class="field-odd">$VALUE</dt>
+<dd class="field-odd"><p>device option value, string.</p>
+</dd>
+</dl>
 <p>Currently, the following device options will be defined (open to
 further changes):</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">size:</th><td class="field-body"><p class="first">size of the disk device, either a positive number, specifying
+<dl class="field-list">
+<dt class="field-odd">size</dt>
+<dd class="field-odd"><p>size of the disk device, either a positive number, specifying
 the disk size in mebibytes, or a number followed by a magnitude suffix
 (M for mebibytes, G for gibibytes). Also accepts the string ‘auto’ in
 which case the default disk size will be used. If the size option is
 not specified, ‘auto’ is assumed. This option is not valid for all
 disk layout types.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">access:</th><td class="field-body"><p class="first">access mode of the disk device, a single letter, valid values
+</dd>
+<dt class="field-even">access</dt>
+<dd class="field-even"><p>access mode of the disk device, a single letter, valid values
 are:</p>
 <ul class="simple">
-<li><em>w</em>: read/write access to the disk device or</li>
-<li><em>r</em>: read-only access to the disk device.</li>
+<li><p><em>w</em>: read/write access to the disk device or</p></li>
+<li><p><em>r</em>: read-only access to the disk device.</p></li>
 </ul>
 <p>If the access mode is not specified, the default mode of read/write
 access will be configured.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">path:</th><td class="field-body"><p class="first last">path to the image file for the disk device, string. No default
+</dd>
+<dt class="field-odd">path</dt>
+<dd class="field-odd"><p>path to the image file for the disk device, string. No default
 exists. This option is not valid for all disk layout types.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </div>
 <div class="section" id="adding-devices">
 <h5>Adding devices<a class="headerlink" href="#adding-devices" title="Permalink to this headline">¶</a></h5>
 <p>To add devices to an already existing instance, use the device type
 specific option to gnt-instance modify. Currently, there are two
 device type specific options supported:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">–net:</th><td class="field-body">for network interface cards</td>
-</tr>
-<tr class="field-even field"><th class="field-name">–disk:</th><td class="field-body">for disk devices</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">–net</dt>
+<dd class="field-odd"><p>for network interface cards</p>
+</dd>
+<dt class="field-even">–disk</dt>
+<dd class="field-even"><p>for disk devices</p>
+</dd>
+</dl>
 <p>The syntax to the device specific options is similar to the generic
 device options, but instead of specifying a device number like for
 gnt-instance add, you specify the magic string add. The new device
@@ -1890,16 +1868,14 @@ number 3 will be removed.</p>
 <p>Modifying devices is also done with device type specific options to
 the gnt-instance modify command. There are currently two device type
 options supported:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">–net:</th><td class="field-body">for network interface cards</td>
-</tr>
-<tr class="field-even field"><th class="field-name">–disk:</th><td class="field-body">for disk devices</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">–net</dt>
+<dd class="field-odd"><p>for network interface cards</p>
+</dd>
+<dt class="field-even">–disk</dt>
+<dd class="field-even"><p>for disk devices</p>
+</dd>
+</dl>
 <p>The syntax to the device specific options is similar to the generic
 device options. The device number you specify identifies the device to
 be modified.</p>
@@ -1918,19 +1894,18 @@ option is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--hypervisor $HYPERVISOR:$OPTION=$VALUE[,$OPTION=$VALUE]
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">$HYPERVISOR:</th><td class="field-body">symbolic name of the hypervisor to use, string,
-has to match the supported hypervisors. Example: xen-pvm</td>
-</tr>
-<tr class="field-even field"><th class="field-name">$OPTION:</th><td class="field-body">hypervisor option name, string</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">$VALUE:</th><td class="field-body">hypervisor option value, string</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">$HYPERVISOR</dt>
+<dd class="field-odd"><p>symbolic name of the hypervisor to use, string,
+has to match the supported hypervisors. Example: xen-pvm</p>
+</dd>
+<dt class="field-even">$OPTION</dt>
+<dd class="field-even"><p>hypervisor option name, string</p>
+</dd>
+<dt class="field-odd">$VALUE</dt>
+<dd class="field-odd"><p>hypervisor option value, string</p>
+</dd>
+</dl>
 <p>The hypervisor option for an instance can be set on instance creation
 time via the <code class="docutils literal notranslate"><span class="pre">gnt-instance</span> <span class="pre">add</span></code> command. If the hypervisor for an
 instance is not specified upon instance creation, the default
@@ -1955,47 +1930,45 @@ separated list of option-value pairs.</p>
 <p>The command for gnt-cluster will be extended to allow setting and
 changing the default parameters of the cluster:</p>
 <ul class="simple">
-<li>The init command will be extend to support the defaults option to
-set the cluster defaults upon cluster initialization.</li>
-<li>The modify command will be added to modify the cluster
+<li><p>The init command will be extend to support the defaults option to
+set the cluster defaults upon cluster initialization.</p></li>
+<li><p>The modify command will be added to modify the cluster
 parameters. It will support the –defaults option to change the
-cluster defaults.</li>
+cluster defaults.</p></li>
 </ul>
 <p>Cluster defaults</p>
 <p>The generic format of the cluster default setting option is:</p>
 <blockquote>
-<div>–defaults $OPTION=$VALUE[,$OPTION=$VALUE]</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">$OPTION:</th><td class="field-body">cluster default option, string,</td>
-</tr>
-<tr class="field-even field"><th class="field-name">$VALUE:</th><td class="field-body">cluster default option value, string.</td>
-</tr>
-</tbody>
-</table>
+<div><p>–defaults $OPTION=$VALUE[,$OPTION=$VALUE]</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">$OPTION</dt>
+<dd class="field-odd"><p>cluster default option, string,</p>
+</dd>
+<dt class="field-even">$VALUE</dt>
+<dd class="field-even"><p>cluster default option value, string.</p>
+</dd>
+</dl>
 <p>Currently, the following cluster default options are defined (open to
 further changes):</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">hypervisor:</th><td class="field-body">the default hypervisor to use for new instances,
+<dl class="field-list simple">
+<dt class="field-odd">hypervisor</dt>
+<dd class="field-odd"><p>the default hypervisor to use for new instances,
 string. Must be a valid hypervisor known to and supported by the
-cluster.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">disksize:</th><td class="field-body">the disksize for newly created instance disks, where
+cluster.</p>
+</dd>
+<dt class="field-even">disksize</dt>
+<dd class="field-even"><p>the disksize for newly created instance disks, where
 applicable. Must be either a positive number, in which case the unit
 of megabyte is assumed, or a positive number followed by a supported
-magnitude symbol (M for megabyte or G for gigabyte).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">bridge:</th><td class="field-body">the default network bridge to use for newly created instance
+magnitude symbol (M for megabyte or G for gigabyte).</p>
+</dd>
+<dt class="field-odd">bridge</dt>
+<dd class="field-odd"><p>the default network bridge to use for newly created instance
 network interfaces, string. Must be a valid bridge name of a bridge
-existing on the node(s).</td>
-</tr>
-</tbody>
-</table>
+existing on the node(s).</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="hypervisor-cluster-defaults">
 <h5>Hypervisor cluster defaults<a class="headerlink" href="#hypervisor-cluster-defaults" title="Permalink to this headline">¶</a></h5>
@@ -2004,19 +1977,18 @@ option is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--hypervisor-defaults $HYPERVISOR:$OPTION=$VALUE[,$OPTION=$VALUE]
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">$HYPERVISOR:</th><td class="field-body">symbolic name of the hypervisor whose defaults you want
-to set, string</td>
-</tr>
-<tr class="field-even field"><th class="field-name">$OPTION:</th><td class="field-body">cluster default option, string,</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">$VALUE:</th><td class="field-body">cluster default option value, string.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">$HYPERVISOR</dt>
+<dd class="field-odd"><p>symbolic name of the hypervisor whose defaults you want
+to set, string</p>
+</dd>
+<dt class="field-even">$OPTION</dt>
+<dd class="field-even"><p>cluster default option, string,</p>
+</dd>
+<dt class="field-odd">$VALUE</dt>
+<dd class="field-odd"><p>cluster default option value, string.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -2024,6 +1996,7 @@ to set, string</td>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -2168,17 +2141,15 @@ to set, string</td>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -2192,12 +2163,13 @@ to set, string</td>
         <li class="right" >
           <a href="index.html" title="Welcome to Ganeti’s documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 2.0 design</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

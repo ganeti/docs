@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ganeti &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ganeti &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-backup" href="man-gnt-backup.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti-wconfd.html" title="ganeti-wconfd"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti</a></li> 
       </ul>
     </div>  
 
@@ -80,46 +79,46 @@ too.</p>
 <div class="section" id="node-roles">
 <h3>Node roles<a class="headerlink" href="#node-roles" title="Permalink to this headline">¶</a></h3>
 <p>Each node can be in one of the following states:</p>
-<dl class="docutils">
-<dt>master</dt>
-<dd>Only one node per cluster can be in this role, and this node is the
+<dl class="simple">
+<dt>master</dt><dd><p>Only one node per cluster can be in this role, and this node is the
 one holding the authoritative copy of the cluster configuration and
 the one that can actually execute commands on the cluster and
 modify the cluster state. See more details under
-<em>Cluster configuration</em>.</dd>
-<dt>master_candidate</dt>
-<dd>The node receives the full cluster configuration (configuration
+<em>Cluster configuration</em>.</p>
+</dd>
+<dt>master_candidate</dt><dd><p>The node receives the full cluster configuration (configuration
 file and jobs) and can become a master via the
 <strong>gnt-cluster master-failover</strong> command. Nodes that are not in this
-state cannot transition into the master role due to missing state.</dd>
-<dt>regular</dt>
-<dd>This the normal state of a node.</dd>
-<dt>drained</dt>
-<dd>Nodes in this state are functioning normally but cannot receive
+state cannot transition into the master role due to missing state.</p>
+</dd>
+<dt>regular</dt><dd><p>This the normal state of a node.</p>
+</dd>
+<dt>drained</dt><dd><p>Nodes in this state are functioning normally but cannot receive
 new instances, because the intention is to set them to <em>offline</em>
-or remove them from the cluster.</dd>
-<dt>offline</dt>
-<dd>These nodes are still recorded in the Ganeti configuration, but
+or remove them from the cluster.</p>
+</dd>
+<dt>offline</dt><dd><p>These nodes are still recorded in the Ganeti configuration, but
 except for the master daemon startup voting procedure, they are not
 actually contacted by the master. This state was added in order to
 allow broken machines (that are being repaired) to remain in the
-cluster but without creating problems.</dd>
+cluster but without creating problems.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="node-flags">
 <h3>Node flags<a class="headerlink" href="#node-flags" title="Permalink to this headline">¶</a></h3>
 <p>Nodes have two flags which govern which roles they can take:</p>
-<dl class="docutils">
-<dt>master_capable</dt>
-<dd>The node can become a master candidate, and furthermore the master
+<dl class="simple">
+<dt>master_capable</dt><dd><p>The node can become a master candidate, and furthermore the master
 node. When this flag is disabled, the node cannot become a
 candidate; this can be useful for special networking cases, or less
-reliable hardware.</dd>
-<dt>vm_capable</dt>
-<dd>The node can host instances. When enabled (the default state), the
+reliable hardware.</p>
+</dd>
+<dt>vm_capable</dt><dd><p>The node can host instances. When enabled (the default state), the
 node will participate in instance allocation, capacity calculation,
 etc. When disabled, the node will be skipped in many cluster checks
-and operations.</dd>
+and operations.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="node-parameters">
@@ -127,48 +126,48 @@ and operations.</dd>
 <p>The <code class="docutils literal notranslate"><span class="pre">ndparams</span></code> refer to node parameters. These can be set as defaults
 on cluster and node group levels, but they take effect for nodes only.</p>
 <p>Currently we support the following node parameters:</p>
-<dl class="docutils">
-<dt>oob_program</dt>
-<dd>Path to an executable used as the out-of-band helper. It needs to implement
+<dl class="simple">
+<dt>oob_program</dt><dd><p>Path to an executable used as the out-of-band helper. It needs to implement
 the corresponding interface; in particular, in needs to support the
 <code class="docutils literal notranslate"><span class="pre">power-on</span></code>, <code class="docutils literal notranslate"><span class="pre">power-off</span></code>, <code class="docutils literal notranslate"><span class="pre">power-cycle</span></code>, <code class="docutils literal notranslate"><span class="pre">power-status</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">health</span></code> commands. The full specification can be found in the
 <cite>Ganeti Node OOB Management Framework</cite> design document (implemented
 in Ganeti 2.4). Design documents are also available online on
-<code class="docutils literal notranslate"><span class="pre">http://docs.ganeti.org/</span></code>.</dd>
-<dt>spindle_count</dt>
-<dd>This should reflect the I/O performance of local attached storage
+<code class="docutils literal notranslate"><span class="pre">http://docs.ganeti.org/</span></code>.</p>
+</dd>
+<dt>spindle_count</dt><dd><p>This should reflect the I/O performance of local attached storage
 (e.g. for “file”, “plain” and “drbd” disk templates). It doesn’t
 have to match the actual spindle count of (any eventual) mechanical
 hard-drives, its meaning is site-local and just the relative values
-matter.</dd>
-<dt>exclusive_storage</dt>
-<dd>When this Boolean flag is enabled, physical disks on the node are
+matter.</p>
+</dd>
+<dt>exclusive_storage</dt><dd><p>When this Boolean flag is enabled, physical disks on the node are
 assigned to instance disks in an exclusive manner, so as to lower I/O
 interference between instances. This
 parameter cannot be set on individual nodes, as its value must be
 the same within each node group.
 The <cite>Partitioned Ganeti</cite> design document (implemented in Ganeti 2.9)
-contains more details.</dd>
-<dt>ovs</dt>
-<dd>When this Boolean flag is enabled, OpenvSwitch will be used as the
+contains more details.</p>
+</dd>
+<dt>ovs</dt><dd><p>When this Boolean flag is enabled, OpenvSwitch will be used as the
 network layer. This will cause the initialization of OpenvSwitch on
-the nodes when added to the cluster. Per default this is not enabled.</dd>
-<dt>ovs_name</dt>
-<dd>When ovs is enabled, this parameter will represent the name of the
-OpenvSwitch to generate and use. This will default to <cite>switch1</cite>.</dd>
-<dt>ovs_link</dt>
-<dd>When ovs is enabled, a OpenvSwitch will be initialized on new nodes
+the nodes when added to the cluster. Per default this is not enabled.</p>
+</dd>
+<dt>ovs_name</dt><dd><p>When ovs is enabled, this parameter will represent the name of the
+OpenvSwitch to generate and use. This will default to <cite>switch1</cite>.</p>
+</dd>
+<dt>ovs_link</dt><dd><p>When ovs is enabled, a OpenvSwitch will be initialized on new nodes
 and will have this as its connection to the outside. This parameter
 is not set per default, as it depends very much on the specific
-setup.</dd>
-<dt>ssh_port</dt>
-<dd>The port used for SSH connections to nodes belonging to a group. The user
+setup.</p>
+</dd>
+<dt>ssh_port</dt><dd><p>The port used for SSH connections to nodes belonging to a group. The user
 is responsible for properly configuring the ports of SSH daemons on
 machines prior to adding them as Ganeti nodes or when modifying the
 parameter value of an existing group. Note that using non-standard SSH
 ports and downgrading to an older Ganeti version that doesn’t support
-<code class="docutils literal notranslate"><span class="pre">ssh_port</span></code> will break the cluster.</dd>
+<code class="docutils literal notranslate"><span class="pre">ssh_port</span></code> will break the cluster.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="hypervisor-state-parameters">
@@ -176,23 +175,23 @@ ports and downgrading to an older Ganeti version that doesn’t support
 <p>Using <code class="docutils literal notranslate"><span class="pre">--hypervisor-state</span></code> you can set hypervisor specific states.</p>
 <p>The format is: <code class="docutils literal notranslate"><span class="pre">hypervisor:option=value</span></code>.</p>
 <p>Currently we support the following hypervisor state values:</p>
-<dl class="docutils">
-<dt>mem_total</dt>
-<dd>Total node memory, as discovered by this hypervisor</dd>
-<dt>mem_node</dt>
-<dd>Memory used by, or reserved for, the node itself; note that some
-hypervisors can report this in an authoritative way, other not</dd>
-<dt>mem_hv</dt>
-<dd>Memory used either by the hypervisor itself or lost due to instance
+<dl class="simple">
+<dt>mem_total</dt><dd><p>Total node memory, as discovered by this hypervisor</p>
+</dd>
+<dt>mem_node</dt><dd><p>Memory used by, or reserved for, the node itself; note that some
+hypervisors can report this in an authoritative way, other not</p>
+</dd>
+<dt>mem_hv</dt><dd><p>Memory used either by the hypervisor itself or lost due to instance
 allocation rounding; usually this cannot be precisely computed, but
-only roughly estimated</dd>
-<dt>cpu_total</dt>
-<dd>Total node cpu (core) count; usually this can be discovered
-automatically</dd>
-<dt>cpu_node</dt>
-<dd>Number of cores reserved for the node itself; this can either be
+only roughly estimated</p>
+</dd>
+<dt>cpu_total</dt><dd><p>Total node cpu (core) count; usually this can be discovered
+automatically</p>
+</dd>
+<dt>cpu_node</dt><dd><p>Number of cores reserved for the node itself; this can either be
 discovered or set manually. Only used for estimating how many VCPUs
-are left for instances</dd>
+are left for instances</p>
+</dd>
 </dl>
 <p>Note that currently this option is unused by Ganeti; values will be
 recorded but will not influence the Ganeti operation.</p>
@@ -204,15 +203,15 @@ recorded but will not influence the Ganeti operation.</p>
 currently just support <code class="docutils literal notranslate"><span class="pre">lvm</span></code> as storage type. The identifier in this
 case is the LVM volume group. By default this is <code class="docutils literal notranslate"><span class="pre">xenvg</span></code>.</p>
 <p>Currently we support the following hypervisor state values:</p>
-<dl class="docutils">
-<dt>disk_total</dt>
-<dd>Total disk size (usually discovered automatically)</dd>
-<dt>disk_reserved</dt>
-<dd>Reserved disk size; this is a lower limit on the free space, if such a
-limit is desired</dd>
-<dt>disk_overhead</dt>
-<dd>Disk that is expected to be used by other volumes (set via
-<code class="docutils literal notranslate"><span class="pre">reserved_lvs</span></code>); usually should be zero</dd>
+<dl class="simple">
+<dt>disk_total</dt><dd><p>Total disk size (usually discovered automatically)</p>
+</dd>
+<dt>disk_reserved</dt><dd><p>Reserved disk size; this is a lower limit on the free space, if such a
+limit is desired</p>
+</dd>
+<dt>disk_overhead</dt><dd><p>Disk that is expected to be used by other volumes (set via
+<code class="docutils literal notranslate"><span class="pre">reserved_lvs</span></code>); usually should be zero</p>
+</dd>
 </dl>
 <p>Note that currently this option is unused by Ganeti; values will be
 recorded but will not influence the Ganeti operation.</p>
@@ -221,7 +220,7 @@ recorded but will not influence the Ganeti operation.</p>
 <h3>Cluster configuration<a class="headerlink" href="#cluster-configuration" title="Permalink to this headline">¶</a></h3>
 <p>The master node keeps and is responsible for the cluster
 configuration. On the filesystem, this is stored under the
-<code class="docutils literal notranslate"><span class="pre">/var/ganeti/lib</span></code> directory, and if the master daemon is
+<code class="docutils literal notranslate"><span class="pre">/usr/local/var/ganeti/lib</span></code> directory, and if the master daemon is
 stopped it can be backed up normally.</p>
 <p>The master daemon will replicate the configuration database called
 <code class="docutils literal notranslate"><span class="pre">config.data</span></code> and the job files to all the nodes in the master
@@ -235,25 +234,25 @@ and start with a <code class="docutils literal notranslate"><span class="pre">ss
 or more opcodes, and the list of opcodes is processed serially. If
 an opcode fails, the entire job is failed and later opcodes are no
 longer processed. A job can be in one of the following states:</p>
-<dl class="docutils">
-<dt>queued</dt>
-<dd>The job has been submitted but not yet processed by the master
-daemon.</dd>
-<dt>waiting</dt>
-<dd>The job is waiting for for locks before the first of its opcodes.</dd>
-<dt>canceling</dt>
-<dd>The job is waiting for locks, but is has been marked for
+<dl class="simple">
+<dt>queued</dt><dd><p>The job has been submitted but not yet processed by the master
+daemon.</p>
+</dd>
+<dt>waiting</dt><dd><p>The job is waiting for for locks before the first of its opcodes.</p>
+</dd>
+<dt>canceling</dt><dd><p>The job is waiting for locks, but is has been marked for
 cancellation. It will not transition to <em>running</em>, but to
-<em>canceled</em>.</dd>
-<dt>running</dt>
-<dd>The job is currently being executed.</dd>
-<dt>canceled</dt>
-<dd>The job has been canceled before starting execution.</dd>
-<dt>success</dt>
-<dd>The job has finished successfully.</dd>
-<dt>error</dt>
-<dd>The job has failed during runtime, or the master daemon has been
-stopped during the job execution.</dd>
+<em>canceled</em>.</p>
+</dd>
+<dt>running</dt><dd><p>The job is currently being executed.</p>
+</dd>
+<dt>canceled</dt><dd><p>The job has been canceled before starting execution.</p>
+</dd>
+<dt>success</dt><dd><p>The job has finished successfully.</p>
+</dd>
+<dt>error</dt><dd><p>The job has failed during runtime, or the master daemon has been
+stopped during the job execution.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -265,8 +264,8 @@ stopped during the job execution.</dd>
 availability for a certain command can be checked by calling the
 command using the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option.</p>
 <div class="line-block">
-<div class="line"><strong>gnt-…</strong> <em>command</em> [–dry-run] [–priority {low | normal | high}]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line"><strong>gnt-…</strong> <em>command</em> [--dry-run] [--priority {low | normal | high}]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> option can be used to check whether an operation
 would succeed.</p>
@@ -280,16 +279,16 @@ job. It is inherited by all jobs created by this job and intended
 to make it easier to track the reason why any given job exists.
 Some reason strings have special meanings:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>rate-limit:<em>n</em>:<em>label</em></dt>
-<dd>Assigns the job to a rate-limiting bucket identified by the
+<div><dl class="simple">
+<dt>rate-limit:<em>n</em>:<em>label</em></dt><dd><p>Assigns the job to a rate-limiting bucket identified by the
 combination of (<code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>); that is <code class="docutils literal notranslate"><span class="pre">rate-limit:4:mylabel</span></code>
 and <code class="docutils literal notranslate"><span class="pre">rate-limit:5:mylabel</span></code> are different buckets.
 <code class="docutils literal notranslate"><span class="pre">n</span></code> must be a positive integer; <code class="docutils literal notranslate"><span class="pre">label</span></code> is an arbitrary ASCII
 string.
 The job scheduler will ensure that, for each rate-limiting bucket,
 there are at most <code class="docutils literal notranslate"><span class="pre">n</span></code> jobs belonging to that bucket that are
-running in parallel.</dd>
+running in parallel.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>The special-cases for reason strings above must be given in exactly
@@ -334,29 +333,29 @@ resources (e.g. <strong>gnt-instance list</strong>, <strong>gnt-node list</stron
 list</strong>, <strong>gnt-debug locks</strong>, etc.). For these commands, special states
 are denoted via a special symbol (in terse mode) or a string (in
 verbose mode):</p>
-<dl class="docutils">
-<dt>*, (offline)</dt>
-<dd>The node in question is marked offline, and thus it cannot be
+<dl class="simple">
+<dt>*, (offline)</dt><dd><p>The node in question is marked offline, and thus it cannot be
 queried for data. This result is persistent until the node is
-de-offlined.</dd>
-<dt>?, (nodata)</dt>
-<dd>Ganeti expected to receive an answer from this entity, but the
+de-offlined.</p>
+</dd>
+<dt>?, (nodata)</dt><dd><p>Ganeti expected to receive an answer from this entity, but the
 cluster RPC call failed and/or we didn’t receive a valid answer;
 usually more information is available in the node daemon log (if
 the node is alive) or the master daemon log. This result is
-transient, and re-running command might return a different result.</dd>
-<dt>-, (unavail)</dt>
-<dd>The respective field doesn’t make sense for this entity;
+transient, and re-running command might return a different result.</p>
+</dd>
+<dt>-, (unavail)</dt><dd><p>The respective field doesn’t make sense for this entity;
 e.g. querying a down instance for its current memory ‘live’ usage,
 or querying a non-vm_capable node for disk/memory data. This
 result is persistent, and until the entity state is changed via
-ganeti commands, the result won’t change.</dd>
-<dt>??, (unknown)</dt>
-<dd>This field is not known (note that this is different from entity
+ganeti commands, the result won’t change.</p>
+</dd>
+<dt>??, (unknown)</dt><dd><p>This field is not known (note that this is different from entity
 being unknown). Either you have mis-typed the field name, or you
 are using a field that the running Ganeti master daemon doesn’t
 know. This result is persistent, re-running the command won’t
-change it.</dd>
+change it.</p>
+</dd>
 </dl>
 <div class="section" id="key-value-parameters">
 <h3>Key-value parameters<a class="headerlink" href="#key-value-parameters" title="Permalink to this headline">¶</a></h3>
@@ -386,29 +385,29 @@ and a value (except for boolean checks), a field can not be compared to another
 field. Keywords are case-sensitive.</p>
 <p>Examples (see below for syntax details):</p>
 <ul>
-<li><p class="first">List webservers:</p>
+<li><p>List webservers:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">instance</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;name =* &quot;web*.example.com&quot;&#39;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">List instances with three or six virtual CPUs and whose primary
+<li><p>List instances with three or six virtual CPUs and whose primary
 nodes reside in groups starting with the string “rack”:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">instance</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">filter</span>
   <span class="s1">&#39;(be/vcpus == 3 or be/vcpus == 6) and pnode.group =~ m/^rack/&#39;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Nodes hosting primary instances:</p>
+<li><p>Nodes hosting primary instances:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">node</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;pinst_cnt != 0&#39;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Nodes which aren’t master candidates:</p>
+<li><p>Nodes which aren’t master candidates:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">node</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;not master_candidate&#39;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Short version for globbing patterns:</p>
+<li><p>Short version for globbing patterns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">instance</span> <span class="nb">list</span> <span class="s1">&#39;*.site1&#39;</span> <span class="s1">&#39;*.site2&#39;</span>
 </pre></div>
 </div>
@@ -458,29 +457,29 @@ nodes reside in groups starting with the string “rack”:</p>
 </pre></div>
 </div>
 <p>Operators:</p>
-<dl class="docutils">
-<dt><em>==</em></dt>
-<dd>Equality</dd>
-<dt><em>!=</em></dt>
-<dd>Inequality</dd>
-<dt><em>&lt;</em></dt>
-<dd>Less than</dd>
-<dt><em>&lt;=</em></dt>
-<dd>Less than or equal</dd>
-<dt><em>&gt;</em></dt>
-<dd>Greater than</dd>
-<dt><em>&gt;=</em></dt>
-<dd>Greater than or equal</dd>
-<dt><em>=~</em></dt>
-<dd>Pattern match using regular expression</dd>
-<dt><em>!~</em></dt>
-<dd>Logically negated from <em>=~</em></dd>
-<dt><em>=*</em></dt>
-<dd>Globbing, see <strong>glob</strong>(7), though only * and ? are supported</dd>
-<dt><em>!*</em></dt>
-<dd>Logically negated from <em>=*</em></dd>
-<dt><em>in</em>, <em>not in</em></dt>
-<dd>Collection membership and negation</dd>
+<dl class="simple">
+<dt><em>==</em></dt><dd><p>Equality</p>
+</dd>
+<dt><em>!=</em></dt><dd><p>Inequality</p>
+</dd>
+<dt><em>&lt;</em></dt><dd><p>Less than</p>
+</dd>
+<dt><em>&lt;=</em></dt><dd><p>Less than or equal</p>
+</dd>
+<dt><em>&gt;</em></dt><dd><p>Greater than</p>
+</dd>
+<dt><em>&gt;=</em></dt><dd><p>Greater than or equal</p>
+</dd>
+<dt><em>=~</em></dt><dd><p>Pattern match using regular expression</p>
+</dd>
+<dt><em>!~</em></dt><dd><p>Logically negated from <em>=~</em></p>
+</dd>
+<dt><em>=*</em></dt><dd><p>Globbing, see <strong>glob</strong>(7), though only * and ? are supported</p>
+</dd>
+<dt><em>!*</em></dt><dd><p>Logically negated from <em>=*</em></p>
+</dd>
+<dt><em>in</em>, <em>not in</em></dt><dd><p>Collection membership and negation</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -492,6 +491,7 @@ nodes reside in groups starting with the string “rack”:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -544,17 +544,15 @@ nodes reside in groups starting with the string “rack”:</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -568,13 +566,14 @@ nodes reside in groups starting with the string “rack”:</p>
         <li class="right" >
           <a href="man-ganeti-wconfd.html" title="ganeti-wconfd"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

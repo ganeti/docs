@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>hail &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hail &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="harep" href="man-harep.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-storage.html" title="gnt-storage"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hail</a></li> 
       </ul>
     </div>  
 
@@ -48,8 +47,8 @@
 </div>
 <div class="section" id="synopsis">
 <h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><strong>hail</strong> [ <strong>-t</strong> <em>file</em> | <strong>–simulate</strong> <em>spec</em> ] [options…] <em>input-file</em></p>
-<p><strong>hail</strong> –version</p>
+<p><strong>hail</strong> [ <strong>-t</strong> <em>file</em> | <strong>--simulate</strong> <em>spec</em> ] [options…] <em>input-file</em></p>
+<p><strong>hail</strong> --version</p>
 </div>
 <div class="section" id="description">
 <h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
@@ -105,63 +104,59 @@ compared lexicographically.</p>
 <div class="section" id="options">
 <h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p>The options that can be passed to the program are as follows:</p>
-<dl class="docutils">
-<dt>-p, –print-nodes</dt>
-<dd>Prints the before and after node status, in a format designed to allow
+<dl class="simple">
+<dt>-p, --print-nodes</dt><dd><p>Prints the before and after node status, in a format designed to allow
 the user to understand the node’s most important parameters. See the
-man page <strong>htools</strong>(1) for more details about this option.</dd>
-<dt>-t <em>datafile</em>, –text-data=*datafile*</dt>
-<dd>The name of the file holding cluster information, to override the data
+man page <strong>htools</strong>(1) for more details about this option.</p>
+</dd>
+<dt>-t <em>datafile</em>, --text-data=*datafile*</dt><dd><p>The name of the file holding cluster information, to override the data
 in the JSON request itself. This is mostly used for debugging. The
-format of the file is described in the man page <strong>htools</strong>(1).</dd>
-<dt>–mond=*yes|no*</dt>
-<dd>If given the program will query all MonDs to fetch data from the
-supported data collectors over the network.</dd>
-<dt>–mond-data <em>datafile</em></dt>
-<dd>The name of the file holding the data provided by MonD, to override
+format of the file is described in the man page <strong>htools</strong>(1).</p>
+</dd>
+<dt>--mond=*yes|no*</dt><dd><p>If given the program will query all MonDs to fetch data from the
+supported data collectors over the network.</p>
+</dd>
+<dt>--mond-data <em>datafile</em></dt><dd><p>The name of the file holding the data provided by MonD, to override
 querying MonDs over the network. This is mostly used for debugging. The
 file must be in JSON format and present an array of JSON objects ,
 one for every node, with two members. The first member named <code class="docutils literal notranslate"><span class="pre">node</span></code>
 is the name of the node and the second member named <code class="docutils literal notranslate"><span class="pre">reports</span></code> is an
 array of report objects. The report objects must be in the same format
-as produced by the monitoring agent.</dd>
-<dt>–ignore-dynu</dt>
-<dd>If given, all dynamic utilisation information will be ignored by
+as produced by the monitoring agent.</p>
+</dd>
+<dt>--ignore-dynu</dt><dd><p>If given, all dynamic utilisation information will be ignored by
 assuming it to be 0. This option will take precedence over any data
 passed by the MonDs with the <code class="docutils literal notranslate"><span class="pre">--mond</span></code> and the <code class="docutils literal notranslate"><span class="pre">--mond-data</span></code>
-option.</dd>
-<dt>–ignore-soft-errors</dt>
-<dd>If given, all checks for soft errors will be omitted when searching
+option.</p>
+</dd>
+<dt>--ignore-soft-errors</dt><dd><p>If given, all checks for soft errors will be omitted when searching
 for possible allocations. In this way a useful decision can be made
-even in overloaded clusters.</dd>
-<dt>–no-capacity-checks</dt>
-<dd>Normally, hail will only consider those allocations where all instances
+even in overloaded clusters.</p>
+</dd>
+<dt>--no-capacity-checks</dt><dd><p>Normally, hail will only consider those allocations where all instances
 of a node can immediately restarted should that node fail. With this
-option given, hail will check only N+1 redundancy for DRBD instances.</dd>
-<dt>–restrict-allocation-to</dt>
-<dd>Only consider alloctions on the specified nodes. This overrides any
-restrictions given in the allocation request.</dd>
-<dt>–simulate <em>description</em></dt>
-<dd>Backend specification: similar to the <strong>-t</strong> option, this allows
+option given, hail will check only N+1 redundancy for DRBD instances.</p>
+</dd>
+<dt>--restrict-allocation-to</dt><dd><p>Only consider alloctions on the specified nodes. This overrides any
+restrictions given in the allocation request.</p>
+</dd>
+<dt>--simulate <em>description</em></dt><dd><p>Backend specification: similar to the <strong>-t</strong> option, this allows
 overriding the cluster data with a simulated cluster. For details
-about the description, see the man page <strong>htools</strong>(1).</dd>
-<dt>-S <em>filename</em>, –save-cluster=*filename*</dt>
-<dd>If given, the state of the cluster before and the iallocator run is
+about the description, see the man page <strong>htools</strong>(1).</p>
+</dd>
+<dt>-S <em>filename</em>, --save-cluster=*filename*</dt><dd><p>If given, the state of the cluster before and the iallocator run is
 saved to a file named <em>filename.pre-ialloc</em>, respectively
 <em>filename.post-ialloc</em>. This allows re-feeding the cluster state to
-any of the htools utilities via the <code class="docutils literal notranslate"><span class="pre">-t</span></code> option.</dd>
+any of the htools utilities via the <code class="docutils literal notranslate"><span class="pre">-t</span></code> option.</p>
+</dd>
 </dl>
-<table class="docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-v</span></kbd></td>
-<td>This option increases verbosity and can be used for debugging in order
+<dl class="option-list">
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>This option increases verbosity and can be used for debugging in order
 to understand how the IAllocator request is parsed; it can be passed
-multiple times for successively more information.</td></tr>
-</tbody>
-</table>
+multiple times for successively more information.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="configuration">
 <h2>CONFIGURATION<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
@@ -169,8 +164,8 @@ multiple times for successively more information.</td></tr>
 details), the list of which instance tags to consider as exclusion
 tags will be read from the cluster tags, configured as follows:</p>
 <ul class="simple">
-<li>get all cluster tags starting with <strong>htools:iextags:</strong></li>
-<li>use their suffix as the prefix for exclusion tags</li>
+<li><p>get all cluster tags starting with <strong>htools:iextags:</strong></p></li>
+<li><p>use their suffix as the prefix for exclusion tags</p></li>
 </ul>
 <p>For example, given a cluster tag like <strong>htools:iextags:service</strong>,
 all instance tags of the form <strong>service:X</strong> will be considered as
@@ -196,6 +191,7 @@ be fixed in a future version.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -233,17 +229,15 @@ be fixed in a future version.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -257,13 +251,14 @@ be fixed in a future version.</p>
         <li class="right" >
           <a href="man-gnt-storage.html" title="gnt-storage"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hail</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

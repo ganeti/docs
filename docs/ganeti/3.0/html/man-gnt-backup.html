@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-backup &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-backup &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-cluster" href="man-gnt-cluster.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-ganeti.html" title="ganeti"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-backup</a></li> 
       </ul>
     </div>  
 
@@ -62,11 +61,11 @@ backing up instances and also to migrate them between clusters.</p>
 <h3>EXPORT<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>export</strong> {-n <em>node-name</em>}</div>
-<div class="line">[–shutdown-timeout=*N*] [–noshutdown] [–remove-instance]</div>
-<div class="line">[–ignore-remove-failures] [–submit] [–print-jobid]</div>
-<div class="line">[–transport-compression=*compression-mode*]</div>
-<div class="line">[–zero-free-space] [–zeroing-timeout-fixed]</div>
-<div class="line">[–zeroing-timeout-per-mib] [–long-sleep]</div>
+<div class="line">[--shutdown-timeout=*N*] [--noshutdown] [--remove-instance]</div>
+<div class="line">[--ignore-remove-failures] [--submit] [--print-jobid]</div>
+<div class="line">[--transport-compression=*compression-mode*]</div>
+<div class="line">[--zero-free-space] [--zeroing-timeout-fixed]</div>
+<div class="line">[--zeroing-timeout-per-mib] [--long-sleep]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Exports an instance to the target node. All the instance data and
@@ -115,17 +114,17 @@ options.</p>
 <h3>IMPORT<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><strong>import</strong></div>
-<div class="line">{-n <em>node[:secondary-node]</em> | –iallocator <em>name</em>}</div>
-<div class="line">[–compress=*compression-mode*]</div>
-<div class="line">[–disk <em>N</em>:size=*VAL* [,vg=*VG*], [,mode=*ro|rw*]…]</div>
-<div class="line">[–net <em>N</em> [:options…] | –no-nics]</div>
+<div class="line">{-n <em>node[:secondary-node]</em> | --iallocator <em>name</em>}</div>
+<div class="line">[--compress=*compression-mode*]</div>
+<div class="line">[--disk <em>N</em>:size=*VAL* [,vg=*VG*], [,mode=*ro|rw*]…]</div>
+<div class="line">[--net <em>N</em> [:options…] | --no-nics]</div>
 <div class="line">[-B <em>BEPARAMS</em>]</div>
 <div class="line">[-H <em>HYPERVISOR</em> [: option=*value*… ]]</div>
-<div class="line">[–src-node=*source-node*] [–src-dir=*source-dir*]</div>
+<div class="line">[--src-node=*source-node*] [--src-dir=*source-dir*]</div>
 <div class="line">[-t [diskless | plain | drbd | file]]</div>
-<div class="line">[–identify-defaults]</div>
-<div class="line">[–ignore-ipolicy]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line">[--identify-defaults]</div>
+<div class="line">[--ignore-ipolicy]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Imports a new instance from an export residing on <em>source-node</em> in
@@ -155,66 +154,66 @@ instance can be specified as <code class="docutils literal notranslate"><span cl
 option. By default, the NIC configuration of the original
 (exported) instance will be reused. Each NIC can take up to three
 parameters (all optional):</p>
-<dl class="docutils">
-<dt>mac</dt>
-<dd>either a value or <code class="docutils literal notranslate"><span class="pre">generate</span></code> to generate a new unique MAC, or
-<code class="docutils literal notranslate"><span class="pre">auto</span></code> to reuse the old MAC</dd>
-<dt>ip</dt>
-<dd>specifies the IP address assigned to the instance from the Ganeti
+<dl class="simple">
+<dt>mac</dt><dd><p>either a value or <code class="docutils literal notranslate"><span class="pre">generate</span></code> to generate a new unique MAC, or
+<code class="docutils literal notranslate"><span class="pre">auto</span></code> to reuse the old MAC</p>
+</dd>
+<dt>ip</dt><dd><p>specifies the IP address assigned to the instance from the Ganeti
 side (this is not necessarily what the instance will use, but what
-the node expects the instance to use)</dd>
-<dt>mode</dt>
-<dd>specifies the connection mode for this NIC: <code class="docutils literal notranslate"><span class="pre">routed</span></code>,
-<code class="docutils literal notranslate"><span class="pre">bridged</span></code> or <code class="docutils literal notranslate"><span class="pre">openvswitch</span></code></dd>
-<dt>link</dt>
-<dd>in bridged and openvswitch mode specifies the interface to attach
+the node expects the instance to use)</p>
+</dd>
+<dt>mode</dt><dd><p>specifies the connection mode for this NIC: <code class="docutils literal notranslate"><span class="pre">routed</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bridged</span></code> or <code class="docutils literal notranslate"><span class="pre">openvswitch</span></code></p>
+</dd>
+<dt>link</dt><dd><p>in bridged and openvswitch mode specifies the interface to attach
 this NIC to, in routed mode it’s intended to differentiate between
 different routing tables/instance groups (but the meaning is
 dependent on the network script in use, see <strong>gnt-cluster</strong>(8) for
-more details)</dd>
+more details)</p>
+</dd>
 </dl>
 <p>Of these <code class="docutils literal notranslate"><span class="pre">mode</span></code> and <code class="docutils literal notranslate"><span class="pre">link</span></code> are NIC parameters, and inherit their
 default at cluster level.</p>
 <p>If no network is desired for the instance, you should create a single
-empty NIC and delete it afterwards via <strong>gnt-instance modify –net
+empty NIC and delete it afterwards via <strong>gnt-instance modify --net
 delete</strong>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-B</span></code> option specifies the backend parameters for the
 instance. If no such parameters are specified, the values are
 inherited from the export. Possible parameters are:</p>
-<dl class="docutils">
-<dt>maxmem</dt>
-<dd>the maximum memory size of the instance; as usual, suffixes can be
-used to denote the unit, otherwise the value is taken in mebibytes</dd>
-<dt>minmem</dt>
-<dd>the minimum memory size of the instance; as usual, suffixes can be
-used to denote the unit, otherwise the value is taken in mebibytes</dd>
-<dt>vcpus</dt>
-<dd>the number of VCPUs to assign to the instance (if this value makes
-sense for the hypervisor)</dd>
-<dt>auto_balance</dt>
-<dd>whether the instance is considered in the N+1 cluster checks
-(enough redundancy in the cluster to survive a node failure)</dd>
-<dt>always_failover</dt>
-<dd><code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, whether the instance must be failed over
+<dl class="simple">
+<dt>maxmem</dt><dd><p>the maximum memory size of the instance; as usual, suffixes can be
+used to denote the unit, otherwise the value is taken in mebibytes</p>
+</dd>
+<dt>minmem</dt><dd><p>the minimum memory size of the instance; as usual, suffixes can be
+used to denote the unit, otherwise the value is taken in mebibytes</p>
+</dd>
+<dt>vcpus</dt><dd><p>the number of VCPUs to assign to the instance (if this value makes
+sense for the hypervisor)</p>
+</dd>
+<dt>auto_balance</dt><dd><p>whether the instance is considered in the N+1 cluster checks
+(enough redundancy in the cluster to survive a node failure)</p>
+</dd>
+<dt>always_failover</dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, whether the instance must be failed over
 (shut down and rebooted) always or it may be migrated (briefly
-suspended)</dd>
+suspended)</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">-t</span></code> options specifies the disk layout type for the instance.
 If not passed, the configuration of the original instance is used.
 The available choices are:</p>
-<dl class="docutils">
-<dt>diskless</dt>
-<dd>This creates an instance with no disks. Its useful for testing only
-(or other special cases).</dd>
-<dt>plain</dt>
-<dd>Disk devices will be logical volumes.</dd>
-<dt>drbd</dt>
-<dd>Disk devices will be drbd (version 8.x) on top of lvm volumes.</dd>
-<dt>file</dt>
-<dd>Disk devices will be backed up by files, under the cluster’s
+<dl class="simple">
+<dt>diskless</dt><dd><p>This creates an instance with no disks. Its useful for testing only
+(or other special cases).</p>
+</dd>
+<dt>plain</dt><dd><p>Disk devices will be logical volumes.</p>
+</dd>
+<dt>drbd</dt><dd><p>Disk devices will be drbd (version 8.x) on top of lvm volumes.</p>
+</dd>
+<dt>file</dt><dd><p>Disk devices will be backed up by files, under the cluster’s
 default file storage directory. By default, each instance will
 get a directory (as its own name) under this path, and each disk
-is stored as individual files in this (instance-specific) directory.</dd>
+is stored as individual files in this (instance-specific) directory.</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">--iallocator</span></code> option specifies the instance allocator plugin
 to use. If you pass in this option the allocator will select nodes
@@ -255,7 +254,7 @@ options.</p>
 <div class="section" id="list">
 <h3>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><strong>list</strong> [–node=*NODE*] [–no-headers] [–separator=*SEPARATOR*]</div>
+<div class="line"><strong>list</strong> [--node=*NODE*] [--no-headers] [--separator=*SEPARATOR*]</div>
 <div class="line">[-o <em>[+]FIELD,…</em>]</div>
 </div>
 <p>Lists the exports currently available in the default directory in
@@ -268,11 +267,11 @@ used between the output fields. Both these options are to help
 scripting.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span></code> option takes a comma-separated list of output fields.
 The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">export</span></code></dt>
-<dd>Export name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">node</span></code></dt>
-<dd>Node name</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">export</span></code></dt><dd><p>Export name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">node</span></code></dt><dd><p>Node name</p>
+</dd>
 </dl>
 <p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
 fields will be added to the default list. This allows one to quickly
@@ -299,6 +298,7 @@ instance, and not only the short hostname.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -336,17 +336,15 @@ instance, and not only the short hostname.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -360,13 +358,14 @@ instance, and not only the short hostname.</p>
         <li class="right" >
           <a href="man-ganeti.html" title="ganeti"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-backup</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

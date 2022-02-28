@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>gnt-instance &#8212; Ganeti 3.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gnt-instance &#8212; Ganeti 3.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gnt-job" href="man-gnt-job.html" />
@@ -30,8 +28,9 @@
         <li class="right" >
           <a href="man-gnt-group.html" title="gnt-group"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-instance</a></li> 
       </ul>
     </div>  
 
@@ -63,28 +62,28 @@ the Ganeti system.</p>
 <h4>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>add</strong></div>
-<div class="line">{-t|–disk-template {diskless | file | plain | drbd | rbd}}</div>
-<div class="line">{–disk=*N*: {size=*VAL*[,spindles=*VAL*] | adopt=*LV*}[,options…]</div>
+<div class="line">{-t|--disk-template {diskless | file | plain | drbd | rbd}}</div>
+<div class="line">{--disk=*N*: {size=*VAL*[,spindles=*VAL*] | adopt=*LV*}[,options…]</div>
 <div class="line-block">
 <div class="line">| {size=*VAL*,provider=*PROVIDER*}[,param=*value*… ][,options…]</div>
-<div class="line">| {-s|–os-size} <em>SIZE</em>}</div>
+<div class="line">| {-s|--os-size} <em>SIZE</em>}</div>
 </div>
-<div class="line">[–no-ip-check] [–no-name-check] [–no-conflicts-check]</div>
-<div class="line">[–no-start] [–no-install] [{–forthcoming | –commit}]</div>
-<div class="line">[–net=*N* [:options…] | –no-nics]</div>
-<div class="line">[{-B|–backend-parameters} <em>BEPARAMS</em>]</div>
-<div class="line">[{-H|–hypervisor-parameters} <em>HYPERVISOR</em> [: option=*value*… ]]</div>
-<div class="line">[{-O|–os-parameters} <em>param*=*value</em>… ]</div>
+<div class="line">[--no-ip-check] [--no-name-check] [--no-conflicts-check]</div>
+<div class="line">[--no-start] [--no-install] [{--forthcoming | --commit}]</div>
+<div class="line">[--net=*N* [:options…] | --no-nics]</div>
+<div class="line">[{-B|--backend-parameters} <em>BEPARAMS</em>]</div>
+<div class="line">[{-H|--hypervisor-parameters} <em>HYPERVISOR</em> [: option=*value*… ]]</div>
+<div class="line">[{-O|--os-parameters} <em>param*=*value</em>… ]</div>
 <div class="line">[–os-parameters-private <em>param*=*value</em>… ]</div>
 <div class="line">[–os-parameters-secret <em>param*=*value</em>… ]</div>
-<div class="line">[–file-storage-dir <em>dir_path</em>] [–file-driver {loop | blktap | blktap2}]</div>
-<div class="line">{{-n|–node} <em>node[:secondary-node]</em> | {-I|–iallocator} <em>name</em>
+<div class="line">[--file-storage-dir <em>dir_path</em>] [--file-driver {loop | blktap | blktap2}]</div>
+<div class="line">{{-n|--node} <em>node[:secondary-node]</em> | {-I|--iallocator} <em>name</em>
 | {-g|–node-group} <em>nodegroup</em>}</div>
-<div class="line">{{-o|–os-type} <em>os-type</em>}</div>
-<div class="line">[–submit] [–print-jobid]</div>
-<div class="line">[–ignore-ipolicy]</div>
-<div class="line">[–no-wait-for-sync]</div>
-<div class="line">[{-c|–communication=yes|no}]</div>
+<div class="line">{{-o|--os-type} <em>os-type</em>}</div>
+<div class="line">[--submit] [--print-jobid]</div>
+<div class="line">[--ignore-ipolicy]</div>
+<div class="line">[--no-wait-for-sync]</div>
+<div class="line">[{-c|--communication=yes|no}]</div>
 <div class="line">[{–tags [: <a class="reference external" href="tag:value">tag:value</a>… ]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
@@ -99,28 +98,28 @@ given) in mebibytes. You can also use one of the suffixes <em>m</em>, <em>g</em>
 <em>t</em> to specify the exact the units used; these suffixes map to
 mebibytes, gibibytes and tebibytes. Each disk can also take these
 parameters (all optional):</p>
-<dl class="docutils">
-<dt>spindles</dt>
-<dd>How many spindles (physical disks on the node) the disk should span.</dd>
-<dt>mode</dt>
-<dd>The access mode. Either <code class="docutils literal notranslate"><span class="pre">ro</span></code> (read-only) or the default <code class="docutils literal notranslate"><span class="pre">rw</span></code>
-(read-write).</dd>
-<dt>name</dt>
-<dd>This option specifies a name for the disk, which can be used as a disk
-identifier. An instance can not have two disks with the same name.</dd>
-<dt>vg</dt>
-<dd>The LVM volume group. This works only for LVM and DRBD devices.</dd>
-<dt>metavg</dt>
-<dd>This option specifies a different VG for the metadata device. This
+<dl class="simple">
+<dt>spindles</dt><dd><p>How many spindles (physical disks on the node) the disk should span.</p>
+</dd>
+<dt>mode</dt><dd><p>The access mode. Either <code class="docutils literal notranslate"><span class="pre">ro</span></code> (read-only) or the default <code class="docutils literal notranslate"><span class="pre">rw</span></code>
+(read-write).</p>
+</dd>
+<dt>name</dt><dd><p>This option specifies a name for the disk, which can be used as a disk
+identifier. An instance can not have two disks with the same name.</p>
+</dd>
+<dt>vg</dt><dd><p>The LVM volume group. This works only for LVM and DRBD devices.</p>
+</dd>
+<dt>metavg</dt><dd><p>This option specifies a different VG for the metadata device. This
 works only for DRBD devices. If not specified, the default metavg
 of the node-group (possibly inherited from the cluster-wide settings)
-will be used.</dd>
-<dt>access</dt>
-<dd>If ‘userspace’, instance will access this disk directly without going
+will be used.</p>
+</dd>
+<dt>access</dt><dd><p>If ‘userspace’, instance will access this disk directly without going
 through a block device, avoiding expensive context switches with
 kernel space. This option works only for RBD, Gluster and ExtStorage
 devices. If not specified, the default access of the node-group (possibly
-inherited from the cluster-wide settings) will be used.</dd>
+inherited from the cluster-wide settings) will be used.</p>
+</dd>
 </dl>
 <p>When creating ExtStorage disks, also arbitrary parameters can be passed,
 to the ExtStorage provider. Those parameters are passed as additional
@@ -160,11 +159,10 @@ command.</p>
 option. By default, one NIC is created for the instance, with a
 random MAC, and set up according to the cluster level NIC
 parameters. Each NIC can take these parameters (all optional):</p>
-<dl class="docutils">
-<dt>mac</dt>
-<dd>either a value or ‘generate’ to generate a new unique MAC</dd>
-<dt>ip</dt>
-<dd>specifies the IP address assigned to the instance from the Ganeti
+<dl class="simple">
+<dt>mac</dt><dd><p>either a value or ‘generate’ to generate a new unique MAC</p>
+</dd>
+<dt>ip</dt><dd><p>specifies the IP address assigned to the instance from the Ganeti
 side (this is not necessarily what the instance will use, but what
 the node expects the instance to use). Note that if an IP in the
 range of a network configured with <strong>gnt-network</strong>(8) is used,
@@ -175,35 +173,36 @@ to override this check. The special value <strong>pool</strong> causes Ganeti to
 select an IP from the network the NIC is or will be connected to.
 One can pick an externally reserved IP of a network along with
 <code class="docutils literal notranslate"><span class="pre">--no-conflict-check</span></code>. Note that this IP cannot be assigned to
-any other instance until it gets released.</dd>
-<dt>mode</dt>
-<dd>specifies the connection mode for this NIC: routed, bridged or
-openvswitch.</dd>
-<dt>link</dt>
-<dd>in bridged or openvswitch mode specifies the interface to attach
+any other instance until it gets released.</p>
+</dd>
+<dt>mode</dt><dd><p>specifies the connection mode for this NIC: routed, bridged or
+openvswitch.</p>
+</dd>
+<dt>link</dt><dd><p>in bridged or openvswitch mode specifies the interface to attach
 this NIC to, in routed mode it’s intended to differentiate between
 different routing tables/instance groups (but the meaning is
 dependent on the network script, see <strong>gnt-cluster</strong>(8) for more
 details). Note that openvswitch support is also hypervisor
-dependent.</dd>
-<dt>network</dt>
-<dd>derives the mode and the link from the settings of the network
+dependent.</p>
+</dd>
+<dt>network</dt><dd><p>derives the mode and the link from the settings of the network
 which is identified by its name. If the network option is chosen,
 link and mode must not be specified. Note that the mode and link
 depend on the network-to-nodegroup connection, thus allowing
 different nodegroups to be connected to the same network in
-different ways.</dd>
-<dt>name</dt>
-<dd>this option specifies a name for the NIC, which can be used as a NIC
-identifier. An instance can not have two NICs with the same name.</dd>
-<dt>vlan</dt>
-<dd>in bridged and openvswitch mode specifies the VLANs that the NIC
+different ways.</p>
+</dd>
+<dt>name</dt><dd><p>this option specifies a name for the NIC, which can be used as a NIC
+identifier. An instance can not have two NICs with the same name.</p>
+</dd>
+<dt>vlan</dt><dd><p>in bridged and openvswitch mode specifies the VLANs that the NIC
 will be connected to. To connect as an access port use <code class="docutils literal notranslate"><span class="pre">n</span></code> or
 <code class="docutils literal notranslate"><span class="pre">.n</span></code> with <strong>n</strong> being the VLAN ID. To connect as an trunk port
 use <code class="docutils literal notranslate"><span class="pre">:n[:n]</span></code>. A hybrid port can be created with <code class="docutils literal notranslate"><span class="pre">.n:n[:n]</span></code>. For
 bridged mode, the bridge needs VLAN filtering enabled. Assuming a
 bridge named <strong>gnt-br</strong>, this is accomplished by running <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span>
-<span class="pre">set</span> <span class="pre">dev</span> <span class="pre">gnt-br</span> <span class="pre">type</span> <span class="pre">bridge</span> <span class="pre">vlan_filtering</span> <span class="pre">1</span></code>.</dd>
+<span class="pre">set</span> <span class="pre">dev</span> <span class="pre">gnt-br</span> <span class="pre">type</span> <span class="pre">bridge</span> <span class="pre">vlan_filtering</span> <span class="pre">1</span></code>.</p>
+</dd>
 </dl>
 <p>Of these “mode” and “link” are NIC parameters, and inherit their
 default at cluster level.  Alternatively, if no network is desired for
@@ -230,23 +229,23 @@ implied by <code class="docutils literal notranslate"><span class="pre">--forthc
 <p>The <code class="docutils literal notranslate"><span class="pre">-B</span> <span class="pre">(--backend-parameters)</span></code> option specifies the backend
 parameters for the instance. If no such parameters are specified, the
 values are inherited from the cluster. Possible parameters are:</p>
-<dl class="docutils">
-<dt>maxmem</dt>
-<dd>the maximum memory size of the instance; as usual, suffixes can be
-used to denote the unit, otherwise the value is taken in mebibytes</dd>
-<dt>minmem</dt>
-<dd>the minimum memory size of the instance; as usual, suffixes can be
-used to denote the unit, otherwise the value is taken in mebibytes</dd>
-<dt>vcpus</dt>
-<dd>the number of VCPUs to assign to the instance (if this value makes
-sense for the hypervisor)</dd>
-<dt>auto_balance</dt>
-<dd>whether the instance is considered in the N+1 cluster checks
-(enough redundancy in the cluster to survive a node failure)</dd>
-<dt>always_failover</dt>
-<dd><code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, whether the instance must be failed over
+<dl class="simple">
+<dt>maxmem</dt><dd><p>the maximum memory size of the instance; as usual, suffixes can be
+used to denote the unit, otherwise the value is taken in mebibytes</p>
+</dd>
+<dt>minmem</dt><dd><p>the minimum memory size of the instance; as usual, suffixes can be
+used to denote the unit, otherwise the value is taken in mebibytes</p>
+</dd>
+<dt>vcpus</dt><dd><p>the number of VCPUs to assign to the instance (if this value makes
+sense for the hypervisor)</p>
+</dd>
+<dt>auto_balance</dt><dd><p>whether the instance is considered in the N+1 cluster checks
+(enough redundancy in the cluster to survive a node failure)</p>
+</dd>
+<dt>always_failover</dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, whether the instance must be failed over
 (shut down and rebooted) always or it may be migrated (briefly
-suspended)</dd>
+suspended)</p>
+</dd>
 </dl>
 <p>Note that before 2.6 Ganeti had a <code class="docutils literal notranslate"><span class="pre">memory</span></code> parameter, which was the
 only value of memory an instance could have. With the
@@ -260,295 +259,261 @@ other options are used (i.e. the invocation is just -H <em>NAME</em>) the
 instance will inherit the cluster options. The defaults below show the
 cluster defaults at cluster creation time.</p>
 <p>The possible hypervisor options are as follows:</p>
-<dl class="docutils">
-<dt>boot_order</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
+<dl>
+<dt>boot_order</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
 <p>A string value denoting the boot order. This has different meaning
 for the Xen HVM hypervisor and for the KVM one.</p>
 <p>For Xen HVM, The boot order is a string of letters listing the boot
 devices, with valid device letters being:</p>
-<dl class="docutils">
-<dt>a</dt>
-<dd>floppy drive</dd>
-<dt>c</dt>
-<dd>hard disk</dd>
-<dt>d</dt>
-<dd>CDROM drive</dd>
-<dt>n</dt>
-<dd>network boot (PXE)</dd>
+<dl class="simple">
+<dt>a</dt><dd><p>floppy drive</p>
+</dd>
+<dt>c</dt><dd><p>hard disk</p>
+</dd>
+<dt>d</dt><dd><p>CDROM drive</p>
+</dd>
+<dt>n</dt><dd><p>network boot (PXE)</p>
+</dd>
 </dl>
 <p>The default is not to set an HVM boot order, which is interpreted
 as ‘dc’.</p>
-<p class="last">For KVM the boot order is either “floppy”, “cdrom”, “disk” or
+<p>For KVM the boot order is either “floppy”, “cdrom”, “disk” or
 “network”.  Please note that older versions of KVM couldn’t netboot
 from virtio interfaces. This has been fixed in more recent versions
 and is confirmed to work at least with qemu-kvm 0.11.1. Also note
 that if you have set the <code class="docutils literal notranslate"><span class="pre">kernel_path</span></code> option, that will be used
 for booting, and this setting will be silently ignored.</p>
 </dd>
-<dt>blockdev_prefix</dt>
-<dd><p class="first">Valid for the Xen HVM and PVM hypervisors.</p>
-<p class="last">Relevant to non-pvops guest kernels, in which the disk device names
+<dt>blockdev_prefix</dt><dd><p>Valid for the Xen HVM and PVM hypervisors.</p>
+<p>Relevant to non-pvops guest kernels, in which the disk device names
 are given by the host.  Allows one to specify ‘xvd’, which helps run
 Red Hat based installers, driven by anaconda.</p>
 </dd>
-<dt>floppy_image_path</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">The path to a floppy disk image to attach to the instance.  This
+<dt>floppy_image_path</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>The path to a floppy disk image to attach to the instance.  This
 is useful to install Windows operating systems on Virt/IO disks
 because you can specify here the floppy for the drivers at
 installation time.</p>
 </dd>
-<dt>cdrom_image_path</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
-<p class="last">The path to a CDROM image to attach to the instance.</p>
+<dt>cdrom_image_path</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
+<p>The path to a CDROM image to attach to the instance.</p>
 </dd>
-<dt>cdrom2_image_path</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">The path to a second CDROM image to attach to the instance.
+<dt>cdrom2_image_path</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>The path to a second CDROM image to attach to the instance.
 <strong>NOTE</strong>: This image can’t be used to boot the system. To do that
 you have to use the ‘cdrom_image_path’ option.</p>
 </dd>
-<dt>nic_type</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
+<dt>nic_type</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
 <p>This parameter determines the way the network cards are presented
 to the instance. The possible options are:</p>
-<ul class="last simple">
-<li>rtl8139 (default for Xen HVM) (HVM &amp; KVM)</li>
-<li>ne2k_isa (HVM &amp; KVM)</li>
-<li>ne2k_pci (HVM &amp; KVM)</li>
-<li>i82551 (KVM)</li>
-<li>i82557b (KVM)</li>
-<li>i82559er (KVM)</li>
-<li>pcnet (KVM)</li>
-<li>e1000 (KVM)</li>
-<li>paravirtual (default for KVM) (HVM &amp; KVM)</li>
+<ul class="simple">
+<li><p>rtl8139 (default for Xen HVM) (HVM &amp; KVM)</p></li>
+<li><p>ne2k_isa (HVM &amp; KVM)</p></li>
+<li><p>ne2k_pci (HVM &amp; KVM)</p></li>
+<li><p>i82551 (KVM)</p></li>
+<li><p>i82557b (KVM)</p></li>
+<li><p>i82559er (KVM)</p></li>
+<li><p>pcnet (KVM)</p></li>
+<li><p>e1000 (KVM)</p></li>
+<li><p>paravirtual (default for KVM) (HVM &amp; KVM)</p></li>
 </ul>
 </dd>
-<dt>vif_type</dt>
-<dd><p class="first">Valid for the Xen HVM hypervisor.</p>
+<dt>vif_type</dt><dd><p>Valid for the Xen HVM hypervisor.</p>
 <p>This parameter specifies the vif type of the nic configuration
 of the instance. Unsetting the value leads to no type being specified
 in the configuration. Note that this parameter only takes effect when
 the ‘nic_type’ is not set. The possible options are:</p>
-<ul class="last simple">
-<li>ioemu</li>
-<li>vif</li>
+<ul class="simple">
+<li><p>ioemu</p></li>
+<li><p>vif</p></li>
 </ul>
 </dd>
-<dt>scsi_controller_type</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>scsi_controller_type</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This parameter specifies which type of SCSI controller to use.
 The possible options are:</p>
-<ul class="last simple">
-<li>lsi [default]</li>
-<li>megasas</li>
-<li>virtio-scsi-pci</li>
+<ul class="simple">
+<li><p>lsi [default]</p></li>
+<li><p>megasas</p></li>
+<li><p>virtio-scsi-pci</p></li>
 </ul>
 </dd>
-<dt>kvm_pci_reservations</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">The number of PCI slots that QEMU will manage implicitly. By default Ganeti
+<dt>kvm_pci_reservations</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>The number of PCI slots that QEMU will manage implicitly. By default Ganeti
 will let QEMU use the first 12 slots (i.e. PCI slots 0-11) on its own and
 will start adding disks and NICs from the 13rd slot (i.e. PCI slot 12)
 onwards. So by default one can add 20 PCI devices (32 - 12). To support more
 than that, this hypervisor parameter should be set accordingly (e.g. to 8).</p>
 </dd>
-<dt>disk_type</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
+<dt>disk_type</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
 <p>This parameter determines the way the disks are presented to the
 instance. The possible options are:</p>
-<ul class="last simple">
-<li>ioemu [default] (HVM &amp; KVM)</li>
-<li>paravirtual (HVM &amp; KVM)</li>
-<li>ide (KVM)</li>
-<li>scsi (KVM)</li>
-<li>sd (KVM)</li>
-<li>mtd (KVM)</li>
-<li>pflash (KVM)</li>
+<ul class="simple">
+<li><p>ioemu [default] (HVM &amp; KVM)</p></li>
+<li><p>paravirtual (HVM &amp; KVM)</p></li>
+<li><p>ide (KVM)</p></li>
+<li><p>scsi (KVM)</p></li>
+<li><p>sd (KVM)</p></li>
+<li><p>mtd (KVM)</p></li>
+<li><p>pflash (KVM)</p></li>
 </ul>
 </dd>
-<dt>cdrom_disk_type</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>cdrom_disk_type</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This parameter determines the way the cdroms disks are presented
 to the instance. The default behavior is to get the same value of
 the earlier parameter (disk_type). The possible options are:</p>
-<ul class="last simple">
-<li>paravirtual</li>
-<li>ide</li>
-<li>scsi</li>
-<li>sd</li>
-<li>mtd</li>
-<li>pflash</li>
+<ul class="simple">
+<li><p>paravirtual</p></li>
+<li><p>ide</p></li>
+<li><p>scsi</p></li>
+<li><p>sd</p></li>
+<li><p>mtd</p></li>
+<li><p>pflash</p></li>
 </ul>
 </dd>
-<dt>vnc_bind_address</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
-<p class="last">Specifies the address that the VNC listener for this instance
+<dt>vnc_bind_address</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
+<p>Specifies the address that the VNC listener for this instance
 should bind to. Valid values are IPv4 addresses. Use the address
 0.0.0.0 to bind to all available interfaces (this is the default)
 or specify the address of one of the interfaces on the node to
 restrict listening to that interface.</p>
 </dd>
-<dt>vnc_password_file</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
-<p class="last">Specifies the location of the file containing the password for
+<dt>vnc_password_file</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
+<p>Specifies the location of the file containing the password for
 connections using VNC. The default is a file named
 vnc-cluster-password which can be found in the configuration
 directory.</p>
 </dd>
-<dt>vnc_tls</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">A boolean option that controls whether the VNC connection is
+<dt>vnc_tls</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>A boolean option that controls whether the VNC connection is
 secured with TLS.</p>
 </dd>
-<dt>vnc_x509_path</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">vnc_tls</span></code> is enabled, this options specifies the path to the
+<dt>vnc_x509_path</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">vnc_tls</span></code> is enabled, this options specifies the path to the
 x509 certificate to use.</p>
 </dd>
-<dt>vnc_x509_verify</dt>
-<dd>Valid for the KVM hypervisor.</dd>
-<dt>spice_bind</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>vnc_x509_verify</dt><dd><p>Valid for the KVM hypervisor.</p>
+</dd>
+<dt>spice_bind</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Specifies the address or interface on which the SPICE server will
 listen. Valid values are:</p>
 <ul class="simple">
-<li>IPv4 addresses, including 0.0.0.0 and 127.0.0.1</li>
-<li>IPv6 addresses, including :: and ::1</li>
-<li>names of network interfaces</li>
+<li><p>IPv4 addresses, including 0.0.0.0 and 127.0.0.1</p></li>
+<li><p>IPv6 addresses, including :: and ::1</p></li>
+<li><p>names of network interfaces</p></li>
 </ul>
-<p class="last">If a network interface is specified, the SPICE server will be bound
+<p>If a network interface is specified, the SPICE server will be bound
 to one of the addresses of that interface.</p>
 </dd>
-<dt>spice_ip_version</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>spice_ip_version</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Specifies which version of the IP protocol should be used by the
 SPICE server.</p>
-<p class="last">It is mainly intended to be used for specifying what kind of IP
+<p>It is mainly intended to be used for specifying what kind of IP
 addresses should be used if a network interface with both IPv4 and
 IPv6 addresses is specified via the <code class="docutils literal notranslate"><span class="pre">spice_bind</span></code> parameter. In
 this case, if the <code class="docutils literal notranslate"><span class="pre">spice_ip_version</span></code> parameter is not used, the
 default IP version of the cluster will be used.</p>
 </dd>
-<dt>spice_password_file</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Specifies a file containing the password that must be used when
+<dt>spice_password_file</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Specifies a file containing the password that must be used when
 connecting via the SPICE protocol. If the option is not specified,
 passwordless connections are allowed.</p>
 </dd>
-<dt>spice_image_compression</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>spice_image_compression</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Configures the SPICE lossless image compression. Valid values are:</p>
-<ul class="last simple">
-<li>auto_glz</li>
-<li>auto_lz</li>
-<li>quic</li>
-<li>glz</li>
-<li>lz</li>
-<li>off</li>
+<ul class="simple">
+<li><p>auto_glz</p></li>
+<li><p>auto_lz</p></li>
+<li><p>quic</p></li>
+<li><p>glz</p></li>
+<li><p>lz</p></li>
+<li><p>off</p></li>
 </ul>
 </dd>
-<dt>spice_jpeg_wan_compression</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>spice_jpeg_wan_compression</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Configures how SPICE should use the jpeg algorithm for lossy image
 compression on slow links. Valid values are:</p>
-<ul class="last simple">
-<li>auto</li>
-<li>never</li>
-<li>always</li>
+<ul class="simple">
+<li><p>auto</p></li>
+<li><p>never</p></li>
+<li><p>always</p></li>
 </ul>
 </dd>
-<dt>spice_zlib_glz_wan_compression</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>spice_zlib_glz_wan_compression</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Configures how SPICE should use the zlib-glz algorithm for lossy image
 compression on slow links. Valid values are:</p>
-<ul class="last simple">
-<li>auto</li>
-<li>never</li>
-<li>always</li>
+<ul class="simple">
+<li><p>auto</p></li>
+<li><p>never</p></li>
+<li><p>always</p></li>
 </ul>
 </dd>
-<dt>spice_streaming_video</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>spice_streaming_video</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Configures how SPICE should detect video streams. Valid values are:</p>
-<ul class="last simple">
-<li>off</li>
-<li>all</li>
-<li>filter</li>
+<ul class="simple">
+<li><p>off</p></li>
+<li><p>all</p></li>
+<li><p>filter</p></li>
 </ul>
 </dd>
-<dt>spice_playback_compression</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Configures whether SPICE should compress audio streams or not.</p>
+<dt>spice_playback_compression</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Configures whether SPICE should compress audio streams or not.</p>
 </dd>
-<dt>spice_use_tls</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Specifies that the SPICE server must use TLS to encrypt all the
+<dt>spice_use_tls</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Specifies that the SPICE server must use TLS to encrypt all the
 traffic with the client.</p>
 </dd>
-<dt>spice_tls_ciphers</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Specifies a list of comma-separated ciphers that SPICE should use
+<dt>spice_tls_ciphers</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Specifies a list of comma-separated ciphers that SPICE should use
 for TLS connections. For the format, see man <strong>cipher</strong>(1).</p>
 </dd>
-<dt>spice_use_vdagent</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Enables or disables passing mouse events via SPICE vdagent.</p>
+<dt>spice_use_vdagent</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Enables or disables passing mouse events via SPICE vdagent.</p>
 </dd>
-<dt>cpu_type</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>cpu_type</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This parameter determines the emulated cpu for the instance. If this
 parameter is empty (which is the default configuration), it will not
 be passed to KVM.</p>
 <p>Be aware of setting this parameter to <code class="docutils literal notranslate"><span class="pre">&quot;host&quot;</span></code> if you have nodes
 with different CPUs from each other. Live migration may stop working
 in this situation.</p>
-<p class="last">For more information please refer to the KVM manual.</p>
+<p>For more information please refer to the KVM manual.</p>
 </dd>
-<dt>acpi</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
+<dt>acpi</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
 <p>A boolean option that specifies if the hypervisor should enable
 ACPI support for this instance. By default, ACPI is disabled.</p>
-<p class="last">ACPI should be enabled for user shutdown detection.  See
+<p>ACPI should be enabled for user shutdown detection.  See
 <code class="docutils literal notranslate"><span class="pre">user_shutdown</span></code>.</p>
 </dd>
-<dt>pae</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
-<p class="last">A boolean option that specifies if the hypervisor should enable
+<dt>pae</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
+<p>A boolean option that specifies if the hypervisor should enable
 PAE support for this instance. The default is false, disabling PAE
 support.</p>
 </dd>
-<dt>viridian</dt>
-<dd><p class="first">Valid for the Xen HVM hypervisor.</p>
-<p class="last">A boolean option that specifies if the hypervisor should enable
+<dt>viridian</dt><dd><p>Valid for the Xen HVM hypervisor.</p>
+<p>A boolean option that specifies if the hypervisor should enable
 viridian (Hyper-V) for this instance. The default is false,
 disabling viridian support.</p>
 </dd>
-<dt>use_guest_agent</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">A boolean option that specifies if the hypervisor should enable
+<dt>use_guest_agent</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>A boolean option that specifies if the hypervisor should enable
 the QEMU Guest Agent protocol for this instance. By default, the
 Guest Agent is disabled.</p>
 </dd>
-<dt>use_localtime</dt>
-<dd><p class="first">Valid for the Xen HVM and KVM hypervisors.</p>
-<p class="last">A boolean option that specifies if the instance should be started
+<dt>use_localtime</dt><dd><p>Valid for the Xen HVM and KVM hypervisors.</p>
+<p>A boolean option that specifies if the instance should be started
 with its clock set to the localtime of the machine (when true) or
 to the UTC (When false). The default is false, which is useful for
 Linux/Unix machines; for Windows OSes, it is recommended to enable
 this parameter.</p>
 </dd>
-<dt>kernel_path</dt>
-<dd><p class="first">Valid for the Xen PVM and KVM hypervisors.</p>
-<p class="last">This option specifies the path (on the node) to the kernel to boot
+<dt>kernel_path</dt><dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
+<p>This option specifies the path (on the node) to the kernel to boot
 the instance with. Xen PVM instances always require this, while for
 KVM if this option is empty, it will cause the machine to load the
 kernel from its disks (and the boot will be done accordingly to
 <code class="docutils literal notranslate"><span class="pre">boot_order</span></code>).</p>
 </dd>
-<dt>kernel_args</dt>
-<dd><p class="first">Valid for the Xen PVM and KVM hypervisors.</p>
+<dt>kernel_args</dt><dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
 <p>This options specifies extra arguments to the kernel that will be
 loaded. This is always used for Xen PVM, while for KVM it
 is only used if the <code class="docutils literal notranslate"><span class="pre">kernel_path</span></code> option is also specified.</p>
@@ -556,49 +521,44 @@ is only used if the <code class="docutils literal notranslate"><span class="pre"
 mounts the root disk (initially) in read-only one. For example,
 setting this to single will cause the instance to start in
 single-user mode.</p>
-<p class="last">Note that the hypervisor setting <code class="docutils literal notranslate"><span class="pre">serial_console</span></code> appends
+<p>Note that the hypervisor setting <code class="docutils literal notranslate"><span class="pre">serial_console</span></code> appends
 <code class="docutils literal notranslate"><span class="pre">&quot;console=ttyS0,&lt;serial_speed&gt;&quot;</span></code> to the end of <code class="docutils literal notranslate"><span class="pre">kernel_args</span></code> in KVM.</p>
 </dd>
-<dt>initrd_path</dt>
-<dd><p class="first">Valid for the Xen PVM and KVM hypervisors.</p>
-<p class="last">This option specifies the path (on the node) to the initrd to boot
+<dt>initrd_path</dt><dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
+<p>This option specifies the path (on the node) to the initrd to boot
 the instance with. Xen PVM instances can use this always, while
 for KVM if this option is only used if the <code class="docutils literal notranslate"><span class="pre">kernel_path</span></code> option
 is also specified. You can pass here either an absolute filename
 (the path to the initrd) if you want to use an initrd, or use the
 format no_initrd_path for no initrd.</p>
 </dd>
-<dt>root_path</dt>
-<dd><p class="first">Valid for the Xen PVM and KVM hypervisors.</p>
+<dt>root_path</dt><dd><p>Valid for the Xen PVM and KVM hypervisors.</p>
 <p>This options specifies the name of the root device. This is always
 needed for Xen PVM, while for KVM it is only used if the
 <code class="docutils literal notranslate"><span class="pre">kernel_path</span></code> option is also specified.</p>
-<p class="last">Please note, that if this setting is an empty string and the
+<p>Please note, that if this setting is an empty string and the
 hypervisor is Xen it will not be written to the Xen configuration
 file</p>
 </dd>
-<dt>serial_console</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>serial_console</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This boolean option specifies whether to emulate a serial console
 for the instance. Note that some versions of KVM have a bug that
 will make an instance hang when configured to use the serial console
 unless a connection is made to it within about 2 seconds of the
 instance’s startup. For such case it’s recommended to disable this
 option, which is enabled by default.</p>
-<p class="last">Enabling serial console emulation also appends
+<p>Enabling serial console emulation also appends
 <code class="docutils literal notranslate"><span class="pre">&quot;console=ttyS0,&lt;serial_speed&gt;&quot;</span></code> to the end of <code class="docutils literal notranslate"><span class="pre">kernel_args</span></code> in KVM and
 may interfere with previous settings.</p>
 </dd>
-<dt>serial_speed</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">This integer option specifies the speed of the serial console.
+<dt>serial_speed</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This integer option specifies the speed of the serial console.
 Common values are 9600, 19200, 38400, 57600 and 115200: choose the
 one which works on your system. (The default is 38400 for historical
 reasons, but newer versions of kvm/qemu work with 115200)</p>
 </dd>
-<dt>disk_cache</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">The disk cache mode. It can be either default to not pass any
+<dt>disk_cache</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>The disk cache mode. It can be either default to not pass any
 cache option to KVM, or one of the KVM cache modes: none (for
 direct I/O), writethrough (to use the host cache but report
 completion to the guest only when the host has committed the
@@ -608,80 +568,70 @@ there are special considerations for the cache mode depending on
 version of KVM used and disk type (always raw file under Ganeti),
 please refer to the KVM documentation for more details.</p>
 </dd>
-<dt>disk_aio</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">This is an optional parameter that specifies the aio mode
+<dt>disk_aio</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This is an optional parameter that specifies the aio mode
 for the disks. KVM default is to use the ‘threads’ mode,
 so if not explicitly specified, the native mode will not
 be used. Possible values are: threads or native.</p>
 </dd>
-<dt>disk_discard</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">discard is one of “ignore”, “unmap” or “default” and controls whether
+<dt>disk_discard</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>discard is one of “ignore”, “unmap” or “default” and controls whether
 discard (also known as trim or unmap) requests are ignored or passed
 to the filesystem. Some machine types may not support discard requests.
 For compatibility with older qemu versions “default” will not pass any
 discard option to KVM.</p>
 </dd>
-<dt>security_model</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>security_model</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>The security model for kvm. Currently one of <em>none</em>, <em>user</em> or
 <em>pool</em>. Under <em>none</em>, the default, nothing is done and instances
 are run as the Ganeti daemon user (normally root).</p>
 <p>Under <em>user</em> kvm will drop privileges and become the user
 specified by the security_domain parameter.</p>
-<p class="last">Under <em>pool</em> a global cluster pool of users will be used, making
+<p>Under <em>pool</em> a global cluster pool of users will be used, making
 sure no two instances share the same user on the same node. (this
 mode is not implemented yet)</p>
 </dd>
-<dt>security_domain</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>security_domain</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Under security model <em>user</em> the username to run the instance
 under.  It must be a valid username existing on the host.</p>
-<p class="last">Cannot be set under security model <em>none</em> or <em>pool</em>.</p>
+<p>Cannot be set under security model <em>none</em> or <em>pool</em>.</p>
 </dd>
-<dt>kvm_flag</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">If <em>enabled</em> the -enable-kvm flag is passed to kvm. If <em>disabled</em>
+<dt>kvm_flag</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>If <em>enabled</em> the -enable-kvm flag is passed to kvm. If <em>disabled</em>
 -disable-kvm is passed. If unset no flag is passed, and the
 default running mode for your kvm binary will be used.</p>
 </dd>
-<dt>mem_path</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">This option passes the -mem-path argument to kvm with the path (on
+<dt>mem_path</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This option passes the -mem-path argument to kvm with the path (on
 the node) to the mount point of the hugetlbfs file system, along
 with the -mem-prealloc argument too.</p>
 </dd>
-<dt>use_chroot</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>use_chroot</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This boolean option determines whether to run the KVM instance in a
 chroot directory.</p>
 <p>If it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, an empty directory is created before
 starting the instance and its path is passed via the -chroot flag
 to kvm. The directory is removed when the instance is stopped.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
 </dd>
-<dt>user_shutdown</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>user_shutdown</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This boolean option determines whether the KVM instance supports user
 shutdown detection.  This option does not necessarily require ACPI
 enabled, but ACPI must be enabled for users to poweroff their KVM
 instances.</p>
 <p>If it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the user can shutdown this KVM instance
 and its status is reported as <code class="docutils literal notranslate"><span class="pre">USER_down</span></code>.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
 </dd>
-<dt>migration_downtime</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>migration_downtime</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>The maximum amount of time (in ms) a KVM instance is allowed to be
 frozen during a live migration, in order to copy dirty memory
 pages. Default value is 30ms, but you may need to increase this
 value for busy instances.</p>
-<p class="last">This option is only effective with kvm versions &gt;= 87 and qemu-kvm
+<p>This option is only effective with kvm versions &gt;= 87 and qemu-kvm
 versions &gt;= 0.11.0.</p>
 </dd>
-<dt>cpu_mask</dt>
-<dd><p class="first">Valid for the Xen, KVM and LXC hypervisors.</p>
+<dt>cpu_mask</dt><dd><p>Valid for the Xen, KVM and LXC hypervisors.</p>
 <p>The processes belonging to the given instance are only scheduled
 on the specified CPUs.</p>
 <p>The format of the mask can be given in three forms. First, the word
@@ -700,7 +650,7 @@ second or first form above. In this form, the number of elements in
 the colon-separated list _must_ equal the number of VCPUs of the
 instance.</p>
 <p>Example:</p>
-<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map the entire instance to CPUs 0-2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map the entire instance to CPUs 0-2</span>
 gnt-instance modify -H <span class="nv">cpu_mask</span><span class="o">=</span><span class="m">0</span>-2 my-inst
 
 <span class="c1"># Map vCPU 0 to physical CPU 1 and vCPU 1 to CPU 3 (assuming 2 vCPUs)</span>
@@ -721,65 +671,54 @@ gnt-instance modify -H <span class="nv">cpu_mask</span><span class="o">=</span>a
 </pre></div>
 </div>
 </dd>
-<dt>cpu_cap</dt>
-<dd><p class="first">Valid for the Xen hypervisor.</p>
-<p class="last">Set the maximum amount of cpu usage by the VM. The value is a percentage
+<dt>cpu_cap</dt><dd><p>Valid for the Xen hypervisor.</p>
+<p>Set the maximum amount of cpu usage by the VM. The value is a percentage
 between 0 and (100 * number of VCPUs). Default cap is 0: unlimited.</p>
 </dd>
-<dt>cpu_weight</dt>
-<dd><p class="first">Valid for the Xen hypervisor.</p>
-<p class="last">Set the cpu time ratio to be allocated to the VM. Valid values are
+<dt>cpu_weight</dt><dd><p>Valid for the Xen hypervisor.</p>
+<p>Set the cpu time ratio to be allocated to the VM. Valid values are
 between 1 and 65535. Default weight is 256.</p>
 </dd>
-<dt>usb_mouse</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">This option specifies the usb mouse type to be used. It can be
+<dt>usb_mouse</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This option specifies the usb mouse type to be used. It can be
 “mouse” or “tablet”. When using VNC it’s recommended to set it to
 “tablet”.</p>
 </dd>
-<dt>keymap</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">This option specifies the keyboard mapping to be used. It is only
+<dt>keymap</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This option specifies the keyboard mapping to be used. It is only
 needed when using the VNC console. For example: “fr” or “en-gb”.</p>
 </dd>
-<dt>reboot_behavior</dt>
-<dd><p class="first">Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
+<dt>reboot_behavior</dt><dd><p>Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
 <p>Normally if an instance reboots, the hypervisor will restart it. If
 this option is set to <code class="docutils literal notranslate"><span class="pre">exit</span></code>, the hypervisor will treat a reboot
 as a shutdown instead.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">reboot</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">reboot</span></code> by default.</p>
 </dd>
-<dt>cpu_cores</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Number of emulated CPU cores.</p>
+<dt>cpu_cores</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Number of emulated CPU cores.</p>
 </dd>
-<dt>cpu_threads</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Number of emulated CPU threads.</p>
+<dt>cpu_threads</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Number of emulated CPU threads.</p>
 </dd>
-<dt>cpu_sockets</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Number of emulated CPU sockets.</p>
+<dt>cpu_sockets</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Number of emulated CPU sockets.</p>
 </dd>
-<dt>soundhw</dt>
-<dd><p class="first">Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
-<p class="last">Comma separated list of emulated sounds cards, or “all” to enable
+<dt>soundhw</dt><dd><p>Valid for Xen PVM, Xen HVM and KVM hypervisors.</p>
+<p>Comma separated list of emulated sounds cards, or “all” to enable
 all the available ones. See the <strong>qemu</strong>(1) manpage for valid options and
 additional details.</p>
 </dd>
-<dt>cpuid</dt>
-<dd><p class="first">Valid for the XEN hypervisor.</p>
+<dt>cpuid</dt><dd><p>Valid for the XEN hypervisor.</p>
 <p>Modify the values returned by <a class="reference external" href="http://en.wikipedia.org/wiki/CPUID">CPUID</a> instructions run within instances.</p>
 <p>This allows you to enable migration between nodes with different CPU
 attributes like cores, threads, hyperthreading or SS4 support by hiding
 the extra features where needed.</p>
-<p class="last">See the XEN documentation for syntax and more information.</p>
+<p>See the XEN documentation for syntax and more information.</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt>usb_devices</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Space separated list of usb devices. These can be emulated devices
+<dl>
+<dt>usb_devices</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Space separated list of usb devices. These can be emulated devices
 or passthrough ones, and each one gets passed to kvm with its own
 <code class="docutils literal notranslate"><span class="pre">-usbdevice</span></code> option. See the <strong>qemu</strong>(1) manpage for the syntax
 of the possible components. Note that values set with this
@@ -787,25 +726,21 @@ parameter are split on a space character and currently don’t support
 quoting. For backwards compatibility reasons, the RAPI interface keeps
 accepting comma separated lists too.</p>
 </dd>
-<dt>vga</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Emulated vga mode, passed the the kvm -vga option.</p>
+<dt>vga</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Emulated vga mode, passed the the kvm -vga option.</p>
 </dd>
-<dt>kvm_extra</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Any other option to the KVM hypervisor, useful tweaking anything
+<dt>kvm_extra</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Any other option to the KVM hypervisor, useful tweaking anything
 that Ganeti doesn’t support. Note that values set with this
 parameter are split on a space character and currently don’t support
 quoting.</p>
 </dd>
-<dt>machine_version</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Use in case an instance must be booted with an exact type of
+<dt>machine_version</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Use in case an instance must be booted with an exact type of
 machine version (due to e.g. outdated drivers). In case it’s not set
 the default version supported by your version of kvm is used.</p>
 </dd>
-<dt>migration_caps</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>migration_caps</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Enable specific migration capabilities by providing a “:” separated
 list of supported capabilities. QEMU version 1.7.0 defines
 x-rdma-pin-all, auto-converge, zero-blocks, and xbzrle.</p>
@@ -815,26 +750,32 @@ automatically move a migration to postcopy mode after a dirty_sync_count
 of 2. Other than normal live migration, that can recover from dying
 destination node, it is not possible to recover from dying source node
 during active postcopy migration.</p>
-<p class="last">Please note that while a combination of xbzrle and auto-converge
+<p>Please note that while a combination of xbzrle and auto-converge
 might speed up the migration process significantly, the first may
 cause BSOD on Windows8r2 instances running on drbd.</p>
 </dd>
-<dt>kvm_path</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
-<p class="last">Path to the userspace KVM (or qemu) program.</p>
+<dt>kvm_path</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>Path to the userspace KVM (or qemu) program.</p>
 </dd>
-<dt>vnet_hdr</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>vhost_net</dt><dd><p>Valid for the KVM hypervisor.</p>
+<p>This boolean option determines whether the tap devices used by the KVM
+paravirtual nics (virtio-net) will use accelerated data plane, passing
+network packets directly between host and guest kernel, without going
+through userspace emulation layer (qemu).</p>
+<p>Historically it is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default. New Clusters created
+with Ganeti-3.1 and newer defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Everyone is encouraged to
+enable it.</p>
+</dd>
+<dt>vnet_hdr</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>This boolean option determines whether the tap devices used by the
 KVM paravirtual nics (virtio-net) will get created with VNET_HDR
 (IFF_VNET_HDR) support.</p>
 <p>If set to false, it effectively disables offloading on the virio-net
 interfaces, which prevents host kernel tainting and log flooding,
 when dealing with broken or malicious virtio-net drivers.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
 </dd>
-<dt>virtio_net_queues</dt>
-<dd><p class="first">Valid for the KVM hypervisor.</p>
+<dt>virtio_net_queues</dt><dd><p>Valid for the KVM hypervisor.</p>
 <p>Set a number of queues (file descriptors) for tap device to
 parallelize packets sending or receiving. Tap devices will be
 created with MULTI_QUEUE (IFF_MULTI_QUEUE) support. This only
@@ -846,18 +787,16 @@ support.</p>
 on the tap and virio-net devices.</p>
 <p>For instances it is necessary to manually set number of queues (on
 Linux using: <code class="docutils literal notranslate"><span class="pre">ethtool</span> <span class="pre">-L</span> <span class="pre">ethX</span> <span class="pre">combined</span> <span class="pre">$queues</span></code>).</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> by default.</p>
 </dd>
-<dt>startup_timeout</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>startup_timeout</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This integer option specifies the number of seconds to wait
 for the state of an LXC container changes to “RUNNING” after
 startup, as reported by lxc-wait.
 Otherwise we assume an error has occurred and report it.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">30</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">30</span></code> by default.</p>
 </dd>
-<dt>extra_cgroups</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>extra_cgroups</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the list of cgroup subsystems that will be
 mounted alongside the needed ones before starting LXC containers.</p>
 <p>Since LXC version &gt;= 1.0.0, LXC strictly requires all cgroup
@@ -872,11 +811,10 @@ subsystems specified in this parameter. The needed subsystems are
 currently <code class="docutils literal notranslate"><span class="pre">cpuset</span></code>, <code class="docutils literal notranslate"><span class="pre">memory</span></code>, <code class="docutils literal notranslate"><span class="pre">devices</span></code>, and <code class="docutils literal notranslate"><span class="pre">cpuacct</span></code>.</p>
 <p>The value of this parameter should be a list of cgroup subsystems
 separated by a comma(e.g., “net_cls,perf_event,blkio”).</p>
-<p class="last">If this parameter is not specified, a list of subsystems will be
+<p>If this parameter is not specified, a list of subsystems will be
 taken from /proc/cgroups instead.</p>
 </dd>
-<dt>drop_capabilities</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>drop_capabilities</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the list of capabilities which should be
 dropped for a LXC container.
 Each value of this option must be in the same form as the
@@ -888,10 +826,9 @@ Note that some capabilities are required by the LXC container
 (see: <strong>lxc.container.conf</strong>(5)).
 Also note that the CAP_SYS_BOOT is required(should not be dropped)
 to perform the soft reboot for the LXC container.</p>
-<p class="last">The default value is <code class="docutils literal notranslate"><span class="pre">mac_override,sys_boot,sys_module,sys_time</span></code>.</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">mac_override,sys_boot,sys_module,sys_time</span></code>.</p>
 </dd>
-<dt>devices</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>devices</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the list of devices that can be accessed
 from inside of the LXC container.
 Each value of this option must have the same form as the
@@ -906,27 +843,25 @@ The LXC hypervisor drops all direct device access by default, so
 if you want to allow the LXC container to access an additional
 device which is not included in the default value of this
 parameter, you have to set this parameter manually.</p>
-<p class="last">By default, this parameter contains (/dev/null, /dev/zero,
+<p>By default, this parameter contains (/dev/null, /dev/zero,
 /dev/full, /dev/random, /dev/urandom, /dev/aio, /dev/tty,
 /dev/console, /dev/ptmx and first block of Unix98 PTY slaves) with
 read-write(rw) access.</p>
 </dd>
-<dt>extra_config</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>extra_config</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the list of extra config parameters which
 are not supported by the Ganeti LXC hypervisor natively.
 Each value of this option must be a valid line of the LXC
 container config file(see: <strong>lxc.container.conf</strong>(5)).</p>
-<p class="last">This parameter is not set by default.</p>
+<p>This parameter is not set by default.</p>
 </dd>
-<dt>num_ttys</dt>
-<dd><p class="first">Valid for the LXC hypervisor.</p>
+<dt>num_ttys</dt><dd><p>Valid for the LXC hypervisor.</p>
 <p>This option specifies the number of ttys(actually ptys) that
 should be allocated for the LXC container.
 You can disable pty devices allocation for the LXC container by
 setting this parameter to 0, but you can’t use
 <strong>gnt-instance console</strong> in this case.</p>
-<p class="last">It is set to <code class="docutils literal notranslate"><span class="pre">6</span></code> by default.</p>
+<p>It is set to <code class="docutils literal notranslate"><span class="pre">6</span></code> by default.</p>
 </dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">-O</span> <span class="pre">(--os-parameters)</span></code> option allows customisation of the OS
@@ -942,12 +877,12 @@ that should not be logged or saved to configuration with
 <code class="docutils literal notranslate"><span class="pre">--os-parameters-secret</span></code>. Bear in mind that:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Launching the daemons in debug mode will cause debug logging to
+<li><p>Launching the daemons in debug mode will cause debug logging to
 happen, which leaks private and secret parameters to the log files.
 Do not use the debug mode in production. Daemons will emit a warning
-on startup if they are in debug mode.</li>
-<li>You will have to pass again all <code class="docutils literal notranslate"><span class="pre">--os-parameters-secret</span></code> parameters
-should you want to reinstall this instance.</li>
+on startup if they are in debug mode.</p></li>
+<li><p>You will have to pass again all <code class="docutils literal notranslate"><span class="pre">--os-parameters-secret</span></code> parameters
+should you want to reinstall this instance.</p></li>
 </ul>
 </div></blockquote>
 <p>The <code class="docutils literal notranslate"><span class="pre">-I</span> <span class="pre">(--iallocator)</span></code> option specifies the instance allocator plugin
@@ -962,25 +897,25 @@ for the instance. If no disk template is specified, the default disk
 template is used. The default disk template is the first in the list
 of enabled disk templates, which can be adjusted cluster-wide with
 <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">modify</span></code>. The available choices for disk templates are:</p>
-<dl class="docutils">
-<dt>diskless</dt>
-<dd>This creates an instance with no disks. Its useful for testing only
-(or other special cases).</dd>
-<dt>file</dt>
-<dd>Disk devices will be regular files.</dd>
-<dt>sharedfile</dt>
-<dd>Disk devices will be regular files on a shared directory.</dd>
-<dt>plain</dt>
-<dd>Disk devices will be logical volumes.</dd>
-<dt>drbd</dt>
-<dd>Disk devices will be drbd (version 8.x) on top of lvm volumes.</dd>
-<dt>rbd</dt>
-<dd>Disk devices will be rbd volumes residing inside a RADOS cluster.</dd>
-<dt>blockdev</dt>
-<dd>Disk devices will be adopted pre-existent block devices.</dd>
-<dt>ext</dt>
-<dd>Disk devices will be provided by external shared storage,
-through the ExtStorage Interface using ExtStorage providers.</dd>
+<dl class="simple">
+<dt>diskless</dt><dd><p>This creates an instance with no disks. Its useful for testing only
+(or other special cases).</p>
+</dd>
+<dt>file</dt><dd><p>Disk devices will be regular files.</p>
+</dd>
+<dt>sharedfile</dt><dd><p>Disk devices will be regular files on a shared directory.</p>
+</dd>
+<dt>plain</dt><dd><p>Disk devices will be logical volumes.</p>
+</dd>
+<dt>drbd</dt><dd><p>Disk devices will be drbd (version 8.x) on top of lvm volumes.</p>
+</dd>
+<dt>rbd</dt><dd><p>Disk devices will be rbd volumes residing inside a RADOS cluster.</p>
+</dd>
+<dt>blockdev</dt><dd><p>Disk devices will be adopted pre-existent block devices.</p>
+</dd>
+<dt>ext</dt><dd><p>Disk devices will be provided by external shared storage,
+through the ExtStorage Interface using ExtStorage providers.</p>
+</dd>
 </dl>
 <p>The optional second value of the <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">(--node)</span></code> is used for the drbd
 template type and specifies the remote node.</p>
@@ -997,23 +932,23 @@ instances using the file storage backend.</p>
 disks. Note that currently these drivers work with the xen hypervisor
 only. This option is only relevant for instances using the file
 storage backend. The available choices are:</p>
-<dl class="docutils">
-<dt>loop</dt>
-<dd>Kernel loopback driver. This driver uses loopback devices to
+<dl class="simple">
+<dt>loop</dt><dd><p>Kernel loopback driver. This driver uses loopback devices to
 access the filesystem within the file. However, running I/O
 intensive applications in your instance using the loop driver
 might result in slowdowns. Furthermore, if you use the loopback
 driver consider increasing the maximum amount of loopback devices
-(on most systems it’s 8) using the max_loop param.</dd>
-<dt>blktap</dt>
-<dd>The blktap driver (for Xen hypervisors). In order to be able to
+(on most systems it’s 8) using the max_loop param.</p>
+</dd>
+<dt>blktap</dt><dd><p>The blktap driver (for Xen hypervisors). In order to be able to
 use the blktap driver you should check if the ‘blktapctrl’ user
 space disk agent is running (usually automatically started via
 xend).  This user-level disk I/O interface has the advantage of
 better performance. Especially if you use a network file system
-(e.g. NFS) to store your instances this is the recommended choice.</dd>
-<dt>blktap2</dt>
-<dd>Analogous to the blktap driver, but used by newer versions of Xen.</dd>
+(e.g. NFS) to store your instances this is the recommended choice.</p>
+</dd>
+<dt>blktap2</dt><dd><p>Analogous to the blktap driver, but used by newer versions of Xen.</p>
+</dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">--ignore-ipolicy</span></code> is given any instance policy violations occurring
 during this operation are ignored.</p>
@@ -1047,7 +982,7 @@ options.</p>
 <h4>BATCH-CREATE<a class="headerlink" href="#batch-create" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>batch-create</strong></div>
-<div class="line">[{-I|–iallocator} <em>instance allocator</em>]</div>
+<div class="line">[{-I|--iallocator} <em>instance allocator</em>]</div>
 <div class="line">{instances_file.json}</div>
 </div>
 <p>This command (similar to the Ganeti 1.2 <strong>batcher</strong> tool) submits
@@ -1060,43 +995,43 @@ operation using the <code class="docutils literal notranslate"><span class="pre"
 array of dictionaries with instance creation parameters. All parameters
 (except <code class="docutils literal notranslate"><span class="pre">iallocator</span></code>) which are valid for the instance creation
 OP code are allowed. The most important ones are:</p>
-<dl class="docutils">
-<dt>instance_name</dt>
-<dd>The FQDN of the new instance.</dd>
-<dt>disk_template</dt>
-<dd>The disk template to use for the instance, the same as in the
-<strong>add</strong> command.</dd>
-<dt>disks</dt>
-<dd>Array of disk specifications. Each entry describes one disk as a
-dictionary of disk parameters.</dd>
-<dt>beparams</dt>
-<dd>A dictionary of backend parameters.</dd>
-<dt>hypervisor</dt>
-<dd>The hypervisor for the instance.</dd>
-<dt>hvparams</dt>
-<dd>A dictionary with the hypervisor options. If not passed, the default
-hypervisor options will be inherited.</dd>
-<dt>nics</dt>
-<dd>List of NICs that will be created for the instance. Each entry
+<dl class="simple">
+<dt>instance_name</dt><dd><p>The FQDN of the new instance.</p>
+</dd>
+<dt>disk_template</dt><dd><p>The disk template to use for the instance, the same as in the
+<strong>add</strong> command.</p>
+</dd>
+<dt>disks</dt><dd><p>Array of disk specifications. Each entry describes one disk as a
+dictionary of disk parameters.</p>
+</dd>
+<dt>beparams</dt><dd><p>A dictionary of backend parameters.</p>
+</dd>
+<dt>hypervisor</dt><dd><p>The hypervisor for the instance.</p>
+</dd>
+<dt>hvparams</dt><dd><p>A dictionary with the hypervisor options. If not passed, the default
+hypervisor options will be inherited.</p>
+</dd>
+<dt>nics</dt><dd><p>List of NICs that will be created for the instance. Each entry
 should be a dict, with mac, ip, mode and link as possible keys.
 Please don’t provide the “mac, ip, mode, link” parent keys if you
-use this method for specifying NICs.</dd>
-<dt>pnode, snode</dt>
-<dd>The primary and optionally the secondary node to use for the
+use this method for specifying NICs.</p>
+</dd>
+<dt>pnode, snode</dt><dd><p>The primary and optionally the secondary node to use for the
 instance (in case an iallocator script is not used). If those
 parameters are given, they have to be given consistently for all
-instances in the batch operation.</dd>
-<dt>start</dt>
-<dd>whether to start the instance</dd>
-<dt>ip_check</dt>
-<dd>Skip the check for already-in-use instance; see the description in
-the <strong>add</strong> command for details.</dd>
-<dt>name_check</dt>
-<dd>Skip the name check for instances; see the description in the
-<strong>add</strong> command for details.</dd>
-<dt>file_storage_dir, file_driver</dt>
-<dd>Configuration for the file disk type, see the <strong>add</strong> command for
-details.</dd>
+instances in the batch operation.</p>
+</dd>
+<dt>start</dt><dd><p>whether to start the instance</p>
+</dd>
+<dt>ip_check</dt><dd><p>Skip the check for already-in-use instance; see the description in
+the <strong>add</strong> command for details.</p>
+</dd>
+<dt>name_check</dt><dd><p>Skip the name check for instances; see the description in the
+<strong>add</strong> command for details.</p>
+</dd>
+<dt>file_storage_dir, file_driver</dt><dd><p>Configuration for the file disk type, see the <strong>add</strong> command for
+details.</p>
+</dd>
 </dl>
 <p>A simple definition for one instance can be (with most of the
 parameters taken from the cluster defaults):</p>
@@ -1139,8 +1074,8 @@ templates will not be considered in the allocation computation.</p>
 <div class="section" id="remove">
 <h4>REMOVE<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>remove</strong> [–ignore-failures] [–shutdown-timeout=*N*] [–submit]</div>
-<div class="line">[–print-jobid] [–force] {<em>instance-name</em>}</div>
+<div class="line"><strong>remove</strong> [--ignore-failures] [--shutdown-timeout=*N*] [--submit]</div>
+<div class="line">[--print-jobid] [--force] {<em>instance-name</em>}</div>
 </div>
 <p>Remove an instance. This will remove all data from the instance and
 there is <em>no way back</em>. If you are not sure if you use an instance
@@ -1166,8 +1101,8 @@ options.</p>
 <h4>LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>list</strong></div>
-<div class="line">[–no-headers] [–separator=*SEPARATOR*] [–units=*UNITS*] [-v]</div>
-<div class="line">[{-o|–output} <em>[+]FIELD,…</em>] [–filter] [<em>instance-name</em>…]</div>
+<div class="line">[--no-headers] [--separator=*SEPARATOR*] [--units=*UNITS*] [-v]</div>
+<div class="line">[{-o|--output} <em>[+]FIELD,…</em>] [--filter] [<em>instance-name</em>…]</div>
 </div>
 <p>Shows the currently configured instances with memory usage, disk
 usage, the node they are running on, and their run status.</p>
@@ -1185,591 +1120,591 @@ a given output unit.</p>
 special field states (see <strong>ganeti</strong>(7)).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">(--output)</span></code> option takes a comma-separated list of output
 fields. The available fields and their meaning are:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">admin_state</span></code></dt>
-<dd>Desired state of the instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">admin_state_source</span></code></dt>
-<dd>Who last changed the desired state of the instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">admin_up</span></code></dt>
-<dd>Desired state of the instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/always_failover</span></code></dt>
-<dd>The “always_failover” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/auto_balance</span></code></dt>
-<dd>The “auto_balance” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/maxmem</span></code></dt>
-<dd>The “maxmem” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/memory</span></code></dt>
-<dd>The “maxmem” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/minmem</span></code></dt>
-<dd>The “minmem” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/spindle_use</span></code></dt>
-<dd>The “spindle_use” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">be/vcpus</span></code></dt>
-<dd>The “vcpus” backend parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">beparams</span></code></dt>
-<dd>Backend parameters (merged)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">bridge</span></code></dt>
-<dd>Bridge of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">console</span></code></dt>
-<dd>Instance console information</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt>
-<dd>Creation timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_beparams</span></code></dt>
-<dd>Custom backend parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_hvparams</span></code></dt>
-<dd>Custom hypervisor parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_nicparams</span></code></dt>
-<dd>Custom network interface parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_osparams</span></code></dt>
-<dd>Custom operating system parameters</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.count</span></code></dt>
-<dd>Number of disks</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/0</span></code></dt>
-<dd>Name of 1st disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/1</span></code></dt>
-<dd>Name of 2nd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/2</span></code></dt>
-<dd>Name of 3rd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/3</span></code></dt>
-<dd>Name of 4th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/4</span></code></dt>
-<dd>Name of 5th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/5</span></code></dt>
-<dd>Name of 6th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/6</span></code></dt>
-<dd>Name of 7th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/7</span></code></dt>
-<dd>Name of 8th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/8</span></code></dt>
-<dd>Name of 9th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/9</span></code></dt>
-<dd>Name of 10th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/10</span></code></dt>
-<dd>Name of 11th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/11</span></code></dt>
-<dd>Name of 12th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/12</span></code></dt>
-<dd>Name of 13th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/13</span></code></dt>
-<dd>Name of 14th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/14</span></code></dt>
-<dd>Name of 15th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.name/15</span></code></dt>
-<dd>Name of 16th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.names</span></code></dt>
-<dd>List of disk names</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/0</span></code></dt>
-<dd>Disk size of 1st disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/1</span></code></dt>
-<dd>Disk size of 2nd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/2</span></code></dt>
-<dd>Disk size of 3rd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/3</span></code></dt>
-<dd>Disk size of 4th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/4</span></code></dt>
-<dd>Disk size of 5th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/5</span></code></dt>
-<dd>Disk size of 6th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/6</span></code></dt>
-<dd>Disk size of 7th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/7</span></code></dt>
-<dd>Disk size of 8th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/8</span></code></dt>
-<dd>Disk size of 9th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/9</span></code></dt>
-<dd>Disk size of 10th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/10</span></code></dt>
-<dd>Disk size of 11th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/11</span></code></dt>
-<dd>Disk size of 12th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/12</span></code></dt>
-<dd>Disk size of 13th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/13</span></code></dt>
-<dd>Disk size of 14th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/14</span></code></dt>
-<dd>Disk size of 15th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.size/15</span></code></dt>
-<dd>Disk size of 16th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.sizes</span></code></dt>
-<dd>List of disk sizes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles</span></code></dt>
-<dd>List of disk spindles</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/0</span></code></dt>
-<dd>Spindles of 1st disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/1</span></code></dt>
-<dd>Spindles of 2nd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/2</span></code></dt>
-<dd>Spindles of 3rd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/3</span></code></dt>
-<dd>Spindles of 4th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/4</span></code></dt>
-<dd>Spindles of 5th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/5</span></code></dt>
-<dd>Spindles of 6th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/6</span></code></dt>
-<dd>Spindles of 7th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/7</span></code></dt>
-<dd>Spindles of 8th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/8</span></code></dt>
-<dd>Spindles of 9th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/9</span></code></dt>
-<dd>Spindles of 10th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/10</span></code></dt>
-<dd>Spindles of 11th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/11</span></code></dt>
-<dd>Spindles of 12th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/12</span></code></dt>
-<dd>Spindles of 13th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/13</span></code></dt>
-<dd>Spindles of 14th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/14</span></code></dt>
-<dd>Spindles of 15th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/15</span></code></dt>
-<dd>Spindles of 16th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/0</span></code></dt>
-<dd>UUID of 1st disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/1</span></code></dt>
-<dd>UUID of 2nd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/2</span></code></dt>
-<dd>UUID of 3rd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/3</span></code></dt>
-<dd>UUID of 4th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/4</span></code></dt>
-<dd>UUID of 5th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/5</span></code></dt>
-<dd>UUID of 6th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/6</span></code></dt>
-<dd>UUID of 7th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/7</span></code></dt>
-<dd>UUID of 8th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/8</span></code></dt>
-<dd>UUID of 9th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/9</span></code></dt>
-<dd>UUID of 10th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/10</span></code></dt>
-<dd>UUID of 11th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/11</span></code></dt>
-<dd>UUID of 12th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/12</span></code></dt>
-<dd>UUID of 13th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/13</span></code></dt>
-<dd>UUID of 14th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/14</span></code></dt>
-<dd>UUID of 15th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/15</span></code></dt>
-<dd>UUID of 16th disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk.uuids</span></code></dt>
-<dd>List of disk UUIDs</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk_template</span></code></dt>
-<dd>Instance disk template</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disk_usage</span></code></dt>
-<dd>Total disk space used by instance on each of its nodes; this is not the disk size visible to the instance, but the usage on the node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">disks_active</span></code></dt>
-<dd>Desired state of the instance disks</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">forthcoming</span></code></dt>
-<dd>Whether the Instance is forthcoming</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/acpi</span></code></dt>
-<dd>The “acpi” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/blockdev_prefix</span></code></dt>
-<dd>The “blockdev_prefix” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/boot_order</span></code></dt>
-<dd>The “boot_order” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/bootloader_args</span></code></dt>
-<dd>The “bootloader_args” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/bootloader_path</span></code></dt>
-<dd>The “bootloader_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom2_image_path</span></code></dt>
-<dd>The “cdrom2_image_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom_disk_type</span></code></dt>
-<dd>The “cdrom_disk_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom_image_path</span></code></dt>
-<dd>The “cdrom_image_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_cap</span></code></dt>
-<dd>The “cpu_cap” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_cores</span></code></dt>
-<dd>The “cpu_cores” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_mask</span></code></dt>
-<dd>The “cpu_mask” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_sockets</span></code></dt>
-<dd>The “cpu_sockets” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_threads</span></code></dt>
-<dd>The “cpu_threads” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_type</span></code></dt>
-<dd>The “cpu_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_weight</span></code></dt>
-<dd>The “cpu_weight” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/cpuid</span></code></dt>
-<dd>The “cpuid” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/device_model</span></code></dt>
-<dd>The “device_model” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/devices</span></code></dt>
-<dd>The “devices” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_aio</span></code></dt>
-<dd>The “disk_aio” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_cache</span></code></dt>
-<dd>The “disk_cache” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_discard</span></code></dt>
-<dd>The “disk_discard” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_type</span></code></dt>
-<dd>The “disk_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/drop_capabilities</span></code></dt>
-<dd>The “drop_capabilities” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/extra_cgroups</span></code></dt>
-<dd>The “extra_cgroups” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/extra_config</span></code></dt>
-<dd>The “extra_config” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/floppy_image_path</span></code></dt>
-<dd>The “floppy_image_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/init_script</span></code></dt>
-<dd>The “init_script” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/initrd_path</span></code></dt>
-<dd>The “initrd_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kernel_args</span></code></dt>
-<dd>The “kernel_args” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kernel_path</span></code></dt>
-<dd>The “kernel_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/keymap</span></code></dt>
-<dd>The “keymap” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_extra</span></code></dt>
-<dd>The “kvm_extra” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_flag</span></code></dt>
-<dd>The “kvm_flag” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_path</span></code></dt>
-<dd>The “kvm_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_pci_reservations</span></code></dt>
-<dd>The “kvm_pci_reservations” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/machine_version</span></code></dt>
-<dd>The “machine_version” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/mem_path</span></code></dt>
-<dd>The “mem_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/migration_caps</span></code></dt>
-<dd>The “migration_caps” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/migration_downtime</span></code></dt>
-<dd>The “migration_downtime” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/nic_type</span></code></dt>
-<dd>The “nic_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/num_ttys</span></code></dt>
-<dd>The “num_ttys” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/pae</span></code></dt>
-<dd>The “pae” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/pci_pass</span></code></dt>
-<dd>The “pci_pass” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/reboot_behavior</span></code></dt>
-<dd>The “reboot_behavior” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/root_path</span></code></dt>
-<dd>The “root_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/scsi_controller_type</span></code></dt>
-<dd>The “scsi_controller_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/security_domain</span></code></dt>
-<dd>The “security_domain” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/security_model</span></code></dt>
-<dd>The “security_model” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/serial_console</span></code></dt>
-<dd>The “serial_console” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/serial_speed</span></code></dt>
-<dd>The “serial_speed” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/soundhw</span></code></dt>
-<dd>The “soundhw” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_bind</span></code></dt>
-<dd>The “spice_bind” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_image_compression</span></code></dt>
-<dd>The “spice_image_compression” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_ip_version</span></code></dt>
-<dd>The “spice_ip_version” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_jpeg_wan_compression</span></code></dt>
-<dd>The “spice_jpeg_wan_compression” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_password_file</span></code></dt>
-<dd>The “spice_password_file” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_playback_compression</span></code></dt>
-<dd>The “spice_playback_compression” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_streaming_video</span></code></dt>
-<dd>The “spice_streaming_video” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_tls_ciphers</span></code></dt>
-<dd>The “spice_tls_ciphers” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_use_tls</span></code></dt>
-<dd>The “spice_use_tls” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_use_vdagent</span></code></dt>
-<dd>The “spice_use_vdagent” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_zlib_glz_wan_compression</span></code></dt>
-<dd>The “spice_zlib_glz_wan_compression” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/startup_timeout</span></code></dt>
-<dd>The “startup_timeout” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/usb_devices</span></code></dt>
-<dd>The “usb_devices” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/usb_mouse</span></code></dt>
-<dd>The “usb_mouse” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/use_bootloader</span></code></dt>
-<dd>The “use_bootloader” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/use_chroot</span></code></dt>
-<dd>The “use_chroot” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/use_guest_agent</span></code></dt>
-<dd>The “use_guest_agent” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/use_localtime</span></code></dt>
-<dd>The “use_localtime” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/user_shutdown</span></code></dt>
-<dd>The “user_shutdown” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vga</span></code></dt>
-<dd>The “vga” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vhost_net</span></code></dt>
-<dd>The “vhost_net” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vif_script</span></code></dt>
-<dd>The “vif_script” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vif_type</span></code></dt>
-<dd>The “vif_type” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/viridian</span></code></dt>
-<dd>The “viridian” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/virtio_net_queues</span></code></dt>
-<dd>The “virtio_net_queues” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_bind_address</span></code></dt>
-<dd>The “vnc_bind_address” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_password_file</span></code></dt>
-<dd>The “vnc_password_file” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_tls</span></code></dt>
-<dd>The “vnc_tls” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_x509_path</span></code></dt>
-<dd>The “vnc_x509_path” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_x509_verify</span></code></dt>
-<dd>The “vnc_x509_verify” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hv/vnet_hdr</span></code></dt>
-<dd>The “vnet_hdr” hypervisor parameter</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hvparams</span></code></dt>
-<dd>Hypervisor parameters (merged)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">hypervisor</span></code></dt>
-<dd>Hypervisor name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ip</span></code></dt>
-<dd>IP address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mac</span></code></dt>
-<dd>MAC address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt>
-<dd>Modification timestamp</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd>Instance name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">network_port</span></code></dt>
-<dd>Instance network port if available (e.g. for VNC console)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/0</span></code></dt>
-<dd>Bridge of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/1</span></code></dt>
-<dd>Bridge of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/2</span></code></dt>
-<dd>Bridge of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/3</span></code></dt>
-<dd>Bridge of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/4</span></code></dt>
-<dd>Bridge of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/5</span></code></dt>
-<dd>Bridge of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/6</span></code></dt>
-<dd>Bridge of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/7</span></code></dt>
-<dd>Bridge of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.bridges</span></code></dt>
-<dd>List containing each network interface’s bridge</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.count</span></code></dt>
-<dd>Number of network interfaces</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/0</span></code></dt>
-<dd>IP address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/1</span></code></dt>
-<dd>IP address of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/2</span></code></dt>
-<dd>IP address of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/3</span></code></dt>
-<dd>IP address of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/4</span></code></dt>
-<dd>IP address of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/5</span></code></dt>
-<dd>IP address of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/6</span></code></dt>
-<dd>IP address of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/7</span></code></dt>
-<dd>IP address of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.ips</span></code></dt>
-<dd>List containing each network interface’s IP address</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/0</span></code></dt>
-<dd>Link of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/1</span></code></dt>
-<dd>Link of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/2</span></code></dt>
-<dd>Link of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/3</span></code></dt>
-<dd>Link of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/4</span></code></dt>
-<dd>Link of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/5</span></code></dt>
-<dd>Link of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/6</span></code></dt>
-<dd>Link of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.link/7</span></code></dt>
-<dd>Link of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.links</span></code></dt>
-<dd>List containing each network interface’s link</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/0</span></code></dt>
-<dd>MAC address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/1</span></code></dt>
-<dd>MAC address of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/2</span></code></dt>
-<dd>MAC address of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/3</span></code></dt>
-<dd>MAC address of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/4</span></code></dt>
-<dd>MAC address of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/5</span></code></dt>
-<dd>MAC address of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/6</span></code></dt>
-<dd>MAC address of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/7</span></code></dt>
-<dd>MAC address of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.macs</span></code></dt>
-<dd>List containing each network interface’s MAC address</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/0</span></code></dt>
-<dd>Mode of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/1</span></code></dt>
-<dd>Mode of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/2</span></code></dt>
-<dd>Mode of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/3</span></code></dt>
-<dd>Mode of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/4</span></code></dt>
-<dd>Mode of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/5</span></code></dt>
-<dd>Mode of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/6</span></code></dt>
-<dd>Mode of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/7</span></code></dt>
-<dd>Mode of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.modes</span></code></dt>
-<dd>List containing each network interface’s mode</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/0</span></code></dt>
-<dd>Name address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/1</span></code></dt>
-<dd>Name address of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/2</span></code></dt>
-<dd>Name address of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/3</span></code></dt>
-<dd>Name address of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/4</span></code></dt>
-<dd>Name address of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/5</span></code></dt>
-<dd>Name address of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/6</span></code></dt>
-<dd>Name address of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.name/7</span></code></dt>
-<dd>Name address of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.names</span></code></dt>
-<dd>List containing each network interface’s name</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/0</span></code></dt>
-<dd>Network name of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/1</span></code></dt>
-<dd>Network name of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/2</span></code></dt>
-<dd>Network name of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/3</span></code></dt>
-<dd>Network name of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/4</span></code></dt>
-<dd>Network name of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/5</span></code></dt>
-<dd>Network name of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/6</span></code></dt>
-<dd>Network name of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/7</span></code></dt>
-<dd>Network name of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/0</span></code></dt>
-<dd>Network of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/1</span></code></dt>
-<dd>Network of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/2</span></code></dt>
-<dd>Network of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/3</span></code></dt>
-<dd>Network of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/4</span></code></dt>
-<dd>Network of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/5</span></code></dt>
-<dd>Network of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/6</span></code></dt>
-<dd>Network of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.network/7</span></code></dt>
-<dd>Network of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.networks</span></code></dt>
-<dd>List containing each interface’s network</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.networks.names</span></code></dt>
-<dd>List containing each interface’s network</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/0</span></code></dt>
-<dd>UUID address of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/1</span></code></dt>
-<dd>UUID address of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/2</span></code></dt>
-<dd>UUID address of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/3</span></code></dt>
-<dd>UUID address of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/4</span></code></dt>
-<dd>UUID address of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/5</span></code></dt>
-<dd>UUID address of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/6</span></code></dt>
-<dd>UUID address of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/7</span></code></dt>
-<dd>UUID address of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.uuids</span></code></dt>
-<dd>List containing each network interface’s UUID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/0</span></code></dt>
-<dd>VLAN of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/1</span></code></dt>
-<dd>VLAN of 2nd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/2</span></code></dt>
-<dd>VLAN of 3rd network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/3</span></code></dt>
-<dd>VLAN of 4th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/4</span></code></dt>
-<dd>VLAN of 5th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/5</span></code></dt>
-<dd>VLAN of 6th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/6</span></code></dt>
-<dd>VLAN of 7th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/7</span></code></dt>
-<dd>VLAN of 8th network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic.vlans</span></code></dt>
-<dd>List containing each network interface’s VLAN</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic_link</span></code></dt>
-<dd>Link of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic_mode</span></code></dt>
-<dd>Mode of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nic_network</span></code></dt>
-<dd>Network of 1st network interface</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">oper_ram</span></code></dt>
-<dd>Actual memory usage as seen by hypervisor</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">oper_state</span></code></dt>
-<dd>Actual state of instance</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">oper_vcpus</span></code></dt>
-<dd>Actual number of VCPUs as seen by hypervisor</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">os</span></code></dt>
-<dd>Operating system</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">osparams</span></code></dt>
-<dd>Operating system parameters (merged)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pnode</span></code></dt>
-<dd>Primary node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pnode.group</span></code></dt>
-<dd>Primary node’s group</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pnode.group.uuid</span></code></dt>
-<dd>Primary node’s group UUID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sda_size</span></code></dt>
-<dd>Disk size of 1st disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">sdb_size</span></code></dt>
-<dd>Disk size of 2nd disk</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt>
-<dd>Instance object serial number, incremented on each modification</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">snodes</span></code></dt>
-<dd>Secondary nodes; usually this will just be one node</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">snodes.group</span></code></dt>
-<dd>Node groups of secondary nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">snodes.group.uuid</span></code></dt>
-<dd>Node group UUIDs of secondary nodes</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">status</span></code></dt>
-<dd>Instance status; “running” if instance is set to be running and actually is, “ADMIN_down” if instance is stopped and is not running, “ERROR_wrongnode” if instance running, but not on its designated primary node, “ERROR_up” if instance should be stopped, but is actually running, “ERROR_down” if instance should run, but doesn’t, “ERROR_nodedown” if instance’s primary node is down, “ERROR_nodeoffline” if instance’s primary node is marked offline, “ADMIN_offline” if instance is offline and does not use dynamic, “USER_down” if the user shutdown the instance resources</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt>
-<dd>Tags</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt>
-<dd>Instance UUID</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">vcpus</span></code></dt>
-<dd>The “vcpus” backend parameter</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">admin_state</span></code></dt><dd><p>Desired state of the instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">admin_state_source</span></code></dt><dd><p>Who last changed the desired state of the instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">admin_up</span></code></dt><dd><p>Desired state of the instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/always_failover</span></code></dt><dd><p>The “always_failover” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/auto_balance</span></code></dt><dd><p>The “auto_balance” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/maxmem</span></code></dt><dd><p>The “maxmem” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/memory</span></code></dt><dd><p>The “maxmem” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/minmem</span></code></dt><dd><p>The “minmem” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/spindle_use</span></code></dt><dd><p>The “spindle_use” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">be/vcpus</span></code></dt><dd><p>The “vcpus” backend parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">beparams</span></code></dt><dd><p>Backend parameters (merged)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bridge</span></code></dt><dd><p>Bridge of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">console</span></code></dt><dd><p>Instance console information</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ctime</span></code></dt><dd><p>Creation timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_beparams</span></code></dt><dd><p>Custom backend parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_hvparams</span></code></dt><dd><p>Custom hypervisor parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_nicparams</span></code></dt><dd><p>Custom network interface parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">custom_osparams</span></code></dt><dd><p>Custom operating system parameters</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.count</span></code></dt><dd><p>Number of disks</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/0</span></code></dt><dd><p>Name of 1st disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/1</span></code></dt><dd><p>Name of 2nd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/2</span></code></dt><dd><p>Name of 3rd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/3</span></code></dt><dd><p>Name of 4th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/4</span></code></dt><dd><p>Name of 5th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/5</span></code></dt><dd><p>Name of 6th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/6</span></code></dt><dd><p>Name of 7th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/7</span></code></dt><dd><p>Name of 8th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/8</span></code></dt><dd><p>Name of 9th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/9</span></code></dt><dd><p>Name of 10th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/10</span></code></dt><dd><p>Name of 11th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/11</span></code></dt><dd><p>Name of 12th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/12</span></code></dt><dd><p>Name of 13th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/13</span></code></dt><dd><p>Name of 14th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/14</span></code></dt><dd><p>Name of 15th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.name/15</span></code></dt><dd><p>Name of 16th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.names</span></code></dt><dd><p>List of disk names</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/0</span></code></dt><dd><p>Disk size of 1st disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/1</span></code></dt><dd><p>Disk size of 2nd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/2</span></code></dt><dd><p>Disk size of 3rd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/3</span></code></dt><dd><p>Disk size of 4th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/4</span></code></dt><dd><p>Disk size of 5th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/5</span></code></dt><dd><p>Disk size of 6th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/6</span></code></dt><dd><p>Disk size of 7th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/7</span></code></dt><dd><p>Disk size of 8th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/8</span></code></dt><dd><p>Disk size of 9th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/9</span></code></dt><dd><p>Disk size of 10th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/10</span></code></dt><dd><p>Disk size of 11th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/11</span></code></dt><dd><p>Disk size of 12th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/12</span></code></dt><dd><p>Disk size of 13th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/13</span></code></dt><dd><p>Disk size of 14th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/14</span></code></dt><dd><p>Disk size of 15th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.size/15</span></code></dt><dd><p>Disk size of 16th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.sizes</span></code></dt><dd><p>List of disk sizes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles</span></code></dt><dd><p>List of disk spindles</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/0</span></code></dt><dd><p>Spindles of 1st disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/1</span></code></dt><dd><p>Spindles of 2nd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/2</span></code></dt><dd><p>Spindles of 3rd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/3</span></code></dt><dd><p>Spindles of 4th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/4</span></code></dt><dd><p>Spindles of 5th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/5</span></code></dt><dd><p>Spindles of 6th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/6</span></code></dt><dd><p>Spindles of 7th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/7</span></code></dt><dd><p>Spindles of 8th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/8</span></code></dt><dd><p>Spindles of 9th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/9</span></code></dt><dd><p>Spindles of 10th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/10</span></code></dt><dd><p>Spindles of 11th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/11</span></code></dt><dd><p>Spindles of 12th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/12</span></code></dt><dd><p>Spindles of 13th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/13</span></code></dt><dd><p>Spindles of 14th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/14</span></code></dt><dd><p>Spindles of 15th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.spindles/15</span></code></dt><dd><p>Spindles of 16th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/0</span></code></dt><dd><p>UUID of 1st disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/1</span></code></dt><dd><p>UUID of 2nd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/2</span></code></dt><dd><p>UUID of 3rd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/3</span></code></dt><dd><p>UUID of 4th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/4</span></code></dt><dd><p>UUID of 5th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/5</span></code></dt><dd><p>UUID of 6th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/6</span></code></dt><dd><p>UUID of 7th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/7</span></code></dt><dd><p>UUID of 8th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/8</span></code></dt><dd><p>UUID of 9th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/9</span></code></dt><dd><p>UUID of 10th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/10</span></code></dt><dd><p>UUID of 11th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/11</span></code></dt><dd><p>UUID of 12th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/12</span></code></dt><dd><p>UUID of 13th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/13</span></code></dt><dd><p>UUID of 14th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/14</span></code></dt><dd><p>UUID of 15th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuid/15</span></code></dt><dd><p>UUID of 16th disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk.uuids</span></code></dt><dd><p>List of disk UUIDs</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk_template</span></code></dt><dd><p>Instance disk template</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disk_usage</span></code></dt><dd><p>Total disk space used by instance on each of its nodes; this is not the disk size visible to the instance, but the usage on the node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disks_active</span></code></dt><dd><p>Desired state of the instance disks</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">forthcoming</span></code></dt><dd><p>Whether the Instance is forthcoming</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/acpi</span></code></dt><dd><p>The “acpi” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/blockdev_prefix</span></code></dt><dd><p>The “blockdev_prefix” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/boot_order</span></code></dt><dd><p>The “boot_order” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/bootloader_args</span></code></dt><dd><p>The “bootloader_args” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/bootloader_path</span></code></dt><dd><p>The “bootloader_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom2_image_path</span></code></dt><dd><p>The “cdrom2_image_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom_disk_type</span></code></dt><dd><p>The “cdrom_disk_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cdrom_image_path</span></code></dt><dd><p>The “cdrom_image_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_cap</span></code></dt><dd><p>The “cpu_cap” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_cores</span></code></dt><dd><p>The “cpu_cores” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_mask</span></code></dt><dd><p>The “cpu_mask” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_sockets</span></code></dt><dd><p>The “cpu_sockets” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_threads</span></code></dt><dd><p>The “cpu_threads” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_type</span></code></dt><dd><p>The “cpu_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpu_weight</span></code></dt><dd><p>The “cpu_weight” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/cpuid</span></code></dt><dd><p>The “cpuid” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/device_model</span></code></dt><dd><p>The “device_model” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/devices</span></code></dt><dd><p>The “devices” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_aio</span></code></dt><dd><p>The “disk_aio” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_cache</span></code></dt><dd><p>The “disk_cache” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_discard</span></code></dt><dd><p>The “disk_discard” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/disk_type</span></code></dt><dd><p>The “disk_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/drop_capabilities</span></code></dt><dd><p>The “drop_capabilities” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/extra_cgroups</span></code></dt><dd><p>The “extra_cgroups” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/extra_config</span></code></dt><dd><p>The “extra_config” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/floppy_image_path</span></code></dt><dd><p>The “floppy_image_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/init_script</span></code></dt><dd><p>The “init_script” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/initrd_path</span></code></dt><dd><p>The “initrd_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kernel_args</span></code></dt><dd><p>The “kernel_args” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kernel_path</span></code></dt><dd><p>The “kernel_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/keymap</span></code></dt><dd><p>The “keymap” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_extra</span></code></dt><dd><p>The “kvm_extra” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_flag</span></code></dt><dd><p>The “kvm_flag” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_path</span></code></dt><dd><p>The “kvm_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/kvm_pci_reservations</span></code></dt><dd><p>The “kvm_pci_reservations” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/machine_version</span></code></dt><dd><p>The “machine_version” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/mem_path</span></code></dt><dd><p>The “mem_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/migration_caps</span></code></dt><dd><p>The “migration_caps” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/migration_downtime</span></code></dt><dd><p>The “migration_downtime” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/nic_type</span></code></dt><dd><p>The “nic_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/num_ttys</span></code></dt><dd><p>The “num_ttys” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/pae</span></code></dt><dd><p>The “pae” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/pci_pass</span></code></dt><dd><p>The “pci_pass” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/reboot_behavior</span></code></dt><dd><p>The “reboot_behavior” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/root_path</span></code></dt><dd><p>The “root_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/scsi_controller_type</span></code></dt><dd><p>The “scsi_controller_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/security_domain</span></code></dt><dd><p>The “security_domain” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/security_model</span></code></dt><dd><p>The “security_model” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/serial_console</span></code></dt><dd><p>The “serial_console” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/serial_speed</span></code></dt><dd><p>The “serial_speed” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/soundhw</span></code></dt><dd><p>The “soundhw” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_bind</span></code></dt><dd><p>The “spice_bind” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_image_compression</span></code></dt><dd><p>The “spice_image_compression” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_ip_version</span></code></dt><dd><p>The “spice_ip_version” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_jpeg_wan_compression</span></code></dt><dd><p>The “spice_jpeg_wan_compression” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_password_file</span></code></dt><dd><p>The “spice_password_file” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_playback_compression</span></code></dt><dd><p>The “spice_playback_compression” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_streaming_video</span></code></dt><dd><p>The “spice_streaming_video” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_tls_ciphers</span></code></dt><dd><p>The “spice_tls_ciphers” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_use_tls</span></code></dt><dd><p>The “spice_use_tls” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_use_vdagent</span></code></dt><dd><p>The “spice_use_vdagent” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/spice_zlib_glz_wan_compression</span></code></dt><dd><p>The “spice_zlib_glz_wan_compression” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/startup_timeout</span></code></dt><dd><p>The “startup_timeout” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/usb_devices</span></code></dt><dd><p>The “usb_devices” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/usb_mouse</span></code></dt><dd><p>The “usb_mouse” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/use_bootloader</span></code></dt><dd><p>The “use_bootloader” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/use_chroot</span></code></dt><dd><p>The “use_chroot” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/use_guest_agent</span></code></dt><dd><p>The “use_guest_agent” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/use_localtime</span></code></dt><dd><p>The “use_localtime” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/user_shutdown</span></code></dt><dd><p>The “user_shutdown” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vga</span></code></dt><dd><p>The “vga” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vhost_net</span></code></dt><dd><p>The “vhost_net” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vif_script</span></code></dt><dd><p>The “vif_script” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vif_type</span></code></dt><dd><p>The “vif_type” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/viridian</span></code></dt><dd><p>The “viridian” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/virtio_net_queues</span></code></dt><dd><p>The “virtio_net_queues” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_bind_address</span></code></dt><dd><p>The “vnc_bind_address” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_password_file</span></code></dt><dd><p>The “vnc_password_file” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_tls</span></code></dt><dd><p>The “vnc_tls” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_x509_path</span></code></dt><dd><p>The “vnc_x509_path” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnc_x509_verify</span></code></dt><dd><p>The “vnc_x509_verify” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hv/vnet_hdr</span></code></dt><dd><p>The “vnet_hdr” hypervisor parameter</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hvparams</span></code></dt><dd><p>Hypervisor parameters (merged)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hypervisor</span></code></dt><dd><p>Hypervisor name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ip</span></code></dt><dd><p>IP address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mac</span></code></dt><dd><p>MAC address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">mtime</span></code></dt><dd><p>Modification timestamp</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Instance name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">network_port</span></code></dt><dd><p>Instance network port if available (e.g. for VNC console)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/0</span></code></dt><dd><p>Bridge of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/1</span></code></dt><dd><p>Bridge of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/2</span></code></dt><dd><p>Bridge of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/3</span></code></dt><dd><p>Bridge of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/4</span></code></dt><dd><p>Bridge of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/5</span></code></dt><dd><p>Bridge of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/6</span></code></dt><dd><p>Bridge of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridge/7</span></code></dt><dd><p>Bridge of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.bridges</span></code></dt><dd><p>List containing each network interface’s bridge</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.count</span></code></dt><dd><p>Number of network interfaces</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/0</span></code></dt><dd><p>IP address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/1</span></code></dt><dd><p>IP address of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/2</span></code></dt><dd><p>IP address of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/3</span></code></dt><dd><p>IP address of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/4</span></code></dt><dd><p>IP address of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/5</span></code></dt><dd><p>IP address of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/6</span></code></dt><dd><p>IP address of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ip/7</span></code></dt><dd><p>IP address of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.ips</span></code></dt><dd><p>List containing each network interface’s IP address</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/0</span></code></dt><dd><p>Link of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/1</span></code></dt><dd><p>Link of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/2</span></code></dt><dd><p>Link of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/3</span></code></dt><dd><p>Link of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/4</span></code></dt><dd><p>Link of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/5</span></code></dt><dd><p>Link of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/6</span></code></dt><dd><p>Link of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.link/7</span></code></dt><dd><p>Link of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.links</span></code></dt><dd><p>List containing each network interface’s link</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/0</span></code></dt><dd><p>MAC address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/1</span></code></dt><dd><p>MAC address of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/2</span></code></dt><dd><p>MAC address of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/3</span></code></dt><dd><p>MAC address of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/4</span></code></dt><dd><p>MAC address of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/5</span></code></dt><dd><p>MAC address of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/6</span></code></dt><dd><p>MAC address of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mac/7</span></code></dt><dd><p>MAC address of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.macs</span></code></dt><dd><p>List containing each network interface’s MAC address</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/0</span></code></dt><dd><p>Mode of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/1</span></code></dt><dd><p>Mode of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/2</span></code></dt><dd><p>Mode of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/3</span></code></dt><dd><p>Mode of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/4</span></code></dt><dd><p>Mode of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/5</span></code></dt><dd><p>Mode of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/6</span></code></dt><dd><p>Mode of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.mode/7</span></code></dt><dd><p>Mode of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.modes</span></code></dt><dd><p>List containing each network interface’s mode</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/0</span></code></dt><dd><p>Name address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/1</span></code></dt><dd><p>Name address of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/2</span></code></dt><dd><p>Name address of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/3</span></code></dt><dd><p>Name address of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/4</span></code></dt><dd><p>Name address of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/5</span></code></dt><dd><p>Name address of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/6</span></code></dt><dd><p>Name address of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.name/7</span></code></dt><dd><p>Name address of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.names</span></code></dt><dd><p>List containing each network interface’s name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/0</span></code></dt><dd><p>Network name of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/1</span></code></dt><dd><p>Network name of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/2</span></code></dt><dd><p>Network name of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/3</span></code></dt><dd><p>Network name of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/4</span></code></dt><dd><p>Network name of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/5</span></code></dt><dd><p>Network name of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/6</span></code></dt><dd><p>Network name of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network.name/7</span></code></dt><dd><p>Network name of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/0</span></code></dt><dd><p>Network of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/1</span></code></dt><dd><p>Network of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/2</span></code></dt><dd><p>Network of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/3</span></code></dt><dd><p>Network of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/4</span></code></dt><dd><p>Network of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/5</span></code></dt><dd><p>Network of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/6</span></code></dt><dd><p>Network of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.network/7</span></code></dt><dd><p>Network of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.networks</span></code></dt><dd><p>List containing each interface’s network</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.networks.names</span></code></dt><dd><p>List containing each interface’s network</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/0</span></code></dt><dd><p>UUID address of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/1</span></code></dt><dd><p>UUID address of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/2</span></code></dt><dd><p>UUID address of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/3</span></code></dt><dd><p>UUID address of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/4</span></code></dt><dd><p>UUID address of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/5</span></code></dt><dd><p>UUID address of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/6</span></code></dt><dd><p>UUID address of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuid/7</span></code></dt><dd><p>UUID address of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.uuids</span></code></dt><dd><p>List containing each network interface’s UUID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/0</span></code></dt><dd><p>VLAN of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/1</span></code></dt><dd><p>VLAN of 2nd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/2</span></code></dt><dd><p>VLAN of 3rd network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/3</span></code></dt><dd><p>VLAN of 4th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/4</span></code></dt><dd><p>VLAN of 5th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/5</span></code></dt><dd><p>VLAN of 6th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/6</span></code></dt><dd><p>VLAN of 7th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlan/7</span></code></dt><dd><p>VLAN of 8th network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic.vlans</span></code></dt><dd><p>List containing each network interface’s VLAN</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic_link</span></code></dt><dd><p>Link of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic_mode</span></code></dt><dd><p>Mode of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">nic_network</span></code></dt><dd><p>Network of 1st network interface</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oper_ram</span></code></dt><dd><p>Actual memory usage as seen by hypervisor</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oper_state</span></code></dt><dd><p>Actual state of instance</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">oper_vcpus</span></code></dt><dd><p>Actual number of VCPUs as seen by hypervisor</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">os</span></code></dt><dd><p>Operating system</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">osparams</span></code></dt><dd><p>Operating system parameters (merged)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pnode</span></code></dt><dd><p>Primary node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pnode.group</span></code></dt><dd><p>Primary node’s group</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pnode.group.uuid</span></code></dt><dd><p>Primary node’s group UUID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sda_size</span></code></dt><dd><p>Disk size of 1st disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sdb_size</span></code></dt><dd><p>Disk size of 2nd disk</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">serial_no</span></code></dt><dd><p>Instance object serial number, incremented on each modification</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">snodes</span></code></dt><dd><p>Secondary nodes; usually this will just be one node</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">snodes.group</span></code></dt><dd><p>Node groups of secondary nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">snodes.group.uuid</span></code></dt><dd><p>Node group UUIDs of secondary nodes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">status</span></code></dt><dd><p>Instance status; “running” if instance is set to be running and actually is, “ADMIN_down” if instance is stopped and is not running, “ERROR_wrongnode” if instance running, but not on its designated primary node, “ERROR_up” if instance should be stopped, but is actually running, “ERROR_down” if instance should run, but doesn’t, “ERROR_nodedown” if instance’s primary node is down, “ERROR_nodeoffline” if instance’s primary node is marked offline, “ADMIN_offline” if instance is offline and does not use dynamic, “USER_down” if the user shutdown the instance resources</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tags</span></code></dt><dd><p>Tags</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">uuid</span></code></dt><dd><p>Instance UUID</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">vcpus</span></code></dt><dd><p>The “vcpus” backend parameter</p>
+</dd>
 </dl>
 <p>If the value of the option starts with the character <code class="docutils literal notranslate"><span class="pre">+</span></code>, the new
 field(s) will be added to the default list. This allows one to quickly
@@ -1798,7 +1733,7 @@ ambiguous cases (e.g. a single field name as a filter) the <code class="docutils
 </div>
 <div class="section" id="info">
 <h4>INFO<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h4>
-<p><strong>info</strong> [-s | –static] [–roman] {–all | <em>instance-name</em>}</p>
+<p><strong>info</strong> [-s | --static] [--roman] {--all | <em>instance-name</em>}</p>
 <p>Show detailed information about the given instance(s). This is
 different from <strong>list</strong> as it shows detailed data about the instance’s
 disks (especially useful for the drbd disk template).</p>
@@ -1815,40 +1750,40 @@ virtualization technologies.</p>
 <h4>MODIFY<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>modify</strong></div>
-<div class="line">[{-H|–hypervisor-parameters} <em>HYPERVISOR_PARAMETERS</em>]</div>
-<div class="line">[{-B|–backend-parameters} <em>BACKEND_PARAMETERS</em>]</div>
-<div class="line">[{-m|–runtime-memory} <em>SIZE</em>]</div>
-<div class="line">[–net add[:options…] |</div>
+<div class="line">[{-H|--hypervisor-parameters} <em>HYPERVISOR_PARAMETERS</em>]</div>
+<div class="line">[{-B|--backend-parameters} <em>BACKEND_PARAMETERS</em>]</div>
+<div class="line">[{-m|--runtime-memory} <em>SIZE</em>]</div>
+<div class="line">[--net add[:options…] |</div>
 <div class="line-block">
-<div class="line">–net [<em>N</em>:]add[,options…] |</div>
-<div class="line">–net [<em>ID</em>:]remove |</div>
-<div class="line">–net <em>ID</em>:modify[,options…]]</div>
+<div class="line">--net [<em>N</em>:]add[,options…] |</div>
+<div class="line">--net [<em>ID</em>:]remove |</div>
+<div class="line">--net <em>ID</em>:modify[,options…]]</div>
 </div>
-<div class="line">[–disk add:size=*SIZE*[,options…] |</div>
+<div class="line">[--disk add:size=*SIZE*[,options…] |</div>
 <div class="line-block">
-<div class="line">–disk <em>N</em>:add,size=*SIZE*[,options…] |</div>
-<div class="line">–disk <em>N</em>:add,size=*SIZE*,provider=*PROVIDER*[,options…][,param=*value*… ] |</div>
-<div class="line">–disk <em>N</em>:attach,{name=*NAME* | uuid=*UUID*}|</div>
-<div class="line">–disk <em>ID</em>:modify[,options…]</div>
-<div class="line">–disk [<em>ID</em>:]remove]</div>
-<div class="line">–disk [<em>ID</em>:]detach]</div>
+<div class="line">--disk <em>N</em>:add,size=*SIZE*[,options…] |</div>
+<div class="line">--disk <em>N</em>:add,size=*SIZE*,provider=*PROVIDER*[,options…][,param=*value*… ] |</div>
+<div class="line">--disk <em>N</em>:attach,{name=*NAME* | uuid=*UUID*}|</div>
+<div class="line">--disk <em>ID</em>:modify[,options…]</div>
+<div class="line">--disk [<em>ID</em>:]remove]</div>
+<div class="line">--disk [<em>ID</em>:]detach]</div>
 </div>
-<div class="line">[{-t|–disk-template} { plain | rbd } |</div>
+<div class="line">[{-t|--disk-template} { plain | rbd } |</div>
 <div class="line-block">
-<div class="line">{-t|–disk-template} drbd -n <em>new_secondary</em>] [–no-wait-for-sync] |</div>
-<div class="line">{-t|–disk-template} ext {-e|–ext-params} {provider=*PROVIDER*}[,param=*value*… ] |</div>
-<div class="line">{-t|–disk-template} { file | sharedfile | gluster }</div>
+<div class="line">{-t|--disk-template} drbd -n <em>new_secondary</em>] [--no-wait-for-sync] |</div>
+<div class="line">{-t|--disk-template} ext {-e|–ext-params} {provider=*PROVIDER*}[,param=*value*… ] |</div>
+<div class="line">{-t|--disk-template} { file | sharedfile | gluster }</div>
 <div class="line">| [–file-storage-dir dir_path] [–file-driver {loop | blktap | blktap2}]</div>
 </div>
-<div class="line">[–new-primary=*node*]</div>
-<div class="line">[–os-type=*OS* [–force-variant]]</div>
-<div class="line">[{-O|–os-parameters} <em>param*=*value</em>… ]</div>
+<div class="line">[--new-primary=*node*]</div>
+<div class="line">[--os-type=*OS* [--force-variant]]</div>
+<div class="line">[{-O|--os-parameters} <em>param*=*value</em>… ]</div>
 <div class="line">[–os-parameters-private <em>param*=*value</em>… ]</div>
-<div class="line">[–offline | –online]</div>
-<div class="line">[–submit] [–print-jobid]</div>
-<div class="line">[–ignore-ipolicy]</div>
-<div class="line">[–hotplug]</div>
-<div class="line">[–hotplug-if-possible]</div>
+<div class="line">[--offline | --online]</div>
+<div class="line">[--submit] [--print-jobid]</div>
+<div class="line">[--ignore-ipolicy]</div>
+<div class="line">[--hotplug]</div>
+<div class="line">[--hotplug-if-possible]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Modifies the memory size, number of vcpus, ip address, MAC address
@@ -1909,12 +1844,12 @@ from an instance but keeps it in the configuration and doesn’t destroy
 it. The <code class="docutils literal notranslate"><span class="pre">--disk</span> <span class="pre">*ID*:modify[,options...]</span></code> will change the options of
 the disk.
 Available options are:</p>
-<dl class="docutils">
-<dt>mode</dt>
-<dd>The access mode. Either <code class="docutils literal notranslate"><span class="pre">ro</span></code> (read-only) or the default <code class="docutils literal notranslate"><span class="pre">rw</span></code> (read-write).</dd>
-<dt>name</dt>
-<dd>This option specifies a name for the disk, which can be used as a disk
-identifier. An instance can not have two disks with the same name.</dd>
+<dl class="simple">
+<dt>mode</dt><dd><p>The access mode. Either <code class="docutils literal notranslate"><span class="pre">ro</span></code> (read-only) or the default <code class="docutils literal notranslate"><span class="pre">rw</span></code> (read-write).</p>
+</dd>
+<dt>name</dt><dd><p>This option specifies a name for the disk, which can be used as a disk
+identifier. An instance can not have two disks with the same name.</p>
+</dd>
 </dl>
 <p>The <code class="docutils literal notranslate"><span class="pre">--net</span> <span class="pre">*N*:add[,options..]</span></code> will add a new network interface to
 the instance. The available options are the same as in the <strong>add</strong>
@@ -1961,13 +1896,13 @@ running, there is no effect on the instance.</p>
 <div class="section" id="reinstall">
 <h4>REINSTALL<a class="headerlink" href="#reinstall" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>reinstall</strong> [{-o|–os-type} <em>os-type</em>] [–select-os] [-f <em>force</em>]</div>
-<div class="line">[–force-multiple]</div>
-<div class="line">[–instance | –node | –primary | –secondary | –all]</div>
-<div class="line">[{-O|–os-parameters} <em>OS_PARAMETERS</em>]</div>
+<div class="line"><strong>reinstall</strong> [{-o|--os-type} <em>os-type</em>] [--select-os] [-f <em>force</em>]</div>
+<div class="line">[--force-multiple]</div>
+<div class="line">[--instance | --node | --primary | --secondary | --all]</div>
+<div class="line">[{-O|--os-parameters} <em>OS_PARAMETERS</em>]</div>
 <div class="line">[–os-parameters-private} <em>OS_PARAMETERS</em>]</div>
 <div class="line">[–os-parameters-secret} <em>OS_PARAMETERS</em>]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>instance</em>…}</div>
 </div>
 <p>Reinstalls the operating system on the given instance(s). The
@@ -1990,8 +1925,8 @@ options.</p>
 <div class="section" id="rename">
 <h4>RENAME<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>rename</strong> [–no-ip-check] [–no-name-check] [–force]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line"><strong>rename</strong> [--no-ip-check] [--no-name-check] [--force]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>instance</em>} {<em>new_name</em>}</div>
 </div>
 <p>Renames the given instance. The instance must be stopped when running
@@ -2020,44 +1955,44 @@ options.</p>
 <h4>STARTUP<a class="headerlink" href="#startup" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>startup</strong></div>
-<div class="line">[–force] [–ignore-offline]</div>
-<div class="line">[–force-multiple] [–no-remember]</div>
-<div class="line">[–instance | –node | –primary | –secondary | –all |</div>
-<div class="line">–tags | –node-tags | –pri-node-tags | –sec-node-tags]</div>
-<div class="line">[{-H|–hypervisor-parameters} <code class="docutils literal notranslate"><span class="pre">key=value...</span></code>]</div>
-<div class="line">[{-B|–backend-parameters} <code class="docutils literal notranslate"><span class="pre">key=value...</span></code>]</div>
-<div class="line">[–submit] [–print-jobid] [–paused]</div>
+<div class="line">[--force] [--ignore-offline]</div>
+<div class="line">[--force-multiple] [--no-remember]</div>
+<div class="line">[--instance | --node | --primary | --secondary | --all |</div>
+<div class="line">--tags | --node-tags | --pri-node-tags | --sec-node-tags]</div>
+<div class="line">[{-H|--hypervisor-parameters} <code class="docutils literal notranslate"><span class="pre">key=value...</span></code>]</div>
+<div class="line">[{-B|--backend-parameters} <code class="docutils literal notranslate"><span class="pre">key=value...</span></code>]</div>
+<div class="line">[--submit] [--print-jobid] [--paused]</div>
 <div class="line">{<em>instance</em>…}</div>
 </div>
 <p>Starts one or more instances, depending on the following options.  The
 four available modes are:</p>
-<dl class="docutils">
-<dt>–instance</dt>
-<dd>will start the instances given as arguments (at least one argument
-required); this is the default selection</dd>
-<dt>–node</dt>
-<dd>will start the instances who have the given node as either primary
-or secondary</dd>
-<dt>–primary</dt>
-<dd>will start all instances whose primary node is in the list of nodes
-passed as arguments (at least one node required)</dd>
-<dt>–secondary</dt>
-<dd>will start all instances whose secondary node is in the list of
-nodes passed as arguments (at least one node required)</dd>
-<dt>–all</dt>
-<dd>will start all instances in the cluster (no arguments accepted)</dd>
-<dt>–tags</dt>
-<dd>will start all instances in the cluster with the tags given as
-arguments</dd>
-<dt>–node-tags</dt>
-<dd>will start all instances in the cluster on nodes with the tags
-given as arguments</dd>
-<dt>–pri-node-tags</dt>
-<dd>will start all instances in the cluster on primary nodes with the
-tags given as arguments</dd>
-<dt>–sec-node-tags</dt>
-<dd>will start all instances in the cluster on secondary nodes with the
-tags given as arguments</dd>
+<dl class="simple">
+<dt>--instance</dt><dd><p>will start the instances given as arguments (at least one argument
+required); this is the default selection</p>
+</dd>
+<dt>--node</dt><dd><p>will start the instances who have the given node as either primary
+or secondary</p>
+</dd>
+<dt>--primary</dt><dd><p>will start all instances whose primary node is in the list of nodes
+passed as arguments (at least one node required)</p>
+</dd>
+<dt>--secondary</dt><dd><p>will start all instances whose secondary node is in the list of
+nodes passed as arguments (at least one node required)</p>
+</dd>
+<dt>--all</dt><dd><p>will start all instances in the cluster (no arguments accepted)</p>
+</dd>
+<dt>--tags</dt><dd><p>will start all instances in the cluster with the tags given as
+arguments</p>
+</dd>
+<dt>--node-tags</dt><dd><p>will start all instances in the cluster on nodes with the tags
+given as arguments</p>
+</dd>
+<dt>--pri-node-tags</dt><dd><p>will start all instances in the cluster on primary nodes with the
+tags given as arguments</p>
+</dd>
+<dt>--sec-node-tags</dt><dd><p>will start all instances in the cluster on secondary nodes with the
+tags given as arguments</p>
+</dd>
 </dl>
 <p>Note that although you can pass more than one selection option, the
 last one wins, so in order to guarantee the desired result, don’t pass
@@ -2104,11 +2039,11 @@ options.</p>
 <h4>SHUTDOWN<a class="headerlink" href="#shutdown" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>shutdown</strong></div>
-<div class="line">[–timeout=*N*]</div>
-<div class="line">[–force] [–force-multiple] [–ignore-offline] [–no-remember]</div>
-<div class="line">[–instance | –node | –primary | –secondary | –all |</div>
-<div class="line">–tags | –node-tags | –pri-node-tags | –sec-node-tags]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line">[--timeout=*N*]</div>
+<div class="line">[--force] [--force-multiple] [--ignore-offline] [--no-remember]</div>
+<div class="line">[--instance | --node | --primary | --secondary | --all |</div>
+<div class="line">--tags | --node-tags | --pri-node-tags | --sec-node-tags]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>instance</em>…}</div>
 </div>
 <p>Stops one or more instances. If the instance cannot be cleanly stopped
@@ -2149,13 +2084,13 @@ options.</p>
 <h4>REBOOT<a class="headerlink" href="#reboot" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
 <div class="line"><strong>reboot</strong></div>
-<div class="line">[{-t|–type} <em>REBOOT-TYPE</em>]</div>
-<div class="line">[–ignore-secondaries]</div>
-<div class="line">[–shutdown-timeout=*N*]</div>
-<div class="line">[–force-multiple]</div>
-<div class="line">[–instance | –node | –primary | –secondary | –all |</div>
-<div class="line">–tags | –node-tags | –pri-node-tags | –sec-node-tags]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line">[{-t|--type} <em>REBOOT-TYPE</em>]</div>
+<div class="line">[--ignore-secondaries]</div>
+<div class="line">[--shutdown-timeout=*N*]</div>
+<div class="line">[--force-multiple]</div>
+<div class="line">[--instance | --node | --primary | --secondary | --all |</div>
+<div class="line">--tags | --node-tags | --pri-node-tags | --sec-node-tags]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">[<em>instance</em>…]</div>
 </div>
 <p>Reboots one or more instances. The type of reboot depends on the value
@@ -2186,7 +2121,7 @@ options.</p>
 </div>
 <div class="section" id="console">
 <h4>CONSOLE<a class="headerlink" href="#console" title="Permalink to this headline">¶</a></h4>
-<p><strong>console</strong> [–show-cmd] {<em>instance</em>}</p>
+<p><strong>console</strong> [--show-cmd] {<em>instance</em>}</p>
 <p>Connects to the console of the given instance. If the instance is not
 up, an error is returned. Use the <code class="docutils literal notranslate"><span class="pre">--show-cmd</span></code> option to display the
 command instead of executing it.</p>
@@ -2208,22 +2143,22 @@ the console to be made.</p>
 <div class="section" id="replace-disks">
 <h4>REPLACE-DISKS<a class="headerlink" href="#replace-disks" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>replace-disks</strong> [–submit] [–print-jobid] [–early-release]</div>
-<div class="line">[–ignore-ipolicy] {-p} [–disks <em>idx</em>] {<em>instance-name</em>}</div>
+<div class="line"><strong>replace-disks</strong> [--submit] [--print-jobid] [--early-release]</div>
+<div class="line">[--ignore-ipolicy] {-p} [--disks <em>idx</em>] {<em>instance-name</em>}</div>
 </div>
 <div class="line-block">
-<div class="line"><strong>replace-disks</strong> [–submit] [–print-jobid] [–early-release]</div>
-<div class="line">[–ignore-ipolicy] {-s} [–disks <em>idx</em>] {<em>instance-name</em>}</div>
+<div class="line"><strong>replace-disks</strong> [--submit] [--print-jobid] [--early-release]</div>
+<div class="line">[--ignore-ipolicy] {-s} [--disks <em>idx</em>] {<em>instance-name</em>}</div>
 </div>
 <div class="line-block">
-<div class="line"><strong>replace-disks</strong> [–submit] [–print-jobid] [–early-release]</div>
-<div class="line">[–ignore-ipolicy]</div>
-<div class="line">{{-I|–iallocator} <em>name</em> | {{-n|–new-secondary} <em>node</em> }</div>
+<div class="line"><strong>replace-disks</strong> [--submit] [--print-jobid] [--early-release]</div>
+<div class="line">[--ignore-ipolicy]</div>
+<div class="line">{{-I|--iallocator} <em>name</em> | {{-n|--new-secondary} <em>node</em> }</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <div class="line-block">
-<div class="line"><strong>replace-disks</strong> [–submit] [–print-jobid] [–early-release]</div>
-<div class="line">[–ignore-ipolicy] {-a|–auto} {<em>instance-name</em>}</div>
+<div class="line"><strong>replace-disks</strong> [--submit] [--print-jobid] [--early-release]</div>
+<div class="line">[--ignore-ipolicy] {-a|--auto} {<em>instance-name</em>}</div>
 </div>
 <p>This command is a generalized form for replacing disks. It is
 currently only valid for the mirrored (DRBD) disk template.</p>
@@ -2264,8 +2199,8 @@ options.</p>
 <div class="section" id="activate-disks">
 <h4>ACTIVATE-DISKS<a class="headerlink" href="#activate-disks" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>activate-disks</strong> [–submit] [–print-jobid] [–ignore-size]</div>
-<div class="line">[–wait-for-sync] {<em>instance-name</em>}</div>
+<div class="line"><strong>activate-disks</strong> [--submit] [--print-jobid] [--ignore-size]</div>
+<div class="line">[--wait-for-sync] {<em>instance-name</em>}</div>
 </div>
 <p>Activates the block devices of the given instance. If successful, the
 command will show the location and name of the block devices:</p>
@@ -2297,7 +2232,7 @@ options.</p>
 </div>
 <div class="section" id="deactivate-disks">
 <h4>DEACTIVATE-DISKS<a class="headerlink" href="#deactivate-disks" title="Permalink to this headline">¶</a></h4>
-<p><strong>deactivate-disks</strong> [-f] [–submit] [–print-jobid] {<em>instance-name</em>}</p>
+<p><strong>deactivate-disks</strong> [-f] [--submit] [--print-jobid] {<em>instance-name</em>}</p>
 <p>De-activates the block devices of the given instance. Note that if you
 run this command for an instance with a drbd disk template, while it
 is running, it will not be able to shutdown the block devices on the
@@ -2315,8 +2250,8 @@ options.</p>
 <div class="section" id="grow-disk">
 <h4>GROW-DISK<a class="headerlink" href="#grow-disk" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>grow-disk</strong> [–no-wait-for-sync] [–submit] [–print-jobid]</div>
-<div class="line">[–absolute]</div>
+<div class="line"><strong>grow-disk</strong> [--no-wait-for-sync] [--submit] [--print-jobid]</div>
+<div class="line">[--absolute]</div>
 <div class="line">{<em>instance-name</em>} {<em>disk</em>} {<em>amount</em>}</div>
 </div>
 <p>Grows an instance’s disk. This is only possible for instances having a
@@ -2328,11 +2263,11 @@ the external shared storage.</p>
 grow the actual filesystems, partitions, etc. that live on that
 disk. Usually, you will need to:</p>
 <ol class="arabic simple">
-<li>use <strong>gnt-instance grow-disk</strong></li>
-<li>reboot the instance (later, at a convenient time)</li>
-<li>use a filesystem resizer, such as <strong>ext2online</strong>(8) or
+<li><p>use <strong>gnt-instance grow-disk</strong></p></li>
+<li><p>reboot the instance (later, at a convenient time)</p></li>
+<li><p>use a filesystem resizer, such as <strong>ext2online</strong>(8) or
 <strong>xfs_growfs</strong>(8) to resize the filesystem, or use <strong>fdisk</strong>(8) to
-change the partition table on the disk</li>
+change the partition table on the disk</p></li>
 </ol>
 <p>The <em>disk</em> argument is the index of the instance disk to grow. The
 <em>amount</em> argument is given as a number which can have a suffix (like the
@@ -2366,9 +2301,9 @@ instance.</p>
 <div class="section" id="recreate-disks">
 <h4>RECREATE-DISKS<a class="headerlink" href="#recreate-disks" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>recreate-disks</strong> [–submit] [–print-jobid]</div>
-<div class="line">[{-n node1:[node2] | {-I|–iallocator <em>name</em>}}]</div>
-<div class="line">[–disk=*N*[:[size=*VAL*][,spindles=*VAL*][,mode=*ro|rw*]]]</div>
+<div class="line"><strong>recreate-disks</strong> [--submit] [--print-jobid]</div>
+<div class="line">[{-n node1:[node2] | {-I|--iallocator <em>name</em>}}]</div>
+<div class="line">[--disk=*N*[:[size=*VAL*][,spindles=*VAL*][,mode=*ro|rw*]]]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Recreates all or a subset of disks of the given instance.</p>
@@ -2403,11 +2338,11 @@ options.</p>
 <div class="section" id="failover">
 <h4>FAILOVER<a class="headerlink" href="#failover" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>failover</strong> [-f] [–ignore-consistency] [–ignore-ipolicy]</div>
-<div class="line">[–shutdown-timeout=*N*]</div>
-<div class="line">[{-n|–target-node} <em>node</em> | {-I|–iallocator} <em>name</em>]</div>
-<div class="line">[–cleanup]</div>
-<div class="line">[–submit] [–print-jobid]</div>
+<div class="line"><strong>failover</strong> [-f] [--ignore-consistency] [--ignore-ipolicy]</div>
+<div class="line">[--shutdown-timeout=*N*]</div>
+<div class="line">[{-n|--target-node} <em>node</em> | {-I|--iallocator} <em>name</em>]</div>
+<div class="line">[--cleanup]</div>
+<div class="line">[--submit] [--print-jobid]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Failover will stop the instance (if running), change its primary node,
@@ -2458,13 +2393,13 @@ options.</p>
 <div class="section" id="migrate">
 <h4>MIGRATE<a class="headerlink" href="#migrate" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>migrate</strong> [-f] [–allow-failover] [–non-live]</div>
-<div class="line">[–migration-mode=live|non-live] [–ignore-ipolicy] [–ignore-hvversions]</div>
-<div class="line">[–no-runtime-changes] [–submit] [–print-jobid]</div>
-<div class="line">[{-n|–target-node} <em>node</em> | {-I|–iallocator} <em>name</em>] {<em>instance-name</em>}</div>
+<div class="line"><strong>migrate</strong> [-f] [--allow-failover] [--non-live]</div>
+<div class="line">[--migration-mode=live|non-live] [--ignore-ipolicy] [--ignore-hvversions]</div>
+<div class="line">[--no-runtime-changes] [--submit] [--print-jobid]</div>
+<div class="line">[{-n|--target-node} <em>node</em> | {-I|--iallocator} <em>name</em>] {<em>instance-name</em>}</div>
 </div>
 <div class="line-block">
-<div class="line"><strong>migrate</strong> [-f] –cleanup [–submit] [–print-jobid] {<em>instance-name</em>}</div>
+<div class="line"><strong>migrate</strong> [-f] --cleanup [--submit] [--print-jobid] {<em>instance-name</em>}</div>
 </div>
 <p>Migrate will move the instance to its secondary node without shutdown.
 As with failover, it works for instances having the drbd disk template
@@ -2544,9 +2479,9 @@ Migrating instance instance1.example.com
 <div class="section" id="move">
 <h4>MOVE<a class="headerlink" href="#move" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>move</strong> [-f] [–ignore-consistency]</div>
-<div class="line">[-n <em>node</em>] [–compress=*compression-mode*] [–shutdown-timeout=*N*]</div>
-<div class="line">[–submit] [–print-jobid] [–ignore-ipolicy]</div>
+<div class="line"><strong>move</strong> [-f] [--ignore-consistency]</div>
+<div class="line">[-n <em>node</em>] [--compress=*compression-mode*] [--shutdown-timeout=*N*]</div>
+<div class="line">[--submit] [--print-jobid] [--ignore-ipolicy]</div>
 <div class="line">{<em>instance-name</em>}</div>
 </div>
 <p>Move will move the instance to an arbitrary node in the cluster. This
@@ -2576,8 +2511,8 @@ options.</p>
 <div class="section" id="change-group">
 <h4>CHANGE-GROUP<a class="headerlink" href="#change-group" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line"><strong>change-group</strong> [–submit] [–print-jobid]</div>
-<div class="line">[–iallocator <em>name</em>] [–to <em>group</em>…] {<em>instance-name</em>}</div>
+<div class="line"><strong>change-group</strong> [--submit] [--print-jobid]</div>
+<div class="line">[--iallocator <em>name</em>] [--to <em>group</em>…] {<em>instance-name</em>}</div>
 </div>
 <p>This command moves an instance to another node group. The move is
 calculated by an iallocator, either given on the command line or as a
@@ -2598,7 +2533,7 @@ options.</p>
 <h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="add-tags">
 <h4>ADD-TAGS<a class="headerlink" href="#add-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>add-tags</strong> [–from <em>file</em>] {<em>instance-name</em>} {<em>tag</em>…}</p>
+<p><strong>add-tags</strong> [--from <em>file</em>] {<em>instance-name</em>} {<em>tag</em>…}</p>
 <p>Add tags to the given instance. If any of the tags contains invalid
 characters, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags will be extended
@@ -2614,7 +2549,7 @@ as stdin.</p>
 </div>
 <div class="section" id="remove-tags">
 <h4>REMOVE-TAGS<a class="headerlink" href="#remove-tags" title="Permalink to this headline">¶</a></h4>
-<p><strong>remove-tags</strong> [–from <em>file</em>] {<em>instance-name</em>} {<em>tag</em>…}</p>
+<p><strong>remove-tags</strong> [--from <em>file</em>] {<em>instance-name</em>} {<em>tag</em>…}</p>
 <p>Remove tags from the given instance. If any of the tags are not
 existing on the node, the entire operation will abort.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">--from</span></code> option is given, the list of tags to be removed will
@@ -2628,6 +2563,7 @@ will be interpreted as stdin.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -2700,17 +2636,15 @@ will be interpreted as stdin.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -2724,13 +2658,14 @@ will be interpreted as stdin.</p>
         <li class="right" >
           <a href="man-gnt-group.html" title="gnt-group"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gnt-instance</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

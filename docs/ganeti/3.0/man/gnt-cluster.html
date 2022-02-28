@@ -4,24 +4,27 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>gnt-cluster(8) Ganeti | Version 3.0.0</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <title>gnt-cluster(8) Ganeti | Version 3.0.2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">gnt-cluster(8) Ganeti | Version 3.0.0</h1>
+<h1 class="title">gnt-cluster(8) Ganeti | Version 3.0.2</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#name">Name</a></li>
 <li><a href="#synopsis">Synopsis</a></li>
 <li><a href="#description">DESCRIPTION</a></li>
-<li><a href="#commands">COMMANDS</a><ul>
+<li><a href="#commands">COMMANDS</a>
+<ul>
 <li><a href="#activate-master-ip">ACTIVATE-MASTER-IP</a></li>
 <li><a href="#command">COMMAND</a></li>
 <li><a href="#copyfile">COPYFILE</a></li>
@@ -45,7 +48,8 @@
 <li><a href="#verify">VERIFY</a></li>
 <li><a href="#verify-disks">VERIFY-DISKS</a></li>
 <li><a href="#version">VERSION</a></li>
-<li><a href="#tags">Tags</a><ul>
+<li><a href="#tags">Tags</a>
+<ul>
 <li><a href="#add-tags">ADD-TAGS</a></li>
 <li><a href="#list-tags">LIST-TAGS</a></li>
 <li><a href="#remove-tags">REMOVE-TAGS</a></li>
@@ -164,11 +168,11 @@
 <p>If you don't want to use lvm storage at all use the <code>--enabled-disk-templates</code> option to restrict the set of enabled disk templates. Once the cluster is initialized you can change this setup with the <strong>modify</strong> command.</p>
 <p>The <code>--master-netdev</code> option is useful for specifying a different interface on which the master will activate its IP address. It's important that all nodes have this interface because you'll need it for a master failover.</p>
 <p>The <code>--master-netmask</code> option allows to specify a netmask for the master IP. The netmask must be specified as an integer, and will be interpreted as a CIDR netmask. The default value is 32 for an IPv4 address and 128 for an IPv6 address.</p>
-<p>The <code>--use-external-mip-script</code> option allows to specify whether to use an user-supplied master IP address setup script, whose location is <code>/etc/ganeti/scripts/master-ip-setup</code>. If the option value is set to False, the default script (located at <code>/usr/local/lib/ganeti/tools/master-ip-setup</code>) will be executed.</p>
+<p>The <code>--use-external-mip-script</code> option allows to specify whether to use an user-supplied master IP address setup script, whose location is <code>/usr/local/etc/ganeti/scripts/master-ip-setup</code>. If the option value is set to False, the default script (located at <code>/usr/local/lib/ganeti/tools/master-ip-setup</code>) will be executed.</p>
 <p>The <code>-m (--mac-prefix)</code> option will let you specify a three byte prefix under which the virtual MAC addresses of your instances will be generated. The prefix must be specified in the format <code>XX:XX:XX</code> and the default is <code>aa:00:00</code>.</p>
 <p>The <code>--no-etc-hosts</code> option allows you to initialize the cluster without modifying the /etc/hosts file.</p>
 <p>The <code>--no-ssh-init</code> option allows you to initialize the cluster without creating or distributing SSH key pairs. This also sets the cluster-wide configuration parameter <code>modify ssh setup</code> to False. When adding nodes, Ganeti will consider this parameter to determine whether to create and distribute SSH key pairs on new nodes as well.</p>
-<p>The <code>--file-storage-dir</code>, <code>--shared-file-storage-dir</code> and <code>--gluster-storage-dir</code> options allow you set the directory to use for storing the instance disk files when using respectively the file storage backend, the shared file storage backend and the gluster storage backend. Note that these directories must be an allowed directory for file storage. Those directories are specified in the <code>/etc/ganeti/file-storage-paths</code> file. The file storage directory can also be a subdirectory of an allowed one. The file storage directory should be present on all nodes.</p>
+<p>The <code>--file-storage-dir</code>, <code>--shared-file-storage-dir</code> and <code>--gluster-storage-dir</code> options allow you set the directory to use for storing the instance disk files when using respectively the file storage backend, the shared file storage backend and the gluster storage backend. Note that these directories must be an allowed directory for file storage. Those directories are specified in the <code>/usr/local/etc/ganeti/file-storage-paths</code> file. The file storage directory can also be a subdirectory of an allowed one. The file storage directory should be present on all nodes.</p>
 <p>The <code>--prealloc-wipe-disks</code> sets a cluster wide configuration value for wiping disks prior to allocation and size changes (<code>gnt-instance grow-disk</code>). This increases security on instance level as the instance can't access untouched data from its underlying storage.</p>
 <p>The <code>--enabled-hypervisors</code> option allows you to set the list of hypervisors that will be enabled for this cluster. Instance hypervisors can only be chosen from the list of enabled hypervisors, and the first entry of this list will be used by default. Currently, the following hypervisors are available:</p>
 <dl>
