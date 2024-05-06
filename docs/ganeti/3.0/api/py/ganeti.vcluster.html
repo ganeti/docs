@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.vcluster</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.vcluster.html" class="internal-link" title="This module">vcluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix"><wbr></wbr>Add<wbr></wbr>Node<wbr></wbr>Prefix</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EnvironmentForHost" class="internal-link" title="ganeti.vcluster.EnvironmentForHost"><wbr></wbr>Environment<wbr></wbr>For<wbr></wbr>Host</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExchangeNodeRoot" class="internal-link" title="ganeti.vcluster.ExchangeNodeRoot"><wbr></wbr>Exchange<wbr></wbr>Node<wbr></wbr>Root</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetVirtualHostname" class="internal-link" title="ganeti.vcluster.GetVirtualHostname"><wbr></wbr>Get<wbr></wbr>Virtual<wbr></wbr>Hostname</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LocalizeVirtualPath" class="internal-link" title="ganeti.vcluster.LocalizeVirtualPath"><wbr></wbr>Localize<wbr></wbr>Virtual<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MakeNodeRoot" class="internal-link" title="ganeti.vcluster.MakeNodeRoot"><wbr></wbr>Make<wbr></wbr>Node<wbr></wbr>Root</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MakeVirtualPath" class="internal-link" title="ganeti.vcluster.MakeVirtualPath"><wbr></wbr>Make<wbr></wbr>Virtual<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckHostname" class="internal-link" title="ganeti.vcluster._CheckHostname">_<wbr></wbr>Check<wbr></wbr>Hostname</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetHostname" class="internal-link" title="ganeti.vcluster._GetHostname">_<wbr></wbr>Get<wbr></wbr>Hostname</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetRootDirectory" class="internal-link" title="ganeti.vcluster._GetRootDirectory">_<wbr></wbr>Get<wbr></wbr>Root<wbr></wbr>Directory</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PreparePaths" class="internal-link" title="ganeti.vcluster._PreparePaths">_<wbr></wbr>Prepare<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RemoveNodePrefix" class="internal-link" title="ganeti.vcluster._RemoveNodePrefix">_<wbr></wbr>Remove<wbr></wbr>Node<wbr></wbr>Prefix</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VIRT_BASEDIR" class="internal-link" title="ganeti.vcluster._VIRT_BASEDIR">_VIRT<wbr></wbr>_BASEDIR</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VIRT_HOSTNAME" class="internal-link" title="ganeti.vcluster._VIRT_HOSTNAME">_VIRT<wbr></wbr>_HOSTNAME</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT<wbr></wbr>_NODEROOT</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this module">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module containing utilities for virtual clusters.</p>
+<p>Most functions manipulate file system paths and are no-ops when the environment variables <tt class="rst-docutils literal">GANETI_ROOTDIR</tt> and <tt class="rst-docutils literal">GANETI_HOSTNAME</tt> are not set. See the functions' docstrings for details.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1388">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix"><wbr></wbr>Add<wbr></wbr>Node<wbr></wbr>Prefix</a></code></td>
+    <td>Adds a node-specific prefix to a path in a virtual cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EnvironmentForHost" class="internal-link" title="ganeti.vcluster.EnvironmentForHost"><wbr></wbr>Environment<wbr></wbr>For<wbr></wbr>Host</a></code></td>
+    <td>Returns the environment variables for a host.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ExchangeNodeRoot" class="internal-link" title="ganeti.vcluster.ExchangeNodeRoot"><wbr></wbr>Exchange<wbr></wbr>Node<wbr></wbr>Root</a></code></td>
+    <td>Replaces the node-specific root directory in a path.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetVirtualHostname" class="internal-link" title="ganeti.vcluster.GetVirtualHostname"><wbr></wbr>Get<wbr></wbr>Virtual<wbr></wbr>Hostname</a></code></td>
+    <td>Returns the virtual hostname.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#LocalizeVirtualPath" class="internal-link" title="ganeti.vcluster.LocalizeVirtualPath"><wbr></wbr>Localize<wbr></wbr>Virtual<wbr></wbr>Path</a></code></td>
+    <td>Localizes a virtual path.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MakeNodeRoot" class="internal-link" title="ganeti.vcluster.MakeNodeRoot"><wbr></wbr>Make<wbr></wbr>Node<wbr></wbr>Root</a></code></td>
+    <td>Appends a node name to the base directory.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MakeVirtualPath" class="internal-link" title="ganeti.vcluster.MakeVirtualPath"><wbr></wbr>Make<wbr></wbr>Virtual<wbr></wbr>Path</a></code></td>
+    <td>Virtualizes a path.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckHostname" class="internal-link" title="ganeti.vcluster._CheckHostname">_<wbr></wbr>Check<wbr></wbr>Hostname</a></code></td>
+    <td>Very basic check for hostnames.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetHostname" class="internal-link" title="ganeti.vcluster._GetHostname">_<wbr></wbr>Get<wbr></wbr>Hostname</a></code></td>
+    <td>Retrieves virtual hostname from an environment variable.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetRootDirectory" class="internal-link" title="ganeti.vcluster._GetRootDirectory">_<wbr></wbr>Get<wbr></wbr>Root<wbr></wbr>Directory</a></code></td>
+    <td>Retrieves root directory from an environment variable.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_PreparePaths" class="internal-link" title="ganeti.vcluster._PreparePaths">_<wbr></wbr>Prepare<wbr></wbr>Paths</a></code></td>
+    <td>Checks if the root directory and hostname are acceptable.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RemoveNodePrefix" class="internal-link" title="ganeti.vcluster._RemoveNodePrefix">_<wbr></wbr>Remove<wbr></wbr>Node<wbr></wbr>Prefix</a></code></td>
+    <td>Removes the node-specific prefix from a path.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_VIRT_BASEDIR" class="internal-link" title="ganeti.vcluster._VIRT_BASEDIR">_VIRT<wbr></wbr>_BASEDIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_VIRT_HOSTNAME" class="internal-link" title="ganeti.vcluster._VIRT_HOSTNAME">_VIRT<wbr></wbr>_HOSTNAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT<wbr></wbr>_NODEROOT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.AddNodePrefix">
+    
+  </a>
+  <a name="AddNodePrefix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddNodePrefix</span>(path, _noderoot=<a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT_NODEROOT</a>):
+    
+    <a class="headerLink" href="#AddNodePrefix" title="ganeti.vcluster.AddNodePrefix">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Adds a node-specific prefix to a path in a virtual cluster.</p>
+<p>Returned path includes user-specified root directory if specified in environment. As an example, the path <tt class="rst-docutils literal">/var/lib/ganeti</tt> becomes <tt class="rst-docutils literal">/tmp/vcluster/node1/var/lib/ganeti</tt> if <tt class="rst-docutils literal">/tmp/vcluster/node1</tt> is the root directory specified in the environment.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.EnvironmentForHost">
+    
+  </a>
+  <a name="EnvironmentForHost">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EnvironmentForHost</span>(hostname, _basedir=<a href="#_VIRT_BASEDIR" class="internal-link" title="ganeti.vcluster._VIRT_BASEDIR">_VIRT_BASEDIR</a>):
+    
+    <a class="headerLink" href="#EnvironmentForHost" title="ganeti.vcluster.EnvironmentForHost">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the environment variables for a host.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.ExchangeNodeRoot">
+    
+  </a>
+  <a name="ExchangeNodeRoot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExchangeNodeRoot</span>(node_name, filename, _basedir=<a href="#_VIRT_BASEDIR" class="internal-link" title="ganeti.vcluster._VIRT_BASEDIR">_VIRT_BASEDIR</a>, _noderoot=<a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT_NODEROOT</a>):
+    
+    <a class="headerLink" href="#ExchangeNodeRoot" title="ganeti.vcluster.ExchangeNodeRoot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Replaces the node-specific root directory in a path.</p>
+<p>Replaces it with the root directory for another node. Assuming <tt class="rst-docutils literal">/tmp/vcluster/node1</tt> is the root directory for <tt class="rst-docutils literal">node1</tt>, the result will be <tt class="rst-docutils literal">/tmp/vcluster/node3</tt> for <tt class="rst-docutils literal">node3</tt> (as long as a root directory is specified in the environment).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.GetVirtualHostname">
+    
+  </a>
+  <a name="GetVirtualHostname">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetVirtualHostname</span>():
+    
+    <a class="headerLink" href="#GetVirtualHostname" title="ganeti.vcluster.GetVirtualHostname">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the virtual hostname.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string or <code>None</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.LocalizeVirtualPath">
+    
+  </a>
+  <a name="LocalizeVirtualPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">LocalizeVirtualPath</span>(path, _noderoot=<a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT_NODEROOT</a>):
+    
+    <a class="headerLink" href="#LocalizeVirtualPath" title="ganeti.vcluster.LocalizeVirtualPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Localizes a virtual path.</p>
+<p>A "virtualized" path consists of a prefix (<code><a href="#LocalizeVirtualPath" class="internal-link" title="ganeti.vcluster.LocalizeVirtualPath">LocalizeVirtualPath</a></code>) and a local path. This function adds the node-specific directory to the local path. Virtual paths are meant to be transported via RPC.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.MakeNodeRoot">
+    
+  </a>
+  <a name="MakeNodeRoot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MakeNodeRoot</span>(base, node_name):
+    
+    <a class="headerLink" href="#MakeNodeRoot" title="ganeti.vcluster.MakeNodeRoot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Appends a node name to the base directory.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.vcluster.MakeVirtualPath">
+    
+  </a>
+  <a name="MakeVirtualPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MakeVirtualPath</span>(path, _noderoot=<a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT_NODEROOT</a>):
+    
+    <a class="headerLink" href="#MakeVirtualPath" title="ganeti.vcluster.MakeVirtualPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Virtualizes a path.</p>
+<p>A path is "virtualized" by stripping it of its node-specific directory and prepending a prefix (<code><a href="ganeti._constants.html#V_CLUSTER_VIRT_PATH_PREFIX" class="internal-link" title="ganeti._constants.V_CLUSTER_VIRT_PATH_PREFIX">_VIRT_PATH_PREFIX</a></code>). Use <code><a href="#LocalizeVirtualPath" class="internal-link" title="ganeti.vcluster.LocalizeVirtualPath">LocalizeVirtualPath</a></code> to undo the process. Virtual paths are meant to be transported via RPC.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.vcluster._CheckHostname">
+    
+  </a>
+  <a name="_CheckHostname">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckHostname</span>(hostname):
+    
+    <a class="headerLink" href="#_CheckHostname" title="ganeti.vcluster._CheckHostname">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Very basic check for hostnames.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hostname:</span>string</td><td class="fieldArgDesc">Hostname</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.vcluster._GetHostname">
+    
+  </a>
+  <a name="_GetHostname">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetHostname</span>(envname):
+    
+    <a class="headerLink" href="#_GetHostname" title="ganeti.vcluster._GetHostname">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves virtual hostname from an environment variable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">envname:</span>string</td><td class="fieldArgDesc">Environment variable name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Host name (can be empty)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.vcluster._GetRootDirectory">
+    
+  </a>
+  <a name="_GetRootDirectory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetRootDirectory</span>(envname):
+    
+    <a class="headerLink" href="#_GetRootDirectory" title="ganeti.vcluster._GetRootDirectory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves root directory from an environment variable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">envname:</span>string</td><td class="fieldArgDesc">Environment variable name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Root directory (can be empty)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.vcluster._PreparePaths">
+    
+  </a>
+  <a name="_PreparePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PreparePaths</span>(rootdir, hostname):
+    
+    <a class="headerLink" href="#_PreparePaths" title="ganeti.vcluster._PreparePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the root directory and hostname are acceptable.</p>
+<p>The (node-specific) root directory must have the hostname as its last component. The parent directory then becomes the cluster-wide root directory. This is necessary as some components must be able to predict the root path on a remote node (e.g. copying files via scp).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rootdir:</span>string</td><td class="fieldArgDesc">Root directory (from environment)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hostname:</span>string</td><td class="fieldArgDesc">Hostname (from environment)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (string, string, string or None)</td><td class="fieldArgDesc">Tuple containing cluster-global root directory, node root directory and virtual hostname</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.vcluster._RemoveNodePrefix">
+    
+  </a>
+  <a name="_RemoveNodePrefix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RemoveNodePrefix</span>(path, _noderoot=<a href="#_VIRT_NODEROOT" class="internal-link" title="ganeti.vcluster._VIRT_NODEROOT">_VIRT_NODEROOT</a>):
+    
+    <a class="headerLink" href="#_RemoveNodePrefix" title="ganeti.vcluster._RemoveNodePrefix">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Removes the node-specific prefix from a path.</p>
+<p>This is the opposite of <code><a href="#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">AddNodePrefix</a></code> and removes a node-local prefix path.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.vcluster._VIRT_BASEDIR">
+    
+  </a>
+  <a name="_VIRT_BASEDIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_VIRT_BASEDIR</span> =
+    
+    <a class="headerLink" href="#_VIRT_BASEDIR" title="ganeti.vcluster._VIRT_BASEDIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.vcluster._VIRT_HOSTNAME">
+    
+  </a>
+  <a name="_VIRT_HOSTNAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_VIRT_HOSTNAME</span> =
+    
+    <a class="headerLink" href="#_VIRT_HOSTNAME" title="ganeti.vcluster._VIRT_HOSTNAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.vcluster._VIRT_NODEROOT">
+    
+  </a>
+  <a name="_VIRT_NODEROOT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_VIRT_NODEROOT</span> =
+    
+    <a class="headerLink" href="#_VIRT_NODEROOT" title="ganeti.vcluster._VIRT_NODEROOT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

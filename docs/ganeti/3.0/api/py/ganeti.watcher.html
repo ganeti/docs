@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.watcher</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code class="thisobject"><a href="ganeti.watcher.html" class="internal-link" title="This package">watcher</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.nodemaint.html" class="internal-link" title="ganeti.watcher.nodemaint">nodemaint</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.state.html" class="internal-link" title="ganeti.watcher.state">state</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.Instance.html" class="internal-link" title="ganeti.watcher.Instance"><wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.Node.html" class="internal-link" title="ganeti.watcher.Node"><wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.NotMasterError.html" class="internal-link" title="ganeti.watcher.NotMasterError"><wbr></wbr>Not<wbr></wbr>Master<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetLuxiClient" class="internal-link" title="ganeti.watcher.GetLuxiClient"><wbr></wbr>Get<wbr></wbr>Luxi<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsRapiResponding" class="internal-link" title="ganeti.watcher.IsRapiResponding"><wbr></wbr>Is<wbr></wbr>Rapi<wbr></wbr>Responding</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsWconfdResponding" class="internal-link" title="ganeti.watcher.IsWconfdResponding"><wbr></wbr>Is<wbr></wbr>Wconfd<wbr></wbr>Responding</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Main" class="internal-link" title="ganeti.watcher.Main"><wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseOptions" class="internal-link" title="ganeti.watcher.ParseOptions"><wbr></wbr>Parse<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunWatcherHooks" class="internal-link" title="ganeti.watcher.RunWatcherHooks"><wbr></wbr>Run<wbr></wbr>Watcher<wbr></wbr>Hooks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShouldPause" class="internal-link" title="ganeti.watcher.ShouldPause"><wbr></wbr>Should<wbr></wbr>Pause</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#StartNodeDaemons" class="internal-link" title="ganeti.watcher.StartNodeDaemons"><wbr></wbr>Start<wbr></wbr>Node<wbr></wbr>Daemons</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ArchiveJobs" class="internal-link" title="ganeti.watcher._ArchiveJobs">_<wbr></wbr>Archive<wbr></wbr>Jobs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckDisks" class="internal-link" title="ganeti.watcher._CheckDisks">_<wbr></wbr>Check<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckForOfflineNodes" class="internal-link" title="ganeti.watcher._CheckForOfflineNodes">_<wbr></wbr>Check<wbr></wbr>For<wbr></wbr>Offline<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckInstances" class="internal-link" title="ganeti.watcher._CheckInstances">_<wbr></wbr>Check<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckMaster" class="internal-link" title="ganeti.watcher._CheckMaster">_<wbr></wbr>Check<wbr></wbr>Master</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CleanupInstance" class="internal-link" title="ganeti.watcher._CleanupInstance">_<wbr></wbr>Cleanup<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetGroupData" class="internal-link" title="ganeti.watcher._GetGroupData">_<wbr></wbr>Get<wbr></wbr>Group<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetPendingVerifyDisks" class="internal-link" title="ganeti.watcher._GetPendingVerifyDisks">_<wbr></wbr>Get<wbr></wbr>Pending<wbr></wbr>Verify<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GlobalWatcher" class="internal-link" title="ganeti.watcher._GlobalWatcher">_<wbr></wbr>Global<wbr></wbr>Watcher</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GroupWatcher" class="internal-link" title="ganeti.watcher._GroupWatcher">_<wbr></wbr>Group<wbr></wbr>Watcher</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LoadKnownGroups" class="internal-link" title="ganeti.watcher._LoadKnownGroups">_<wbr></wbr>Load<wbr></wbr>Known<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MergeInstanceStatus" class="internal-link" title="ganeti.watcher._MergeInstanceStatus">_<wbr></wbr>Merge<wbr></wbr>Instance<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ReadInstanceStatus" class="internal-link" title="ganeti.watcher._ReadInstanceStatus">_<wbr></wbr>Read<wbr></wbr>Instance<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_StartGroupChildren" class="internal-link" title="ganeti.watcher._StartGroupChildren">_<wbr></wbr>Start<wbr></wbr>Group<wbr></wbr>Children</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateInstanceStatus" class="internal-link" title="ganeti.watcher._UpdateInstanceStatus">_<wbr></wbr>Update<wbr></wbr>Instance<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyDisks" class="internal-link" title="ganeti.watcher._VerifyDisks">_<wbr></wbr>Verify<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_WriteInstanceStatus" class="internal-link" title="ganeti.watcher._WriteInstanceStatus">_<wbr></wbr>Write<wbr></wbr>Instance<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BAD_STATES" class="internal-link" title="ganeti.watcher.BAD_STATES">BAD<wbr></wbr>_STATES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CHILD_PROCESS_DELAY" class="internal-link" title="ganeti.watcher.CHILD_PROCESS_DELAY">CHILD<wbr></wbr>_PROCESS<wbr></wbr>_DELAY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ERROR" class="internal-link" title="ganeti.watcher.ERROR">ERROR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HELPLESS_STATES" class="internal-link" title="ganeti.watcher.HELPLESS_STATES">HELPLESS<wbr></wbr>_STATES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_STATUS_LOCK_TIMEOUT" class="internal-link" title="ganeti.watcher.INSTANCE_STATUS_LOCK_TIMEOUT">INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_LOCK<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MAXTRIES" class="internal-link" title="ganeti.watcher.MAXTRIES">MAXTRIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NOTICE" class="internal-link" title="ganeti.watcher.NOTICE">NOTICE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this package">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="package"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          package documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Tool to restart erroneously downed virtual machines.</p>
+<p>This program and set of classes implement a watchdog to restart virtual machines in a Ganeti cluster that have crashed or been killed by a node reboot.  Run from cron or similar.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1389">
+  
+  
+  <tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="ganeti.watcher.nodemaint.html" class="internal-link" title="ganeti.watcher.nodemaint">nodemaint</a></code></td>
+    <td>Module doing node maintenance for Ganeti watcher.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="ganeti.watcher.state.html" class="internal-link" title="ganeti.watcher.state">state</a></code></td>
+    <td>Module keeping state for Ganeti watcher.</td>
+  </tr>
+</table>
+          
+
+            <p class="fromInitPy">From <code>__init__.py</code>:</p><table class="children sortable" id="id1390">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.watcher.Instance.html" class="internal-link" title="ganeti.watcher.Instance"><wbr></wbr>Instance</a></code></td>
+    <td>Abstraction for a Virtual Machine instance.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.watcher.Node.html" class="internal-link" title="ganeti.watcher.Node"><wbr></wbr>Node</a></code></td>
+    <td>Data container representing cluster node.</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="ganeti.watcher.NotMasterError.html" class="internal-link" title="ganeti.watcher.NotMasterError"><wbr></wbr>Not<wbr></wbr>Master<wbr></wbr>Error</a></code></td>
+    <td>Exception raised when this host is not the master.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetLuxiClient" class="internal-link" title="ganeti.watcher.GetLuxiClient"><wbr></wbr>Get<wbr></wbr>Luxi<wbr></wbr>Client</a></code></td>
+    <td>Tries to connect to the luxi daemon.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsRapiResponding" class="internal-link" title="ganeti.watcher.IsRapiResponding"><wbr></wbr>Is<wbr></wbr>Rapi<wbr></wbr>Responding</a></code></td>
+    <td>Connects to RAPI port and does a simple test.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsWconfdResponding" class="internal-link" title="ganeti.watcher.IsWconfdResponding"><wbr></wbr>Is<wbr></wbr>Wconfd<wbr></wbr>Responding</a></code></td>
+    <td>Probes an echo RPC to WConfD.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Main" class="internal-link" title="ganeti.watcher.Main"><wbr></wbr>Main</a></code></td>
+    <td>Main function.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ParseOptions" class="internal-link" title="ganeti.watcher.ParseOptions"><wbr></wbr>Parse<wbr></wbr>Options</a></code></td>
+    <td>Parse the command line options.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunWatcherHooks" class="internal-link" title="ganeti.watcher.RunWatcherHooks"><wbr></wbr>Run<wbr></wbr>Watcher<wbr></wbr>Hooks</a></code></td>
+    <td>Run the watcher hooks.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShouldPause" class="internal-link" title="ganeti.watcher.ShouldPause"><wbr></wbr>Should<wbr></wbr>Pause</a></code></td>
+    <td>Check whether we should pause.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#StartNodeDaemons" class="internal-link" title="ganeti.watcher.StartNodeDaemons"><wbr></wbr>Start<wbr></wbr>Node<wbr></wbr>Daemons</a></code></td>
+    <td>Start all the daemons that should be running on all nodes.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#BAD_STATES" class="internal-link" title="ganeti.watcher.BAD_STATES">BAD<wbr></wbr>_STATES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CHILD_PROCESS_DELAY" class="internal-link" title="ganeti.watcher.CHILD_PROCESS_DELAY">CHILD<wbr></wbr>_PROCESS<wbr></wbr>_DELAY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ERROR" class="internal-link" title="ganeti.watcher.ERROR">ERROR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HELPLESS_STATES" class="internal-link" title="ganeti.watcher.HELPLESS_STATES">HELPLESS<wbr></wbr>_STATES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_STATUS_LOCK_TIMEOUT" class="internal-link" title="ganeti.watcher.INSTANCE_STATUS_LOCK_TIMEOUT">INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_LOCK<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#MAXTRIES" class="internal-link" title="ganeti.watcher.MAXTRIES">MAXTRIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NOTICE" class="internal-link" title="ganeti.watcher.NOTICE">NOTICE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ArchiveJobs" class="internal-link" title="ganeti.watcher._ArchiveJobs">_<wbr></wbr>Archive<wbr></wbr>Jobs</a></code></td>
+    <td>Archives old jobs.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckDisks" class="internal-link" title="ganeti.watcher._CheckDisks">_<wbr></wbr>Check<wbr></wbr>Disks</a></code></td>
+    <td>Check all nodes for restarted ones.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckForOfflineNodes" class="internal-link" title="ganeti.watcher._CheckForOfflineNodes">_<wbr></wbr>Check<wbr></wbr>For<wbr></wbr>Offline<wbr></wbr>Nodes</a></code></td>
+    <td>Checks if given instances has any secondary in offline status.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckInstances" class="internal-link" title="ganeti.watcher._CheckInstances">_<wbr></wbr>Check<wbr></wbr>Instances</a></code></td>
+    <td>Make a pass over the list of instances, restarting downed ones.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckMaster" class="internal-link" title="ganeti.watcher._CheckMaster">_<wbr></wbr>Check<wbr></wbr>Master</a></code></td>
+    <td>Ensures current host is master node.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CleanupInstance" class="internal-link" title="ganeti.watcher._CleanupInstance">_<wbr></wbr>Cleanup<wbr></wbr>Instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetGroupData" class="internal-link" title="ganeti.watcher._GetGroupData">_<wbr></wbr>Get<wbr></wbr>Group<wbr></wbr>Data</a></code></td>
+    <td>Retrieves instances and nodes per node group.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetPendingVerifyDisks" class="internal-link" title="ganeti.watcher._GetPendingVerifyDisks">_<wbr></wbr>Get<wbr></wbr>Pending<wbr></wbr>Verify<wbr></wbr>Disks</a></code></td>
+    <td>Checks if there are any currently running or pending group verify jobs and if so, returns their id.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GlobalWatcher" class="internal-link" title="ganeti.watcher._GlobalWatcher">_<wbr></wbr>Global<wbr></wbr>Watcher</a></code></td>
+    <td>Main function for global watcher.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GroupWatcher" class="internal-link" title="ganeti.watcher._GroupWatcher">_<wbr></wbr>Group<wbr></wbr>Watcher</a></code></td>
+    <td>Main function for per-group watcher process.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_LoadKnownGroups" class="internal-link" title="ganeti.watcher._LoadKnownGroups">_<wbr></wbr>Load<wbr></wbr>Known<wbr></wbr>Groups</a></code></td>
+    <td>Returns a list of all node groups known by <code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MergeInstanceStatus" class="internal-link" title="ganeti.watcher._MergeInstanceStatus">_<wbr></wbr>Merge<wbr></wbr>Instance<wbr></wbr>Status</a></code></td>
+    <td>Merges all per-group instance status files into a global one.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ReadInstanceStatus" class="internal-link" title="ganeti.watcher._ReadInstanceStatus">_<wbr></wbr>Read<wbr></wbr>Instance<wbr></wbr>Status</a></code></td>
+    <td>Reads an instance status file.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_StartGroupChildren" class="internal-link" title="ganeti.watcher._StartGroupChildren">_<wbr></wbr>Start<wbr></wbr>Group<wbr></wbr>Children</a></code></td>
+    <td>Starts a new instance of the watcher for every node group.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_UpdateInstanceStatus" class="internal-link" title="ganeti.watcher._UpdateInstanceStatus">_<wbr></wbr>Update<wbr></wbr>Instance<wbr></wbr>Status</a></code></td>
+    <td>Writes an instance status file from <code><a href="ganeti.watcher.Instance.html" class="internal-link" title="ganeti.watcher.Instance">Instance</a></code> objects.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyDisks" class="internal-link" title="ganeti.watcher._VerifyDisks">_<wbr></wbr>Verify<wbr></wbr>Disks</a></code></td>
+    <td>Run a per-group "gnt-cluster verify-disks".</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_WriteInstanceStatus" class="internal-link" title="ganeti.watcher._WriteInstanceStatus">_<wbr></wbr>Write<wbr></wbr>Instance<wbr></wbr>Status</a></code></td>
+    <td>Writes the per-group instance status file.</td>
+  </tr>
+</table>
+        </div>
+
+        <div id="childList">
+          <div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.MAXTRIES">
+    
+  </a>
+  <a name="MAXTRIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">MAXTRIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#MAXTRIES" title="ganeti.watcher.MAXTRIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>5</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.BAD_STATES">
+    
+  </a>
+  <a name="BAD_STATES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">BAD_STATES</span> =
+    
+    <a class="headerLink" href="#BAD_STATES" title="ganeti.watcher.BAD_STATES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.compat.html#UniqueFrozenset" class="internal-link" title="ganeti.compat.UniqueFrozenset">compat.UniqueFrozenset</a>(<wbr></wbr>[<wbr></wbr><a href="ganeti._constants.html#INSTST_ERRORDOWN" class="internal-link" title="ganeti._constants.INSTST_ERRORDOWN">constants.INSTST_ERRORDOWN</a>])</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.HELPLESS_STATES">
+    
+  </a>
+  <a name="HELPLESS_STATES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HELPLESS_STATES</span> =
+    
+    <a class="headerLink" href="#HELPLESS_STATES" title="ganeti.watcher.HELPLESS_STATES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.compat.html#UniqueFrozenset" class="internal-link" title="ganeti.compat.UniqueFrozenset">compat.UniqueFrozenset</a>(<wbr></wbr>[<wbr></wbr><a href="ganeti._constants.html#INSTST_NODEDOWN" class="internal-link" title="ganeti._constants.INSTST_NODEDOWN">constants.INSTST_NODEDOWN</a>, <wbr></wbr><a href="ganeti._constants.html#INSTST_NODEOFFLINE" class="internal-link" title="ganeti._constants.INSTST_NODEOFFLINE">constants.INSTST_NODEOFFLINE</a>]<span class="rst-variable-linewrap">↵</span>
+)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.NOTICE">
+    
+  </a>
+  <a name="NOTICE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NOTICE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#NOTICE" title="ganeti.watcher.NOTICE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">NOTICE</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.ERROR">
+    
+  </a>
+  <a name="ERROR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ERROR</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#ERROR" title="ganeti.watcher.ERROR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">ERROR</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.CHILD_PROCESS_DELAY">
+    
+  </a>
+  <a name="CHILD_PROCESS_DELAY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CHILD_PROCESS_DELAY</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#CHILD_PROCESS_DELAY" title="ganeti.watcher.CHILD_PROCESS_DELAY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1.0</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.watcher.INSTANCE_STATUS_LOCK_TIMEOUT">
+    
+  </a>
+  <a name="INSTANCE_STATUS_LOCK_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_STATUS_LOCK_TIMEOUT</span>: <code>float</code> =
+    
+    <a class="headerLink" href="#INSTANCE_STATUS_LOCK_TIMEOUT" title="ganeti.watcher.INSTANCE_STATUS_LOCK_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10.0</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.ShouldPause">
+    
+  </a>
+  <a name="ShouldPause">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShouldPause</span>():
+    
+    <a class="headerLink" href="#ShouldPause" title="ganeti.watcher.ShouldPause">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether we should pause.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.StartNodeDaemons">
+    
+  </a>
+  <a name="StartNodeDaemons">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">StartNodeDaemons</span>():
+    
+    <a class="headerLink" href="#StartNodeDaemons" title="ganeti.watcher.StartNodeDaemons">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start all the daemons that should be running on all nodes.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.RunWatcherHooks">
+    
+  </a>
+  <a name="RunWatcherHooks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunWatcherHooks</span>():
+    
+    <a class="headerLink" href="#RunWatcherHooks" title="ganeti.watcher.RunWatcherHooks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run the watcher hooks.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._CleanupInstance">
+    
+  </a>
+  <a name="_CleanupInstance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CleanupInstance</span>(cl, notepad, inst, locks):
+    
+    <a class="headerLink" href="#_CleanupInstance" title="ganeti.watcher._CleanupInstance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._CheckInstances">
+    
+  </a>
+  <a name="_CheckInstances">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckInstances</span>(cl, notepad, instances, locks):
+    
+    <a class="headerLink" href="#_CheckInstances" title="ganeti.watcher._CheckInstances">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Make a pass over the list of instances, restarting downed ones.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._CheckDisks">
+    
+  </a>
+  <a name="_CheckDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckDisks</span>(cl, notepad, nodes, instances, started):
+    
+    <a class="headerLink" href="#_CheckDisks" title="ganeti.watcher._CheckDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check all nodes for restarted ones.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._CheckForOfflineNodes">
+    
+  </a>
+  <a name="_CheckForOfflineNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckForOfflineNodes</span>(nodes, instance):
+    
+    <a class="headerLink" href="#_CheckForOfflineNodes" title="ganeti.watcher._CheckForOfflineNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if given instances has any secondary in offline status.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance</span></td><td class="fieldArgDesc">The instance object</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">True if any of the secondary is offline, False otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._GetPendingVerifyDisks">
+    
+  </a>
+  <a name="_GetPendingVerifyDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetPendingVerifyDisks</span>(cl, uuid):
+    
+    <a class="headerLink" href="#_GetPendingVerifyDisks" title="ganeti.watcher._GetPendingVerifyDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if there are any currently running or pending group verify jobs and if so, returns their id.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._VerifyDisks">
+    
+  </a>
+  <a name="_VerifyDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyDisks</span>(cl, uuid, nodes, instances, is_strict):
+    
+    <a class="headerLink" href="#_VerifyDisks" title="ganeti.watcher._VerifyDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a per-group "gnt-cluster verify-disks".</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.IsRapiResponding">
+    
+  </a>
+  <a name="IsRapiResponding">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsRapiResponding</span>(hostname):
+    
+    <a class="headerLink" href="#IsRapiResponding" title="ganeti.watcher.IsRapiResponding">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Connects to RAPI port and does a simple test.</p>
+<p>Connects to RAPI port of hostname and does a simple test. At this time, the test is GetVersion.</p>
+<p>If RAPI responds with error code "401 Unauthorized", the test is successful, because the aim of this function is to assess whether RAPI is responding, not if it is accessible.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hostname:</span>string</td><td class="fieldArgDesc">hostname of the node to connect to.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">Whether RAPI is working properly</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.IsWconfdResponding">
+    
+  </a>
+  <a name="IsWconfdResponding">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsWconfdResponding</span>():
+    
+    <a class="headerLink" href="#IsWconfdResponding" title="ganeti.watcher.IsWconfdResponding">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Probes an echo RPC to WConfD.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.ParseOptions">
+    
+  </a>
+  <a name="ParseOptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseOptions</span>():
+    
+    <a class="headerLink" href="#ParseOptions" title="ganeti.watcher.ParseOptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the command line options.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">(options, args) as from OptionParser.parse_args()</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._WriteInstanceStatus">
+    
+  </a>
+  <a name="_WriteInstanceStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_WriteInstanceStatus</span>(filename, data):
+    
+    <a class="headerLink" href="#_WriteInstanceStatus" title="ganeti.watcher._WriteInstanceStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Writes the per-group instance status file.</p>
+<p>The entries are sorted.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">Path to instance status file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>list of tuple; (instance name as string, status as string)</td><td class="fieldArgDesc">Instance name and status</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._UpdateInstanceStatus">
+    
+  </a>
+  <a name="_UpdateInstanceStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateInstanceStatus</span>(filename, instances):
+    
+    <a class="headerLink" href="#_UpdateInstanceStatus" title="ganeti.watcher._UpdateInstanceStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Writes an instance status file from <code><a href="ganeti.watcher.Instance.html" class="internal-link" title="ganeti.watcher.Instance">Instance</a></code> objects.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">Path to status file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instances:</span>list of <code><a href="ganeti.watcher.Instance.html" class="internal-link" title="ganeti.watcher.Instance">Instance</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._ReadInstanceStatus">
+    
+  </a>
+  <a name="_ReadInstanceStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ReadInstanceStatus</span>(filename):
+    
+    <a class="headerLink" href="#_ReadInstanceStatus" title="ganeti.watcher._ReadInstanceStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads an instance status file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">Path to status file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (None or number, list of lists containing instance name and status)</td><td class="fieldArgDesc">File's mtime and instance status contained in the file; mtime is <tt class="rst-docutils literal">None</tt> if file can't be read</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._MergeInstanceStatus">
+    
+  </a>
+  <a name="_MergeInstanceStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MergeInstanceStatus</span>(filename, pergroup_filename, groups):
+    
+    <a class="headerLink" href="#_MergeInstanceStatus" title="ganeti.watcher._MergeInstanceStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Merges all per-group instance status files into a global one.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">Path to global instance status file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pergroup<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">Path to per-group status files, must contain "%s" to be replaced with group UUID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">groups:</span>sequence</td><td class="fieldArgDesc">UUIDs of known groups</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.GetLuxiClient">
+    
+  </a>
+  <a name="GetLuxiClient">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetLuxiClient</span>(try_restart):
+    
+    <a class="headerLink" href="#GetLuxiClient" title="ganeti.watcher.GetLuxiClient">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to connect to the luxi daemon.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">try<wbr></wbr>_restart:</span>bool</td><td class="fieldArgDesc">Whether to attempt to restart the master daemon</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._StartGroupChildren">
+    
+  </a>
+  <a name="_StartGroupChildren">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_StartGroupChildren</span>(cl, wait):
+    
+    <a class="headerLink" href="#_StartGroupChildren" title="ganeti.watcher._StartGroupChildren">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Starts a new instance of the watcher for every node group.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._ArchiveJobs">
+    
+  </a>
+  <a name="_ArchiveJobs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ArchiveJobs</span>(cl, age):
+    
+    <a class="headerLink" href="#_ArchiveJobs" title="ganeti.watcher._ArchiveJobs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Archives old jobs.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._CheckMaster">
+    
+  </a>
+  <a name="_CheckMaster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckMaster</span>(cl):
+    
+    <a class="headerLink" href="#_CheckMaster" title="ganeti.watcher._CheckMaster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensures current host is master node.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._GlobalWatcher">
+    
+  </a>
+  <a name="_GlobalWatcher">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="ganeti.rapi.client.html#UsesRapiClient" class="internal-link" title="ganeti.rapi.client.UsesRapiClient">UsesRapiClient</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GlobalWatcher</span>(opts):
+    
+    <a class="headerLink" href="#_GlobalWatcher" title="ganeti.watcher._GlobalWatcher">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Main function for global watcher.</p>
+<p>At the end child processes are spawned for every node group.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._GetGroupData">
+    
+  </a>
+  <a name="_GetGroupData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetGroupData</span>(qcl, uuid):
+    
+    <a class="headerLink" href="#_GetGroupData" title="ganeti.watcher._GetGroupData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves instances and nodes per node group.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._LoadKnownGroups">
+    
+  </a>
+  <a name="_LoadKnownGroups">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_LoadKnownGroups</span>():
+    
+    <a class="headerLink" href="#_LoadKnownGroups" title="ganeti.watcher._LoadKnownGroups">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a list of all node groups known by <code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.watcher._GroupWatcher">
+    
+  </a>
+  <a name="_GroupWatcher">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GroupWatcher</span>(opts):
+    
+    <a class="headerLink" href="#_GroupWatcher" title="ganeti.watcher._GroupWatcher">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Main function for per-group watcher process.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.watcher.Main">
+    
+  </a>
+  <a name="Main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Main</span>():
+    
+    <a class="headerLink" href="#Main" title="ganeti.watcher.Main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Main function.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

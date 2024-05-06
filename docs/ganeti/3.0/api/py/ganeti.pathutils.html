@@ -1,0 +1,4152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.pathutils</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.pathutils.html" class="internal-link" title="This module">pathutils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetLogFilename" class="internal-link" title="ganeti.pathutils.GetLogFilename"><wbr></wbr>Get<wbr></wbr>Log<wbr></wbr>Filename</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ALL_CERT_FILES" class="internal-link" title="ganeti.pathutils.ALL_CERT_FILES">ALL<wbr></wbr>_CERT<wbr></wbr>_FILES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BACKUP_DIR" class="internal-link" title="ganeti.pathutils.BACKUP_DIR">BACKUP<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BDEV_CACHE_DIR" class="internal-link" title="ganeti.pathutils.BDEV_CACHE_DIR">BDEV<wbr></wbr>_CACHE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CFGUPGRADE" class="internal-link" title="ganeti.pathutils.CFGUPGRADE">CFGUPGRADE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CLUSTER_CONF_FILE" class="internal-link" title="ganeti.pathutils.CLUSTER_CONF_FILE">CLUSTER<wbr></wbr>_CONF<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CLUSTER_DOMAIN_SECRET_FILE" class="internal-link" title="ganeti.pathutils.CLUSTER_DOMAIN_SECRET_FILE">CLUSTER<wbr></wbr>_DOMAIN<wbr></wbr>_SECRET<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CONFD_HMAC_KEY" class="internal-link" title="ganeti.pathutils.CONFD_HMAC_KEY">CONFD<wbr></wbr>_HMAC<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CRYPTO_KEYS_DIR" class="internal-link" title="ganeti.pathutils.CRYPTO_KEYS_DIR">CRYPTO<wbr></wbr>_KEYS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DAEMON_UTIL" class="internal-link" title="ganeti.pathutils.DAEMON_UTIL">DAEMON<wbr></wbr>_UTIL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_FILE_STORAGE_DIR">DEFAULT<wbr></wbr>_FILE<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_GLUSTER_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_GLUSTER_STORAGE_DIR">DEFAULT<wbr></wbr>_GLUSTER<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_MASTER_SETUP_SCRIPT" class="internal-link" title="ganeti.pathutils.DEFAULT_MASTER_SETUP_SCRIPT">DEFAULT<wbr></wbr>_MASTER<wbr></wbr>_SETUP<wbr></wbr>_SCRIPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEFAULT_SHARED_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_SHARED_FILE_STORAGE_DIR">DEFAULT<wbr></wbr>_SHARED<wbr></wbr>_FILE<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DISK_LINKS_DIR" class="internal-link" title="ganeti.pathutils.DISK_LINKS_DIR">DISK<wbr></wbr>_LINKS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ENSURE_DIRS" class="internal-link" title="ganeti.pathutils.ENSURE_DIRS">ENSURE<wbr></wbr>_DIRS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EXPORT_DIR" class="internal-link" title="ganeti.pathutils.EXPORT_DIR">EXPORT<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EXTERNAL_MASTER_SETUP_SCRIPT" class="internal-link" title="ganeti.pathutils.EXTERNAL_MASTER_SETUP_SCRIPT">EXTERNAL<wbr></wbr>_MASTER<wbr></wbr>_SETUP<wbr></wbr>_SCRIPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FILE_STORAGE_PATHS_FILE" class="internal-link" title="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">FILE<wbr></wbr>_STORAGE<wbr></wbr>_PATHS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HOOKS_BASE_DIR" class="internal-link" title="ganeti.pathutils.HOOKS_BASE_DIR">HOOKS<wbr></wbr>_BASE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IMPORT_EXPORT_DAEMON" class="internal-link" title="ganeti.pathutils.IMPORT_EXPORT_DAEMON">IMPORT<wbr></wbr>_EXPORT<wbr></wbr>_DAEMON</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IMPORT_EXPORT_DIR" class="internal-link" title="ganeti.pathutils.IMPORT_EXPORT_DIR">IMPORT<wbr></wbr>_EXPORT<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_REASON_DIR" class="internal-link" title="ganeti.pathutils.INSTANCE_REASON_DIR">INSTANCE<wbr></wbr>_REASON<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_STATUS_FILE" class="internal-link" title="ganeti.pathutils.INSTANCE_STATUS_FILE">INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INTENT_TO_UPGRADE" class="internal-link" title="ganeti.pathutils.INTENT_TO_UPGRADE">INTENT<wbr></wbr>_TO<wbr></wbr>_UPGRADE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#JOB_QUEUE_ARCHIVE_DIR" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_ARCHIVE_DIR">JOB<wbr></wbr>_QUEUE<wbr></wbr>_ARCHIVE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#JOB_QUEUE_DRAIN_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_DRAIN_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_DRAIN<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#JOB_QUEUE_LOCK_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_LOCK_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#JOB_QUEUE_SERIAL_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_SERIAL_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_SERIAL<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#JOB_QUEUE_VERSION_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_VERSION_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_VERSION<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KVM_CONSOLE_WRAPPER" class="internal-link" title="ganeti.pathutils.KVM_CONSOLE_WRAPPER">KVM<wbr></wbr>_CONSOLE<wbr></wbr>_WRAPPER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KVM_IFUP" class="internal-link" title="ganeti.pathutils.KVM_IFUP">KVM<wbr></wbr>_IFUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LIVELOCK_DIR" class="internal-link" title="ganeti.pathutils.LIVELOCK_DIR">LIVELOCK<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOCK_DIR" class="internal-link" title="ganeti.pathutils.LOCK_DIR">LOCK<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOCK_STATUS_FILE" class="internal-link" title="ganeti.pathutils.LOCK_STATUS_FILE">LOCK<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_BURNIN" class="internal-link" title="ganeti.pathutils.LOG_BURNIN">LOG<wbr></wbr>_BURNIN</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_COMMANDS" class="internal-link" title="ganeti.pathutils.LOG_COMMANDS">LOG<wbr></wbr>_COMMANDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_ES_DIR" class="internal-link" title="ganeti.pathutils.LOG_ES_DIR">LOG<wbr></wbr>_ES<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_KVM_DIR" class="internal-link" title="ganeti.pathutils.LOG_KVM_DIR">LOG<wbr></wbr>_KVM<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_OS_DIR" class="internal-link" title="ganeti.pathutils.LOG_OS_DIR">LOG<wbr></wbr>_OS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_WATCHER" class="internal-link" title="ganeti.pathutils.LOG_WATCHER">LOG<wbr></wbr>_WATCHER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LOG_XEN_DIR" class="internal-link" title="ganeti.pathutils.LOG_XEN_DIR">LOG<wbr></wbr>_XEN<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LUXID_MESSAGE_DIR" class="internal-link" title="ganeti.pathutils.LUXID_MESSAGE_DIR">LUXID<wbr></wbr>_MESSAGE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MASTER_SOCKET" class="internal-link" title="ganeti.pathutils.MASTER_SOCKET">MASTER<wbr></wbr>_SOCKET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#METAD_SOCKET" class="internal-link" title="ganeti.pathutils.METAD_SOCKET">METAD<wbr></wbr>_SOCKET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NODE_DAEMON_SETUP" class="internal-link" title="ganeti.pathutils.NODE_DAEMON_SETUP">NODE<wbr></wbr>_DAEMON<wbr></wbr>_SETUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">NODED<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NODED_CERT_MODE" class="internal-link" title="ganeti.pathutils.NODED_CERT_MODE">NODED<wbr></wbr>_CERT<wbr></wbr>_MODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NODED_CLIENT_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CLIENT_CERT_FILE">NODED<wbr></wbr>_CLIENT<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#POST_UPGRADE" class="internal-link" title="ganeti.pathutils.POST_UPGRADE">POST<wbr></wbr>_UPGRADE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PREPARE_NODE_JOIN" class="internal-link" title="ganeti.pathutils.PREPARE_NODE_JOIN">PREPARE<wbr></wbr>_NODE<wbr></wbr>_JOIN</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QUERY_SOCKET" class="internal-link" title="ganeti.pathutils.QUERY_SOCKET">QUERY<wbr></wbr>_SOCKET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RAPI_CERT_FILE" class="internal-link" title="ganeti.pathutils.RAPI_CERT_FILE">RAPI<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RAPI_DATA_DIR" class="internal-link" title="ganeti.pathutils.RAPI_DATA_DIR">RAPI<wbr></wbr>_DATA<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RAPI_USERS_FILE" class="internal-link" title="ganeti.pathutils.RAPI_USERS_FILE">RAPI<wbr></wbr>_USERS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RESTRICTED_COMMANDS_DIR" class="internal-link" title="ganeti.pathutils.RESTRICTED_COMMANDS_DIR">RESTRICTED<wbr></wbr>_COMMANDS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RESTRICTED_COMMANDS_LOCK_FILE" class="internal-link" title="ganeti.pathutils.RESTRICTED_COMMANDS_LOCK_FILE">RESTRICTED<wbr></wbr>_COMMANDS<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SPICE_CACERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CACERT_FILE">SPICE<wbr></wbr>_CACERT<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SPICE_CERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CERT_FILE">SPICE<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSCONF_LOCK_FILE" class="internal-link" title="ganeti.pathutils.SSCONF_LOCK_FILE">SSCONF<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSH_KNOWN_HOSTS_FILE" class="internal-link" title="ganeti.pathutils.SSH_KNOWN_HOSTS_FILE">SSH<wbr></wbr>_KNOWN<wbr></wbr>_HOSTS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSH_PUB_KEYS" class="internal-link" title="ganeti.pathutils.SSH_PUB_KEYS">SSH<wbr></wbr>_PUB<wbr></wbr>_KEYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSH_UPDATE" class="internal-link" title="ganeti.pathutils.SSH_UPDATE">SSH<wbr></wbr>_UPDATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SSL_UPDATE" class="internal-link" title="ganeti.pathutils.SSL_UPDATE">SSL<wbr></wbr>_UPDATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SYSCONFDIR" class="internal-link" title="ganeti.pathutils.SYSCONFDIR">SYSCONFDIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TEMP_RES_STATUS_FILE" class="internal-link" title="ganeti.pathutils.TEMP_RES_STATUS_FILE">TEMP<wbr></wbr>_RES<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UIDPOOL_LOCKDIR" class="internal-link" title="ganeti.pathutils.UIDPOOL_LOCKDIR">UIDPOOL<wbr></wbr>_LOCKDIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#USER_SCRIPTS_DIR" class="internal-link" title="ganeti.pathutils.USER_SCRIPTS_DIR">USER<wbr></wbr>_SCRIPTS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VNC_PASSWORD_FILE" class="internal-link" title="ganeti.pathutils.VNC_PASSWORD_FILE">VNC<wbr></wbr>_PASSWORD<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WATCHER_GROUP_INSTANCE_STATUS_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_GROUP_INSTANCE_STATUS_FILE">WATCHER<wbr></wbr>_GROUP<wbr></wbr>_INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WATCHER_GROUP_STATE_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_GROUP_STATE_FILE">WATCHER<wbr></wbr>_GROUP<wbr></wbr>_STATE<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WATCHER_LOCK_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_LOCK_FILE">WATCHER<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WATCHER_PAUSEFILE" class="internal-link" title="ganeti.pathutils.WATCHER_PAUSEFILE">WATCHER<wbr></wbr>_PAUSEFILE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WCONFD_SOCKET" class="internal-link" title="ganeti.pathutils.WCONFD_SOCKET">WCONFD<wbr></wbr>_SOCKET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#XEN_CONFIG_DIR" class="internal-link" title="ganeti.pathutils.XEN_CONFIG_DIR">XEN<wbr></wbr>_CONFIG<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#XEN_CONSOLE_WRAPPER" class="internal-link" title="ganeti.pathutils.XEN_CONSOLE_WRAPPER">XEN<wbr></wbr>_CONSOLE<wbr></wbr>_WRAPPER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#XEN_IFUP_OS" class="internal-link" title="ganeti.pathutils.XEN_IFUP_OS">XEN<wbr></wbr>_IFUP<wbr></wbr>_OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#XEN_VIF_METAD_SETUP" class="internal-link" title="ganeti.pathutils.XEN_VIF_METAD_SETUP">XEN<wbr></wbr>_VIF<wbr></wbr>_METAD<wbr></wbr>_SETUP</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this module">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module containing constants and functions for filesystem paths.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id998">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetLogFilename" class="internal-link" title="ganeti.pathutils.GetLogFilename"><wbr></wbr>Get<wbr></wbr>Log<wbr></wbr>Filename</a></code></td>
+    <td>Returns the full path for a daemon's log file.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ALL_CERT_FILES" class="internal-link" title="ganeti.pathutils.ALL_CERT_FILES">ALL<wbr></wbr>_CERT<wbr></wbr>_FILES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#BACKUP_DIR" class="internal-link" title="ganeti.pathutils.BACKUP_DIR">BACKUP<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#BDEV_CACHE_DIR" class="internal-link" title="ganeti.pathutils.BDEV_CACHE_DIR">BDEV<wbr></wbr>_CACHE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CFGUPGRADE" class="internal-link" title="ganeti.pathutils.CFGUPGRADE">CFGUPGRADE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CLUSTER_CONF_FILE" class="internal-link" title="ganeti.pathutils.CLUSTER_CONF_FILE">CLUSTER<wbr></wbr>_CONF<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CLUSTER_DOMAIN_SECRET_FILE" class="internal-link" title="ganeti.pathutils.CLUSTER_DOMAIN_SECRET_FILE">CLUSTER<wbr></wbr>_DOMAIN<wbr></wbr>_SECRET<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CONFD_HMAC_KEY" class="internal-link" title="ganeti.pathutils.CONFD_HMAC_KEY">CONFD<wbr></wbr>_HMAC<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CRYPTO_KEYS_DIR" class="internal-link" title="ganeti.pathutils.CRYPTO_KEYS_DIR">CRYPTO<wbr></wbr>_KEYS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DAEMON_UTIL" class="internal-link" title="ganeti.pathutils.DAEMON_UTIL">DAEMON<wbr></wbr>_UTIL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_FILE_STORAGE_DIR">DEFAULT<wbr></wbr>_FILE<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_GLUSTER_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_GLUSTER_STORAGE_DIR">DEFAULT<wbr></wbr>_GLUSTER<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_MASTER_SETUP_SCRIPT" class="internal-link" title="ganeti.pathutils.DEFAULT_MASTER_SETUP_SCRIPT">DEFAULT<wbr></wbr>_MASTER<wbr></wbr>_SETUP<wbr></wbr>_SCRIPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEFAULT_SHARED_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_SHARED_FILE_STORAGE_DIR">DEFAULT<wbr></wbr>_SHARED<wbr></wbr>_FILE<wbr></wbr>_STORAGE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DISK_LINKS_DIR" class="internal-link" title="ganeti.pathutils.DISK_LINKS_DIR">DISK<wbr></wbr>_LINKS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ENSURE_DIRS" class="internal-link" title="ganeti.pathutils.ENSURE_DIRS">ENSURE<wbr></wbr>_DIRS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#EXPORT_DIR" class="internal-link" title="ganeti.pathutils.EXPORT_DIR">EXPORT<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#EXTERNAL_MASTER_SETUP_SCRIPT" class="internal-link" title="ganeti.pathutils.EXTERNAL_MASTER_SETUP_SCRIPT">EXTERNAL<wbr></wbr>_MASTER<wbr></wbr>_SETUP<wbr></wbr>_SCRIPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FILE_STORAGE_PATHS_FILE" class="internal-link" title="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">FILE<wbr></wbr>_STORAGE<wbr></wbr>_PATHS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HOOKS_BASE_DIR" class="internal-link" title="ganeti.pathutils.HOOKS_BASE_DIR">HOOKS<wbr></wbr>_BASE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#IMPORT_EXPORT_DAEMON" class="internal-link" title="ganeti.pathutils.IMPORT_EXPORT_DAEMON">IMPORT<wbr></wbr>_EXPORT<wbr></wbr>_DAEMON</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#IMPORT_EXPORT_DIR" class="internal-link" title="ganeti.pathutils.IMPORT_EXPORT_DIR">IMPORT<wbr></wbr>_EXPORT<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_REASON_DIR" class="internal-link" title="ganeti.pathutils.INSTANCE_REASON_DIR">INSTANCE<wbr></wbr>_REASON<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_STATUS_FILE" class="internal-link" title="ganeti.pathutils.INSTANCE_STATUS_FILE">INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INTENT_TO_UPGRADE" class="internal-link" title="ganeti.pathutils.INTENT_TO_UPGRADE">INTENT<wbr></wbr>_TO<wbr></wbr>_UPGRADE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#JOB_QUEUE_ARCHIVE_DIR" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_ARCHIVE_DIR">JOB<wbr></wbr>_QUEUE<wbr></wbr>_ARCHIVE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#JOB_QUEUE_DRAIN_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_DRAIN_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_DRAIN<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#JOB_QUEUE_LOCK_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_LOCK_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#JOB_QUEUE_SERIAL_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_SERIAL_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_SERIAL<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#JOB_QUEUE_VERSION_FILE" class="internal-link" title="ganeti.pathutils.JOB_QUEUE_VERSION_FILE">JOB<wbr></wbr>_QUEUE<wbr></wbr>_VERSION<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KVM_CONSOLE_WRAPPER" class="internal-link" title="ganeti.pathutils.KVM_CONSOLE_WRAPPER">KVM<wbr></wbr>_CONSOLE<wbr></wbr>_WRAPPER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KVM_IFUP" class="internal-link" title="ganeti.pathutils.KVM_IFUP">KVM<wbr></wbr>_IFUP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LIVELOCK_DIR" class="internal-link" title="ganeti.pathutils.LIVELOCK_DIR">LIVELOCK<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOCK_DIR" class="internal-link" title="ganeti.pathutils.LOCK_DIR">LOCK<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOCK_STATUS_FILE" class="internal-link" title="ganeti.pathutils.LOCK_STATUS_FILE">LOCK<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_BURNIN" class="internal-link" title="ganeti.pathutils.LOG_BURNIN">LOG<wbr></wbr>_BURNIN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_COMMANDS" class="internal-link" title="ganeti.pathutils.LOG_COMMANDS">LOG<wbr></wbr>_COMMANDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_ES_DIR" class="internal-link" title="ganeti.pathutils.LOG_ES_DIR">LOG<wbr></wbr>_ES<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_KVM_DIR" class="internal-link" title="ganeti.pathutils.LOG_KVM_DIR">LOG<wbr></wbr>_KVM<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_OS_DIR" class="internal-link" title="ganeti.pathutils.LOG_OS_DIR">LOG<wbr></wbr>_OS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_WATCHER" class="internal-link" title="ganeti.pathutils.LOG_WATCHER">LOG<wbr></wbr>_WATCHER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LOG_XEN_DIR" class="internal-link" title="ganeti.pathutils.LOG_XEN_DIR">LOG<wbr></wbr>_XEN<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#LUXID_MESSAGE_DIR" class="internal-link" title="ganeti.pathutils.LUXID_MESSAGE_DIR">LUXID<wbr></wbr>_MESSAGE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#MASTER_SOCKET" class="internal-link" title="ganeti.pathutils.MASTER_SOCKET">MASTER<wbr></wbr>_SOCKET</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#METAD_SOCKET" class="internal-link" title="ganeti.pathutils.METAD_SOCKET">METAD<wbr></wbr>_SOCKET</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NODE_DAEMON_SETUP" class="internal-link" title="ganeti.pathutils.NODE_DAEMON_SETUP">NODE<wbr></wbr>_DAEMON<wbr></wbr>_SETUP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">NODED<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NODED_CERT_MODE" class="internal-link" title="ganeti.pathutils.NODED_CERT_MODE">NODED<wbr></wbr>_CERT<wbr></wbr>_MODE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NODED_CLIENT_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CLIENT_CERT_FILE">NODED<wbr></wbr>_CLIENT<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#POST_UPGRADE" class="internal-link" title="ganeti.pathutils.POST_UPGRADE">POST<wbr></wbr>_UPGRADE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#PREPARE_NODE_JOIN" class="internal-link" title="ganeti.pathutils.PREPARE_NODE_JOIN">PREPARE<wbr></wbr>_NODE<wbr></wbr>_JOIN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#QUERY_SOCKET" class="internal-link" title="ganeti.pathutils.QUERY_SOCKET">QUERY<wbr></wbr>_SOCKET</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RAPI_CERT_FILE" class="internal-link" title="ganeti.pathutils.RAPI_CERT_FILE">RAPI<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RAPI_DATA_DIR" class="internal-link" title="ganeti.pathutils.RAPI_DATA_DIR">RAPI<wbr></wbr>_DATA<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RAPI_USERS_FILE" class="internal-link" title="ganeti.pathutils.RAPI_USERS_FILE">RAPI<wbr></wbr>_USERS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RESTRICTED_COMMANDS_DIR" class="internal-link" title="ganeti.pathutils.RESTRICTED_COMMANDS_DIR">RESTRICTED<wbr></wbr>_COMMANDS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RESTRICTED_COMMANDS_LOCK_FILE" class="internal-link" title="ganeti.pathutils.RESTRICTED_COMMANDS_LOCK_FILE">RESTRICTED<wbr></wbr>_COMMANDS<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SPICE_CACERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CACERT_FILE">SPICE<wbr></wbr>_CACERT<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SPICE_CERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CERT_FILE">SPICE<wbr></wbr>_CERT<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSCONF_LOCK_FILE" class="internal-link" title="ganeti.pathutils.SSCONF_LOCK_FILE">SSCONF<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSH_KNOWN_HOSTS_FILE" class="internal-link" title="ganeti.pathutils.SSH_KNOWN_HOSTS_FILE">SSH<wbr></wbr>_KNOWN<wbr></wbr>_HOSTS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSH_PUB_KEYS" class="internal-link" title="ganeti.pathutils.SSH_PUB_KEYS">SSH<wbr></wbr>_PUB<wbr></wbr>_KEYS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSH_UPDATE" class="internal-link" title="ganeti.pathutils.SSH_UPDATE">SSH<wbr></wbr>_UPDATE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SSL_UPDATE" class="internal-link" title="ganeti.pathutils.SSL_UPDATE">SSL<wbr></wbr>_UPDATE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SYSCONFDIR" class="internal-link" title="ganeti.pathutils.SYSCONFDIR">SYSCONFDIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TEMP_RES_STATUS_FILE" class="internal-link" title="ganeti.pathutils.TEMP_RES_STATUS_FILE">TEMP<wbr></wbr>_RES<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#UIDPOOL_LOCKDIR" class="internal-link" title="ganeti.pathutils.UIDPOOL_LOCKDIR">UIDPOOL<wbr></wbr>_LOCKDIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#USER_SCRIPTS_DIR" class="internal-link" title="ganeti.pathutils.USER_SCRIPTS_DIR">USER<wbr></wbr>_SCRIPTS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#VNC_PASSWORD_FILE" class="internal-link" title="ganeti.pathutils.VNC_PASSWORD_FILE">VNC<wbr></wbr>_PASSWORD<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WATCHER_GROUP_INSTANCE_STATUS_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_GROUP_INSTANCE_STATUS_FILE">WATCHER<wbr></wbr>_GROUP<wbr></wbr>_INSTANCE<wbr></wbr>_STATUS<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WATCHER_GROUP_STATE_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_GROUP_STATE_FILE">WATCHER<wbr></wbr>_GROUP<wbr></wbr>_STATE<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WATCHER_LOCK_FILE" class="internal-link" title="ganeti.pathutils.WATCHER_LOCK_FILE">WATCHER<wbr></wbr>_LOCK<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WATCHER_PAUSEFILE" class="internal-link" title="ganeti.pathutils.WATCHER_PAUSEFILE">WATCHER<wbr></wbr>_PAUSEFILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#WCONFD_SOCKET" class="internal-link" title="ganeti.pathutils.WCONFD_SOCKET">WCONFD<wbr></wbr>_SOCKET</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#XEN_CONFIG_DIR" class="internal-link" title="ganeti.pathutils.XEN_CONFIG_DIR">XEN<wbr></wbr>_CONFIG<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#XEN_CONSOLE_WRAPPER" class="internal-link" title="ganeti.pathutils.XEN_CONSOLE_WRAPPER">XEN<wbr></wbr>_CONSOLE<wbr></wbr>_WRAPPER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#XEN_IFUP_OS" class="internal-link" title="ganeti.pathutils.XEN_IFUP_OS">XEN<wbr></wbr>_IFUP<wbr></wbr>_OS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#XEN_VIF_METAD_SETUP" class="internal-link" title="ganeti.pathutils.XEN_VIF_METAD_SETUP">XEN<wbr></wbr>_VIF<wbr></wbr>_METAD<wbr></wbr>_SETUP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.pathutils.GetLogFilename">
+    
+  </a>
+  <a name="GetLogFilename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetLogFilename</span>(daemon_name):
+    
+    <a class="headerLink" href="#GetLogFilename" title="ganeti.pathutils.GetLogFilename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the full path for a daemon's log file.</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.ALL_CERT_FILES">
+    
+  </a>
+  <a name="ALL_CERT_FILES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ALL_CERT_FILES</span> =
+    
+    <a class="headerLink" href="#ALL_CERT_FILES" title="ganeti.pathutils.ALL_CERT_FILES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.compat.html#UniqueFrozenset" class="internal-link" title="ganeti.compat.UniqueFrozenset">compat.UniqueFrozenset</a>(<wbr></wbr>[<wbr></wbr><a href="#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">NODED_CERT_FILE</a>,
+                        <wbr></wbr><a href="#RAPI_CERT_FILE" class="internal-link" title="ganeti.pathutils.RAPI_CERT_FILE">RAPI_CERT_FILE</a>,
+                        <wbr></wbr><a href="#SPICE_CERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CERT_FILE">SPICE_CERT_FILE</a>,
+                        <wbr></wbr><a href="#SPICE_CACERT_FILE" class="internal-link" title="ganeti.pathutils.SPICE_CACERT_FILE">SPICE_CACERT_FILE</a>])</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.BACKUP_DIR">
+    
+  </a>
+  <a name="BACKUP_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">BACKUP_DIR</span> =
+    
+    <a class="headerLink" href="#BACKUP_DIR" title="ganeti.pathutils.BACKUP_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="ganeti._constants.html#BACKUP_DIR" class="internal-link" title="ganeti._constants.BACKUP_DIR">_constants.BACKUP_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.BDEV_CACHE_DIR">
+    
+  </a>
+  <a name="BDEV_CACHE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">BDEV_CACHE_DIR</span> =
+    
+    <a class="headerLink" href="#BDEV_CACHE_DIR" title="ganeti.pathutils.BDEV_CACHE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/bdev-cache</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CFGUPGRADE">
+    
+  </a>
+  <a name="CFGUPGRADE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CFGUPGRADE</span> =
+    
+    <a class="headerLink" href="#CFGUPGRADE" title="ganeti.pathutils.CFGUPGRADE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/tools/cfgupgrade</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CLUSTER_CONF_FILE">
+    
+  </a>
+  <a name="CLUSTER_CONF_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CLUSTER_CONF_FILE</span> =
+    
+    <a class="headerLink" href="#CLUSTER_CONF_FILE" title="ganeti.pathutils.CLUSTER_CONF_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/config.data</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CLUSTER_DOMAIN_SECRET_FILE">
+    
+  </a>
+  <a name="CLUSTER_DOMAIN_SECRET_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CLUSTER_DOMAIN_SECRET_FILE</span> =
+    
+    <a class="headerLink" href="#CLUSTER_DOMAIN_SECRET_FILE" title="ganeti.pathutils.CLUSTER_DOMAIN_SECRET_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/cluster-domain-secret</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CONF_DIR">
+    
+  </a>
+  <a name="CONF_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CONF_DIR</span> =
+    
+    <a class="headerLink" href="#CONF_DIR" title="ganeti.pathutils.CONF_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#SYSCONFDIR" class="internal-link" title="ganeti.pathutils.SYSCONFDIR">SYSCONFDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CONFD_HMAC_KEY">
+    
+  </a>
+  <a name="CONFD_HMAC_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CONFD_HMAC_KEY</span> =
+    
+    <a class="headerLink" href="#CONFD_HMAC_KEY" title="ganeti.pathutils.CONFD_HMAC_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/hmac.key</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.CRYPTO_KEYS_DIR">
+    
+  </a>
+  <a name="CRYPTO_KEYS_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CRYPTO_KEYS_DIR</span> =
+    
+    <a class="headerLink" href="#CRYPTO_KEYS_DIR" title="ganeti.pathutils.CRYPTO_KEYS_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/crypto</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DAEMON_UTIL">
+    
+  </a>
+  <a name="DAEMON_UTIL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DAEMON_UTIL</span> =
+    
+    <a class="headerLink" href="#DAEMON_UTIL" title="ganeti.pathutils.DAEMON_UTIL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/daemon-util</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DATA_DIR">
+    
+  </a>
+  <a name="DATA_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DATA_DIR</span> =
+    
+    <a class="headerLink" href="#DATA_DIR" title="ganeti.pathutils.DATA_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/lib/ganeti</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DEFAULT_FILE_STORAGE_DIR">
+    
+  </a>
+  <a name="DEFAULT_FILE_STORAGE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_FILE_STORAGE_DIR</span> =
+    
+    <a class="headerLink" href="#DEFAULT_FILE_STORAGE_DIR" title="ganeti.pathutils.DEFAULT_FILE_STORAGE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="#DEFAULT_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_FILE_STORAGE_DIR">DEFAULT_FILE_STORAGE_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DEFAULT_GLUSTER_STORAGE_DIR">
+    
+  </a>
+  <a name="DEFAULT_GLUSTER_STORAGE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_GLUSTER_STORAGE_DIR</span> =
+    
+    <a class="headerLink" href="#DEFAULT_GLUSTER_STORAGE_DIR" title="ganeti.pathutils.DEFAULT_GLUSTER_STORAGE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="#DEFAULT_GLUSTER_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_GLUSTER_STORAGE_DIR">DEFAULT_GLUSTER_STORAGE_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DEFAULT_MASTER_SETUP_SCRIPT">
+    
+  </a>
+  <a name="DEFAULT_MASTER_SETUP_SCRIPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_MASTER_SETUP_SCRIPT</span> =
+    
+    <a class="headerLink" href="#DEFAULT_MASTER_SETUP_SCRIPT" title="ganeti.pathutils.DEFAULT_MASTER_SETUP_SCRIPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#TOOLSDIR" class="internal-link" title="ganeti._constants.TOOLSDIR">TOOLSDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/master-ip-setup</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DEFAULT_SHARED_FILE_STORAGE_DIR">
+    
+  </a>
+  <a name="DEFAULT_SHARED_FILE_STORAGE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_SHARED_FILE_STORAGE_DIR</span> =
+    
+    <a class="headerLink" href="#DEFAULT_SHARED_FILE_STORAGE_DIR" title="ganeti.pathutils.DEFAULT_SHARED_FILE_STORAGE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="#DEFAULT_SHARED_FILE_STORAGE_DIR" class="internal-link" title="ganeti.pathutils.DEFAULT_SHARED_FILE_STORAGE_DIR">DEFAULT_SHARED_FILE_STORAGE_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.DISK_LINKS_DIR">
+    
+  </a>
+  <a name="DISK_LINKS_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DISK_LINKS_DIR</span> =
+    
+    <a class="headerLink" href="#DISK_LINKS_DIR" title="ganeti.pathutils.DISK_LINKS_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/instance-disks</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.ENSURE_DIRS">
+    
+  </a>
+  <a name="ENSURE_DIRS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ENSURE_DIRS</span> =
+    
+    <a class="headerLink" href="#ENSURE_DIRS" title="ganeti.pathutils.ENSURE_DIRS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ensure-dirs</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.EXPORT_DIR">
+    
+  </a>
+  <a name="EXPORT_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">EXPORT_DIR</span> =
+    
+    <a class="headerLink" href="#EXPORT_DIR" title="ganeti.pathutils.EXPORT_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="ganeti._constants.html#EXPORT_DIR" class="internal-link" title="ganeti._constants.EXPORT_DIR">_constants.EXPORT_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.EXTERNAL_MASTER_SETUP_SCRIPT">
+    
+  </a>
+  <a name="EXTERNAL_MASTER_SETUP_SCRIPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">EXTERNAL_MASTER_SETUP_SCRIPT</span> =
+    
+    <a class="headerLink" href="#EXTERNAL_MASTER_SETUP_SCRIPT" title="ganeti.pathutils.EXTERNAL_MASTER_SETUP_SCRIPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#USER_SCRIPTS_DIR" class="internal-link" title="ganeti.pathutils.USER_SCRIPTS_DIR">USER_SCRIPTS_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/master-ip-setup</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">
+    
+  </a>
+  <a name="FILE_STORAGE_PATHS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FILE_STORAGE_PATHS_FILE</span> =
+    
+    <a class="headerLink" href="#FILE_STORAGE_PATHS_FILE" title="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/file-storage-paths</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.HOOKS_BASE_DIR">
+    
+  </a>
+  <a name="HOOKS_BASE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HOOKS_BASE_DIR</span> =
+    
+    <a class="headerLink" href="#HOOKS_BASE_DIR" title="ganeti.pathutils.HOOKS_BASE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/hooks</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.IMPORT_EXPORT_DAEMON">
+    
+  </a>
+  <a name="IMPORT_EXPORT_DAEMON">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">IMPORT_EXPORT_DAEMON</span> =
+    
+    <a class="headerLink" href="#IMPORT_EXPORT_DAEMON" title="ganeti.pathutils.IMPORT_EXPORT_DAEMON">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/import-export</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.IMPORT_EXPORT_DIR">
+    
+  </a>
+  <a name="IMPORT_EXPORT_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">IMPORT_EXPORT_DIR</span> =
+    
+    <a class="headerLink" href="#IMPORT_EXPORT_DIR" title="ganeti.pathutils.IMPORT_EXPORT_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/import-export</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.INSTANCE_REASON_DIR">
+    
+  </a>
+  <a name="INSTANCE_REASON_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_REASON_DIR</span> =
+    
+    <a class="headerLink" href="#INSTANCE_REASON_DIR" title="ganeti.pathutils.INSTANCE_REASON_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/instance-reason</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.INSTANCE_STATUS_FILE">
+    
+  </a>
+  <a name="INSTANCE_STATUS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_STATUS_FILE</span> =
+    
+    <a class="headerLink" href="#INSTANCE_STATUS_FILE" title="ganeti.pathutils.INSTANCE_STATUS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/instance-status</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.INTENT_TO_UPGRADE">
+    
+  </a>
+  <a name="INTENT_TO_UPGRADE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INTENT_TO_UPGRADE</span> =
+    
+    <a class="headerLink" href="#INTENT_TO_UPGRADE" title="ganeti.pathutils.INTENT_TO_UPGRADE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/intent-to-upgrade</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.JOB_QUEUE_ARCHIVE_DIR">
+    
+  </a>
+  <a name="JOB_QUEUE_ARCHIVE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">JOB_QUEUE_ARCHIVE_DIR</span> =
+    
+    <a class="headerLink" href="#JOB_QUEUE_ARCHIVE_DIR" title="ganeti.pathutils.JOB_QUEUE_ARCHIVE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/archive</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.JOB_QUEUE_DRAIN_FILE">
+    
+  </a>
+  <a name="JOB_QUEUE_DRAIN_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">JOB_QUEUE_DRAIN_FILE</span> =
+    
+    <a class="headerLink" href="#JOB_QUEUE_DRAIN_FILE" title="ganeti.pathutils.JOB_QUEUE_DRAIN_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/drain</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.JOB_QUEUE_LOCK_FILE">
+    
+  </a>
+  <a name="JOB_QUEUE_LOCK_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">JOB_QUEUE_LOCK_FILE</span> =
+    
+    <a class="headerLink" href="#JOB_QUEUE_LOCK_FILE" title="ganeti.pathutils.JOB_QUEUE_LOCK_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/lock</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.JOB_QUEUE_SERIAL_FILE">
+    
+  </a>
+  <a name="JOB_QUEUE_SERIAL_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">JOB_QUEUE_SERIAL_FILE</span> =
+    
+    <a class="headerLink" href="#JOB_QUEUE_SERIAL_FILE" title="ganeti.pathutils.JOB_QUEUE_SERIAL_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/serial</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.JOB_QUEUE_VERSION_FILE">
+    
+  </a>
+  <a name="JOB_QUEUE_VERSION_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">JOB_QUEUE_VERSION_FILE</span> =
+    
+    <a class="headerLink" href="#JOB_QUEUE_VERSION_FILE" title="ganeti.pathutils.JOB_QUEUE_VERSION_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#QUEUE_DIR" class="internal-link" title="ganeti.pathutils.QUEUE_DIR">QUEUE_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/version</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.KVM_CONSOLE_WRAPPER">
+    
+  </a>
+  <a name="KVM_CONSOLE_WRAPPER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KVM_CONSOLE_WRAPPER</span> =
+    
+    <a class="headerLink" href="#KVM_CONSOLE_WRAPPER" title="ganeti.pathutils.KVM_CONSOLE_WRAPPER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/tools/kvm-console-wrapper</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.KVM_IFUP">
+    
+  </a>
+  <a name="KVM_IFUP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KVM_IFUP</span> =
+    
+    <a class="headerLink" href="#KVM_IFUP" title="ganeti.pathutils.KVM_IFUP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/kvm-ifup</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LIVELOCK_DIR">
+    
+  </a>
+  <a name="LIVELOCK_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LIVELOCK_DIR</span> =
+    
+    <a class="headerLink" href="#LIVELOCK_DIR" title="ganeti.pathutils.LIVELOCK_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/livelocks</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOCALSTATEDIR">
+    
+  </a>
+  <a name="LOCALSTATEDIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOCALSTATEDIR</span> =
+    
+    <a class="headerLink" href="#LOCALSTATEDIR" title="ganeti.pathutils.LOCALSTATEDIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="ganeti._constants.html#LOCALSTATEDIR" class="internal-link" title="ganeti._constants.LOCALSTATEDIR">_constants.LOCALSTATEDIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOCK_DIR">
+    
+  </a>
+  <a name="LOCK_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOCK_DIR</span> =
+    
+    <a class="headerLink" href="#LOCK_DIR" title="ganeti.pathutils.LOCK_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/lock</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOCK_STATUS_FILE">
+    
+  </a>
+  <a name="LOCK_STATUS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOCK_STATUS_FILE</span> =
+    
+    <a class="headerLink" href="#LOCK_STATUS_FILE" title="ganeti.pathutils.LOCK_STATUS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/locks.data</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_BURNIN">
+    
+  </a>
+  <a name="LOG_BURNIN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_BURNIN</span> =
+    
+    <a class="headerLink" href="#LOG_BURNIN" title="ganeti.pathutils.LOG_BURNIN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#GetLogFilename" class="internal-link" title="ganeti.pathutils.GetLogFilename">GetLogFilename</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">burnin</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_COMMANDS">
+    
+  </a>
+  <a name="LOG_COMMANDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_COMMANDS</span> =
+    
+    <a class="headerLink" href="#LOG_COMMANDS" title="ganeti.pathutils.LOG_COMMANDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#GetLogFilename" class="internal-link" title="ganeti.pathutils.GetLogFilename">GetLogFilename</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">commands</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_DIR">
+    
+  </a>
+  <a name="LOG_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_DIR</span> =
+    
+    <a class="headerLink" href="#LOG_DIR" title="ganeti.pathutils.LOG_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/log/ganeti</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_ES_DIR">
+    
+  </a>
+  <a name="LOG_ES_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_ES_DIR</span> =
+    
+    <a class="headerLink" href="#LOG_ES_DIR" title="ganeti.pathutils.LOG_ES_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/extstorage</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_KVM_DIR">
+    
+  </a>
+  <a name="LOG_KVM_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_KVM_DIR</span> =
+    
+    <a class="headerLink" href="#LOG_KVM_DIR" title="ganeti.pathutils.LOG_KVM_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/kvm</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_OS_DIR">
+    
+  </a>
+  <a name="LOG_OS_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_OS_DIR</span> =
+    
+    <a class="headerLink" href="#LOG_OS_DIR" title="ganeti.pathutils.LOG_OS_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/os</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_WATCHER">
+    
+  </a>
+  <a name="LOG_WATCHER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_WATCHER</span> =
+    
+    <a class="headerLink" href="#LOG_WATCHER" title="ganeti.pathutils.LOG_WATCHER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#GetLogFilename" class="internal-link" title="ganeti.pathutils.GetLogFilename">GetLogFilename</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">watcher</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LOG_XEN_DIR">
+    
+  </a>
+  <a name="LOG_XEN_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LOG_XEN_DIR</span> =
+    
+    <a class="headerLink" href="#LOG_XEN_DIR" title="ganeti.pathutils.LOG_XEN_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOG_DIR" class="internal-link" title="ganeti.pathutils.LOG_DIR">LOG_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/xen</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.LUXID_MESSAGE_DIR">
+    
+  </a>
+  <a name="LUXID_MESSAGE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">LUXID_MESSAGE_DIR</span> =
+    
+    <a class="headerLink" href="#LUXID_MESSAGE_DIR" title="ganeti.pathutils.LUXID_MESSAGE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/luxidmessages</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.MASTER_SOCKET">
+    
+  </a>
+  <a name="MASTER_SOCKET">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">MASTER_SOCKET</span> =
+    
+    <a class="headerLink" href="#MASTER_SOCKET" title="ganeti.pathutils.MASTER_SOCKET">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-master</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.METAD_SOCKET">
+    
+  </a>
+  <a name="METAD_SOCKET">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">METAD_SOCKET</span> =
+    
+    <a class="headerLink" href="#METAD_SOCKET" title="ganeti.pathutils.METAD_SOCKET">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-metad</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.NODE_DAEMON_SETUP">
+    
+  </a>
+  <a name="NODE_DAEMON_SETUP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NODE_DAEMON_SETUP</span> =
+    
+    <a class="headerLink" href="#NODE_DAEMON_SETUP" title="ganeti.pathutils.NODE_DAEMON_SETUP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/node-daemon-setup</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.NODED_CERT_FILE">
+    
+  </a>
+  <a name="NODED_CERT_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NODED_CERT_FILE</span> =
+    
+    <a class="headerLink" href="#NODED_CERT_FILE" title="ganeti.pathutils.NODED_CERT_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/server.pem</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.NODED_CERT_MODE">
+    
+  </a>
+  <a name="NODED_CERT_MODE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NODED_CERT_MODE</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#NODED_CERT_MODE" title="ganeti.pathutils.NODED_CERT_MODE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>288</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.NODED_CLIENT_CERT_FILE">
+    
+  </a>
+  <a name="NODED_CLIENT_CERT_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NODED_CLIENT_CERT_FILE</span> =
+    
+    <a class="headerLink" href="#NODED_CLIENT_CERT_FILE" title="ganeti.pathutils.NODED_CLIENT_CERT_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/client.pem</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.POST_UPGRADE">
+    
+  </a>
+  <a name="POST_UPGRADE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">POST_UPGRADE</span> =
+    
+    <a class="headerLink" href="#POST_UPGRADE" title="ganeti.pathutils.POST_UPGRADE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/tools/post-upgrade</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.PREPARE_NODE_JOIN">
+    
+  </a>
+  <a name="PREPARE_NODE_JOIN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PREPARE_NODE_JOIN</span> =
+    
+    <a class="headerLink" href="#PREPARE_NODE_JOIN" title="ganeti.pathutils.PREPARE_NODE_JOIN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/prepare-node-join</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.QUERY_SOCKET">
+    
+  </a>
+  <a name="QUERY_SOCKET">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">QUERY_SOCKET</span> =
+    
+    <a class="headerLink" href="#QUERY_SOCKET" title="ganeti.pathutils.QUERY_SOCKET">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-query</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.QUEUE_DIR">
+    
+  </a>
+  <a name="QUEUE_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">QUEUE_DIR</span> =
+    
+    <a class="headerLink" href="#QUEUE_DIR" title="ganeti.pathutils.QUEUE_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/queue</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RAPI_CERT_FILE">
+    
+  </a>
+  <a name="RAPI_CERT_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RAPI_CERT_FILE</span> =
+    
+    <a class="headerLink" href="#RAPI_CERT_FILE" title="ganeti.pathutils.RAPI_CERT_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/rapi.pem</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RAPI_DATA_DIR">
+    
+  </a>
+  <a name="RAPI_DATA_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RAPI_DATA_DIR</span> =
+    
+    <a class="headerLink" href="#RAPI_DATA_DIR" title="ganeti.pathutils.RAPI_DATA_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/rapi</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RAPI_USERS_FILE">
+    
+  </a>
+  <a name="RAPI_USERS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RAPI_USERS_FILE</span> =
+    
+    <a class="headerLink" href="#RAPI_USERS_FILE" title="ganeti.pathutils.RAPI_USERS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RAPI_DATA_DIR" class="internal-link" title="ganeti.pathutils.RAPI_DATA_DIR">RAPI_DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/users</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RESTRICTED_COMMANDS_DIR">
+    
+  </a>
+  <a name="RESTRICTED_COMMANDS_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RESTRICTED_COMMANDS_DIR</span> =
+    
+    <a class="headerLink" href="#RESTRICTED_COMMANDS_DIR" title="ganeti.pathutils.RESTRICTED_COMMANDS_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/restricted-commands</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RESTRICTED_COMMANDS_LOCK_FILE">
+    
+  </a>
+  <a name="RESTRICTED_COMMANDS_LOCK_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RESTRICTED_COMMANDS_LOCK_FILE</span> =
+    
+    <a class="headerLink" href="#RESTRICTED_COMMANDS_LOCK_FILE" title="ganeti.pathutils.RESTRICTED_COMMANDS_LOCK_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCK_DIR" class="internal-link" title="ganeti.pathutils.LOCK_DIR">LOCK_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-restricted-commands.lock</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.RUN_DIR">
+    
+  </a>
+  <a name="RUN_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RUN_DIR</span> =
+    
+    <a class="headerLink" href="#RUN_DIR" title="ganeti.pathutils.RUN_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCALSTATEDIR" class="internal-link" title="ganeti.pathutils.LOCALSTATEDIR">LOCALSTATEDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/run/ganeti</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SOCKET_DIR">
+    
+  </a>
+  <a name="SOCKET_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SOCKET_DIR</span> =
+    
+    <a class="headerLink" href="#SOCKET_DIR" title="ganeti.pathutils.SOCKET_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/socket</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SPICE_CACERT_FILE">
+    
+  </a>
+  <a name="SPICE_CACERT_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SPICE_CACERT_FILE</span> =
+    
+    <a class="headerLink" href="#SPICE_CACERT_FILE" title="ganeti.pathutils.SPICE_CACERT_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/spice-ca.pem</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SPICE_CERT_FILE">
+    
+  </a>
+  <a name="SPICE_CERT_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SPICE_CERT_FILE</span> =
+    
+    <a class="headerLink" href="#SPICE_CERT_FILE" title="ganeti.pathutils.SPICE_CERT_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/spice.pem</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SSCONF_LOCK_FILE">
+    
+  </a>
+  <a name="SSCONF_LOCK_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSCONF_LOCK_FILE</span> =
+    
+    <a class="headerLink" href="#SSCONF_LOCK_FILE" title="ganeti.pathutils.SSCONF_LOCK_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCK_DIR" class="internal-link" title="ganeti.pathutils.LOCK_DIR">LOCK_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-ssconf.lock</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SSH_KNOWN_HOSTS_FILE">
+    
+  </a>
+  <a name="SSH_KNOWN_HOSTS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSH_KNOWN_HOSTS_FILE</span> =
+    
+    <a class="headerLink" href="#SSH_KNOWN_HOSTS_FILE" title="ganeti.pathutils.SSH_KNOWN_HOSTS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/known_hosts</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SSH_PUB_KEYS">
+    
+  </a>
+  <a name="SSH_PUB_KEYS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSH_PUB_KEYS</span> =
+    
+    <a class="headerLink" href="#SSH_PUB_KEYS" title="ganeti.pathutils.SSH_PUB_KEYS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti_pub_keys</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SSH_UPDATE">
+    
+  </a>
+  <a name="SSH_UPDATE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSH_UPDATE</span> =
+    
+    <a class="headerLink" href="#SSH_UPDATE" title="ganeti.pathutils.SSH_UPDATE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ssh-update</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SSL_UPDATE">
+    
+  </a>
+  <a name="SSL_UPDATE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SSL_UPDATE</span> =
+    
+    <a class="headerLink" href="#SSL_UPDATE" title="ganeti.pathutils.SSL_UPDATE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ssl-update</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.SYSCONFDIR">
+    
+  </a>
+  <a name="SYSCONFDIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SYSCONFDIR</span> =
+    
+    <a class="headerLink" href="#SYSCONFDIR" title="ganeti.pathutils.SYSCONFDIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="ganeti._constants.html#SYSCONFDIR" class="internal-link" title="ganeti._constants.SYSCONFDIR">_constants.SYSCONFDIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.TEMP_RES_STATUS_FILE">
+    
+  </a>
+  <a name="TEMP_RES_STATUS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TEMP_RES_STATUS_FILE</span> =
+    
+    <a class="headerLink" href="#TEMP_RES_STATUS_FILE" title="ganeti.pathutils.TEMP_RES_STATUS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/tempres.data</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.UIDPOOL_LOCKDIR">
+    
+  </a>
+  <a name="UIDPOOL_LOCKDIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">UIDPOOL_LOCKDIR</span> =
+    
+    <a class="headerLink" href="#UIDPOOL_LOCKDIR" title="ganeti.pathutils.UIDPOOL_LOCKDIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#RUN_DIR" class="internal-link" title="ganeti.pathutils.RUN_DIR">RUN_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/uid-pool</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.USER_SCRIPTS_DIR">
+    
+  </a>
+  <a name="USER_SCRIPTS_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">USER_SCRIPTS_DIR</span> =
+    
+    <a class="headerLink" href="#USER_SCRIPTS_DIR" title="ganeti.pathutils.USER_SCRIPTS_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/scripts</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.VNC_PASSWORD_FILE">
+    
+  </a>
+  <a name="VNC_PASSWORD_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">VNC_PASSWORD_FILE</span> =
+    
+    <a class="headerLink" href="#VNC_PASSWORD_FILE" title="ganeti.pathutils.VNC_PASSWORD_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/vnc-cluster-password</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.WATCHER_GROUP_INSTANCE_STATUS_FILE">
+    
+  </a>
+  <a name="WATCHER_GROUP_INSTANCE_STATUS_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WATCHER_GROUP_INSTANCE_STATUS_FILE</span> =
+    
+    <a class="headerLink" href="#WATCHER_GROUP_INSTANCE_STATUS_FILE" title="ganeti.pathutils.WATCHER_GROUP_INSTANCE_STATUS_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/watcher.%s.instance-status</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.WATCHER_GROUP_STATE_FILE">
+    
+  </a>
+  <a name="WATCHER_GROUP_STATE_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WATCHER_GROUP_STATE_FILE</span> =
+    
+    <a class="headerLink" href="#WATCHER_GROUP_STATE_FILE" title="ganeti.pathutils.WATCHER_GROUP_STATE_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/watcher.%s.data</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.WATCHER_LOCK_FILE">
+    
+  </a>
+  <a name="WATCHER_LOCK_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WATCHER_LOCK_FILE</span> =
+    
+    <a class="headerLink" href="#WATCHER_LOCK_FILE" title="ganeti.pathutils.WATCHER_LOCK_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#LOCK_DIR" class="internal-link" title="ganeti.pathutils.LOCK_DIR">LOCK_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-watcher.lock</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.WATCHER_PAUSEFILE">
+    
+  </a>
+  <a name="WATCHER_PAUSEFILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WATCHER_PAUSEFILE</span> =
+    
+    <a class="headerLink" href="#WATCHER_PAUSEFILE" title="ganeti.pathutils.WATCHER_PAUSEFILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#DATA_DIR" class="internal-link" title="ganeti.pathutils.DATA_DIR">DATA_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/watcher.pause</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.WCONFD_SOCKET">
+    
+  </a>
+  <a name="WCONFD_SOCKET">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">WCONFD_SOCKET</span> =
+    
+    <a class="headerLink" href="#WCONFD_SOCKET" title="ganeti.pathutils.WCONFD_SOCKET">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#SOCKET_DIR" class="internal-link" title="ganeti.pathutils.SOCKET_DIR">SOCKET_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/ganeti-wconfd</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.XEN_CONFIG_DIR">
+    
+  </a>
+  <a name="XEN_CONFIG_DIR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">XEN_CONFIG_DIR</span> =
+    
+    <a class="headerLink" href="#XEN_CONFIG_DIR" title="ganeti.pathutils.XEN_CONFIG_DIR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.vcluster.html#AddNodePrefix" class="internal-link" title="ganeti.vcluster.AddNodePrefix">vcluster.AddNodePrefix</a>(<wbr></wbr><a href="ganeti._constants.html#XEN_CONFIG_DIR" class="internal-link" title="ganeti._constants.XEN_CONFIG_DIR">_constants.XEN_CONFIG_DIR</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.XEN_CONSOLE_WRAPPER">
+    
+  </a>
+  <a name="XEN_CONSOLE_WRAPPER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">XEN_CONSOLE_WRAPPER</span> =
+    
+    <a class="headerLink" href="#XEN_CONSOLE_WRAPPER" title="ganeti.pathutils.XEN_CONSOLE_WRAPPER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/tools/xen-console-wrapper</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.XEN_IFUP_OS">
+    
+  </a>
+  <a name="XEN_IFUP_OS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">XEN_IFUP_OS</span> =
+    
+    <a class="headerLink" href="#XEN_IFUP_OS" title="ganeti.pathutils.XEN_IFUP_OS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#CONF_DIR" class="internal-link" title="ganeti.pathutils.CONF_DIR">CONF_DIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/xen-ifup-os</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.pathutils.XEN_VIF_METAD_SETUP">
+    
+  </a>
+  <a name="XEN_VIF_METAD_SETUP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">XEN_VIF_METAD_SETUP</span> =
+    
+    <a class="headerLink" href="#XEN_VIF_METAD_SETUP" title="ganeti.pathutils.XEN_VIF_METAD_SETUP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti._constants.html#PKGLIBDIR" class="internal-link" title="ganeti._constants.PKGLIBDIR">_constants.PKGLIBDIR</a>+<span class="rst-variable-quote">'</span><span class="rst-variable-string">/vif-ganeti-metad</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

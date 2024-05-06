@@ -1,0 +1,5017 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.ht</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.ht.html" class="internal-link" title="This module">ht</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht._CommentWrapper.html" class="internal-link" title="ganeti.ht._CommentWrapper">_<wbr></wbr>Comment<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht._DescWrapper.html" class="internal-link" title="ganeti.ht._DescWrapper">_<wbr></wbr>Desc<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht._WrapperBase.html" class="internal-link" title="ganeti.ht._WrapperBase">_<wbr></wbr>Wrapper<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CombinationDesc" class="internal-link" title="ganeti.ht.CombinationDesc"><wbr></wbr>Combination<wbr></wbr>Desc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Comment" class="internal-link" title="ganeti.ht.Comment"><wbr></wbr>Comment</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EmptyDict" class="internal-link" title="ganeti.ht.EmptyDict"><wbr></wbr>Empty<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EmptyList" class="internal-link" title="ganeti.ht.EmptyList"><wbr></wbr>Empty<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Parens" class="internal-link" title="ganeti.ht.Parens"><wbr></wbr>Parens</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TAnd" class="internal-link" title="ganeti.ht.TAnd"><wbr></wbr>TAnd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TAny" class="internal-link" title="ganeti.ht.TAny"><wbr></wbr>TAny</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TBool" class="internal-link" title="ganeti.ht.TBool"><wbr></wbr>TBool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDict" class="internal-link" title="ganeti.ht.TDict"><wbr></wbr>TDict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDictOf" class="internal-link" title="ganeti.ht.TDictOf"><wbr></wbr>TDict<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TElemOf" class="internal-link" title="ganeti.ht.TElemOf"><wbr></wbr>TElem<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TFloat" class="internal-link" title="ganeti.ht.TFloat"><wbr></wbr>TFloat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TInstanceOf" class="internal-link" title="ganeti.ht.TInstanceOf"><wbr></wbr>TInstance<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TInt" class="internal-link" title="ganeti.ht.TInt"><wbr></wbr>TInt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIsLength" class="internal-link" title="ganeti.ht.TIsLength"><wbr></wbr>TIs<wbr></wbr>Length</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TItems" class="internal-link" title="ganeti.ht.TItems"><wbr></wbr>TItems</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TList" class="internal-link" title="ganeti.ht.TList"><wbr></wbr>TList</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TListOf" class="internal-link" title="ganeti.ht.TListOf"><wbr></wbr>TList<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMap" class="internal-link" title="ganeti.ht.TMap"><wbr></wbr>TMap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybe" class="internal-link" title="ganeti.ht.TMaybe"><wbr></wbr>TMaybe</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeValueNone" class="internal-link" title="ganeti.ht.TMaybeValueNone"><wbr></wbr>TMaybe<wbr></wbr>Value<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNone" class="internal-link" title="ganeti.ht.TNone"><wbr></wbr>TNone</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNonNegative" class="internal-link" title="ganeti.ht.TNonNegative"><wbr></wbr>TNon<wbr></wbr>Negative</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNotNone" class="internal-link" title="ganeti.ht.TNotNone"><wbr></wbr>TNot<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TObject" class="internal-link" title="ganeti.ht.TObject"><wbr></wbr>TObject</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TObjectCheck" class="internal-link" title="ganeti.ht.TObjectCheck"><wbr></wbr>TObject<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TOr" class="internal-link" title="ganeti.ht.TOr"><wbr></wbr>TOr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TPositive" class="internal-link" title="ganeti.ht.TPositive"><wbr></wbr>TPositive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TPrivate" class="internal-link" title="ganeti.ht.TPrivate"><wbr></wbr>TPrivate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TRegex" class="internal-link" title="ganeti.ht.TRegex"><wbr></wbr>TRegex</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TSecret" class="internal-link" title="ganeti.ht.TSecret"><wbr></wbr>TSecret</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TSetOf" class="internal-link" title="ganeti.ht.TSetOf"><wbr></wbr>TSet<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TSetParamsMods" class="internal-link" title="ganeti.ht.TSetParamsMods"><wbr></wbr>TSet<wbr></wbr>Params<wbr></wbr>Mods</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TStorageType" class="internal-link" title="ganeti.ht.TStorageType"><wbr></wbr>TStorage<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TStrictDict" class="internal-link" title="ganeti.ht.TStrictDict"><wbr></wbr>TStrict<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TString" class="internal-link" title="ganeti.ht.TString"><wbr></wbr>TString</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TTrue" class="internal-link" title="ganeti.ht.TTrue"><wbr></wbr>TTrue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TTuple" class="internal-link" title="ganeti.ht.TTuple"><wbr></wbr>TTuple</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TTupleOf" class="internal-link" title="ganeti.ht.TTupleOf"><wbr></wbr>TTuple<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TValueNone" class="internal-link" title="ganeti.ht.TValueNone"><wbr></wbr>TValue<wbr></wbr>None</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc"><wbr></wbr>With<wbr></wbr>Desc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckCIDR6AddrNotation" class="internal-link" title="ganeti.ht._CheckCIDR6AddrNotation">_<wbr></wbr>Check<wbr></wbr>CIDR6<wbr></wbr>Addr<wbr></wbr>Notation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckCIDR6NetNotation" class="internal-link" title="ganeti.ht._CheckCIDR6NetNotation">_<wbr></wbr>Check<wbr></wbr>CIDR6<wbr></wbr>Net<wbr></wbr>Notation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckCIDRAddrNotation" class="internal-link" title="ganeti.ht._CheckCIDRAddrNotation">_<wbr></wbr>Check<wbr></wbr>CIDRAddr<wbr></wbr>Notation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckCIDRNetNotation" class="internal-link" title="ganeti.ht._CheckCIDRNetNotation">_<wbr></wbr>Check<wbr></wbr>CIDRNet<wbr></wbr>Notation</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TStrictDictCheck" class="internal-link" title="ganeti.ht._TStrictDictCheck">_<wbr></wbr>TStrict<wbr></wbr>Dict<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NoDefault" class="internal-link" title="ganeti.ht.NoDefault"><wbr></wbr>No<wbr></wbr>Default</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TAdminStateSource" class="internal-link" title="ganeti.ht.TAdminStateSource"><wbr></wbr>TAdmin<wbr></wbr>State<wbr></wbr>Source</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TAllocPolicy" class="internal-link" title="ganeti.ht.TAllocPolicy"><wbr></wbr>TAlloc<wbr></wbr>Policy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TCVErrorCode" class="internal-link" title="ganeti.ht.TCVErrorCode"><wbr></wbr>TCVError<wbr></wbr>Code</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDdmSimple" class="internal-link" title="ganeti.ht.TDdmSimple"><wbr></wbr>TDdm<wbr></wbr>Simple</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDiskChanges" class="internal-link" title="ganeti.ht.TDiskChanges"><wbr></wbr>TDisk<wbr></wbr>Changes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDiskIndex" class="internal-link" title="ganeti.ht.TDiskIndex"><wbr></wbr>TDisk<wbr></wbr>Index</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDiskParams" class="internal-link" title="ganeti.ht.TDiskParams"><wbr></wbr>TDisk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TDiskTemplate" class="internal-link" title="ganeti.ht.TDiskTemplate"><wbr></wbr>TDisk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TEvacMode" class="internal-link" title="ganeti.ht.TEvacMode"><wbr></wbr>TEvac<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TExportMode" class="internal-link" title="ganeti.ht.TExportMode"><wbr></wbr>TExport<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TExportTarget" class="internal-link" title="ganeti.ht.TExportTarget"><wbr></wbr>TExport<wbr></wbr>Target</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TFileDriver" class="internal-link" title="ganeti.ht.TFileDriver"><wbr></wbr>TFile<wbr></wbr>Driver</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#THypervisor" class="internal-link" title="ganeti.ht.THypervisor"><wbr></wbr>THypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIAllocatorMode" class="internal-link" title="ganeti.ht.TIAllocatorMode"><wbr></wbr>TIAllocator<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIAllocatorTestDir" class="internal-link" title="ganeti.ht.TIAllocatorTestDir"><wbr></wbr>TIAllocator<wbr></wbr>Test<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIDiskParams" class="internal-link" title="ganeti.ht.TIDiskParams"><wbr></wbr>TIDisk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TImportExportCompression" class="internal-link" title="ganeti.ht.TImportExportCompression"><wbr></wbr>TImport<wbr></wbr>Export<wbr></wbr>Compression</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TINicParams" class="internal-link" title="ganeti.ht.TINicParams"><wbr></wbr>TINic<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TInstanceMultiAllocResponse" class="internal-link" title="ganeti.ht.TInstanceMultiAllocResponse"><wbr></wbr>TInstance<wbr></wbr>Multi<wbr></wbr>Alloc<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TInstCreateMode" class="internal-link" title="ganeti.ht.TInstCreateMode"><wbr></wbr>TInst<wbr></wbr>Create<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIPv4Address" class="internal-link" title="ganeti.ht.TIPv4Address"><wbr></wbr>TIPv4<wbr></wbr>Address</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIPv4Network" class="internal-link" title="ganeti.ht.TIPv4Network"><wbr></wbr>TIPv4<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIPv6Address" class="internal-link" title="ganeti.ht.TIPv6Address"><wbr></wbr>TIPv6<wbr></wbr>Address</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TIPv6Network" class="internal-link" title="ganeti.ht.TIPv6Network"><wbr></wbr>TIPv6<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TJobId" class="internal-link" title="ganeti.ht.TJobId"><wbr></wbr>TJob<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TJobIdList" class="internal-link" title="ganeti.ht.TJobIdList"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TJobIdListItem" class="internal-link" title="ganeti.ht.TJobIdListItem"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List<wbr></wbr>Item</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TJobIdListOnly" class="internal-link" title="ganeti.ht.TJobIdListOnly"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List<wbr></wbr>Only</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaxValue" class="internal-link" title="ganeti.ht.TMaxValue"><wbr></wbr>TMax<wbr></wbr>Value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeBool" class="internal-link" title="ganeti.ht.TMaybeBool"><wbr></wbr>TMaybe<wbr></wbr>Bool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeDict" class="internal-link" title="ganeti.ht.TMaybeDict"><wbr></wbr>TMaybe<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeList" class="internal-link" title="ganeti.ht.TMaybeList"><wbr></wbr>TMaybe<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeListOf" class="internal-link" title="ganeti.ht.TMaybeListOf"><wbr></wbr>TMaybe<wbr></wbr>List<wbr></wbr>Of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybePositiveInt" class="internal-link" title="ganeti.ht.TMaybePositiveInt"><wbr></wbr>TMaybe<wbr></wbr>Positive<wbr></wbr>Int</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMaybeString" class="internal-link" title="ganeti.ht.TMaybeString"><wbr></wbr>TMaybe<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TMigrationMode" class="internal-link" title="ganeti.ht.TMigrationMode"><wbr></wbr>TMigration<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNegativeInt" class="internal-link" title="ganeti.ht.TNegativeInt"><wbr></wbr>TNegative<wbr></wbr>Int</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNICMode" class="internal-link" title="ganeti.ht.TNICMode"><wbr></wbr>TNICMode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNonEmptyString" class="internal-link" title="ganeti.ht.TNonEmptyString"><wbr></wbr>TNon<wbr></wbr>Empty<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNonNegativeFloat" class="internal-link" title="ganeti.ht.TNonNegativeFloat"><wbr></wbr>TNon<wbr></wbr>Negative<wbr></wbr>Float</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNonNegativeInt" class="internal-link" title="ganeti.ht.TNonNegativeInt"><wbr></wbr>TNon<wbr></wbr>Negative<wbr></wbr>Int</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TNumber" class="internal-link" title="ganeti.ht.TNumber"><wbr></wbr>TNumber</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TOobCommand" class="internal-link" title="ganeti.ht.TOobCommand"><wbr></wbr>TOob<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TPositiveInt" class="internal-link" title="ganeti.ht.TPositiveInt"><wbr></wbr>TPositive<wbr></wbr>Int</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryFieldDef" class="internal-link" title="ganeti.ht.TQueryFieldDef"><wbr></wbr>TQuery<wbr></wbr>Field<wbr></wbr>Def</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryFieldsResponse" class="internal-link" title="ganeti.ht.TQueryFieldsResponse"><wbr></wbr>TQuery<wbr></wbr>Fields<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryResponse" class="internal-link" title="ganeti.ht.TQueryResponse"><wbr></wbr>TQuery<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryResult" class="internal-link" title="ganeti.ht.TQueryResult"><wbr></wbr>TQuery<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryResultCode" class="internal-link" title="ganeti.ht.TQueryResultCode"><wbr></wbr>TQuery<wbr></wbr>Result<wbr></wbr>Code</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryRow" class="internal-link" title="ganeti.ht.TQueryRow"><wbr></wbr>TQuery<wbr></wbr>Row</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TQueryTypeOp" class="internal-link" title="ganeti.ht.TQueryTypeOp"><wbr></wbr>TQuery<wbr></wbr>Type<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TRebootType" class="internal-link" title="ganeti.ht.TRebootType"><wbr></wbr>TReboot<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TRecreateDisksInfo" class="internal-link" title="ganeti.ht.TRecreateDisksInfo"><wbr></wbr>TRecreate<wbr></wbr>Disks<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TRelativeJobId" class="internal-link" title="ganeti.ht.TRelativeJobId"><wbr></wbr>TRelative<wbr></wbr>Job<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TReplaceDisksMode" class="internal-link" title="ganeti.ht.TReplaceDisksMode"><wbr></wbr>TReplace<wbr></wbr>Disks<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TSshKeyType" class="internal-link" title="ganeti.ht.TSshKeyType"><wbr></wbr>TSsh<wbr></wbr>Key<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TTagKind" class="internal-link" title="ganeti.ht.TTagKind"><wbr></wbr>TTag<wbr></wbr>Kind</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TVerifyOptionalChecks" class="internal-link" title="ganeti.ht.TVerifyOptionalChecks"><wbr></wbr>TVerify<wbr></wbr>Optional<wbr></wbr>Checks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PAREN_RE" class="internal-link" title="ganeti.ht._PAREN_RE">_PAREN<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this module">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module implementing the parameter types code.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id368">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CombinationDesc" class="internal-link" title="ganeti.ht.CombinationDesc"><wbr></wbr>Combination<wbr></wbr>Desc</a></code></td>
+    <td>Build description for combinating operator.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Comment" class="internal-link" title="ganeti.ht.Comment"><wbr></wbr>Comment</a></code></td>
+    <td>Builds wrapper for adding comment to description text.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EmptyDict" class="internal-link" title="ganeti.ht.EmptyDict"><wbr></wbr>Empty<wbr></wbr>Dict</a></code></td>
+    <td>Returns an empty dict.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EmptyList" class="internal-link" title="ganeti.ht.EmptyList"><wbr></wbr>Empty<wbr></wbr>List</a></code></td>
+    <td>Returns an empty list.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Parens" class="internal-link" title="ganeti.ht.Parens"><wbr></wbr>Parens</a></code></td>
+    <td>Enclose text in parens if necessary.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TAnd" class="internal-link" title="ganeti.ht.TAnd"><wbr></wbr>TAnd</a></code></td>
+    <td>Combine multiple functions using an AND operation.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TAny" class="internal-link" title="ganeti.ht.TAny"><wbr></wbr>TAny</a></code></td>
+    <td>Accepts any value.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TBool" class="internal-link" title="ganeti.ht.TBool"><wbr></wbr>TBool</a></code></td>
+    <td>Checks if the given value is a boolean.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TDict" class="internal-link" title="ganeti.ht.TDict"><wbr></wbr>TDict</a></code></td>
+    <td>Checks if the given value is a dictionary.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TDictOf" class="internal-link" title="ganeti.ht.TDictOf"><wbr></wbr>TDict<wbr></wbr>Of</a></code></td>
+    <td>Checks a dict type for the type of its key/values.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TElemOf" class="internal-link" title="ganeti.ht.TElemOf"><wbr></wbr>TElem<wbr></wbr>Of</a></code></td>
+    <td>Builds a function that checks if a given value is a member of a list.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TFloat" class="internal-link" title="ganeti.ht.TFloat"><wbr></wbr>TFloat</a></code></td>
+    <td>Checks if the given value is a float.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TInstanceOf" class="internal-link" title="ganeti.ht.TInstanceOf"><wbr></wbr>TInstance<wbr></wbr>Of</a></code></td>
+    <td>Checks if a given value is an instance of <tt class="rst-docutils literal">cls</tt>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TInt" class="internal-link" title="ganeti.ht.TInt"><wbr></wbr>TInt</a></code></td>
+    <td>Checks if the given value is an integer.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TIsLength" class="internal-link" title="ganeti.ht.TIsLength"><wbr></wbr>TIs<wbr></wbr>Length</a></code></td>
+    <td>Check is the given container is of the given size.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TItems" class="internal-link" title="ganeti.ht.TItems"><wbr></wbr>TItems</a></code></td>
+    <td>Checks individual items of a container.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TList" class="internal-link" title="ganeti.ht.TList"><wbr></wbr>TList</a></code></td>
+    <td>Checks if the given value is a list.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TListOf" class="internal-link" title="ganeti.ht.TListOf"><wbr></wbr>TList<wbr></wbr>Of</a></code></td>
+    <td>Checks if a given value is a list with all elements of the same type.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TMap" class="internal-link" title="ganeti.ht.TMap"><wbr></wbr>TMap</a></code></td>
+    <td>Checks that a modified version of the argument passes the given test.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TMaybe" class="internal-link" title="ganeti.ht.TMaybe"><wbr></wbr>TMaybe</a></code></td>
+    <td>Wrap a test in a TOr(TNone, test).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TMaybeValueNone" class="internal-link" title="ganeti.ht.TMaybeValueNone"><wbr></wbr>TMaybe<wbr></wbr>Value<wbr></wbr>None</a></code></td>
+    <td>Used for unsetting values.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TNone" class="internal-link" title="ganeti.ht.TNone"><wbr></wbr>TNone</a></code></td>
+    <td>Checks if the given value is None.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TNonNegative" class="internal-link" title="ganeti.ht.TNonNegative"><wbr></wbr>TNon<wbr></wbr>Negative</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TNotNone" class="internal-link" title="ganeti.ht.TNotNone"><wbr></wbr>TNot<wbr></wbr>None</a></code></td>
+    <td>Checks if the given value is not None.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TObject" class="internal-link" title="ganeti.ht.TObject"><wbr></wbr>TObject</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TObjectCheck" class="internal-link" title="ganeti.ht.TObjectCheck"><wbr></wbr>TObject<wbr></wbr>Check</a></code></td>
+    <td>Helper to generate type checks for objects.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TOr" class="internal-link" title="ganeti.ht.TOr"><wbr></wbr>TOr</a></code></td>
+    <td>Combine multiple functions using an OR operation.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TPositive" class="internal-link" title="ganeti.ht.TPositive"><wbr></wbr>TPositive</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TPrivate" class="internal-link" title="ganeti.ht.TPrivate"><wbr></wbr>TPrivate</a></code></td>
+    <td>Checks if a given value is an instance of Private.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TRegex" class="internal-link" title="ganeti.ht.TRegex"><wbr></wbr>TRegex</a></code></td>
+    <td>Checks whether a string matches a specific regular expression.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TSecret" class="internal-link" title="ganeti.ht.TSecret"><wbr></wbr>TSecret</a></code></td>
+    <td>Checks if a given value is an instance of Private.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TSetOf" class="internal-link" title="ganeti.ht.TSetOf"><wbr></wbr>TSet<wbr></wbr>Of</a></code></td>
+    <td>Checks if a given value is a list with all elements of the same type and eliminates duplicated elements.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TSetParamsMods" class="internal-link" title="ganeti.ht.TSetParamsMods"><wbr></wbr>TSet<wbr></wbr>Params<wbr></wbr>Mods</a></code></td>
+    <td>Generates a check for modification lists.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TStorageType" class="internal-link" title="ganeti.ht.TStorageType"><wbr></wbr>TStorage<wbr></wbr>Type</a></code></td>
+    <td>Builds a function that checks if a given value is a valid storage type.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TStrictDict" class="internal-link" title="ganeti.ht.TStrictDict"><wbr></wbr>TStrict<wbr></wbr>Dict</a></code></td>
+    <td>Strict dictionary check with specific keys.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TString" class="internal-link" title="ganeti.ht.TString"><wbr></wbr>TString</a></code></td>
+    <td>Checks if the given value is a string.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TTrue" class="internal-link" title="ganeti.ht.TTrue"><wbr></wbr>TTrue</a></code></td>
+    <td>Checks if a given value evaluates to a boolean True value.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TTuple" class="internal-link" title="ganeti.ht.TTuple"><wbr></wbr>TTuple</a></code></td>
+    <td>Checks if the given value is a tuple.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TTupleOf" class="internal-link" title="ganeti.ht.TTupleOf"><wbr></wbr>TTuple<wbr></wbr>Of</a></code></td>
+    <td>Checks if a given value is a list with the proper size and its elements match the given types.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TValueNone" class="internal-link" title="ganeti.ht.TValueNone"><wbr></wbr>TValue<wbr></wbr>None</a></code></td>
+    <td>Checks if the given value is <code><a href="ganeti._constants.html#VALUE_NONE" class="internal-link" title="ganeti._constants.VALUE_NONE">constants.VALUE_NONE</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc"><wbr></wbr>With<wbr></wbr>Desc</a></code></td>
+    <td>Builds wrapper class with description text.</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#NoDefault" class="internal-link" title="ganeti.ht.NoDefault"><wbr></wbr>No<wbr></wbr>Default</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TAdminStateSource" class="internal-link" title="ganeti.ht.TAdminStateSource"><wbr></wbr>TAdmin<wbr></wbr>State<wbr></wbr>Source</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TAllocPolicy" class="internal-link" title="ganeti.ht.TAllocPolicy"><wbr></wbr>TAlloc<wbr></wbr>Policy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TCVErrorCode" class="internal-link" title="ganeti.ht.TCVErrorCode"><wbr></wbr>TCVError<wbr></wbr>Code</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TDdmSimple" class="internal-link" title="ganeti.ht.TDdmSimple"><wbr></wbr>TDdm<wbr></wbr>Simple</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TDiskChanges" class="internal-link" title="ganeti.ht.TDiskChanges"><wbr></wbr>TDisk<wbr></wbr>Changes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TDiskIndex" class="internal-link" title="ganeti.ht.TDiskIndex"><wbr></wbr>TDisk<wbr></wbr>Index</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TDiskParams" class="internal-link" title="ganeti.ht.TDiskParams"><wbr></wbr>TDisk<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TDiskTemplate" class="internal-link" title="ganeti.ht.TDiskTemplate"><wbr></wbr>TDisk<wbr></wbr>Template</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TEvacMode" class="internal-link" title="ganeti.ht.TEvacMode"><wbr></wbr>TEvac<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TExportMode" class="internal-link" title="ganeti.ht.TExportMode"><wbr></wbr>TExport<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TExportTarget" class="internal-link" title="ganeti.ht.TExportTarget"><wbr></wbr>TExport<wbr></wbr>Target</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TFileDriver" class="internal-link" title="ganeti.ht.TFileDriver"><wbr></wbr>TFile<wbr></wbr>Driver</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#THypervisor" class="internal-link" title="ganeti.ht.THypervisor"><wbr></wbr>THypervisor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIAllocatorMode" class="internal-link" title="ganeti.ht.TIAllocatorMode"><wbr></wbr>TIAllocator<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIAllocatorTestDir" class="internal-link" title="ganeti.ht.TIAllocatorTestDir"><wbr></wbr>TIAllocator<wbr></wbr>Test<wbr></wbr>Dir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIDiskParams" class="internal-link" title="ganeti.ht.TIDiskParams"><wbr></wbr>TIDisk<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TImportExportCompression" class="internal-link" title="ganeti.ht.TImportExportCompression"><wbr></wbr>TImport<wbr></wbr>Export<wbr></wbr>Compression</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TINicParams" class="internal-link" title="ganeti.ht.TINicParams"><wbr></wbr>TINic<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TInstanceMultiAllocResponse" class="internal-link" title="ganeti.ht.TInstanceMultiAllocResponse"><wbr></wbr>TInstance<wbr></wbr>Multi<wbr></wbr>Alloc<wbr></wbr>Response</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TInstCreateMode" class="internal-link" title="ganeti.ht.TInstCreateMode"><wbr></wbr>TInst<wbr></wbr>Create<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIPv4Address" class="internal-link" title="ganeti.ht.TIPv4Address"><wbr></wbr>TIPv4<wbr></wbr>Address</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIPv4Network" class="internal-link" title="ganeti.ht.TIPv4Network"><wbr></wbr>TIPv4<wbr></wbr>Network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIPv6Address" class="internal-link" title="ganeti.ht.TIPv6Address"><wbr></wbr>TIPv6<wbr></wbr>Address</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TIPv6Network" class="internal-link" title="ganeti.ht.TIPv6Network"><wbr></wbr>TIPv6<wbr></wbr>Network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TJobId" class="internal-link" title="ganeti.ht.TJobId"><wbr></wbr>TJob<wbr></wbr>Id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TJobIdList" class="internal-link" title="ganeti.ht.TJobIdList"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TJobIdListItem" class="internal-link" title="ganeti.ht.TJobIdListItem"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List<wbr></wbr>Item</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TJobIdListOnly" class="internal-link" title="ganeti.ht.TJobIdListOnly"><wbr></wbr>TJob<wbr></wbr>Id<wbr></wbr>List<wbr></wbr>Only</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaxValue" class="internal-link" title="ganeti.ht.TMaxValue"><wbr></wbr>TMax<wbr></wbr>Value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybeBool" class="internal-link" title="ganeti.ht.TMaybeBool"><wbr></wbr>TMaybe<wbr></wbr>Bool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybeDict" class="internal-link" title="ganeti.ht.TMaybeDict"><wbr></wbr>TMaybe<wbr></wbr>Dict</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybeList" class="internal-link" title="ganeti.ht.TMaybeList"><wbr></wbr>TMaybe<wbr></wbr>List</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybeListOf" class="internal-link" title="ganeti.ht.TMaybeListOf"><wbr></wbr>TMaybe<wbr></wbr>List<wbr></wbr>Of</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybePositiveInt" class="internal-link" title="ganeti.ht.TMaybePositiveInt"><wbr></wbr>TMaybe<wbr></wbr>Positive<wbr></wbr>Int</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMaybeString" class="internal-link" title="ganeti.ht.TMaybeString"><wbr></wbr>TMaybe<wbr></wbr>String</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TMigrationMode" class="internal-link" title="ganeti.ht.TMigrationMode"><wbr></wbr>TMigration<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNegativeInt" class="internal-link" title="ganeti.ht.TNegativeInt"><wbr></wbr>TNegative<wbr></wbr>Int</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNICMode" class="internal-link" title="ganeti.ht.TNICMode"><wbr></wbr>TNICMode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNonEmptyString" class="internal-link" title="ganeti.ht.TNonEmptyString"><wbr></wbr>TNon<wbr></wbr>Empty<wbr></wbr>String</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNonNegativeFloat" class="internal-link" title="ganeti.ht.TNonNegativeFloat"><wbr></wbr>TNon<wbr></wbr>Negative<wbr></wbr>Float</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNonNegativeInt" class="internal-link" title="ganeti.ht.TNonNegativeInt"><wbr></wbr>TNon<wbr></wbr>Negative<wbr></wbr>Int</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TNumber" class="internal-link" title="ganeti.ht.TNumber"><wbr></wbr>TNumber</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TOobCommand" class="internal-link" title="ganeti.ht.TOobCommand"><wbr></wbr>TOob<wbr></wbr>Command</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TPositiveInt" class="internal-link" title="ganeti.ht.TPositiveInt"><wbr></wbr>TPositive<wbr></wbr>Int</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryFieldDef" class="internal-link" title="ganeti.ht.TQueryFieldDef"><wbr></wbr>TQuery<wbr></wbr>Field<wbr></wbr>Def</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryFieldsResponse" class="internal-link" title="ganeti.ht.TQueryFieldsResponse"><wbr></wbr>TQuery<wbr></wbr>Fields<wbr></wbr>Response</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryResponse" class="internal-link" title="ganeti.ht.TQueryResponse"><wbr></wbr>TQuery<wbr></wbr>Response</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryResult" class="internal-link" title="ganeti.ht.TQueryResult"><wbr></wbr>TQuery<wbr></wbr>Result</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryResultCode" class="internal-link" title="ganeti.ht.TQueryResultCode"><wbr></wbr>TQuery<wbr></wbr>Result<wbr></wbr>Code</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryRow" class="internal-link" title="ganeti.ht.TQueryRow"><wbr></wbr>TQuery<wbr></wbr>Row</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TQueryTypeOp" class="internal-link" title="ganeti.ht.TQueryTypeOp"><wbr></wbr>TQuery<wbr></wbr>Type<wbr></wbr>Op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TRebootType" class="internal-link" title="ganeti.ht.TRebootType"><wbr></wbr>TReboot<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TRecreateDisksInfo" class="internal-link" title="ganeti.ht.TRecreateDisksInfo"><wbr></wbr>TRecreate<wbr></wbr>Disks<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TRelativeJobId" class="internal-link" title="ganeti.ht.TRelativeJobId"><wbr></wbr>TRelative<wbr></wbr>Job<wbr></wbr>Id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TReplaceDisksMode" class="internal-link" title="ganeti.ht.TReplaceDisksMode"><wbr></wbr>TReplace<wbr></wbr>Disks<wbr></wbr>Mode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TSshKeyType" class="internal-link" title="ganeti.ht.TSshKeyType"><wbr></wbr>TSsh<wbr></wbr>Key<wbr></wbr>Type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TTagKind" class="internal-link" title="ganeti.ht.TTagKind"><wbr></wbr>TTag<wbr></wbr>Kind</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#TVerifyOptionalChecks" class="internal-link" title="ganeti.ht.TVerifyOptionalChecks"><wbr></wbr>TVerify<wbr></wbr>Optional<wbr></wbr>Checks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.ht._CommentWrapper.html" class="internal-link" title="ganeti.ht._CommentWrapper">_<wbr></wbr>Comment<wbr></wbr>Wrapper</a></code></td>
+    <td>Wrapper class for comment.</td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.ht._DescWrapper.html" class="internal-link" title="ganeti.ht._DescWrapper">_<wbr></wbr>Desc<wbr></wbr>Wrapper</a></code></td>
+    <td>Wrapper class for description text.</td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.ht._WrapperBase.html" class="internal-link" title="ganeti.ht._WrapperBase">_<wbr></wbr>Wrapper<wbr></wbr>Base</a></code></td>
+    <td><span class="undocumented">No class docstring; 0/2 instance variable, 0/1 class variable, 1/2 method documented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckCIDR6AddrNotation" class="internal-link" title="ganeti.ht._CheckCIDR6AddrNotation">_<wbr></wbr>Check<wbr></wbr>CIDR6<wbr></wbr>Addr<wbr></wbr>Notation</a></code></td>
+    <td>Ensure a given CIDR notation type is valid.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckCIDR6NetNotation" class="internal-link" title="ganeti.ht._CheckCIDR6NetNotation">_<wbr></wbr>Check<wbr></wbr>CIDR6<wbr></wbr>Net<wbr></wbr>Notation</a></code></td>
+    <td>Ensure a given CIDR notation type is valid.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckCIDRAddrNotation" class="internal-link" title="ganeti.ht._CheckCIDRAddrNotation">_<wbr></wbr>Check<wbr></wbr>CIDRAddr<wbr></wbr>Notation</a></code></td>
+    <td>Ensure a given CIDR notation type is valid.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckCIDRNetNotation" class="internal-link" title="ganeti.ht._CheckCIDRNetNotation">_<wbr></wbr>Check<wbr></wbr>CIDRNet<wbr></wbr>Notation</a></code></td>
+    <td>Ensure a given CIDR notation type is valid.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_TStrictDictCheck" class="internal-link" title="ganeti.ht._TStrictDictCheck">_<wbr></wbr>TStrict<wbr></wbr>Dict<wbr></wbr>Check</a></code></td>
+    <td>Helper function for <code><a href="ganeti.ht.html#TStrictDict" class="internal-link" title="ganeti.ht.TStrictDict">TStrictDict</a></code>.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_PAREN_RE" class="internal-link" title="ganeti.ht._PAREN_RE">_PAREN<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.ht.CombinationDesc">
+    
+  </a>
+  <a name="CombinationDesc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CombinationDesc</span>(op, args, fn):
+    
+    <a class="headerLink" href="#CombinationDesc" title="ganeti.ht.CombinationDesc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Build description for combinating operator.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">op:</span>string</td><td class="fieldArgDesc">Operator as text (e.g. "and")</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">Operator arguments</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fn:</span>callable</td><td class="fieldArgDesc">Wrapped function</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.Comment">
+    
+  </a>
+  <a name="Comment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Comment</span>(text):
+    
+    <a class="headerLink" href="#Comment" title="ganeti.ht.Comment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds wrapper for adding comment to description text.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>string</td><td class="fieldArgDesc">Comment text</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Callable class</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.EmptyDict">
+    
+  </a>
+  <a name="EmptyDict">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr>str(<wbr></wbr>{}))<br />
+    <span class="py-keyword">def</span> <span class="py-defname">EmptyDict</span>():
+    
+    <a class="headerLink" href="#EmptyDict" title="ganeti.ht.EmptyDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns an empty dict.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.EmptyList">
+    
+  </a>
+  <a name="EmptyList">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr>str(<wbr></wbr>[]))<br />
+    <span class="py-keyword">def</span> <span class="py-defname">EmptyList</span>():
+    
+    <a class="headerLink" href="#EmptyList" title="ganeti.ht.EmptyList">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns an empty list.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.Parens">
+    
+  </a>
+  <a name="Parens">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Parens</span>(text):
+    
+    <a class="headerLink" href="#Parens" title="ganeti.ht.Parens">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Enclose text in parens if necessary.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text</span></td><td class="fieldArgDesc">Text</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TAnd">
+    
+  </a>
+  <a name="TAnd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TAnd</span>(*args):
+    
+    <a class="headerLink" href="#TAnd" title="ganeti.ht.TAnd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Combine multiple functions using an AND operation.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TAny">
+    
+  </a>
+  <a name="TAny">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Anything</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TAny</span>(_):
+    
+    <a class="headerLink" href="#TAny" title="ganeti.ht.TAny">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Accepts any value.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TBool">
+    
+  </a>
+  <a name="TBool">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Boolean</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TBool</span>(val):
+    
+    <a class="headerLink" href="#TBool" title="ganeti.ht.TBool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a boolean.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TDict">
+    
+  </a>
+  <a name="TDict">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Dictionary</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TDict</span>(val):
+    
+    <a class="headerLink" href="#TDict" title="ganeti.ht.TDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a dictionary.</p>
+<p>Note that <code><a href="ganeti.serializer.PrivateDict.html" class="internal-link" title="ganeti.serializer.PrivateDict">PrivateDict</a></code>s subclass dict and pass this check.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TDictOf">
+    
+  </a>
+  <a name="TDictOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TDictOf</span>(key_type, val_type):
+    
+    <a class="headerLink" href="#TDictOf" title="ganeti.ht.TDictOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks a dict type for the type of its key/values.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TElemOf">
+    
+  </a>
+  <a name="TElemOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TElemOf</span>(target_list):
+    
+    <a class="headerLink" href="#TElemOf" title="ganeti.ht.TElemOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds a function that checks if a given value is a member of a list.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TFloat">
+    
+  </a>
+  <a name="TFloat">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Float</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TFloat</span>(val):
+    
+    <a class="headerLink" href="#TFloat" title="ganeti.ht.TFloat">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a float.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TInstanceOf">
+    
+  </a>
+  <a name="TInstanceOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TInstanceOf</span>(cls):
+    
+    <a class="headerLink" href="#TInstanceOf" title="ganeti.ht.TInstanceOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is an instance of <tt class="rst-docutils literal">cls</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cls:</span>class</td><td class="fieldArgDesc">Class object</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TInt">
+    
+  </a>
+  <a name="TInt">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Integer</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TInt</span>(val):
+    
+    <a class="headerLink" href="#TInt" title="ganeti.ht.TInt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is an integer.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TIsLength">
+    
+  </a>
+  <a name="TIsLength">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TIsLength</span>(size):
+    
+    <a class="headerLink" href="#TIsLength" title="ganeti.ht.TIsLength">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check is the given container is of the given size.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TItems">
+    
+  </a>
+  <a name="TItems">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TItems</span>(items):
+    
+    <a class="headerLink" href="#TItems" title="ganeti.ht.TItems">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks individual items of a container.</p>
+<p>If the verified value and the list of expected items differ in length, this check considers only as many items as are contained in the shorter list. Use <code><a href="#TIsLength" class="internal-link" title="ganeti.ht.TIsLength">TIsLength</a></code> to enforce a certain length.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">items:</span>list</td><td class="fieldArgDesc">List of checks</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TList">
+    
+  </a>
+  <a name="TList">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">List</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TList</span>(val):
+    
+    <a class="headerLink" href="#TList" title="ganeti.ht.TList">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a list.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TListOf">
+    
+  </a>
+  <a name="TListOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TListOf</span>(my_type):
+    
+    <a class="headerLink" href="#TListOf" title="ganeti.ht.TListOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is a list with all elements of the same type.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TMap">
+    
+  </a>
+  <a name="TMap">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TMap</span>(fn, test):
+    
+    <a class="headerLink" href="#TMap" title="ganeti.ht.TMap">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks that a modified version of the argument passes the given test.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TMaybe">
+    
+  </a>
+  <a name="TMaybe">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TMaybe</span>(test):
+    
+    <a class="headerLink" href="#TMaybe" title="ganeti.ht.TMaybe">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrap a test in a TOr(TNone, test).</p>
+<p>This makes it easier to define TMaybe* types.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TMaybeValueNone">
+    
+  </a>
+  <a name="TMaybeValueNone">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TMaybeValueNone</span>(test):
+    
+    <a class="headerLink" href="#TMaybeValueNone" title="ganeti.ht.TMaybeValueNone">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Used for unsetting values.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TNone">
+    
+  </a>
+  <a name="TNone">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">None</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TNone</span>(val):
+    
+    <a class="headerLink" href="#TNone" title="ganeti.ht.TNone">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is None.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TNonNegative">
+    
+  </a>
+  <a name="TNonNegative">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TNonNegative</span>(val_type):
+    
+    <a class="headerLink" href="#TNonNegative" title="ganeti.ht.TNonNegative">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TNotNone">
+    
+  </a>
+  <a name="TNotNone">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">NotNone</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TNotNone</span>(val):
+    
+    <a class="headerLink" href="#TNotNone" title="ganeti.ht.TNotNone">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is not None.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TObject">
+    
+  </a>
+  <a name="TObject">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TObject</span>(val_type):
+    
+    <a class="headerLink" href="#TObject" title="ganeti.ht.TObject">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TObjectCheck">
+    
+  </a>
+  <a name="TObjectCheck">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TObjectCheck</span>(obj, fields_types):
+    
+    <a class="headerLink" href="#TObjectCheck" title="ganeti.ht.TObjectCheck">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper to generate type checks for objects.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj</span></td><td class="fieldArgDesc">The object to generate type checks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fields<wbr></wbr>_types</span></td><td class="fieldArgDesc">The fields and their types as a dict</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A ht type check function</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TOr">
+    
+  </a>
+  <a name="TOr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TOr</span>(*args):
+    
+    <a class="headerLink" href="#TOr" title="ganeti.ht.TOr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Combine multiple functions using an OR operation.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TPositive">
+    
+  </a>
+  <a name="TPositive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TPositive</span>(val_type):
+    
+    <a class="headerLink" href="#TPositive" title="ganeti.ht.TPositive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TPrivate">
+    
+  </a>
+  <a name="TPrivate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TPrivate</span>(val_type):
+    
+    <a class="headerLink" href="#TPrivate" title="ganeti.ht.TPrivate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is an instance of Private.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TRegex">
+    
+  </a>
+  <a name="TRegex">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TRegex</span>(pobj):
+    
+    <a class="headerLink" href="#TRegex" title="ganeti.ht.TRegex">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether a string matches a specific regular expression.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pobj</span></td><td class="fieldArgDesc">Compiled regular expression as returned by <tt class="rst-docutils literal">re.compile</tt></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TSecret">
+    
+  </a>
+  <a name="TSecret">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TSecret</span>(val_type):
+    
+    <a class="headerLink" href="#TSecret" title="ganeti.ht.TSecret">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is an instance of Private.</p>
+<p>However, the type is named Secret in the Haskell equivalent.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TSetOf">
+    
+  </a>
+  <a name="TSetOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TSetOf</span>(val_type):
+    
+    <a class="headerLink" href="#TSetOf" title="ganeti.ht.TSetOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is a list with all elements of the same type and eliminates duplicated elements.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TSetParamsMods">
+    
+  </a>
+  <a name="TSetParamsMods">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TSetParamsMods</span>(fn):
+    
+    <a class="headerLink" href="#TSetParamsMods" title="ganeti.ht.TSetParamsMods">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a check for modification lists.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TStorageType">
+    
+  </a>
+  <a name="TStorageType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TStorageType</span>(val):
+    
+    <a class="headerLink" href="#TStorageType" title="ganeti.ht.TStorageType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds a function that checks if a given value is a valid storage type.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TStrictDict">
+    
+  </a>
+  <a name="TStrictDict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TStrictDict</span>(require_all, exclusive, items):
+    
+    <a class="headerLink" href="#TStrictDict" title="ganeti.ht.TStrictDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Strict dictionary check with specific keys.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">require<wbr></wbr>_all:</span>boolean</td><td class="fieldArgDesc">Whether all keys in <code>items</code> are required</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">exclusive:</span>boolean</td><td class="fieldArgDesc">Whether only keys listed in <code>items</code> should be accepted</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">items:</span>dictionary</td><td class="fieldArgDesc">Mapping from key (string) to verification function</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TString">
+    
+  </a>
+  <a name="TString">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">String</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TString</span>(val):
+    
+    <a class="headerLink" href="#TString" title="ganeti.ht.TString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a string.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TTrue">
+    
+  </a>
+  <a name="TTrue">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">EvalToTrue</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TTrue</span>(val):
+    
+    <a class="headerLink" href="#TTrue" title="ganeti.ht.TTrue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value evaluates to a boolean True value.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TTuple">
+    
+  </a>
+  <a name="TTuple">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Tuple</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TTuple</span>(val):
+    
+    <a class="headerLink" href="#TTuple" title="ganeti.ht.TTuple">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is a tuple.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TTupleOf">
+    
+  </a>
+  <a name="TTupleOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TTupleOf</span>(*val_types):
+    
+    <a class="headerLink" href="#TTupleOf" title="ganeti.ht.TTupleOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given value is a list with the proper size and its elements match the given types.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.TValueNone">
+    
+  </a>
+  <a name="TValueNone">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">ValueNone</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">TValueNone</span>(val):
+    
+    <a class="headerLink" href="#TValueNone" title="ganeti.ht.TValueNone">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the given value is <code><a href="ganeti._constants.html#VALUE_NONE" class="internal-link" title="ganeti._constants.VALUE_NONE">constants.VALUE_NONE</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.ht.WithDesc">
+    
+  </a>
+  <a name="WithDesc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WithDesc</span>(text):
+    
+    <a class="headerLink" href="#WithDesc" title="ganeti.ht.WithDesc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds wrapper class with description text.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>string</td><td class="fieldArgDesc">Description text</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Callable class</td></tr></table></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.NoDefault">
+    
+  </a>
+  <a name="NoDefault">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NoDefault</span> =
+    
+    <a class="headerLink" href="#NoDefault" title="ganeti.ht.NoDefault">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TAdminStateSource">
+    
+  </a>
+  <a name="TAdminStateSource">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TAdminStateSource</span> =
+    
+    <a class="headerLink" href="#TAdminStateSource" title="ganeti.ht.TAdminStateSource">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TAllocPolicy">
+    
+  </a>
+  <a name="TAllocPolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TAllocPolicy</span> =
+    
+    <a class="headerLink" href="#TAllocPolicy" title="ganeti.ht.TAllocPolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TCVErrorCode">
+    
+  </a>
+  <a name="TCVErrorCode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TCVErrorCode</span> =
+    
+    <a class="headerLink" href="#TCVErrorCode" title="ganeti.ht.TCVErrorCode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TDdmSimple">
+    
+  </a>
+  <a name="TDdmSimple">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TDdmSimple</span> =
+    
+    <a class="headerLink" href="#TDdmSimple" title="ganeti.ht.TDdmSimple">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TDiskChanges">
+    
+  </a>
+  <a name="TDiskChanges">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TDiskChanges</span> =
+    
+    <a class="headerLink" href="#TDiskChanges" title="ganeti.ht.TDiskChanges">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TDiskIndex">
+    
+  </a>
+  <a name="TDiskIndex">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TDiskIndex</span> =
+    
+    <a class="headerLink" href="#TDiskIndex" title="ganeti.ht.TDiskIndex">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TDiskParams">
+    
+  </a>
+  <a name="TDiskParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TDiskParams</span> =
+    
+    <a class="headerLink" href="#TDiskParams" title="ganeti.ht.TDiskParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TDiskTemplate">
+    
+  </a>
+  <a name="TDiskTemplate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TDiskTemplate</span> =
+    
+    <a class="headerLink" href="#TDiskTemplate" title="ganeti.ht.TDiskTemplate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TEvacMode">
+    
+  </a>
+  <a name="TEvacMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TEvacMode</span> =
+    
+    <a class="headerLink" href="#TEvacMode" title="ganeti.ht.TEvacMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TExportMode">
+    
+  </a>
+  <a name="TExportMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TExportMode</span> =
+    
+    <a class="headerLink" href="#TExportMode" title="ganeti.ht.TExportMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TExportTarget">
+    
+  </a>
+  <a name="TExportTarget">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TExportTarget</span> =
+    
+    <a class="headerLink" href="#TExportTarget" title="ganeti.ht.TExportTarget">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TFileDriver">
+    
+  </a>
+  <a name="TFileDriver">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TFileDriver</span> =
+    
+    <a class="headerLink" href="#TFileDriver" title="ganeti.ht.TFileDriver">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.THypervisor">
+    
+  </a>
+  <a name="THypervisor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">THypervisor</span> =
+    
+    <a class="headerLink" href="#THypervisor" title="ganeti.ht.THypervisor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIAllocatorMode">
+    
+  </a>
+  <a name="TIAllocatorMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIAllocatorMode</span> =
+    
+    <a class="headerLink" href="#TIAllocatorMode" title="ganeti.ht.TIAllocatorMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIAllocatorTestDir">
+    
+  </a>
+  <a name="TIAllocatorTestDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIAllocatorTestDir</span> =
+    
+    <a class="headerLink" href="#TIAllocatorTestDir" title="ganeti.ht.TIAllocatorTestDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIDiskParams">
+    
+  </a>
+  <a name="TIDiskParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIDiskParams</span> =
+    
+    <a class="headerLink" href="#TIDiskParams" title="ganeti.ht.TIDiskParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TImportExportCompression">
+    
+  </a>
+  <a name="TImportExportCompression">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TImportExportCompression</span> =
+    
+    <a class="headerLink" href="#TImportExportCompression" title="ganeti.ht.TImportExportCompression">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TINicParams">
+    
+  </a>
+  <a name="TINicParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TINicParams</span> =
+    
+    <a class="headerLink" href="#TINicParams" title="ganeti.ht.TINicParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TInstanceMultiAllocResponse">
+    
+  </a>
+  <a name="TInstanceMultiAllocResponse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TInstanceMultiAllocResponse</span> =
+    
+    <a class="headerLink" href="#TInstanceMultiAllocResponse" title="ganeti.ht.TInstanceMultiAllocResponse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TInstCreateMode">
+    
+  </a>
+  <a name="TInstCreateMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TInstCreateMode</span> =
+    
+    <a class="headerLink" href="#TInstCreateMode" title="ganeti.ht.TInstCreateMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIPv4Address">
+    
+  </a>
+  <a name="TIPv4Address">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIPv4Address</span> =
+    
+    <a class="headerLink" href="#TIPv4Address" title="ganeti.ht.TIPv4Address">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIPv4Network">
+    
+  </a>
+  <a name="TIPv4Network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIPv4Network</span> =
+    
+    <a class="headerLink" href="#TIPv4Network" title="ganeti.ht.TIPv4Network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIPv6Address">
+    
+  </a>
+  <a name="TIPv6Address">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIPv6Address</span> =
+    
+    <a class="headerLink" href="#TIPv6Address" title="ganeti.ht.TIPv6Address">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TIPv6Network">
+    
+  </a>
+  <a name="TIPv6Network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TIPv6Network</span> =
+    
+    <a class="headerLink" href="#TIPv6Network" title="ganeti.ht.TIPv6Network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TJobId">
+    
+  </a>
+  <a name="TJobId">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TJobId</span> =
+    
+    <a class="headerLink" href="#TJobId" title="ganeti.ht.TJobId">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TJobIdList">
+    
+  </a>
+  <a name="TJobIdList">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TJobIdList</span> =
+    
+    <a class="headerLink" href="#TJobIdList" title="ganeti.ht.TJobIdList">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TJobIdListItem">
+    
+  </a>
+  <a name="TJobIdListItem">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TJobIdListItem</span> =
+    
+    <a class="headerLink" href="#TJobIdListItem" title="ganeti.ht.TJobIdListItem">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TJobIdListOnly">
+    
+  </a>
+  <a name="TJobIdListOnly">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TJobIdListOnly</span> =
+    
+    <a class="headerLink" href="#TJobIdListOnly" title="ganeti.ht.TJobIdListOnly">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaxValue">
+    
+  </a>
+  <a name="TMaxValue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaxValue</span> =
+    
+    <a class="headerLink" href="#TMaxValue" title="ganeti.ht.TMaxValue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybeBool">
+    
+  </a>
+  <a name="TMaybeBool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybeBool</span> =
+    
+    <a class="headerLink" href="#TMaybeBool" title="ganeti.ht.TMaybeBool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybeDict">
+    
+  </a>
+  <a name="TMaybeDict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybeDict</span> =
+    
+    <a class="headerLink" href="#TMaybeDict" title="ganeti.ht.TMaybeDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybeList">
+    
+  </a>
+  <a name="TMaybeList">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybeList</span> =
+    
+    <a class="headerLink" href="#TMaybeList" title="ganeti.ht.TMaybeList">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybeListOf">
+    
+  </a>
+  <a name="TMaybeListOf">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybeListOf</span> =
+    
+    <a class="headerLink" href="#TMaybeListOf" title="ganeti.ht.TMaybeListOf">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybePositiveInt">
+    
+  </a>
+  <a name="TMaybePositiveInt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybePositiveInt</span> =
+    
+    <a class="headerLink" href="#TMaybePositiveInt" title="ganeti.ht.TMaybePositiveInt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMaybeString">
+    
+  </a>
+  <a name="TMaybeString">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMaybeString</span> =
+    
+    <a class="headerLink" href="#TMaybeString" title="ganeti.ht.TMaybeString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TMigrationMode">
+    
+  </a>
+  <a name="TMigrationMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TMigrationMode</span> =
+    
+    <a class="headerLink" href="#TMigrationMode" title="ganeti.ht.TMigrationMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNegativeInt">
+    
+  </a>
+  <a name="TNegativeInt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNegativeInt</span> =
+    
+    <a class="headerLink" href="#TNegativeInt" title="ganeti.ht.TNegativeInt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNICMode">
+    
+  </a>
+  <a name="TNICMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNICMode</span> =
+    
+    <a class="headerLink" href="#TNICMode" title="ganeti.ht.TNICMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNonEmptyString">
+    
+  </a>
+  <a name="TNonEmptyString">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNonEmptyString</span> =
+    
+    <a class="headerLink" href="#TNonEmptyString" title="ganeti.ht.TNonEmptyString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNonNegativeFloat">
+    
+  </a>
+  <a name="TNonNegativeFloat">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNonNegativeFloat</span> =
+    
+    <a class="headerLink" href="#TNonNegativeFloat" title="ganeti.ht.TNonNegativeFloat">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNonNegativeInt">
+    
+  </a>
+  <a name="TNonNegativeInt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNonNegativeInt</span> =
+    
+    <a class="headerLink" href="#TNonNegativeInt" title="ganeti.ht.TNonNegativeInt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TNumber">
+    
+  </a>
+  <a name="TNumber">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TNumber</span> =
+    
+    <a class="headerLink" href="#TNumber" title="ganeti.ht.TNumber">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TOobCommand">
+    
+  </a>
+  <a name="TOobCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TOobCommand</span> =
+    
+    <a class="headerLink" href="#TOobCommand" title="ganeti.ht.TOobCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TPositiveInt">
+    
+  </a>
+  <a name="TPositiveInt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TPositiveInt</span> =
+    
+    <a class="headerLink" href="#TPositiveInt" title="ganeti.ht.TPositiveInt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryFieldDef">
+    
+  </a>
+  <a name="TQueryFieldDef">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryFieldDef</span> =
+    
+    <a class="headerLink" href="#TQueryFieldDef" title="ganeti.ht.TQueryFieldDef">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryFieldsResponse">
+    
+  </a>
+  <a name="TQueryFieldsResponse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryFieldsResponse</span> =
+    
+    <a class="headerLink" href="#TQueryFieldsResponse" title="ganeti.ht.TQueryFieldsResponse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryResponse">
+    
+  </a>
+  <a name="TQueryResponse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryResponse</span> =
+    
+    <a class="headerLink" href="#TQueryResponse" title="ganeti.ht.TQueryResponse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryResult">
+    
+  </a>
+  <a name="TQueryResult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryResult</span> =
+    
+    <a class="headerLink" href="#TQueryResult" title="ganeti.ht.TQueryResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryResultCode">
+    
+  </a>
+  <a name="TQueryResultCode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryResultCode</span> =
+    
+    <a class="headerLink" href="#TQueryResultCode" title="ganeti.ht.TQueryResultCode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryRow">
+    
+  </a>
+  <a name="TQueryRow">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryRow</span> =
+    
+    <a class="headerLink" href="#TQueryRow" title="ganeti.ht.TQueryRow">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TQueryTypeOp">
+    
+  </a>
+  <a name="TQueryTypeOp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TQueryTypeOp</span> =
+    
+    <a class="headerLink" href="#TQueryTypeOp" title="ganeti.ht.TQueryTypeOp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TRebootType">
+    
+  </a>
+  <a name="TRebootType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TRebootType</span> =
+    
+    <a class="headerLink" href="#TRebootType" title="ganeti.ht.TRebootType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TRecreateDisksInfo">
+    
+  </a>
+  <a name="TRecreateDisksInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TRecreateDisksInfo</span> =
+    
+    <a class="headerLink" href="#TRecreateDisksInfo" title="ganeti.ht.TRecreateDisksInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TRelativeJobId">
+    
+  </a>
+  <a name="TRelativeJobId">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TRelativeJobId</span> =
+    
+    <a class="headerLink" href="#TRelativeJobId" title="ganeti.ht.TRelativeJobId">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TReplaceDisksMode">
+    
+  </a>
+  <a name="TReplaceDisksMode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TReplaceDisksMode</span> =
+    
+    <a class="headerLink" href="#TReplaceDisksMode" title="ganeti.ht.TReplaceDisksMode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TSshKeyType">
+    
+  </a>
+  <a name="TSshKeyType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TSshKeyType</span> =
+    
+    <a class="headerLink" href="#TSshKeyType" title="ganeti.ht.TSshKeyType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TTagKind">
+    
+  </a>
+  <a name="TTagKind">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TTagKind</span> =
+    
+    <a class="headerLink" href="#TTagKind" title="ganeti.ht.TTagKind">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.ht.TVerifyOptionalChecks">
+    
+  </a>
+  <a name="TVerifyOptionalChecks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TVerifyOptionalChecks</span> =
+    
+    <a class="headerLink" href="#TVerifyOptionalChecks" title="ganeti.ht.TVerifyOptionalChecks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.ht._CheckCIDR6AddrNotation">
+    
+  </a>
+  <a name="_CheckCIDR6AddrNotation">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">IPv6 address</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckCIDR6AddrNotation</span>(value):
+    
+    <a class="headerLink" href="#_CheckCIDR6AddrNotation" title="ganeti.ht._CheckCIDR6AddrNotation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure a given CIDR notation type is valid.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.ht._CheckCIDR6NetNotation">
+    
+  </a>
+  <a name="_CheckCIDR6NetNotation">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">IPv6 network</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckCIDR6NetNotation</span>(value):
+    
+    <a class="headerLink" href="#_CheckCIDR6NetNotation" title="ganeti.ht._CheckCIDR6NetNotation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure a given CIDR notation type is valid.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.ht._CheckCIDRAddrNotation">
+    
+  </a>
+  <a name="_CheckCIDRAddrNotation">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">IPv4 address</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckCIDRAddrNotation</span>(value):
+    
+    <a class="headerLink" href="#_CheckCIDRAddrNotation" title="ganeti.ht._CheckCIDRAddrNotation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure a given CIDR notation type is valid.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.ht._CheckCIDRNetNotation">
+    
+  </a>
+  <a name="_CheckCIDRNetNotation">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="#WithDesc" class="internal-link" title="ganeti.ht.WithDesc">WithDesc</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">IPv4 network</span><span class="rst-variable-quote">'</span>)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckCIDRNetNotation</span>(value):
+    
+    <a class="headerLink" href="#_CheckCIDRNetNotation" title="ganeti.ht._CheckCIDRNetNotation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure a given CIDR notation type is valid.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.ht._TStrictDictCheck">
+    
+  </a>
+  <a name="_TStrictDictCheck">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_TStrictDictCheck</span>(require_all, exclusive, items, val):
+    
+    <a class="headerLink" href="#_TStrictDictCheck" title="ganeti.ht._TStrictDictCheck">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function for <code><a href="#TStrictDict" class="internal-link" title="ganeti.ht.TStrictDict">TStrictDict</a></code>.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.ht._PAREN_RE">
+    
+  </a>
+  <a name="_PAREN_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_PAREN_RE</span> =
+    
+    <a class="headerLink" href="#_PAREN_RE" title="ganeti.ht._PAREN_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">[</span>a<span class="rst-re-op">-</span>zA<span class="rst-re-op">-</span>Z0<span class="rst-re-op">-</span>9_-<span class="rst-re-group">]</span><span class="rst-re-op">+</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

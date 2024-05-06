@@ -1,0 +1,3269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.instance_set_params.LUInstanceSetParams</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.html" class="internal-link" title="This class"><wbr></wbr>LUInstance<wbr></wbr>Set<wbr></wbr>Params</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.Exec"><wbr></wbr>Exec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericGetDiskInfo" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.GenericGetDiskInfo"><wbr></wbr>Generic<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckMods">_<wbr></wbr>Check<wbr></wbr>Mods</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InstanceCommunicationDDM" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._InstanceCommunicationDDM">_<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>DDM</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpgradeDiskNicMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._UpgradeDiskNicMods">_<wbr></wbr>Upgrade<wbr></wbr>Disk<wbr></wbr>Nic<wbr></wbr>Mods</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNicModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyNicModification">_<wbr></wbr>Verify<wbr></wbr>Nic<wbr></wbr>Modification</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ApplyNicMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ApplyNicMods">_<wbr></wbr>Apply<wbr></wbr>Nic<wbr></wbr>Mods</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_AttachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._AttachDisk">_<wbr></wbr>Attach<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckAttachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckAttachDisk">_<wbr></wbr>Check<wbr></wbr>Attach<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckHotplug" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckHotplug">_<wbr></wbr>Check<wbr></wbr>Hotplug</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ConvertDrbdToPlain" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertDrbdToPlain">_<wbr></wbr>Convert<wbr></wbr>Drbd<wbr></wbr>To<wbr></wbr>Plain</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ConvertInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertInstanceDisks">_<wbr></wbr>Convert<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ConvertPlainToDrbd" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertPlainToDrbd">_<wbr></wbr>Convert<wbr></wbr>Plain<wbr></wbr>To<wbr></wbr>Drbd</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CreateNewDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewDisk">_<wbr></wbr>Create<wbr></wbr>New<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CreateNewNic" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewNic">_<wbr></wbr>Create<wbr></wbr>New<wbr></wbr>Nic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DetachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DetachDisk">_<wbr></wbr>Detach<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FillFileDriver" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._FillFileDriver">_<wbr></wbr>Fill<wbr></wbr>File<wbr></wbr>Driver</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GenerateDiskTemplateWrapper" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GenerateDiskTemplateWrapper">_<wbr></wbr>Generate<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetInstanceInfo" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GetInstanceInfo">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_HotplugDevice" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._HotplugDevice">_<wbr></wbr>Hotplug<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LookupDiskIndex" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskIndex">_<wbr></wbr>Lookup<wbr></wbr>Disk<wbr></wbr>Index</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LookupDiskMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskMods">_<wbr></wbr>Lookup<wbr></wbr>Disk<wbr></wbr>Mods</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ModifyDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ModifyDisk">_<wbr></wbr>Modify<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PostAddDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PostAddDisk">_<wbr></wbr>Post<wbr></wbr>Add<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PreCheckDisks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDisks">_<wbr></wbr>Pre<wbr></wbr>Check<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PreCheckDiskTemplate" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDiskTemplate">_<wbr></wbr>Pre<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrepareNicCommunication" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicCommunication">_<wbr></wbr>Prepare<wbr></wbr>Nic<wbr></wbr>Communication</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrepareNicModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicModification">_<wbr></wbr>Prepare<wbr></wbr>Nic<wbr></wbr>Modification</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ProcessBeParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessBeParams">_<wbr></wbr>Process<wbr></wbr>Be<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ProcessHVParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessHVParams">_<wbr></wbr>Process<wbr></wbr>HVParams</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ProcessMem" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessMem">_<wbr></wbr>Process<wbr></wbr>Mem</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ProcessOsParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessOsParams">_<wbr></wbr>Process<wbr></wbr>Os<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RemoveDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveDisk">_<wbr></wbr>Remove<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RemoveNic" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveNic">_<wbr></wbr>Remove<wbr></wbr>Nic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ValidateCpuParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ValidateCpuParams">_<wbr></wbr>Validate<wbr></wbr>Cpu<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyDiskModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyDiskModification">_<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>Modification</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.HPATH">HPATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#be_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_inst">be<wbr></wbr>_inst</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#be_new" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_new">be<wbr></wbr>_new</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#be_proposed" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_proposed">be<wbr></wbr>_proposed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cluster" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.cluster">cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#diskmod" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskmod">diskmod</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#diskparams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskparams">diskparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disks_info" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.disks_info">disks<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#feedback_fn" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.feedback_fn">feedback<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hv_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_inst">hv<wbr></wbr>_inst</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hv_new" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_new">hv<wbr></wbr>_new</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hv_proposed" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_proposed">hv<wbr></wbr>_proposed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#instance" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#nicmod" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.nicmod">nicmod</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#os_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst">os<wbr></wbr>_inst</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#os_inst_private" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst_private">os<wbr></wbr>_inst<wbr></wbr>_private</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#warn" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.warn">warn</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DISK_CONVERSIONS" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DISK_CONVERSIONS">_DISK<wbr></wbr>_CONVERSIONS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_new_nics" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._new_nics">_new<wbr></wbr>_nics</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_nic_chgdesc" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._nic_chgdesc">_nic<wbr></wbr>_chgdesc</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.needed_locks">needed<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.cmdlib.instance_set_params.html" class="internal-link" title="The parent of this class">instance<wbr></wbr>_set<wbr></wbr>_params</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_set_params.InstNicModPrivate.html" class="internal-link" title="ganeti.cmdlib.instance_set_params.InstNicModPrivate"><wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Mod<wbr></wbr>Private</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.html" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams"><wbr></wbr>LUInstance<wbr></wbr>Set<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.instance_set_params.html" class="internal-link" title="ganeti.cmdlib.instance_set_params">instance_set_params</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.html" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams">LUInstanceSetParams</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LUInstanceSetParams</span>(<a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.cmdlib.instance_set_params.LUInstanceSetParams">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Modifies an instances's parameters.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id208">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code></td>
+    <td>Build hooks env.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code></td>
+    <td>Build hooks nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Check syntactic validity for the opcode arguments.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code></td>
+    <td>Check prerequisites.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code></td>
+    <td>Declare LU locking needs for a level</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.Exec"><wbr></wbr>Exec</a></code></td>
+    <td>Modifies an instance.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code></td>
+    <td>Expand names for this LU.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GenericGetDiskInfo" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.GenericGetDiskInfo"><wbr></wbr>Generic<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Info</a></code></td>
+    <td>Find a disk object using the provided params.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.HPATH">HPATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#be_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_inst">be<wbr></wbr>_inst</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#be_new" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_new">be<wbr></wbr>_new</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#be_proposed" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_proposed">be<wbr></wbr>_proposed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cluster" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.cluster">cluster</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#diskmod" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskmod">diskmod</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#diskparams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskparams">diskparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#disks_info" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.disks_info">disks<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#feedback_fn" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.feedback_fn">feedback<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hv_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_inst">hv<wbr></wbr>_inst</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hv_new" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_new">hv<wbr></wbr>_new</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hv_proposed" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_proposed">hv<wbr></wbr>_proposed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#instance" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.instance">instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#nicmod" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.nicmod">nicmod</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#os_inst" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst">os<wbr></wbr>_inst</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#os_inst_private" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst_private">os<wbr></wbr>_inst<wbr></wbr>_private</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#warn" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.warn">warn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_CheckMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckMods">_<wbr></wbr>Check<wbr></wbr>Mods</a></code></td>
+    <td>Ensures requested disk/NIC modifications are valid.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_InstanceCommunicationDDM" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._InstanceCommunicationDDM">_<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>DDM</a></code></td>
+    <td>Create a NIC mod that adds or removes the instance communication NIC to a running instance.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_UpgradeDiskNicMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._UpgradeDiskNicMods">_<wbr></wbr>Upgrade<wbr></wbr>Disk<wbr></wbr>Nic<wbr></wbr>Mods</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_VerifyNicModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyNicModification">_<wbr></wbr>Verify<wbr></wbr>Nic<wbr></wbr>Modification</a></code></td>
+    <td>Verifies a network interface modification.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ApplyNicMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ApplyNicMods">_<wbr></wbr>Apply<wbr></wbr>Nic<wbr></wbr>Mods</a></code></td>
+    <td>Modifies a network interface.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_AttachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._AttachDisk">_<wbr></wbr>Attach<wbr></wbr>Disk</a></code></td>
+    <td>Attaches an existing disk to an instance.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckAttachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckAttachDisk">_<wbr></wbr>Check<wbr></wbr>Attach<wbr></wbr>Disk</a></code></td>
+    <td>Check if disk can be attached to an instance.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckHotplug" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckHotplug">_<wbr></wbr>Check<wbr></wbr>Hotplug</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ConvertDrbdToPlain" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertDrbdToPlain">_<wbr></wbr>Convert<wbr></wbr>Drbd<wbr></wbr>To<wbr></wbr>Plain</a></code></td>
+    <td>Converts an instance from drbd to plain.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ConvertInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertInstanceDisks">_<wbr></wbr>Convert<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td>Converts the disks of an instance to another type.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ConvertPlainToDrbd" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertPlainToDrbd">_<wbr></wbr>Convert<wbr></wbr>Plain<wbr></wbr>To<wbr></wbr>Drbd</a></code></td>
+    <td>Converts an instance from plain to drbd.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CreateNewDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewDisk">_<wbr></wbr>Create<wbr></wbr>New<wbr></wbr>Disk</a></code></td>
+    <td>Creates a new disk.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CreateNewNic" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewNic">_<wbr></wbr>Create<wbr></wbr>New<wbr></wbr>Nic</a></code></td>
+    <td>Creates data structure for a new network interface.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_DetachDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DetachDisk">_<wbr></wbr>Detach<wbr></wbr>Disk</a></code></td>
+    <td>Detaches a disk from an instance.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_FillFileDriver" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._FillFileDriver">_<wbr></wbr>Fill<wbr></wbr>File<wbr></wbr>Driver</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GenerateDiskTemplateWrapper" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GenerateDiskTemplateWrapper">_<wbr></wbr>Generate<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Wrapper</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetInstanceInfo" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GetInstanceInfo">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_HotplugDevice" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._HotplugDevice">_<wbr></wbr>Hotplug<wbr></wbr>Device</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_LookupDiskIndex" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskIndex">_<wbr></wbr>Lookup<wbr></wbr>Disk<wbr></wbr>Index</a></code></td>
+    <td>Looks up uuid or name of disk if necessary.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_LookupDiskMods" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskMods">_<wbr></wbr>Lookup<wbr></wbr>Disk<wbr></wbr>Mods</a></code></td>
+    <td>Looks up uuid or name of disk if necessary.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ModifyDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ModifyDisk">_<wbr></wbr>Modify<wbr></wbr>Disk</a></code></td>
+    <td>Modifies a disk.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PostAddDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PostAddDisk">_<wbr></wbr>Post<wbr></wbr>Add<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PreCheckDisks" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDisks">_<wbr></wbr>Pre<wbr></wbr>Check<wbr></wbr>Disks</a></code></td>
+    <td>CheckPrereq checks related to disk changes.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PreCheckDiskTemplate" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDiskTemplate">_<wbr></wbr>Pre<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Template</a></code></td>
+    <td>CheckPrereq checks related to a new disk template.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PrepareNicCommunication" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicCommunication">_<wbr></wbr>Prepare<wbr></wbr>Nic<wbr></wbr>Communication</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PrepareNicModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicModification">_<wbr></wbr>Prepare<wbr></wbr>Nic<wbr></wbr>Modification</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ProcessBeParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessBeParams">_<wbr></wbr>Process<wbr></wbr>Be<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ProcessHVParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessHVParams">_<wbr></wbr>Process<wbr></wbr>HVParams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ProcessMem" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessMem">_<wbr></wbr>Process<wbr></wbr>Mem</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ProcessOsParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessOsParams">_<wbr></wbr>Process<wbr></wbr>Os<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_RemoveDisk" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveDisk">_<wbr></wbr>Remove<wbr></wbr>Disk</a></code></td>
+    <td>Removes a disk.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_RemoveNic" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveNic">_<wbr></wbr>Remove<wbr></wbr>Nic</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ValidateCpuParams" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ValidateCpuParams">_<wbr></wbr>Validate<wbr></wbr>Cpu<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyDiskModification" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyDiskModification">_<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>Modification</a></code></td>
+    <td>Verifies a disk modification.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_DISK_CONVERSIONS" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DISK_CONVERSIONS">_DISK<wbr></wbr>_CONVERSIONS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_new_nics" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._new_nics">_new<wbr></wbr>_nics</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_nic_chgdesc" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._nic_chgdesc">_nic<wbr></wbr>_chgdesc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>:
+            </p>
+            <table class="children sortable" id="id209">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code></td>
+    <td>Constructor for LogicalUnit.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code></td>
+    <td>Raise AssertionError if the LU holds some locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code></td>
+    <td>Notify the LU about the results of its hooks.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code></td>
+    <td>Return the list of locks owned by the LU at a given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code></td>
+    <td>Extend list of nodes to run the post LU hook.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code></td>
+    <td>Prepare the LU to run again.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code></td>
+    <td>Return a request to release the specified locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code></td>
+    <td>the value (if any) that will be returned to the caller in dry-run mode (signalled by opcode dry_run parameter)</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.needed_locks">needed<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code></td>
+    <td>Helper function to expand and lock an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code></td>
+    <td>Helper function to declare instances' nodes for locking.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksEnv">
+    
+  </a>
+  <a name="BuildHooksEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksEnv</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksEnv" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksEnv" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksEnv</a></code></div>
+    <div><p>Build hooks env.</p>
+<p>This runs on the master, primary and secondaries.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksNodes">
+    
+  </a>
+  <a name="BuildHooksNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksNodes</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksNodes" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.BuildHooksNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksNodes" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksNodes</a></code></div>
+    <div><p>Build hooks nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckArguments">
+    
+  </a>
+  <a name="CheckArguments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckArguments</span>(self):
+    
+    <a class="headerLink" href="#CheckArguments" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckArguments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckArguments</a></code></div>
+    <div><p>Check syntactic validity for the opcode arguments.</p>
+<p>This method is for doing a simple syntactic check and ensure validity of opcode parameters, without any cluster-related checks. While the same can be accomplished in ExpandNames and/or CheckPrereq, doing these separate is better because:</p>
+<ul class="rst-simple">
+<li>ExpandNames is left as as purely a lock-related function</li>
+<li>CheckPrereq is run after we have acquired locks (and possible waited for them)</li>
+</ul>
+<p>The function is allowed to change the self.op attribute so that later methods can no longer worry about missing parameters.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckPrereq">
+    
+  </a>
+  <a name="CheckPrereq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckPrereq</span>(self):
+    
+    <a class="headerLink" href="#CheckPrereq" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.CheckPrereq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckPrereq" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckPrereq</a></code></div>
+    <div><p>Check prerequisites.</p>
+<p>This only checks the instance list against the existing names.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.DeclareLocks">
+    
+  </a>
+  <a name="DeclareLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DeclareLocks</span>(self, level):
+    
+    <a class="headerLink" href="#DeclareLocks" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.DeclareLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.DeclareLocks</a></code></div>
+    <div><p>Declare LU locking needs for a level</p>
+<p>While most LUs can just declare their locking needs at ExpandNames time, sometimes there's the need to calculate some locks after having acquired the ones before. This function is called just before acquiring locks at a particular level, but after acquiring the ones at lower levels, and permits such calculations. It can be used to modify self.needed_locks, and by default it does nothing.</p>
+<p>This function is only called if you have something already set in self.needed_locks for the level.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">level:</span>member of <code><a href="ganeti.locking.html#LEVELS" class="internal-link" title="ganeti.locking.LEVELS">ganeti.locking.LEVELS</a></code></td><td class="fieldArgDesc">Locking level which is going to be locked</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.Exec">
+    
+  </a>
+  <a name="Exec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Exec</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#Exec" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.Exec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#Exec" class="internal-link">ganeti.cmdlib.base.LogicalUnit.Exec</a></code></div>
+    <div><p>Modifies an instance.</p>
+<p>All parameters take effect only at the next restart of the instance.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.ExpandNames">
+    
+  </a>
+  <a name="ExpandNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNames</span>(self):
+    
+    <a class="headerLink" href="#ExpandNames" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.ExpandNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#ExpandNames" class="internal-link">ganeti.cmdlib.base.LogicalUnit.ExpandNames</a></code></div>
+    <div><p>Expand names for this LU.</p>
+<p>This method is called before starting to execute the opcode, and it should update all the parameters of the opcode to their canonical form (e.g. a short node name must be fully expanded after this method has successfully completed). This way locking, hooks, logging, etc. can work correctly.</p>
+<p>LUs which implement this method must also populate the self.needed_locks member, as a dict with lock levels as keys, and a list of needed lock names as values. Rules:</p>
+<ul class="rst-simple">
+<li>use an empty dict if you don't need any lock</li>
+<li>if you don't need any lock at a particular level omit that level (note that in this case <tt class="rst-docutils literal">DeclareLocks</tt> won't be called at all for that level)</li>
+<li>if you need locks at a level, but you can't calculate it in this function, initialise that level with an empty list and do further processing in <code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks">LogicalUnit.DeclareLocks</a></code> (see that function's docstring)</li>
+<li>don't put anything for the BGL level</li>
+<li>if you want all locks at a level use <code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">locking.ALL_SET</a></code> as a value</li>
+</ul>
+<p>If you need to share locks (rather than acquire them exclusively) at one level you can modify self.share_locks, setting a true value (usually 1) for that level. By default locks are not shared.</p>
+<p>This function can also define a list of tasklets, which then will be executed in order instead of the usual LU-level CheckPrereq and Exec functions, if those are not defined by the LU.</p>
+<p>Examples:</p>
+<pre class="rst-literal-block">
+  # Acquire all nodes and one instance
+  self.needed_locks = {
+    locking.LEVEL_NODE: locking.ALL_SET,
+    locking.LEVEL_INSTANCE: ['instance1.example.com'],
+  }
+  # Acquire just two nodes
+  self.needed_locks = {
+    locking.LEVEL_NODE: ['node1-uuid', 'node2-uuid'],
+  }
+  # Acquire no locks
+  self.needed_locks = {} # No, you can't leave it to the default value None
+</pre>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.GenericGetDiskInfo">
+    
+  </a>
+  <a name="GenericGetDiskInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericGetDiskInfo</span>(self, uuid=None, name=None):
+    
+    <a class="headerLink" href="#GenericGetDiskInfo" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.GenericGetDiskInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Find a disk object using the provided params.</p>
+<p>Accept arguments as keywords and use the GetDiskInfo/GetDiskInfoByName config functions to retrieve the disk info based on these arguments.</p>
+<p>In case of an error, raise the appropriate exceptions.</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.HPATH">
+    
+  </a>
+  <a name="HPATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HPATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HPATH" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.HPATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HPATH" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HPATH</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">instance-modify</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.REQ_BGL">
+    
+  </a>
+  <a name="REQ_BGL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">REQ_BGL</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#REQ_BGL" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.REQ_BGL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#REQ_BGL" class="internal-link">ganeti.cmdlib.base.LogicalUnit.REQ_BGL</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>False</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_inst">
+    
+  </a>
+  <a name="be_inst">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">be_inst</span> =
+    
+    <a class="headerLink" href="#be_inst" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_inst">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_new">
+    
+  </a>
+  <a name="be_new">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">be_new</span> =
+    
+    <a class="headerLink" href="#be_new" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_new">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_proposed">
+    
+  </a>
+  <a name="be_proposed">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">be_proposed</span> =
+    
+    <a class="headerLink" href="#be_proposed" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.be_proposed">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.cluster">
+    
+  </a>
+  <a name="cluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cluster</span> =
+    
+    <a class="headerLink" href="#cluster" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.cluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskmod">
+    
+  </a>
+  <a name="diskmod">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">diskmod</span> =
+    
+    <a class="headerLink" href="#diskmod" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskmod">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskparams">
+    
+  </a>
+  <a name="diskparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">diskparams</span> =
+    
+    <a class="headerLink" href="#diskparams" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.diskparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.disks_info">
+    
+  </a>
+  <a name="disks_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">disks_info</span> =
+    
+    <a class="headerLink" href="#disks_info" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.disks_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.feedback_fn">
+    
+  </a>
+  <a name="feedback_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">feedback_fn</span> =
+    
+    <a class="headerLink" href="#feedback_fn" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.feedback_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_inst">
+    
+  </a>
+  <a name="hv_inst">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hv_inst</span> =
+    
+    <a class="headerLink" href="#hv_inst" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_inst">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_new">
+    
+  </a>
+  <a name="hv_new">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hv_new</span> =
+    
+    <a class="headerLink" href="#hv_new" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_new">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_proposed">
+    
+  </a>
+  <a name="hv_proposed">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hv_proposed</span> =
+    
+    <a class="headerLink" href="#hv_proposed" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.hv_proposed">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.instance">
+    
+  </a>
+  <a name="instance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">instance</span> =
+    
+    <a class="headerLink" href="#instance" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.instance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.nicmod">
+    
+  </a>
+  <a name="nicmod">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">nicmod</span> =
+    
+    <a class="headerLink" href="#nicmod" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.nicmod">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst">
+    
+  </a>
+  <a name="os_inst">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">os_inst</span> =
+    
+    <a class="headerLink" href="#os_inst" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst_private">
+    
+  </a>
+  <a name="os_inst_private">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">os_inst_private</span> =
+    
+    <a class="headerLink" href="#os_inst_private" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.os_inst_private">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.warn">
+    
+  </a>
+  <a name="warn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">warn</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#warn" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams.warn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckMods">
+    
+  </a>
+  <a name="_CheckMods">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckMods</span>(kind, mods, key_types, item_fn):
+    
+    <a class="headerLink" href="#_CheckMods" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckMods">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensures requested disk/NIC modifications are valid.</p>
+<p>Note that the 'attach' action needs a way to refer to the UUID of the disk, since the disk name is not unique cluster-wide. However, the UUID of the disk is not settable but rather generated by Ganeti automatically, therefore it cannot be passed as an IDISK parameter. For this reason, this function will override the checks to accept uuid parameters solely for the attach action.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._InstanceCommunicationDDM">
+    
+  </a>
+  <a name="_InstanceCommunicationDDM">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_InstanceCommunicationDDM</span>(cfg, instance_communication, instance):
+    
+    <a class="headerLink" href="#_InstanceCommunicationDDM" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._InstanceCommunicationDDM">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a NIC mod that adds or removes the instance communication NIC to a running instance.</p>
+<p>The NICS are dynamically created using the Dynamic Device Modification (DDM).  This function produces a NIC modification (mod) that inserts an additional NIC meant for instance communication in or removes an existing instance communication NIC from a running instance, using DDM.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance<wbr></wbr>_communication:</span>boolean</td><td class="fieldArgDesc">whether instance communication is enabled or disabled</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">instance to which the NIC mod will be applied to</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">(<code><a href="ganeti._constants.html#DDM_ADD" class="internal-link" title="ganeti._constants.DDM_ADD">constants.DDM_ADD</a></code>, -1, parameters) or (<code><a href="ganeti._constants.html#DDM_REMOVE" class="internal-link" title="ganeti._constants.DDM_REMOVE">constants.DDM_REMOVE</a></code>, -1, parameters) or <code>None</code></td><td class="fieldArgDesc">DDM mod containing an action to add or remove the NIC, or None if nothing needs to be done</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._UpgradeDiskNicMods">
+    
+  </a>
+  <a name="_UpgradeDiskNicMods">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_UpgradeDiskNicMods</span>(kind, mods, verify_fn):
+    
+    <a class="headerLink" href="#_UpgradeDiskNicMods" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._UpgradeDiskNicMods">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyNicModification">
+    
+  </a>
+  <a name="_VerifyNicModification">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNicModification</span>(op, params):
+    
+    <a class="headerLink" href="#_VerifyNicModification" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyNicModification">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a network interface modification.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ApplyNicMods">
+    
+  </a>
+  <a name="_ApplyNicMods">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ApplyNicMods</span>(self, idx, nic, params, private):
+    
+    <a class="headerLink" href="#_ApplyNicMods" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ApplyNicMods">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies a network interface.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._AttachDisk">
+    
+  </a>
+  <a name="_AttachDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_AttachDisk</span>(self, idx, params, _):
+    
+    <a class="headerLink" href="#_AttachDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._AttachDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Attaches an existing disk to an instance.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckAttachDisk">
+    
+  </a>
+  <a name="_CheckAttachDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckAttachDisk</span>(self, params):
+    
+    <a class="headerLink" href="#_CheckAttachDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckAttachDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check if disk can be attached to an instance.</p>
+<p>Check if the disk and instance have the same template. Also, check if the disk nodes are visible from the instance.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckHotplug">
+    
+  </a>
+  <a name="_CheckHotplug">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckHotplug</span>(self):
+    
+    <a class="headerLink" href="#_CheckHotplug" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CheckHotplug">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertDrbdToPlain">
+    
+  </a>
+  <a name="_ConvertDrbdToPlain">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ConvertDrbdToPlain</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_ConvertDrbdToPlain" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertDrbdToPlain">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts an instance from drbd to plain.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertInstanceDisks">
+    
+  </a>
+  <a name="_ConvertInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ConvertInstanceDisks</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_ConvertInstanceDisks" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts the disks of an instance to another type.</p>
+<p>This function converts the disks of an instance. It supports conversions among all the available disk types except conversions between the LVM-based disk types, that use their separate code path. Also, this method does not support conversions that include the 'diskless' template and those targeting the 'blockdev' template.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">function used to send feedback back to the caller</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">NoneType</td><td class="fieldArgDesc">None</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>in case of failure</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertPlainToDrbd">
+    
+  </a>
+  <a name="_ConvertPlainToDrbd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ConvertPlainToDrbd</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_ConvertPlainToDrbd" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertPlainToDrbd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts an instance from plain to drbd.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewDisk">
+    
+  </a>
+  <a name="_CreateNewDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CreateNewDisk</span>(self, idx, params, _):
+    
+    <a class="headerLink" href="#_CreateNewDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a new disk.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewNic">
+    
+  </a>
+  <a name="_CreateNewNic">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CreateNewNic</span>(self, idx, params, private):
+    
+    <a class="headerLink" href="#_CreateNewNic" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._CreateNewNic">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates data structure for a new network interface.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DetachDisk">
+    
+  </a>
+  <a name="_DetachDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_DetachDisk</span>(self, idx, root, _):
+    
+    <a class="headerLink" href="#_DetachDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DetachDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Detaches a disk from an instance.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._FillFileDriver">
+    
+  </a>
+  <a name="_FillFileDriver">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FillFileDriver</span>(self):
+    
+    <a class="headerLink" href="#_FillFileDriver" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._FillFileDriver">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GenerateDiskTemplateWrapper">
+    
+  </a>
+  <a name="_GenerateDiskTemplateWrapper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GenerateDiskTemplateWrapper</span>(self, idx, disk_type, params):
+    
+    <a class="headerLink" href="#_GenerateDiskTemplateWrapper" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GenerateDiskTemplateWrapper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GetInstanceInfo">
+    
+  </a>
+  <a name="_GetInstanceInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetInstanceInfo</span>(self, cluster_hvparams):
+    
+    <a class="headerLink" href="#_GetInstanceInfo" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._GetInstanceInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._HotplugDevice">
+    
+  </a>
+  <a name="_HotplugDevice">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_HotplugDevice</span>(self, action, dev_type, device, extra, seq):
+    
+    <a class="headerLink" href="#_HotplugDevice" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._HotplugDevice">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskIndex">
+    
+  </a>
+  <a name="_LookupDiskIndex">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_LookupDiskIndex</span>(self, idx):
+    
+    <a class="headerLink" href="#_LookupDiskIndex" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskIndex">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Looks up uuid or name of disk if necessary.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskMods">
+    
+  </a>
+  <a name="_LookupDiskMods">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_LookupDiskMods</span>(self):
+    
+    <a class="headerLink" href="#_LookupDiskMods" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._LookupDiskMods">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Looks up uuid or name of disk if necessary.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ModifyDisk">
+    
+  </a>
+  <a name="_ModifyDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ModifyDisk</span>(self, idx, disk, params, _):
+    
+    <a class="headerLink" href="#_ModifyDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ModifyDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies a disk.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PostAddDisk">
+    
+  </a>
+  <a name="_PostAddDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PostAddDisk</span>(self, _, disk):
+    
+    <a class="headerLink" href="#_PostAddDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PostAddDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDisks">
+    
+  </a>
+  <a name="_PreCheckDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PreCheckDisks</span>(self, ispec):
+    
+    <a class="headerLink" href="#_PreCheckDisks" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>CheckPrereq checks related to disk changes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispec:</span>dict</td><td class="fieldArgDesc">instance specs to be updated with the new disks</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDiskTemplate">
+    
+  </a>
+  <a name="_PreCheckDiskTemplate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PreCheckDiskTemplate</span>(self, pnode_info):
+    
+    <a class="headerLink" href="#_PreCheckDiskTemplate" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PreCheckDiskTemplate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>CheckPrereq checks related to a new disk template.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicCommunication">
+    
+  </a>
+  <a name="_PrepareNicCommunication">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PrepareNicCommunication</span>(self):
+    
+    <a class="headerLink" href="#_PrepareNicCommunication" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicCommunication">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicModification">
+    
+  </a>
+  <a name="_PrepareNicModification">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PrepareNicModification</span>(self, params, private, old_ip, old_net_uuid, old_params, cluster, pnode_uuid):
+    
+    <a class="headerLink" href="#_PrepareNicModification" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._PrepareNicModification">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessBeParams">
+    
+  </a>
+  <a name="_ProcessBeParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ProcessBeParams</span>(self):
+    
+    <a class="headerLink" href="#_ProcessBeParams" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessBeParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessHVParams">
+    
+  </a>
+  <a name="_ProcessHVParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ProcessHVParams</span>(self, node_uuids):
+    
+    <a class="headerLink" href="#_ProcessHVParams" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessHVParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessMem">
+    
+  </a>
+  <a name="_ProcessMem">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ProcessMem</span>(self, cluster_hvparams, be_old, pnode_uuid):
+    
+    <a class="headerLink" href="#_ProcessMem" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessMem">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessOsParams">
+    
+  </a>
+  <a name="_ProcessOsParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ProcessOsParams</span>(self, node_uuids):
+    
+    <a class="headerLink" href="#_ProcessOsParams" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ProcessOsParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveDisk">
+    
+  </a>
+  <a name="_RemoveDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RemoveDisk</span>(self, idx, root, _):
+    
+    <a class="headerLink" href="#_RemoveDisk" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Removes a disk.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveNic">
+    
+  </a>
+  <a name="_RemoveNic">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RemoveNic</span>(self, idx, nic, _):
+    
+    <a class="headerLink" href="#_RemoveNic" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._RemoveNic">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ValidateCpuParams">
+    
+  </a>
+  <a name="_ValidateCpuParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ValidateCpuParams</span>(self):
+    
+    <a class="headerLink" href="#_ValidateCpuParams" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ValidateCpuParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyDiskModification">
+    
+  </a>
+  <a name="_VerifyDiskModification">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyDiskModification</span>(self, op, params, excl_stor, group_access_types):
+    
+    <a class="headerLink" href="#_VerifyDiskModification" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._VerifyDiskModification">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a disk modification.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DISK_CONVERSIONS">
+    
+  </a>
+  <a name="_DISK_CONVERSIONS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_DISK_CONVERSIONS</span> =
+    
+    <a class="headerLink" href="#_DISK_CONVERSIONS" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._DISK_CONVERSIONS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr>(<wbr></wbr><a href="ganeti._constants.html#DT_PLAIN" class="internal-link" title="ganeti._constants.DT_PLAIN">constants.DT_PLAIN</a>, <wbr></wbr><a href="ganeti._constants.html#DT_DRBD8" class="internal-link" title="ganeti._constants.DT_DRBD8">constants.DT_DRBD8</a>): <a href="#_ConvertPlainToDrbd" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertPlainToDrbd">_ConvertPlainToDrbd</a>,
+ <wbr></wbr>(<wbr></wbr><a href="ganeti._constants.html#DT_DRBD8" class="internal-link" title="ganeti._constants.DT_DRBD8">constants.DT_DRBD8</a>, <wbr></wbr><a href="ganeti._constants.html#DT_PLAIN" class="internal-link" title="ganeti._constants.DT_PLAIN">constants.DT_PLAIN</a>): <a href="#_ConvertDrbdToPlain" class="internal-link" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._ConvertDrbdToPlain">_ConvertDrbdToPlain</a>}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._new_nics">
+    
+  </a>
+  <a name="_new_nics">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_new_nics</span> =
+    
+    <a class="headerLink" href="#_new_nics" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._new_nics">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._nic_chgdesc">
+    
+  </a>
+  <a name="_nic_chgdesc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_nic_chgdesc</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#_nic_chgdesc" title="ganeti.cmdlib.instance_set_params.LUInstanceSetParams._nic_chgdesc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.utils.process</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.utils.process.html" class="internal-link" title="This module">process</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.process.RunResult.html" class="internal-link" title="ganeti.utils.process.RunResult"><wbr></wbr>Run<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CloseFDs" class="internal-link" title="ganeti.utils.process.CloseFDs"><wbr></wbr>Close<wbr></wbr>FDs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Daemonize" class="internal-link" title="ganeti.utils.process.Daemonize"><wbr></wbr>Daemonize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DisableFork" class="internal-link" title="ganeti.utils.process.DisableFork"><wbr></wbr>Disable<wbr></wbr>Fork</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetProcCmdline" class="internal-link" title="ganeti.utils.process.GetProcCmdline"><wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Cmdline</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsDaemonAlive" class="internal-link" title="ganeti.utils.process.IsDaemonAlive"><wbr></wbr>Is<wbr></wbr>Daemon<wbr></wbr>Alive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsProcessAlive" class="internal-link" title="ganeti.utils.process.IsProcessAlive"><wbr></wbr>Is<wbr></wbr>Process<wbr></wbr>Alive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsProcessHandlingSignal" class="internal-link" title="ganeti.utils.process.IsProcessHandlingSignal"><wbr></wbr>Is<wbr></wbr>Process<wbr></wbr>Handling<wbr></wbr>Signal</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KillProcess" class="internal-link" title="ganeti.utils.process.KillProcess"><wbr></wbr>Kill<wbr></wbr>Process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunCmd" class="internal-link" title="ganeti.utils.process.RunCmd"><wbr></wbr>Run<wbr></wbr>Cmd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunInSeparateProcess" class="internal-link" title="ganeti.utils.process.RunInSeparateProcess"><wbr></wbr>Run<wbr></wbr>In<wbr></wbr>Separate<wbr></wbr>Process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunParts" class="internal-link" title="ganeti.utils.process.RunParts"><wbr></wbr>Run<wbr></wbr>Parts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetupDaemonEnv" class="internal-link" title="ganeti.utils.process.SetupDaemonEnv"><wbr></wbr>Setup<wbr></wbr>Daemon<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetupDaemonFDs" class="internal-link" title="ganeti.utils.process.SetupDaemonFDs"><wbr></wbr>Setup<wbr></wbr>Daemon<wbr></wbr>FDs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#StartDaemon" class="internal-link" title="ganeti.utils.process.StartDaemon"><wbr></wbr>Start<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WriteErrorToFD" class="internal-link" title="ganeti.utils.process.WriteErrorToFD"><wbr></wbr>Write<wbr></wbr>Error<wbr></wbr>To<wbr></wbr>FD</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BuildCmdEnvironment" class="internal-link" title="ganeti.utils.process._BuildCmdEnvironment">_<wbr></wbr>Build<wbr></wbr>Cmd<wbr></wbr>Environment</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckIfAlive" class="internal-link" title="ganeti.utils.process._CheckIfAlive">_<wbr></wbr>Check<wbr></wbr>If<wbr></wbr>Alive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetProcStatusField" class="internal-link" title="ganeti.utils.process._GetProcStatusField">_<wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Status<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetProcStatusPath" class="internal-link" title="ganeti.utils.process._GetProcStatusPath">_<wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Status<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseSigsetT" class="internal-link" title="ganeti.utils.process._ParseSigsetT">_<wbr></wbr>Parse<wbr></wbr>Sigset<wbr></wbr>T</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RunCmdFile" class="internal-link" title="ganeti.utils.process._RunCmdFile">_<wbr></wbr>Run<wbr></wbr>Cmd<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RunCmdPipe" class="internal-link" title="ganeti.utils.process._RunCmdPipe">_<wbr></wbr>Run<wbr></wbr>Cmd<wbr></wbr>Pipe</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_StartDaemonChild" class="internal-link" title="ganeti.utils.process._StartDaemonChild">_<wbr></wbr>Start<wbr></wbr>Daemon<wbr></wbr>Child</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_WaitForProcess" class="internal-link" title="ganeti.utils.process._WaitForProcess">_<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Process</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TIMEOUT_KILL" class="internal-link" title="ganeti.utils.process._TIMEOUT_KILL">_TIMEOUT<wbr></wbr>_KILL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TIMEOUT_NONE" class="internal-link" title="ganeti.utils.process._TIMEOUT_NONE">_TIMEOUT<wbr></wbr>_NONE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TIMEOUT_TERM" class="internal-link" title="ganeti.utils.process._TIMEOUT_TERM">_TIMEOUT<wbr></wbr>_TERM</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_no_fork" class="internal-link" title="ganeti.utils.process._no_fork">_no<wbr></wbr>_fork</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.utils.html" class="internal-link" title="The parent of this module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.algo.html" class="internal-link" title="ganeti.utils.algo">algo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.bitarrays.html" class="internal-link" title="ganeti.utils.bitarrays">bitarrays</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.filelock.html" class="internal-link" title="ganeti.utils.filelock">filelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.hash.html" class="internal-link" title="ganeti.utils.hash">hash</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.html" class="internal-link" title="ganeti.utils.io">io</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.livelock.html" class="internal-link" title="ganeti.utils.livelock">livelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.log.html" class="internal-link" title="ganeti.utils.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.lvm.html" class="internal-link" title="ganeti.utils.lvm">lvm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.mlock.html" class="internal-link" title="ganeti.utils.mlock">mlock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.nodesetup.html" class="internal-link" title="ganeti.utils.nodesetup">nodesetup</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.process.html" class="internal-link" title="ganeti.utils.process">process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.retry.html" class="internal-link" title="ganeti.utils.retry">retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.security.html" class="internal-link" title="ganeti.utils.security">security</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.storage.html" class="internal-link" title="ganeti.utils.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.tags.html" class="internal-link" title="ganeti.utils.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.html" class="internal-link" title="ganeti.utils.text">text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.version.html" class="internal-link" title="ganeti.utils.version">version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.wrapper.html" class="internal-link" title="ganeti.utils.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.x509.html" class="internal-link" title="ganeti.utils.x509">x509</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FdConditionWaiterHelper.html" class="internal-link" title="ganeti.utils.FdConditionWaiterHelper"><wbr></wbr>Fd<wbr></wbr>Condition<wbr></wbr>Waiter<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FieldSet.html" class="internal-link" title="ganeti.utils.FieldSet"><wbr></wbr>Field<wbr></wbr>Set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalHandler.html" class="internal-link" title="ganeti.utils.SignalHandler"><wbr></wbr>Signal<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalWakeupFd.html" class="internal-link" title="ganeti.utils.SignalWakeupFd"><wbr></wbr>Signal<wbr></wbr>Wakeup<wbr></wbr>Fd</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AllDiskOfType" class="internal-link" title="ganeti.utils.AllDiskOfType"><wbr></wbr>All<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AnyDiskOfType" class="internal-link" title="ganeti.utils.AnyDiskOfType"><wbr></wbr>Any<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#BridgeExists" class="internal-link" title="ganeti.utils.BridgeExists"><wbr></wbr>Bridge<wbr></wbr>Exists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EnsureDaemon" class="internal-link" title="ganeti.utils.EnsureDaemon"><wbr></wbr>Ensure<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EpochNano" class="internal-link" title="ganeti.utils.EpochNano"><wbr></wbr>Epoch<wbr></wbr>Nano</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FindMatch" class="internal-link" title="ganeti.utils.FindMatch"><wbr></wbr>Find<wbr></wbr>Match</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FirstFree" class="internal-link" title="ganeti.utils.FirstFree"><wbr></wbr>First<wbr></wbr>Free</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ForceDictType" class="internal-link" title="ganeti.utils.ForceDictType"><wbr></wbr>Force<wbr></wbr>Dict<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplate" class="internal-link" title="ganeti.utils.GetDiskTemplate"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplateString" class="internal-link" title="ganeti.utils.GetDiskTemplateString"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetHomeDir" class="internal-link" title="ganeti.utils.GetHomeDir"><wbr></wbr>Get<wbr></wbr>Home<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetMounts" class="internal-link" title="ganeti.utils.GetMounts"><wbr></wbr>Get<wbr></wbr>Mounts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ListVolumeGroups" class="internal-link" title="ganeti.utils.ListVolumeGroups"><wbr></wbr>List<wbr></wbr>Volume<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#MergeTime" class="internal-link" title="ganeti.utils.MergeTime"><wbr></wbr>Merge<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseCpuMask" class="internal-link" title="ganeti.utils.ParseCpuMask"><wbr></wbr>Parse<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseMultiCpuMask" class="internal-link" title="ganeti.utils.ParseMultiCpuMask"><wbr></wbr>Parse<wbr></wbr>Multi<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SendFds" class="internal-link" title="ganeti.utils.SendFds"><wbr></wbr>Send<wbr></wbr>Fds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SignalHandled" class="internal-link" title="ganeti.utils.SignalHandled"><wbr></wbr>Signal<wbr></wbr>Handled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SingleWaitForFdCondition" class="internal-link" title="ganeti.utils.SingleWaitForFdCondition"><wbr></wbr>Single<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SplitTime" class="internal-link" title="ganeti.utils.SplitTime"><wbr></wbr>Split<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#StopDaemon" class="internal-link" title="ganeti.utils.StopDaemon"><wbr></wbr>Stop<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TimeoutExpired" class="internal-link" title="ganeti.utils.TimeoutExpired"><wbr></wbr>Timeout<wbr></wbr>Expired</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TryConvert" class="internal-link" title="ganeti.utils.TryConvert"><wbr></wbr>Try<wbr></wbr>Convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateDeviceNames" class="internal-link" title="ganeti.utils.ValidateDeviceNames"><wbr></wbr>Validate<wbr></wbr>Device<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateServiceName" class="internal-link" title="ganeti.utils.ValidateServiceName"><wbr></wbr>Validate<wbr></wbr>Service<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#VerifyDictOptions" class="internal-link" title="ganeti.utils.VerifyDictOptions"><wbr></wbr>Verify<wbr></wbr>Dict<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#WaitForFdCondition" class="internal-link" title="ganeti.utils.WaitForFdCondition"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_ComputeMissingKeys" class="internal-link" title="ganeti.utils._ComputeMissingKeys">_<wbr></wbr>Compute<wbr></wbr>Missing<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#UUID_RE" class="internal-link" title="ganeti.utils.UUID_RE">UUID<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_VALID_SERVICE_NAME_RE" class="internal-link" title="ganeti.utils._VALID_SERVICE_NAME_RE">_VALID<wbr></wbr>_SERVICE<wbr></wbr>_NAME<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code><wbr></wbr>.<code><a href="ganeti.utils.process.html" class="internal-link" title="ganeti.utils.process">process</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Utility functions for processes.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1370">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.utils.process.RunResult.html" class="internal-link" title="ganeti.utils.process.RunResult"><wbr></wbr>Run<wbr></wbr>Result</a></code></td>
+    <td>Holds the result of running external programs.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CloseFDs" class="internal-link" title="ganeti.utils.process.CloseFDs"><wbr></wbr>Close<wbr></wbr>FDs</a></code></td>
+    <td>Close file descriptors.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Daemonize" class="internal-link" title="ganeti.utils.process.Daemonize"><wbr></wbr>Daemonize</a></code></td>
+    <td>Daemonize the current process.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DisableFork" class="internal-link" title="ganeti.utils.process.DisableFork"><wbr></wbr>Disable<wbr></wbr>Fork</a></code></td>
+    <td>Disables the use of fork(2).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetProcCmdline" class="internal-link" title="ganeti.utils.process.GetProcCmdline"><wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Cmdline</a></code></td>
+    <td>Returns the command line of a pid as a list of arguments.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsDaemonAlive" class="internal-link" title="ganeti.utils.process.IsDaemonAlive"><wbr></wbr>Is<wbr></wbr>Daemon<wbr></wbr>Alive</a></code></td>
+    <td>Determines whether a daemon is alive</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsProcessAlive" class="internal-link" title="ganeti.utils.process.IsProcessAlive"><wbr></wbr>Is<wbr></wbr>Process<wbr></wbr>Alive</a></code></td>
+    <td>Check if a given pid exists on the system.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsProcessHandlingSignal" class="internal-link" title="ganeti.utils.process.IsProcessHandlingSignal"><wbr></wbr>Is<wbr></wbr>Process<wbr></wbr>Handling<wbr></wbr>Signal</a></code></td>
+    <td>Checks whether a process is handling a signal.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#KillProcess" class="internal-link" title="ganeti.utils.process.KillProcess"><wbr></wbr>Kill<wbr></wbr>Process</a></code></td>
+    <td>Kill a process given by its pid.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunCmd" class="internal-link" title="ganeti.utils.process.RunCmd"><wbr></wbr>Run<wbr></wbr>Cmd</a></code></td>
+    <td>Execute a (shell) command.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunInSeparateProcess" class="internal-link" title="ganeti.utils.process.RunInSeparateProcess"><wbr></wbr>Run<wbr></wbr>In<wbr></wbr>Separate<wbr></wbr>Process</a></code></td>
+    <td>Runs a function in a separate process.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunParts" class="internal-link" title="ganeti.utils.process.RunParts"><wbr></wbr>Run<wbr></wbr>Parts</a></code></td>
+    <td>Run Scripts or programs in a directory</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetupDaemonEnv" class="internal-link" title="ganeti.utils.process.SetupDaemonEnv"><wbr></wbr>Setup<wbr></wbr>Daemon<wbr></wbr>Env</a></code></td>
+    <td>Setup a daemon's environment.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetupDaemonFDs" class="internal-link" title="ganeti.utils.process.SetupDaemonFDs"><wbr></wbr>Setup<wbr></wbr>Daemon<wbr></wbr>FDs</a></code></td>
+    <td>Setups up a daemon's file descriptors.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#StartDaemon" class="internal-link" title="ganeti.utils.process.StartDaemon"><wbr></wbr>Start<wbr></wbr>Daemon</a></code></td>
+    <td>Start a daemon process after forking twice.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WriteErrorToFD" class="internal-link" title="ganeti.utils.process.WriteErrorToFD"><wbr></wbr>Write<wbr></wbr>Error<wbr></wbr>To<wbr></wbr>FD</a></code></td>
+    <td>Possibly write an error message to a fd.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BuildCmdEnvironment" class="internal-link" title="ganeti.utils.process._BuildCmdEnvironment">_<wbr></wbr>Build<wbr></wbr>Cmd<wbr></wbr>Environment</a></code></td>
+    <td>Builds the environment for an external program.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckIfAlive" class="internal-link" title="ganeti.utils.process._CheckIfAlive">_<wbr></wbr>Check<wbr></wbr>If<wbr></wbr>Alive</a></code></td>
+    <td>Raises <code><a href="ganeti.utils.retry.RetryAgain.html" class="internal-link" title="ganeti.utils.retry.RetryAgain">utils_retry.RetryAgain</a></code> if child is still alive.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetProcStatusField" class="internal-link" title="ganeti.utils.process._GetProcStatusField">_<wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Status<wbr></wbr>Field</a></code></td>
+    <td>Retrieves a field from the contents of a proc status file.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetProcStatusPath" class="internal-link" title="ganeti.utils.process._GetProcStatusPath">_<wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Status<wbr></wbr>Path</a></code></td>
+    <td>Returns the path for a PID's proc status file.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParseSigsetT" class="internal-link" title="ganeti.utils.process._ParseSigsetT">_<wbr></wbr>Parse<wbr></wbr>Sigset<wbr></wbr>T</a></code></td>
+    <td>Parse a rendered sigset_t value.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RunCmdFile" class="internal-link" title="ganeti.utils.process._RunCmdFile">_<wbr></wbr>Run<wbr></wbr>Cmd<wbr></wbr>File</a></code></td>
+    <td>Run a command and save its output to a file.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RunCmdPipe" class="internal-link" title="ganeti.utils.process._RunCmdPipe">_<wbr></wbr>Run<wbr></wbr>Cmd<wbr></wbr>Pipe</a></code></td>
+    <td>Run a command and return its output.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_StartDaemonChild" class="internal-link" title="ganeti.utils.process._StartDaemonChild">_<wbr></wbr>Start<wbr></wbr>Daemon<wbr></wbr>Child</a></code></td>
+    <td>Child process for starting daemon.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_WaitForProcess" class="internal-link" title="ganeti.utils.process._WaitForProcess">_<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Process</a></code></td>
+    <td>Waits for the child to terminate or until we reach timeout.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_TIMEOUT_KILL" class="internal-link" title="ganeti.utils.process._TIMEOUT_KILL">_TIMEOUT<wbr></wbr>_KILL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_TIMEOUT_NONE" class="internal-link" title="ganeti.utils.process._TIMEOUT_NONE">_TIMEOUT<wbr></wbr>_NONE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_TIMEOUT_TERM" class="internal-link" title="ganeti.utils.process._TIMEOUT_TERM">_TIMEOUT<wbr></wbr>_TERM</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable private">
+    
+    <td>Variable</td>
+    <td><code><a href="#_no_fork" class="internal-link" title="ganeti.utils.process._no_fork">_no<wbr></wbr>_fork</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.CloseFDs">
+    
+  </a>
+  <a name="CloseFDs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CloseFDs</span>(noclose_fds=None):
+    
+    <a class="headerLink" href="#CloseFDs" title="ganeti.utils.process.CloseFDs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Close file descriptors.</p>
+<p>This closes all file descriptors above 2 (i.e. except stdin/out/err).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">noclose<wbr></wbr>_fds:</span>list or None</td><td class="fieldArgDesc">if given, it denotes a list of file descriptor that should not be closed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.Daemonize">
+    
+  </a>
+  <a name="Daemonize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Daemonize</span>(logfile):
+    
+    <a class="headerLink" href="#Daemonize" title="ganeti.utils.process.Daemonize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Daemonize the current process.</p>
+<p>This detaches the current process from the controlling terminal and runs it in the background as a daemon.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">logfile:</span>str</td><td class="fieldArgDesc">the logfile to which we should redirect stdout/stderr</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (int, callable)</td><td class="fieldArgDesc">File descriptor of pipe(2) which must be closed to notify parent process and a callable to reopen log files</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.DisableFork">
+    
+  </a>
+  <a name="DisableFork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DisableFork</span>():
+    
+    <a class="headerLink" href="#DisableFork" title="ganeti.utils.process.DisableFork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Disables the use of fork(2).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.GetProcCmdline">
+    
+  </a>
+  <a name="GetProcCmdline">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetProcCmdline</span>(pid):
+    
+    <a class="headerLink" href="#GetProcCmdline" title="ganeti.utils.process.GetProcCmdline">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the command line of a pid as a list of arguments.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">Process ID</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>EnvironmentError</code></td><td>If the process does not exist</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.IsDaemonAlive">
+    
+  </a>
+  <a name="IsDaemonAlive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsDaemonAlive</span>(name):
+    
+    <a class="headerLink" href="#IsDaemonAlive" title="ganeti.utils.process.IsDaemonAlive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determines whether a daemon is alive</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span>string</td><td class="fieldArgDesc">daemon name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">True if daemon is running, False otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.IsProcessAlive">
+    
+  </a>
+  <a name="IsProcessAlive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsProcessAlive</span>(pid):
+    
+    <a class="headerLink" href="#IsProcessAlive" title="ganeti.utils.process.IsProcessAlive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check if a given pid exists on the system.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">the process ID to check</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">True if the process exists</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Note</td></tr><tr><td colspan="2">zombie status is not handled, so zombie processes will be returned as alive</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.IsProcessHandlingSignal">
+    
+  </a>
+  <a name="IsProcessHandlingSignal">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsProcessHandlingSignal</span>(pid, signum, status_path=None):
+    
+    <a class="headerLink" href="#IsProcessHandlingSignal" title="ganeti.utils.process.IsProcessHandlingSignal">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether a process is handling a signal.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">Process ID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">signum:</span>int</td><td class="fieldArgDesc">Signal number</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">status<wbr></wbr>_path</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.KillProcess">
+    
+  </a>
+  <a name="KillProcess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">KillProcess</span>(pid, signal_=signal.SIGTERM, timeout=30, waitpid=False):
+    
+    <a class="headerLink" href="#KillProcess" title="ganeti.utils.process.KillProcess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Kill a process given by its pid.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">The PID to terminate.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">signal_:</span>int</td><td class="fieldArgDesc">The signal to send, by default SIGTERM</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span>int</td><td class="fieldArgDesc">The timeout after which, if the process is still alive, a SIGKILL will be sent. If not positive, no such checking will be done</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">waitpid:</span>boolean</td><td class="fieldArgDesc">If true, we should waitpid on this process after sending signals, since it's our own child and otherwise it would remain as zombie</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.RunCmd">
+    
+  </a>
+  <a name="RunCmd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunCmd</span>(cmd, env=None, output=None, cwd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">/</span><span class="rst-variable-quote">'</span>, reset_env=False, interactive=False, timeout=None, noclose_fds=None, input_fd=None, postfork_fn=None):
+    
+    <a class="headerLink" href="#RunCmd" title="ganeti.utils.process.RunCmd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Execute a (shell) command.</p>
+<p>The command should not read from its standard input, as it will be closed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>string or list</td><td class="fieldArgDesc">Command to run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span>dict</td><td class="fieldArgDesc">Additional environment variables</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output:</span>str</td><td class="fieldArgDesc">if desired, the output of the command can be saved in a file instead of the RunResult instance; this parameter denotes the file name (if not None)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cwd:</span>string</td><td class="fieldArgDesc">if specified, will be used as the working directory for the command; the default will be /</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reset<wbr></wbr>_env:</span>boolean</td><td class="fieldArgDesc">whether to reset or keep the default os environment</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">interactive:</span>boolean</td><td class="fieldArgDesc">whether we pipe stdin, stdout and stderr (default behaviour) or run the command interactive</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span>int</td><td class="fieldArgDesc">If not None, timeout in seconds until child process gets killed</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">noclose<wbr></wbr>_fds:</span>list</td><td class="fieldArgDesc">list of additional (fd &gt;=3) file descriptors to leave open for the child process</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">input<wbr></wbr>_fd:</span><tt class="rst-docutils literal">file</tt>-like object or numeric file descriptor</td><td class="fieldArgDesc">File descriptor for process' standard input</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">postfork<wbr></wbr>_fn:</span>Callable receiving PID as parameter</td><td class="fieldArgDesc">Callback run after fork but before timeout</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.utils.process.RunResult.html" class="internal-link" title="ganeti.utils.process.RunResult">RunResult</a></code></td><td class="fieldArgDesc">RunResult instance</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.ProgrammerError.html" class="internal-link" title="ganeti.errors.ProgrammerError">errors.ProgrammerError</a></code></td><td>if we call this when forks are disabled</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.RunInSeparateProcess">
+    
+  </a>
+  <a name="RunInSeparateProcess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunInSeparateProcess</span>(fn, *args):
+    
+    <a class="headerLink" href="#RunInSeparateProcess" title="ganeti.utils.process.RunInSeparateProcess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs a function in a separate process.</p>
+<p>Note: Only boolean return values are supported.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fn:</span>callable</td><td class="fieldArgDesc">Function to be called</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">Function's result</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.RunParts">
+    
+  </a>
+  <a name="RunParts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunParts</span>(dir_name, env=None, reset_env=False):
+    
+    <a class="headerLink" href="#RunParts" title="ganeti.utils.process.RunParts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run Scripts or programs in a directory</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dir<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">absolute path to a directory</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span>dict</td><td class="fieldArgDesc">The environment to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reset<wbr></wbr>_env:</span>boolean</td><td class="fieldArgDesc">whether to reset or keep the default os environment</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of tuples</td><td class="fieldArgDesc">list of (name, (one of RUNDIR_STATUS), RunResult)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.SetupDaemonEnv">
+    
+  </a>
+  <a name="SetupDaemonEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetupDaemonEnv</span>(cwd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">/</span><span class="rst-variable-quote">'</span>, umask=63):
+    
+    <a class="headerLink" href="#SetupDaemonEnv" title="ganeti.utils.process.SetupDaemonEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Setup a daemon's environment.</p>
+<p>This should be called between the first and second fork, due to setsid usage.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cwd</span></td><td class="fieldArgDesc">the directory to which to chdir</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">umask</span></td><td class="fieldArgDesc">the umask to setup</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.SetupDaemonFDs">
+    
+  </a>
+  <a name="SetupDaemonFDs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetupDaemonFDs</span>(output_file, output_fd):
+    
+    <a class="headerLink" href="#SetupDaemonFDs" title="ganeti.utils.process.SetupDaemonFDs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Setups up a daemon's file descriptors.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output<wbr></wbr>_file</span></td><td class="fieldArgDesc">if not None, the file to which to redirect stdout/stderr</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output<wbr></wbr>_fd</span></td><td class="fieldArgDesc">if not None, the file descriptor for stdout/stderr</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.StartDaemon">
+    
+  </a>
+  <a name="StartDaemon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">StartDaemon</span>(cmd, env=None, cwd=<span class="rst-variable-quote">'</span><span class="rst-variable-string">/</span><span class="rst-variable-quote">'</span>, output=None, output_fd=None, pidfile=None):
+    
+    <a class="headerLink" href="#StartDaemon" title="ganeti.utils.process.StartDaemon">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start a daemon process after forking twice.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>string or list</td><td class="fieldArgDesc">Command to run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span>dict</td><td class="fieldArgDesc">Additional environment variables</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cwd:</span>string</td><td class="fieldArgDesc">Working directory for the program</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output:</span>string</td><td class="fieldArgDesc">Path to file in which to save the output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output<wbr></wbr>_fd:</span>int</td><td class="fieldArgDesc">File descriptor for output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pidfile:</span>string</td><td class="fieldArgDesc">Process ID file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">Daemon process ID</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.ProgrammerError.html" class="internal-link" title="ganeti.errors.ProgrammerError">errors.ProgrammerError</a></code></td><td>if we call this when forks are disabled</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.process.WriteErrorToFD">
+    
+  </a>
+  <a name="WriteErrorToFD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WriteErrorToFD</span>(fd, err):
+    
+    <a class="headerLink" href="#WriteErrorToFD" title="ganeti.utils.process.WriteErrorToFD">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Possibly write an error message to a fd.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fd:</span>None or int (file descriptor)</td><td class="fieldArgDesc">if not None, the error will be written to this fd</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">err</span></td><td class="fieldArgDesc">string, the error message</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._BuildCmdEnvironment">
+    
+  </a>
+  <a name="_BuildCmdEnvironment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BuildCmdEnvironment</span>(env, reset):
+    
+    <a class="headerLink" href="#_BuildCmdEnvironment" title="ganeti.utils.process._BuildCmdEnvironment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds the environment for an external program.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._CheckIfAlive">
+    
+  </a>
+  <a name="_CheckIfAlive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckIfAlive</span>(child):
+    
+    <a class="headerLink" href="#_CheckIfAlive" title="ganeti.utils.process._CheckIfAlive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Raises <code><a href="ganeti.utils.retry.RetryAgain.html" class="internal-link" title="ganeti.utils.retry.RetryAgain">utils_retry.RetryAgain</a></code> if child is still alive.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.utils.retry.RetryAgain.html" class="internal-link" title="ganeti.utils.retry.RetryAgain">utils_retry.RetryAgain</a></code></td><td>If child is still alive</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._GetProcStatusField">
+    
+  </a>
+  <a name="_GetProcStatusField">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetProcStatusField</span>(pstatus, field):
+    
+    <a class="headerLink" href="#_GetProcStatusField" title="ganeti.utils.process._GetProcStatusField">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves a field from the contents of a proc status file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pstatus:</span>string</td><td class="fieldArgDesc">Contents of /proc/$pid/status</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">field:</span>string</td><td class="fieldArgDesc">Name of field whose value should be returned</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._GetProcStatusPath">
+    
+  </a>
+  <a name="_GetProcStatusPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetProcStatusPath</span>(pid):
+    
+    <a class="headerLink" href="#_GetProcStatusPath" title="ganeti.utils.process._GetProcStatusPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the path for a PID's proc status file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">Process ID</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._ParseSigsetT">
+    
+  </a>
+  <a name="_ParseSigsetT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseSigsetT</span>(sigset):
+    
+    <a class="headerLink" href="#_ParseSigsetT" title="ganeti.utils.process._ParseSigsetT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse a rendered sigset_t value.</p>
+<p>This is the opposite of the Linux kernel's fs/proc/array.c:render_sigset_t function.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sigset:</span>string</td><td class="fieldArgDesc">Rendered signal set from /proc/$pid/status</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">set</td><td class="fieldArgDesc">Set of all enabled signal numbers</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._RunCmdFile">
+    
+  </a>
+  <a name="_RunCmdFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RunCmdFile</span>(cmd, env, via_shell, output, cwd, noclose_fds):
+    
+    <a class="headerLink" href="#_RunCmdFile" title="ganeti.utils.process._RunCmdFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a command and save its output to a file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>string or list</td><td class="fieldArgDesc">Command to run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span>dict</td><td class="fieldArgDesc">The environment to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">via<wbr></wbr>_shell:</span>bool</td><td class="fieldArgDesc">if we should run via the shell</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output:</span>str</td><td class="fieldArgDesc">the filename in which to save the output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cwd:</span>string</td><td class="fieldArgDesc">the working directory for the program</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">noclose<wbr></wbr>_fds:</span>list</td><td class="fieldArgDesc">list of additional (fd &gt;=3) file descriptors to leave open for the child process</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the exit status</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._RunCmdPipe">
+    
+  </a>
+  <a name="_RunCmdPipe">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RunCmdPipe</span>(cmd, env, via_shell, cwd, interactive, timeout, noclose_fds, input_fd, postfork_fn=None, _linger_timeout=<a href="ganeti._constants.html#CHILD_LINGER_TIMEOUT" class="internal-link" title="ganeti._constants.CHILD_LINGER_TIMEOUT">constants.CHILD_LINGER_TIMEOUT</a>):
+    
+    <a class="headerLink" href="#_RunCmdPipe" title="ganeti.utils.process._RunCmdPipe">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a command and return its output.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>string or list</td><td class="fieldArgDesc">Command to run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env:</span>dict</td><td class="fieldArgDesc">The environment to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">via<wbr></wbr>_shell:</span>bool</td><td class="fieldArgDesc">if we should run via the shell</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cwd:</span>string</td><td class="fieldArgDesc">the working directory for the program</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">interactive:</span>boolean</td><td class="fieldArgDesc">Run command interactive (without piping)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span>int</td><td class="fieldArgDesc">Timeout after the programm gets terminated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">noclose<wbr></wbr>_fds:</span>list</td><td class="fieldArgDesc">list of additional (fd &gt;=3) file descriptors to leave open for the child process</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">input<wbr></wbr>_fd:</span><tt class="rst-docutils literal">file</tt>-like object or numeric file descriptor</td><td class="fieldArgDesc">File descriptor for process' standard input</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">postfork<wbr></wbr>_fn:</span>Callable receiving PID as parameter</td><td class="fieldArgDesc">Function run after fork but before timeout</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_linger<wbr></wbr>_timeout</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple</td><td class="fieldArgDesc">(out, err, status)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._StartDaemonChild">
+    
+  </a>
+  <a name="_StartDaemonChild">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_StartDaemonChild</span>(errpipe_read, errpipe_write, pidpipe_read, pidpipe_write, args, env, cwd, output, fd_output, pidfile):
+    
+    <a class="headerLink" href="#_StartDaemonChild" title="ganeti.utils.process._StartDaemonChild">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Child process for starting daemon.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.process._WaitForProcess">
+    
+  </a>
+  <a name="_WaitForProcess">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_WaitForProcess</span>(child, timeout):
+    
+    <a class="headerLink" href="#_WaitForProcess" title="ganeti.utils.process._WaitForProcess">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Waits for the child to terminate or until we reach timeout.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.process._TIMEOUT_KILL">
+    
+  </a>
+  <a name="_TIMEOUT_KILL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_TIMEOUT_KILL</span> =
+    
+    <a class="headerLink" href="#_TIMEOUT_KILL" title="ganeti.utils.process._TIMEOUT_KILL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.process._TIMEOUT_NONE">
+    
+  </a>
+  <a name="_TIMEOUT_NONE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_TIMEOUT_NONE</span> =
+    
+    <a class="headerLink" href="#_TIMEOUT_NONE" title="ganeti.utils.process._TIMEOUT_NONE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.process._TIMEOUT_TERM">
+    
+  </a>
+  <a name="_TIMEOUT_TERM">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_TIMEOUT_TERM</span> =
+    
+    <a class="headerLink" href="#_TIMEOUT_TERM" title="ganeti.utils.process._TIMEOUT_TERM">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable private">
+  
+  
+  <a name="ganeti.utils.process._no_fork">
+    
+  </a>
+  <a name="_no_fork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_no_fork</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_no_fork" title="ganeti.utils.process._no_fork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

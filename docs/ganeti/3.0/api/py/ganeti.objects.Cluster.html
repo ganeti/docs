@@ -1,0 +1,3290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.objects.Cluster</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.objects.Cluster.html" class="internal-link" title="This class"><wbr></wbr>Cluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FromDict" class="internal-link" title="ganeti.objects.Cluster.FromDict"><wbr></wbr>From<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillDiskState" class="internal-link" title="ganeti.objects.Cluster.SimpleFillDiskState"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>Disk<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillHvState" class="internal-link" title="ganeti.objects.Cluster.SimpleFillHvState"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>Hv<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FillBE" class="internal-link" title="ganeti.objects.Cluster.FillBE"><wbr></wbr>Fill<wbr></wbr>BE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FillHV" class="internal-link" title="ganeti.objects.Cluster.FillHV"><wbr></wbr>Fill<wbr></wbr>HV</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FillND" class="internal-link" title="ganeti.objects.Cluster.FillND"><wbr></wbr>Fill<wbr></wbr>ND</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FillNDGroup" class="internal-link" title="ganeti.objects.Cluster.FillNDGroup"><wbr></wbr>Fill<wbr></wbr>NDGroup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetHVDefaults" class="internal-link" title="ganeti.objects.Cluster.GetHVDefaults"><wbr></wbr>Get<wbr></wbr>HVDefaults</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsDiskTemplateEnabled" class="internal-link" title="ganeti.objects.Cluster.IsDiskTemplateEnabled"><wbr></wbr>Is<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsFileStorageEnabled" class="internal-link" title="ganeti.objects.Cluster.IsFileStorageEnabled"><wbr></wbr>Is<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsSharedFileStorageEnabled" class="internal-link" title="ganeti.objects.Cluster.IsSharedFileStorageEnabled"><wbr></wbr>Is<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillBE" class="internal-link" title="ganeti.objects.Cluster.SimpleFillBE"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>BE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillDP" class="internal-link" title="ganeti.objects.Cluster.SimpleFillDP"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillHV" class="internal-link" title="ganeti.objects.Cluster.SimpleFillHV"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>HV</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillIPolicy" class="internal-link" title="ganeti.objects.Cluster.SimpleFillIPolicy"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillND" class="internal-link" title="ganeti.objects.Cluster.SimpleFillND"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>ND</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillNIC" class="internal-link" title="ganeti.objects.Cluster.SimpleFillNIC"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>NIC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SimpleFillOS" class="internal-link" title="ganeti.objects.Cluster.SimpleFillOS"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ToDict" class="internal-link" title="ganeti.objects.Cluster.ToDict"><wbr></wbr>To<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpgradeConfig" class="internal-link" title="ganeti.objects.Cluster.UpgradeConfig"><wbr></wbr>Upgrade<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#ValidateTag" class="internal-link" title="ganeti.objects.TaggableObject.ValidateTag"><wbr></wbr>Validate<wbr></wbr>Tag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.ValidatedSlots.html#GetAllSlots" class="internal-link" title="ganeti.outils.ValidatedSlots.GetAllSlots"><wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Slots</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html#__getattr__" class="internal-link" title="ganeti.objects.ConfigObject.__getattr__">__getattr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html#__repr__" class="internal-link" title="ganeti.objects.ConfigObject.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html#__setstate__" class="internal-link" title="ganeti.objects.ConfigObject.__setstate__">__setstate__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html#Copy" class="internal-link" title="ganeti.objects.ConfigObject.Copy"><wbr></wbr>Copy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html#Validate" class="internal-link" title="ganeti.objects.ConfigObject.Validate"><wbr></wbr>Validate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#AddTag" class="internal-link" title="ganeti.objects.TaggableObject.AddTag"><wbr></wbr>Add<wbr></wbr>Tag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#GetTags" class="internal-link" title="ganeti.objects.TaggableObject.GetTags"><wbr></wbr>Get<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#RemoveTag" class="internal-link" title="ganeti.objects.TaggableObject.RemoveTag"><wbr></wbr>Remove<wbr></wbr>Tag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.ValidatedSlots.html#__init__" class="internal-link" title="ganeti.outils.ValidatedSlots.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__slots__" class="internal-link" title="ganeti.objects.Cluster.__slots__">__slots__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#beparams" class="internal-link" title="ganeti.objects.Cluster.beparams">beparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#blacklisted_os" class="internal-link" title="ganeti.objects.Cluster.blacklisted_os">blacklisted<wbr></wbr>_os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#candidate_certs" class="internal-link" title="ganeti.objects.Cluster.candidate_certs">candidate<wbr></wbr>_certs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#compression_tools" class="internal-link" title="ganeti.objects.Cluster.compression_tools">compression<wbr></wbr>_tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_bridge" class="internal-link" title="ganeti.objects.Cluster.default_bridge">default<wbr></wbr>_bridge</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_hypervisor" class="internal-link" title="ganeti.objects.Cluster.default_hypervisor">default<wbr></wbr>_hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_iallocator" class="internal-link" title="ganeti.objects.Cluster.default_iallocator">default<wbr></wbr>_iallocator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#default_iallocator_params" class="internal-link" title="ganeti.objects.Cluster.default_iallocator_params">default<wbr></wbr>_iallocator<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disk_state_static" class="internal-link" title="ganeti.objects.Cluster.disk_state_static">disk<wbr></wbr>_state<wbr></wbr>_static</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#diskparams" class="internal-link" title="ganeti.objects.Cluster.diskparams">diskparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#enabled_hypervisors" class="internal-link" title="ganeti.objects.Cluster.enabled_hypervisors">enabled<wbr></wbr>_hypervisors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#enabled_user_shutdown" class="internal-link" title="ganeti.objects.Cluster.enabled_user_shutdown">enabled<wbr></wbr>_user<wbr></wbr>_shutdown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gluster_storage_dir" class="internal-link" title="ganeti.objects.Cluster.gluster_storage_dir">gluster<wbr></wbr>_storage<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hidden_os" class="internal-link" title="ganeti.objects.Cluster.hidden_os">hidden<wbr></wbr>_os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hv_state_static" class="internal-link" title="ganeti.objects.Cluster.hv_state_static">hv<wbr></wbr>_state<wbr></wbr>_static</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hvparams" class="internal-link" title="ganeti.objects.Cluster.hvparams">hvparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#install_image" class="internal-link" title="ganeti.objects.Cluster.install_image">install<wbr></wbr>_image</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#instance_communication_network" class="internal-link" title="ganeti.objects.Cluster.instance_communication_network">instance<wbr></wbr>_communication<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ipolicy" class="internal-link" title="ganeti.objects.Cluster.ipolicy">ipolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#maintain_node_health" class="internal-link" title="ganeti.objects.Cluster.maintain_node_health">maintain<wbr></wbr>_node<wbr></wbr>_health</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#master_netmask" class="internal-link" title="ganeti.objects.Cluster.master_netmask">master<wbr></wbr>_netmask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max_running_jobs" class="internal-link" title="ganeti.objects.Cluster.max_running_jobs">max<wbr></wbr>_running<wbr></wbr>_jobs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#max_tracked_jobs" class="internal-link" title="ganeti.objects.Cluster.max_tracked_jobs">max<wbr></wbr>_tracked<wbr></wbr>_jobs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#modify_etc_hosts" class="internal-link" title="ganeti.objects.Cluster.modify_etc_hosts">modify<wbr></wbr>_etc<wbr></wbr>_hosts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#modify_ssh_setup" class="internal-link" title="ganeti.objects.Cluster.modify_ssh_setup">modify<wbr></wbr>_ssh<wbr></wbr>_setup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ndparams" class="internal-link" title="ganeti.objects.Cluster.ndparams">ndparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#nicparams" class="internal-link" title="ganeti.objects.Cluster.nicparams">nicparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#os_hvp" class="internal-link" title="ganeti.objects.Cluster.os_hvp">os<wbr></wbr>_hvp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#osparams" class="internal-link" title="ganeti.objects.Cluster.osparams">osparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#osparams_private_cluster" class="internal-link" title="ganeti.objects.Cluster.osparams_private_cluster">osparams<wbr></wbr>_private<wbr></wbr>_cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#prealloc_wipe_disks" class="internal-link" title="ganeti.objects.Cluster.prealloc_wipe_disks">prealloc<wbr></wbr>_wipe<wbr></wbr>_disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#primary_ip_family" class="internal-link" title="ganeti.objects.Cluster.primary_ip_family">primary<wbr></wbr>_ip<wbr></wbr>_family</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reserved_lvs" class="internal-link" title="ganeti.objects.Cluster.reserved_lvs">reserved<wbr></wbr>_lvs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#shared_file_storage_dir" class="internal-link" title="ganeti.objects.Cluster.shared_file_storage_dir">shared<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ssh_key_bits" class="internal-link" title="ganeti.objects.Cluster.ssh_key_bits">ssh<wbr></wbr>_key<wbr></wbr>_bits</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ssh_key_type" class="internal-link" title="ganeti.objects.Cluster.ssh_key_type">ssh<wbr></wbr>_key<wbr></wbr>_type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#uid_pool" class="internal-link" title="ganeti.objects.Cluster.uid_pool">uid<wbr></wbr>_pool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#use_external_mip_script" class="internal-link" title="ganeti.objects.Cluster.use_external_mip_script">use<wbr></wbr>_external<wbr></wbr>_mip<wbr></wbr>_script</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#primary_hypervisor" class="internal-link" title="ganeti.objects.Cluster.primary_hypervisor">primary<wbr></wbr>_hypervisor</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#VALID_TAG_RE" class="internal-link" title="ganeti.objects.TaggableObject.VALID_TAG_RE">VALID<wbr></wbr>_TAG<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html#tags" class="internal-link" title="ganeti.objects.TaggableObject.tags">tags</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.objects.html" class="internal-link" title="The parent of this class">objects</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.BlockDevStatus.html" class="internal-link" title="ganeti.objects.BlockDevStatus"><wbr></wbr>Block<wbr></wbr>Dev<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Cluster.html" class="internal-link" title="ganeti.objects.Cluster"><wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfdReply.html" class="internal-link" title="ganeti.objects.ConfdReply"><wbr></wbr>Confd<wbr></wbr>Reply</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfdRequest.html" class="internal-link" title="ganeti.objects.ConfdRequest"><wbr></wbr>Confd<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigData.html" class="internal-link" title="ganeti.objects.ConfigData"><wbr></wbr>Config<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ConfigObject.html" class="internal-link" title="ganeti.objects.ConfigObject"><wbr></wbr>Config<wbr></wbr>Object</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk"><wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ExtStorage.html" class="internal-link" title="ganeti.objects.ExtStorage"><wbr></wbr>Ext<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Filter.html" class="internal-link" title="ganeti.objects.Filter"><wbr></wbr>Filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ImportExportOptions.html" class="internal-link" title="ganeti.objects.ImportExportOptions"><wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.ImportExportStatus.html" class="internal-link" title="ganeti.objects.ImportExportStatus"><wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance"><wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.InstanceConsole.html" class="internal-link" title="ganeti.objects.InstanceConsole"><wbr></wbr>Instance<wbr></wbr>Console</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.InstancePolicy.html" class="internal-link" title="ganeti.objects.InstancePolicy"><wbr></wbr>Instance<wbr></wbr>Policy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.LvmPvInfo.html" class="internal-link" title="ganeti.objects.LvmPvInfo"><wbr></wbr>Lvm<wbr></wbr>Pv<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.MasterNetworkParameters.html" class="internal-link" title="ganeti.objects.MasterNetworkParameters"><wbr></wbr>Master<wbr></wbr>Network<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.MigrationStatus.html" class="internal-link" title="ganeti.objects.MigrationStatus"><wbr></wbr>Migration<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Network.html" class="internal-link" title="ganeti.objects.Network"><wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.NIC.html" class="internal-link" title="ganeti.objects.NIC">NIC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node"><wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.NodeDiskState.html" class="internal-link" title="ganeti.objects.NodeDiskState"><wbr></wbr>Node<wbr></wbr>Disk<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup"><wbr></wbr>Node<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.NodeHvState.html" class="internal-link" title="ganeti.objects.NodeHvState"><wbr></wbr>Node<wbr></wbr>Hv<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.OS.html" class="internal-link" title="ganeti.objects.OS">OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.QueryFieldDefinition.html" class="internal-link" title="ganeti.objects.QueryFieldDefinition"><wbr></wbr>Query<wbr></wbr>Field<wbr></wbr>Definition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.QueryFieldsRequest.html" class="internal-link" title="ganeti.objects.QueryFieldsRequest"><wbr></wbr>Query<wbr></wbr>Fields<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.QueryFieldsResponse.html" class="internal-link" title="ganeti.objects.QueryFieldsResponse"><wbr></wbr>Query<wbr></wbr>Fields<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.QueryResponse.html" class="internal-link" title="ganeti.objects.QueryResponse"><wbr></wbr>Query<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.SerializableConfigParser.html" class="internal-link" title="ganeti.objects.SerializableConfigParser"><wbr></wbr>Serializable<wbr></wbr>Config<wbr></wbr>Parser</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.TaggableObject.html" class="internal-link" title="ganeti.objects.TaggableObject"><wbr></wbr>Taggable<wbr></wbr>Object</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects._QueryResponseBase.html" class="internal-link" title="ganeti.objects._QueryResponseBase">_<wbr></wbr>Query<wbr></wbr>Response<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#FillDict" class="internal-link" title="ganeti.objects.FillDict"><wbr></wbr>Fill<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#FillDiskParams" class="internal-link" title="ganeti.objects.FillDiskParams"><wbr></wbr>Fill<wbr></wbr>Disk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#FillIPolicy" class="internal-link" title="ganeti.objects.FillIPolicy"><wbr></wbr>Fill<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#GetOSImage" class="internal-link" title="ganeti.objects.GetOSImage"><wbr></wbr>Get<wbr></wbr>OSImage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#MakeEmptyIPolicy" class="internal-link" title="ganeti.objects.MakeEmptyIPolicy"><wbr></wbr>Make<wbr></wbr>Empty<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#PutOSImage" class="internal-link" title="ganeti.objects.PutOSImage"><wbr></wbr>Put<wbr></wbr>OSImage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#UpgradeBeParams" class="internal-link" title="ganeti.objects.UpgradeBeParams"><wbr></wbr>Upgrade<wbr></wbr>Be<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#UpgradeDiskParams" class="internal-link" title="ganeti.objects.UpgradeDiskParams"><wbr></wbr>Upgrade<wbr></wbr>Disk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#UpgradeGroupedParams" class="internal-link" title="ganeti.objects.UpgradeGroupedParams"><wbr></wbr>Upgrade<wbr></wbr>Grouped<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#UpgradeNDParams" class="internal-link" title="ganeti.objects.UpgradeNDParams"><wbr></wbr>Upgrade<wbr></wbr>NDParams</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#_TIMESTAMPS" class="internal-link" title="ganeti.objects._TIMESTAMPS">_TIMESTAMPS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html#_UUID" class="internal-link" title="ganeti.objects._UUID">_UUID</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code><wbr></wbr>.<code><a href="ganeti.objects.Cluster.html" class="internal-link" title="ganeti.objects.Cluster">Cluster</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Cluster</span>(<a href="ganeti.objects.TaggableObject.html" class="internal-link" title="ganeti.objects.TaggableObject">TaggableObject</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.objects.Cluster">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Config object representing the cluster.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id619">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#FromDict" class="internal-link" title="ganeti.objects.Cluster.FromDict"><wbr></wbr>From<wbr></wbr>Dict</a></code></td>
+    <td>Custom function for cluster.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#SimpleFillDiskState" class="internal-link" title="ganeti.objects.Cluster.SimpleFillDiskState"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>Disk<wbr></wbr>State</a></code></td>
+    <td>Fill an disk_state sub dict with cluster defaults.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#SimpleFillHvState" class="internal-link" title="ganeti.objects.Cluster.SimpleFillHvState"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>Hv<wbr></wbr>State</a></code></td>
+    <td>Fill an hv_state sub dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FillBE" class="internal-link" title="ganeti.objects.Cluster.FillBE"><wbr></wbr>Fill<wbr></wbr>BE</a></code></td>
+    <td>Fill an instance's beparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FillHV" class="internal-link" title="ganeti.objects.Cluster.FillHV"><wbr></wbr>Fill<wbr></wbr>HV</a></code></td>
+    <td>Fill an instance's hvparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FillND" class="internal-link" title="ganeti.objects.Cluster.FillND"><wbr></wbr>Fill<wbr></wbr>ND</a></code></td>
+    <td>Return filled out ndparams for <code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code> and <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FillNDGroup" class="internal-link" title="ganeti.objects.Cluster.FillNDGroup"><wbr></wbr>Fill<wbr></wbr>NDGroup</a></code></td>
+    <td>Return filled out ndparams for just <code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetHVDefaults" class="internal-link" title="ganeti.objects.Cluster.GetHVDefaults"><wbr></wbr>Get<wbr></wbr>HVDefaults</a></code></td>
+    <td>Get the default hypervisor parameters for the cluster.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#IsDiskTemplateEnabled" class="internal-link" title="ganeti.objects.Cluster.IsDiskTemplateEnabled"><wbr></wbr>Is<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Enabled</a></code></td>
+    <td>Checks if a particular disk template is enabled.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#IsFileStorageEnabled" class="internal-link" title="ganeti.objects.Cluster.IsFileStorageEnabled"><wbr></wbr>Is<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Enabled</a></code></td>
+    <td>Checks if file storage is enabled.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#IsSharedFileStorageEnabled" class="internal-link" title="ganeti.objects.Cluster.IsSharedFileStorageEnabled"><wbr></wbr>Is<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Enabled</a></code></td>
+    <td>Checks if shared file storage is enabled.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillBE" class="internal-link" title="ganeti.objects.Cluster.SimpleFillBE"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>BE</a></code></td>
+    <td>Fill a given beparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillDP" class="internal-link" title="ganeti.objects.Cluster.SimpleFillDP"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>DP</a></code></td>
+    <td>Fill a given diskparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillHV" class="internal-link" title="ganeti.objects.Cluster.SimpleFillHV"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>HV</a></code></td>
+    <td>Fill a given hvparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillIPolicy" class="internal-link" title="ganeti.objects.Cluster.SimpleFillIPolicy"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>IPolicy</a></code></td>
+    <td>Fill instance policy dict with defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillND" class="internal-link" title="ganeti.objects.Cluster.SimpleFillND"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>ND</a></code></td>
+    <td>Fill a given ndparams dict with defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillNIC" class="internal-link" title="ganeti.objects.Cluster.SimpleFillNIC"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>NIC</a></code></td>
+    <td>Fill a given nicparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SimpleFillOS" class="internal-link" title="ganeti.objects.Cluster.SimpleFillOS"><wbr></wbr>Simple<wbr></wbr>Fill<wbr></wbr>OS</a></code></td>
+    <td>Fill an instance's osparams dict with cluster defaults.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ToDict" class="internal-link" title="ganeti.objects.Cluster.ToDict"><wbr></wbr>To<wbr></wbr>Dict</a></code></td>
+    <td>Custom function for cluster.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpgradeConfig" class="internal-link" title="ganeti.objects.Cluster.UpgradeConfig"><wbr></wbr>Upgrade<wbr></wbr>Config</a></code></td>
+    <td>Fill defaults for missing configuration values.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#__slots__" class="internal-link" title="ganeti.objects.Cluster.__slots__">__slots__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#beparams" class="internal-link" title="ganeti.objects.Cluster.beparams">beparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#blacklisted_os" class="internal-link" title="ganeti.objects.Cluster.blacklisted_os">blacklisted<wbr></wbr>_os</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#candidate_certs" class="internal-link" title="ganeti.objects.Cluster.candidate_certs">candidate<wbr></wbr>_certs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#compression_tools" class="internal-link" title="ganeti.objects.Cluster.compression_tools">compression<wbr></wbr>_tools</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#default_bridge" class="internal-link" title="ganeti.objects.Cluster.default_bridge">default<wbr></wbr>_bridge</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#default_hypervisor" class="internal-link" title="ganeti.objects.Cluster.default_hypervisor">default<wbr></wbr>_hypervisor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#default_iallocator" class="internal-link" title="ganeti.objects.Cluster.default_iallocator">default<wbr></wbr>_iallocator</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#default_iallocator_params" class="internal-link" title="ganeti.objects.Cluster.default_iallocator_params">default<wbr></wbr>_iallocator<wbr></wbr>_params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#disk_state_static" class="internal-link" title="ganeti.objects.Cluster.disk_state_static">disk<wbr></wbr>_state<wbr></wbr>_static</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#diskparams" class="internal-link" title="ganeti.objects.Cluster.diskparams">diskparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#enabled_hypervisors" class="internal-link" title="ganeti.objects.Cluster.enabled_hypervisors">enabled<wbr></wbr>_hypervisors</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#enabled_user_shutdown" class="internal-link" title="ganeti.objects.Cluster.enabled_user_shutdown">enabled<wbr></wbr>_user<wbr></wbr>_shutdown</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#gluster_storage_dir" class="internal-link" title="ganeti.objects.Cluster.gluster_storage_dir">gluster<wbr></wbr>_storage<wbr></wbr>_dir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hidden_os" class="internal-link" title="ganeti.objects.Cluster.hidden_os">hidden<wbr></wbr>_os</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hv_state_static" class="internal-link" title="ganeti.objects.Cluster.hv_state_static">hv<wbr></wbr>_state<wbr></wbr>_static</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hvparams" class="internal-link" title="ganeti.objects.Cluster.hvparams">hvparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#install_image" class="internal-link" title="ganeti.objects.Cluster.install_image">install<wbr></wbr>_image</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#instance_communication_network" class="internal-link" title="ganeti.objects.Cluster.instance_communication_network">instance<wbr></wbr>_communication<wbr></wbr>_network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ipolicy" class="internal-link" title="ganeti.objects.Cluster.ipolicy">ipolicy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#maintain_node_health" class="internal-link" title="ganeti.objects.Cluster.maintain_node_health">maintain<wbr></wbr>_node<wbr></wbr>_health</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#master_netmask" class="internal-link" title="ganeti.objects.Cluster.master_netmask">master<wbr></wbr>_netmask</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#max_running_jobs" class="internal-link" title="ganeti.objects.Cluster.max_running_jobs">max<wbr></wbr>_running<wbr></wbr>_jobs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#max_tracked_jobs" class="internal-link" title="ganeti.objects.Cluster.max_tracked_jobs">max<wbr></wbr>_tracked<wbr></wbr>_jobs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#modify_etc_hosts" class="internal-link" title="ganeti.objects.Cluster.modify_etc_hosts">modify<wbr></wbr>_etc<wbr></wbr>_hosts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#modify_ssh_setup" class="internal-link" title="ganeti.objects.Cluster.modify_ssh_setup">modify<wbr></wbr>_ssh<wbr></wbr>_setup</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ndparams" class="internal-link" title="ganeti.objects.Cluster.ndparams">ndparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#nicparams" class="internal-link" title="ganeti.objects.Cluster.nicparams">nicparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#os_hvp" class="internal-link" title="ganeti.objects.Cluster.os_hvp">os<wbr></wbr>_hvp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#osparams" class="internal-link" title="ganeti.objects.Cluster.osparams">osparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#osparams_private_cluster" class="internal-link" title="ganeti.objects.Cluster.osparams_private_cluster">osparams<wbr></wbr>_private<wbr></wbr>_cluster</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#prealloc_wipe_disks" class="internal-link" title="ganeti.objects.Cluster.prealloc_wipe_disks">prealloc<wbr></wbr>_wipe<wbr></wbr>_disks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#primary_ip_family" class="internal-link" title="ganeti.objects.Cluster.primary_ip_family">primary<wbr></wbr>_ip<wbr></wbr>_family</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#reserved_lvs" class="internal-link" title="ganeti.objects.Cluster.reserved_lvs">reserved<wbr></wbr>_lvs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#shared_file_storage_dir" class="internal-link" title="ganeti.objects.Cluster.shared_file_storage_dir">shared<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ssh_key_bits" class="internal-link" title="ganeti.objects.Cluster.ssh_key_bits">ssh<wbr></wbr>_key<wbr></wbr>_bits</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ssh_key_type" class="internal-link" title="ganeti.objects.Cluster.ssh_key_type">ssh<wbr></wbr>_key<wbr></wbr>_type</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#uid_pool" class="internal-link" title="ganeti.objects.Cluster.uid_pool">uid<wbr></wbr>_pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#use_external_mip_script" class="internal-link" title="ganeti.objects.Cluster.use_external_mip_script">use<wbr></wbr>_external<wbr></wbr>_mip<wbr></wbr>_script</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#primary_hypervisor" class="internal-link" title="ganeti.objects.Cluster.primary_hypervisor">primary<wbr></wbr>_hypervisor</a></code></td>
+    <td>The first hypervisor is the primary.</td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.objects.TaggableObject.html" class="internal-link" title="ganeti.objects.TaggableObject">TaggableObject</a></code>:
+            </p>
+            <table class="children sortable" id="id620">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#ValidateTag" class="internal-link" title="ganeti.objects.TaggableObject.ValidateTag"><wbr></wbr>Validate<wbr></wbr>Tag</a></code></td>
+    <td>Check if a tag is valid.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#AddTag" class="internal-link" title="ganeti.objects.TaggableObject.AddTag"><wbr></wbr>Add<wbr></wbr>Tag</a></code></td>
+    <td>Add a new tag.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#GetTags" class="internal-link" title="ganeti.objects.TaggableObject.GetTags"><wbr></wbr>Get<wbr></wbr>Tags</a></code></td>
+    <td>Return the tags list.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#RemoveTag" class="internal-link" title="ganeti.objects.TaggableObject.RemoveTag"><wbr></wbr>Remove<wbr></wbr>Tag</a></code></td>
+    <td>Remove a tag.</td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#VALID_TAG_RE" class="internal-link" title="ganeti.objects.TaggableObject.VALID_TAG_RE">VALID<wbr></wbr>_TAG<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.objects.TaggableObject.html#tags" class="internal-link" title="ganeti.objects.TaggableObject.tags">tags</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.objects.ConfigObject.html" class="internal-link" title="ganeti.objects.ConfigObject">ConfigObject</a></code> (via <code><a href="ganeti.objects.TaggableObject.html" class="internal-link" title="ganeti.objects.TaggableObject">TaggableObject</a></code>):
+            </p>
+            <table class="children sortable" id="id621">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.ConfigObject.html#__getattr__" class="internal-link" title="ganeti.objects.ConfigObject.__getattr__">__getattr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.ConfigObject.html#__repr__" class="internal-link" title="ganeti.objects.ConfigObject.__repr__">__repr__</a></code></td>
+    <td>Implement __repr__ for ConfigObjects.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.ConfigObject.html#__setstate__" class="internal-link" title="ganeti.objects.ConfigObject.__setstate__">__setstate__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.ConfigObject.html#Copy" class="internal-link" title="ganeti.objects.ConfigObject.Copy"><wbr></wbr>Copy</a></code></td>
+    <td>Makes a deep copy of the current object and its children.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.objects.ConfigObject.html#Validate" class="internal-link" title="ganeti.objects.ConfigObject.Validate"><wbr></wbr>Validate</a></code></td>
+    <td>Validates the slots.</td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.outils.ValidatedSlots.html" class="internal-link" title="ganeti.outils.ValidatedSlots">ValidatedSlots</a></code> (via <code><a href="ganeti.objects.TaggableObject.html" class="internal-link" title="ganeti.objects.TaggableObject">TaggableObject</a></code>, <code><a href="ganeti.objects.ConfigObject.html" class="internal-link" title="ganeti.objects.ConfigObject">ConfigObject</a></code>):
+            </p>
+            <table class="children sortable" id="id622">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.outils.ValidatedSlots.html#GetAllSlots" class="internal-link" title="ganeti.outils.ValidatedSlots.GetAllSlots"><wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Slots</a></code></td>
+    <td>Compute the list of all declared slots for a class.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.outils.ValidatedSlots.html#__init__" class="internal-link" title="ganeti.outils.ValidatedSlots.__init__">__init__</a></code></td>
+    <td>Constructor for BaseOpCode.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.objects.Cluster.FromDict">
+    
+  </a>
+  <a name="FromDict">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">FromDict</span>(cls, val):
+    
+    <a class="headerLink" href="#FromDict" title="ganeti.objects.Cluster.FromDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.objects.TaggableObject.html#FromDict" class="internal-link">ganeti.objects.TaggableObject.FromDict</a></code></div>
+    <div><p>Custom function for cluster.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillDiskState">
+    
+  </a>
+  <a name="SimpleFillDiskState">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillDiskState</span>(disk_state):
+    
+    <a class="headerLink" href="#SimpleFillDiskState" title="ganeti.objects.Cluster.SimpleFillDiskState">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill an disk_state sub dict with cluster defaults.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillHvState">
+    
+  </a>
+  <a name="SimpleFillHvState">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillHvState</span>(hv_state):
+    
+    <a class="headerLink" href="#SimpleFillHvState" title="ganeti.objects.Cluster.SimpleFillHvState">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill an hv_state sub dict with cluster defaults.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.FillBE">
+    
+  </a>
+  <a name="FillBE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FillBE</span>(self, instance):
+    
+    <a class="headerLink" href="#FillBE" title="ganeti.objects.Cluster.FillBE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill an instance's beparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance parameter to fill</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the instance's beparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.FillHV">
+    
+  </a>
+  <a name="FillHV">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FillHV</span>(self, instance, skip_globals=False):
+    
+    <a class="headerLink" href="#FillHV" title="ganeti.objects.Cluster.FillHV">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill an instance's hvparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance parameter to fill</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">skip<wbr></wbr>_globals:</span>boolean</td><td class="fieldArgDesc">if True, the global hypervisor parameters will not be filled</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the instance's hvparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.FillND">
+    
+  </a>
+  <a name="FillND">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FillND</span>(self, node, nodegroup):
+    
+    <a class="headerLink" href="#FillND" title="ganeti.objects.Cluster.FillND">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return filled out ndparams for <code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code> and <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">A Node object to fill</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodegroup:</span><code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code></td><td class="fieldArgDesc">A Node object to fill @return a copy of the node's ndparams with defaults filled</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.FillNDGroup">
+    
+  </a>
+  <a name="FillNDGroup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FillNDGroup</span>(self, nodegroup):
+    
+    <a class="headerLink" href="#FillNDGroup" title="ganeti.objects.Cluster.FillNDGroup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return filled out ndparams for just <code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code></p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodegroup:</span><code><a href="ganeti.objects.NodeGroup.html" class="internal-link" title="ganeti.objects.NodeGroup">objects.NodeGroup</a></code></td><td class="fieldArgDesc">A Node object to fill @return a copy of the node group's ndparams with defaults filled</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.GetHVDefaults">
+    
+  </a>
+  <a name="GetHVDefaults">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetHVDefaults</span>(self, hypervisor, os_name=None, skip_keys=None):
+    
+    <a class="headerLink" href="#GetHVDefaults" title="ganeti.objects.Cluster.GetHVDefaults">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the default hypervisor parameters for the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hypervisor</span></td><td class="fieldArgDesc">the hypervisor name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_name</span></td><td class="fieldArgDesc">if specified, we'll also update the defaults for this OS</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">skip<wbr></wbr>_keys</span></td><td class="fieldArgDesc">if passed, list of keys not to use</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the defaults dict</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.IsDiskTemplateEnabled">
+    
+  </a>
+  <a name="IsDiskTemplateEnabled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsDiskTemplateEnabled</span>(self, disk_template):
+    
+    <a class="headerLink" href="#IsDiskTemplateEnabled" title="ganeti.objects.Cluster.IsDiskTemplateEnabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a particular disk template is enabled.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.IsFileStorageEnabled">
+    
+  </a>
+  <a name="IsFileStorageEnabled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsFileStorageEnabled</span>(self):
+    
+    <a class="headerLink" href="#IsFileStorageEnabled" title="ganeti.objects.Cluster.IsFileStorageEnabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if file storage is enabled.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.IsSharedFileStorageEnabled">
+    
+  </a>
+  <a name="IsSharedFileStorageEnabled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsSharedFileStorageEnabled</span>(self):
+    
+    <a class="headerLink" href="#IsSharedFileStorageEnabled" title="ganeti.objects.Cluster.IsSharedFileStorageEnabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if shared file storage is enabled.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillBE">
+    
+  </a>
+  <a name="SimpleFillBE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillBE</span>(self, beparams):
+    
+    <a class="headerLink" href="#SimpleFillBE" title="ganeti.objects.Cluster.SimpleFillBE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill a given beparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">beparams:</span>dict</td><td class="fieldArgDesc">the dict to fill</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the passed in beparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillDP">
+    
+  </a>
+  <a name="SimpleFillDP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillDP</span>(self, diskparams):
+    
+    <a class="headerLink" href="#SimpleFillDP" title="ganeti.objects.Cluster.SimpleFillDP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill a given diskparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">diskparams</span></td><td class="fieldArgDesc">The diskparams</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The defaults dict</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillHV">
+    
+  </a>
+  <a name="SimpleFillHV">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillHV</span>(self, hv_name, os_name, hvparams, skip_globals=False):
+    
+    <a class="headerLink" href="#SimpleFillHV" title="ganeti.objects.Cluster.SimpleFillHV">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill a given hvparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hv<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the hypervisor to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the OS to use for overriding the hypervisor defaults</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hvparams</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">skip<wbr></wbr>_globals:</span>boolean</td><td class="fieldArgDesc">if True, the global hypervisor parameters will not be filled</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the given hvparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillIPolicy">
+    
+  </a>
+  <a name="SimpleFillIPolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillIPolicy</span>(self, ipolicy):
+    
+    <a class="headerLink" href="#SimpleFillIPolicy" title="ganeti.objects.Cluster.SimpleFillIPolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill instance policy dict with defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">the dict to fill</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of passed ipolicy with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillND">
+    
+  </a>
+  <a name="SimpleFillND">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillND</span>(self, ndparams):
+    
+    <a class="headerLink" href="#SimpleFillND" title="ganeti.objects.Cluster.SimpleFillND">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill a given ndparams dict with defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ndparams:</span>dict</td><td class="fieldArgDesc">the dict to fill</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the passed in ndparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillNIC">
+    
+  </a>
+  <a name="SimpleFillNIC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillNIC</span>(self, nicparams):
+    
+    <a class="headerLink" href="#SimpleFillNIC" title="ganeti.objects.Cluster.SimpleFillNIC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill a given nicparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nicparams:</span>dict</td><td class="fieldArgDesc">the dict to fill</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the passed in nicparams with missing keys filled from the cluster defaults</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.SimpleFillOS">
+    
+  </a>
+  <a name="SimpleFillOS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SimpleFillOS</span>(self, os_name, os_params_public, os_params_private=None, os_params_secret=None):
+    
+    <a class="headerLink" href="#SimpleFillOS" title="ganeti.objects.Cluster.SimpleFillOS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Fill an instance's osparams dict with cluster defaults.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the OS name to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_params<wbr></wbr>_public:</span>dict</td><td class="fieldArgDesc">the dict to fill with default values</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_params<wbr></wbr>_private:</span>dict</td><td class="fieldArgDesc">the dict with private fields to fill with default values. Not passing this field results in no private fields being added to the return value. Private fields will be wrapped in <code><a href="ganeti.serializer.Private.html" class="internal-link" title="ganeti.serializer.Private">Private</a></code> objects.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_params<wbr></wbr>_secret:</span>dict</td><td class="fieldArgDesc">the dict with secret fields to fill with default values. Not passing this field results in no secret fields being added to the return value. Private fields will be wrapped in <code><a href="ganeti.serializer.Private.html" class="internal-link" title="ganeti.serializer.Private">Private</a></code> objects.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a copy of the instance's osparams with missing keys filled from the cluster defaults. Private and secret parameters are not included unless the respective optional parameters are supplied.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.ToDict">
+    
+  </a>
+  <a name="ToDict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ToDict</span>(self, _with_private=False):
+    
+    <a class="headerLink" href="#ToDict" title="ganeti.objects.Cluster.ToDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.objects.TaggableObject.html#ToDict" class="internal-link">ganeti.objects.TaggableObject.ToDict</a></code></div>
+    <div><p>Custom function for cluster.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.objects.Cluster.UpgradeConfig">
+    
+  </a>
+  <a name="UpgradeConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpgradeConfig</span>(self):
+    
+    <a class="headerLink" href="#UpgradeConfig" title="ganeti.objects.Cluster.UpgradeConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.objects.ConfigObject.html#UpgradeConfig" class="internal-link">ganeti.objects.ConfigObject.UpgradeConfig</a></code></div>
+    <div><p>Fill defaults for missing configuration values.</p>
+</div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="ganeti.objects.Cluster.__slots__">
+    
+  </a>
+  <a name="__slots__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__slots__</span> =
+    
+    <a class="headerLink" href="#__slots__" title="ganeti.objects.Cluster.__slots__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.objects.TaggableObject.html#__slots__" class="internal-link">ganeti.objects.TaggableObject.__slots__</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.beparams">
+    
+  </a>
+  <a name="beparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">beparams</span> =
+    
+    <a class="headerLink" href="#beparams" title="ganeti.objects.Cluster.beparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.blacklisted_os">
+    
+  </a>
+  <a name="blacklisted_os">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">blacklisted_os</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#blacklisted_os" title="ganeti.objects.Cluster.blacklisted_os">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.candidate_certs">
+    
+  </a>
+  <a name="candidate_certs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">candidate_certs</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#candidate_certs" title="ganeti.objects.Cluster.candidate_certs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.compression_tools">
+    
+  </a>
+  <a name="compression_tools">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">compression_tools</span> =
+    
+    <a class="headerLink" href="#compression_tools" title="ganeti.objects.Cluster.compression_tools">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.default_bridge">
+    
+  </a>
+  <a name="default_bridge">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">default_bridge</span> =
+    
+    <a class="headerLink" href="#default_bridge" title="ganeti.objects.Cluster.default_bridge">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.default_hypervisor">
+    
+  </a>
+  <a name="default_hypervisor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">default_hypervisor</span> =
+    
+    <a class="headerLink" href="#default_hypervisor" title="ganeti.objects.Cluster.default_hypervisor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.default_iallocator">
+    
+  </a>
+  <a name="default_iallocator">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">default_iallocator</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#default_iallocator" title="ganeti.objects.Cluster.default_iallocator">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.default_iallocator_params">
+    
+  </a>
+  <a name="default_iallocator_params">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">default_iallocator_params</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#default_iallocator_params" title="ganeti.objects.Cluster.default_iallocator_params">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.disk_state_static">
+    
+  </a>
+  <a name="disk_state_static">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">disk_state_static</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#disk_state_static" title="ganeti.objects.Cluster.disk_state_static">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.diskparams">
+    
+  </a>
+  <a name="diskparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">diskparams</span> =
+    
+    <a class="headerLink" href="#diskparams" title="ganeti.objects.Cluster.diskparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.enabled_hypervisors">
+    
+  </a>
+  <a name="enabled_hypervisors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">enabled_hypervisors</span> =
+    
+    <a class="headerLink" href="#enabled_hypervisors" title="ganeti.objects.Cluster.enabled_hypervisors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.enabled_user_shutdown">
+    
+  </a>
+  <a name="enabled_user_shutdown">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">enabled_user_shutdown</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#enabled_user_shutdown" title="ganeti.objects.Cluster.enabled_user_shutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.gluster_storage_dir">
+    
+  </a>
+  <a name="gluster_storage_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">gluster_storage_dir</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#gluster_storage_dir" title="ganeti.objects.Cluster.gluster_storage_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.hidden_os">
+    
+  </a>
+  <a name="hidden_os">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hidden_os</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#hidden_os" title="ganeti.objects.Cluster.hidden_os">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.hv_state_static">
+    
+  </a>
+  <a name="hv_state_static">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hv_state_static</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#hv_state_static" title="ganeti.objects.Cluster.hv_state_static">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.hvparams">
+    
+  </a>
+  <a name="hvparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hvparams</span> =
+    
+    <a class="headerLink" href="#hvparams" title="ganeti.objects.Cluster.hvparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.install_image">
+    
+  </a>
+  <a name="install_image">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">install_image</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#install_image" title="ganeti.objects.Cluster.install_image">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.instance_communication_network">
+    
+  </a>
+  <a name="instance_communication_network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">instance_communication_network</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#instance_communication_network" title="ganeti.objects.Cluster.instance_communication_network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.ipolicy">
+    
+  </a>
+  <a name="ipolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ipolicy</span> =
+    
+    <a class="headerLink" href="#ipolicy" title="ganeti.objects.Cluster.ipolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.maintain_node_health">
+    
+  </a>
+  <a name="maintain_node_health">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">maintain_node_health</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#maintain_node_health" title="ganeti.objects.Cluster.maintain_node_health">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.master_netmask">
+    
+  </a>
+  <a name="master_netmask">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">master_netmask</span> =
+    
+    <a class="headerLink" href="#master_netmask" title="ganeti.objects.Cluster.master_netmask">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.max_running_jobs">
+    
+  </a>
+  <a name="max_running_jobs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">max_running_jobs</span> =
+    
+    <a class="headerLink" href="#max_running_jobs" title="ganeti.objects.Cluster.max_running_jobs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.max_tracked_jobs">
+    
+  </a>
+  <a name="max_tracked_jobs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">max_tracked_jobs</span> =
+    
+    <a class="headerLink" href="#max_tracked_jobs" title="ganeti.objects.Cluster.max_tracked_jobs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.modify_etc_hosts">
+    
+  </a>
+  <a name="modify_etc_hosts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">modify_etc_hosts</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#modify_etc_hosts" title="ganeti.objects.Cluster.modify_etc_hosts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.modify_ssh_setup">
+    
+  </a>
+  <a name="modify_ssh_setup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">modify_ssh_setup</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#modify_ssh_setup" title="ganeti.objects.Cluster.modify_ssh_setup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.ndparams">
+    
+  </a>
+  <a name="ndparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ndparams</span> =
+    
+    <a class="headerLink" href="#ndparams" title="ganeti.objects.Cluster.ndparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.nicparams">
+    
+  </a>
+  <a name="nicparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">nicparams</span> =
+    
+    <a class="headerLink" href="#nicparams" title="ganeti.objects.Cluster.nicparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.os_hvp">
+    
+  </a>
+  <a name="os_hvp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">os_hvp</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#os_hvp" title="ganeti.objects.Cluster.os_hvp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.osparams">
+    
+  </a>
+  <a name="osparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">osparams</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#osparams" title="ganeti.objects.Cluster.osparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.osparams_private_cluster">
+    
+  </a>
+  <a name="osparams_private_cluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">osparams_private_cluster</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#osparams_private_cluster" title="ganeti.objects.Cluster.osparams_private_cluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.prealloc_wipe_disks">
+    
+  </a>
+  <a name="prealloc_wipe_disks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">prealloc_wipe_disks</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#prealloc_wipe_disks" title="ganeti.objects.Cluster.prealloc_wipe_disks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.primary_ip_family">
+    
+  </a>
+  <a name="primary_ip_family">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">primary_ip_family</span> =
+    
+    <a class="headerLink" href="#primary_ip_family" title="ganeti.objects.Cluster.primary_ip_family">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.reserved_lvs">
+    
+  </a>
+  <a name="reserved_lvs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">reserved_lvs</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#reserved_lvs" title="ganeti.objects.Cluster.reserved_lvs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.shared_file_storage_dir">
+    
+  </a>
+  <a name="shared_file_storage_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">shared_file_storage_dir</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#shared_file_storage_dir" title="ganeti.objects.Cluster.shared_file_storage_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.ssh_key_bits">
+    
+  </a>
+  <a name="ssh_key_bits">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ssh_key_bits</span> =
+    
+    <a class="headerLink" href="#ssh_key_bits" title="ganeti.objects.Cluster.ssh_key_bits">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.ssh_key_type">
+    
+  </a>
+  <a name="ssh_key_type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ssh_key_type</span> =
+    
+    <a class="headerLink" href="#ssh_key_type" title="ganeti.objects.Cluster.ssh_key_type">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.uid_pool">
+    
+  </a>
+  <a name="uid_pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">uid_pool</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#uid_pool" title="ganeti.objects.Cluster.uid_pool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.objects.Cluster.use_external_mip_script">
+    
+  </a>
+  <a name="use_external_mip_script">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">use_external_mip_script</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#use_external_mip_script" title="ganeti.objects.Cluster.use_external_mip_script">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="ganeti.objects.Cluster.primary_hypervisor">
+    
+  </a>
+  <a name="primary_hypervisor">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">primary_hypervisor</span> =
+    
+    <a class="headerLink" href="#primary_hypervisor" title="ganeti.objects.Cluster.primary_hypervisor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>The first hypervisor is the primary.</p>
+<p>Useful, for example, for <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">Node</a></code>'s hv/disk state.</p>
+</div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

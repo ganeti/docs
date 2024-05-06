@@ -1,0 +1,2811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cli_opts.CliOption</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="This class"><wbr></wbr>Cli<wbr></wbr>Option</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ATTRS" class="internal-link" title="ganeti.cli_opts.CliOption.ATTRS">ATTRS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TYPE_CHECKER" class="internal-link" title="ganeti.cli_opts.CliOption.TYPE_CHECKER">TYPE<wbr></wbr>_CHECKER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TYPES" class="internal-link" title="ganeti.cli_opts.CliOption.TYPES">TYPES</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.cli_opts.html" class="internal-link" title="The parent of this class">cli<wbr></wbr>_opts</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption"><wbr></wbr>Cli<wbr></wbr>Option</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_bool" class="internal-link" title="ganeti.cli_opts.check_bool">check<wbr></wbr>_bool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_filteraction" class="internal-link" title="ganeti.cli_opts.check_filteraction">check<wbr></wbr>_filteraction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_ident_key_val" class="internal-link" title="ganeti.cli_opts.check_ident_key_val">check<wbr></wbr>_ident<wbr></wbr>_key<wbr></wbr>_val</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_json" class="internal-link" title="ganeti.cli_opts.check_json">check<wbr></wbr>_json</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_key_private_val" class="internal-link" title="ganeti.cli_opts.check_key_private_val">check<wbr></wbr>_key<wbr></wbr>_private<wbr></wbr>_val</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_key_val" class="internal-link" title="ganeti.cli_opts.check_key_val">check<wbr></wbr>_key<wbr></wbr>_val</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_list" class="internal-link" title="ganeti.cli_opts.check_list">check<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_maybefloat" class="internal-link" title="ganeti.cli_opts.check_maybefloat">check<wbr></wbr>_maybefloat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_multilist_ident_key_val" class="internal-link" title="ganeti.cli_opts.check_multilist_ident_key_val">check<wbr></wbr>_multilist<wbr></wbr>_ident<wbr></wbr>_key<wbr></wbr>_val</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#check_unit" class="internal-link" title="ganeti.cli_opts.check_unit">check<wbr></wbr>_unit</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_PriorityOptionCb" class="internal-link" title="ganeti.cli_opts._PriorityOptionCb">_<wbr></wbr>Priority<wbr></wbr>Option<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_SplitIdentKeyVal" class="internal-link" title="ganeti.cli_opts._SplitIdentKeyVal">_<wbr></wbr>Split<wbr></wbr>Ident<wbr></wbr>Key<wbr></wbr>Val</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_SplitKeyVal" class="internal-link" title="ganeti.cli_opts._SplitKeyVal">_<wbr></wbr>Split<wbr></wbr>Key<wbr></wbr>Val</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_SplitListKeyVal" class="internal-link" title="ganeti.cli_opts._SplitListKeyVal">_<wbr></wbr>Split<wbr></wbr>List<wbr></wbr>Key<wbr></wbr>Val</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ABSOLUTE_OPT" class="internal-link" title="ganeti.cli_opts.ABSOLUTE_OPT">ABSOLUTE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ADD_RESERVED_IPS_OPT" class="internal-link" title="ganeti.cli_opts.ADD_RESERVED_IPS_OPT">ADD<wbr></wbr>_RESERVED<wbr></wbr>_IPS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ADD_UIDS_OPT" class="internal-link" title="ganeti.cli_opts.ADD_UIDS_OPT">ADD<wbr></wbr>_UIDS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ALL_OPT" class="internal-link" title="ganeti.cli_opts.ALL_OPT">ALL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ALLOC_POLICY_OPT" class="internal-link" title="ganeti.cli_opts.ALLOC_POLICY_OPT">ALLOC<wbr></wbr>_POLICY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ALLOCATABLE_OPT" class="internal-link" title="ganeti.cli_opts.ALLOCATABLE_OPT">ALLOCATABLE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ALLOW_FAILOVER_OPT" class="internal-link" title="ganeti.cli_opts.ALLOW_FAILOVER_OPT">ALLOW<wbr></wbr>_FAILOVER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#AUTO_PROMOTE_OPT" class="internal-link" title="ganeti.cli_opts.AUTO_PROMOTE_OPT">AUTO<wbr></wbr>_PROMOTE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#AUTO_REPLACE_OPT" class="internal-link" title="ganeti.cli_opts.AUTO_REPLACE_OPT">AUTO<wbr></wbr>_REPLACE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#BACKEND_OPT" class="internal-link" title="ganeti.cli_opts.BACKEND_OPT">BACKEND<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#BLK_OS_OPT" class="internal-link" title="ganeti.cli_opts.BLK_OS_OPT">BLK<wbr></wbr>_OS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CAPAB_MASTER_OPT" class="internal-link" title="ganeti.cli_opts.CAPAB_MASTER_OPT">CAPAB<wbr></wbr>_MASTER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CAPAB_VM_OPT" class="internal-link" title="ganeti.cli_opts.CAPAB_VM_OPT">CAPAB<wbr></wbr>_VM<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CLEANUP_OPT" class="internal-link" title="ganeti.cli_opts.CLEANUP_OPT">CLEANUP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CLUSTER_DOMAIN_SECRET_OPT" class="internal-link" title="ganeti.cli_opts.CLUSTER_DOMAIN_SECRET_OPT">CLUSTER<wbr></wbr>_DOMAIN<wbr></wbr>_SECRET<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#COMMIT_OPT" class="internal-link" title="ganeti.cli_opts.COMMIT_OPT">COMMIT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#COMMON_CREATE_OPTS" class="internal-link" title="ganeti.cli_opts.COMMON_CREATE_OPTS">COMMON<wbr></wbr>_CREATE<wbr></wbr>_OPTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#COMMON_OPTS" class="internal-link" title="ganeti.cli_opts.COMMON_OPTS">COMMON<wbr></wbr>_OPTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#COMPRESS_OPT" class="internal-link" title="ganeti.cli_opts.COMPRESS_OPT">COMPRESS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#COMPRESSION_TOOLS_OPT" class="internal-link" title="ganeti.cli_opts.COMPRESSION_TOOLS_OPT">COMPRESSION<wbr></wbr>_TOOLS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CONFIRM_OPT" class="internal-link" title="ganeti.cli_opts.CONFIRM_OPT">CONFIRM<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#CP_SIZE_OPT" class="internal-link" title="ganeti.cli_opts.CP_SIZE_OPT">CP<wbr></wbr>_SIZE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DEBUG_OPT" class="internal-link" title="ganeti.cli_opts.DEBUG_OPT">DEBUG<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DEBUG_SIMERR_OPT" class="internal-link" title="ganeti.cli_opts.DEBUG_SIMERR_OPT">DEBUG<wbr></wbr>_SIMERR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DEFAULT_IALLOCATOR_OPT" class="internal-link" title="ganeti.cli_opts.DEFAULT_IALLOCATOR_OPT">DEFAULT<wbr></wbr>_IALLOCATOR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DEFAULT_IALLOCATOR_PARAMS_OPT" class="internal-link" title="ganeti.cli_opts.DEFAULT_IALLOCATOR_PARAMS_OPT">DEFAULT<wbr></wbr>_IALLOCATOR<wbr></wbr>_PARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DISK_OPT" class="internal-link" title="ganeti.cli_opts.DISK_OPT">DISK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DISK_PARAMS_OPT" class="internal-link" title="ganeti.cli_opts.DISK_PARAMS_OPT">DISK<wbr></wbr>_PARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DISK_STATE_OPT" class="internal-link" title="ganeti.cli_opts.DISK_STATE_OPT">DISK<wbr></wbr>_STATE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DISK_TEMPLATE_OPT" class="internal-link" title="ganeti.cli_opts.DISK_TEMPLATE_OPT">DISK<wbr></wbr>_TEMPLATE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DISKIDX_OPT" class="internal-link" title="ganeti.cli_opts.DISKIDX_OPT">DISKIDX<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DRAINED_OPT" class="internal-link" title="ganeti.cli_opts.DRAINED_OPT">DRAINED<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DRBD_HELPER_OPT" class="internal-link" title="ganeti.cli_opts.DRBD_HELPER_OPT">DRBD<wbr></wbr>_HELPER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DRY_RUN_OPT" class="internal-link" title="ganeti.cli_opts.DRY_RUN_OPT">DRY<wbr></wbr>_RUN<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#DST_NODE_OPT" class="internal-link" title="ganeti.cli_opts.DST_NODE_OPT">DST<wbr></wbr>_NODE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#EARLY_RELEASE_OPT" class="internal-link" title="ganeti.cli_opts.EARLY_RELEASE_OPT">EARLY<wbr></wbr>_RELEASE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ENABLED_DATA_COLLECTORS_OPT" class="internal-link" title="ganeti.cli_opts.ENABLED_DATA_COLLECTORS_OPT">ENABLED<wbr></wbr>_DATA<wbr></wbr>_COLLECTORS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ENABLED_DISK_TEMPLATES_OPT" class="internal-link" title="ganeti.cli_opts.ENABLED_DISK_TEMPLATES_OPT">ENABLED<wbr></wbr>_DISK<wbr></wbr>_TEMPLATES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ENABLED_HV_OPT" class="internal-link" title="ganeti.cli_opts.ENABLED_HV_OPT">ENABLED<wbr></wbr>_HV<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ENABLED_USER_SHUTDOWN_OPT" class="internal-link" title="ganeti.cli_opts.ENABLED_USER_SHUTDOWN_OPT">ENABLED<wbr></wbr>_USER<wbr></wbr>_SHUTDOWN<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ERROR_CODES_OPT" class="internal-link" title="ganeti.cli_opts.ERROR_CODES_OPT">ERROR<wbr></wbr>_CODES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#EXT_PARAMS_OPT" class="internal-link" title="ganeti.cli_opts.EXT_PARAMS_OPT">EXT<wbr></wbr>_PARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FAILURE_ONLY_OPT" class="internal-link" title="ganeti.cli_opts.FAILURE_ONLY_OPT">FAILURE<wbr></wbr>_ONLY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FIELDS_OPT" class="internal-link" title="ganeti.cli_opts.FIELDS_OPT">FIELDS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FILESTORE_DIR_OPT" class="internal-link" title="ganeti.cli_opts.FILESTORE_DIR_OPT">FILESTORE<wbr></wbr>_DIR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FILESTORE_DRIVER_OPT" class="internal-link" title="ganeti.cli_opts.FILESTORE_DRIVER_OPT">FILESTORE<wbr></wbr>_DRIVER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FORCE_FAILOVER_OPT" class="internal-link" title="ganeti.cli_opts.FORCE_FAILOVER_OPT">FORCE<wbr></wbr>_FAILOVER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FORCE_FILTER_OPT" class="internal-link" title="ganeti.cli_opts.FORCE_FILTER_OPT">FORCE<wbr></wbr>_FILTER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FORCE_OPT" class="internal-link" title="ganeti.cli_opts.FORCE_OPT">FORCE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FORCE_VARIANT_OPT" class="internal-link" title="ganeti.cli_opts.FORCE_VARIANT_OPT">FORCE<wbr></wbr>_VARIANT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#FORTHCOMING_OPT" class="internal-link" title="ganeti.cli_opts.FORTHCOMING_OPT">FORTHCOMING<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#GATEWAY6_OPT" class="internal-link" title="ganeti.cli_opts.GATEWAY6_OPT">GATEWAY6<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#GATEWAY_OPT" class="internal-link" title="ganeti.cli_opts.GATEWAY_OPT">GATEWAY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#GLOBAL_FILEDIR_OPT" class="internal-link" title="ganeti.cli_opts.GLOBAL_FILEDIR_OPT">GLOBAL<wbr></wbr>_FILEDIR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#GLOBAL_GLUSTER_FILEDIR_OPT" class="internal-link" title="ganeti.cli_opts.GLOBAL_GLUSTER_FILEDIR_OPT">GLOBAL<wbr></wbr>_GLUSTER<wbr></wbr>_FILEDIR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#GLOBAL_SHARED_FILEDIR_OPT" class="internal-link" title="ganeti.cli_opts.GLOBAL_SHARED_FILEDIR_OPT">GLOBAL<wbr></wbr>_SHARED<wbr></wbr>_FILEDIR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HELPER_SHUTDOWN_TIMEOUT_OPT" class="internal-link" title="ganeti.cli_opts.HELPER_SHUTDOWN_TIMEOUT_OPT">HELPER<wbr></wbr>_SHUTDOWN<wbr></wbr>_TIMEOUT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HELPER_STARTUP_TIMEOUT_OPT" class="internal-link" title="ganeti.cli_opts.HELPER_STARTUP_TIMEOUT_OPT">HELPER<wbr></wbr>_STARTUP<wbr></wbr>_TIMEOUT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HID_OS_OPT" class="internal-link" title="ganeti.cli_opts.HID_OS_OPT">HID<wbr></wbr>_OS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HOTPLUG_IF_POSSIBLE_OPT" class="internal-link" title="ganeti.cli_opts.HOTPLUG_IF_POSSIBLE_OPT">HOTPLUG<wbr></wbr>_IF<wbr></wbr>_POSSIBLE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HOTPLUG_OPT" class="internal-link" title="ganeti.cli_opts.HOTPLUG_OPT">HOTPLUG<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HV_STATE_OPT" class="internal-link" title="ganeti.cli_opts.HV_STATE_OPT">HV<wbr></wbr>_STATE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HVLIST_OPT" class="internal-link" title="ganeti.cli_opts.HVLIST_OPT">HVLIST<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HVOPTS_OPT" class="internal-link" title="ganeti.cli_opts.HVOPTS_OPT">HVOPTS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#HYPERVISOR_OPT" class="internal-link" title="ganeti.cli_opts.HYPERVISOR_OPT">HYPERVISOR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IALLOCATOR_OPT" class="internal-link" title="ganeti.cli_opts.IALLOCATOR_OPT">IALLOCATOR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IDENTIFY_DEFAULTS_OPT" class="internal-link" title="ganeti.cli_opts.IDENTIFY_DEFAULTS_OPT">IDENTIFY<wbr></wbr>_DEFAULTS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_CONSIST_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_CONSIST_OPT">IGNORE<wbr></wbr>_CONSIST<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_ERRORS_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_ERRORS_OPT">IGNORE<wbr></wbr>_ERRORS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_FAILURES_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_FAILURES_OPT">IGNORE<wbr></wbr>_FAILURES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_HVVERSIONS_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_HVVERSIONS_OPT">IGNORE<wbr></wbr>_HVVERSIONS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_IPOLICY_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_IPOLICY_OPT">IGNORE<wbr></wbr>_IPOLICY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_OFFLINE_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_OFFLINE_OPT">IGNORE<wbr></wbr>_OFFLINE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_REMOVE_FAILURES_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_REMOVE_FAILURES_OPT">IGNORE<wbr></wbr>_REMOVE<wbr></wbr>_FAILURES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_SECONDARIES_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_SECONDARIES_OPT">IGNORE<wbr></wbr>_SECONDARIES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_SIZE_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_SIZE_OPT">IGNORE<wbr></wbr>_SIZE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IGNORE_SOFT_ERRORS_OPT" class="internal-link" title="ganeti.cli_opts.IGNORE_SOFT_ERRORS_OPT">IGNORE<wbr></wbr>_SOFT<wbr></wbr>_ERRORS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INCLUDEDEFAULTS_OPT" class="internal-link" title="ganeti.cli_opts.INCLUDEDEFAULTS_OPT">INCLUDEDEFAULTS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INSTALL_IMAGE_OPT" class="internal-link" title="ganeti.cli_opts.INSTALL_IMAGE_OPT">INSTALL<wbr></wbr>_IMAGE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INSTANCE_COMMUNICATION_NETWORK_OPT" class="internal-link" title="ganeti.cli_opts.INSTANCE_COMMUNICATION_NETWORK_OPT">INSTANCE<wbr></wbr>_COMMUNICATION<wbr></wbr>_NETWORK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INSTANCE_COMMUNICATION_OPT" class="internal-link" title="ganeti.cli_opts.INSTANCE_COMMUNICATION_OPT">INSTANCE<wbr></wbr>_COMMUNICATION<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INSTANCE_POLICY_OPTS" class="internal-link" title="ganeti.cli_opts.INSTANCE_POLICY_OPTS">INSTANCE<wbr></wbr>_POLICY<wbr></wbr>_OPTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#INTERVAL_OPT" class="internal-link" title="ganeti.cli_opts.INTERVAL_OPT">INTERVAL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_BOUNDS_SPECS_OPT" class="internal-link" title="ganeti.cli_opts.IPOLICY_BOUNDS_SPECS_OPT">IPOLICY<wbr></wbr>_BOUNDS<wbr></wbr>_SPECS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_BOUNDS_SPECS_STR" class="internal-link" title="ganeti.cli_opts.IPOLICY_BOUNDS_SPECS_STR">IPOLICY<wbr></wbr>_BOUNDS<wbr></wbr>_SPECS<wbr></wbr>_STR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_DISK_TEMPLATES" class="internal-link" title="ganeti.cli_opts.IPOLICY_DISK_TEMPLATES">IPOLICY<wbr></wbr>_DISK<wbr></wbr>_TEMPLATES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_SPINDLE_RATIO" class="internal-link" title="ganeti.cli_opts.IPOLICY_SPINDLE_RATIO">IPOLICY<wbr></wbr>_SPINDLE<wbr></wbr>_RATIO</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_STD_SPECS_OPT" class="internal-link" title="ganeti.cli_opts.IPOLICY_STD_SPECS_OPT">IPOLICY<wbr></wbr>_STD<wbr></wbr>_SPECS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_STD_SPECS_STR" class="internal-link" title="ganeti.cli_opts.IPOLICY_STD_SPECS_STR">IPOLICY<wbr></wbr>_STD<wbr></wbr>_SPECS<wbr></wbr>_STR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#IPOLICY_VCPU_RATIO" class="internal-link" title="ganeti.cli_opts.IPOLICY_VCPU_RATIO">IPOLICY<wbr></wbr>_VCPU<wbr></wbr>_RATIO</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#LONG_SLEEP_OPT" class="internal-link" title="ganeti.cli_opts.LONG_SLEEP_OPT">LONG<wbr></wbr>_SLEEP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MAC_PREFIX_OPT" class="internal-link" title="ganeti.cli_opts.MAC_PREFIX_OPT">MAC<wbr></wbr>_PREFIX<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MAINTAIN_NODE_HEALTH_OPT" class="internal-link" title="ganeti.cli_opts.MAINTAIN_NODE_HEALTH_OPT">MAINTAIN<wbr></wbr>_NODE<wbr></wbr>_HEALTH<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MASTER_NETDEV_OPT" class="internal-link" title="ganeti.cli_opts.MASTER_NETDEV_OPT">MASTER<wbr></wbr>_NETDEV<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MASTER_NETMASK_OPT" class="internal-link" title="ganeti.cli_opts.MASTER_NETMASK_OPT">MASTER<wbr></wbr>_NETMASK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MAX_TRACK_OPT" class="internal-link" title="ganeti.cli_opts.MAX_TRACK_OPT">MAX<wbr></wbr>_TRACK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MC_OPT" class="internal-link" title="ganeti.cli_opts.MC_OPT">MC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MIGRATION_MODE_OPT" class="internal-link" title="ganeti.cli_opts.MIGRATION_MODE_OPT">MIGRATION<wbr></wbr>_MODE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#MODIFY_ETCHOSTS_OPT" class="internal-link" title="ganeti.cli_opts.MODIFY_ETCHOSTS_OPT">MODIFY<wbr></wbr>_ETCHOSTS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NET_OPT" class="internal-link" title="ganeti.cli_opts.NET_OPT">NET<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NETWORK6_OPT" class="internal-link" title="ganeti.cli_opts.NETWORK6_OPT">NETWORK6<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NETWORK_OPT" class="internal-link" title="ganeti.cli_opts.NETWORK_OPT">NETWORK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_CLUSTER_CERT_OPT" class="internal-link" title="ganeti.cli_opts.NEW_CLUSTER_CERT_OPT">NEW<wbr></wbr>_CLUSTER<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_CLUSTER_DOMAIN_SECRET_OPT" class="internal-link" title="ganeti.cli_opts.NEW_CLUSTER_DOMAIN_SECRET_OPT">NEW<wbr></wbr>_CLUSTER<wbr></wbr>_DOMAIN<wbr></wbr>_SECRET<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_CONFD_HMAC_KEY_OPT" class="internal-link" title="ganeti.cli_opts.NEW_CONFD_HMAC_KEY_OPT">NEW<wbr></wbr>_CONFD<wbr></wbr>_HMAC<wbr></wbr>_KEY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_NODE_CERT_OPT" class="internal-link" title="ganeti.cli_opts.NEW_NODE_CERT_OPT">NEW<wbr></wbr>_NODE<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_PRIMARY_OPT" class="internal-link" title="ganeti.cli_opts.NEW_PRIMARY_OPT">NEW<wbr></wbr>_PRIMARY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_RAPI_CERT_OPT" class="internal-link" title="ganeti.cli_opts.NEW_RAPI_CERT_OPT">NEW<wbr></wbr>_RAPI<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_SECONDARY_OPT" class="internal-link" title="ganeti.cli_opts.NEW_SECONDARY_OPT">NEW<wbr></wbr>_SECONDARY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_SPICE_CERT_OPT" class="internal-link" title="ganeti.cli_opts.NEW_SPICE_CERT_OPT">NEW<wbr></wbr>_SPICE<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NEW_SSH_KEY_OPT" class="internal-link" title="ganeti.cli_opts.NEW_SSH_KEY_OPT">NEW<wbr></wbr>_SSH<wbr></wbr>_KEY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NIC_PARAMS_OPT" class="internal-link" title="ganeti.cli_opts.NIC_PARAMS_OPT">NIC<wbr></wbr>_PARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NO_INSTALL_OPT" class="internal-link" title="ganeti.cli_opts.NO_INSTALL_OPT">NO<wbr></wbr>_INSTALL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NO_PREFIX" class="internal-link" title="ganeti.cli_opts.NO_PREFIX">NO<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NO_REMEMBER_OPT" class="internal-link" title="ganeti.cli_opts.NO_REMEMBER_OPT">NO<wbr></wbr>_REMEMBER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOCONFLICTSCHECK_OPT" class="internal-link" title="ganeti.cli_opts.NOCONFLICTSCHECK_OPT">NOCONFLICTSCHECK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODE_FORCE_JOIN_OPT" class="internal-link" title="ganeti.cli_opts.NODE_FORCE_JOIN_OPT">NODE<wbr></wbr>_FORCE<wbr></wbr>_JOIN<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODE_LIST_OPT" class="internal-link" title="ganeti.cli_opts.NODE_LIST_OPT">NODE<wbr></wbr>_LIST<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODE_PARAMS_OPT" class="internal-link" title="ganeti.cli_opts.NODE_PARAMS_OPT">NODE<wbr></wbr>_PARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODE_PLACEMENT_OPT" class="internal-link" title="ganeti.cli_opts.NODE_PLACEMENT_OPT">NODE<wbr></wbr>_PLACEMENT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODE_POWERED_OPT" class="internal-link" title="ganeti.cli_opts.NODE_POWERED_OPT">NODE<wbr></wbr>_POWERED<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODEGROUP_OPT" class="internal-link" title="ganeti.cli_opts.NODEGROUP_OPT">NODEGROUP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NODEGROUP_OPT_NAME" class="internal-link" title="ganeti.cli_opts.NODEGROUP_OPT_NAME">NODEGROUP<wbr></wbr>_OPT<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOHDR_OPT" class="internal-link" title="ganeti.cli_opts.NOHDR_OPT">NOHDR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOIPCHECK_OPT" class="internal-link" title="ganeti.cli_opts.NOIPCHECK_OPT">NOIPCHECK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOMODIFY_ETCHOSTS_OPT" class="internal-link" title="ganeti.cli_opts.NOMODIFY_ETCHOSTS_OPT">NOMODIFY<wbr></wbr>_ETCHOSTS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOMODIFY_SSH_SETUP_OPT" class="internal-link" title="ganeti.cli_opts.NOMODIFY_SSH_SETUP_OPT">NOMODIFY<wbr></wbr>_SSH<wbr></wbr>_SETUP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NONAMECHECK_OPT" class="internal-link" title="ganeti.cli_opts.NONAMECHECK_OPT">NONAMECHECK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NONICS_OPT" class="internal-link" title="ganeti.cli_opts.NONICS_OPT">NONICS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NONLIVE_OPT" class="internal-link" title="ganeti.cli_opts.NONLIVE_OPT">NONLIVE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NONPLUS1_OPT" class="internal-link" title="ganeti.cli_opts.NONPLUS1_OPT">NONPLUS1<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NORUNTIME_CHGS_OPT" class="internal-link" title="ganeti.cli_opts.NORUNTIME_CHGS_OPT">NORUNTIME<wbr></wbr>_CHGS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOSHUTDOWN_OPT" class="internal-link" title="ganeti.cli_opts.NOSHUTDOWN_OPT">NOSHUTDOWN<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOSSH_KEYCHECK_OPT" class="internal-link" title="ganeti.cli_opts.NOSSH_KEYCHECK_OPT">NOSSH<wbr></wbr>_KEYCHECK<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOSTART_OPT" class="internal-link" title="ganeti.cli_opts.NOSTART_OPT">NOSTART<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NOVOTING_OPT" class="internal-link" title="ganeti.cli_opts.NOVOTING_OPT">NOVOTING<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#NWSYNC_OPT" class="internal-link" title="ganeti.cli_opts.NWSYNC_OPT">NWSYNC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OFFLINE_INST_OPT" class="internal-link" title="ganeti.cli_opts.OFFLINE_INST_OPT">OFFLINE<wbr></wbr>_INST<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OFFLINE_OPT" class="internal-link" title="ganeti.cli_opts.OFFLINE_OPT">OFFLINE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ON_PRIMARY_OPT" class="internal-link" title="ganeti.cli_opts.ON_PRIMARY_OPT">ON<wbr></wbr>_PRIMARY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ON_SECONDARY_OPT" class="internal-link" title="ganeti.cli_opts.ON_SECONDARY_OPT">ON<wbr></wbr>_SECONDARY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ONLINE_INST_OPT" class="internal-link" title="ganeti.cli_opts.ONLINE_INST_OPT">ONLINE<wbr></wbr>_INST<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OOB_TIMEOUT_OPT" class="internal-link" title="ganeti.cli_opts.OOB_TIMEOUT_OPT">OOB<wbr></wbr>_TIMEOUT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPPORTUNISTIC_OPT" class="internal-link" title="ganeti.cli_opts.OPPORTUNISTIC_OPT">OPPORTUNISTIC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ALL" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ALL">OPT<wbr></wbr>_COMPL<wbr></wbr>_ALL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_INST_ADD_NODES" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_INST_ADD_NODES">OPT<wbr></wbr>_COMPL<wbr></wbr>_INST<wbr></wbr>_ADD<wbr></wbr>_NODES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_MANY_NODES" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_MANY_NODES">OPT<wbr></wbr>_COMPL<wbr></wbr>_MANY<wbr></wbr>_NODES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_EXTSTORAGE" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_EXTSTORAGE">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_EXTSTORAGE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_FILTER" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_FILTER">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_FILTER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_IALLOCATOR" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_IALLOCATOR">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_IALLOCATOR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_INSTANCE" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_INSTANCE">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_INSTANCE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_NETWORK" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_NETWORK">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_NETWORK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_NODE" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_NODE">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_NODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_NODEGROUP" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_NODEGROUP">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_NODEGROUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OPT_COMPL_ONE_OS" class="internal-link" title="ganeti.cli_opts.OPT_COMPL_ONE_OS">OPT<wbr></wbr>_COMPL<wbr></wbr>_ONE<wbr></wbr>_OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OS_OPT" class="internal-link" title="ganeti.cli_opts.OS_OPT">OS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OS_SIZE_OPT" class="internal-link" title="ganeti.cli_opts.OS_SIZE_OPT">OS<wbr></wbr>_SIZE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OSPARAMS_OPT" class="internal-link" title="ganeti.cli_opts.OSPARAMS_OPT">OSPARAMS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OSPARAMS_PRIVATE_OPT" class="internal-link" title="ganeti.cli_opts.OSPARAMS_PRIVATE_OPT">OSPARAMS<wbr></wbr>_PRIVATE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#OSPARAMS_SECRET_OPT" class="internal-link" title="ganeti.cli_opts.OSPARAMS_SECRET_OPT">OSPARAMS<wbr></wbr>_SECRET<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#POWER_DELAY_OPT" class="internal-link" title="ganeti.cli_opts.POWER_DELAY_OPT">POWER<wbr></wbr>_DELAY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#PREALLOC_WIPE_DISKS_OPT" class="internal-link" title="ganeti.cli_opts.PREALLOC_WIPE_DISKS_OPT">PREALLOC<wbr></wbr>_WIPE<wbr></wbr>_DISKS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#PRIMARY_IP_VERSION_OPT" class="internal-link" title="ganeti.cli_opts.PRIMARY_IP_VERSION_OPT">PRIMARY<wbr></wbr>_IP<wbr></wbr>_VERSION<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#PRIMARY_ONLY_OPT" class="internal-link" title="ganeti.cli_opts.PRIMARY_ONLY_OPT">PRIMARY<wbr></wbr>_ONLY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#PRINT_JOBID_OPT" class="internal-link" title="ganeti.cli_opts.PRINT_JOBID_OPT">PRINT<wbr></wbr>_JOBID<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#PRIORITY_OPT" class="internal-link" title="ganeti.cli_opts.PRIORITY_OPT">PRIORITY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#RAPI_CERT_OPT" class="internal-link" title="ganeti.cli_opts.RAPI_CERT_OPT">RAPI<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#READD_OPT" class="internal-link" title="ganeti.cli_opts.READD_OPT">READD<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#REASON_OPT" class="internal-link" title="ganeti.cli_opts.REASON_OPT">REASON<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#REBOOT_TYPE_OPT" class="internal-link" title="ganeti.cli_opts.REBOOT_TYPE_OPT">REBOOT<wbr></wbr>_TYPE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#REMOVE_INSTANCE_OPT" class="internal-link" title="ganeti.cli_opts.REMOVE_INSTANCE_OPT">REMOVE<wbr></wbr>_INSTANCE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#REMOVE_RESERVED_IPS_OPT" class="internal-link" title="ganeti.cli_opts.REMOVE_RESERVED_IPS_OPT">REMOVE<wbr></wbr>_RESERVED<wbr></wbr>_IPS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#REMOVE_UIDS_OPT" class="internal-link" title="ganeti.cli_opts.REMOVE_UIDS_OPT">REMOVE<wbr></wbr>_UIDS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#RESERVED_LVS_OPT" class="internal-link" title="ganeti.cli_opts.RESERVED_LVS_OPT">RESERVED<wbr></wbr>_LVS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ROMAN_OPT" class="internal-link" title="ganeti.cli_opts.ROMAN_OPT">ROMAN<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#RQL_OPT" class="internal-link" title="ganeti.cli_opts.RQL_OPT">RQL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#RUNTIME_MEM_OPT" class="internal-link" title="ganeti.cli_opts.RUNTIME_MEM_OPT">RUNTIME<wbr></wbr>_MEM<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SECONDARY_IP_OPT" class="internal-link" title="ganeti.cli_opts.SECONDARY_IP_OPT">SECONDARY<wbr></wbr>_IP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SECONDARY_ONLY_OPT" class="internal-link" title="ganeti.cli_opts.SECONDARY_ONLY_OPT">SECONDARY<wbr></wbr>_ONLY<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SELECT_OS_OPT" class="internal-link" title="ganeti.cli_opts.SELECT_OS_OPT">SELECT<wbr></wbr>_OS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SEP_OPT" class="internal-link" title="ganeti.cli_opts.SEP_OPT">SEP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SEQUENTIAL_OPT" class="internal-link" title="ganeti.cli_opts.SEQUENTIAL_OPT">SEQUENTIAL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SHOW_MACHINE_OPT" class="internal-link" title="ganeti.cli_opts.SHOW_MACHINE_OPT">SHOW<wbr></wbr>_MACHINE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SHOWCMD_OPT" class="internal-link" title="ganeti.cli_opts.SHOWCMD_OPT">SHOWCMD<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SHUTDOWN_TIMEOUT_OPT" class="internal-link" title="ganeti.cli_opts.SHUTDOWN_TIMEOUT_OPT">SHUTDOWN<wbr></wbr>_TIMEOUT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SINGLE_NODE_OPT" class="internal-link" title="ganeti.cli_opts.SINGLE_NODE_OPT">SINGLE<wbr></wbr>_NODE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPECS_CPU_COUNT_OPT" class="internal-link" title="ganeti.cli_opts.SPECS_CPU_COUNT_OPT">SPECS<wbr></wbr>_CPU<wbr></wbr>_COUNT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPECS_DISK_COUNT_OPT" class="internal-link" title="ganeti.cli_opts.SPECS_DISK_COUNT_OPT">SPECS<wbr></wbr>_DISK<wbr></wbr>_COUNT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPECS_DISK_SIZE_OPT" class="internal-link" title="ganeti.cli_opts.SPECS_DISK_SIZE_OPT">SPECS<wbr></wbr>_DISK<wbr></wbr>_SIZE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPECS_MEM_SIZE_OPT" class="internal-link" title="ganeti.cli_opts.SPECS_MEM_SIZE_OPT">SPECS<wbr></wbr>_MEM<wbr></wbr>_SIZE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPECS_NIC_COUNT_OPT" class="internal-link" title="ganeti.cli_opts.SPECS_NIC_COUNT_OPT">SPECS<wbr></wbr>_NIC<wbr></wbr>_COUNT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPICE_CACERT_OPT" class="internal-link" title="ganeti.cli_opts.SPICE_CACERT_OPT">SPICE<wbr></wbr>_CACERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPICE_CERT_OPT" class="internal-link" title="ganeti.cli_opts.SPICE_CERT_OPT">SPICE<wbr></wbr>_CERT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SPLIT_ISPECS_OPTS" class="internal-link" title="ganeti.cli_opts.SPLIT_ISPECS_OPTS">SPLIT<wbr></wbr>_ISPECS<wbr></wbr>_OPTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SRC_DIR_OPT" class="internal-link" title="ganeti.cli_opts.SRC_DIR_OPT">SRC<wbr></wbr>_DIR<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SRC_NODE_OPT" class="internal-link" title="ganeti.cli_opts.SRC_NODE_OPT">SRC<wbr></wbr>_NODE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SSH_KEY_BITS_OPT" class="internal-link" title="ganeti.cli_opts.SSH_KEY_BITS_OPT">SSH<wbr></wbr>_KEY<wbr></wbr>_BITS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SSH_KEY_TYPE_OPT" class="internal-link" title="ganeti.cli_opts.SSH_KEY_TYPE_OPT">SSH<wbr></wbr>_KEY<wbr></wbr>_TYPE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#STARTUP_PAUSED_OPT" class="internal-link" title="ganeti.cli_opts.STARTUP_PAUSED_OPT">STARTUP<wbr></wbr>_PAUSED<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#STATIC_OPT" class="internal-link" title="ganeti.cli_opts.STATIC_OPT">STATIC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SUBMIT_OPT" class="internal-link" title="ganeti.cli_opts.SUBMIT_OPT">SUBMIT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SUBMIT_OPTS" class="internal-link" title="ganeti.cli_opts.SUBMIT_OPTS">SUBMIT<wbr></wbr>_OPTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#SYNC_OPT" class="internal-link" title="ganeti.cli_opts.SYNC_OPT">SYNC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#TAG_ADD_OPT" class="internal-link" title="ganeti.cli_opts.TAG_ADD_OPT">TAG<wbr></wbr>_ADD<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#TAG_SRC_OPT" class="internal-link" title="ganeti.cli_opts.TAG_SRC_OPT">TAG<wbr></wbr>_SRC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#TIMEOUT_OPT" class="internal-link" title="ganeti.cli_opts.TIMEOUT_OPT">TIMEOUT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#TO_GROUP_OPT" class="internal-link" title="ganeti.cli_opts.TO_GROUP_OPT">TO<wbr></wbr>_GROUP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#TRANSPORT_COMPRESSION_OPT" class="internal-link" title="ganeti.cli_opts.TRANSPORT_COMPRESSION_OPT">TRANSPORT<wbr></wbr>_COMPRESSION<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#UIDPOOL_OPT" class="internal-link" title="ganeti.cli_opts.UIDPOOL_OPT">UIDPOOL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#UN_PREFIX" class="internal-link" title="ganeti.cli_opts.UN_PREFIX">UN<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#USE_EXTERNAL_MIP_SCRIPT" class="internal-link" title="ganeti.cli_opts.USE_EXTERNAL_MIP_SCRIPT">USE<wbr></wbr>_EXTERNAL<wbr></wbr>_MIP<wbr></wbr>_SCRIPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#USE_REPL_NET_OPT" class="internal-link" title="ganeti.cli_opts.USE_REPL_NET_OPT">USE<wbr></wbr>_REPL<wbr></wbr>_NET<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#USEUNITS_OPT" class="internal-link" title="ganeti.cli_opts.USEUNITS_OPT">USEUNITS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#VERBOSE_OPT" class="internal-link" title="ganeti.cli_opts.VERBOSE_OPT">VERBOSE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#VERIFY_CLUTTER_OPT" class="internal-link" title="ganeti.cli_opts.VERIFY_CLUTTER_OPT">VERIFY<wbr></wbr>_CLUTTER<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#VG_NAME_OPT" class="internal-link" title="ganeti.cli_opts.VG_NAME_OPT">VG<wbr></wbr>_NAME<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#WFSYNC_OPT" class="internal-link" title="ganeti.cli_opts.WFSYNC_OPT">WFSYNC<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#YES_DOIT_OPT" class="internal-link" title="ganeti.cli_opts.YES_DOIT_OPT">YES<wbr></wbr>_DOIT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ZERO_FREE_SPACE_OPT" class="internal-link" title="ganeti.cli_opts.ZERO_FREE_SPACE_OPT">ZERO<wbr></wbr>_FREE<wbr></wbr>_SPACE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ZEROING_IMAGE_OPT" class="internal-link" title="ganeti.cli_opts.ZEROING_IMAGE_OPT">ZEROING<wbr></wbr>_IMAGE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ZEROING_TIMEOUT_FIXED_OPT" class="internal-link" title="ganeti.cli_opts.ZEROING_TIMEOUT_FIXED_OPT">ZEROING<wbr></wbr>_TIMEOUT<wbr></wbr>_FIXED<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#ZEROING_TIMEOUT_PER_MIB_OPT" class="internal-link" title="ganeti.cli_opts.ZEROING_TIMEOUT_PER_MIB_OPT">ZEROING<wbr></wbr>_TIMEOUT<wbr></wbr>_PER<wbr></wbr>_MIB<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_PRIONAME_TO_VALUE" class="internal-link" title="ganeti.cli_opts._PRIONAME_TO_VALUE">_PRIONAME<wbr></wbr>_TO<wbr></wbr>_VALUE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_PRIORITY_NAMES" class="internal-link" title="ganeti.cli_opts._PRIORITY_NAMES">_PRIORITY<wbr></wbr>_NAMES</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html#_YORNO" class="internal-link" title="ganeti.cli_opts._YORNO">_YORNO</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli_opts</a></code><wbr></wbr>.<code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">CliOption</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">CliOption</span>(Option):</code></p>
+          <p><a href="classIndex.html#ganeti.cli_opts.CliOption">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Custom option class for optparse.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id64">
+  
+  
+  <tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ATTRS" class="internal-link" title="ganeti.cli_opts.CliOption.ATTRS">ATTRS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TYPE_CHECKER" class="internal-link" title="ganeti.cli_opts.CliOption.TYPE_CHECKER">TYPE<wbr></wbr>_CHECKER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TYPES" class="internal-link" title="ganeti.cli_opts.CliOption.TYPES">TYPES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseconstant">
+  
+  
+  <a name="ganeti.cli_opts.CliOption.ATTRS">
+    
+  </a>
+  <a name="ATTRS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ATTRS</span> =
+    
+    <a class="headerLink" href="#ATTRS" title="ganeti.cli_opts.CliOption.ATTRS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Option.ATTRS+[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">completion_suggest</span><span class="rst-variable-quote">'</span>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli_opts.CliOption.TYPE_CHECKER">
+    
+  </a>
+  <a name="TYPE_CHECKER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TYPE_CHECKER</span> =
+    
+    <a class="headerLink" href="#TYPE_CHECKER" title="ganeti.cli_opts.CliOption.TYPE_CHECKER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Option.TYPE_CHECKER.copy()</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli_opts.CliOption.TYPES">
+    
+  </a>
+  <a name="TYPES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TYPES</span> =
+    
+    <a class="headerLink" href="#TYPES" title="ganeti.cli_opts.CliOption.TYPES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>Option.TYPES+(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">multilistidentkeyval</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">identkeyval</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">keyval</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">keyprivateval</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">unit</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">bool</span><span class="rst-variable-quote">'</span>,
+              <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">list</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

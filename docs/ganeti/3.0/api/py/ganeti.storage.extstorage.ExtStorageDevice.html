@@ -1,0 +1,1502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.storage.extstorage.ExtStorageDevice</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.storage.extstorage.ExtStorageDevice.html" class="internal-link" title="This class"><wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Device</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Create" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Create"><wbr></wbr>Create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Assemble" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Assemble"><wbr></wbr>Assemble</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Attach" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Attach"><wbr></wbr>Attach</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Close" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Close"><wbr></wbr>Close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.GetUserspaceAccessUri"><wbr></wbr>Get<wbr></wbr>Userspace<wbr></wbr>Access<wbr></wbr>Uri</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Grow" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Grow"><wbr></wbr>Grow</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Open" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Open"><wbr></wbr>Open</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Remove" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Remove"><wbr></wbr>Remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Rename" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Rename"><wbr></wbr>Rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetInfo" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.SetInfo"><wbr></wbr>Set<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Shutdown" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Shutdown"><wbr></wbr>Shutdown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Snapshot" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Snapshot"><wbr></wbr>Snapshot</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#__eq__" class="internal-link" title="ganeti.storage.base.BlockDev.__eq__">__eq__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#__repr__" class="internal-link" title="ganeti.storage.base.BlockDev.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#CombinedSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.CombinedSyncStatus"><wbr></wbr>Combined<wbr></wbr>Sync<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#Export" class="internal-link" title="ganeti.storage.base.BlockDev.Export"><wbr></wbr>Export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualDimensions" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualDimensions"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Dimensions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualSize" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSize"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualSpindles" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSpindles"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Spindles</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.GetSyncStatus"><wbr></wbr>Get<wbr></wbr>Sync<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#Import" class="internal-link" title="ganeti.storage.base.BlockDev.Import"><wbr></wbr>Import</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#PauseResumeSync" class="internal-link" title="ganeti.storage.base.BlockDev.PauseResumeSync"><wbr></wbr>Pause<wbr></wbr>Resume<wbr></wbr>Sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#SetSyncParams" class="internal-link" title="ganeti.storage.base.BlockDev.SetSyncParams"><wbr></wbr>Set<wbr></wbr>Sync<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#attached" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.attached">attached</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dev_path" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.dev_path">dev<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#driver" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.driver">driver</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ext_params" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.ext_params">ext<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#major" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.major">major</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minor" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.minor">minor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#name" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.name">name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#uris" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.uris">uris</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#uuid" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.uuid">uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#vol_name" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.vol_name">vol<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#dyn_params" class="internal-link" title="ganeti.storage.base.BlockDev.dyn_params">dyn<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#params" class="internal-link" title="ganeti.storage.base.BlockDev.params">params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#size" class="internal-link" title="ganeti.storage.base.BlockDev.size">size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#unique_id" class="internal-link" title="ganeti.storage.base.BlockDev.unique_id">unique<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#_children" class="internal-link" title="ganeti.storage.base.BlockDev._children">_children</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.storage.extstorage.html" class="internal-link" title="The parent of this class">extstorage</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.ExtStorageDevice.html" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice"><wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.html#ExtStorageFromDisk" class="internal-link" title="ganeti.storage.extstorage.ExtStorageFromDisk"><wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>From<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.html#_CheckExtStorageFile" class="internal-link" title="ganeti.storage.extstorage._CheckExtStorageFile">_<wbr></wbr>Check<wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.html#_ExtStorageAction" class="internal-link" title="ganeti.storage.extstorage._ExtStorageAction">_<wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Action</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.html#_ExtStorageEnvironment" class="internal-link" title="ganeti.storage.extstorage._ExtStorageEnvironment">_<wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Environment</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.extstorage.html#_VolumeLogName" class="internal-link" title="ganeti.storage.extstorage._VolumeLogName">_<wbr></wbr>Volume<wbr></wbr>Log<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code><wbr></wbr>.<code><a href="ganeti.storage.extstorage.html" class="internal-link" title="ganeti.storage.extstorage">extstorage</a></code><wbr></wbr>.<code><a href="ganeti.storage.extstorage.ExtStorageDevice.html" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice">ExtStorageDevice</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ExtStorageDevice</span>(<a href="ganeti.storage.base.BlockDev.html" class="internal-link" title="ganeti.storage.base.BlockDev">base.BlockDev</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.storage.extstorage.ExtStorageDevice">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>A block device provided by an ExtStorage Provider.</p>
+<p>This class implements the External Storage Interface, which means handling of the externally provided block devices.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1321">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#Create" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Create"><wbr></wbr>Create</a></code></td>
+    <td>Create a new extstorage device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.__init__">__init__</a></code></td>
+    <td>Attaches to an extstorage block device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Assemble" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Assemble"><wbr></wbr>Assemble</a></code></td>
+    <td>Assemble the device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Attach" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Attach"><wbr></wbr>Attach</a></code></td>
+    <td>Attach to an existing extstorage device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Close" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Close"><wbr></wbr>Close</a></code></td>
+    <td>Notifies that the device will no longer be used for I/O.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.GetUserspaceAccessUri"><wbr></wbr>Get<wbr></wbr>Userspace<wbr></wbr>Access<wbr></wbr>Uri</a></code></td>
+    <td>Generate KVM userspace URIs to be used as `-drive file` settings.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Grow" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Grow"><wbr></wbr>Grow</a></code></td>
+    <td>Grow the Volume.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Open" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Open"><wbr></wbr>Open</a></code></td>
+    <td>Make the device ready for I/O.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Remove" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Remove"><wbr></wbr>Remove</a></code></td>
+    <td>Remove the extstorage device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Rename" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Rename"><wbr></wbr>Rename</a></code></td>
+    <td>Rename this device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SetInfo" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.SetInfo"><wbr></wbr>Set<wbr></wbr>Info</a></code></td>
+    <td>Update metadata with info text.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Shutdown" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Shutdown"><wbr></wbr>Shutdown</a></code></td>
+    <td>Shutdown the device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Snapshot" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.Snapshot"><wbr></wbr>Snapshot</a></code></td>
+    <td>Take a snapshot of the block device.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#attached" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.attached">attached</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dev_path" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.dev_path">dev<wbr></wbr>_path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#driver" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.driver">driver</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ext_params" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.ext_params">ext<wbr></wbr>_params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#major" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.major">major</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#minor" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.minor">minor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#name" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.name">name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#uris" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.uris">uris</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#uuid" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.uuid">uuid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#vol_name" class="internal-link" title="ganeti.storage.extstorage.ExtStorageDevice.vol_name">vol<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.storage.base.BlockDev.html" class="internal-link" title="ganeti.storage.base.BlockDev">BlockDev</a></code>:
+            </p>
+            <table class="children sortable" id="id1322">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#__eq__" class="internal-link" title="ganeti.storage.base.BlockDev.__eq__">__eq__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#__repr__" class="internal-link" title="ganeti.storage.base.BlockDev.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#CombinedSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.CombinedSyncStatus"><wbr></wbr>Combined<wbr></wbr>Sync<wbr></wbr>Status</a></code></td>
+    <td>Calculate the mirror status recursively for our children.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#Export" class="internal-link" title="ganeti.storage.base.BlockDev.Export"><wbr></wbr>Export</a></code></td>
+    <td>Builds the shell command for exporting data from device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualDimensions" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualDimensions"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Dimensions</a></code></td>
+    <td>Return the actual disk size and number of spindles used.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualSize" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSize"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Size</a></code></td>
+    <td>Return the actual disk size.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualSpindles" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSpindles"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Spindles</a></code></td>
+    <td>Return the actual number of spindles used.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.GetSyncStatus"><wbr></wbr>Get<wbr></wbr>Sync<wbr></wbr>Status</a></code></td>
+    <td>Returns the sync status of the device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#Import" class="internal-link" title="ganeti.storage.base.BlockDev.Import"><wbr></wbr>Import</a></code></td>
+    <td>Builds the shell command for importing data to device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#PauseResumeSync" class="internal-link" title="ganeti.storage.base.BlockDev.PauseResumeSync"><wbr></wbr>Pause<wbr></wbr>Resume<wbr></wbr>Sync</a></code></td>
+    <td>Pause/Resume the sync of the mirror.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#SetSyncParams" class="internal-link" title="ganeti.storage.base.BlockDev.SetSyncParams"><wbr></wbr>Set<wbr></wbr>Sync<wbr></wbr>Params</a></code></td>
+    <td>Adjust the synchronization parameters of the mirror.</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#dyn_params" class="internal-link" title="ganeti.storage.base.BlockDev.dyn_params">dyn<wbr></wbr>_params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#params" class="internal-link" title="ganeti.storage.base.BlockDev.params">params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#size" class="internal-link" title="ganeti.storage.base.BlockDev.size">size</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#unique_id" class="internal-link" title="ganeti.storage.base.BlockDev.unique_id">unique<wbr></wbr>_id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#_children" class="internal-link" title="ganeti.storage.base.BlockDev._children">_children</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Create">
+    
+  </a>
+  <a name="Create">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">Create</span>(cls, unique_id, children, size, spindles, params, excl_stor, dyn_params, **kwargs):
+    
+    <a class="headerLink" href="#Create" title="ganeti.storage.extstorage.ExtStorageDevice.Create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Create" class="internal-link">ganeti.storage.base.BlockDev.Create</a></code></div>
+    <div><p>Create a new extstorage device.</p>
+<p>Provision a new volume using an extstorage provider, which will then be mapped to a block device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, unique_id, children, size, params, dyn_params, **kwargs):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.storage.extstorage.ExtStorageDevice.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#__init__" class="internal-link">ganeti.storage.base.BlockDev.__init__</a></code></div>
+    <div><p>Attaches to an extstorage block device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Assemble">
+    
+  </a>
+  <a name="Assemble">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Assemble</span>(self):
+    
+    <a class="headerLink" href="#Assemble" title="ganeti.storage.extstorage.ExtStorageDevice.Assemble">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Assemble" class="internal-link">ganeti.storage.base.BlockDev.Assemble</a></code></div>
+    <div><p>Assemble the device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Attach">
+    
+  </a>
+  <a name="Attach">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Attach</span>(self, **kwargs):
+    
+    <a class="headerLink" href="#Attach" title="ganeti.storage.extstorage.ExtStorageDevice.Attach">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Attach" class="internal-link">ganeti.storage.base.BlockDev.Attach</a></code></div>
+    <div><p>Attach to an existing extstorage device.</p>
+<p>This method maps the extstorage volume that matches our name with a corresponding block device and then attaches to this device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Close">
+    
+  </a>
+  <a name="Close">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Close</span>(self):
+    
+    <a class="headerLink" href="#Close" title="ganeti.storage.extstorage.ExtStorageDevice.Close">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Close" class="internal-link">ganeti.storage.base.BlockDev.Close</a></code></div>
+    <div><p>Notifies that the device will no longer be used for I/O.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.GetUserspaceAccessUri">
+    
+  </a>
+  <a name="GetUserspaceAccessUri">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetUserspaceAccessUri</span>(self, hypervisor):
+    
+    <a class="headerLink" href="#GetUserspaceAccessUri" title="ganeti.storage.extstorage.ExtStorageDevice.GetUserspaceAccessUri">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#GetUserspaceAccessUri" class="internal-link">ganeti.storage.base.BlockDev.GetUserspaceAccessUri</a></code></div>
+    <div><p>Generate KVM userspace URIs to be used as `-drive file` settings.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="ganeti.storage.base.BlockDev.html#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.base.BlockDev.GetUserspaceAccessUri">base.BlockDev.GetUserspaceAccessUri</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Grow">
+    
+  </a>
+  <a name="Grow">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Grow</span>(self, amount, dryrun, backingstore, excl_stor):
+    
+    <a class="headerLink" href="#Grow" title="ganeti.storage.extstorage.ExtStorageDevice.Grow">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Grow" class="internal-link">ganeti.storage.base.BlockDev.Grow</a></code></div>
+    <div><p>Grow the Volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">amount:</span>integer</td><td class="fieldArgDesc">the amount (in mebibytes) to grow with</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dryrun:</span>boolean</td><td class="fieldArgDesc">whether to execute the operation in simulation mode only, without actually increasing the size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">backingstore</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">excl<wbr></wbr>_stor</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Open">
+    
+  </a>
+  <a name="Open">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Open</span>(self, force=False, exclusive=True):
+    
+    <a class="headerLink" href="#Open" title="ganeti.storage.extstorage.ExtStorageDevice.Open">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Open" class="internal-link">ganeti.storage.base.BlockDev.Open</a></code></div>
+    <div><p>Make the device ready for I/O.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Remove">
+    
+  </a>
+  <a name="Remove">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Remove</span>(self):
+    
+    <a class="headerLink" href="#Remove" title="ganeti.storage.extstorage.ExtStorageDevice.Remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Remove" class="internal-link">ganeti.storage.base.BlockDev.Remove</a></code></div>
+    <div><p>Remove the extstorage device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Rename">
+    
+  </a>
+  <a name="Rename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Rename</span>(self, new_id):
+    
+    <a class="headerLink" href="#Rename" title="ganeti.storage.extstorage.ExtStorageDevice.Rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Rename" class="internal-link">ganeti.storage.base.BlockDev.Rename</a></code></div>
+    <div><p>Rename this device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.SetInfo">
+    
+  </a>
+  <a name="SetInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetInfo</span>(self, text):
+    
+    <a class="headerLink" href="#SetInfo" title="ganeti.storage.extstorage.ExtStorageDevice.SetInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#SetInfo" class="internal-link">ganeti.storage.base.BlockDev.SetInfo</a></code></div>
+    <div><p>Update metadata with info text.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Shutdown">
+    
+  </a>
+  <a name="Shutdown">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Shutdown</span>(self):
+    
+    <a class="headerLink" href="#Shutdown" title="ganeti.storage.extstorage.ExtStorageDevice.Shutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Shutdown" class="internal-link">ganeti.storage.base.BlockDev.Shutdown</a></code></div>
+    <div><p>Shutdown the device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.Snapshot">
+    
+  </a>
+  <a name="Snapshot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Snapshot</span>(self, snap_name=None, snap_size=None):
+    
+    <a class="headerLink" href="#Snapshot" title="ganeti.storage.extstorage.ExtStorageDevice.Snapshot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Snapshot" class="internal-link">ganeti.storage.base.BlockDev.Snapshot</a></code></div>
+    <div><p>Take a snapshot of the block device.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.attached">
+    
+  </a>
+  <a name="attached">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">attached</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#attached" title="ganeti.storage.extstorage.ExtStorageDevice.attached">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#attached" class="internal-link">ganeti.storage.base.BlockDev.attached</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.dev_path">
+    
+  </a>
+  <a name="dev_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dev_path</span> =
+    
+    <a class="headerLink" href="#dev_path" title="ganeti.storage.extstorage.ExtStorageDevice.dev_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#dev_path" class="internal-link">ganeti.storage.base.BlockDev.dev_path</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.driver">
+    
+  </a>
+  <a name="driver">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">driver</span> =
+    
+    <a class="headerLink" href="#driver" title="ganeti.storage.extstorage.ExtStorageDevice.driver">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.ext_params">
+    
+  </a>
+  <a name="ext_params">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ext_params</span> =
+    
+    <a class="headerLink" href="#ext_params" title="ganeti.storage.extstorage.ExtStorageDevice.ext_params">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.major">
+    
+  </a>
+  <a name="major">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">major</span> =
+    
+    <a class="headerLink" href="#major" title="ganeti.storage.extstorage.ExtStorageDevice.major">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#major" class="internal-link">ganeti.storage.base.BlockDev.major</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.minor">
+    
+  </a>
+  <a name="minor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">minor</span> =
+    
+    <a class="headerLink" href="#minor" title="ganeti.storage.extstorage.ExtStorageDevice.minor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#minor" class="internal-link">ganeti.storage.base.BlockDev.minor</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.name">
+    
+  </a>
+  <a name="name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">name</span> =
+    
+    <a class="headerLink" href="#name" title="ganeti.storage.extstorage.ExtStorageDevice.name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.uris">
+    
+  </a>
+  <a name="uris">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">uris</span> =
+    
+    <a class="headerLink" href="#uris" title="ganeti.storage.extstorage.ExtStorageDevice.uris">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.uuid">
+    
+  </a>
+  <a name="uuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">uuid</span> =
+    
+    <a class="headerLink" href="#uuid" title="ganeti.storage.extstorage.ExtStorageDevice.uuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.extstorage.ExtStorageDevice.vol_name">
+    
+  </a>
+  <a name="vol_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">vol_name</span> =
+    
+    <a class="headerLink" href="#vol_name" title="ganeti.storage.extstorage.ExtStorageDevice.vol_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

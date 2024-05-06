@@ -1,0 +1,1764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.hypervisor.hv_xen.XenPvmHypervisor</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.hypervisor.hv_xen.XenPvmHypervisor.html" class="internal-link" title="This class"><wbr></wbr>Xen<wbr></wbr>Pvm<wbr></wbr>Hypervisor</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetConfig" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor._GetConfig">_<wbr></wbr>Get<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#CheckParameterSyntax" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.CheckParameterSyntax"><wbr></wbr>Check<wbr></wbr>Parameter<wbr></wbr>Syntax</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#GetAncillaryFiles" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.GetAncillaryFiles"><wbr></wbr>Get<wbr></wbr>Ancillary<wbr></wbr>Files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#LinuxPowercycle" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.LinuxPowercycle"><wbr></wbr>Linux<wbr></wbr>Powercycle</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#ValidateParameters" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.ValidateParameters"><wbr></wbr>Validate<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetInstanceConsole" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetInstanceConsole"><wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Console</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#GetLinuxNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.GetLinuxNodeInfo"><wbr></wbr>Get<wbr></wbr>Linux<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#VersionsSafeForMigration" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.VersionsSafeForMigration"><wbr></wbr>Versions<wbr></wbr>Safe<wbr></wbr>For<wbr></wbr>Migration</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#CleanupInstance" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.CleanupInstance"><wbr></wbr>Cleanup<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotAddDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotAddDevice"><wbr></wbr>Hot<wbr></wbr>Add<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotDelDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotDelDevice"><wbr></wbr>Hot<wbr></wbr>Del<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotModDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotModDevice"><wbr></wbr>Hot<wbr></wbr>Mod<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotplugSupported" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotplugSupported"><wbr></wbr>Hotplug<wbr></wbr>Supported</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#VerifyHotplugSupport" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.VerifyHotplugSupport"><wbr></wbr>Verify<wbr></wbr>Hotplug<wbr></wbr>Support</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#__init__" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#AcceptInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.AcceptInstance"><wbr></wbr>Accept<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#BalloonInstanceMemory" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.BalloonInstanceMemory"><wbr></wbr>Balloon<wbr></wbr>Instance<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#FinalizeMigrationDst" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.FinalizeMigrationDst"><wbr></wbr>Finalize<wbr></wbr>Migration<wbr></wbr>Dst</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#FinalizeMigrationSource" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.FinalizeMigrationSource"><wbr></wbr>Finalize<wbr></wbr>Migration<wbr></wbr>Source</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetAllInstancesInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetAllInstancesInfo"><wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Instances<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetInstanceInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetInstanceInfo"><wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetMigrationStatus" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetMigrationStatus"><wbr></wbr>Get<wbr></wbr>Migration<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetNodeInfo"><wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ListInstances" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ListInstances"><wbr></wbr>List<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#MigrateInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.MigrateInstance"><wbr></wbr>Migrate<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#MigrationInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.MigrationInfo"><wbr></wbr>Migration<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#PowercycleNode" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.PowercycleNode"><wbr></wbr>Powercycle<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#RebootInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.RebootInstance"><wbr></wbr>Reboot<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#RestoreInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.RestoreInstance"><wbr></wbr>Restore<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#StartInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.StartInstance"><wbr></wbr>Start<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#StopInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.StopInstance"><wbr></wbr>Stop<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#Verify" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.Verify"><wbr></wbr>Verify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#VerifyInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.VerifyInstance"><wbr></wbr>Verify<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_IsParamValueUnspecified" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._IsParamValueUnspecified">_<wbr></wbr>Is<wbr></wbr>Param<wbr></wbr>Value<wbr></wbr>Unspecified</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_EnsureDirs" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._EnsureDirs">_<wbr></wbr>Ensure<wbr></wbr>Dirs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceMigrationPidfile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceMigrationPidfile">_<wbr></wbr>Instance<wbr></wbr>Migration<wbr></wbr>Pidfile</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceNICDir" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceNICDir">_<wbr></wbr>Instance<wbr></wbr>NICDir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceNICFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceNICFile">_<wbr></wbr>Instance<wbr></wbr>NICFile</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_KillMigrationDaemon" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._KillMigrationDaemon">_<wbr></wbr>Kill<wbr></wbr>Migration<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteNICInfoFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteNICInfoFile">_<wbr></wbr>Write<wbr></wbr>NICInfo<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_FormatVerifyResults" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._FormatVerifyResults">_<wbr></wbr>Format<wbr></wbr>Verify<wbr></wbr>Results</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_InstanceStartupMemory" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._InstanceStartupMemory">_<wbr></wbr>Instance<wbr></wbr>Startup<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_CheckToolstackXlConfigured" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._CheckToolstackXlConfigured">_<wbr></wbr>Check<wbr></wbr>Toolstack<wbr></wbr>Xl<wbr></wbr>Configured</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ConfigFileName" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ConfigFileName">_<wbr></wbr>Config<wbr></wbr>File<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DestroyInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DestroyInstance">_<wbr></wbr>Destroy<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DestroyInstanceIfAlive" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DestroyInstanceIfAlive">_<wbr></wbr>Destroy<wbr></wbr>Instance<wbr></wbr>If<wbr></wbr>Alive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_GetInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._GetInstanceList">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MakeConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MakeConfigFile">_<wbr></wbr>Make<wbr></wbr>Config<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MigrateInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MigrateInstance">_<wbr></wbr>Migrate<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ReadConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ReadConfigFile">_<wbr></wbr>Read<wbr></wbr>Config<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RemoveConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RemoveConfigFile">_<wbr></wbr>Remove<wbr></wbr>Config<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RenameInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RenameInstance">_<wbr></wbr>Rename<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RunXen" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RunXen">_<wbr></wbr>Run<wbr></wbr>Xen</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ShutdownInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ShutdownInstance">_<wbr></wbr>Shutdown<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_StashConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._StashConfigFile">_<wbr></wbr>Stash<wbr></wbr>Config<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_StopInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._StopInstance">_<wbr></wbr>Stop<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteConfigFile">_<wbr></wbr>Write<wbr></wbr>Config<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteNicConfig" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteNicConfig">_<wbr></wbr>Write<wbr></wbr>Nic<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PARAMETERS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor.PARAMETERS">PARAMETERS</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ANCILLARY_FILES" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ANCILLARY_FILES">ANCILLARY<wbr></wbr>_FILES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ANCILLARY_FILES_OPT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ANCILLARY_FILES_OPT">ANCILLARY<wbr></wbr>_FILES<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#CAN_MIGRATE" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.CAN_MIGRATE">CAN<wbr></wbr>_MIGRATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#REBOOT_RETRY_COUNT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.REBOOT_RETRY_COUNT">REBOOT<wbr></wbr>_RETRY<wbr></wbr>_COUNT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#REBOOT_RETRY_INTERVAL" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.REBOOT_RETRY_INTERVAL">REBOOT<wbr></wbr>_RETRY<wbr></wbr>_INTERVAL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DIRS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DIRS">_DIRS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_INSTANCE_LIST_DELAYS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._INSTANCE_LIST_DELAYS">_INSTANCE<wbr></wbr>_LIST<wbr></wbr>_DELAYS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_INSTANCE_LIST_TIMEOUT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._INSTANCE_LIST_TIMEOUT">_INSTANCE<wbr></wbr>_LIST<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MIGRATION_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MIGRATION_DIR">_MIGRATION<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_NICS_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._NICS_DIR">_NICS<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ROOT_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ROOT_DIR">_ROOT<wbr></wbr>_DIR</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_cfgdir" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._cfgdir">_cfgdir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_cmd" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._cmd">_cmd</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_run_cmd_fn" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._run_cmd_fn">_run<wbr></wbr>_cmd<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.hypervisor.hv_xen.html" class="internal-link" title="The parent of this class">hv<wbr></wbr>_xen</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHvmHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHvmHypervisor"><wbr></wbr>Xen<wbr></wbr>Hvm<wbr></wbr>Hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor"><wbr></wbr>Xen<wbr></wbr>Hypervisor</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.XenPvmHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor"><wbr></wbr>Xen<wbr></wbr>Pvm<wbr></wbr>Hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen._InstanceCrashed.html" class="internal-link" title="ganeti.hypervisor.hv_xen._InstanceCrashed">_<wbr></wbr>Instance<wbr></wbr>Crashed</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#WriteXenConfigEvents" class="internal-link" title="ganeti.hypervisor.hv_xen.WriteXenConfigEvents"><wbr></wbr>Write<wbr></wbr>Xen<wbr></wbr>Config<wbr></wbr>Events</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_ConfigureNIC" class="internal-link" title="ganeti.hypervisor.hv_xen._ConfigureNIC">_<wbr></wbr>Configure<wbr></wbr>NIC</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_CreateConfigCpus" class="internal-link" title="ganeti.hypervisor.hv_xen._CreateConfigCpus">_<wbr></wbr>Create<wbr></wbr>Config<wbr></wbr>Cpus</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_GetAllInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._GetAllInstanceList">_<wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_GetConfigFileDiskData" class="internal-link" title="ganeti.hypervisor.hv_xen._GetConfigFileDiskData">_<wbr></wbr>Get<wbr></wbr>Config<wbr></wbr>File<wbr></wbr>Disk<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_GetNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_xen._GetNodeInfo">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_GetRunningInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._GetRunningInstanceList">_<wbr></wbr>Get<wbr></wbr>Running<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_GetShutdownInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._GetShutdownInstanceList">_<wbr></wbr>Get<wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_IgnorePaused" class="internal-link" title="ganeti.hypervisor.hv_xen._IgnorePaused">_<wbr></wbr>Ignore<wbr></wbr>Paused</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_InstanceDomID" class="internal-link" title="ganeti.hypervisor.hv_xen._InstanceDomID">_<wbr></wbr>Instance<wbr></wbr>Dom<wbr></wbr>ID</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_InstanceRunning" class="internal-link" title="ganeti.hypervisor.hv_xen._InstanceRunning">_<wbr></wbr>Instance<wbr></wbr>Running</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_InstanceRuntime" class="internal-link" title="ganeti.hypervisor.hv_xen._InstanceRuntime">_<wbr></wbr>Instance<wbr></wbr>Runtime</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_IsCrashed" class="internal-link" title="ganeti.hypervisor.hv_xen._IsCrashed">_<wbr></wbr>Is<wbr></wbr>Crashed</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_IsInstanceRunning" class="internal-link" title="ganeti.hypervisor.hv_xen._IsInstanceRunning">_<wbr></wbr>Is<wbr></wbr>Instance<wbr></wbr>Running</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_IsInstanceShutdown" class="internal-link" title="ganeti.hypervisor.hv_xen._IsInstanceShutdown">_<wbr></wbr>Is<wbr></wbr>Instance<wbr></wbr>Shutdown</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_MergeInstanceInfo" class="internal-link" title="ganeti.hypervisor.hv_xen._MergeInstanceInfo">_<wbr></wbr>Merge<wbr></wbr>Instance<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_ParseInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._ParseInstanceList">_<wbr></wbr>Parse<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_ParseNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_xen._ParseNodeInfo">_<wbr></wbr>Parse<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_QuoteCpuidField" class="internal-link" title="ganeti.hypervisor.hv_xen._QuoteCpuidField">_<wbr></wbr>Quote<wbr></wbr>Cpuid<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_RunInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._RunInstanceList">_<wbr></wbr>Run<wbr></wbr>Instance<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_XenToHypervisorInstanceState" class="internal-link" title="ganeti.hypervisor.hv_xen._XenToHypervisorInstanceState">_<wbr></wbr>Xen<wbr></wbr>To<wbr></wbr>Hypervisor<wbr></wbr>Instance<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#VIF_BRIDGE_SCRIPT" class="internal-link" title="ganeti.hypervisor.hv_xen.VIF_BRIDGE_SCRIPT">VIF<wbr></wbr>_BRIDGE<wbr></wbr>_SCRIPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#XEN_COMMAND" class="internal-link" title="ganeti.hypervisor.hv_xen.XEN_COMMAND">XEN<wbr></wbr>_COMMAND</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#XL_CONFIG_FILE" class="internal-link" title="ganeti.hypervisor.hv_xen.XL_CONFIG_FILE">XL<wbr></wbr>_CONFIG<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_DOM0_NAME" class="internal-link" title="ganeti.hypervisor.hv_xen._DOM0_NAME">_DOM0<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_xen.html#_FILE_DRIVER_MAP" class="internal-link" title="ganeti.hypervisor.hv_xen._FILE_DRIVER_MAP">_FILE<wbr></wbr>_DRIVER<wbr></wbr>_MAP</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_xen.html" class="internal-link" title="ganeti.hypervisor.hv_xen">hv_xen</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_xen.XenPvmHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor">XenPvmHypervisor</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">XenPvmHypervisor</span>(<a href="ganeti.hypervisor.hv_xen.XenHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor">XenHypervisor</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.hypervisor.hv_xen.XenPvmHypervisor">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Xen PVM hypervisor interface</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id469">
+  
+  
+  <tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#PARAMETERS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor.PARAMETERS">PARAMETERS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetConfig" class="internal-link" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor._GetConfig">_<wbr></wbr>Get<wbr></wbr>Config</a></code></td>
+    <td>Write the Xen config file for the instance.</td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor">XenHypervisor</a></code>:
+            </p>
+            <table class="children sortable" id="id470">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetInstanceConsole" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetInstanceConsole"><wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Console</a></code></td>
+    <td>Return a command for connecting to the console of an instance.</td>
+  </tr><tr class="basestaticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#VersionsSafeForMigration" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.VersionsSafeForMigration"><wbr></wbr>Versions<wbr></wbr>Safe<wbr></wbr>For<wbr></wbr>Migration</a></code></td>
+    <td>Decide if migration is likely to suceed for hypervisor versions.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#__init__" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#AcceptInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.AcceptInstance"><wbr></wbr>Accept<wbr></wbr>Instance</a></code></td>
+    <td>Prepare to accept an instance.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#BalloonInstanceMemory" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.BalloonInstanceMemory"><wbr></wbr>Balloon<wbr></wbr>Instance<wbr></wbr>Memory</a></code></td>
+    <td>Balloon an instance memory to a certain value.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#FinalizeMigrationDst" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.FinalizeMigrationDst"><wbr></wbr>Finalize<wbr></wbr>Migration<wbr></wbr>Dst</a></code></td>
+    <td>Finalize an instance migration.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#FinalizeMigrationSource" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.FinalizeMigrationSource"><wbr></wbr>Finalize<wbr></wbr>Migration<wbr></wbr>Source</a></code></td>
+    <td>Finalize the instance migration on the source node.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetAllInstancesInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetAllInstancesInfo"><wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Instances<wbr></wbr>Info</a></code></td>
+    <td>Get properties of all instances.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetInstanceInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetInstanceInfo"><wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Info</a></code></td>
+    <td>Get instance properties.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetMigrationStatus" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetMigrationStatus"><wbr></wbr>Get<wbr></wbr>Migration<wbr></wbr>Status</a></code></td>
+    <td>Get the migration status</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#GetNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.GetNodeInfo"><wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Info</a></code></td>
+    <td>Return information about the node.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ListInstances" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ListInstances"><wbr></wbr>List<wbr></wbr>Instances</a></code></td>
+    <td>Get the list of running instances.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#MigrateInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.MigrateInstance"><wbr></wbr>Migrate<wbr></wbr>Instance</a></code></td>
+    <td>Migrate an instance to a target node.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#MigrationInfo" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.MigrationInfo"><wbr></wbr>Migration<wbr></wbr>Info</a></code></td>
+    <td>Get instance information to perform a migration.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#PowercycleNode" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.PowercycleNode"><wbr></wbr>Powercycle<wbr></wbr>Node</a></code></td>
+    <td>Xen-specific powercycle.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#RebootInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.RebootInstance"><wbr></wbr>Reboot<wbr></wbr>Instance</a></code></td>
+    <td>Reboot an instance.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#RestoreInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.RestoreInstance"><wbr></wbr>Restore<wbr></wbr>Instance</a></code></td>
+    <td>Fixup running instance's state.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#StartInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.StartInstance"><wbr></wbr>Start<wbr></wbr>Instance</a></code></td>
+    <td>Start an instance.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#StopInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.StopInstance"><wbr></wbr>Stop<wbr></wbr>Instance</a></code></td>
+    <td>Stop an instance.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#Verify" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.Verify"><wbr></wbr>Verify</a></code></td>
+    <td>Verify the hypervisor.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#VerifyInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.VerifyInstance"><wbr></wbr>Verify<wbr></wbr>Instance</a></code></td>
+    <td>Verify if running instance (configuration) is in correct state.</td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ANCILLARY_FILES" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ANCILLARY_FILES">ANCILLARY<wbr></wbr>_FILES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#ANCILLARY_FILES_OPT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.ANCILLARY_FILES_OPT">ANCILLARY<wbr></wbr>_FILES<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#CAN_MIGRATE" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.CAN_MIGRATE">CAN<wbr></wbr>_MIGRATE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#REBOOT_RETRY_COUNT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.REBOOT_RETRY_COUNT">REBOOT<wbr></wbr>_RETRY<wbr></wbr>_COUNT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#REBOOT_RETRY_INTERVAL" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor.REBOOT_RETRY_INTERVAL">REBOOT<wbr></wbr>_RETRY<wbr></wbr>_INTERVAL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_EnsureDirs" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._EnsureDirs">_<wbr></wbr>Ensure<wbr></wbr>Dirs</a></code></td>
+    <td>Makes sure that the directories needed by the hypervisor exist.</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceMigrationPidfile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceMigrationPidfile">_<wbr></wbr>Instance<wbr></wbr>Migration<wbr></wbr>Pidfile</a></code></td>
+    <td>Returns the name of the pid file for a socat process used to migrate.</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceNICDir" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceNICDir">_<wbr></wbr>Instance<wbr></wbr>NICDir</a></code></td>
+    <td>Returns the directory holding the tap device files for a given instance.</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_InstanceNICFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._InstanceNICFile">_<wbr></wbr>Instance<wbr></wbr>NICFile</a></code></td>
+    <td>Returns the name of the file containing the tap device for a given NIC</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_KillMigrationDaemon" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._KillMigrationDaemon">_<wbr></wbr>Kill<wbr></wbr>Migration<wbr></wbr>Daemon</a></code></td>
+    <td>Kills the migration daemon if present.</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteNICInfoFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteNICInfoFile">_<wbr></wbr>Write<wbr></wbr>NICInfo<wbr></wbr>File</a></code></td>
+    <td>Write the Xen config file for the instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_CheckToolstackXlConfigured" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._CheckToolstackXlConfigured">_<wbr></wbr>Check<wbr></wbr>Toolstack<wbr></wbr>Xl<wbr></wbr>Configured</a></code></td>
+    <td>Checks whether xl is enabled on an xl-capable node.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ConfigFileName" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ConfigFileName">_<wbr></wbr>Config<wbr></wbr>File<wbr></wbr>Name</a></code></td>
+    <td>Get the config file name for an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DestroyInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DestroyInstance">_<wbr></wbr>Destroy<wbr></wbr>Instance</a></code></td>
+    <td>Destroy an instance if the instance exists.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DestroyInstanceIfAlive" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DestroyInstanceIfAlive">_<wbr></wbr>Destroy<wbr></wbr>Instance<wbr></wbr>If<wbr></wbr>Alive</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_GetInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._GetInstanceList">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>List</a></code></td>
+    <td>Wrapper around module level <code><a href="ganeti.hypervisor.hv_xen.html#_GetAllInstanceList" class="internal-link" title="ganeti.hypervisor.hv_xen._GetAllInstanceList">_GetAllInstanceList</a></code>.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MakeConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MakeConfigFile">_<wbr></wbr>Make<wbr></wbr>Config<wbr></wbr>File</a></code></td>
+    <td>Gather configuration details and write to disk.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MigrateInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MigrateInstance">_<wbr></wbr>Migrate<wbr></wbr>Instance</a></code></td>
+    <td>Migrate an instance to a target node.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ReadConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ReadConfigFile">_<wbr></wbr>Read<wbr></wbr>Config<wbr></wbr>File</a></code></td>
+    <td>Returns the contents of the instance config file.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RemoveConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RemoveConfigFile">_<wbr></wbr>Remove<wbr></wbr>Config<wbr></wbr>File</a></code></td>
+    <td>Remove the xen configuration file.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RenameInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RenameInstance">_<wbr></wbr>Rename<wbr></wbr>Instance</a></code></td>
+    <td>Rename an instance (domain).</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_RunXen" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._RunXen">_<wbr></wbr>Run<wbr></wbr>Xen</a></code></td>
+    <td>Wrapper around <code><a href="ganeti.utils.process.html#RunCmd" class="internal-link" title="ganeti.utils.process.RunCmd">utils.process.RunCmd</a></code> to run Xen command.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ShutdownInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ShutdownInstance">_<wbr></wbr>Shutdown<wbr></wbr>Instance</a></code></td>
+    <td>Shutdown an instance if the instance is running.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_StashConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._StashConfigFile">_<wbr></wbr>Stash<wbr></wbr>Config<wbr></wbr>File</a></code></td>
+    <td>Move the Xen config file to the log directory and return its new path.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_StopInstance" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._StopInstance">_<wbr></wbr>Stop<wbr></wbr>Instance</a></code></td>
+    <td>Stop an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteConfigFile" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteConfigFile">_<wbr></wbr>Write<wbr></wbr>Config<wbr></wbr>File</a></code></td>
+    <td>Write the Xen config file for the instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_WriteNicConfig" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._WriteNicConfig">_<wbr></wbr>Write<wbr></wbr>Nic<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_DIRS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._DIRS">_DIRS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_INSTANCE_LIST_DELAYS" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._INSTANCE_LIST_DELAYS">_INSTANCE<wbr></wbr>_LIST<wbr></wbr>_DELAYS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_INSTANCE_LIST_TIMEOUT" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._INSTANCE_LIST_TIMEOUT">_INSTANCE<wbr></wbr>_LIST<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_MIGRATION_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._MIGRATION_DIR">_MIGRATION<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_NICS_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._NICS_DIR">_NICS<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant private">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_ROOT_DIR" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._ROOT_DIR">_ROOT<wbr></wbr>_DIR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_cfgdir" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._cfgdir">_cfgdir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_cmd" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._cmd">_cmd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_run_cmd_fn" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor._run_cmd_fn">_run<wbr></wbr>_cmd<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor">BaseHypervisor</a></code> (via <code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_xen.XenHypervisor">XenHypervisor</a></code>):
+            </p>
+            <table class="children sortable" id="id471">
+  
+  
+  <tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#CheckParameterSyntax" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.CheckParameterSyntax"><wbr></wbr>Check<wbr></wbr>Parameter<wbr></wbr>Syntax</a></code></td>
+    <td>Check the given parameters for validity.</td>
+  </tr><tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#GetAncillaryFiles" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.GetAncillaryFiles"><wbr></wbr>Get<wbr></wbr>Ancillary<wbr></wbr>Files</a></code></td>
+    <td>Return a list of ancillary files to be copied to all nodes as ancillary configuration files.</td>
+  </tr><tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#LinuxPowercycle" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.LinuxPowercycle"><wbr></wbr>Linux<wbr></wbr>Powercycle</a></code></td>
+    <td>Linux-specific powercycle method.</td>
+  </tr><tr class="baseclassmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#ValidateParameters" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.ValidateParameters"><wbr></wbr>Validate<wbr></wbr>Parameters</a></code></td>
+    <td>Check the given parameters for validity.</td>
+  </tr><tr class="basestaticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#GetLinuxNodeInfo" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.GetLinuxNodeInfo"><wbr></wbr>Get<wbr></wbr>Linux<wbr></wbr>Node<wbr></wbr>Info</a></code></td>
+    <td>For linux systems, return actual OS information.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#CleanupInstance" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.CleanupInstance"><wbr></wbr>Cleanup<wbr></wbr>Instance</a></code></td>
+    <td>Cleanup after a stopped instance</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotAddDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotAddDevice"><wbr></wbr>Hot<wbr></wbr>Add<wbr></wbr>Device</a></code></td>
+    <td>Hot-add a device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotDelDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotDelDevice"><wbr></wbr>Hot<wbr></wbr>Del<wbr></wbr>Device</a></code></td>
+    <td>Hot-del a device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotModDevice" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotModDevice"><wbr></wbr>Hot<wbr></wbr>Mod<wbr></wbr>Device</a></code></td>
+    <td>Hot-mod a device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#HotplugSupported" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.HotplugSupported"><wbr></wbr>Hotplug<wbr></wbr>Supported</a></code></td>
+    <td>Checks if hotplug is supported.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#VerifyHotplugSupport" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor.VerifyHotplugSupport"><wbr></wbr>Verify<wbr></wbr>Hotplug<wbr></wbr>Support</a></code></td>
+    <td>Verifies that hotplug is supported.</td>
+  </tr><tr class="baseclassmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_IsParamValueUnspecified" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._IsParamValueUnspecified">_<wbr></wbr>Is<wbr></wbr>Param<wbr></wbr>Value<wbr></wbr>Unspecified</a></code></td>
+    <td>Check if the parameter value is a kind of value meaning unspecified.</td>
+  </tr><tr class="basestaticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_FormatVerifyResults" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._FormatVerifyResults">_<wbr></wbr>Format<wbr></wbr>Verify<wbr></wbr>Results</a></code></td>
+    <td>Formats the verification results, given a list of errors.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#_InstanceStartupMemory" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor._InstanceStartupMemory">_<wbr></wbr>Instance<wbr></wbr>Startup<wbr></wbr>Memory</a></code></td>
+    <td>Get the correct startup memory for an instance</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseconstant">
+  
+  
+  <a name="ganeti.hypervisor.hv_xen.XenPvmHypervisor.PARAMETERS">
+    
+  </a>
+  <a name="PARAMETERS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PARAMETERS</span> =
+    
+    <a class="headerLink" href="#PARAMETERS" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor.PARAMETERS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html#PARAMETERS" class="internal-link">ganeti.hypervisor.hv_base.BaseHypervisor.PARAMETERS</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#HV_USE_BOOTLOADER" class="internal-link" title="ganeti._constants.HV_USE_BOOTLOADER">constants.HV_USE_BOOTLOADER</a>: <a href="ganeti.hypervisor.hv_base.html#NO_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.NO_CHECK">hv_base.NO_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_BOOTLOADER_PATH" class="internal-link" title="ganeti._constants.HV_BOOTLOADER_PATH">constants.HV_BOOTLOADER_PATH</a>: <a href="ganeti.hypervisor.hv_base.html#OPT_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_FILE_CHECK">hv_base.OPT_FILE_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_BOOTLOADER_ARGS" class="internal-link" title="ganeti._constants.HV_BOOTLOADER_ARGS">constants.HV_BOOTLOADER_ARGS</a>: <a href="ganeti.hypervisor.hv_base.html#NO_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.NO_CHECK">hv_base.NO_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_KERNEL_PATH" class="internal-link" title="ganeti._constants.HV_KERNEL_PATH">constants.HV_KERNEL_PATH</a>: <a href="ganeti.hypervisor.hv_base.html#REQ_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_FILE_CHECK">hv_base.REQ_FILE_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_INITRD_PATH" class="internal-link" title="ganeti._constants.HV_INITRD_PATH">constants.HV_INITRD_PATH</a>: <a href="ganeti.hypervisor.hv_base.html#OPT_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_FILE_CHECK">hv_base.OPT_FILE_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_ROOT_PATH" class="internal-link" title="ganeti._constants.HV_ROOT_PATH">constants.HV_ROOT_PATH</a>: <a href="ganeti.hypervisor.hv_base.html#NO_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.NO_CHECK">hv_base.NO_CHECK</a>,
+ <wbr></wbr><a href="ganeti._constants.html#HV_KERNEL_ARGS" class="internal-link" title="ganeti._constants.HV_KERNEL_ARGS">constants.HV_KERNEL_ARGS</a>: <a href="ganeti.hypervisor.hv_base.html#NO_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.NO_CHECK">hv_base.NO_CHECK</a>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.hypervisor.hv_xen.XenPvmHypervisor._GetConfig">
+    
+  </a>
+  <a name="_GetConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetConfig</span>(self, instance, startup_memory, block_devices):
+    
+    <a class="headerLink" href="#_GetConfig" title="ganeti.hypervisor.hv_xen.XenPvmHypervisor._GetConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.hypervisor.hv_xen.XenHypervisor.html#_GetConfig" class="internal-link">ganeti.hypervisor.hv_xen.XenHypervisor._GetConfig</a></code></div>
+    <div><p>Write the Xen config file for the instance.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

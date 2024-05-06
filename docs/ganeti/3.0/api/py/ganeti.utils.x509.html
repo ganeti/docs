@@ -1,0 +1,1608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.utils.x509</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.utils.x509.html" class="internal-link" title="This module">x509</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckNodeCertificate" class="internal-link" title="ganeti.utils.x509.CheckNodeCertificate"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExtractX509Certificate" class="internal-link" title="ganeti.utils.x509.ExtractX509Certificate"><wbr></wbr>Extract<wbr></wbr>X509<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateSelfSignedSslCert" class="internal-link" title="ganeti.utils.x509.GenerateSelfSignedSslCert"><wbr></wbr>Generate<wbr></wbr>Self<wbr></wbr>Signed<wbr></wbr>Ssl<wbr></wbr>Cert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateSelfSignedX509Cert" class="internal-link" title="ganeti.utils.x509.GenerateSelfSignedX509Cert"><wbr></wbr>Generate<wbr></wbr>Self<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Cert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateSignedSslCert" class="internal-link" title="ganeti.utils.x509.GenerateSignedSslCert"><wbr></wbr>Generate<wbr></wbr>Signed<wbr></wbr>Ssl<wbr></wbr>Cert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateSignedX509Cert" class="internal-link" title="ganeti.utils.x509.GenerateSignedX509Cert"><wbr></wbr>Generate<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Cert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetX509CertValidity" class="internal-link" title="ganeti.utils.x509.GetX509CertValidity"><wbr></wbr>Get<wbr></wbr>X509<wbr></wbr>Cert<wbr></wbr>Validity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LoadSignedX509Certificate" class="internal-link" title="ganeti.utils.x509.LoadSignedX509Certificate"><wbr></wbr>Load<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SignX509Certificate" class="internal-link" title="ganeti.utils.x509.SignX509Certificate"><wbr></wbr>Sign<wbr></wbr>X509<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyX509Certificate" class="internal-link" title="ganeti.utils.x509.VerifyX509Certificate"><wbr></wbr>Verify<wbr></wbr>X509<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#X509CertKeyCheck" class="internal-link" title="ganeti.utils.x509.X509CertKeyCheck"><wbr></wbr>X509<wbr></wbr>Cert<wbr></wbr>Key<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ExtractX509CertificateSignature" class="internal-link" title="ganeti.utils.x509._ExtractX509CertificateSignature">_<wbr></wbr>Extract<wbr></wbr>X509<wbr></wbr>Certificate<wbr></wbr>Signature</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseAsn1Generalizedtime" class="internal-link" title="ganeti.utils.x509._ParseAsn1Generalizedtime">_<wbr></wbr>Parse<wbr></wbr>Asn1<wbr></wbr>Generalizedtime</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyCertificateInner" class="internal-link" title="ganeti.utils.x509._VerifyCertificateInner">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CERT_ERROR" class="internal-link" title="ganeti.utils.x509.CERT_ERROR">CERT<wbr></wbr>_ERROR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CERT_WARNING" class="internal-link" title="ganeti.utils.x509.CERT_WARNING">CERT<wbr></wbr>_WARNING</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HEX_CHAR_RE" class="internal-link" title="ganeti.utils.x509.HEX_CHAR_RE">HEX<wbr></wbr>_CHAR<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VALID_X509_SIGNATURE_SALT" class="internal-link" title="ganeti.utils.x509.VALID_X509_SIGNATURE_SALT">VALID<wbr></wbr>_X509<wbr></wbr>_SIGNATURE<wbr></wbr>_SALT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#X509_SIGNATURE" class="internal-link" title="ganeti.utils.x509.X509_SIGNATURE">X509<wbr></wbr>_SIGNATURE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ASN1_TIME_REGEX" class="internal-link" title="ganeti.utils.x509._ASN1_TIME_REGEX">_ASN1<wbr></wbr>_TIME<wbr></wbr>_REGEX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.utils.html" class="internal-link" title="The parent of this module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.algo.html" class="internal-link" title="ganeti.utils.algo">algo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.bitarrays.html" class="internal-link" title="ganeti.utils.bitarrays">bitarrays</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.filelock.html" class="internal-link" title="ganeti.utils.filelock">filelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.hash.html" class="internal-link" title="ganeti.utils.hash">hash</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.html" class="internal-link" title="ganeti.utils.io">io</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.livelock.html" class="internal-link" title="ganeti.utils.livelock">livelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.log.html" class="internal-link" title="ganeti.utils.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.lvm.html" class="internal-link" title="ganeti.utils.lvm">lvm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.mlock.html" class="internal-link" title="ganeti.utils.mlock">mlock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.nodesetup.html" class="internal-link" title="ganeti.utils.nodesetup">nodesetup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.process.html" class="internal-link" title="ganeti.utils.process">process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.retry.html" class="internal-link" title="ganeti.utils.retry">retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.security.html" class="internal-link" title="ganeti.utils.security">security</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.storage.html" class="internal-link" title="ganeti.utils.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.tags.html" class="internal-link" title="ganeti.utils.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.html" class="internal-link" title="ganeti.utils.text">text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.version.html" class="internal-link" title="ganeti.utils.version">version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.wrapper.html" class="internal-link" title="ganeti.utils.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.x509.html" class="internal-link" title="ganeti.utils.x509">x509</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FdConditionWaiterHelper.html" class="internal-link" title="ganeti.utils.FdConditionWaiterHelper"><wbr></wbr>Fd<wbr></wbr>Condition<wbr></wbr>Waiter<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FieldSet.html" class="internal-link" title="ganeti.utils.FieldSet"><wbr></wbr>Field<wbr></wbr>Set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalHandler.html" class="internal-link" title="ganeti.utils.SignalHandler"><wbr></wbr>Signal<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalWakeupFd.html" class="internal-link" title="ganeti.utils.SignalWakeupFd"><wbr></wbr>Signal<wbr></wbr>Wakeup<wbr></wbr>Fd</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AllDiskOfType" class="internal-link" title="ganeti.utils.AllDiskOfType"><wbr></wbr>All<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AnyDiskOfType" class="internal-link" title="ganeti.utils.AnyDiskOfType"><wbr></wbr>Any<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#BridgeExists" class="internal-link" title="ganeti.utils.BridgeExists"><wbr></wbr>Bridge<wbr></wbr>Exists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EnsureDaemon" class="internal-link" title="ganeti.utils.EnsureDaemon"><wbr></wbr>Ensure<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EpochNano" class="internal-link" title="ganeti.utils.EpochNano"><wbr></wbr>Epoch<wbr></wbr>Nano</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FindMatch" class="internal-link" title="ganeti.utils.FindMatch"><wbr></wbr>Find<wbr></wbr>Match</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FirstFree" class="internal-link" title="ganeti.utils.FirstFree"><wbr></wbr>First<wbr></wbr>Free</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ForceDictType" class="internal-link" title="ganeti.utils.ForceDictType"><wbr></wbr>Force<wbr></wbr>Dict<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplate" class="internal-link" title="ganeti.utils.GetDiskTemplate"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplateString" class="internal-link" title="ganeti.utils.GetDiskTemplateString"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetHomeDir" class="internal-link" title="ganeti.utils.GetHomeDir"><wbr></wbr>Get<wbr></wbr>Home<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetMounts" class="internal-link" title="ganeti.utils.GetMounts"><wbr></wbr>Get<wbr></wbr>Mounts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ListVolumeGroups" class="internal-link" title="ganeti.utils.ListVolumeGroups"><wbr></wbr>List<wbr></wbr>Volume<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#MergeTime" class="internal-link" title="ganeti.utils.MergeTime"><wbr></wbr>Merge<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseCpuMask" class="internal-link" title="ganeti.utils.ParseCpuMask"><wbr></wbr>Parse<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseMultiCpuMask" class="internal-link" title="ganeti.utils.ParseMultiCpuMask"><wbr></wbr>Parse<wbr></wbr>Multi<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SendFds" class="internal-link" title="ganeti.utils.SendFds"><wbr></wbr>Send<wbr></wbr>Fds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SignalHandled" class="internal-link" title="ganeti.utils.SignalHandled"><wbr></wbr>Signal<wbr></wbr>Handled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SingleWaitForFdCondition" class="internal-link" title="ganeti.utils.SingleWaitForFdCondition"><wbr></wbr>Single<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SplitTime" class="internal-link" title="ganeti.utils.SplitTime"><wbr></wbr>Split<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#StopDaemon" class="internal-link" title="ganeti.utils.StopDaemon"><wbr></wbr>Stop<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TimeoutExpired" class="internal-link" title="ganeti.utils.TimeoutExpired"><wbr></wbr>Timeout<wbr></wbr>Expired</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TryConvert" class="internal-link" title="ganeti.utils.TryConvert"><wbr></wbr>Try<wbr></wbr>Convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateDeviceNames" class="internal-link" title="ganeti.utils.ValidateDeviceNames"><wbr></wbr>Validate<wbr></wbr>Device<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateServiceName" class="internal-link" title="ganeti.utils.ValidateServiceName"><wbr></wbr>Validate<wbr></wbr>Service<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#VerifyDictOptions" class="internal-link" title="ganeti.utils.VerifyDictOptions"><wbr></wbr>Verify<wbr></wbr>Dict<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#WaitForFdCondition" class="internal-link" title="ganeti.utils.WaitForFdCondition"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_ComputeMissingKeys" class="internal-link" title="ganeti.utils._ComputeMissingKeys">_<wbr></wbr>Compute<wbr></wbr>Missing<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#UUID_RE" class="internal-link" title="ganeti.utils.UUID_RE">UUID<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_VALID_SERVICE_NAME_RE" class="internal-link" title="ganeti.utils._VALID_SERVICE_NAME_RE">_VALID<wbr></wbr>_SERVICE<wbr></wbr>_NAME<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code><wbr></wbr>.<code><a href="ganeti.utils.x509.html" class="internal-link" title="ganeti.utils.x509">x509</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Utility functions for X509.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1383">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckNodeCertificate" class="internal-link" title="ganeti.utils.x509.CheckNodeCertificate"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Certificate</a></code></td>
+    <td>Checks the local node daemon certificate against given certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ExtractX509Certificate" class="internal-link" title="ganeti.utils.x509.ExtractX509Certificate"><wbr></wbr>Extract<wbr></wbr>X509<wbr></wbr>Certificate</a></code></td>
+    <td>Extracts the certificate from a PEM-formatted string.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateSelfSignedSslCert" class="internal-link" title="ganeti.utils.x509.GenerateSelfSignedSslCert"><wbr></wbr>Generate<wbr></wbr>Self<wbr></wbr>Signed<wbr></wbr>Ssl<wbr></wbr>Cert</a></code></td>
+    <td>Legacy function to generate self-signed X509 certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateSelfSignedX509Cert" class="internal-link" title="ganeti.utils.x509.GenerateSelfSignedX509Cert"><wbr></wbr>Generate<wbr></wbr>Self<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Cert</a></code></td>
+    <td>Generates a self-signed X509 certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateSignedSslCert" class="internal-link" title="ganeti.utils.x509.GenerateSignedSslCert"><wbr></wbr>Generate<wbr></wbr>Signed<wbr></wbr>Ssl<wbr></wbr>Cert</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateSignedX509Cert" class="internal-link" title="ganeti.utils.x509.GenerateSignedX509Cert"><wbr></wbr>Generate<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Cert</a></code></td>
+    <td>Generates a signed (but not self-signed) X509 certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetX509CertValidity" class="internal-link" title="ganeti.utils.x509.GetX509CertValidity"><wbr></wbr>Get<wbr></wbr>X509<wbr></wbr>Cert<wbr></wbr>Validity</a></code></td>
+    <td>Returns the validity period of the certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#LoadSignedX509Certificate" class="internal-link" title="ganeti.utils.x509.LoadSignedX509Certificate"><wbr></wbr>Load<wbr></wbr>Signed<wbr></wbr>X509<wbr></wbr>Certificate</a></code></td>
+    <td>Verifies a signed X509 certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SignX509Certificate" class="internal-link" title="ganeti.utils.x509.SignX509Certificate"><wbr></wbr>Sign<wbr></wbr>X509<wbr></wbr>Certificate</a></code></td>
+    <td>Sign a X509 certificate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyX509Certificate" class="internal-link" title="ganeti.utils.x509.VerifyX509Certificate"><wbr></wbr>Verify<wbr></wbr>X509<wbr></wbr>Certificate</a></code></td>
+    <td>Verifies a certificate for LUClusterVerify.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#X509CertKeyCheck" class="internal-link" title="ganeti.utils.x509.X509CertKeyCheck"><wbr></wbr>X509<wbr></wbr>Cert<wbr></wbr>Key<wbr></wbr>Check</a></code></td>
+    <td>Function for verifying certificate with a certain private key.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CERT_ERROR" class="internal-link" title="ganeti.utils.x509.CERT_ERROR">CERT<wbr></wbr>_ERROR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CERT_WARNING" class="internal-link" title="ganeti.utils.x509.CERT_WARNING">CERT<wbr></wbr>_WARNING</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HEX_CHAR_RE" class="internal-link" title="ganeti.utils.x509.HEX_CHAR_RE">HEX<wbr></wbr>_CHAR<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#VALID_X509_SIGNATURE_SALT" class="internal-link" title="ganeti.utils.x509.VALID_X509_SIGNATURE_SALT">VALID<wbr></wbr>_X509<wbr></wbr>_SIGNATURE<wbr></wbr>_SALT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#X509_SIGNATURE" class="internal-link" title="ganeti.utils.x509.X509_SIGNATURE">X509<wbr></wbr>_SIGNATURE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ExtractX509CertificateSignature" class="internal-link" title="ganeti.utils.x509._ExtractX509CertificateSignature">_<wbr></wbr>Extract<wbr></wbr>X509<wbr></wbr>Certificate<wbr></wbr>Signature</a></code></td>
+    <td>Helper function to extract signature from X509 certificate.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParseAsn1Generalizedtime" class="internal-link" title="ganeti.utils.x509._ParseAsn1Generalizedtime">_<wbr></wbr>Parse<wbr></wbr>Asn1<wbr></wbr>Generalizedtime</a></code></td>
+    <td>Parses an ASN1 GENERALIZEDTIME timestamp as used by pyOpenSSL.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyCertificateInner" class="internal-link" title="ganeti.utils.x509._VerifyCertificateInner">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Inner</a></code></td>
+    <td>Verifies certificate validity.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ASN1_TIME_REGEX" class="internal-link" title="ganeti.utils.x509._ASN1_TIME_REGEX">_ASN1<wbr></wbr>_TIME<wbr></wbr>_REGEX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.CheckNodeCertificate">
+    
+  </a>
+  <a name="CheckNodeCertificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckNodeCertificate</span>(cert, _noded_cert_file=<a href="ganeti.pathutils.html#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">pathutils.NODED_CERT_FILE</a>):
+    
+    <a class="headerLink" href="#CheckNodeCertificate" title="ganeti.utils.x509.CheckNodeCertificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks the local node daemon certificate against given certificate.</p>
+<p>Both certificates must be signed with the same key (as stored in the local <code><a href="ganeti.pathutils.html#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">pathutils.NODED_CERT_FILE</a></code> file). No error is raised if no local certificate can be found.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert:</span>OpenSSL.crypto.X509</td><td class="fieldArgDesc">X509 certificate object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_noded<wbr></wbr>_cert<wbr></wbr>_file</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.X509CertError.html" class="internal-link" title="ganeti.errors.X509CertError">errors.X509CertError</a></code></td><td>When an error related to X509 occurred</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.GenericError.html" class="internal-link" title="ganeti.errors.GenericError">errors.GenericError</a></code></td><td>When the verification failed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.ExtractX509Certificate">
+    
+  </a>
+  <a name="ExtractX509Certificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExtractX509Certificate</span>(pem):
+    
+    <a class="headerLink" href="#ExtractX509Certificate" title="ganeti.utils.x509.ExtractX509Certificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extracts the certificate from a PEM-formatted string.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pem:</span>string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (OpenSSL.X509 object, string)</td><td class="fieldArgDesc">Certificate object and PEM-formatted certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.GenerateSelfSignedSslCert">
+    
+  </a>
+  <a name="GenerateSelfSignedSslCert">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateSelfSignedSslCert</span>(filename, serial_no, common_name=<a href="ganeti._constants.html#X509_CERT_CN" class="internal-link" title="ganeti._constants.X509_CERT_CN">constants.X509_CERT_CN</a>, validity=<a href="ganeti._constants.html#X509_CERT_DEFAULT_VALIDITY" class="internal-link" title="ganeti._constants.X509_CERT_DEFAULT_VALIDITY">constants.X509_CERT_DEFAULT_VALIDITY</a>, uid=-1, gid=-1):
+    
+    <a class="headerLink" href="#GenerateSelfSignedSslCert" title="ganeti.utils.x509.GenerateSelfSignedSslCert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Legacy function to generate self-signed X509 certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>str</td><td class="fieldArgDesc">path to write certificate to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">serial<wbr></wbr>_no</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">common<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">commonName value</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">validity:</span>int</td><td class="fieldArgDesc">validity of certificate in number of days</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">uid:</span>int</td><td class="fieldArgDesc">the user ID of the user who will be owner of the certificate file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gid:</span>int</td><td class="fieldArgDesc">the group ID of the group who will own the certificate file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a tuple of strings containing the PEM-encoded private key and certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.GenerateSelfSignedX509Cert">
+    
+  </a>
+  <a name="GenerateSelfSignedX509Cert">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateSelfSignedX509Cert</span>(common_name, validity, serial_no):
+    
+    <a class="headerLink" href="#GenerateSelfSignedX509Cert" title="ganeti.utils.x509.GenerateSelfSignedX509Cert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a self-signed X509 certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">common<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">commonName value</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">validity:</span>int</td><td class="fieldArgDesc">Validity for certificate in seconds</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">serial<wbr></wbr>_no</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a tuple of strings containing the PEM-encoded private key and certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.GenerateSignedSslCert">
+    
+  </a>
+  <a name="GenerateSignedSslCert">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateSignedSslCert</span>(filename_cert, serial_no, filename_signing_cert, common_name=<a href="ganeti._constants.html#X509_CERT_CN" class="internal-link" title="ganeti._constants.X509_CERT_CN">constants.X509_CERT_CN</a>, validity=<a href="ganeti._constants.html#X509_CERT_DEFAULT_VALIDITY" class="internal-link" title="ganeti._constants.X509_CERT_DEFAULT_VALIDITY">constants.X509_CERT_DEFAULT_VALIDITY</a>, uid=-1, gid=-1):
+    
+    <a class="headerLink" href="#GenerateSignedSslCert" title="ganeti.utils.x509.GenerateSignedSslCert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.GenerateSignedX509Cert">
+    
+  </a>
+  <a name="GenerateSignedX509Cert">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateSignedX509Cert</span>(common_name, validity, serial_no, signing_cert_pem):
+    
+    <a class="headerLink" href="#GenerateSignedX509Cert" title="ganeti.utils.x509.GenerateSignedX509Cert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a signed (but not self-signed) X509 certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">common<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">commonName value, should be hostname of the machine</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">validity:</span>int</td><td class="fieldArgDesc">Validity for certificate in seconds</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">serial<wbr></wbr>_no</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">signing<wbr></wbr>_cert<wbr></wbr>_pem:</span>X509 key</td><td class="fieldArgDesc">PEM-encoded private key of the signing certificate</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a tuple of strings containing the PEM-encoded private key and certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.GetX509CertValidity">
+    
+  </a>
+  <a name="GetX509CertValidity">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetX509CertValidity</span>(cert):
+    
+    <a class="headerLink" href="#GetX509CertValidity" title="ganeti.utils.x509.GetX509CertValidity">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the validity period of the certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert:</span>OpenSSL.crypto.X509</td><td class="fieldArgDesc">X509 certificate object</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.LoadSignedX509Certificate">
+    
+  </a>
+  <a name="LoadSignedX509Certificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">LoadSignedX509Certificate</span>(cert_pem, key):
+    
+    <a class="headerLink" href="#LoadSignedX509Certificate" title="ganeti.utils.x509.LoadSignedX509Certificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a signed X509 certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert<wbr></wbr>_pem:</span>string</td><td class="fieldArgDesc">Certificate in PEM format and with signature header</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span>string</td><td class="fieldArgDesc">Key for HMAC</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (OpenSSL.crypto.X509, string)</td><td class="fieldArgDesc">X509 certificate object and salt</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.SignX509Certificate">
+    
+  </a>
+  <a name="SignX509Certificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SignX509Certificate</span>(cert, key, salt):
+    
+    <a class="headerLink" href="#SignX509Certificate" title="ganeti.utils.x509.SignX509Certificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sign a X509 certificate.</p>
+<p>An RFC822-like signature header is added in front of the certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert:</span>OpenSSL.crypto.X509</td><td class="fieldArgDesc">X509 certificate object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span>string</td><td class="fieldArgDesc">Key for HMAC</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">salt:</span>string</td><td class="fieldArgDesc">Salt for HMAC</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Serialized and signed certificate in PEM format</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.VerifyX509Certificate">
+    
+  </a>
+  <a name="VerifyX509Certificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyX509Certificate</span>(cert, warn_days, error_days):
+    
+    <a class="headerLink" href="#VerifyX509Certificate" title="ganeti.utils.x509.VerifyX509Certificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a certificate for LUClusterVerify.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert:</span>OpenSSL.crypto.X509</td><td class="fieldArgDesc">X509 certificate object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">warn<wbr></wbr>_days:</span>number or None</td><td class="fieldArgDesc">How many days before expiration a warning should be reported</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_days:</span>number or None</td><td class="fieldArgDesc">How many days before expiration an error should be reported</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.x509.X509CertKeyCheck">
+    
+  </a>
+  <a name="X509CertKeyCheck">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">X509CertKeyCheck</span>(cert, key):
+    
+    <a class="headerLink" href="#X509CertKeyCheck" title="ganeti.utils.x509.X509CertKeyCheck">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Function for verifying certificate with a certain private key.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert:</span>OpenSSL.crypto.X509</td><td class="fieldArgDesc">X509 certificate object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span>OpenSSL.crypto.PKey</td><td class="fieldArgDesc">Private key object</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">callable</td><td class="fieldArgDesc">Callable doing the actual check; will raise <tt class="rst-docutils literal">OpenSSL.SSL.Error</tt> if certificate is not signed by given private key</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.x509.CERT_ERROR">
+    
+  </a>
+  <a name="CERT_ERROR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CERT_ERROR</span> =
+    
+    <a class="headerLink" href="#CERT_ERROR" title="ganeti.utils.x509.CERT_ERROR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.x509.CERT_WARNING">
+    
+  </a>
+  <a name="CERT_WARNING">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CERT_WARNING</span> =
+    
+    <a class="headerLink" href="#CERT_WARNING" title="ganeti.utils.x509.CERT_WARNING">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.x509.HEX_CHAR_RE">
+    
+  </a>
+  <a name="HEX_CHAR_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HEX_CHAR_RE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HEX_CHAR_RE" title="ganeti.utils.x509.HEX_CHAR_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">[a-zA-Z0-9]</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.x509.VALID_X509_SIGNATURE_SALT">
+    
+  </a>
+  <a name="VALID_X509_SIGNATURE_SALT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">VALID_X509_SIGNATURE_SALT</span> =
+    
+    <a class="headerLink" href="#VALID_X509_SIGNATURE_SALT" title="ganeti.utils.x509.VALID_X509_SIGNATURE_SALT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">^%s+$</span><span class="rst-variable-quote">'</span>%<a href="#HEX_CHAR_RE" class="internal-link" title="ganeti.utils.x509.HEX_CHAR_RE">HEX_CHAR_RE</a>, <wbr></wbr>re.S)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.x509.X509_SIGNATURE">
+    
+  </a>
+  <a name="X509_SIGNATURE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">X509_SIGNATURE</span> =
+    
+    <a class="headerLink" href="#X509_SIGNATURE" title="ganeti.utils.x509.X509_SIGNATURE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">^%s:\\s*(?P&lt;salt&gt;%s+)/(?P&lt;sign&gt;%s+)$</span><span class="rst-variable-quote">'</span>%(<wbr></wbr>re.escape(<wbr></wbr><a href="ganeti._constants.html#X509_CERT_SIGNATURE_HEADER" class="internal-link" title="ganeti._constants.X509_CERT_SIGNATURE_HEADER">constants.X509_CERT_SIGNATURE_HEADER</a><span class="rst-variable-linewrap">↵</span>
+),
+                                                   <wbr></wbr><a href="#HEX_CHAR_RE" class="internal-link" title="ganeti.utils.x509.HEX_CHAR_RE">HEX_CHAR_RE</a>,
+                                                   <wbr></wbr><a href="#HEX_CHAR_RE" class="internal-link" title="ganeti.utils.x509.HEX_CHAR_RE">HEX_CHAR_RE</a>),
+           <wbr></wbr>re.S|re.I)</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.x509._ExtractX509CertificateSignature">
+    
+  </a>
+  <a name="_ExtractX509CertificateSignature">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ExtractX509CertificateSignature</span>(cert_pem):
+    
+    <a class="headerLink" href="#_ExtractX509CertificateSignature" title="ganeti.utils.x509._ExtractX509CertificateSignature">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function to extract signature from X509 certificate.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.x509._ParseAsn1Generalizedtime">
+    
+  </a>
+  <a name="_ParseAsn1Generalizedtime">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseAsn1Generalizedtime</span>(value):
+    
+    <a class="headerLink" href="#_ParseAsn1Generalizedtime" title="ganeti.utils.x509._ParseAsn1Generalizedtime">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses an ASN1 GENERALIZEDTIME timestamp as used by pyOpenSSL.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span>string or bytes</td><td class="fieldArgDesc">ASN1 GENERALIZEDTIME timestamp</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Seconds since the Epoch (1970-01-01 00:00:00 UTC)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.x509._VerifyCertificateInner">
+    
+  </a>
+  <a name="_VerifyCertificateInner">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyCertificateInner</span>(expired, not_before, not_after, now, warn_days, error_days):
+    
+    <a class="headerLink" href="#_VerifyCertificateInner" title="ganeti.utils.x509._VerifyCertificateInner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies certificate validity.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">expired:</span>bool</td><td class="fieldArgDesc">Whether pyOpenSSL considers the certificate as expired</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">not<wbr></wbr>_before:</span>number or None</td><td class="fieldArgDesc">Unix timestamp before which certificate is not valid</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">not<wbr></wbr>_after:</span>number or None</td><td class="fieldArgDesc">Unix timestamp after which certificate is invalid</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">now:</span>number</td><td class="fieldArgDesc">Current time as Unix timestamp</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">warn<wbr></wbr>_days:</span>number or None</td><td class="fieldArgDesc">How many days before expiration a warning should be reported</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_days:</span>number or None</td><td class="fieldArgDesc">How many days before expiration an error should be reported</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.x509._ASN1_TIME_REGEX">
+    
+  </a>
+  <a name="_ASN1_TIME_REGEX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ASN1_TIME_REGEX</span> =
+    
+    <a class="headerLink" href="#_ASN1_TIME_REGEX" title="ganeti.utils.x509._ASN1_TIME_REGEX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">(</span>\d<span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-group">(</span><span class="rst-re-group">[</span>-\+<span class="rst-re-group">]</span>\d\d<span class="rst-re-group">)</span><span class="rst-re-group">(</span>\d\d<span class="rst-re-group">)</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

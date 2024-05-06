@@ -1,0 +1,2152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.query.ClusterQueryData</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.query.ClusterQueryData.html" class="internal-link" title="This class"><wbr></wbr>Cluster<wbr></wbr>Query<wbr></wbr>Data</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.query.ClusterQueryData.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__iter__" class="internal-link" title="ganeti.query.ClusterQueryData.__iter__">__iter__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#drain_flag" class="internal-link" title="ganeti.query.ClusterQueryData.drain_flag">drain<wbr></wbr>_flag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#nodes" class="internal-link" title="ganeti.query.ClusterQueryData.nodes">nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#watcher_pause" class="internal-link" title="ganeti.query.ClusterQueryData.watcher_pause">watcher<wbr></wbr>_pause</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_cluster" class="internal-link" title="ganeti.query.ClusterQueryData._cluster">_cluster</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.query.html" class="internal-link" title="The parent of this class">query</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.ClusterQueryData.html" class="internal-link" title="ganeti.query.ClusterQueryData"><wbr></wbr>Cluster<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.ExtStorageInfo.html" class="internal-link" title="ganeti.query.ExtStorageInfo"><wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.GroupQueryData.html" class="internal-link" title="ganeti.query.GroupQueryData"><wbr></wbr>Group<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.InstanceQueryData.html" class="internal-link" title="ganeti.query.InstanceQueryData"><wbr></wbr>Instance<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.LockQueryData.html" class="internal-link" title="ganeti.query.LockQueryData"><wbr></wbr>Lock<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.NetworkQueryData.html" class="internal-link" title="ganeti.query.NetworkQueryData"><wbr></wbr>Network<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.NodeQueryData.html" class="internal-link" title="ganeti.query.NodeQueryData"><wbr></wbr>Node<wbr></wbr>Query<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.OsInfo.html" class="internal-link" title="ganeti.query.OsInfo"><wbr></wbr>Os<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.Query.html" class="internal-link" title="ganeti.query.Query"><wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query._FilterCompilerHelper.html" class="internal-link" title="ganeti.query._FilterCompilerHelper">_<wbr></wbr>Filter<wbr></wbr>Compiler<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query._FilterHints.html" class="internal-link" title="ganeti.query._FilterHints">_<wbr></wbr>Filter<wbr></wbr>Hints</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GetAllFields" class="internal-link" title="ganeti.query.GetAllFields"><wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GetQueryResponse" class="internal-link" title="ganeti.query.GetQueryResponse"><wbr></wbr>Get<wbr></wbr>Query<wbr></wbr>Response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QueryFields" class="internal-link" title="ganeti.query.QueryFields"><wbr></wbr>Query<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildClusterFields" class="internal-link" title="ganeti.query._BuildClusterFields">_<wbr></wbr>Build<wbr></wbr>Cluster<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildExportFields" class="internal-link" title="ganeti.query._BuildExportFields">_<wbr></wbr>Build<wbr></wbr>Export<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildExtStorageFields" class="internal-link" title="ganeti.query._BuildExtStorageFields">_<wbr></wbr>Build<wbr></wbr>Ext<wbr></wbr>Storage<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildFilterFields" class="internal-link" title="ganeti.query._BuildFilterFields">_<wbr></wbr>Build<wbr></wbr>Filter<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildGroupFields" class="internal-link" title="ganeti.query._BuildGroupFields">_<wbr></wbr>Build<wbr></wbr>Group<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildInstanceFields" class="internal-link" title="ganeti.query._BuildInstanceFields">_<wbr></wbr>Build<wbr></wbr>Instance<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildJobFields" class="internal-link" title="ganeti.query._BuildJobFields">_<wbr></wbr>Build<wbr></wbr>Job<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildLockFields" class="internal-link" title="ganeti.query._BuildLockFields">_<wbr></wbr>Build<wbr></wbr>Lock<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildNDFields" class="internal-link" title="ganeti.query._BuildNDFields">_<wbr></wbr>Build<wbr></wbr>NDFields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildNetworkFields" class="internal-link" title="ganeti.query._BuildNetworkFields">_<wbr></wbr>Build<wbr></wbr>Network<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildNodeFields" class="internal-link" title="ganeti.query._BuildNodeFields">_<wbr></wbr>Build<wbr></wbr>Node<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_BuildOsFields" class="internal-link" title="ganeti.query._BuildOsFields">_<wbr></wbr>Build<wbr></wbr>Os<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_ClusterWatcherPause" class="internal-link" title="ganeti.query._ClusterWatcherPause">_<wbr></wbr>Cluster<wbr></wbr>Watcher<wbr></wbr>Pause</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_CompileFilter" class="internal-link" title="ganeti.query._CompileFilter">_<wbr></wbr>Compile<wbr></wbr>Filter</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_ConvWrap" class="internal-link" title="ganeti.query._ConvWrap">_<wbr></wbr>Conv<wbr></wbr>Wrap</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_ConvWrapInner" class="internal-link" title="ganeti.query._ConvWrapInner">_<wbr></wbr>Conv<wbr></wbr>Wrap<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FieldDictKey" class="internal-link" title="ganeti.query._FieldDictKey">_<wbr></wbr>Field<wbr></wbr>Dict<wbr></wbr>Key</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetDeadInstStatus" class="internal-link" title="ganeti.query._GetDeadInstStatus">_<wbr></wbr>Get<wbr></wbr>Dead<wbr></wbr>Inst<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetExportName" class="internal-link" title="ganeti.query._GetExportName">_<wbr></wbr>Get<wbr></wbr>Export<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetGroup" class="internal-link" title="ganeti.query._GetGroup">_<wbr></wbr>Get<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstAllNicBridges" class="internal-link" title="ganeti.query._GetInstAllNicBridges">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>All<wbr></wbr>Nic<wbr></wbr>Bridges</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstAllNicNetworkNames" class="internal-link" title="ganeti.query._GetInstAllNicNetworkNames">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>All<wbr></wbr>Nic<wbr></wbr>Network<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstAllNicVlans" class="internal-link" title="ganeti.query._GetInstAllNicVlans">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>All<wbr></wbr>Nic<wbr></wbr>Vlans</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstanceConsole" class="internal-link" title="ganeti.query._GetInstanceConsole">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Console</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstanceDiskFields" class="internal-link" title="ganeti.query._GetInstanceDiskFields">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Disk<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstanceNetworkFields" class="internal-link" title="ganeti.query._GetInstanceNetworkFields">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Network<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstanceParameterFields" class="internal-link" title="ganeti.query._GetInstanceParameterFields">_<wbr></wbr>Get<wbr></wbr>Instance<wbr></wbr>Parameter<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDeviceName" class="internal-link" title="ganeti.query._GetInstDeviceName">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Device<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDeviceUUID" class="internal-link" title="ganeti.query._GetInstDeviceUUID">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Device<wbr></wbr>UUID</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDisk" class="internal-link" title="ganeti.query._GetInstDisk">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDiskSize" class="internal-link" title="ganeti.query._GetInstDiskSize">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Disk<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDiskSpindles" class="internal-link" title="ganeti.query._GetInstDiskSpindles">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Disk<wbr></wbr>Spindles</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstDiskUsage" class="internal-link" title="ganeti.query._GetInstDiskUsage">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Disk<wbr></wbr>Usage</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstLiveData" class="internal-link" title="ganeti.query._GetInstLiveData">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Live<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNic" class="internal-link" title="ganeti.query._GetInstNic">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicBridge" class="internal-link" title="ganeti.query._GetInstNicBridge">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Bridge</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicIp" class="internal-link" title="ganeti.query._GetInstNicIp">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicNetwork" class="internal-link" title="ganeti.query._GetInstNicNetwork">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicNetworkName" class="internal-link" title="ganeti.query._GetInstNicNetworkName">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Network<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicParam" class="internal-link" title="ganeti.query._GetInstNicParam">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>Param</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNicVLan" class="internal-link" title="ganeti.query._GetInstNicVLan">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Nic<wbr></wbr>VLan</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNodeGroup" class="internal-link" title="ganeti.query._GetInstNodeGroup">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Node<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstNodeGroupName" class="internal-link" title="ganeti.query._GetInstNodeGroupName">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Node<wbr></wbr>Group<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstOperState" class="internal-link" title="ganeti.query._GetInstOperState">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Oper<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetInstStatus" class="internal-link" title="ganeti.query._GetInstStatus">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetItemAttr" class="internal-link" title="ganeti.query._GetItemAttr">_<wbr></wbr>Get<wbr></wbr>Item<wbr></wbr>Attr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetItemMaybeAttr" class="internal-link" title="ganeti.query._GetItemMaybeAttr">_<wbr></wbr>Get<wbr></wbr>Item<wbr></wbr>Maybe<wbr></wbr>Attr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetItemTimestamp" class="internal-link" title="ganeti.query._GetItemTimestamp">_<wbr></wbr>Get<wbr></wbr>Item<wbr></wbr>Timestamp</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetItemTimestampFields" class="internal-link" title="ganeti.query._GetItemTimestampFields">_<wbr></wbr>Get<wbr></wbr>Item<wbr></wbr>Timestamp<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetLiveInstStatus" class="internal-link" title="ganeti.query._GetLiveInstStatus">_<wbr></wbr>Get<wbr></wbr>Live<wbr></wbr>Inst<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetLiveNodeField" class="internal-link" title="ganeti.query._GetLiveNodeField">_<wbr></wbr>Get<wbr></wbr>Live<wbr></wbr>Node<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetLockOwners" class="internal-link" title="ganeti.query._GetLockOwners">_<wbr></wbr>Get<wbr></wbr>Lock<wbr></wbr>Owners</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetLockPending" class="internal-link" title="ganeti.query._GetLockPending">_<wbr></wbr>Get<wbr></wbr>Lock<wbr></wbr>Pending</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNDParam" class="internal-link" title="ganeti.query._GetNDParam">_<wbr></wbr>Get<wbr></wbr>NDParam</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNdParams" class="internal-link" title="ganeti.query._GetNdParams">_<wbr></wbr>Get<wbr></wbr>Nd<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNetworkStatsField" class="internal-link" title="ganeti.query._GetNetworkStatsField">_<wbr></wbr>Get<wbr></wbr>Network<wbr></wbr>Stats<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodeDiskState" class="internal-link" title="ganeti.query._GetNodeDiskState">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Disk<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodeGroup" class="internal-link" title="ganeti.query._GetNodeGroup">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodeHvState" class="internal-link" title="ganeti.query._GetNodeHvState">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Hv<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodeName" class="internal-link" title="ganeti.query._GetNodeName">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodePower" class="internal-link" title="ganeti.query._GetNodePower">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Power</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetNodeRole" class="internal-link" title="ganeti.query._GetNodeRole">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Role</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetQueryFields" class="internal-link" title="ganeti.query._GetQueryFields">_<wbr></wbr>Get<wbr></wbr>Query<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetStatsField" class="internal-link" title="ganeti.query._GetStatsField">_<wbr></wbr>Get<wbr></wbr>Stats<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GetUnknownField" class="internal-link" title="ganeti.query._GetUnknownField">_<wbr></wbr>Get<wbr></wbr>Unknown<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_JobTimestamp" class="internal-link" title="ganeti.query._JobTimestamp">_<wbr></wbr>Job<wbr></wbr>Timestamp</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_JobTimestampInner" class="internal-link" title="ganeti.query._JobTimestampInner">_<wbr></wbr>Job<wbr></wbr>Timestamp<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_JobUnavail" class="internal-link" title="ganeti.query._JobUnavail">_<wbr></wbr>Job<wbr></wbr>Unavail</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_JobUnavailInner" class="internal-link" title="ganeti.query._JobUnavailInner">_<wbr></wbr>Job<wbr></wbr>Unavail<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_MakeComparisonChecks" class="internal-link" title="ganeti.query._MakeComparisonChecks">_<wbr></wbr>Make<wbr></wbr>Comparison<wbr></wbr>Checks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_MakeField" class="internal-link" title="ganeti.query._MakeField">_<wbr></wbr>Make<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_MakeSplitTimestampComparison" class="internal-link" title="ganeti.query._MakeSplitTimestampComparison">_<wbr></wbr>Make<wbr></wbr>Split<wbr></wbr>Timestamp<wbr></wbr>Comparison</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_PerJobOp" class="internal-link" title="ganeti.query._PerJobOp">_<wbr></wbr>Per<wbr></wbr>Job<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_PerJobOpInner" class="internal-link" title="ganeti.query._PerJobOpInner">_<wbr></wbr>Per<wbr></wbr>Job<wbr></wbr>Op<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_PrepareFieldList" class="internal-link" title="ganeti.query._PrepareFieldList">_<wbr></wbr>Prepare<wbr></wbr>Field<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_PrepareRegex" class="internal-link" title="ganeti.query._PrepareRegex">_<wbr></wbr>Prepare<wbr></wbr>Regex</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_PrepareSplitTimestamp" class="internal-link" title="ganeti.query._PrepareSplitTimestamp">_<wbr></wbr>Prepare<wbr></wbr>Split<wbr></wbr>Timestamp</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_ProcessResult" class="internal-link" title="ganeti.query._ProcessResult">_<wbr></wbr>Process<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_StaticValue" class="internal-link" title="ganeti.query._StaticValue">_<wbr></wbr>Static<wbr></wbr>Value</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_StaticValueInner" class="internal-link" title="ganeti.query._StaticValueInner">_<wbr></wbr>Static<wbr></wbr>Value<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_VerifyResultRow" class="internal-link" title="ganeti.query._VerifyResultRow">_<wbr></wbr>Verify<wbr></wbr>Result<wbr></wbr>Row</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_WrapBinaryOp" class="internal-link" title="ganeti.query._WrapBinaryOp">_<wbr></wbr>Wrap<wbr></wbr>Binary<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_WrapLogicOp" class="internal-link" title="ganeti.query._WrapLogicOp">_<wbr></wbr>Wrap<wbr></wbr>Logic<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_WrapNot" class="internal-link" title="ganeti.query._WrapNot">_<wbr></wbr>Wrap<wbr></wbr>Not</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_WrapUnaryOp" class="internal-link" title="ganeti.query._WrapUnaryOp">_<wbr></wbr>Wrap<wbr></wbr>Unary<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#ALL_FIELD_LISTS" class="internal-link" title="ganeti.query.ALL_FIELD_LISTS">ALL<wbr></wbr>_FIELD<wbr></wbr>_LISTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#ALL_FIELDS" class="internal-link" title="ganeti.query.ALL_FIELDS">ALL<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#CLUSTER_FIELDS" class="internal-link" title="ganeti.query.CLUSTER_FIELDS">CLUSTER<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#CQ_CONFIG" class="internal-link" title="ganeti.query.CQ_CONFIG">CQ<wbr></wbr>_CONFIG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#CQ_QUEUE_DRAINED" class="internal-link" title="ganeti.query.CQ_QUEUE_DRAINED">CQ<wbr></wbr>_QUEUE<wbr></wbr>_DRAINED</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#CQ_WATCHER_PAUSE" class="internal-link" title="ganeti.query.CQ_WATCHER_PAUSE">CQ<wbr></wbr>_WATCHER<wbr></wbr>_PAUSE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#DOC_RE" class="internal-link" title="ganeti.query.DOC_RE">DOC<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#EXPORT_FIELDS" class="internal-link" title="ganeti.query.EXPORT_FIELDS">EXPORT<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#EXTSTORAGE_FIELDS" class="internal-link" title="ganeti.query.EXTSTORAGE_FIELDS">EXTSTORAGE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#FIELD_NAME_RE" class="internal-link" title="ganeti.query.FIELD_NAME_RE">FIELD<wbr></wbr>_NAME<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#FILTER_FIELDS" class="internal-link" title="ganeti.query.FILTER_FIELDS">FILTER<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GQ_CONFIG" class="internal-link" title="ganeti.query.GQ_CONFIG">GQ<wbr></wbr>_CONFIG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GQ_DISKPARAMS" class="internal-link" title="ganeti.query.GQ_DISKPARAMS">GQ<wbr></wbr>_DISKPARAMS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GQ_INST" class="internal-link" title="ganeti.query.GQ_INST">GQ<wbr></wbr>_INST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GQ_NODE" class="internal-link" title="ganeti.query.GQ_NODE">GQ<wbr></wbr>_NODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#GROUP_FIELDS" class="internal-link" title="ganeti.query.GROUP_FIELDS">GROUP<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#INSTANCE_FIELDS" class="internal-link" title="ganeti.query.INSTANCE_FIELDS">INSTANCE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_CONFIG" class="internal-link" title="ganeti.query.IQ_CONFIG">IQ<wbr></wbr>_CONFIG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_CONSOLE" class="internal-link" title="ganeti.query.IQ_CONSOLE">IQ<wbr></wbr>_CONSOLE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_DISKUSAGE" class="internal-link" title="ganeti.query.IQ_DISKUSAGE">IQ<wbr></wbr>_DISKUSAGE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_LIVE" class="internal-link" title="ganeti.query.IQ_LIVE">IQ<wbr></wbr>_LIVE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_NETWORKS" class="internal-link" title="ganeti.query.IQ_NETWORKS">IQ<wbr></wbr>_NETWORKS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#IQ_NODES" class="internal-link" title="ganeti.query.IQ_NODES">IQ<wbr></wbr>_NODES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#JOB_FIELDS" class="internal-link" title="ganeti.query.JOB_FIELDS">JOB<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#JQ_ARCHIVED" class="internal-link" title="ganeti.query.JQ_ARCHIVED">JQ<wbr></wbr>_ARCHIVED</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#LOCK_FIELDS" class="internal-link" title="ganeti.query.LOCK_FIELDS">LOCK<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#LQ_MODE" class="internal-link" title="ganeti.query.LQ_MODE">LQ<wbr></wbr>_MODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#LQ_OWNER" class="internal-link" title="ganeti.query.LQ_OWNER">LQ<wbr></wbr>_OWNER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#LQ_PENDING" class="internal-link" title="ganeti.query.LQ_PENDING">LQ<wbr></wbr>_PENDING</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NETQ_CONFIG" class="internal-link" title="ganeti.query.NETQ_CONFIG">NETQ<wbr></wbr>_CONFIG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NETQ_GROUP" class="internal-link" title="ganeti.query.NETQ_GROUP">NETQ<wbr></wbr>_GROUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NETQ_INST" class="internal-link" title="ganeti.query.NETQ_INST">NETQ<wbr></wbr>_INST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NETQ_STATS" class="internal-link" title="ganeti.query.NETQ_STATS">NETQ<wbr></wbr>_STATS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NETWORK_FIELDS" class="internal-link" title="ganeti.query.NETWORK_FIELDS">NETWORK<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NODE_FIELDS" class="internal-link" title="ganeti.query.NODE_FIELDS">NODE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NQ_CONFIG" class="internal-link" title="ganeti.query.NQ_CONFIG">NQ<wbr></wbr>_CONFIG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NQ_GROUP" class="internal-link" title="ganeti.query.NQ_GROUP">NQ<wbr></wbr>_GROUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NQ_INST" class="internal-link" title="ganeti.query.NQ_INST">NQ<wbr></wbr>_INST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NQ_LIVE" class="internal-link" title="ganeti.query.NQ_LIVE">NQ<wbr></wbr>_LIVE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#NQ_OOB" class="internal-link" title="ganeti.query.NQ_OOB">NQ<wbr></wbr>_OOB</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#OS_FIELDS" class="internal-link" title="ganeti.query.OS_FIELDS">OS<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QFF_ALL" class="internal-link" title="ganeti.query.QFF_ALL">QFF<wbr></wbr>_ALL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QFF_HOSTNAME" class="internal-link" title="ganeti.query.QFF_HOSTNAME">QFF<wbr></wbr>_HOSTNAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QFF_IP_ADDRESS" class="internal-link" title="ganeti.query.QFF_IP_ADDRESS">QFF<wbr></wbr>_IP<wbr></wbr>_ADDRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QFF_JOB_ID" class="internal-link" title="ganeti.query.QFF_JOB_ID">QFF<wbr></wbr>_JOB<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#QFF_SPLIT_TIMESTAMP" class="internal-link" title="ganeti.query.QFF_SPLIT_TIMESTAMP">QFF<wbr></wbr>_SPLIT<wbr></wbr>_TIMESTAMP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#TITLE_RE" class="internal-link" title="ganeti.query.TITLE_RE">TITLE<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_CLUSTER_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._CLUSTER_SIMPLE_FIELDS">_CLUSTER<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_CLUSTER_VERSION_FIELDS" class="internal-link" title="ganeti.query._CLUSTER_VERSION_FIELDS">_CLUSTER<wbr></wbr>_VERSION<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FILTER_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._FILTER_SIMPLE_FIELDS">_FILTER<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FS_ALL" class="internal-link" title="ganeti.query._FS_ALL">_FS<wbr></wbr>_ALL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FS_NODATA" class="internal-link" title="ganeti.query._FS_NODATA">_FS<wbr></wbr>_NODATA</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FS_OFFLINE" class="internal-link" title="ganeti.query._FS_OFFLINE">_FS<wbr></wbr>_OFFLINE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FS_UNAVAIL" class="internal-link" title="ganeti.query._FS_UNAVAIL">_FS<wbr></wbr>_UNAVAIL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_FS_UNKNOWN" class="internal-link" title="ganeti.query._FS_UNKNOWN">_FS<wbr></wbr>_UNKNOWN</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_GROUP_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._GROUP_SIMPLE_FIELDS">_GROUP<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_INST_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._INST_SIMPLE_FIELDS">_INST<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_NETWORK_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._NETWORK_SIMPLE_FIELDS">_NETWORK<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_NETWORK_STATS_FIELDS" class="internal-link" title="ganeti.query._NETWORK_STATS_FIELDS">_NETWORK<wbr></wbr>_STATS<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_NODE_LIVE_FIELDS" class="internal-link" title="ganeti.query._NODE_LIVE_FIELDS">_NODE<wbr></wbr>_LIVE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_NODE_SIMPLE_FIELDS" class="internal-link" title="ganeti.query._NODE_SIMPLE_FIELDS">_NODE<wbr></wbr>_SIMPLE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_SERIAL_NO_DOC" class="internal-link" title="ganeti.query._SERIAL_NO_DOC">_SERIAL<wbr></wbr>_NO<wbr></wbr>_DOC</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_VERIFY_FN" class="internal-link" title="ganeti.query._VERIFY_FN">_VERIFY<wbr></wbr>_FN</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html#_VTToQFT" class="internal-link" title="ganeti.query._VTToQFT">_<wbr></wbr>VTTo<wbr></wbr>QFT</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code><wbr></wbr>.<code><a href="ganeti.query.ClusterQueryData.html" class="internal-link" title="ganeti.query.ClusterQueryData">ClusterQueryData</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ClusterQueryData</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.query.ClusterQueryData">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1014">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.query.ClusterQueryData.__init__">__init__</a></code></td>
+    <td>Initializes this class.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__iter__" class="internal-link" title="ganeti.query.ClusterQueryData.__iter__">__iter__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#drain_flag" class="internal-link" title="ganeti.query.ClusterQueryData.drain_flag">drain<wbr></wbr>_flag</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#nodes" class="internal-link" title="ganeti.query.ClusterQueryData.nodes">nodes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#watcher_pause" class="internal-link" title="ganeti.query.ClusterQueryData.watcher_pause">watcher<wbr></wbr>_pause</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_cluster" class="internal-link" title="ganeti.query.ClusterQueryData._cluster">_cluster</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.query.ClusterQueryData.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, cluster, nodes, drain_flag, watcher_pause):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.query.ClusterQueryData.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initializes this class.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster:</span><code><a href="ganeti.objects.Cluster.html" class="internal-link" title="ganeti.objects.Cluster">objects.Cluster</a></code></td><td class="fieldArgDesc">Instance of cluster object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>dict; node UUID as key</td><td class="fieldArgDesc">Node objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drain<wbr></wbr>_flag:</span>bool</td><td class="fieldArgDesc">Whether job queue is drained</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">watcher<wbr></wbr>_pause:</span>number</td><td class="fieldArgDesc">Until when watcher is paused (Unix timestamp)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.query.ClusterQueryData.__iter__">
+    
+  </a>
+  <a name="__iter__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__iter__</span>(self):
+    
+    <a class="headerLink" href="#__iter__" title="ganeti.query.ClusterQueryData.__iter__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.query.ClusterQueryData.drain_flag">
+    
+  </a>
+  <a name="drain_flag">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">drain_flag</span> =
+    
+    <a class="headerLink" href="#drain_flag" title="ganeti.query.ClusterQueryData.drain_flag">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.query.ClusterQueryData.nodes">
+    
+  </a>
+  <a name="nodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">nodes</span> =
+    
+    <a class="headerLink" href="#nodes" title="ganeti.query.ClusterQueryData.nodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.query.ClusterQueryData.watcher_pause">
+    
+  </a>
+  <a name="watcher_pause">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">watcher_pause</span> =
+    
+    <a class="headerLink" href="#watcher_pause" title="ganeti.query.ClusterQueryData.watcher_pause">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.query.ClusterQueryData._cluster">
+    
+  </a>
+  <a name="_cluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_cluster</span> =
+    
+    <a class="headerLink" href="#_cluster" title="ganeti.query.ClusterQueryData._cluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

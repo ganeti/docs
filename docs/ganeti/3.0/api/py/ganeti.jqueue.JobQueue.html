@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.jqueue.JobQueue</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="This class"><wbr></wbr>Job<wbr></wbr>Queue</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SubmitManyJobs" class="internal-link" title="ganeti.jqueue.JobQueue.SubmitManyJobs"><wbr></wbr>Submit<wbr></wbr>Many<wbr></wbr>Jobs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.jqueue.JobQueue.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CancelJob" class="internal-link" title="ganeti.jqueue.JobQueue.CancelJob"><wbr></wbr>Cancel<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ChangeJobPriority" class="internal-link" title="ganeti.jqueue.JobQueue.ChangeJobPriority"><wbr></wbr>Change<wbr></wbr>Job<wbr></wbr>Priority</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HasJobBeenFinalized" class="internal-link" title="ganeti.jqueue.JobQueue.HasJobBeenFinalized"><wbr></wbr>Has<wbr></wbr>Job<wbr></wbr>Been<wbr></wbr>Finalized</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SafeLoadJobFromDisk" class="internal-link" title="ganeti.jqueue.JobQueue.SafeLoadJobFromDisk"><wbr></wbr>Safe<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>From<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue.UpdateJobUnlocked"><wbr></wbr>Update<wbr></wbr>Job<wbr></wbr>Unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetJobIDsUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobIDsUnlocked">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>IDs<wbr></wbr>Unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckRpcResult" class="internal-link" title="ganeti.jqueue.JobQueue._CheckRpcResult">_<wbr></wbr>Check<wbr></wbr>Rpc<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DetermineJobDirectories" class="internal-link" title="ganeti.jqueue.JobQueue._DetermineJobDirectories">_<wbr></wbr>Determine<wbr></wbr>Job<wbr></wbr>Directories</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetArchivedJobPath" class="internal-link" title="ganeti.jqueue.JobQueue._GetArchivedJobPath">_<wbr></wbr>Get<wbr></wbr>Archived<wbr></wbr>Job<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetJobPath" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobPath">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ResolveJobDependencies" class="internal-link" title="ganeti.jqueue.JobQueue._ResolveJobDependencies">_<wbr></wbr>Resolve<wbr></wbr>Job<wbr></wbr>Dependencies</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetJobStatusForDependencies" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobStatusForDependencies">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>Status<wbr></wbr>For<wbr></wbr>Dependencies</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetNodeIp" class="internal-link" title="ganeti.jqueue.JobQueue._GetNodeIp">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetRpc" class="internal-link" title="ganeti.jqueue.JobQueue._GetRpc">_<wbr></wbr>Get<wbr></wbr>Rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LoadJobFromDisk" class="internal-link" title="ganeti.jqueue.JobQueue._LoadJobFromDisk">_<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>From<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LoadJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._LoadJobUnlocked">_<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>Unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ModifyJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._ModifyJobUnlocked">_<wbr></wbr>Modify<wbr></wbr>Job<wbr></wbr>Unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RenameFilesUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._RenameFilesUnlocked">_<wbr></wbr>Rename<wbr></wbr>Files<wbr></wbr>Unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateJobQueueFile" class="internal-link" title="ganeti.jqueue.JobQueue._UpdateJobQueueFile">_<wbr></wbr>Update<wbr></wbr>Job<wbr></wbr>Queue<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#context" class="internal-link" title="ganeti.jqueue.JobQueue.context">context</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#depmgr" class="internal-link" title="ganeti.jqueue.JobQueue.depmgr">depmgr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_memcache" class="internal-link" title="ganeti.jqueue.JobQueue._memcache">_memcache</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_my_hostname" class="internal-link" title="ganeti.jqueue.JobQueue._my_hostname">_my<wbr></wbr>_hostname</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_nodes" class="internal-link" title="ganeti.jqueue.JobQueue._nodes">_nodes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.jqueue.html" class="internal-link" title="The parent of this class">jqueue</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.exec.html" class="internal-link" title="ganeti.jqueue.exec">exec</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue"><wbr></wbr>Job<wbr></wbr>Queue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.CancelJob.html" class="internal-link" title="ganeti.jqueue.CancelJob"><wbr></wbr>Cancel<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._JobDependencyManager.html" class="internal-link" title="ganeti.jqueue._JobDependencyManager">_<wbr></wbr>Job<wbr></wbr>Dependency<wbr></wbr>Manager</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._JobProcessor.html" class="internal-link" title="ganeti.jqueue._JobProcessor">_<wbr></wbr>Job<wbr></wbr>Processor</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link" title="ganeti.jqueue._OpExecCallbacks">_<wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Callbacks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._OpExecContext.html" class="internal-link" title="ganeti.jqueue._OpExecContext">_<wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Context</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_<wbr></wbr>Queued<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._QueuedOpCode.html" class="internal-link" title="ganeti.jqueue._QueuedOpCode">_<wbr></wbr>Queued<wbr></wbr>Op<wbr></wbr>Code</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._TimeoutStrategyWrapper.html" class="internal-link" title="ganeti.jqueue._TimeoutStrategyWrapper">_<wbr></wbr>Timeout<wbr></wbr>Strategy<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#TimeStampNow" class="internal-link" title="ganeti.jqueue.TimeStampNow"><wbr></wbr>Time<wbr></wbr>Stamp<wbr></wbr>Now</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_CallJqUpdate" class="internal-link" title="ganeti.jqueue._CallJqUpdate">_<wbr></wbr>Call<wbr></wbr>Jq<wbr></wbr>Update</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_EncodeOpError" class="internal-link" title="ganeti.jqueue._EncodeOpError">_<wbr></wbr>Encode<wbr></wbr>Op<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_GetIdAttr" class="internal-link" title="ganeti.jqueue._GetIdAttr">_<wbr></wbr>Get<wbr></wbr>Id<wbr></wbr>Attr</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code><wbr></wbr>.<code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue">JobQueue</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">JobQueue</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.jqueue.JobQueue">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Queue used to manage the jobs.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id488">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#SubmitManyJobs" class="internal-link" title="ganeti.jqueue.JobQueue.SubmitManyJobs"><wbr></wbr>Submit<wbr></wbr>Many<wbr></wbr>Jobs</a></code></td>
+    <td>Create and store multiple jobs.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.jqueue.JobQueue.__init__">__init__</a></code></td>
+    <td>Constructor for JobQueue.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CancelJob" class="internal-link" title="ganeti.jqueue.JobQueue.CancelJob"><wbr></wbr>Cancel<wbr></wbr>Job</a></code></td>
+    <td>Cancels a job.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ChangeJobPriority" class="internal-link" title="ganeti.jqueue.JobQueue.ChangeJobPriority"><wbr></wbr>Change<wbr></wbr>Job<wbr></wbr>Priority</a></code></td>
+    <td>Changes a job's priority.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#HasJobBeenFinalized" class="internal-link" title="ganeti.jqueue.JobQueue.HasJobBeenFinalized"><wbr></wbr>Has<wbr></wbr>Job<wbr></wbr>Been<wbr></wbr>Finalized</a></code></td>
+    <td>Checks if a job has been finalized.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SafeLoadJobFromDisk" class="internal-link" title="ganeti.jqueue.JobQueue.SafeLoadJobFromDisk"><wbr></wbr>Safe<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>From<wbr></wbr>Disk</a></code></td>
+    <td>Load the given job file from disk.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue.UpdateJobUnlocked"><wbr></wbr>Update<wbr></wbr>Job<wbr></wbr>Unlocked</a></code></td>
+    <td>Update a job's on disk storage.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#context" class="internal-link" title="ganeti.jqueue.JobQueue.context">context</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#depmgr" class="internal-link" title="ganeti.jqueue.JobQueue.depmgr">depmgr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_GetJobIDsUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobIDsUnlocked">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>IDs<wbr></wbr>Unlocked</a></code></td>
+    <td>Return all known job IDs.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_CheckRpcResult" class="internal-link" title="ganeti.jqueue.JobQueue._CheckRpcResult">_<wbr></wbr>Check<wbr></wbr>Rpc<wbr></wbr>Result</a></code></td>
+    <td>Verifies the status of an RPC call.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_DetermineJobDirectories" class="internal-link" title="ganeti.jqueue.JobQueue._DetermineJobDirectories">_<wbr></wbr>Determine<wbr></wbr>Job<wbr></wbr>Directories</a></code></td>
+    <td>Build list of directories containing job files.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_GetArchivedJobPath" class="internal-link" title="ganeti.jqueue.JobQueue._GetArchivedJobPath">_<wbr></wbr>Get<wbr></wbr>Archived<wbr></wbr>Job<wbr></wbr>Path</a></code></td>
+    <td>Returns the archived job file for a give job id.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_GetJobPath" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobPath">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>Path</a></code></td>
+    <td>Returns the job file for a given job id.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ResolveJobDependencies" class="internal-link" title="ganeti.jqueue.JobQueue._ResolveJobDependencies">_<wbr></wbr>Resolve<wbr></wbr>Job<wbr></wbr>Dependencies</a></code></td>
+    <td>Resolves relative job IDs in dependencies.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetJobStatusForDependencies" class="internal-link" title="ganeti.jqueue.JobQueue._GetJobStatusForDependencies">_<wbr></wbr>Get<wbr></wbr>Job<wbr></wbr>Status<wbr></wbr>For<wbr></wbr>Dependencies</a></code></td>
+    <td>Gets the status of a job for dependencies.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetNodeIp" class="internal-link" title="ganeti.jqueue.JobQueue._GetNodeIp">_<wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>Ip</a></code></td>
+    <td>Helper for returning the node name/ip list.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetRpc" class="internal-link" title="ganeti.jqueue.JobQueue._GetRpc">_<wbr></wbr>Get<wbr></wbr>Rpc</a></code></td>
+    <td>Gets RPC runner with context.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_LoadJobFromDisk" class="internal-link" title="ganeti.jqueue.JobQueue._LoadJobFromDisk">_<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>From<wbr></wbr>Disk</a></code></td>
+    <td>Load the given job file from disk.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_LoadJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._LoadJobUnlocked">_<wbr></wbr>Load<wbr></wbr>Job<wbr></wbr>Unlocked</a></code></td>
+    <td>Loads a job from the disk or memory.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ModifyJobUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._ModifyJobUnlocked">_<wbr></wbr>Modify<wbr></wbr>Job<wbr></wbr>Unlocked</a></code></td>
+    <td>Modifies a job.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_RenameFilesUnlocked" class="internal-link" title="ganeti.jqueue.JobQueue._RenameFilesUnlocked">_<wbr></wbr>Rename<wbr></wbr>Files<wbr></wbr>Unlocked</a></code></td>
+    <td>Renames a file locally and then replicate the change.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateJobQueueFile" class="internal-link" title="ganeti.jqueue.JobQueue._UpdateJobQueueFile">_<wbr></wbr>Update<wbr></wbr>Job<wbr></wbr>Queue<wbr></wbr>File</a></code></td>
+    <td>Writes a file locally and then replicates it to all nodes.</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_memcache" class="internal-link" title="ganeti.jqueue.JobQueue._memcache">_memcache</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_my_hostname" class="internal-link" title="ganeti.jqueue.JobQueue._my_hostname">_my<wbr></wbr>_hostname</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_nodes" class="internal-link" title="ganeti.jqueue.JobQueue._nodes">_nodes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.SubmitManyJobs">
+    
+  </a>
+  <a name="SubmitManyJobs">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">SubmitManyJobs</span>(cls, jobs):
+    
+    <a class="headerLink" href="#SubmitManyJobs" title="ganeti.jqueue.JobQueue.SubmitManyJobs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create and store multiple jobs.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, context, cfg):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.jqueue.JobQueue.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Constructor for JobQueue.</p>
+<p>The constructor will initialize the job queue object and then start loading the current jobs from disk, either for starting them (if they were queue) or for aborting them (if they were already running).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">context:</span>GanetiContext</td><td class="fieldArgDesc">the context object for access to the configuration data and other ganeti objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.CancelJob">
+    
+  </a>
+  <a name="CancelJob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CancelJob</span>(self, job_id):
+    
+    <a class="headerLink" href="#CancelJob" title="ganeti.jqueue.JobQueue.CancelJob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cancels a job.</p>
+<p>This will only succeed if the job has not started yet.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">job ID of job to be cancelled.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.ChangeJobPriority">
+    
+  </a>
+  <a name="ChangeJobPriority">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ChangeJobPriority</span>(self, job_id, priority):
+    
+    <a class="headerLink" href="#ChangeJobPriority" title="ganeti.jqueue.JobQueue.ChangeJobPriority">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Changes a job's priority.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">ID of the job whose priority should be changed</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">priority:</span>int</td><td class="fieldArgDesc">New priority</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.HasJobBeenFinalized">
+    
+  </a>
+  <a name="HasJobBeenFinalized">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">HasJobBeenFinalized</span>(self, job_id):
+    
+    <a class="headerLink" href="#HasJobBeenFinalized" title="ganeti.jqueue.JobQueue.HasJobBeenFinalized">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a job has been finalized.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">Job identifier</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">True if the job has been finalized, False if the timeout has been reached, None if the job doesn't exist</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.SafeLoadJobFromDisk">
+    
+  </a>
+  <a name="SafeLoadJobFromDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SafeLoadJobFromDisk</span>(self, job_id, try_archived, writable=None):
+    
+    <a class="headerLink" href="#SafeLoadJobFromDisk" title="ganeti.jqueue.JobQueue.SafeLoadJobFromDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load the given job file from disk.</p>
+<p>Given a job file, read, load and restore it in a _QueuedJob format. In case of error reading the job, it gets returned as None, and the exception is logged.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">job identifier</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">try<wbr></wbr>_archived:</span>bool</td><td class="fieldArgDesc">Whether to try loading an archived job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">writable</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_QueuedJob</a></code> or None</td><td class="fieldArgDesc">either None or the job object</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.UpdateJobUnlocked">
+    
+  </a>
+  <a name="UpdateJobUnlocked">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateJobUnlocked</span>(self, job, replicate=True):
+    
+    <a class="headerLink" href="#UpdateJobUnlocked" title="ganeti.jqueue.JobQueue.UpdateJobUnlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Update a job's on disk storage.</p>
+<p>After a job has been modified, this function needs to be called in order to write the changes to disk and replicate them to the other nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job:</span><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_QueuedJob</a></code></td><td class="fieldArgDesc">the changed job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">replicate:</span>boolean</td><td class="fieldArgDesc">whether to replicate the change to remote nodes</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.context">
+    
+  </a>
+  <a name="context">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">context</span> =
+    
+    <a class="headerLink" href="#context" title="ganeti.jqueue.JobQueue.context">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue.JobQueue.depmgr">
+    
+  </a>
+  <a name="depmgr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">depmgr</span> =
+    
+    <a class="headerLink" href="#depmgr" title="ganeti.jqueue.JobQueue.depmgr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetJobIDsUnlocked">
+    
+  </a>
+  <a name="_GetJobIDsUnlocked">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetJobIDsUnlocked</span>(cls, sort=True, archived=False):
+    
+    <a class="headerLink" href="#_GetJobIDsUnlocked" title="ganeti.jqueue.JobQueue._GetJobIDsUnlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return all known job IDs.</p>
+<p>The method only looks at disk because it's a requirement that all jobs are present on disk (so in the _memcache we don't have any extra IDs).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sort:</span>boolean</td><td class="fieldArgDesc">perform sorting on the returned job ids</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">archived</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of job IDs</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._CheckRpcResult">
+    
+  </a>
+  <a name="_CheckRpcResult">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckRpcResult</span>(result, nodes, failmsg):
+    
+    <a class="headerLink" href="#_CheckRpcResult" title="ganeti.jqueue.JobQueue._CheckRpcResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies the status of an RPC call.</p>
+<p>Since we aim to keep consistency should this node (the current master) fail, we will log errors if our rpc fail, and especially log the case when more than half of the nodes fails.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">result</span></td><td class="fieldArgDesc">the data as returned from the rpc call</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>list</td><td class="fieldArgDesc">the list of nodes we made the call to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">failmsg:</span>str</td><td class="fieldArgDesc">the identifier to be used for logging</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._DetermineJobDirectories">
+    
+  </a>
+  <a name="_DetermineJobDirectories">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_DetermineJobDirectories</span>(archived):
+    
+    <a class="headerLink" href="#_DetermineJobDirectories" title="ganeti.jqueue.JobQueue._DetermineJobDirectories">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Build list of directories containing job files.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">archived:</span>bool</td><td class="fieldArgDesc">Whether to include directories for archived jobs</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetArchivedJobPath">
+    
+  </a>
+  <a name="_GetArchivedJobPath">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetArchivedJobPath</span>(job_id):
+    
+    <a class="headerLink" href="#_GetArchivedJobPath" title="ganeti.jqueue.JobQueue._GetArchivedJobPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the archived job file for a give job id.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>str</td><td class="fieldArgDesc">the job identifier</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the path to the archived job file</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetJobPath">
+    
+  </a>
+  <a name="_GetJobPath">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetJobPath</span>(job_id):
+    
+    <a class="headerLink" href="#_GetJobPath" title="ganeti.jqueue.JobQueue._GetJobPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the job file for a given job id.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>str</td><td class="fieldArgDesc">the job identifier</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the path to the job file</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._ResolveJobDependencies">
+    
+  </a>
+  <a name="_ResolveJobDependencies">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ResolveJobDependencies</span>(resolve_fn, deps):
+    
+    <a class="headerLink" href="#_ResolveJobDependencies" title="ganeti.jqueue.JobQueue._ResolveJobDependencies">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Resolves relative job IDs in dependencies.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">resolve<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">Function to resolve a relative job ID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">deps:</span>list</td><td class="fieldArgDesc">Dependencies</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (boolean, string or list)</td><td class="fieldArgDesc">If successful (first tuple item), the returned list contains resolved job IDs along with the requested status; if not successful, the second element is an error message</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetJobStatusForDependencies">
+    
+  </a>
+  <a name="_GetJobStatusForDependencies">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetJobStatusForDependencies</span>(self, job_id):
+    
+    <a class="headerLink" href="#_GetJobStatusForDependencies" title="ganeti.jqueue.JobQueue._GetJobStatusForDependencies">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets the status of a job for dependencies.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">Job ID</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.JobLost.html" class="internal-link" title="ganeti.errors.JobLost">errors.JobLost</a></code></td><td>If job can't be found</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetNodeIp">
+    
+  </a>
+  <a name="_GetNodeIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetNodeIp</span>(self):
+    
+    <a class="headerLink" href="#_GetNodeIp" title="ganeti.jqueue.JobQueue._GetNodeIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper for returning the node name/ip list.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">(list, list)</td><td class="fieldArgDesc">a tuple of two lists, the first one with the node names and the second one with the node addresses</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._GetRpc">
+    
+  </a>
+  <a name="_GetRpc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetRpc</span>(self, address_list):
+    
+    <a class="headerLink" href="#_GetRpc" title="ganeti.jqueue.JobQueue._GetRpc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets RPC runner with context.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._LoadJobFromDisk">
+    
+  </a>
+  <a name="_LoadJobFromDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_LoadJobFromDisk</span>(self, job_id, try_archived, writable=None):
+    
+    <a class="headerLink" href="#_LoadJobFromDisk" title="ganeti.jqueue.JobQueue._LoadJobFromDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Load the given job file from disk.</p>
+<p>Given a job file, read, load and restore it in a _QueuedJob format.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">job identifier</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">try<wbr></wbr>_archived:</span>bool</td><td class="fieldArgDesc">Whether to try loading an archived job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">writable</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_QueuedJob</a></code> or None</td><td class="fieldArgDesc">either None or the job object</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._LoadJobUnlocked">
+    
+  </a>
+  <a name="_LoadJobUnlocked">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_LoadJobUnlocked</span>(self, job_id):
+    
+    <a class="headerLink" href="#_LoadJobUnlocked" title="ganeti.jqueue.JobQueue._LoadJobUnlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Loads a job from the disk or memory.</p>
+<p>Given a job id, this will return the cached job object if existing, or try to load the job from the disk. If loading from disk, it will also add the job to the cache.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">the job id</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_QueuedJob</a></code> or None</td><td class="fieldArgDesc">either None or the job object</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._ModifyJobUnlocked">
+    
+  </a>
+  <a name="_ModifyJobUnlocked">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ModifyJobUnlocked</span>(self, job_id, mod_fn):
+    
+    <a class="headerLink" href="#_ModifyJobUnlocked" title="ganeti.jqueue.JobQueue._ModifyJobUnlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies a job.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>int</td><td class="fieldArgDesc">Job ID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mod<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">Modifying function, receiving job object as parameter, returning tuple of (status boolean, message string)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._RenameFilesUnlocked">
+    
+  </a>
+  <a name="_RenameFilesUnlocked">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RenameFilesUnlocked</span>(self, rename):
+    
+    <a class="headerLink" href="#_RenameFilesUnlocked" title="ganeti.jqueue.JobQueue._RenameFilesUnlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Renames a file locally and then replicate the change.</p>
+<p>This function will rename a file in the local queue directory and then replicate this rename to all the other nodes we have.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rename:</span>list of (old, new)</td><td class="fieldArgDesc">List containing tuples mapping old to new names</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._UpdateJobQueueFile">
+    
+  </a>
+  <a name="_UpdateJobQueueFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateJobQueueFile</span>(self, file_name, data, replicate):
+    
+    <a class="headerLink" href="#_UpdateJobQueueFile" title="ganeti.jqueue.JobQueue._UpdateJobQueueFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Writes a file locally and then replicates it to all nodes.</p>
+<p>This function will replace the contents of a file on the local node and then replicate it to all the other nodes we have.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name:</span>str</td><td class="fieldArgDesc">the path of the file to be replicated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>str</td><td class="fieldArgDesc">the new contents of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">replicate:</span>boolean</td><td class="fieldArgDesc">whether to spread the changes to the remote nodes</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._memcache">
+    
+  </a>
+  <a name="_memcache">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_memcache</span> =
+    
+    <a class="headerLink" href="#_memcache" title="ganeti.jqueue.JobQueue._memcache">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._my_hostname">
+    
+  </a>
+  <a name="_my_hostname">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_my_hostname</span> =
+    
+    <a class="headerLink" href="#_my_hostname" title="ganeti.jqueue.JobQueue._my_hostname">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.jqueue.JobQueue._nodes">
+    
+  </a>
+  <a name="_nodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_nodes</span> =
+    
+    <a class="headerLink" href="#_nodes" title="ganeti.jqueue.JobQueue._nodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

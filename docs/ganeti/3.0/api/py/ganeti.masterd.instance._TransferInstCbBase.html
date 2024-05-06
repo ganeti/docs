@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.masterd.instance._TransferInstCbBase</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.masterd.instance._TransferInstCbBase.html" class="internal-link" title="This class">_<wbr></wbr>Transfer<wbr></wbr>Inst<wbr></wbr>Cb<wbr></wbr>Base</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportConnected" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportConnected"><wbr></wbr>Report<wbr></wbr>Connected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportFinished" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportFinished"><wbr></wbr>Report<wbr></wbr>Finished</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportListening" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportListening"><wbr></wbr>Report<wbr></wbr>Listening</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportProgress" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportProgress"><wbr></wbr>Report<wbr></wbr>Progress</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dest_ip" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.dest_ip">dest<wbr></wbr>_ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dest_node_uuid" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.dest_node_uuid">dest<wbr></wbr>_node<wbr></wbr>_uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#feedback_fn" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.feedback_fn">feedback<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#instance" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lu" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.lu">lu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#src_cbs" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.src_cbs">src<wbr></wbr>_cbs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#src_node_uuid" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.src_node_uuid">src<wbr></wbr>_node<wbr></wbr>_uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#timeouts" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.timeouts">timeouts</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.masterd.instance.html" class="internal-link" title="The parent of this class">instance</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.DiskExport.html" class="internal-link" title="ganeti.masterd.instance.DiskExport"><wbr></wbr>Disk<wbr></wbr>Export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.DiskImport.html" class="internal-link" title="ganeti.masterd.instance.DiskImport"><wbr></wbr>Disk<wbr></wbr>Import</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.DiskTransfer.html" class="internal-link" title="ganeti.masterd.instance.DiskTransfer"><wbr></wbr>Disk<wbr></wbr>Transfer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ExportInstanceHelper.html" class="internal-link" title="ganeti.masterd.instance.ExportInstanceHelper"><wbr></wbr>Export<wbr></wbr>Instance<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportCbBase.html" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase"><wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Cb<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportLoop.html" class="internal-link" title="ganeti.masterd.instance.ImportExportLoop"><wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Loop</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.ImportExportTimeouts.html" class="internal-link" title="ganeti.masterd.instance.ImportExportTimeouts"><wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Timeouts</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._DiskImportExportBase.html" class="internal-link" title="ganeti.masterd.instance._DiskImportExportBase">_<wbr></wbr>Disk<wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._DiskTransferPrivate.html" class="internal-link" title="ganeti.masterd.instance._DiskTransferPrivate">_<wbr></wbr>Disk<wbr></wbr>Transfer<wbr></wbr>Private</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._RemoteExportCb.html" class="internal-link" title="ganeti.masterd.instance._RemoteExportCb">_<wbr></wbr>Remote<wbr></wbr>Export<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._RemoteImportCb.html" class="internal-link" title="ganeti.masterd.instance._RemoteImportCb">_<wbr></wbr>Remote<wbr></wbr>Import<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._TransferInstCbBase.html" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase">_<wbr></wbr>Transfer<wbr></wbr>Inst<wbr></wbr>Cb<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._TransferInstDestCb.html" class="internal-link" title="ganeti.masterd.instance._TransferInstDestCb">_<wbr></wbr>Transfer<wbr></wbr>Inst<wbr></wbr>Dest<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._TransferInstSourceCb.html" class="internal-link" title="ganeti.masterd.instance._TransferInstSourceCb">_<wbr></wbr>Transfer<wbr></wbr>Inst<wbr></wbr>Source<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance._ImportExportError.html" class="internal-link" title="ganeti.masterd.instance._ImportExportError">_<wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#CalculateGroupIPolicy" class="internal-link" title="ganeti.masterd.instance.CalculateGroupIPolicy"><wbr></wbr>Calculate<wbr></wbr>Group<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#CheckRemoteExportDiskInfo" class="internal-link" title="ganeti.masterd.instance.CheckRemoteExportDiskInfo"><wbr></wbr>Check<wbr></wbr>Remote<wbr></wbr>Export<wbr></wbr>Disk<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#CheckRemoteExportHandshake" class="internal-link" title="ganeti.masterd.instance.CheckRemoteExportHandshake"><wbr></wbr>Check<wbr></wbr>Remote<wbr></wbr>Export<wbr></wbr>Handshake</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#ComputeDiskSize" class="internal-link" title="ganeti.masterd.instance.ComputeDiskSize"><wbr></wbr>Compute<wbr></wbr>Disk<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#ComputeRemoteExportHandshake" class="internal-link" title="ganeti.masterd.instance.ComputeRemoteExportHandshake"><wbr></wbr>Compute<wbr></wbr>Remote<wbr></wbr>Export<wbr></wbr>Handshake</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#ComputeRemoteImportDiskInfo" class="internal-link" title="ganeti.masterd.instance.ComputeRemoteImportDiskInfo"><wbr></wbr>Compute<wbr></wbr>Remote<wbr></wbr>Import<wbr></wbr>Disk<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#FormatProgress" class="internal-link" title="ganeti.masterd.instance.FormatProgress"><wbr></wbr>Format<wbr></wbr>Progress</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#RemoteImport" class="internal-link" title="ganeti.masterd.instance.RemoteImport"><wbr></wbr>Remote<wbr></wbr>Import</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#TransferInstanceData" class="internal-link" title="ganeti.masterd.instance.TransferInstanceData"><wbr></wbr>Transfer<wbr></wbr>Instance<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#_GetImportExportHandshakeMessage" class="internal-link" title="ganeti.masterd.instance._GetImportExportHandshakeMessage">_<wbr></wbr>Get<wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>Handshake<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#_GetInstDiskMagic" class="internal-link" title="ganeti.masterd.instance._GetInstDiskMagic">_<wbr></wbr>Get<wbr></wbr>Inst<wbr></wbr>Disk<wbr></wbr>Magic</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.instance.html#_GetRieDiskInfoMessage" class="internal-link" title="ganeti.masterd.instance._GetRieDiskInfoMessage">_<wbr></wbr>Get<wbr></wbr>Rie<wbr></wbr>Disk<wbr></wbr>Info<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class private"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code><wbr></wbr>.<code><a href="ganeti.masterd.instance.html" class="internal-link" title="ganeti.masterd.instance">instance</a></code><wbr></wbr>.<code><a href="ganeti.masterd.instance._TransferInstCbBase.html" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase">_TransferInstCbBase</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">_TransferInstCbBase</span>(<a href="ganeti.masterd.instance.ImportExportCbBase.html" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase">ImportExportCbBase</a>):</code></p><p>Known subclasses: <code><a href="ganeti.masterd.instance._TransferInstDestCb.html" class="internal-link">ganeti.masterd.instance._TransferInstDestCb</a></code>, <code><a href="ganeti.masterd.instance._TransferInstSourceCb.html" class="internal-link">ganeti.masterd.instance._TransferInstSourceCb</a></code></p>
+          <p><a href="classIndex.html#ganeti.masterd.instance._TransferInstCbBase">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id538">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.__init__">__init__</a></code></td>
+    <td>Initializes this class.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dest_ip" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.dest_ip">dest<wbr></wbr>_ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dest_node_uuid" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.dest_node_uuid">dest<wbr></wbr>_node<wbr></wbr>_uuid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#feedback_fn" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.feedback_fn">feedback<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#instance" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.instance">instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#lu" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.lu">lu</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#src_cbs" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.src_cbs">src<wbr></wbr>_cbs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#src_node_uuid" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.src_node_uuid">src<wbr></wbr>_node<wbr></wbr>_uuid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#timeouts" class="internal-link" title="ganeti.masterd.instance._TransferInstCbBase.timeouts">timeouts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.masterd.instance.ImportExportCbBase.html" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase">ImportExportCbBase</a></code>:
+            </p>
+            <table class="children sortable" id="id539">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportConnected" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportConnected"><wbr></wbr>Report<wbr></wbr>Connected</a></code></td>
+    <td>Called when a connection has been established.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportFinished" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportFinished"><wbr></wbr>Report<wbr></wbr>Finished</a></code></td>
+    <td>Called when a transfer has finished.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportListening" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportListening"><wbr></wbr>Report<wbr></wbr>Listening</a></code></td>
+    <td>Called when daemon started listening.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.masterd.instance.ImportExportCbBase.html#ReportProgress" class="internal-link" title="ganeti.masterd.instance.ImportExportCbBase.ReportProgress"><wbr></wbr>Report<wbr></wbr>Progress</a></code></td>
+    <td>Called when new progress information should be reported.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, lu, feedback_fn, instance, timeouts, src_node_uuid, src_cbs, dest_node_uuid, dest_ip):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.masterd.instance._TransferInstCbBase.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initializes this class.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.dest_ip">
+    
+  </a>
+  <a name="dest_ip">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dest_ip</span> =
+    
+    <a class="headerLink" href="#dest_ip" title="ganeti.masterd.instance._TransferInstCbBase.dest_ip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.dest_node_uuid">
+    
+  </a>
+  <a name="dest_node_uuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dest_node_uuid</span> =
+    
+    <a class="headerLink" href="#dest_node_uuid" title="ganeti.masterd.instance._TransferInstCbBase.dest_node_uuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.feedback_fn">
+    
+  </a>
+  <a name="feedback_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">feedback_fn</span> =
+    
+    <a class="headerLink" href="#feedback_fn" title="ganeti.masterd.instance._TransferInstCbBase.feedback_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.instance">
+    
+  </a>
+  <a name="instance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">instance</span> =
+    
+    <a class="headerLink" href="#instance" title="ganeti.masterd.instance._TransferInstCbBase.instance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.lu">
+    
+  </a>
+  <a name="lu">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">lu</span> =
+    
+    <a class="headerLink" href="#lu" title="ganeti.masterd.instance._TransferInstCbBase.lu">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.src_cbs">
+    
+  </a>
+  <a name="src_cbs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">src_cbs</span> =
+    
+    <a class="headerLink" href="#src_cbs" title="ganeti.masterd.instance._TransferInstCbBase.src_cbs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.src_node_uuid">
+    
+  </a>
+  <a name="src_node_uuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">src_node_uuid</span> =
+    
+    <a class="headerLink" href="#src_node_uuid" title="ganeti.masterd.instance._TransferInstCbBase.src_node_uuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.instance._TransferInstCbBase.timeouts">
+    
+  </a>
+  <a name="timeouts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">timeouts</span> =
+    
+    <a class="headerLink" href="#timeouts" title="ganeti.masterd.instance._TransferInstCbBase.timeouts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

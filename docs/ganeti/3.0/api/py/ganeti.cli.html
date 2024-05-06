@@ -1,0 +1,4652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cli</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.cli.html" class="internal-link" title="This module">cli</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgChoice.html" class="internal-link" title="ganeti.cli.ArgChoice"><wbr></wbr>Arg<wbr></wbr>Choice</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgCommand.html" class="internal-link" title="ganeti.cli.ArgCommand"><wbr></wbr>Arg<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgExtStorage.html" class="internal-link" title="ganeti.cli.ArgExtStorage"><wbr></wbr>Arg<wbr></wbr>Ext<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgFile.html" class="internal-link" title="ganeti.cli.ArgFile"><wbr></wbr>Arg<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgFilter.html" class="internal-link" title="ganeti.cli.ArgFilter"><wbr></wbr>Arg<wbr></wbr>Filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgGroup.html" class="internal-link" title="ganeti.cli.ArgGroup"><wbr></wbr>Arg<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgHost.html" class="internal-link" title="ganeti.cli.ArgHost"><wbr></wbr>Arg<wbr></wbr>Host</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgInstance.html" class="internal-link" title="ganeti.cli.ArgInstance"><wbr></wbr>Arg<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgJobId.html" class="internal-link" title="ganeti.cli.ArgJobId"><wbr></wbr>Arg<wbr></wbr>Job<wbr></wbr>Id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgNetwork.html" class="internal-link" title="ganeti.cli.ArgNetwork"><wbr></wbr>Arg<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgNode.html" class="internal-link" title="ganeti.cli.ArgNode"><wbr></wbr>Arg<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgOs.html" class="internal-link" title="ganeti.cli.ArgOs"><wbr></wbr>Arg<wbr></wbr>Os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgSuggest.html" class="internal-link" title="ganeti.cli.ArgSuggest"><wbr></wbr>Arg<wbr></wbr>Suggest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.ArgUnknown.html" class="internal-link" title="ganeti.cli.ArgUnknown"><wbr></wbr>Arg<wbr></wbr>Unknown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.FeedbackFnJobPollReportCb.html" class="internal-link" title="ganeti.cli.FeedbackFnJobPollReportCb"><wbr></wbr>Feedback<wbr></wbr>Fn<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.JobExecutor.html" class="internal-link" title="ganeti.cli.JobExecutor"><wbr></wbr>Job<wbr></wbr>Executor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.JobPollCbBase.html" class="internal-link" title="ganeti.cli.JobPollCbBase"><wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Cb<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.JobPollReportCbBase.html" class="internal-link" title="ganeti.cli.JobPollReportCbBase"><wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.StdioJobPollReportCb.html" class="internal-link" title="ganeti.cli.StdioJobPollReportCb"><wbr></wbr>Stdio<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.TableColumn.html" class="internal-link" title="ganeti.cli.TableColumn"><wbr></wbr>Table<wbr></wbr>Column</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._Argument.html" class="internal-link" title="ganeti.cli._Argument">_<wbr></wbr>Argument</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._LuxiJobPollCb.html" class="internal-link" title="ganeti.cli._LuxiJobPollCb">_<wbr></wbr>Luxi<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Cb</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._QueryColumnFormatter.html" class="internal-link" title="ganeti.cli._QueryColumnFormatter">_<wbr></wbr>Query<wbr></wbr>Column<wbr></wbr>Formatter</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._RunWhileDaemonsStoppedHelper.html" class="internal-link" title="ganeti.cli._RunWhileDaemonsStoppedHelper">_<wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Daemons<wbr></wbr>Stopped<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._ShowUsage.html" class="internal-link" title="ganeti.cli._ShowUsage">_<wbr></wbr>Show<wbr></wbr>Usage</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli._ShowVersion.html" class="internal-link" title="ganeti.cli._ShowVersion">_<wbr></wbr>Show<wbr></wbr>Version</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddTags" class="internal-link" title="ganeti.cli.AddTags"><wbr></wbr>Add<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AskUser" class="internal-link" title="ganeti.cli.AskUser"><wbr></wbr>Ask<wbr></wbr>User</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CalculateOSNames" class="internal-link" title="ganeti.cli.CalculateOSNames"><wbr></wbr>Calculate<wbr></wbr>OSNames</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ConfirmOperation" class="internal-link" title="ganeti.cli.ConfirmOperation"><wbr></wbr>Confirm<wbr></wbr>Operation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CreateIPolicyFromOpts" class="internal-link" title="ganeti.cli.CreateIPolicyFromOpts"><wbr></wbr>Create<wbr></wbr>IPolicy<wbr></wbr>From<wbr></wbr>Opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FixHvParams" class="internal-link" title="ganeti.cli.FixHvParams"><wbr></wbr>Fix<wbr></wbr>Hv<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatError" class="internal-link" title="ganeti.cli.FormatError"><wbr></wbr>Format<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatLogMessage" class="internal-link" title="ganeti.cli.FormatLogMessage"><wbr></wbr>Format<wbr></wbr>Log<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatParamsDictInfo" class="internal-link" title="ganeti.cli.FormatParamsDictInfo"><wbr></wbr>Format<wbr></wbr>Params<wbr></wbr>Dict<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatPolicyInfo" class="internal-link" title="ganeti.cli.FormatPolicyInfo"><wbr></wbr>Format<wbr></wbr>Policy<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatQueryResult" class="internal-link" title="ganeti.cli.FormatQueryResult"><wbr></wbr>Format<wbr></wbr>Query<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatResultError" class="internal-link" title="ganeti.cli.FormatResultError"><wbr></wbr>Format<wbr></wbr>Result<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatTable" class="internal-link" title="ganeti.cli.FormatTable"><wbr></wbr>Format<wbr></wbr>Table</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatTimestamp" class="internal-link" title="ganeti.cli.FormatTimestamp"><wbr></wbr>Format<wbr></wbr>Timestamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateTable" class="internal-link" title="ganeti.cli.GenerateTable"><wbr></wbr>Generate<wbr></wbr>Table</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericInstanceCreate" class="internal-link" title="ganeti.cli.GenericInstanceCreate"><wbr></wbr>Generic<wbr></wbr>Instance<wbr></wbr>Create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericList" class="internal-link" title="ganeti.cli.GenericList"><wbr></wbr>Generic<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericListFields" class="internal-link" title="ganeti.cli.GenericListFields"><wbr></wbr>Generic<wbr></wbr>List<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericMain" class="internal-link" title="ganeti.cli.GenericMain"><wbr></wbr>Generic<wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenericPollJob" class="internal-link" title="ganeti.cli.GenericPollJob"><wbr></wbr>Generic<wbr></wbr>Poll<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetNodesSshPorts" class="internal-link" title="ganeti.cli.GetNodesSshPorts"><wbr></wbr>Get<wbr></wbr>Nodes<wbr></wbr>Ssh<wbr></wbr>Ports</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetNodeUUIDs" class="internal-link" title="ganeti.cli.GetNodeUUIDs"><wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>UUIDs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetOnlineNodes" class="internal-link" title="ganeti.cli.GetOnlineNodes"><wbr></wbr>Get<wbr></wbr>Online<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListTags" class="internal-link" title="ganeti.cli.ListTags"><wbr></wbr>List<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseFields" class="internal-link" title="ganeti.cli.ParseFields"><wbr></wbr>Parse<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseNicOption" class="internal-link" title="ganeti.cli.ParseNicOption"><wbr></wbr>Parse<wbr></wbr>Nic<wbr></wbr>Option</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseTimespec" class="internal-link" title="ganeti.cli.ParseTimespec"><wbr></wbr>Parse<wbr></wbr>Timespec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PollJob" class="internal-link" title="ganeti.cli.PollJob"><wbr></wbr>Poll<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo"><wbr></wbr>Print<wbr></wbr>Generic<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PrintIPolicyCommand" class="internal-link" title="ganeti.cli.PrintIPolicyCommand"><wbr></wbr>Print<wbr></wbr>IPolicy<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveTags" class="internal-link" title="ganeti.cli.RemoveTags"><wbr></wbr>Remove<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunWhileClusterStopped" class="internal-link" title="ganeti.cli.RunWhileClusterStopped"><wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Cluster<wbr></wbr>Stopped</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunWhileDaemonsStopped" class="internal-link" title="ganeti.cli.RunWhileDaemonsStopped"><wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Daemons<wbr></wbr>Stopped</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SendJob" class="internal-link" title="ganeti.cli.SendJob"><wbr></wbr>Send<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetGenericOpcodeOpts" class="internal-link" title="ganeti.cli.SetGenericOpcodeOpts"><wbr></wbr>Set<wbr></wbr>Generic<wbr></wbr>Opcode<wbr></wbr>Opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SplitNodeOption" class="internal-link" title="ganeti.cli.SplitNodeOption"><wbr></wbr>Split<wbr></wbr>Node<wbr></wbr>Option</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SubmitOpCode" class="internal-link" title="ganeti.cli.SubmitOpCode"><wbr></wbr>Submit<wbr></wbr>Op<wbr></wbr>Code</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SubmitOpCodeToDrainedQueue" class="internal-link" title="ganeti.cli.SubmitOpCodeToDrainedQueue"><wbr></wbr>Submit<wbr></wbr>Op<wbr></wbr>Code<wbr></wbr>To<wbr></wbr>Drained<wbr></wbr>Queue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SubmitOrSend" class="internal-link" title="ganeti.cli.SubmitOrSend"><wbr></wbr>Submit<wbr></wbr>Or<wbr></wbr>Send</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ToStderr" class="internal-link" title="ganeti.cli.ToStderr"><wbr></wbr>To<wbr></wbr>Stderr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ToStdout" class="internal-link" title="ganeti.cli.ToStdout"><wbr></wbr>To<wbr></wbr>Stdout</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ToStdoutAndLoginfo" class="internal-link" title="ganeti.cli.ToStdoutAndLoginfo"><wbr></wbr>To<wbr></wbr>Stdout<wbr></wbr>And<wbr></wbr>Loginfo</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckArguments" class="internal-link" title="ganeti.cli._CheckArguments">_<wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ExtendTags" class="internal-link" title="ganeti.cli._ExtendTags">_<wbr></wbr>Extend<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ExtractTagsObject" class="internal-link" title="ganeti.cli._ExtractTagsObject">_<wbr></wbr>Extract<wbr></wbr>Tags<wbr></wbr>Object</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FieldDescValues" class="internal-link" title="ganeti.cli._FieldDescValues">_<wbr></wbr>Field<wbr></wbr>Desc<wbr></wbr>Values</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatBool" class="internal-link" title="ganeti.cli._FormatBool">_<wbr></wbr>Format<wbr></wbr>Bool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatListInfoDefault" class="internal-link" title="ganeti.cli._FormatListInfoDefault">_<wbr></wbr>Format<wbr></wbr>List<wbr></wbr>Info<wbr></wbr>Default</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatUsage" class="internal-link" title="ganeti.cli._FormatUsage">_<wbr></wbr>Format<wbr></wbr>Usage</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetAlignmentMapping" class="internal-link" title="ganeti.cli._GetAlignmentMapping">_<wbr></wbr>Get<wbr></wbr>Alignment<wbr></wbr>Mapping</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetColFormatString" class="internal-link" title="ganeti.cli._GetColFormatString">_<wbr></wbr>Get<wbr></wbr>Col<wbr></wbr>Format<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetColumnFormatter" class="internal-link" title="ganeti.cli._GetColumnFormatter">_<wbr></wbr>Get<wbr></wbr>Column<wbr></wbr>Formatter</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetISpecsInAllowedValues" class="internal-link" title="ganeti.cli._GetISpecsInAllowedValues">_<wbr></wbr>Get<wbr></wbr>ISpecs<wbr></wbr>In<wbr></wbr>Allowed<wbr></wbr>Values</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetUnknownFields" class="internal-link" title="ganeti.cli._GetUnknownFields">_<wbr></wbr>Get<wbr></wbr>Unknown<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitISpecsFromFullOpts" class="internal-link" title="ganeti.cli._InitISpecsFromFullOpts">_<wbr></wbr>Init<wbr></wbr>ISpecs<wbr></wbr>From<wbr></wbr>Full<wbr></wbr>Opts</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitISpecsFromSplitOpts" class="internal-link" title="ganeti.cli._InitISpecsFromSplitOpts">_<wbr></wbr>Init<wbr></wbr>ISpecs<wbr></wbr>From<wbr></wbr>Split<wbr></wbr>Opts</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitReasonTrail" class="internal-link" title="ganeti.cli._InitReasonTrail">_<wbr></wbr>Init<wbr></wbr>Reason<wbr></wbr>Trail</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MaybeParseUnit" class="internal-link" title="ganeti.cli._MaybeParseUnit">_<wbr></wbr>Maybe<wbr></wbr>Parse<wbr></wbr>Unit</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_NotAContainer" class="internal-link" title="ganeti.cli._NotAContainer">_<wbr></wbr>Not<wbr></wbr>AContainer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseArgs" class="internal-link" title="ganeti.cli._ParseArgs">_<wbr></wbr>Parse<wbr></wbr>Args</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseISpec" class="internal-link" title="ganeti.cli._ParseISpec">_<wbr></wbr>Parse<wbr></wbr>ISpec</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseSpecUnit" class="internal-link" title="ganeti.cli._ParseSpecUnit">_<wbr></wbr>Parse<wbr></wbr>Spec<wbr></wbr>Unit</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrintSpecsParameters" class="internal-link" title="ganeti.cli._PrintSpecsParameters">_<wbr></wbr>Print<wbr></wbr>Specs<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SerializeGenericInfo" class="internal-link" title="ganeti.cli._SerializeGenericInfo">_<wbr></wbr>Serialize<wbr></wbr>Generic<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ToStream" class="internal-link" title="ganeti.cli._ToStream">_<wbr></wbr>To<wbr></wbr>Stream</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_WarnUnknownFields" class="internal-link" title="ganeti.cli._WarnUnknownFields">_<wbr></wbr>Warn<wbr></wbr>Unknown<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_MANY_FILTERS" class="internal-link" title="ganeti.cli.ARGS_MANY_FILTERS">ARGS<wbr></wbr>_MANY<wbr></wbr>_FILTERS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_MANY_GROUPS" class="internal-link" title="ganeti.cli.ARGS_MANY_GROUPS">ARGS<wbr></wbr>_MANY<wbr></wbr>_GROUPS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_MANY_INSTANCES" class="internal-link" title="ganeti.cli.ARGS_MANY_INSTANCES">ARGS<wbr></wbr>_MANY<wbr></wbr>_INSTANCES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_MANY_NETWORKS" class="internal-link" title="ganeti.cli.ARGS_MANY_NETWORKS">ARGS<wbr></wbr>_MANY<wbr></wbr>_NETWORKS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_MANY_NODES" class="internal-link" title="ganeti.cli.ARGS_MANY_NODES">ARGS<wbr></wbr>_MANY<wbr></wbr>_NODES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_NONE" class="internal-link" title="ganeti.cli.ARGS_NONE">ARGS<wbr></wbr>_NONE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_FILTER" class="internal-link" title="ganeti.cli.ARGS_ONE_FILTER">ARGS<wbr></wbr>_ONE<wbr></wbr>_FILTER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_GROUP" class="internal-link" title="ganeti.cli.ARGS_ONE_GROUP">ARGS<wbr></wbr>_ONE<wbr></wbr>_GROUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_INSTANCE" class="internal-link" title="ganeti.cli.ARGS_ONE_INSTANCE">ARGS<wbr></wbr>_ONE<wbr></wbr>_INSTANCE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_NETWORK" class="internal-link" title="ganeti.cli.ARGS_ONE_NETWORK">ARGS<wbr></wbr>_ONE<wbr></wbr>_NETWORK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_NODE" class="internal-link" title="ganeti.cli.ARGS_ONE_NODE">ARGS<wbr></wbr>_ONE<wbr></wbr>_NODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ARGS_ONE_OS" class="internal-link" title="ganeti.cli.ARGS_ONE_OS">ARGS<wbr></wbr>_ONE<wbr></wbr>_OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QR_INCOMPLETE" class="internal-link" title="ganeti.cli.QR_INCOMPLETE">QR<wbr></wbr>_INCOMPLETE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QR_NORMAL" class="internal-link" title="ganeti.cli.QR_NORMAL">QR<wbr></wbr>_NORMAL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QR_UNKNOWN" class="internal-link" title="ganeti.cli.QR_UNKNOWN">QR<wbr></wbr>_UNKNOWN</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TISPECS_CLUSTER_TYPES" class="internal-link" title="ganeti.cli.TISPECS_CLUSTER_TYPES">TISPECS<wbr></wbr>_CLUSTER<wbr></wbr>_TYPES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TISPECS_GROUP_TYPES" class="internal-link" title="ganeti.cli.TISPECS_GROUP_TYPES">TISPECS<wbr></wbr>_GROUP<wbr></wbr>_TYPES</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CHOOSE_BATCH" class="internal-link" title="ganeti.cli._CHOOSE_BATCH">_CHOOSE<wbr></wbr>_BATCH</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DEFAULT_FORMAT_QUERY" class="internal-link" title="ganeti.cli._DEFAULT_FORMAT_QUERY">_DEFAULT<wbr></wbr>_FORMAT<wbr></wbr>_QUERY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_QFT_NAMES" class="internal-link" title="ganeti.cli._QFT_NAMES">_QFT<wbr></wbr>_NAMES</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this module">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Module dealing with command line parsing</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id35">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgChoice.html" class="internal-link" title="ganeti.cli.ArgChoice"><wbr></wbr>Arg<wbr></wbr>Choice</a></code></td>
+    <td>Choice argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgCommand.html" class="internal-link" title="ganeti.cli.ArgCommand"><wbr></wbr>Arg<wbr></wbr>Command</a></code></td>
+    <td>Command argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgExtStorage.html" class="internal-link" title="ganeti.cli.ArgExtStorage"><wbr></wbr>Arg<wbr></wbr>Ext<wbr></wbr>Storage</a></code></td>
+    <td>ExtStorage argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgFile.html" class="internal-link" title="ganeti.cli.ArgFile"><wbr></wbr>Arg<wbr></wbr>File</a></code></td>
+    <td>File path argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgFilter.html" class="internal-link" title="ganeti.cli.ArgFilter"><wbr></wbr>Arg<wbr></wbr>Filter</a></code></td>
+    <td>Filter UUID argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgGroup.html" class="internal-link" title="ganeti.cli.ArgGroup"><wbr></wbr>Arg<wbr></wbr>Group</a></code></td>
+    <td>Node group argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgHost.html" class="internal-link" title="ganeti.cli.ArgHost"><wbr></wbr>Arg<wbr></wbr>Host</a></code></td>
+    <td>Host argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgInstance.html" class="internal-link" title="ganeti.cli.ArgInstance"><wbr></wbr>Arg<wbr></wbr>Instance</a></code></td>
+    <td>Instances argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgJobId.html" class="internal-link" title="ganeti.cli.ArgJobId"><wbr></wbr>Arg<wbr></wbr>Job<wbr></wbr>Id</a></code></td>
+    <td>Job ID argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgNetwork.html" class="internal-link" title="ganeti.cli.ArgNetwork"><wbr></wbr>Arg<wbr></wbr>Network</a></code></td>
+    <td>Network argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgNode.html" class="internal-link" title="ganeti.cli.ArgNode"><wbr></wbr>Arg<wbr></wbr>Node</a></code></td>
+    <td>Node argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgOs.html" class="internal-link" title="ganeti.cli.ArgOs"><wbr></wbr>Arg<wbr></wbr>Os</a></code></td>
+    <td>OS argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgSuggest.html" class="internal-link" title="ganeti.cli.ArgSuggest"><wbr></wbr>Arg<wbr></wbr>Suggest</a></code></td>
+    <td>Suggesting argument.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.ArgUnknown.html" class="internal-link" title="ganeti.cli.ArgUnknown"><wbr></wbr>Arg<wbr></wbr>Unknown</a></code></td>
+    <td>Unknown argument to program (e.g. determined at runtime).</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.FeedbackFnJobPollReportCb.html" class="internal-link" title="ganeti.cli.FeedbackFnJobPollReportCb"><wbr></wbr>Feedback<wbr></wbr>Fn<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb</a></code></td>
+    <td><span class="undocumented">No class docstring; 0/1 instance variable, 3/3 methods documented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.JobExecutor.html" class="internal-link" title="ganeti.cli.JobExecutor"><wbr></wbr>Job<wbr></wbr>Executor</a></code></td>
+    <td>Class which manages the submission and execution of multiple jobs.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.JobPollCbBase.html" class="internal-link" title="ganeti.cli.JobPollCbBase"><wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Cb<wbr></wbr>Base</a></code></td>
+    <td>Base class for <code><a href="ganeti.cli.html#GenericPollJob" class="internal-link" title="ganeti.cli.GenericPollJob">GenericPollJob</a></code> callbacks.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.JobPollReportCbBase.html" class="internal-link" title="ganeti.cli.JobPollReportCbBase"><wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb<wbr></wbr>Base</a></code></td>
+    <td>Base class for <code><a href="ganeti.cli.html#GenericPollJob" class="internal-link" title="ganeti.cli.GenericPollJob">GenericPollJob</a></code> reporting callbacks.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.StdioJobPollReportCb.html" class="internal-link" title="ganeti.cli.StdioJobPollReportCb"><wbr></wbr>Stdio<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Report<wbr></wbr>Cb</a></code></td>
+    <td><span class="undocumented">No class docstring; 0/2 instance variable, 3/3 methods documented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli.TableColumn.html" class="internal-link" title="ganeti.cli.TableColumn"><wbr></wbr>Table<wbr></wbr>Column</a></code></td>
+    <td>Describes a column for <code><a href="ganeti.cli.html#FormatTable" class="internal-link" title="ganeti.cli.FormatTable">FormatTable</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddTags" class="internal-link" title="ganeti.cli.AddTags"><wbr></wbr>Add<wbr></wbr>Tags</a></code></td>
+    <td>Add tags on a given object.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AskUser" class="internal-link" title="ganeti.cli.AskUser"><wbr></wbr>Ask<wbr></wbr>User</a></code></td>
+    <td>Ask the user a question.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CalculateOSNames" class="internal-link" title="ganeti.cli.CalculateOSNames"><wbr></wbr>Calculate<wbr></wbr>OSNames</a></code></td>
+    <td>Calculates all the names an OS can be called, according to its variants.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ConfirmOperation" class="internal-link" title="ganeti.cli.ConfirmOperation"><wbr></wbr>Confirm<wbr></wbr>Operation</a></code></td>
+    <td>Ask the user to confirm an operation on a list of list_type.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CreateIPolicyFromOpts" class="internal-link" title="ganeti.cli.CreateIPolicyFromOpts"><wbr></wbr>Create<wbr></wbr>IPolicy<wbr></wbr>From<wbr></wbr>Opts</a></code></td>
+    <td>Creation of instance policy based on command line options.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FixHvParams" class="internal-link" title="ganeti.cli.FixHvParams"><wbr></wbr>Fix<wbr></wbr>Hv<wbr></wbr>Params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatError" class="internal-link" title="ganeti.cli.FormatError"><wbr></wbr>Format<wbr></wbr>Error</a></code></td>
+    <td>Return a formatted error message for a given error.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatLogMessage" class="internal-link" title="ganeti.cli.FormatLogMessage"><wbr></wbr>Format<wbr></wbr>Log<wbr></wbr>Message</a></code></td>
+    <td>Formats a job message according to its type.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatParamsDictInfo" class="internal-link" title="ganeti.cli.FormatParamsDictInfo"><wbr></wbr>Format<wbr></wbr>Params<wbr></wbr>Dict<wbr></wbr>Info</a></code></td>
+    <td>Formats a parameter dictionary.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatPolicyInfo" class="internal-link" title="ganeti.cli.FormatPolicyInfo"><wbr></wbr>Format<wbr></wbr>Policy<wbr></wbr>Info</a></code></td>
+    <td>Formats an instance policy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatQueryResult" class="internal-link" title="ganeti.cli.FormatQueryResult"><wbr></wbr>Format<wbr></wbr>Query<wbr></wbr>Result</a></code></td>
+    <td>Formats data in <code><a href="ganeti.objects.QueryResponse.html" class="internal-link" title="ganeti.objects.QueryResponse">objects.QueryResponse</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatResultError" class="internal-link" title="ganeti.cli.FormatResultError"><wbr></wbr>Format<wbr></wbr>Result<wbr></wbr>Error</a></code></td>
+    <td>Formats result status other than <code><a href="ganeti._constants.html#RS_NORMAL" class="internal-link" title="ganeti._constants.RS_NORMAL">constants.RS_NORMAL</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatTable" class="internal-link" title="ganeti.cli.FormatTable"><wbr></wbr>Format<wbr></wbr>Table</a></code></td>
+    <td>Formats data as a table.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatTimestamp" class="internal-link" title="ganeti.cli.FormatTimestamp"><wbr></wbr>Format<wbr></wbr>Timestamp</a></code></td>
+    <td>Formats a given timestamp.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateTable" class="internal-link" title="ganeti.cli.GenerateTable"><wbr></wbr>Generate<wbr></wbr>Table</a></code></td>
+    <td>Prints a table with headers and different fields.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenericInstanceCreate" class="internal-link" title="ganeti.cli.GenericInstanceCreate"><wbr></wbr>Generic<wbr></wbr>Instance<wbr></wbr>Create</a></code></td>
+    <td>Add an instance to the cluster via either creation or import.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenericList" class="internal-link" title="ganeti.cli.GenericList"><wbr></wbr>Generic<wbr></wbr>List</a></code></td>
+    <td>Generic implementation for listing all items of a resource.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenericListFields" class="internal-link" title="ganeti.cli.GenericListFields"><wbr></wbr>Generic<wbr></wbr>List<wbr></wbr>Fields</a></code></td>
+    <td>Generic implementation for listing fields for a resource.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenericMain" class="internal-link" title="ganeti.cli.GenericMain"><wbr></wbr>Generic<wbr></wbr>Main</a></code></td>
+    <td>Generic main function for all the gnt-* commands.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenericPollJob" class="internal-link" title="ganeti.cli.GenericPollJob"><wbr></wbr>Generic<wbr></wbr>Poll<wbr></wbr>Job</a></code></td>
+    <td>Generic job-polling function.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetNodesSshPorts" class="internal-link" title="ganeti.cli.GetNodesSshPorts"><wbr></wbr>Get<wbr></wbr>Nodes<wbr></wbr>Ssh<wbr></wbr>Ports</a></code></td>
+    <td>Retrieves SSH ports of given nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetNodeUUIDs" class="internal-link" title="ganeti.cli.GetNodeUUIDs"><wbr></wbr>Get<wbr></wbr>Node<wbr></wbr>UUIDs</a></code></td>
+    <td>Retrieves the UUIDs of given nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetOnlineNodes" class="internal-link" title="ganeti.cli.GetOnlineNodes"><wbr></wbr>Get<wbr></wbr>Online<wbr></wbr>Nodes</a></code></td>
+    <td>Returns the names of online nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListTags" class="internal-link" title="ganeti.cli.ListTags"><wbr></wbr>List<wbr></wbr>Tags</a></code></td>
+    <td>List the tags on a given object.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ParseFields" class="internal-link" title="ganeti.cli.ParseFields"><wbr></wbr>Parse<wbr></wbr>Fields</a></code></td>
+    <td>Parses the values of "--field"-like options.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ParseNicOption" class="internal-link" title="ganeti.cli.ParseNicOption"><wbr></wbr>Parse<wbr></wbr>Nic<wbr></wbr>Option</a></code></td>
+    <td>Parses the value of the --net option(s).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ParseTimespec" class="internal-link" title="ganeti.cli.ParseTimespec"><wbr></wbr>Parse<wbr></wbr>Timespec</a></code></td>
+    <td>Parse a time specification.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PollJob" class="internal-link" title="ganeti.cli.PollJob"><wbr></wbr>Poll<wbr></wbr>Job</a></code></td>
+    <td>Function to poll for the result of a job.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo"><wbr></wbr>Print<wbr></wbr>Generic<wbr></wbr>Info</a></code></td>
+    <td>Print information formatted according to the hierarchy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PrintIPolicyCommand" class="internal-link" title="ganeti.cli.PrintIPolicyCommand"><wbr></wbr>Print<wbr></wbr>IPolicy<wbr></wbr>Command</a></code></td>
+    <td>Print the command option used to generate the given instance policy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveTags" class="internal-link" title="ganeti.cli.RemoveTags"><wbr></wbr>Remove<wbr></wbr>Tags</a></code></td>
+    <td>Remove tags from a given object.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunWhileClusterStopped" class="internal-link" title="ganeti.cli.RunWhileClusterStopped"><wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Cluster<wbr></wbr>Stopped</a></code></td>
+    <td>Calls a function while all cluster daemons are stopped.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunWhileDaemonsStopped" class="internal-link" title="ganeti.cli.RunWhileDaemonsStopped"><wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Daemons<wbr></wbr>Stopped</a></code></td>
+    <td>Calls a function while all cluster daemons are stopped.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SendJob" class="internal-link" title="ganeti.cli.SendJob"><wbr></wbr>Send<wbr></wbr>Job</a></code></td>
+    <td>Function to submit an opcode without waiting for the results.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetGenericOpcodeOpts" class="internal-link" title="ganeti.cli.SetGenericOpcodeOpts"><wbr></wbr>Set<wbr></wbr>Generic<wbr></wbr>Opcode<wbr></wbr>Opts</a></code></td>
+    <td>Processor for generic options.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SplitNodeOption" class="internal-link" title="ganeti.cli.SplitNodeOption"><wbr></wbr>Split<wbr></wbr>Node<wbr></wbr>Option</a></code></td>
+    <td>Splits the value of a --node option.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SubmitOpCode" class="internal-link" title="ganeti.cli.SubmitOpCode"><wbr></wbr>Submit<wbr></wbr>Op<wbr></wbr>Code</a></code></td>
+    <td>Legacy function to submit an opcode.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SubmitOpCodeToDrainedQueue" class="internal-link" title="ganeti.cli.SubmitOpCodeToDrainedQueue"><wbr></wbr>Submit<wbr></wbr>Op<wbr></wbr>Code<wbr></wbr>To<wbr></wbr>Drained<wbr></wbr>Queue</a></code></td>
+    <td>Forcefully insert a job in the queue, even if it is drained.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SubmitOrSend" class="internal-link" title="ganeti.cli.SubmitOrSend"><wbr></wbr>Submit<wbr></wbr>Or<wbr></wbr>Send</a></code></td>
+    <td>Wrapper around SubmitOpCode or SendJob.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ToStderr" class="internal-link" title="ganeti.cli.ToStderr"><wbr></wbr>To<wbr></wbr>Stderr</a></code></td>
+    <td>Write a message to stderr only, bypassing the logging system</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ToStdout" class="internal-link" title="ganeti.cli.ToStdout"><wbr></wbr>To<wbr></wbr>Stdout</a></code></td>
+    <td>Write a message to stdout only, bypassing the logging system</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ToStdoutAndLoginfo" class="internal-link" title="ganeti.cli.ToStdoutAndLoginfo"><wbr></wbr>To<wbr></wbr>Stdout<wbr></wbr>And<wbr></wbr>Loginfo</a></code></td>
+    <td>Write a message to stdout and additionally log it at INFO level</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_MANY_FILTERS" class="internal-link" title="ganeti.cli.ARGS_MANY_FILTERS">ARGS<wbr></wbr>_MANY<wbr></wbr>_FILTERS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_MANY_GROUPS" class="internal-link" title="ganeti.cli.ARGS_MANY_GROUPS">ARGS<wbr></wbr>_MANY<wbr></wbr>_GROUPS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_MANY_INSTANCES" class="internal-link" title="ganeti.cli.ARGS_MANY_INSTANCES">ARGS<wbr></wbr>_MANY<wbr></wbr>_INSTANCES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_MANY_NETWORKS" class="internal-link" title="ganeti.cli.ARGS_MANY_NETWORKS">ARGS<wbr></wbr>_MANY<wbr></wbr>_NETWORKS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_MANY_NODES" class="internal-link" title="ganeti.cli.ARGS_MANY_NODES">ARGS<wbr></wbr>_MANY<wbr></wbr>_NODES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_NONE" class="internal-link" title="ganeti.cli.ARGS_NONE">ARGS<wbr></wbr>_NONE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_FILTER" class="internal-link" title="ganeti.cli.ARGS_ONE_FILTER">ARGS<wbr></wbr>_ONE<wbr></wbr>_FILTER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_GROUP" class="internal-link" title="ganeti.cli.ARGS_ONE_GROUP">ARGS<wbr></wbr>_ONE<wbr></wbr>_GROUP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_INSTANCE" class="internal-link" title="ganeti.cli.ARGS_ONE_INSTANCE">ARGS<wbr></wbr>_ONE<wbr></wbr>_INSTANCE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_NETWORK" class="internal-link" title="ganeti.cli.ARGS_ONE_NETWORK">ARGS<wbr></wbr>_ONE<wbr></wbr>_NETWORK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_NODE" class="internal-link" title="ganeti.cli.ARGS_ONE_NODE">ARGS<wbr></wbr>_ONE<wbr></wbr>_NODE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ARGS_ONE_OS" class="internal-link" title="ganeti.cli.ARGS_ONE_OS">ARGS<wbr></wbr>_ONE<wbr></wbr>_OS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#QR_INCOMPLETE" class="internal-link" title="ganeti.cli.QR_INCOMPLETE">QR<wbr></wbr>_INCOMPLETE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#QR_NORMAL" class="internal-link" title="ganeti.cli.QR_NORMAL">QR<wbr></wbr>_NORMAL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#QR_UNKNOWN" class="internal-link" title="ganeti.cli.QR_UNKNOWN">QR<wbr></wbr>_UNKNOWN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TISPECS_CLUSTER_TYPES" class="internal-link" title="ganeti.cli.TISPECS_CLUSTER_TYPES">TISPECS<wbr></wbr>_CLUSTER<wbr></wbr>_TYPES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TISPECS_GROUP_TYPES" class="internal-link" title="ganeti.cli.TISPECS_GROUP_TYPES">TISPECS<wbr></wbr>_GROUP<wbr></wbr>_TYPES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli._Argument.html" class="internal-link" title="ganeti.cli._Argument">_<wbr></wbr>Argument</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli._LuxiJobPollCb.html" class="internal-link" title="ganeti.cli._LuxiJobPollCb">_<wbr></wbr>Luxi<wbr></wbr>Job<wbr></wbr>Poll<wbr></wbr>Cb</a></code></td>
+    <td><span class="undocumented">No class docstring; 0/1 instance variable, 4/4 methods documented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli._QueryColumnFormatter.html" class="internal-link" title="ganeti.cli._QueryColumnFormatter">_<wbr></wbr>Query<wbr></wbr>Column<wbr></wbr>Formatter</a></code></td>
+    <td>Callable class for formatting fields of a query.</td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cli._RunWhileDaemonsStoppedHelper.html" class="internal-link" title="ganeti.cli._RunWhileDaemonsStoppedHelper">_<wbr></wbr>Run<wbr></wbr>While<wbr></wbr>Daemons<wbr></wbr>Stopped<wbr></wbr>Helper</a></code></td>
+    <td>Helper class for <code><a href="ganeti.cli.html#RunWhileDaemonsStopped" class="internal-link" title="ganeti.cli.RunWhileDaemonsStopped">RunWhileDaemonsStopped</a></code> to simplify state management</td>
+  </tr><tr class="exception private">
+    
+    <td>Exception</td>
+    <td><code><a href="ganeti.cli._ShowUsage.html" class="internal-link" title="ganeti.cli._ShowUsage">_<wbr></wbr>Show<wbr></wbr>Usage</a></code></td>
+    <td>Exception class for <code><a href="ganeti.cli.html#_ParseArgs" class="internal-link" title="ganeti.cli._ParseArgs">_ParseArgs</a></code>.</td>
+  </tr><tr class="exception private">
+    
+    <td>Exception</td>
+    <td><code><a href="ganeti.cli._ShowVersion.html" class="internal-link" title="ganeti.cli._ShowVersion">_<wbr></wbr>Show<wbr></wbr>Version</a></code></td>
+    <td>Exception class for <code><a href="ganeti.cli.html#_ParseArgs" class="internal-link" title="ganeti.cli._ParseArgs">_ParseArgs</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckArguments" class="internal-link" title="ganeti.cli._CheckArguments">_<wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Verifies the arguments using the argument definition.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ExtendTags" class="internal-link" title="ganeti.cli._ExtendTags">_<wbr></wbr>Extend<wbr></wbr>Tags</a></code></td>
+    <td>Extend the args if a source file has been given.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ExtractTagsObject" class="internal-link" title="ganeti.cli._ExtractTagsObject">_<wbr></wbr>Extract<wbr></wbr>Tags<wbr></wbr>Object</a></code></td>
+    <td>Extract the tag type object.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FieldDescValues" class="internal-link" title="ganeti.cli._FieldDescValues">_<wbr></wbr>Field<wbr></wbr>Desc<wbr></wbr>Values</a></code></td>
+    <td>Helper function for <code><a href="ganeti.cli.html#GenericListFields" class="internal-link" title="ganeti.cli.GenericListFields">GenericListFields</a></code> to get query field description.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatBool" class="internal-link" title="ganeti.cli._FormatBool">_<wbr></wbr>Format<wbr></wbr>Bool</a></code></td>
+    <td>Formats a boolean value as a string.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatListInfoDefault" class="internal-link" title="ganeti.cli._FormatListInfoDefault">_<wbr></wbr>Format<wbr></wbr>List<wbr></wbr>Info<wbr></wbr>Default</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatUsage" class="internal-link" title="ganeti.cli._FormatUsage">_<wbr></wbr>Format<wbr></wbr>Usage</a></code></td>
+    <td>Generates a nice description of all commands.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetAlignmentMapping" class="internal-link" title="ganeti.cli._GetAlignmentMapping">_<wbr></wbr>Get<wbr></wbr>Alignment<wbr></wbr>Mapping</a></code></td>
+    <td>Returns info about alignment if present in an encoded ordered dictionary.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetColFormatString" class="internal-link" title="ganeti.cli._GetColFormatString">_<wbr></wbr>Get<wbr></wbr>Col<wbr></wbr>Format<wbr></wbr>String</a></code></td>
+    <td>Returns the format string for a field.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetColumnFormatter" class="internal-link" title="ganeti.cli._GetColumnFormatter">_<wbr></wbr>Get<wbr></wbr>Column<wbr></wbr>Formatter</a></code></td>
+    <td>Returns formatting function for a field.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetISpecsInAllowedValues" class="internal-link" title="ganeti.cli._GetISpecsInAllowedValues">_<wbr></wbr>Get<wbr></wbr>ISpecs<wbr></wbr>In<wbr></wbr>Allowed<wbr></wbr>Values</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetUnknownFields" class="internal-link" title="ganeti.cli._GetUnknownFields">_<wbr></wbr>Get<wbr></wbr>Unknown<wbr></wbr>Fields</a></code></td>
+    <td>Returns list of unknown fields included in <tt class="rst-docutils literal">fdefs</tt>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitISpecsFromFullOpts" class="internal-link" title="ganeti.cli._InitISpecsFromFullOpts">_<wbr></wbr>Init<wbr></wbr>ISpecs<wbr></wbr>From<wbr></wbr>Full<wbr></wbr>Opts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitISpecsFromSplitOpts" class="internal-link" title="ganeti.cli._InitISpecsFromSplitOpts">_<wbr></wbr>Init<wbr></wbr>ISpecs<wbr></wbr>From<wbr></wbr>Split<wbr></wbr>Opts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitReasonTrail" class="internal-link" title="ganeti.cli._InitReasonTrail">_<wbr></wbr>Init<wbr></wbr>Reason<wbr></wbr>Trail</a></code></td>
+    <td>Builds the first part of the reason trail</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MaybeParseUnit" class="internal-link" title="ganeti.cli._MaybeParseUnit">_<wbr></wbr>Maybe<wbr></wbr>Parse<wbr></wbr>Unit</a></code></td>
+    <td>Parses and returns an array of potential values with units.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_NotAContainer" class="internal-link" title="ganeti.cli._NotAContainer">_<wbr></wbr>Not<wbr></wbr>AContainer</a></code></td>
+    <td>Checks whether the input is not a container data type.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParseArgs" class="internal-link" title="ganeti.cli._ParseArgs">_<wbr></wbr>Parse<wbr></wbr>Args</a></code></td>
+    <td>Parser for the command line arguments.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParseISpec" class="internal-link" title="ganeti.cli._ParseISpec">_<wbr></wbr>Parse<wbr></wbr>ISpec</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParseSpecUnit" class="internal-link" title="ganeti.cli._ParseSpecUnit">_<wbr></wbr>Parse<wbr></wbr>Spec<wbr></wbr>Unit</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_PrintSpecsParameters" class="internal-link" title="ganeti.cli._PrintSpecsParameters">_<wbr></wbr>Print<wbr></wbr>Specs<wbr></wbr>Parameters</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SerializeGenericInfo" class="internal-link" title="ganeti.cli._SerializeGenericInfo">_<wbr></wbr>Serialize<wbr></wbr>Generic<wbr></wbr>Info</a></code></td>
+    <td>Formatting core of <code><a href="ganeti.cli.html#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo">PrintGenericInfo</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ToStream" class="internal-link" title="ganeti.cli._ToStream">_<wbr></wbr>To<wbr></wbr>Stream</a></code></td>
+    <td>Write a message to a stream, bypassing the logging system</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_WarnUnknownFields" class="internal-link" title="ganeti.cli._WarnUnknownFields">_<wbr></wbr>Warn<wbr></wbr>Unknown<wbr></wbr>Fields</a></code></td>
+    <td>Prints a warning to stderr if a query included unknown fields.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_CHOOSE_BATCH" class="internal-link" title="ganeti.cli._CHOOSE_BATCH">_CHOOSE<wbr></wbr>_BATCH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_DEFAULT_FORMAT_QUERY" class="internal-link" title="ganeti.cli._DEFAULT_FORMAT_QUERY">_DEFAULT<wbr></wbr>_FORMAT<wbr></wbr>_QUERY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_QFT_NAMES" class="internal-link" title="ganeti.cli._QFT_NAMES">_QFT<wbr></wbr>_NAMES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.cli.AddTags">
+    
+  </a>
+  <a name="AddTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddTags</span>(opts, args):
+    
+    <a class="headerLink" href="#AddTags" title="ganeti.cli.AddTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add tags on a given object.</p>
+<p>This is a generic implementation that knows how to deal with all three cases of tag objects (cluster, node, instance). The opts argument is expected to contain a tag_type field denoting what object type we work on.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.AskUser">
+    
+  </a>
+  <a name="AskUser">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AskUser</span>(text, choices=None):
+    
+    <a class="headerLink" href="#AskUser" title="ganeti.cli.AskUser">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ask the user a question.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text</span></td><td class="fieldArgDesc">the question to ask</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">choices</span></td><td class="fieldArgDesc">list with elements tuples (input_char, return_value, description); if not given, it will default to: [('y', True, 'Perform the operation'), ('n', False, 'Do no do the operation')]; note that the '?' char is reserved for help</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">one of the return values from the choices list; if input is not possible (i.e. not running with a tty, we return the last entry from the list</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.CalculateOSNames">
+    
+  </a>
+  <a name="CalculateOSNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CalculateOSNames</span>(os_name, os_variants):
+    
+    <a class="headerLink" href="#CalculateOSNames" title="ganeti.cli.CalculateOSNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculates all the names an OS can be called, according to its variants.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">base name of the os</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">os<wbr></wbr>_variants:</span>list or None</td><td class="fieldArgDesc">list of supported variants</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">list of valid names</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ConfirmOperation">
+    
+  </a>
+  <a name="ConfirmOperation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ConfirmOperation</span>(names, list_type, text, extra=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#ConfirmOperation" title="ganeti.cli.ConfirmOperation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ask the user to confirm an operation on a list of list_type.</p>
+<p>This function is used to request confirmation for doing an operation on a given list of list_type.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">names:</span>list</td><td class="fieldArgDesc">the list of names that we display when we ask for confirmation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">list<wbr></wbr>_type:</span>str</td><td class="fieldArgDesc">Human readable name for elements in the list (e.g. nodes)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>str</td><td class="fieldArgDesc">the operation that the user should confirm</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">extra</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">True or False depending on user's confirmation.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.CreateIPolicyFromOpts">
+    
+  </a>
+  <a name="CreateIPolicyFromOpts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CreateIPolicyFromOpts</span>(ispecs_mem_size=None, ispecs_cpu_count=None, ispecs_disk_count=None, ispecs_disk_size=None, ispecs_nic_count=None, minmax_ispecs=None, std_ispecs=None, ipolicy_disk_templates=None, ipolicy_vcpu_ratio=None, ipolicy_spindle_ratio=None, group_ipolicy=False, allowed_values=None, fill_all=False):
+    
+    <a class="headerLink" href="#CreateIPolicyFromOpts" title="ganeti.cli.CreateIPolicyFromOpts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creation of instance policy based on command line options.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs<wbr></wbr>_mem<wbr></wbr>_size</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs<wbr></wbr>_cpu<wbr></wbr>_count</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs<wbr></wbr>_disk<wbr></wbr>_count</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs<wbr></wbr>_disk<wbr></wbr>_size</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs<wbr></wbr>_nic<wbr></wbr>_count</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">minmax<wbr></wbr>_ispecs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">std<wbr></wbr>_ispecs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy<wbr></wbr>_disk<wbr></wbr>_templates</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy<wbr></wbr>_vcpu<wbr></wbr>_ratio</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy<wbr></wbr>_spindle<wbr></wbr>_ratio</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_ipolicy</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">allowed<wbr></wbr>_values</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fill<wbr></wbr>_all</span></td><td class="fieldArgDesc">whether for cluster policies we should ensure that all values are filled</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FixHvParams">
+    
+  </a>
+  <a name="FixHvParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FixHvParams</span>(hvparams):
+    
+    <a class="headerLink" href="#FixHvParams" title="ganeti.cli.FixHvParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatError">
+    
+  </a>
+  <a name="FormatError">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatError</span>(err):
+    
+    <a class="headerLink" href="#FormatError" title="ganeti.cli.FormatError">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return a formatted error message for a given error.</p>
+<p>This function takes an exception instance and returns a tuple consisting of two values: first, the recommended exit code, and second, a string describing the error message (not newline-terminated).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatLogMessage">
+    
+  </a>
+  <a name="FormatLogMessage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatLogMessage</span>(log_type, log_msg):
+    
+    <a class="headerLink" href="#FormatLogMessage" title="ganeti.cli.FormatLogMessage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a job message according to its type.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatParamsDictInfo">
+    
+  </a>
+  <a name="FormatParamsDictInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatParamsDictInfo</span>(param_dict, actual, roman=False):
+    
+    <a class="headerLink" href="#FormatParamsDictInfo" title="ganeti.cli.FormatParamsDictInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a parameter dictionary.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">param<wbr></wbr>_dict:</span>dict</td><td class="fieldArgDesc">the own parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">actual:</span>dict</td><td class="fieldArgDesc">the current parameter set (including defaults)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roman</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">dictionary where the value of each parameter is either a fully formatted string or a dictionary containing formatted strings</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatPolicyInfo">
+    
+  </a>
+  <a name="FormatPolicyInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatPolicyInfo</span>(custom_ipolicy, eff_ipolicy, iscluster, roman=False):
+    
+    <a class="headerLink" href="#FormatPolicyInfo" title="ganeti.cli.FormatPolicyInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats an instance policy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">custom<wbr></wbr>_ipolicy:</span>dict</td><td class="fieldArgDesc">own policy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">eff<wbr></wbr>_ipolicy:</span>dict</td><td class="fieldArgDesc">effective policy (including defaults); ignored for cluster</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">iscluster:</span>bool</td><td class="fieldArgDesc">the policy is at cluster level</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roman:</span>bool</td><td class="fieldArgDesc">whether to print the values in roman numerals</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of pairs</td><td class="fieldArgDesc">formatted data, suitable for <code><a href="#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo">PrintGenericInfo</a></code></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatQueryResult">
+    
+  </a>
+  <a name="FormatQueryResult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatQueryResult</span>(result, unit=None, format_override=None, separator=None, header=False, verbose=False):
+    
+    <a class="headerLink" href="#FormatQueryResult" title="ganeti.cli.FormatQueryResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats data in <code><a href="ganeti.objects.QueryResponse.html" class="internal-link" title="ganeti.objects.QueryResponse">objects.QueryResponse</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">result:</span><code><a href="ganeti.objects.QueryResponse.html" class="internal-link" title="ganeti.objects.QueryResponse">objects.QueryResponse</a></code></td><td class="fieldArgDesc">result of query operation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">unit:</span>string</td><td class="fieldArgDesc">Unit used for formatting fields of type <code><a href="ganeti._constants.html#QFT_UNIT" class="internal-link" title="ganeti._constants.QFT_UNIT">constants.QFT_UNIT</a></code>, see <code><a href="ganeti.utils.text.html#FormatUnit" class="internal-link" title="ganeti.utils.text.FormatUnit">utils.text.FormatUnit</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">format<wbr></wbr>_override:</span>dict</td><td class="fieldArgDesc">Dictionary for overriding field formatting functions, indexed by field name, contents like <code><a href="#_DEFAULT_FORMAT_QUERY" class="internal-link" title="ganeti.cli._DEFAULT_FORMAT_QUERY">_DEFAULT_FORMAT_QUERY</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">separator:</span>string or None</td><td class="fieldArgDesc">String used to separate fields</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">header:</span>bool</td><td class="fieldArgDesc">Whether to output header row</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span>boolean</td><td class="fieldArgDesc">whether to use verbose field descriptions or not</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatResultError">
+    
+  </a>
+  <a name="FormatResultError">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatResultError</span>(status, verbose):
+    
+    <a class="headerLink" href="#FormatResultError" title="ganeti.cli.FormatResultError">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats result status other than <code><a href="ganeti._constants.html#RS_NORMAL" class="internal-link" title="ganeti._constants.RS_NORMAL">constants.RS_NORMAL</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">status</span></td><td class="fieldArgDesc">The result status</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span>boolean</td><td class="fieldArgDesc">Whether to return the verbose text</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Text of result status</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatTable">
+    
+  </a>
+  <a name="FormatTable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatTable</span>(rows, columns, header, separator):
+    
+    <a class="headerLink" href="#FormatTable" title="ganeti.cli.FormatTable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats data as a table.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rows:</span>list of lists</td><td class="fieldArgDesc">Row data, one list per row</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">columns:</span>list of <code><a href="ganeti.cli.TableColumn.html" class="internal-link" title="ganeti.cli.TableColumn">TableColumn</a></code></td><td class="fieldArgDesc">Column descriptions</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">header:</span>bool</td><td class="fieldArgDesc">Whether to show header row</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">separator:</span>string or None</td><td class="fieldArgDesc">String used to separate columns</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.FormatTimestamp">
+    
+  </a>
+  <a name="FormatTimestamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatTimestamp</span>(ts):
+    
+    <a class="headerLink" href="#FormatTimestamp" title="ganeti.cli.FormatTimestamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a given timestamp.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ts:</span>timestamp</td><td class="fieldArgDesc">a timeval-type timestamp, a tuple of seconds and microseconds</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">a string with the formatted timestamp</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenerateTable">
+    
+  </a>
+  <a name="GenerateTable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateTable</span>(headers, fields, separator, data, numfields=None, unitfields=None, units=None):
+    
+    <a class="headerLink" href="#GenerateTable" title="ganeti.cli.GenerateTable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prints a table with headers and different fields.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">headers:</span>dict</td><td class="fieldArgDesc">dictionary mapping field names to headers for the table</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fields:</span>list</td><td class="fieldArgDesc">the field names corresponding to each row in the data field</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">separator</span></td><td class="fieldArgDesc">the separator to be used; if this is None, the default 'smart' algorithm is used which computes optimal field width, otherwise just the separator is used between each field</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>list</td><td class="fieldArgDesc">a list of lists, each sublist being one row to be output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">numfields:</span>list</td><td class="fieldArgDesc">a list with the fields that hold numeric values and thus should be right-aligned</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">unitfields:</span>list</td><td class="fieldArgDesc">a list with the fields that hold numeric values that should be formatted with the units field</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">units:</span>string or None</td><td class="fieldArgDesc">the units we should use for formatting, or None for automatic choice (human-readable for non-separator usage, otherwise megabytes); this is a one-letter string</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenericInstanceCreate">
+    
+  </a>
+  <a name="GenericInstanceCreate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericInstanceCreate</span>(mode, opts, args):
+    
+    <a class="headerLink" href="#GenericInstanceCreate" title="ganeti.cli.GenericInstanceCreate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add an instance to the cluster via either creation or import.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">constants.INSTANCE_CREATE or constants.INSTANCE_IMPORT</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the new instance name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenericList">
+    
+  </a>
+  <a name="GenericList">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericList</span>(resource, fields, names, unit, separator, header, cl=None, format_override=None, verbose=False, force_filter=False, namefield=None, qfilter=None, isnumeric=False):
+    
+    <a class="headerLink" href="#GenericList" title="ganeti.cli.GenericList">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generic implementation for listing all items of a resource.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">resource</span></td><td class="fieldArgDesc">One of <code><a href="ganeti._constants.html#QR_VIA_LUXI" class="internal-link" title="ganeti._constants.QR_VIA_LUXI">constants.QR_VIA_LUXI</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fields:</span>list of strings</td><td class="fieldArgDesc">List of fields to query for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">names:</span>list of strings</td><td class="fieldArgDesc">Names of items to query for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">unit:</span>string or None</td><td class="fieldArgDesc">Unit used for formatting fields of type <code><a href="ganeti._constants.html#QFT_UNIT" class="internal-link" title="ganeti._constants.QFT_UNIT">constants.QFT_UNIT</a></code> or None for automatic choice (human-readable for non-separator usage, otherwise megabytes); this is a one-letter string</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">separator:</span>string or None</td><td class="fieldArgDesc">String used to separate fields</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">header:</span>bool</td><td class="fieldArgDesc">Whether to show header row</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">format<wbr></wbr>_override:</span>dict</td><td class="fieldArgDesc">Dictionary for overriding field formatting functions, indexed by field name, contents like <code><a href="#_DEFAULT_FORMAT_QUERY" class="internal-link" title="ganeti.cli._DEFAULT_FORMAT_QUERY">_DEFAULT_FORMAT_QUERY</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span>boolean</td><td class="fieldArgDesc">whether to use verbose field descriptions or not</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force<wbr></wbr>_filter:</span>bool</td><td class="fieldArgDesc">Whether to always treat names as filter</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">namefield:</span>string</td><td class="fieldArgDesc">Name of field to use for simple filters (see <code><a href="ganeti.qlang.html#MakeFilter" class="internal-link" title="ganeti.qlang.MakeFilter">qlang.MakeFilter</a></code> for details)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">qfilter:</span>list or None</td><td class="fieldArgDesc">Query filter (in addition to names)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">isnumeric</span></td><td class="fieldArgDesc">Whether the namefield's type is numeric, and therefore any simple filters built by namefield should use integer values to reflect that</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenericListFields">
+    
+  </a>
+  <a name="GenericListFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericListFields</span>(resource, fields, separator, header, cl=None):
+    
+    <a class="headerLink" href="#GenericListFields" title="ganeti.cli.GenericListFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generic implementation for listing fields for a resource.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">resource</span></td><td class="fieldArgDesc">One of <code><a href="ganeti._constants.html#QR_VIA_LUXI" class="internal-link" title="ganeti._constants.QR_VIA_LUXI">constants.QR_VIA_LUXI</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fields:</span>list of strings</td><td class="fieldArgDesc">List of fields to query for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">separator:</span>string or None</td><td class="fieldArgDesc">String used to separate fields</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">header:</span>bool</td><td class="fieldArgDesc">Whether to show header row</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenericMain">
+    
+  </a>
+  <a name="GenericMain">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericMain</span>(commands, override=None, aliases=None, env_override=frozenset()):
+    
+    <a class="headerLink" href="#GenericMain" title="ganeti.cli.GenericMain">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generic main function for all the gnt-* commands.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">commands</span></td><td class="fieldArgDesc">a dictionary with a special structure, see the design doc for command line handling.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">override</span></td><td class="fieldArgDesc">if not None, we expect a dictionary with keys that will override command line options; this can be used to pass options from the scripts to generic functions</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">aliases</span></td><td class="fieldArgDesc">dictionary with command aliases {'alias': 'target, ...}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env<wbr></wbr>_override</span></td><td class="fieldArgDesc">list of environment names which are allowed to submit default args for commands</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GenericPollJob">
+    
+  </a>
+  <a name="GenericPollJob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenericPollJob</span>(job_id, cbs, report_cbs, cancel_fn=None, update_freq=<a href="ganeti._constants.html#DEFAULT_WFJC_TIMEOUT" class="internal-link" title="ganeti._constants.DEFAULT_WFJC_TIMEOUT">constants.DEFAULT_WFJC_TIMEOUT</a>):
+    
+    <a class="headerLink" href="#GenericPollJob" title="ganeti.cli.GenericPollJob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generic job-polling function.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>number</td><td class="fieldArgDesc">Job ID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cbs:</span>Instance of <code><a href="ganeti.cli.JobPollCbBase.html" class="internal-link" title="ganeti.cli.JobPollCbBase">JobPollCbBase</a></code></td><td class="fieldArgDesc">Data callbacks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">report<wbr></wbr>_cbs:</span>Instance of <code><a href="ganeti.cli.JobPollReportCbBase.html" class="internal-link" title="ganeti.cli.JobPollReportCbBase">JobPollReportCbBase</a></code></td><td class="fieldArgDesc">Reporting callbacks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cancel<wbr></wbr>_fn:</span>Function returning a boolean</td><td class="fieldArgDesc">Function to check if we should cancel the running job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update<wbr></wbr>_freq:</span>int/long</td><td class="fieldArgDesc">number of seconds between each WFJC reports</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the opresult of the job</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.JobLost.html" class="internal-link" title="ganeti.errors.JobLost">errors.JobLost</a></code></td><td>If job can't be found</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.JobCanceled.html" class="internal-link" title="ganeti.errors.JobCanceled">errors.JobCanceled</a></code></td><td>If job is canceled</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpExecError.html" class="internal-link" title="ganeti.errors.OpExecError">errors.OpExecError</a></code></td><td>If job didn't succeed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GetNodesSshPorts">
+    
+  </a>
+  <a name="GetNodesSshPorts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetNodesSshPorts</span>(nodes, cl):
+    
+    <a class="headerLink" href="#GetNodesSshPorts" title="ganeti.cli.GetNodesSshPorts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves SSH ports of given nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>a list of strings</td><td class="fieldArgDesc">the names of nodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl:</span><code><a href="ganeti.luxi.Client.html" class="internal-link" title="ganeti.luxi.Client">ganeti.luxi.Client</a></code></td><td class="fieldArgDesc">a client to use for the query</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">a list of tuples</td><td class="fieldArgDesc">the list of SSH ports corresponding to the nodes</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GetNodeUUIDs">
+    
+  </a>
+  <a name="GetNodeUUIDs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetNodeUUIDs</span>(nodes, cl):
+    
+    <a class="headerLink" href="#GetNodeUUIDs" title="ganeti.cli.GetNodeUUIDs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves the UUIDs of given nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>a list of string</td><td class="fieldArgDesc">the names of nodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl:</span><code><a href="ganeti.luxi.Client.html" class="internal-link" title="ganeti.luxi.Client">ganeti.luxi.Client</a></code></td><td class="fieldArgDesc">a client to use for the query</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">a list of tuples</td><td class="fieldArgDesc">the list of UUIDs corresponding to the nodes</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.GetOnlineNodes">
+    
+  </a>
+  <a name="GetOnlineNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetOnlineNodes</span>(nodes, cl=None, nowarn=False, secondary_ips=False, filter_master=False, nodegroup=None):
+    
+    <a class="headerLink" href="#GetOnlineNodes" title="ganeti.cli.GetOnlineNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the names of online nodes.</p>
+<p>This function will also log a warning on stderr with the names of the online nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes</span></td><td class="fieldArgDesc">if not empty, use only this subset of nodes (minus the offline ones)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl</span></td><td class="fieldArgDesc">if not None, luxi client to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nowarn:</span>boolean</td><td class="fieldArgDesc">by default, this function will output a note with the offline nodes that are skipped; if this parameter is True the note is not displayed</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">secondary<wbr></wbr>_ips:</span>boolean</td><td class="fieldArgDesc">if True, return the secondary IPs instead of the names, useful for doing network traffic over the replication interface (if any)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filter<wbr></wbr>_master:</span>boolean</td><td class="fieldArgDesc">if True, do not return the master node in the list (useful in coordination with secondary_ips where we cannot check our node name against the list)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodegroup:</span>string</td><td class="fieldArgDesc">If set, only return nodes in this node group</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ListTags">
+    
+  </a>
+  <a name="ListTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListTags</span>(opts, args):
+    
+    <a class="headerLink" href="#ListTags" title="ganeti.cli.ListTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List the tags on a given object.</p>
+<p>This is a generic implementation that knows how to deal with all three cases of tag objects (cluster, node, instance). The opts argument is expected to contain a tag_type field denoting what object type we work on.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ParseFields">
+    
+  </a>
+  <a name="ParseFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseFields</span>(selected, default):
+    
+    <a class="headerLink" href="#ParseFields" title="ganeti.cli.ParseFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses the values of "--field"-like options.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">selected:</span>string or None</td><td class="fieldArgDesc">User-selected options</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">default:</span>list</td><td class="fieldArgDesc">Default fields</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ParseNicOption">
+    
+  </a>
+  <a name="ParseNicOption">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseNicOption</span>(optvalue):
+    
+    <a class="headerLink" href="#ParseNicOption" title="ganeti.cli.ParseNicOption">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses the value of the --net option(s).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ParseTimespec">
+    
+  </a>
+  <a name="ParseTimespec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseTimespec</span>(value):
+    
+    <a class="headerLink" href="#ParseTimespec" title="ganeti.cli.ParseTimespec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse a time specification.</p>
+<p>The following suffixed will be recognized:</p>
+<ul class="rst-simple">
+<li>s: seconds</li>
+<li>m: minutes</li>
+<li>h: hours</li>
+<li>d: day</li>
+<li>w: weeks</li>
+</ul>
+<p>Without any suffix, the value will be taken to be in seconds.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.PollJob">
+    
+  </a>
+  <a name="PollJob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PollJob</span>(job_id, cl=None, feedback_fn=None, reporter=None, cancel_fn=None, update_freq=<a href="ganeti._constants.html#DEFAULT_WFJC_TIMEOUT" class="internal-link" title="ganeti._constants.DEFAULT_WFJC_TIMEOUT">constants.DEFAULT_WFJC_TIMEOUT</a>):
+    
+    <a class="headerLink" href="#PollJob" title="ganeti.cli.PollJob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Function to poll for the result of a job.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>job identified</td><td class="fieldArgDesc">the job to poll for results</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl:</span>luxi.Client</td><td class="fieldArgDesc">the luxi client to use for communicating with the master; if None, a new client will be created</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reporter</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cancel<wbr></wbr>_fn:</span>Function returning a boolean</td><td class="fieldArgDesc">Function to check if we should cancel the running job</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update<wbr></wbr>_freq:</span>int/long</td><td class="fieldArgDesc">number of seconds between each WFJC report</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.PrintGenericInfo">
+    
+  </a>
+  <a name="PrintGenericInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PrintGenericInfo</span>(data):
+    
+    <a class="headerLink" href="#PrintGenericInfo" title="ganeti.cli.PrintGenericInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Print information formatted according to the hierarchy.</p>
+<p>The output is a valid YAML string.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data</span></td><td class="fieldArgDesc"><p>the data to print. It's a hierarchical structure whose elements can be:</p>
+<ul class="rst-simple">
+<li>dictionaries, where keys are strings and values are of any of the types listed here</li>
+<li>lists of tuples (key, value) or (key, value, alignment_group), where key is a string, value is of any of the types listed here, and alignment_group can be any hashable value; it's a way to encode ordered dictionaries; any entries sharing the same alignment group are aligned by appending whitespace before the value as needed</li>
+<li>lists of any of the types listed here</li>
+<li>strings</li>
+</ul>
+</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.PrintIPolicyCommand">
+    
+  </a>
+  <a name="PrintIPolicyCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PrintIPolicyCommand</span>(buf, ipolicy, isgroup):
+    
+    <a class="headerLink" href="#PrintIPolicyCommand" title="ganeti.cli.PrintIPolicyCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Print the command option used to generate the given instance policy.</p>
+<p>Currently only the parts dealing with specs are supported.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">buf:</span>StringIO</td><td class="fieldArgDesc">stream to write into</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">instance policy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">isgroup:</span>bool</td><td class="fieldArgDesc">whether the policy is at group level</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.RemoveTags">
+    
+  </a>
+  <a name="RemoveTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveTags</span>(opts, args):
+    
+    <a class="headerLink" href="#RemoveTags" title="ganeti.cli.RemoveTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove tags from a given object.</p>
+<p>This is a generic implementation that knows how to deal with all three cases of tag objects (cluster, node, instance). The opts argument is expected to contain a tag_type field denoting what object type we work on.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.RunWhileClusterStopped">
+    
+  </a>
+  <a name="RunWhileClusterStopped">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunWhileClusterStopped</span>(feedback_fn, fn, *args):
+    
+    <a class="headerLink" href="#RunWhileClusterStopped" title="ganeti.cli.RunWhileClusterStopped">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calls a function while all cluster daemons are stopped.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">Feedback function</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fn:</span>callable</td><td class="fieldArgDesc">Function to be called when daemons are stopped</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.RunWhileDaemonsStopped">
+    
+  </a>
+  <a name="RunWhileDaemonsStopped">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunWhileDaemonsStopped</span>(feedback_fn, exclude_daemons, fn, *args, **kwargs):
+    
+    <a class="headerLink" href="#RunWhileDaemonsStopped" title="ganeti.cli.RunWhileDaemonsStopped">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calls a function while all cluster daemons are stopped.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">Feedback function</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">exclude<wbr></wbr>_daemons:</span>list of string</td><td class="fieldArgDesc">list of daemons that stopped, but immediately restarted on the master to be available when calling 'fn'. If None, all daemons will be stopped and none will be started before calling 'fn'.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fn:</span>callable</td><td class="fieldArgDesc">Function to be called when daemons are stopped</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SendJob">
+    
+  </a>
+  <a name="SendJob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SendJob</span>(ops, cl=None):
+    
+    <a class="headerLink" href="#SendJob" title="ganeti.cli.SendJob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Function to submit an opcode without waiting for the results.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ops:</span>list</td><td class="fieldArgDesc">list of opcodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl:</span>luxi.Client</td><td class="fieldArgDesc">the luxi client to use for communicating with the master; if None, a new client will be created</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SetGenericOpcodeOpts">
+    
+  </a>
+  <a name="SetGenericOpcodeOpts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetGenericOpcodeOpts</span>(opcode_list, options):
+    
+    <a class="headerLink" href="#SetGenericOpcodeOpts" title="ganeti.cli.SetGenericOpcodeOpts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Processor for generic options.</p>
+<p>This function updates the given opcodes based on generic command line options (like debug, dry-run, etc.).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opcode<wbr></wbr>_list</span></td><td class="fieldArgDesc">list of opcodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">options</span></td><td class="fieldArgDesc">command line options or None</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">None (in-place modification)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SplitNodeOption">
+    
+  </a>
+  <a name="SplitNodeOption">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SplitNodeOption</span>(value):
+    
+    <a class="headerLink" href="#SplitNodeOption" title="ganeti.cli.SplitNodeOption">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Splits the value of a --node option.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SubmitOpCode">
+    
+  </a>
+  <a name="SubmitOpCode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SubmitOpCode</span>(op, cl=None, feedback_fn=None, opts=None, reporter=None):
+    
+    <a class="headerLink" href="#SubmitOpCode" title="ganeti.cli.SubmitOpCode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Legacy function to submit an opcode.</p>
+<p>This is just a simple wrapper over the construction of the processor instance. It should be extended to better handle feedback and interaction functions.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SubmitOpCodeToDrainedQueue">
+    
+  </a>
+  <a name="SubmitOpCodeToDrainedQueue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SubmitOpCodeToDrainedQueue</span>(op):
+    
+    <a class="headerLink" href="#SubmitOpCodeToDrainedQueue" title="ganeti.cli.SubmitOpCodeToDrainedQueue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Forcefully insert a job in the queue, even if it is drained.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.SubmitOrSend">
+    
+  </a>
+  <a name="SubmitOrSend">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SubmitOrSend</span>(op, opts, cl=None, feedback_fn=None):
+    
+    <a class="headerLink" href="#SubmitOrSend" title="ganeti.cli.SubmitOrSend">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper around SubmitOpCode or SendJob.</p>
+<p>This function will decide, based on the 'opts' parameter, whether to submit and wait for the result of the opcode (and return it), or whether to just send the job and print its identifier. It is used in order to simplify the implementation of the '--submit' option.</p>
+<p>It will also process the opcodes if we're sending the via SendJob (otherwise SubmitOpCode does it).</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ToStderr">
+    
+  </a>
+  <a name="ToStderr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ToStderr</span>(txt, *args):
+    
+    <a class="headerLink" href="#ToStderr" title="ganeti.cli.ToStderr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write a message to stderr only, bypassing the logging system</p>
+<p>This is just a wrapper over _ToStream.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">txt:</span>str</td><td class="fieldArgDesc">the message</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ToStdout">
+    
+  </a>
+  <a name="ToStdout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ToStdout</span>(txt, *args):
+    
+    <a class="headerLink" href="#ToStdout" title="ganeti.cli.ToStdout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write a message to stdout only, bypassing the logging system</p>
+<p>This is just a wrapper over _ToStream.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">txt:</span>str</td><td class="fieldArgDesc">the message</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cli.ToStdoutAndLoginfo">
+    
+  </a>
+  <a name="ToStdoutAndLoginfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ToStdoutAndLoginfo</span>(txt, *args):
+    
+    <a class="headerLink" href="#ToStdoutAndLoginfo" title="ganeti.cli.ToStdoutAndLoginfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write a message to stdout and additionally log it at INFO level</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_MANY_FILTERS">
+    
+  </a>
+  <a name="ARGS_MANY_FILTERS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_MANY_FILTERS</span> =
+    
+    <a class="headerLink" href="#ARGS_MANY_FILTERS" title="ganeti.cli.ARGS_MANY_FILTERS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgFilter.html" class="internal-link" title="ganeti.cli.ArgFilter">ArgFilter</a>()]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_MANY_GROUPS">
+    
+  </a>
+  <a name="ARGS_MANY_GROUPS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_MANY_GROUPS</span> =
+    
+    <a class="headerLink" href="#ARGS_MANY_GROUPS" title="ganeti.cli.ARGS_MANY_GROUPS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgGroup.html" class="internal-link" title="ganeti.cli.ArgGroup">ArgGroup</a>()]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_MANY_INSTANCES">
+    
+  </a>
+  <a name="ARGS_MANY_INSTANCES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_MANY_INSTANCES</span> =
+    
+    <a class="headerLink" href="#ARGS_MANY_INSTANCES" title="ganeti.cli.ARGS_MANY_INSTANCES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgInstance.html" class="internal-link" title="ganeti.cli.ArgInstance">ArgInstance</a>()]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_MANY_NETWORKS">
+    
+  </a>
+  <a name="ARGS_MANY_NETWORKS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_MANY_NETWORKS</span> =
+    
+    <a class="headerLink" href="#ARGS_MANY_NETWORKS" title="ganeti.cli.ARGS_MANY_NETWORKS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgNetwork.html" class="internal-link" title="ganeti.cli.ArgNetwork">ArgNetwork</a>()]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_MANY_NODES">
+    
+  </a>
+  <a name="ARGS_MANY_NODES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_MANY_NODES</span> =
+    
+    <a class="headerLink" href="#ARGS_MANY_NODES" title="ganeti.cli.ARGS_MANY_NODES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgNode.html" class="internal-link" title="ganeti.cli.ArgNode">ArgNode</a>()]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_NONE">
+    
+  </a>
+  <a name="ARGS_NONE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_NONE</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#ARGS_NONE" title="ganeti.cli.ARGS_NONE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_FILTER">
+    
+  </a>
+  <a name="ARGS_ONE_FILTER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_FILTER</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_FILTER" title="ganeti.cli.ARGS_ONE_FILTER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgFilter.html" class="internal-link" title="ganeti.cli.ArgFilter">ArgFilter</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_GROUP">
+    
+  </a>
+  <a name="ARGS_ONE_GROUP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_GROUP</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_GROUP" title="ganeti.cli.ARGS_ONE_GROUP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgGroup.html" class="internal-link" title="ganeti.cli.ArgGroup">ArgGroup</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_INSTANCE">
+    
+  </a>
+  <a name="ARGS_ONE_INSTANCE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_INSTANCE</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_INSTANCE" title="ganeti.cli.ARGS_ONE_INSTANCE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgInstance.html" class="internal-link" title="ganeti.cli.ArgInstance">ArgInstance</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_NETWORK">
+    
+  </a>
+  <a name="ARGS_ONE_NETWORK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_NETWORK</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_NETWORK" title="ganeti.cli.ARGS_ONE_NETWORK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgNetwork.html" class="internal-link" title="ganeti.cli.ArgNetwork">ArgNetwork</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_NODE">
+    
+  </a>
+  <a name="ARGS_ONE_NODE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_NODE</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_NODE" title="ganeti.cli.ARGS_ONE_NODE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgNode.html" class="internal-link" title="ganeti.cli.ArgNode">ArgNode</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.ARGS_ONE_OS">
+    
+  </a>
+  <a name="ARGS_ONE_OS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ARGS_ONE_OS</span> =
+    
+    <a class="headerLink" href="#ARGS_ONE_OS" title="ganeti.cli.ARGS_ONE_OS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti.cli.ArgOs.html" class="internal-link" title="ganeti.cli.ArgOs">ArgOs</a>(<wbr></wbr>min=1, <wbr></wbr>max=1)]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.QR_INCOMPLETE">
+    
+  </a>
+  <a name="QR_INCOMPLETE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">QR_INCOMPLETE</span> =
+    
+    <a class="headerLink" href="#QR_INCOMPLETE" title="ganeti.cli.QR_INCOMPLETE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.QR_NORMAL">
+    
+  </a>
+  <a name="QR_NORMAL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">QR_NORMAL</span> =
+    
+    <a class="headerLink" href="#QR_NORMAL" title="ganeti.cli.QR_NORMAL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.QR_UNKNOWN">
+    
+  </a>
+  <a name="QR_UNKNOWN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">QR_UNKNOWN</span> =
+    
+    <a class="headerLink" href="#QR_UNKNOWN" title="ganeti.cli.QR_UNKNOWN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.TISPECS_CLUSTER_TYPES">
+    
+  </a>
+  <a name="TISPECS_CLUSTER_TYPES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TISPECS_CLUSTER_TYPES</span> =
+    
+    <a class="headerLink" href="#TISPECS_CLUSTER_TYPES" title="ganeti.cli.TISPECS_CLUSTER_TYPES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#ISPECS_MIN" class="internal-link" title="ganeti._constants.ISPECS_MIN">constants.ISPECS_MIN</a>: <a href="ganeti._constants.html#VTYPE_INT" class="internal-link" title="ganeti._constants.VTYPE_INT">constants.VTYPE_INT</a>,
+ <wbr></wbr><a href="ganeti._constants.html#ISPECS_MAX" class="internal-link" title="ganeti._constants.ISPECS_MAX">constants.ISPECS_MAX</a>: <a href="ganeti._constants.html#VTYPE_INT" class="internal-link" title="ganeti._constants.VTYPE_INT">constants.VTYPE_INT</a>,
+ <wbr></wbr><a href="ganeti._constants.html#ISPECS_STD" class="internal-link" title="ganeti._constants.ISPECS_STD">constants.ISPECS_STD</a>: <a href="ganeti._constants.html#VTYPE_INT" class="internal-link" title="ganeti._constants.VTYPE_INT">constants.VTYPE_INT</a>}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cli.TISPECS_GROUP_TYPES">
+    
+  </a>
+  <a name="TISPECS_GROUP_TYPES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TISPECS_GROUP_TYPES</span> =
+    
+    <a class="headerLink" href="#TISPECS_GROUP_TYPES" title="ganeti.cli.TISPECS_GROUP_TYPES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#ISPECS_MIN" class="internal-link" title="ganeti._constants.ISPECS_MIN">constants.ISPECS_MIN</a>: <a href="ganeti._constants.html#VTYPE_INT" class="internal-link" title="ganeti._constants.VTYPE_INT">constants.VTYPE_INT</a>,
+ <wbr></wbr><a href="ganeti._constants.html#ISPECS_MAX" class="internal-link" title="ganeti._constants.ISPECS_MAX">constants.ISPECS_MAX</a>: <a href="ganeti._constants.html#VTYPE_INT" class="internal-link" title="ganeti._constants.VTYPE_INT">constants.VTYPE_INT</a>}</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._CheckArguments">
+    
+  </a>
+  <a name="_CheckArguments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckArguments</span>(cmd, args_def, args):
+    
+    <a class="headerLink" href="#_CheckArguments" title="ganeti.cli._CheckArguments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies the arguments using the argument definition.</p>
+<p>Algorithm:</p>
+<ol class="rst-simple">
+<li>Abort with error if values specified by user but none expected.</li>
+</ol>
+<ol>
+<li><p class="rst-first">For each argument in definition</p>
+<ol class="rst-simple">
+<li>Keep running count of minimum number of values (min_count)</li>
+</ol>
+<ol class="rst-simple">
+<li>Keep running count of maximum number of values (max_count)</li>
+</ol>
+<ol class="rst-simple">
+<li>If it has an unlimited number of values<ol>
+<li>Abort with error if it's not the last argument in the definition</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol class="rst-simple">
+<li>If last argument has limited number of values<ol>
+<li>Abort with error if number of values doesn't match or is too large</li>
+</ol>
+</li>
+</ol>
+<ol class="rst-simple">
+<li>Abort with error if user didn't pass enough values (min_count)</li>
+</ol>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ExtendTags">
+    
+  </a>
+  <a name="_ExtendTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ExtendTags</span>(opts, args):
+    
+    <a class="headerLink" href="#_ExtendTags" title="ganeti.cli._ExtendTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extend the args if a source file has been given.</p>
+<p>This function will extend the tags with the contents of the file passed in the 'tags_source' attribute of the opts parameter. A file named '-' will be replaced by stdin.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ExtractTagsObject">
+    
+  </a>
+  <a name="_ExtractTagsObject">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ExtractTagsObject</span>(opts, args):
+    
+    <a class="headerLink" href="#_ExtractTagsObject" title="ganeti.cli._ExtractTagsObject">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extract the tag type object.</p>
+<p>Note that this function will modify its args parameter.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._FieldDescValues">
+    
+  </a>
+  <a name="_FieldDescValues">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FieldDescValues</span>(fdef):
+    
+    <a class="headerLink" href="#_FieldDescValues" title="ganeti.cli._FieldDescValues">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function for <code><a href="#GenericListFields" class="internal-link" title="ganeti.cli.GenericListFields">GenericListFields</a></code> to get query field description.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fdef:</span><code><a href="ganeti.objects.QueryFieldDefinition.html" class="internal-link" title="ganeti.objects.QueryFieldDefinition">objects.QueryFieldDefinition</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._FormatBool">
+    
+  </a>
+  <a name="_FormatBool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatBool</span>(value):
+    
+    <a class="headerLink" href="#_FormatBool" title="ganeti.cli._FormatBool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a boolean value as a string.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._FormatListInfoDefault">
+    
+  </a>
+  <a name="_FormatListInfoDefault">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatListInfoDefault</span>(data, def_data):
+    
+    <a class="headerLink" href="#_FormatListInfoDefault" title="ganeti.cli._FormatListInfoDefault">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._FormatUsage">
+    
+  </a>
+  <a name="_FormatUsage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatUsage</span>(binary, commands):
+    
+    <a class="headerLink" href="#_FormatUsage" title="ganeti.cli._FormatUsage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a nice description of all commands.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">binary</span></td><td class="fieldArgDesc">Script name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">commands</span></td><td class="fieldArgDesc">Dictionary containing command definitions</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._GetAlignmentMapping">
+    
+  </a>
+  <a name="_GetAlignmentMapping">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetAlignmentMapping</span>(data):
+    
+    <a class="headerLink" href="#_GetAlignmentMapping" title="ganeti.cli._GetAlignmentMapping">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns info about alignment if present in an encoded ordered dictionary.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>list of tuple</td><td class="fieldArgDesc">The encoded ordered dictionary, as defined in <code><a href="#_SerializeGenericInfo" class="internal-link" title="ganeti.cli._SerializeGenericInfo">_SerializeGenericInfo</a></code>.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict of any to int</td><td class="fieldArgDesc">The dictionary mapping alignment groups to the maximum length of the dictionary key found in the group.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._GetColFormatString">
+    
+  </a>
+  <a name="_GetColFormatString">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetColFormatString</span>(width, align_right):
+    
+    <a class="headerLink" href="#_GetColFormatString" title="ganeti.cli._GetColFormatString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the format string for a field.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._GetColumnFormatter">
+    
+  </a>
+  <a name="_GetColumnFormatter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetColumnFormatter</span>(fdef, override, unit):
+    
+    <a class="headerLink" href="#_GetColumnFormatter" title="ganeti.cli._GetColumnFormatter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns formatting function for a field.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fdef:</span><code><a href="ganeti.objects.QueryFieldDefinition.html" class="internal-link" title="ganeti.objects.QueryFieldDefinition">objects.QueryFieldDefinition</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">override:</span>dict</td><td class="fieldArgDesc">Dictionary for overriding field formatting functions, indexed by field name, contents like <code><a href="#_DEFAULT_FORMAT_QUERY" class="internal-link" title="ganeti.cli._DEFAULT_FORMAT_QUERY">_DEFAULT_FORMAT_QUERY</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">unit:</span>string</td><td class="fieldArgDesc">Unit used for formatting fields of type <code><a href="ganeti._constants.html#QFT_UNIT" class="internal-link" title="ganeti._constants.QFT_UNIT">constants.QFT_UNIT</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (callable, bool)</td><td class="fieldArgDesc">Returns the function to format a value (takes one parameter) and a boolean for aligning the value on the right-hand side</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._GetISpecsInAllowedValues">
+    
+  </a>
+  <a name="_GetISpecsInAllowedValues">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetISpecsInAllowedValues</span>(minmax_ispecs, allowed_values):
+    
+    <a class="headerLink" href="#_GetISpecsInAllowedValues" title="ganeti.cli._GetISpecsInAllowedValues">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._GetUnknownFields">
+    
+  </a>
+  <a name="_GetUnknownFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetUnknownFields</span>(fdefs):
+    
+    <a class="headerLink" href="#_GetUnknownFields" title="ganeti.cli._GetUnknownFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns list of unknown fields included in <tt class="rst-docutils literal">fdefs</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fdefs:</span>list of <code><a href="ganeti.objects.QueryFieldDefinition.html" class="internal-link" title="ganeti.objects.QueryFieldDefinition">objects.QueryFieldDefinition</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._InitISpecsFromFullOpts">
+    
+  </a>
+  <a name="_InitISpecsFromFullOpts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitISpecsFromFullOpts</span>(ipolicy_out, minmax_ispecs, std_ispecs, group_ipolicy, allowed_values):
+    
+    <a class="headerLink" href="#_InitISpecsFromFullOpts" title="ganeti.cli._InitISpecsFromFullOpts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._InitISpecsFromSplitOpts">
+    
+  </a>
+  <a name="_InitISpecsFromSplitOpts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitISpecsFromSplitOpts</span>(ipolicy, ispecs_mem_size, ispecs_cpu_count, ispecs_disk_count, ispecs_disk_size, ispecs_nic_count, group_ipolicy, fill_all):
+    
+    <a class="headerLink" href="#_InitISpecsFromSplitOpts" title="ganeti.cli._InitISpecsFromSplitOpts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._InitReasonTrail">
+    
+  </a>
+  <a name="_InitReasonTrail">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitReasonTrail</span>(op, opts):
+    
+    <a class="headerLink" href="#_InitReasonTrail" title="ganeti.cli._InitReasonTrail">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds the first part of the reason trail</p>
+<p>Builds the initial part of the reason trail, adding the user provided reason (if it exists) and the name of the command starting the operation.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">op</span></td><td class="fieldArgDesc">the opcode the reason trail will be added to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._MaybeParseUnit">
+    
+  </a>
+  <a name="_MaybeParseUnit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MaybeParseUnit</span>(elements):
+    
+    <a class="headerLink" href="#_MaybeParseUnit" title="ganeti.cli._MaybeParseUnit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses and returns an array of potential values with units.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._NotAContainer">
+    
+  </a>
+  <a name="_NotAContainer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_NotAContainer</span>(data):
+    
+    <a class="headerLink" href="#_NotAContainer" title="ganeti.cli._NotAContainer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the input is not a container data type.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ParseArgs">
+    
+  </a>
+  <a name="_ParseArgs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseArgs</span>(binary, argv, commands, aliases, env_override):
+    
+    <a class="headerLink" href="#_ParseArgs" title="ganeti.cli._ParseArgs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parser for the command line arguments.</p>
+<p>This function parses the arguments and returns the function which must be executed together with its (modified) arguments.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">binary</span></td><td class="fieldArgDesc">Script name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">argv</span></td><td class="fieldArgDesc">Command line arguments</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">commands</span></td><td class="fieldArgDesc">Dictionary containing command definitions</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">aliases</span></td><td class="fieldArgDesc">dictionary with command aliases {"alias": "target", ...}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">env<wbr></wbr>_override</span></td><td class="fieldArgDesc">list of env variables allowed for default args</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.cli._ShowUsage.html" class="internal-link" title="ganeti.cli._ShowUsage">_ShowUsage</a></code></td><td>If usage description should be shown</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.cli._ShowVersion.html" class="internal-link" title="ganeti.cli._ShowVersion">_ShowVersion</a></code></td><td>If version should be shown</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ParseISpec">
+    
+  </a>
+  <a name="_ParseISpec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseISpec</span>(spec, keyname, required):
+    
+    <a class="headerLink" href="#_ParseISpec" title="ganeti.cli._ParseISpec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ParseSpecUnit">
+    
+  </a>
+  <a name="_ParseSpecUnit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseSpecUnit</span>(spec, keyname):
+    
+    <a class="headerLink" href="#_ParseSpecUnit" title="ganeti.cli._ParseSpecUnit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._PrintSpecsParameters">
+    
+  </a>
+  <a name="_PrintSpecsParameters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PrintSpecsParameters</span>(buf, specs):
+    
+    <a class="headerLink" href="#_PrintSpecsParameters" title="ganeti.cli._PrintSpecsParameters">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._SerializeGenericInfo">
+    
+  </a>
+  <a name="_SerializeGenericInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SerializeGenericInfo</span>(buf, data, level, afterkey=False):
+    
+    <a class="headerLink" href="#_SerializeGenericInfo" title="ganeti.cli._SerializeGenericInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formatting core of <code><a href="#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo">PrintGenericInfo</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">buf</span></td><td class="fieldArgDesc">(string) stream to accumulate the result into</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data</span></td><td class="fieldArgDesc">data to format</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">level:</span>int</td><td class="fieldArgDesc">depth in the data hierarchy, used for indenting</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">afterkey:</span>bool</td><td class="fieldArgDesc">True when we are in the middle of a line after a key (used to properly add newlines or indentation)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._ToStream">
+    
+  </a>
+  <a name="_ToStream">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ToStream</span>(stream, txt, *args):
+    
+    <a class="headerLink" href="#_ToStream" title="ganeti.cli._ToStream">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write a message to a stream, bypassing the logging system</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">stream:</span>file object</td><td class="fieldArgDesc">the file to which we should write</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">txt:</span>str</td><td class="fieldArgDesc">the message</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cli._WarnUnknownFields">
+    
+  </a>
+  <a name="_WarnUnknownFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_WarnUnknownFields</span>(fdefs):
+    
+    <a class="headerLink" href="#_WarnUnknownFields" title="ganeti.cli._WarnUnknownFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prints a warning to stderr if a query included unknown fields.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fdefs:</span>list of <code><a href="ganeti.objects.QueryFieldDefinition.html" class="internal-link" title="ganeti.objects.QueryFieldDefinition">objects.QueryFieldDefinition</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cli._CHOOSE_BATCH">
+    
+  </a>
+  <a name="_CHOOSE_BATCH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_CHOOSE_BATCH</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_CHOOSE_BATCH" title="ganeti.cli._CHOOSE_BATCH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>25</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cli._DEFAULT_FORMAT_QUERY">
+    
+  </a>
+  <a name="_DEFAULT_FORMAT_QUERY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_DEFAULT_FORMAT_QUERY</span> =
+    
+    <a class="headerLink" href="#_DEFAULT_FORMAT_QUERY" title="ganeti.cli._DEFAULT_FORMAT_QUERY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#QFT_TEXT" class="internal-link" title="ganeti._constants.QFT_TEXT">constants.QFT_TEXT</a>: (<wbr></wbr>str, <wbr></wbr>False),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_BOOL" class="internal-link" title="ganeti._constants.QFT_BOOL">constants.QFT_BOOL</a>: (<wbr></wbr><a href="#_FormatBool" class="internal-link" title="ganeti.cli._FormatBool">_FormatBool</a>, <wbr></wbr>False),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_NUMBER" class="internal-link" title="ganeti._constants.QFT_NUMBER">constants.QFT_NUMBER</a>: (<wbr></wbr>str, <wbr></wbr>True),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_NUMBER_FLOAT" class="internal-link" title="ganeti._constants.QFT_NUMBER_FLOAT">constants.QFT_NUMBER_FLOAT</a>: (<wbr></wbr>str, <wbr></wbr>True),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_TIMESTAMP" class="internal-link" title="ganeti._constants.QFT_TIMESTAMP">constants.QFT_TIMESTAMP</a>: (<wbr></wbr><a href="ganeti.utils.text.html#FormatTime" class="internal-link" title="ganeti.utils.text.FormatTime">utils.FormatTime</a>, <wbr></wbr>False),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_OTHER" class="internal-link" title="ganeti._constants.QFT_OTHER">constants.QFT_OTHER</a>: (<wbr></wbr>str, <wbr></wbr>False),
+ <wbr></wbr><a href="ganeti._constants.html#QFT_UNKNOWN" class="internal-link" title="ganeti._constants.QFT_UNKNOWN">constants.QFT_UNKNOWN</a>: (<wbr></wbr>str, <wbr></wbr>False)}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cli._QFT_NAMES">
+    
+  </a>
+  <a name="_QFT_NAMES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_QFT_NAMES</span> =
+    
+    <a class="headerLink" href="#_QFT_NAMES" title="ganeti.cli._QFT_NAMES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#QFT_UNKNOWN" class="internal-link" title="ganeti._constants.QFT_UNKNOWN">constants.QFT_UNKNOWN</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Unknown</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_TEXT" class="internal-link" title="ganeti._constants.QFT_TEXT">constants.QFT_TEXT</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Text</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_BOOL" class="internal-link" title="ganeti._constants.QFT_BOOL">constants.QFT_BOOL</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Boolean</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_NUMBER" class="internal-link" title="ganeti._constants.QFT_NUMBER">constants.QFT_NUMBER</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Number</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_NUMBER_FLOAT" class="internal-link" title="ganeti._constants.QFT_NUMBER_FLOAT">constants.QFT_NUMBER_FLOAT</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Floating-point number</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_UNIT" class="internal-link" title="ganeti._constants.QFT_UNIT">constants.QFT_UNIT</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Storage size</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#QFT_TIMESTAMP" class="internal-link" title="ganeti._constants.QFT_TIMESTAMP">constants.QFT_TIMESTAMP</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Timestamp</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

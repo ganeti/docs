@@ -1,0 +1,3350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.html" class="internal-link" title="This class"><wbr></wbr>LUCluster<wbr></wbr>Verify<wbr></wbr>Group</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage"><wbr></wbr>Node<wbr></wbr>Image</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.Exec"><wbr></wbr>Exec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HooksCallBack" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SelectSshCheckNodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SelectSshCheckNodes">_<wbr></wbr>Select<wbr></wbr>Ssh<wbr></wbr>Check<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeDrbdMinors" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._ComputeDrbdMinors">_<wbr></wbr>Compute<wbr></wbr>Drbd<wbr></wbr>Minors</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SshNodeSelector" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SshNodeSelector">_<wbr></wbr>Ssh<wbr></wbr>Node<wbr></wbr>Selector</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyOtherNotes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOtherNotes">_<wbr></wbr>Verify<wbr></wbr>Other<wbr></wbr>Notes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CertError" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CertError">_<wbr></wbr>Cert<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CollectDiskInfo" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CollectDiskInfo">_<wbr></wbr>Collect<wbr></wbr>Disk<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrepareSshSetupCheck" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._PrepareSshSetupCheck">_<wbr></wbr>Prepare<wbr></wbr>Ssh<wbr></wbr>Setup<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateNodeInfo" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInfo">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateNodeInstances" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInstances">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateNodeOS" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeOS">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>OS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateNodeVolumes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeVolumes">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Volumes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateVerifyNodeLVM" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateVerifyNodeLVM">_<wbr></wbr>Update<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>LVM</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyAcceptedFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyAcceptedFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Accepted<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyClientCertificates" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyClientCertificates">_<wbr></wbr>Verify<wbr></wbr>Client<wbr></wbr>Certificates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyExclusionTags" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyExclusionTags">_<wbr></wbr>Verify<wbr></wbr>Exclusion<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyFiles" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFiles">_<wbr></wbr>Verify<wbr></wbr>Files</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyGlusterStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGlusterStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Gluster<wbr></wbr>Storage<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyGroupDRBDVersion" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupDRBDVersion">_<wbr></wbr>Verify<wbr></wbr>Group<wbr></wbr>DRBDVersion</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyGroupLVM" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupLVM">_<wbr></wbr>Verify<wbr></wbr>Group<wbr></wbr>LVM</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyInstance" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyInstance">_<wbr></wbr>Verify<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNode" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNode">_<wbr></wbr>Verify<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeBridges" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeBridges">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Bridges</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeDrbd" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbd">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Drbd</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbdHelper">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Drbd<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeNetwork" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeNetwork">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeOS" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeOS">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>OS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeTime" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeTime">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNodeUserScripts" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeUserScripts">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>User<wbr></wbr>Scripts</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyNPlusOneMemory" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNPlusOneMemory">_<wbr></wbr>Verify<wbr></wbr>NPlus<wbr></wbr>One<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyOob" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOob">_<wbr></wbr>Verify<wbr></wbr>Oob</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyOrphanVolumes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOrphanVolumes">_<wbr></wbr>Verify<wbr></wbr>Orphan<wbr></wbr>Volumes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifySharedFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySharedFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifySshSetup" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySshSetup">_<wbr></wbr>Verify<wbr></wbr>Ssh<wbr></wbr>Setup</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Storage<wbr></wbr>Paths</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_Error" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._Error">_<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorIf" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorIf">_<wbr></wbr>Error<wbr></wbr>If</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorMsg" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorMsg">_<wbr></wbr>Error<wbr></wbr>Msg</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorMsgList" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorMsgList">_<wbr></wbr>Error<wbr></wbr>Msg<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HPATH">HPATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.REQ_BGL">REQ<wbr></wbr>_BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#all_disks_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_disks_info">all<wbr></wbr>_disks<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#all_inst_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_inst_info">all<wbr></wbr>_inst<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#all_node_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_node_info">all<wbr></wbr>_node<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bad" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.bad">bad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#extra_lv_nodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.extra_lv_nodes">extra<wbr></wbr>_lv<wbr></wbr>_nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#group_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_info">group<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#group_uuid" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_uuid">group<wbr></wbr>_uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#master_node" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.master_node">master<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#my_inst_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_info">my<wbr></wbr>_inst<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#my_inst_uuids" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_uuids">my<wbr></wbr>_inst<wbr></wbr>_uuids</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#my_node_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_info">my<wbr></wbr>_node<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#my_node_uuids" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_uuids">my<wbr></wbr>_node<wbr></wbr>_uuids</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.needed_locks">needed<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#share_locks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.share_locks">share<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_HOOKS_INDENT_RE" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._HOOKS_INDENT_RE">_HOOKS<wbr></wbr>_INDENT<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_cert_error_found" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._cert_error_found">_cert<wbr></wbr>_error<wbr></wbr>_found</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_exclusive_storage" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._exclusive_storage">_exclusive<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_feedback_fn" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._feedback_fn">_feedback<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.cmdlib.cluster.verify.html" class="internal-link" title="The parent of this class">verify</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerify.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerify"><wbr></wbr>LUCluster<wbr></wbr>Verify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyConfig.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyConfig"><wbr></wbr>LUCluster<wbr></wbr>Verify<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyDisks.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyDisks"><wbr></wbr>LUCluster<wbr></wbr>Verify<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup"><wbr></wbr>LUCluster<wbr></wbr>Verify<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors">_<wbr></wbr>Verify<wbr></wbr>Errors</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.html#_GetAllHypervisorParameters" class="internal-link" title="ganeti.cmdlib.cluster.verify._GetAllHypervisorParameters">_<wbr></wbr>Get<wbr></wbr>All<wbr></wbr>Hypervisor<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.verify.html" class="internal-link" title="ganeti.cmdlib.cluster.verify">verify</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup">LUClusterVerifyGroup</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LUClusterVerifyGroup</span>(<a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a>, <a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors">_VerifyErrors</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Verifies the status of a node group.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id114">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage"><wbr></wbr>Node<wbr></wbr>Image</a></code></td>
+    <td>A class representing the logical and physical status of a node.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code></td>
+    <td>Build hooks env.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code></td>
+    <td>Build hooks nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code></td>
+    <td>Check prerequisites for this LU.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code></td>
+    <td>Declare LU locking needs for a level</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.Exec"><wbr></wbr>Exec</a></code></td>
+    <td>Verify integrity of the node group, performing various test on nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code></td>
+    <td>Expand names for this LU.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#HooksCallBack" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code></td>
+    <td>Analyze the post-hooks' result</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HPATH">HPATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.REQ_BGL">REQ<wbr></wbr>_BGL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#all_disks_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_disks_info">all<wbr></wbr>_disks<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#all_inst_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_inst_info">all<wbr></wbr>_inst<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#all_node_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_node_info">all<wbr></wbr>_node<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#bad" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.bad">bad</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#extra_lv_nodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.extra_lv_nodes">extra<wbr></wbr>_lv<wbr></wbr>_nodes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#group_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_info">group<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#group_uuid" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_uuid">group<wbr></wbr>_uuid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#master_node" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.master_node">master<wbr></wbr>_node</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#my_inst_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_info">my<wbr></wbr>_inst<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#my_inst_uuids" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_uuids">my<wbr></wbr>_inst<wbr></wbr>_uuids</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#my_node_info" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_info">my<wbr></wbr>_node<wbr></wbr>_info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#my_node_uuids" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_uuids">my<wbr></wbr>_node<wbr></wbr>_uuids</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.needed_locks">needed<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#share_locks" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.share_locks">share<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_SelectSshCheckNodes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SelectSshCheckNodes">_<wbr></wbr>Select<wbr></wbr>Ssh<wbr></wbr>Check<wbr></wbr>Nodes</a></code></td>
+    <td>Choose which nodes should talk to which other nodes.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeDrbdMinors" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._ComputeDrbdMinors">_<wbr></wbr>Compute<wbr></wbr>Drbd<wbr></wbr>Minors</a></code></td>
+    <td>Gives the DRBD information in a map for a node.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_SshNodeSelector" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SshNodeSelector">_<wbr></wbr>Ssh<wbr></wbr>Node<wbr></wbr>Selector</a></code></td>
+    <td>Create endless iterators for all potential SSH check hosts.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_VerifyOtherNotes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOtherNotes">_<wbr></wbr>Verify<wbr></wbr>Other<wbr></wbr>Notes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CertError" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CertError">_<wbr></wbr>Cert<wbr></wbr>Error</a></code></td>
+    <td>Helper function for _VerifyClientCertificates.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CollectDiskInfo" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CollectDiskInfo">_<wbr></wbr>Collect<wbr></wbr>Disk<wbr></wbr>Info</a></code></td>
+    <td>Gets per-disk status information for all instances.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PrepareSshSetupCheck" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._PrepareSshSetupCheck">_<wbr></wbr>Prepare<wbr></wbr>Ssh<wbr></wbr>Setup<wbr></wbr>Check</a></code></td>
+    <td>Prepare the input data for the SSH setup verification.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateNodeInfo" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInfo">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Info</a></code></td>
+    <td>Verifies and computes a node information map</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateNodeInstances" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInstances">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Instances</a></code></td>
+    <td>Verifies and updates the node instance list.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateNodeOS" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeOS">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>OS</a></code></td>
+    <td>Builds the node OS structures.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateNodeVolumes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeVolumes">_<wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Volumes</a></code></td>
+    <td>Verifies and updates the node volume data.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UpdateVerifyNodeLVM" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateVerifyNodeLVM">_<wbr></wbr>Update<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>LVM</a></code></td>
+    <td>Check the node LVM results and update info for cross-node checks.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyAcceptedFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyAcceptedFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Accepted<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code></td>
+    <td>Verifies paths in <code><a href="ganeti.pathutils.html#FILE_STORAGE_PATHS_FILE" class="internal-link" title="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">pathutils.FILE_STORAGE_PATHS_FILE</a></code>.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyClientCertificates" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyClientCertificates">_<wbr></wbr>Verify<wbr></wbr>Client<wbr></wbr>Certificates</a></code></td>
+    <td>Verifies the consistency of the client certificates.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyExclusionTags" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyExclusionTags">_<wbr></wbr>Verify<wbr></wbr>Exclusion<wbr></wbr>Tags</a></code></td>
+    <td>Verify that all instances have different exclusion tags.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyFiles" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFiles">_<wbr></wbr>Verify<wbr></wbr>Files</a></code></td>
+    <td>Verifies file checksums collected from all nodes.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code></td>
+    <td>Verifies (file) storage paths.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyGlusterStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGlusterStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Gluster<wbr></wbr>Storage<wbr></wbr>Paths</a></code></td>
+    <td>Verifies (file) storage paths.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyGroupDRBDVersion" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupDRBDVersion">_<wbr></wbr>Verify<wbr></wbr>Group<wbr></wbr>DRBDVersion</a></code></td>
+    <td>Check cross-node DRBD version consistency.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyGroupLVM" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupLVM">_<wbr></wbr>Verify<wbr></wbr>Group<wbr></wbr>LVM</a></code></td>
+    <td>Check cross-node consistency in LVM.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyInstance" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyInstance">_<wbr></wbr>Verify<wbr></wbr>Instance</a></code></td>
+    <td>Verify an instance.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNode" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNode">_<wbr></wbr>Verify<wbr></wbr>Node</a></code></td>
+    <td>Perform some basic validation on data returned from a node.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeBridges" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeBridges">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Bridges</a></code></td>
+    <td>Check the node bridges.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeDrbd" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbd">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Drbd</a></code></td>
+    <td>Verifies and the node DRBD status.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbdHelper">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Drbd<wbr></wbr>Helper</a></code></td>
+    <td>Verify the drbd helper.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeNetwork" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeNetwork">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Network</a></code></td>
+    <td>Check the node network connectivity results.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeOS" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeOS">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>OS</a></code></td>
+    <td>Verifies the node OS list.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeTime" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeTime">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>Time</a></code></td>
+    <td>Check the node time.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNodeUserScripts" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeUserScripts">_<wbr></wbr>Verify<wbr></wbr>Node<wbr></wbr>User<wbr></wbr>Scripts</a></code></td>
+    <td>Check the results of user scripts presence and executability on the node</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyNPlusOneMemory" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNPlusOneMemory">_<wbr></wbr>Verify<wbr></wbr>NPlus<wbr></wbr>One<wbr></wbr>Memory</a></code></td>
+    <td>Verify N+1 Memory Resilience.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyOob" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOob">_<wbr></wbr>Verify<wbr></wbr>Oob</a></code></td>
+    <td>Verifies out of band functionality of a node.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyOrphanVolumes" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOrphanVolumes">_<wbr></wbr>Verify<wbr></wbr>Orphan<wbr></wbr>Volumes</a></code></td>
+    <td>Verify if there are any unknown volumes in the cluster.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifySharedFileStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySharedFileStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Paths</a></code></td>
+    <td>Verifies (file) storage paths.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifySshSetup" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySshSetup">_<wbr></wbr>Verify<wbr></wbr>Ssh<wbr></wbr>Setup</a></code></td>
+    <td>Evaluates the verification results of the SSH setup and clutter test.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_VerifyStoragePaths" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyStoragePaths">_<wbr></wbr>Verify<wbr></wbr>Storage<wbr></wbr>Paths</a></code></td>
+    <td>Verifies (file) storage paths.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_HOOKS_INDENT_RE" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._HOOKS_INDENT_RE">_HOOKS<wbr></wbr>_INDENT<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_cert_error_found" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._cert_error_found">_cert<wbr></wbr>_error<wbr></wbr>_found</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_exclusive_storage" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._exclusive_storage">_exclusive<wbr></wbr>_storage</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_feedback_fn" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._feedback_fn">_feedback<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>:
+            </p>
+            <table class="children sortable" id="id115">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code></td>
+    <td>Constructor for LogicalUnit.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code></td>
+    <td>Raise AssertionError if the LU holds some locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Check syntactic validity for the opcode arguments.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code></td>
+    <td>Return the list of locks owned by the LU at a given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code></td>
+    <td>Extend list of nodes to run the post LU hook.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code></td>
+    <td>Prepare the LU to run again.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code></td>
+    <td>Return a request to release the specified locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code></td>
+    <td>the value (if any) that will be returned to the caller in dry-run mode (signalled by opcode dry_run parameter)</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code></td>
+    <td>Helper function to expand and lock an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code></td>
+    <td>Helper function to declare instances' nodes for locking.</td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors">_VerifyErrors</a></code> (via <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>):
+            </p>
+            <table class="children sortable" id="id116">
+  
+  
+  <tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_Error" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._Error">_<wbr></wbr>Error</a></code></td>
+    <td>Log an error message if the passed condition is True.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorIf" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorIf">_<wbr></wbr>Error<wbr></wbr>If</a></code></td>
+    <td>Log an error message if the passed condition is True.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorMsg" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorMsg">_<wbr></wbr>Error<wbr></wbr>Msg</a></code></td>
+    <td>Log a single error message.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorMsgList" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorMsgList">_<wbr></wbr>Error<wbr></wbr>Msg<wbr></wbr>List</a></code></td>
+    <td>Format multiple error messages.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksEnv">
+    
+  </a>
+  <a name="BuildHooksEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksEnv</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksEnv" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksEnv" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksEnv</a></code></div>
+    <div><p>Build hooks env.</p>
+<p>Cluster-Verify hooks just ran in the post phase and their failure makes the output be logged in the verify output and the verification to fail.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksNodes">
+    
+  </a>
+  <a name="BuildHooksNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksNodes</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksNodes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.BuildHooksNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksNodes" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksNodes</a></code></div>
+    <div><p>Build hooks nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.CheckPrereq">
+    
+  </a>
+  <a name="CheckPrereq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckPrereq</span>(self):
+    
+    <a class="headerLink" href="#CheckPrereq" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.CheckPrereq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckPrereq" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckPrereq</a></code></div>
+    <div><p>Check prerequisites for this LU.</p>
+<p>This method should check that the prerequisites for the execution of this LU are fulfilled. It can do internode communication, but it should be idempotent - no cluster or system changes are allowed.</p>
+<p>The method should raise errors.OpPrereqError in case something is not fulfilled. Its return value is ignored.</p>
+<p>This method should also update all the parameters of the opcode to their canonical form if it hasn't been done by ExpandNames before.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.DeclareLocks">
+    
+  </a>
+  <a name="DeclareLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DeclareLocks</span>(self, level):
+    
+    <a class="headerLink" href="#DeclareLocks" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.DeclareLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.DeclareLocks</a></code></div>
+    <div><p>Declare LU locking needs for a level</p>
+<p>While most LUs can just declare their locking needs at ExpandNames time, sometimes there's the need to calculate some locks after having acquired the ones before. This function is called just before acquiring locks at a particular level, but after acquiring the ones at lower levels, and permits such calculations. It can be used to modify self.needed_locks, and by default it does nothing.</p>
+<p>This function is only called if you have something already set in self.needed_locks for the level.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">level:</span>member of <code><a href="ganeti.locking.html#LEVELS" class="internal-link" title="ganeti.locking.LEVELS">ganeti.locking.LEVELS</a></code></td><td class="fieldArgDesc">Locking level which is going to be locked</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.Exec">
+    
+  </a>
+  <a name="Exec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Exec</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#Exec" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.Exec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#Exec" class="internal-link">ganeti.cmdlib.base.LogicalUnit.Exec</a></code></div>
+    <div><p>Verify integrity of the node group, performing various test on nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.ExpandNames">
+    
+  </a>
+  <a name="ExpandNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNames</span>(self):
+    
+    <a class="headerLink" href="#ExpandNames" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.ExpandNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#ExpandNames" class="internal-link">ganeti.cmdlib.base.LogicalUnit.ExpandNames</a></code></div>
+    <div><p>Expand names for this LU.</p>
+<p>This method is called before starting to execute the opcode, and it should update all the parameters of the opcode to their canonical form (e.g. a short node name must be fully expanded after this method has successfully completed). This way locking, hooks, logging, etc. can work correctly.</p>
+<p>LUs which implement this method must also populate the self.needed_locks member, as a dict with lock levels as keys, and a list of needed lock names as values. Rules:</p>
+<ul class="rst-simple">
+<li>use an empty dict if you don't need any lock</li>
+<li>if you don't need any lock at a particular level omit that level (note that in this case <tt class="rst-docutils literal">DeclareLocks</tt> won't be called at all for that level)</li>
+<li>if you need locks at a level, but you can't calculate it in this function, initialise that level with an empty list and do further processing in <code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks">LogicalUnit.DeclareLocks</a></code> (see that function's docstring)</li>
+<li>don't put anything for the BGL level</li>
+<li>if you want all locks at a level use <code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">locking.ALL_SET</a></code> as a value</li>
+</ul>
+<p>If you need to share locks (rather than acquire them exclusively) at one level you can modify self.share_locks, setting a true value (usually 1) for that level. By default locks are not shared.</p>
+<p>This function can also define a list of tasklets, which then will be executed in order instead of the usual LU-level CheckPrereq and Exec functions, if those are not defined by the LU.</p>
+<p>Examples:</p>
+<pre class="rst-literal-block">
+  # Acquire all nodes and one instance
+  self.needed_locks = {
+    locking.LEVEL_NODE: locking.ALL_SET,
+    locking.LEVEL_INSTANCE: ['instance1.example.com'],
+  }
+  # Acquire just two nodes
+  self.needed_locks = {
+    locking.LEVEL_NODE: ['node1-uuid', 'node2-uuid'],
+  }
+  # Acquire no locks
+  self.needed_locks = {} # No, you can't leave it to the default value None
+</pre>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HooksCallBack">
+    
+  </a>
+  <a name="HooksCallBack">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">HooksCallBack</span>(self, phase, hooks_results, feedback_fn, lu_result):
+    
+    <a class="headerLink" href="#HooksCallBack" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HooksCallBack">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HooksCallBack</a></code></div>
+    <div><p>Analyze the post-hooks' result</p>
+<p>This method analyses the hook result, handles it, and sends some nicely-formatted feedback back to the user.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">phase</span></td><td class="fieldArgDesc">one of <code><a href="ganeti._constants.html#HOOKS_PHASE_POST" class="internal-link" title="ganeti._constants.HOOKS_PHASE_POST">constants.HOOKS_PHASE_POST</a></code> or <code><a href="ganeti._constants.html#HOOKS_PHASE_PRE" class="internal-link" title="ganeti._constants.HOOKS_PHASE_PRE">constants.HOOKS_PHASE_PRE</a></code>; it denotes the hooks phase</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hooks<wbr></wbr>_results</span></td><td class="fieldArgDesc">the results of the multi-node hooks rpc call</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn</span></td><td class="fieldArgDesc">function used send feedback back to the caller</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu<wbr></wbr>_result</span></td><td class="fieldArgDesc">previous Exec result</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the new Exec result, based on the previous result and hook results</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HPATH">
+    
+  </a>
+  <a name="HPATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HPATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HPATH" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.HPATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HPATH" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HPATH</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">cluster-verify</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.REQ_BGL">
+    
+  </a>
+  <a name="REQ_BGL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">REQ_BGL</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#REQ_BGL" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.REQ_BGL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#REQ_BGL" class="internal-link">ganeti.cmdlib.base.LogicalUnit.REQ_BGL</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>False</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_disks_info">
+    
+  </a>
+  <a name="all_disks_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">all_disks_info</span> =
+    
+    <a class="headerLink" href="#all_disks_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_disks_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_inst_info">
+    
+  </a>
+  <a name="all_inst_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">all_inst_info</span> =
+    
+    <a class="headerLink" href="#all_inst_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_inst_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_node_info">
+    
+  </a>
+  <a name="all_node_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">all_node_info</span> =
+    
+    <a class="headerLink" href="#all_node_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.all_node_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.bad">
+    
+  </a>
+  <a name="bad">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bad</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#bad" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.bad">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#bad" class="internal-link">ganeti.cmdlib.cluster.verify._VerifyErrors.bad</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.extra_lv_nodes">
+    
+  </a>
+  <a name="extra_lv_nodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">extra_lv_nodes</span> =
+    
+    <a class="headerLink" href="#extra_lv_nodes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.extra_lv_nodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_info">
+    
+  </a>
+  <a name="group_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">group_info</span> =
+    
+    <a class="headerLink" href="#group_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_uuid">
+    
+  </a>
+  <a name="group_uuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">group_uuid</span> =
+    
+    <a class="headerLink" href="#group_uuid" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.group_uuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.master_node">
+    
+  </a>
+  <a name="master_node">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">master_node</span> =
+    
+    <a class="headerLink" href="#master_node" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.master_node">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_info">
+    
+  </a>
+  <a name="my_inst_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">my_inst_info</span> =
+    
+    <a class="headerLink" href="#my_inst_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_uuids">
+    
+  </a>
+  <a name="my_inst_uuids">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">my_inst_uuids</span> =
+    
+    <a class="headerLink" href="#my_inst_uuids" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_inst_uuids">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_info">
+    
+  </a>
+  <a name="my_node_info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">my_node_info</span> =
+    
+    <a class="headerLink" href="#my_node_info" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_uuids">
+    
+  </a>
+  <a name="my_node_uuids">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">my_node_uuids</span> =
+    
+    <a class="headerLink" href="#my_node_uuids" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.my_node_uuids">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.needed_locks">
+    
+  </a>
+  <a name="needed_locks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">needed_locks</span> =
+    
+    <a class="headerLink" href="#needed_locks" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.needed_locks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.needed_locks</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.share_locks">
+    
+  </a>
+  <a name="share_locks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">share_locks</span> =
+    
+    <a class="headerLink" href="#share_locks" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.share_locks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.share_locks</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SelectSshCheckNodes">
+    
+  </a>
+  <a name="_SelectSshCheckNodes">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_SelectSshCheckNodes</span>(cls, group_nodes, group_uuid, all_nodes):
+    
+    <a class="headerLink" href="#_SelectSshCheckNodes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SelectSshCheckNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Choose which nodes should talk to which other nodes.</p>
+<p>We will make nodes contact all nodes in their group, and one node from every other group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple of (string, dict of strings to list of strings, string)</td><td class="fieldArgDesc">a tuple containing the list of all online nodes, a dictionary mapping node names to additional nodes of other node groups to which connectivity should be tested, and a list of all online master candidates</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: warning</td></tr><tr><td colspan="2">This algorithm has a known issue if one node group is much smaller than others (e.g. just one node). In such a case all other nodes will talk to the single node.</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._ComputeDrbdMinors">
+    
+  </a>
+  <a name="_ComputeDrbdMinors">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeDrbdMinors</span>(ninfo, instanceinfo, disks_info, drbd_map, error_if):
+    
+    <a class="headerLink" href="#_ComputeDrbdMinors" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._ComputeDrbdMinors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gives the DRBD information in a map for a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instanceinfo</span></td><td class="fieldArgDesc">the dict of instances</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks<wbr></wbr>_info</span></td><td class="fieldArgDesc">the dict of disks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_map</span></td><td class="fieldArgDesc">the DRBD map as returned by <code><a href="ganeti.config.ConfigWriter.html#ComputeDRBDMap" class="internal-link" title="ganeti.config.ConfigWriter.ComputeDRBDMap">ganeti.config.ConfigWriter.ComputeDRBDMap</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_if:</span>callable like <code><a href="ganeti.cmdlib.cluster.verify._VerifyErrors.html#_ErrorIf" class="internal-link" title="ganeti.cmdlib.cluster.verify._VerifyErrors._ErrorIf">_ErrorIf</a></code></td><td class="fieldArgDesc">The error reporting function</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">dict from minor number to (disk_uuid, instance_uuid, active)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SshNodeSelector">
+    
+  </a>
+  <a name="_SshNodeSelector">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_SshNodeSelector</span>(group_uuid, all_nodes):
+    
+    <a class="headerLink" href="#_SshNodeSelector" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._SshNodeSelector">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create endless iterators for all potential SSH check hosts.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOtherNotes">
+    
+  </a>
+  <a name="_VerifyOtherNotes">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyOtherNotes</span>(feedback_fn, i_non_redundant, i_non_a_balanced, i_offline, n_offline, n_drained):
+    
+    <a class="headerLink" href="#_VerifyOtherNotes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOtherNotes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CertError">
+    
+  </a>
+  <a name="_CertError">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CertError</span>(self, *args):
+    
+    <a class="headerLink" href="#_CertError" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CertError">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function for _VerifyClientCertificates.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CollectDiskInfo">
+    
+  </a>
+  <a name="_CollectDiskInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CollectDiskInfo</span>(self, node_uuids, node_image, instanceinfo):
+    
+    <a class="headerLink" href="#_CollectDiskInfo" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._CollectDiskInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets per-disk status information for all instances.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list of strings</td><td class="fieldArgDesc">Node UUIDs</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_image:</span>dict of (UUID, <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code>)</td><td class="fieldArgDesc">Node objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instanceinfo:</span>dict of (UUID, <code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code>)</td><td class="fieldArgDesc">Instance objects</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">{instance: {node: [(succes, payload)]}}</td><td class="fieldArgDesc">a dictionary of per-instance dictionaries with nodes as keys and disk information as values; the disk information is a list of tuples (success, payload)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._PrepareSshSetupCheck">
+    
+  </a>
+  <a name="_PrepareSshSetupCheck">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PrepareSshSetupCheck</span>(self):
+    
+    <a class="headerLink" href="#_PrepareSshSetupCheck" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._PrepareSshSetupCheck">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare the input data for the SSH setup verification.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInfo">
+    
+  </a>
+  <a name="_UpdateNodeInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateNodeInfo</span>(self, ninfo, nresult, nimg, vg_name):
+    
+    <a class="headerLink" href="#_UpdateNodeInfo" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies and computes a node information map</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg</span></td><td class="fieldArgDesc">the node image object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg<wbr></wbr>_name</span></td><td class="fieldArgDesc">the configured VG name</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInstances">
+    
+  </a>
+  <a name="_UpdateNodeInstances">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateNodeInstances</span>(self, ninfo, nresult, nimg):
+    
+    <a class="headerLink" href="#_UpdateNodeInstances" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeInstances">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies and updates the node instance list.</p>
+<p>If the listing was successful, then updates this node's instance list. Otherwise, it marks the RPC call as failed for the instance list key.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg</span></td><td class="fieldArgDesc">the node image object</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeOS">
+    
+  </a>
+  <a name="_UpdateNodeOS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateNodeOS</span>(self, ninfo, nresult, nimg):
+    
+    <a class="headerLink" href="#_UpdateNodeOS" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeOS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds the node OS structures.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg</span></td><td class="fieldArgDesc">the node image object</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeVolumes">
+    
+  </a>
+  <a name="_UpdateNodeVolumes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateNodeVolumes</span>(self, ninfo, nresult, nimg, vg_name):
+    
+    <a class="headerLink" href="#_UpdateNodeVolumes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateNodeVolumes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies and updates the node volume data.</p>
+<p>This function will update a <code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage">NodeImage</a></code>'s internal structures with data from the remote call.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg</span></td><td class="fieldArgDesc">the node image object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg<wbr></wbr>_name</span></td><td class="fieldArgDesc">the configured VG name</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateVerifyNodeLVM">
+    
+  </a>
+  <a name="_UpdateVerifyNodeLVM">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateVerifyNodeLVM</span>(self, ninfo, nresult, vg_name, nimg):
+    
+    <a class="headerLink" href="#_UpdateVerifyNodeLVM" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._UpdateVerifyNodeLVM">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the node LVM results and update info for cross-node checks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg<wbr></wbr>_name</span></td><td class="fieldArgDesc">the configured VG name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg:</span><code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage">NodeImage</a></code></td><td class="fieldArgDesc">node image</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyAcceptedFileStoragePaths">
+    
+  </a>
+  <a name="_VerifyAcceptedFileStoragePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyAcceptedFileStoragePaths</span>(self, ninfo, nresult, is_master):
+    
+    <a class="headerLink" href="#_VerifyAcceptedFileStoragePaths" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyAcceptedFileStoragePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies paths in <code><a href="ganeti.pathutils.html#FILE_STORAGE_PATHS_FILE" class="internal-link" title="ganeti.pathutils.FILE_STORAGE_PATHS_FILE">pathutils.FILE_STORAGE_PATHS_FILE</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">is<wbr></wbr>_master:</span>bool</td><td class="fieldArgDesc">Whether node is the master node</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyClientCertificates">
+    
+  </a>
+  <a name="_VerifyClientCertificates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyClientCertificates</span>(self, nodes, all_nvinfo):
+    
+    <a class="headerLink" href="#_VerifyClientCertificates" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyClientCertificates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies the consistency of the client certificates.</p>
+<p>This includes several aspects:</p>
+<ul class="rst-simple">
+<li>the individual validation of all nodes' certificates</li>
+<li>the consistency of the master candidate certificate map</li>
+<li>the consistency of the master candidate certificate map with the certificates that the master candidates are actually using.</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes</span></td><td class="fieldArgDesc">the list of nodes to consider in this verification</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">all<wbr></wbr>_nvinfo</span></td><td class="fieldArgDesc">the map of results of the verify_node call to all nodes</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyExclusionTags">
+    
+  </a>
+  <a name="_VerifyExclusionTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyExclusionTags</span>(self, nodename, pinst, ctags):
+    
+    <a class="headerLink" href="#_VerifyExclusionTags" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyExclusionTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify that all instances have different exclusion tags.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodename:</span>string</td><td class="fieldArgDesc">the name of the node for which the check is done</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pinst:</span>list of string</td><td class="fieldArgDesc">list of UUIDs of those instances having the given node as primary node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ctags:</span>list of string</td><td class="fieldArgDesc">tags of the cluster</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFiles">
+    
+  </a>
+  <a name="_VerifyFiles">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyFiles</span>(self, nodes, master_node_uuid, all_nvinfo, filemap):
+    
+    <a class="headerLink" href="#_VerifyFiles" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFiles">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies file checksums collected from all nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes</span></td><td class="fieldArgDesc">List of <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code> objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">master<wbr></wbr>_node<wbr></wbr>_uuid</span></td><td class="fieldArgDesc">UUID of master node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">all<wbr></wbr>_nvinfo</span></td><td class="fieldArgDesc">RPC results</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filemap</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFileStoragePaths">
+    
+  </a>
+  <a name="_VerifyFileStoragePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyFileStoragePaths</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyFileStoragePaths" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyFileStoragePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies (file) storage paths.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">_VerifyStoragePaths</tt></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGlusterStoragePaths">
+    
+  </a>
+  <a name="_VerifyGlusterStoragePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyGlusterStoragePaths</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyGlusterStoragePaths" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGlusterStoragePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies (file) storage paths.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">_VerifyStoragePaths</tt></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupDRBDVersion">
+    
+  </a>
+  <a name="_VerifyGroupDRBDVersion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyGroupDRBDVersion</span>(self, node_verify_infos):
+    
+    <a class="headerLink" href="#_VerifyGroupDRBDVersion" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupDRBDVersion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check cross-node DRBD version consistency.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_verify<wbr></wbr>_infos:</span>dict</td><td class="fieldArgDesc">infos about nodes as returned from the node_verify call.</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupLVM">
+    
+  </a>
+  <a name="_VerifyGroupLVM">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyGroupLVM</span>(self, node_image, vg_name):
+    
+    <a class="headerLink" href="#_VerifyGroupLVM" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyGroupLVM">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check cross-node consistency in LVM.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_image:</span>dict</td><td class="fieldArgDesc">info about nodes, mapping from node to names to <code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage">NodeImage</a></code> objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg<wbr></wbr>_name</span></td><td class="fieldArgDesc">the configured VG name</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyInstance">
+    
+  </a>
+  <a name="_VerifyInstance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyInstance</span>(self, instance, node_image, diskstatus):
+    
+    <a class="headerLink" href="#_VerifyInstance" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyInstance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify an instance.</p>
+<p>This function checks to see if the required block devices are available on the instance's node, and that the nodes are in the correct state.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNode">
+    
+  </a>
+  <a name="_VerifyNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNode</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyNode" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Perform some basic validation on data returned from a node.</p>
+<ul class="rst-simple">
+<li>check the result data structure is well formed and has all the mandatory fields</li>
+<li>check ganeti version</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the results from the node</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">whether overall this call was successful (and we can expect reasonable values in the respose)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeBridges">
+    
+  </a>
+  <a name="_VerifyNodeBridges">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeBridges</span>(self, ninfo, nresult, bridges):
+    
+    <a class="headerLink" href="#_VerifyNodeBridges" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeBridges">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the node bridges.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bridges</span></td><td class="fieldArgDesc">the expected list of bridges</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbd">
+    
+  </a>
+  <a name="_VerifyNodeDrbd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeDrbd</span>(self, ninfo, nresult, instanceinfo, disks_info, drbd_helper, drbd_map):
+    
+    <a class="headerLink" href="#_VerifyNodeDrbd" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies and the node DRBD status.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instanceinfo</span></td><td class="fieldArgDesc">the dict of instances</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks<wbr></wbr>_info</span></td><td class="fieldArgDesc">the dict of disks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_helper</span></td><td class="fieldArgDesc">the configured DRBD usermode helper</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_map</span></td><td class="fieldArgDesc">the DRBD map as returned by <code><a href="ganeti.config.ConfigWriter.html#ComputeDRBDMap" class="internal-link" title="ganeti.config.ConfigWriter.ComputeDRBDMap">ganeti.config.ConfigWriter.ComputeDRBDMap</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbdHelper">
+    
+  </a>
+  <a name="_VerifyNodeDrbdHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeDrbdHelper</span>(self, ninfo, nresult, drbd_helper):
+    
+    <a class="headerLink" href="#_VerifyNodeDrbdHelper" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeDrbdHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify the drbd helper.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeNetwork">
+    
+  </a>
+  <a name="_VerifyNodeNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeNetwork</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyNodeNetwork" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the node network connectivity results.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeOS">
+    
+  </a>
+  <a name="_VerifyNodeOS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeOS</span>(self, ninfo, nimg, base):
+    
+    <a class="headerLink" href="#_VerifyNodeOS" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeOS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies the node OS list.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nimg</span></td><td class="fieldArgDesc">the node image object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">base</span></td><td class="fieldArgDesc">the 'template' node we match against (e.g. from the master)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeTime">
+    
+  </a>
+  <a name="_VerifyNodeTime">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeTime</span>(self, ninfo, nresult, nvinfo_starttime, nvinfo_endtime):
+    
+    <a class="headerLink" href="#_VerifyNodeTime" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeTime">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the node time.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nvinfo<wbr></wbr>_starttime</span></td><td class="fieldArgDesc">the start time of the RPC call</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nvinfo<wbr></wbr>_endtime</span></td><td class="fieldArgDesc">the end time of the RPC call</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeUserScripts">
+    
+  </a>
+  <a name="_VerifyNodeUserScripts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNodeUserScripts</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyNodeUserScripts" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNodeUserScripts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the results of user scripts presence and executability on the node</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNPlusOneMemory">
+    
+  </a>
+  <a name="_VerifyNPlusOneMemory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyNPlusOneMemory</span>(self, node_image, all_insts):
+    
+    <a class="headerLink" href="#_VerifyNPlusOneMemory" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyNPlusOneMemory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify N+1 Memory Resilience.</p>
+<p>Check that if one single node dies we can still start all the instances it was primary for.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOob">
+    
+  </a>
+  <a name="_VerifyOob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyOob</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifyOob" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies out of band functionality of a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOrphanVolumes">
+    
+  </a>
+  <a name="_VerifyOrphanVolumes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyOrphanVolumes</span>(self, vg_name, node_vol_should, node_image, reserved):
+    
+    <a class="headerLink" href="#_VerifyOrphanVolumes" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyOrphanVolumes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify if there are any unknown volumes in the cluster.</p>
+<p>The .os, .swap and backup volumes are ignored. All other volumes are reported as unknown.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the name of the Ganeti-administered volume group</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_vol<wbr></wbr>_should:</span>dict</td><td class="fieldArgDesc">mapping of node UUIDs to expected LVs on each node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_image:</span>dict</td><td class="fieldArgDesc">mapping of node UUIDs to <code><a href="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage.html" class="internal-link" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup.NodeImage">NodeImage</a></code> objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reserved:</span><code><a href="ganeti.utils.FieldSet.html" class="internal-link" title="ganeti.utils.FieldSet">ganeti.utils.FieldSet</a></code></td><td class="fieldArgDesc">a FieldSet of reserved volume names</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySharedFileStoragePaths">
+    
+  </a>
+  <a name="_VerifySharedFileStoragePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifySharedFileStoragePaths</span>(self, ninfo, nresult):
+    
+    <a class="headerLink" href="#_VerifySharedFileStoragePaths" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySharedFileStoragePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies (file) storage paths.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">_VerifyStoragePaths</tt></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySshSetup">
+    
+  </a>
+  <a name="_VerifySshSetup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifySshSetup</span>(self, nodes, all_nvinfo):
+    
+    <a class="headerLink" href="#_VerifySshSetup" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifySshSetup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Evaluates the verification results of the SSH setup and clutter test.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes</span></td><td class="fieldArgDesc">List of <code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code> objects</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">all<wbr></wbr>_nvinfo</span></td><td class="fieldArgDesc">RPC results</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyStoragePaths">
+    
+  </a>
+  <a name="_VerifyStoragePaths">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyStoragePaths</span>(self, ninfo, nresult, file_disk_template, verify_key, error_key):
+    
+    <a class="headerLink" href="#_VerifyStoragePaths" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._VerifyStoragePaths">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies (file) storage paths.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ninfo:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nresult</span></td><td class="fieldArgDesc">the remote results for the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">file-based disk template, whose directory is supposed to be verified</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verify<wbr></wbr>_key:</span>string</td><td class="fieldArgDesc">key for the verification map of this file verification step</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_key</span></td><td class="fieldArgDesc">error key to be added to the verification results in case something goes wrong in this verification step</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._HOOKS_INDENT_RE">
+    
+  </a>
+  <a name="_HOOKS_INDENT_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_HOOKS_INDENT_RE</span> =
+    
+    <a class="headerLink" href="#_HOOKS_INDENT_RE" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._HOOKS_INDENT_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-variable-quote">'</span>,
+           re.M)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._cert_error_found">
+    
+  </a>
+  <a name="_cert_error_found">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_cert_error_found</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#_cert_error_found" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._cert_error_found">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._exclusive_storage">
+    
+  </a>
+  <a name="_exclusive_storage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_exclusive_storage</span> =
+    
+    <a class="headerLink" href="#_exclusive_storage" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._exclusive_storage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._feedback_fn">
+    
+  </a>
+  <a name="_feedback_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_feedback_fn</span> =
+    
+    <a class="headerLink" href="#_feedback_fn" title="ganeti.cmdlib.cluster.verify.LUClusterVerifyGroup._feedback_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

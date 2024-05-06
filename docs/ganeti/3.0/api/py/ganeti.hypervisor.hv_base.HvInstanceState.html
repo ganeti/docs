@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.hypervisor.hv_base.HvInstanceState</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.hypervisor.hv_base.HvInstanceState.html" class="internal-link" title="This class"><wbr></wbr>Hv<wbr></wbr>Instance<wbr></wbr>State</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsRunning" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.IsRunning"><wbr></wbr>Is<wbr></wbr>Running</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsShutdown" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.IsShutdown"><wbr></wbr>Is<wbr></wbr>Shutdown</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RUNNING" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.RUNNING">RUNNING</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SHUTDOWN" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.SHUTDOWN">SHUTDOWN</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.hypervisor.hv_base.html" class="internal-link" title="The parent of this class">hv<wbr></wbr>_base</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.BaseHypervisor.html" class="internal-link" title="ganeti.hypervisor.hv_base.BaseHypervisor"><wbr></wbr>Base<wbr></wbr>Hypervisor</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.HvInstanceState.html" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState"><wbr></wbr>Hv<wbr></wbr>Instance<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#ConfigureNIC" class="internal-link" title="ganeti.hypervisor.hv_base.ConfigureNIC"><wbr></wbr>Configure<wbr></wbr>NIC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#GenerateTapName" class="internal-link" title="ganeti.hypervisor.hv_base.GenerateTapName"><wbr></wbr>Generate<wbr></wbr>Tap<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#ParamInSet" class="internal-link" title="ganeti.hypervisor.hv_base.ParamInSet"><wbr></wbr>Param<wbr></wbr>In<wbr></wbr>Set</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_IsCpuMaskWellFormed" class="internal-link" title="ganeti.hypervisor.hv_base._IsCpuMaskWellFormed">_<wbr></wbr>Is<wbr></wbr>Cpu<wbr></wbr>Mask<wbr></wbr>Well<wbr></wbr>Formed</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_IsMultiCpuMaskWellFormed" class="internal-link" title="ganeti.hypervisor.hv_base._IsMultiCpuMaskWellFormed">_<wbr></wbr>Is<wbr></wbr>Multi<wbr></wbr>Cpu<wbr></wbr>Mask<wbr></wbr>Well<wbr></wbr>Formed</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#MIGRATION_MODE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.MIGRATION_MODE_CHECK">MIGRATION<wbr></wbr>_MODE<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#NO_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.NO_CHECK">NO<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_CPU_MASK_CHECK">OPT<wbr></wbr>_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_DIR_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_DIR_CHECK">OPT<wbr></wbr>_DIR<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_FILE_CHECK">OPT<wbr></wbr>_FILE<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_FILE_OR_URL_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_FILE_OR_URL_CHECK">OPT<wbr></wbr>_FILE<wbr></wbr>_OR<wbr></wbr>_URL<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_MULTI_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_MULTI_CPU_MASK_CHECK">OPT<wbr></wbr>_MULTI<wbr></wbr>_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_NET_PORT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_NET_PORT_CHECK">OPT<wbr></wbr>_NET<wbr></wbr>_PORT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_NONNEGATIVE_INT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_NONNEGATIVE_INT_CHECK">OPT<wbr></wbr>_NONNEGATIVE<wbr></wbr>_INT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#OPT_VIRTIO_NET_QUEUES_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.OPT_VIRTIO_NET_QUEUES_CHECK">OPT<wbr></wbr>_VIRTIO<wbr></wbr>_NET<wbr></wbr>_QUEUES<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_CPU_MASK_CHECK">REQ<wbr></wbr>_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_DIR_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_DIR_CHECK">REQ<wbr></wbr>_DIR<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_FILE_CHECK">REQ<wbr></wbr>_FILE<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_FILE_OR_URL_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_FILE_OR_URL_CHECK">REQ<wbr></wbr>_FILE<wbr></wbr>_OR<wbr></wbr>_URL<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_MULTI_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_MULTI_CPU_MASK_CHECK">REQ<wbr></wbr>_MULTI<wbr></wbr>_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_NET_PORT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_NET_PORT_CHECK">REQ<wbr></wbr>_NET<wbr></wbr>_PORT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_NONNEGATIVE_INT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_NONNEGATIVE_INT_CHECK">REQ<wbr></wbr>_NONNEGATIVE<wbr></wbr>_INT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQ_VIRTIO_NET_QUEUES_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQ_VIRTIO_NET_QUEUES_CHECK">REQ<wbr></wbr>_VIRTIO<wbr></wbr>_NET<wbr></wbr>_QUEUES<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#REQUIRED_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base.REQUIRED_CHECK">REQUIRED<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._CPU_MASK_CHECK">_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_DIR_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._DIR_CHECK">_DIR<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_FILE_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._FILE_CHECK">_FILE<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_FILE_OR_URL_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._FILE_OR_URL_CHECK">_FILE<wbr></wbr>_OR<wbr></wbr>_URL<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_MULTI_CPU_MASK_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._MULTI_CPU_MASK_CHECK">_MULTI<wbr></wbr>_CPU<wbr></wbr>_MASK<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_NET_PORT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._NET_PORT_CHECK">_NET<wbr></wbr>_PORT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_NONNEGATIVE_INT_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._NONNEGATIVE_INT_CHECK">_NONNEGATIVE<wbr></wbr>_INT<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_base.html#_VIRTIO_NET_QUEUES_CHECK" class="internal-link" title="ganeti.hypervisor.hv_base._VIRTIO_NET_QUEUES_CHECK">_VIRTIO<wbr></wbr>_NET<wbr></wbr>_QUEUES<wbr></wbr>_CHECK</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_base.html" class="internal-link" title="ganeti.hypervisor.hv_base">hv_base</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_base.HvInstanceState.html" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState">HvInstanceState</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">HvInstanceState</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.hypervisor.hv_base.HvInstanceState">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id442">
+  
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#IsRunning" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.IsRunning"><wbr></wbr>Is<wbr></wbr>Running</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#IsShutdown" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.IsShutdown"><wbr></wbr>Is<wbr></wbr>Shutdown</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RUNNING" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.RUNNING">RUNNING</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SHUTDOWN" class="internal-link" title="ganeti.hypervisor.hv_base.HvInstanceState.SHUTDOWN">SHUTDOWN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basestaticmethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_base.HvInstanceState.IsRunning">
+    
+  </a>
+  <a name="IsRunning">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">IsRunning</span>(s):
+    
+    <a class="headerLink" href="#IsRunning" title="ganeti.hypervisor.hv_base.HvInstanceState.IsRunning">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_base.HvInstanceState.IsShutdown">
+    
+  </a>
+  <a name="IsShutdown">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">IsShutdown</span>(s):
+    
+    <a class="headerLink" href="#IsShutdown" title="ganeti.hypervisor.hv_base.HvInstanceState.IsShutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.hypervisor.hv_base.HvInstanceState.RUNNING">
+    
+  </a>
+  <a name="RUNNING">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RUNNING</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#RUNNING" title="ganeti.hypervisor.hv_base.HvInstanceState.RUNNING">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>0</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.hypervisor.hv_base.HvInstanceState.SHUTDOWN">
+    
+  </a>
+  <a name="SHUTDOWN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SHUTDOWN</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#SHUTDOWN" title="ganeti.hypervisor.hv_base.HvInstanceState.SHUTDOWN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

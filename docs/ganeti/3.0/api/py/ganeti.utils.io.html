@@ -1,0 +1,2554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.utils.io</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.utils.io.html" class="internal-link" title="This module">io</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.FileStatHelper.html" class="internal-link" title="ganeti.utils.io.FileStatHelper"><wbr></wbr>File<wbr></wbr>Stat<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.TemporaryFileManager.html" class="internal-link" title="ganeti.utils.io.TemporaryFileManager"><wbr></wbr>Temporary<wbr></wbr>File<wbr></wbr>Manager</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BytesToMebibyte" class="internal-link" title="ganeti.utils.io.BytesToMebibyte"><wbr></wbr>Bytes<wbr></wbr>To<wbr></wbr>Mebibyte</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CalculateDirectorySize" class="internal-link" title="ganeti.utils.io.CalculateDirectorySize"><wbr></wbr>Calculate<wbr></wbr>Directory<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CanRead" class="internal-link" title="ganeti.utils.io.CanRead"><wbr></wbr>Can<wbr></wbr>Read</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CreateBackup" class="internal-link" title="ganeti.utils.io.CreateBackup"><wbr></wbr>Create<wbr></wbr>Backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DaemonPidFileName" class="internal-link" title="ganeti.utils.io.DaemonPidFileName"><wbr></wbr>Daemon<wbr></wbr>Pid<wbr></wbr>File<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EnforcePermission" class="internal-link" title="ganeti.utils.io.EnforcePermission"><wbr></wbr>Enforce<wbr></wbr>Permission</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EnsureDirs" class="internal-link" title="ganeti.utils.io.EnsureDirs"><wbr></wbr>Ensure<wbr></wbr>Dirs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ErrnoOrStr" class="internal-link" title="ganeti.utils.io.ErrnoOrStr"><wbr></wbr>Errno<wbr></wbr>Or<wbr></wbr>Str</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FindFile" class="internal-link" title="ganeti.utils.io.FindFile"><wbr></wbr>Find<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetFileID" class="internal-link" title="ganeti.utils.io.GetFileID"><wbr></wbr>Get<wbr></wbr>File<wbr></wbr>ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetFilesystemStats" class="internal-link" title="ganeti.utils.io.GetFilesystemStats"><wbr></wbr>Get<wbr></wbr>Filesystem<wbr></wbr>Stats</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsBelowDir" class="internal-link" title="ganeti.utils.io.IsBelowDir"><wbr></wbr>Is<wbr></wbr>Below<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsNormAbsPath" class="internal-link" title="ganeti.utils.io.IsNormAbsPath"><wbr></wbr>Is<wbr></wbr>Norm<wbr></wbr>Abs<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsUrl" class="internal-link" title="ganeti.utils.io.IsUrl"><wbr></wbr>Is<wbr></wbr>Url</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsUserInGroup" class="internal-link" title="ganeti.utils.io.IsUserInGroup"><wbr></wbr>Is<wbr></wbr>User<wbr></wbr>In<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListVisibleFiles" class="internal-link" title="ganeti.utils.io.ListVisibleFiles"><wbr></wbr>List<wbr></wbr>Visible<wbr></wbr>Files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Makedirs" class="internal-link" title="ganeti.utils.io.Makedirs"><wbr></wbr>Makedirs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MakeDirWithPerm" class="internal-link" title="ganeti.utils.io.MakeDirWithPerm"><wbr></wbr>Make<wbr></wbr>Dir<wbr></wbr>With<wbr></wbr>Perm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NewUUID" class="internal-link" title="ganeti.utils.io.NewUUID"><wbr></wbr>New<wbr></wbr>UUID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#OpenTTY" class="internal-link" title="ganeti.utils.io.OpenTTY"><wbr></wbr>Open<wbr></wbr>TTY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PathJoin" class="internal-link" title="ganeti.utils.io.PathJoin"><wbr></wbr>Path<wbr></wbr>Join</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadBinaryFile" class="internal-link" title="ganeti.utils.io.ReadBinaryFile"><wbr></wbr>Read<wbr></wbr>Binary<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadFile" class="internal-link" title="ganeti.utils.io.ReadFile"><wbr></wbr>Read<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadLockedPidFile" class="internal-link" title="ganeti.utils.io.ReadLockedPidFile"><wbr></wbr>Read<wbr></wbr>Locked<wbr></wbr>Pid<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadOneLineFile" class="internal-link" title="ganeti.utils.io.ReadOneLineFile"><wbr></wbr>Read<wbr></wbr>One<wbr></wbr>Line<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadPidFile" class="internal-link" title="ganeti.utils.io.ReadPidFile"><wbr></wbr>Read<wbr></wbr>Pid<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadWatcherPauseFile" class="internal-link" title="ganeti.utils.io.ReadWatcherPauseFile"><wbr></wbr>Read<wbr></wbr>Watcher<wbr></wbr>Pause<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveDir" class="internal-link" title="ganeti.utils.io.RemoveDir"><wbr></wbr>Remove<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveFile" class="internal-link" title="ganeti.utils.io.RemoveFile"><wbr></wbr>Remove<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RenameFile" class="internal-link" title="ganeti.utils.io.RenameFile"><wbr></wbr>Rename<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SafeWriteFile" class="internal-link" title="ganeti.utils.io.SafeWriteFile"><wbr></wbr>Safe<wbr></wbr>Write<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TailFile" class="internal-link" title="ganeti.utils.io.TailFile"><wbr></wbr>Tail<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TimestampForFilename" class="internal-link" title="ganeti.utils.io.TimestampForFilename"><wbr></wbr>Timestamp<wbr></wbr>For<wbr></wbr>Filename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyFileID" class="internal-link" title="ganeti.utils.io.VerifyFileID"><wbr></wbr>Verify<wbr></wbr>File<wbr></wbr>ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WriteFile" class="internal-link" title="ganeti.utils.io.WriteFile"><wbr></wbr>Write<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WritePidFile" class="internal-link" title="ganeti.utils.io.WritePidFile"><wbr></wbr>Write<wbr></wbr>Pid<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParsePidFileContents" class="internal-link" title="ganeti.utils.io._ParsePidFileContents">_<wbr></wbr>Parse<wbr></wbr>Pid<wbr></wbr>File<wbr></wbr>Contents</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KEEP_PERMS_VALUES" class="internal-link" title="ganeti.utils.io.KEEP_PERMS_VALUES">KEEP<wbr></wbr>_PERMS<wbr></wbr>_VALUES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KP_ALWAYS" class="internal-link" title="ganeti.utils.io.KP_ALWAYS">KP<wbr></wbr>_ALWAYS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KP_IF_EXISTS" class="internal-link" title="ganeti.utils.io.KP_IF_EXISTS">KP<wbr></wbr>_IF<wbr></wbr>_EXISTS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#KP_NEVER" class="internal-link" title="ganeti.utils.io.KP_NEVER">KP<wbr></wbr>_NEVER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#URL_RE" class="internal-link" title="ganeti.utils.io.URL_RE">URL<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LOST_AND_FOUND" class="internal-link" title="ganeti.utils.io._LOST_AND_FOUND">_LOST<wbr></wbr>_AND<wbr></wbr>_FOUND</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.utils.html" class="internal-link" title="The parent of this module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.algo.html" class="internal-link" title="ganeti.utils.algo">algo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.bitarrays.html" class="internal-link" title="ganeti.utils.bitarrays">bitarrays</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.filelock.html" class="internal-link" title="ganeti.utils.filelock">filelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.hash.html" class="internal-link" title="ganeti.utils.hash">hash</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.html" class="internal-link" title="ganeti.utils.io">io</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.livelock.html" class="internal-link" title="ganeti.utils.livelock">livelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.log.html" class="internal-link" title="ganeti.utils.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.lvm.html" class="internal-link" title="ganeti.utils.lvm">lvm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.mlock.html" class="internal-link" title="ganeti.utils.mlock">mlock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.nodesetup.html" class="internal-link" title="ganeti.utils.nodesetup">nodesetup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.process.html" class="internal-link" title="ganeti.utils.process">process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.retry.html" class="internal-link" title="ganeti.utils.retry">retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.security.html" class="internal-link" title="ganeti.utils.security">security</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.storage.html" class="internal-link" title="ganeti.utils.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.tags.html" class="internal-link" title="ganeti.utils.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.html" class="internal-link" title="ganeti.utils.text">text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.version.html" class="internal-link" title="ganeti.utils.version">version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.wrapper.html" class="internal-link" title="ganeti.utils.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.x509.html" class="internal-link" title="ganeti.utils.x509">x509</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FdConditionWaiterHelper.html" class="internal-link" title="ganeti.utils.FdConditionWaiterHelper"><wbr></wbr>Fd<wbr></wbr>Condition<wbr></wbr>Waiter<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FieldSet.html" class="internal-link" title="ganeti.utils.FieldSet"><wbr></wbr>Field<wbr></wbr>Set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalHandler.html" class="internal-link" title="ganeti.utils.SignalHandler"><wbr></wbr>Signal<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalWakeupFd.html" class="internal-link" title="ganeti.utils.SignalWakeupFd"><wbr></wbr>Signal<wbr></wbr>Wakeup<wbr></wbr>Fd</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AllDiskOfType" class="internal-link" title="ganeti.utils.AllDiskOfType"><wbr></wbr>All<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AnyDiskOfType" class="internal-link" title="ganeti.utils.AnyDiskOfType"><wbr></wbr>Any<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#BridgeExists" class="internal-link" title="ganeti.utils.BridgeExists"><wbr></wbr>Bridge<wbr></wbr>Exists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EnsureDaemon" class="internal-link" title="ganeti.utils.EnsureDaemon"><wbr></wbr>Ensure<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EpochNano" class="internal-link" title="ganeti.utils.EpochNano"><wbr></wbr>Epoch<wbr></wbr>Nano</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FindMatch" class="internal-link" title="ganeti.utils.FindMatch"><wbr></wbr>Find<wbr></wbr>Match</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FirstFree" class="internal-link" title="ganeti.utils.FirstFree"><wbr></wbr>First<wbr></wbr>Free</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ForceDictType" class="internal-link" title="ganeti.utils.ForceDictType"><wbr></wbr>Force<wbr></wbr>Dict<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplate" class="internal-link" title="ganeti.utils.GetDiskTemplate"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplateString" class="internal-link" title="ganeti.utils.GetDiskTemplateString"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetHomeDir" class="internal-link" title="ganeti.utils.GetHomeDir"><wbr></wbr>Get<wbr></wbr>Home<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetMounts" class="internal-link" title="ganeti.utils.GetMounts"><wbr></wbr>Get<wbr></wbr>Mounts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ListVolumeGroups" class="internal-link" title="ganeti.utils.ListVolumeGroups"><wbr></wbr>List<wbr></wbr>Volume<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#MergeTime" class="internal-link" title="ganeti.utils.MergeTime"><wbr></wbr>Merge<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseCpuMask" class="internal-link" title="ganeti.utils.ParseCpuMask"><wbr></wbr>Parse<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseMultiCpuMask" class="internal-link" title="ganeti.utils.ParseMultiCpuMask"><wbr></wbr>Parse<wbr></wbr>Multi<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SendFds" class="internal-link" title="ganeti.utils.SendFds"><wbr></wbr>Send<wbr></wbr>Fds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SignalHandled" class="internal-link" title="ganeti.utils.SignalHandled"><wbr></wbr>Signal<wbr></wbr>Handled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SingleWaitForFdCondition" class="internal-link" title="ganeti.utils.SingleWaitForFdCondition"><wbr></wbr>Single<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SplitTime" class="internal-link" title="ganeti.utils.SplitTime"><wbr></wbr>Split<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#StopDaemon" class="internal-link" title="ganeti.utils.StopDaemon"><wbr></wbr>Stop<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TimeoutExpired" class="internal-link" title="ganeti.utils.TimeoutExpired"><wbr></wbr>Timeout<wbr></wbr>Expired</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TryConvert" class="internal-link" title="ganeti.utils.TryConvert"><wbr></wbr>Try<wbr></wbr>Convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateDeviceNames" class="internal-link" title="ganeti.utils.ValidateDeviceNames"><wbr></wbr>Validate<wbr></wbr>Device<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateServiceName" class="internal-link" title="ganeti.utils.ValidateServiceName"><wbr></wbr>Validate<wbr></wbr>Service<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#VerifyDictOptions" class="internal-link" title="ganeti.utils.VerifyDictOptions"><wbr></wbr>Verify<wbr></wbr>Dict<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#WaitForFdCondition" class="internal-link" title="ganeti.utils.WaitForFdCondition"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_ComputeMissingKeys" class="internal-link" title="ganeti.utils._ComputeMissingKeys">_<wbr></wbr>Compute<wbr></wbr>Missing<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#UUID_RE" class="internal-link" title="ganeti.utils.UUID_RE">UUID<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_VALID_SERVICE_NAME_RE" class="internal-link" title="ganeti.utils._VALID_SERVICE_NAME_RE">_VALID<wbr></wbr>_SERVICE<wbr></wbr>_NAME<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code><wbr></wbr>.<code><a href="ganeti.utils.io.html" class="internal-link" title="ganeti.utils.io">io</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Utility functions for I/O.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1360">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.utils.io.FileStatHelper.html" class="internal-link" title="ganeti.utils.io.FileStatHelper"><wbr></wbr>File<wbr></wbr>Stat<wbr></wbr>Helper</a></code></td>
+    <td>Helper to store file handle's <tt class="rst-docutils literal">fstat</tt>.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.utils.io.TemporaryFileManager.html" class="internal-link" title="ganeti.utils.io.TemporaryFileManager"><wbr></wbr>Temporary<wbr></wbr>File<wbr></wbr>Manager</a></code></td>
+    <td>Stores the list of files to be deleted and removes them on demand.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#BytesToMebibyte" class="internal-link" title="ganeti.utils.io.BytesToMebibyte"><wbr></wbr>Bytes<wbr></wbr>To<wbr></wbr>Mebibyte</a></code></td>
+    <td>Converts bytes to mebibytes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CalculateDirectorySize" class="internal-link" title="ganeti.utils.io.CalculateDirectorySize"><wbr></wbr>Calculate<wbr></wbr>Directory<wbr></wbr>Size</a></code></td>
+    <td>Calculates the size of a directory recursively.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CanRead" class="internal-link" title="ganeti.utils.io.CanRead"><wbr></wbr>Can<wbr></wbr>Read</a></code></td>
+    <td>Returns True if the user can access (read) the file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CreateBackup" class="internal-link" title="ganeti.utils.io.CreateBackup"><wbr></wbr>Create<wbr></wbr>Backup</a></code></td>
+    <td>Creates a backup of a file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DaemonPidFileName" class="internal-link" title="ganeti.utils.io.DaemonPidFileName"><wbr></wbr>Daemon<wbr></wbr>Pid<wbr></wbr>File<wbr></wbr>Name</a></code></td>
+    <td>Compute a ganeti pid file absolute path</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EnforcePermission" class="internal-link" title="ganeti.utils.io.EnforcePermission"><wbr></wbr>Enforce<wbr></wbr>Permission</a></code></td>
+    <td>Enforces that given path has given permissions.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EnsureDirs" class="internal-link" title="ganeti.utils.io.EnsureDirs"><wbr></wbr>Ensure<wbr></wbr>Dirs</a></code></td>
+    <td>Make required directories, if they don't exist.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ErrnoOrStr" class="internal-link" title="ganeti.utils.io.ErrnoOrStr"><wbr></wbr>Errno<wbr></wbr>Or<wbr></wbr>Str</a></code></td>
+    <td>Format an EnvironmentError exception.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FindFile" class="internal-link" title="ganeti.utils.io.FindFile"><wbr></wbr>Find<wbr></wbr>File</a></code></td>
+    <td>Look for a filesystem object in a given path.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetFileID" class="internal-link" title="ganeti.utils.io.GetFileID"><wbr></wbr>Get<wbr></wbr>File<wbr></wbr>ID</a></code></td>
+    <td>Returns the file 'id', i.e. the dev/inode and mtime information.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetFilesystemStats" class="internal-link" title="ganeti.utils.io.GetFilesystemStats"><wbr></wbr>Get<wbr></wbr>Filesystem<wbr></wbr>Stats</a></code></td>
+    <td>Returns the total and free space on a filesystem.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsBelowDir" class="internal-link" title="ganeti.utils.io.IsBelowDir"><wbr></wbr>Is<wbr></wbr>Below<wbr></wbr>Dir</a></code></td>
+    <td>Check whether a path is below a root dir.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsNormAbsPath" class="internal-link" title="ganeti.utils.io.IsNormAbsPath"><wbr></wbr>Is<wbr></wbr>Norm<wbr></wbr>Abs<wbr></wbr>Path</a></code></td>
+    <td>Check whether a path is absolute and also normalized</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsUrl" class="internal-link" title="ganeti.utils.io.IsUrl"><wbr></wbr>Is<wbr></wbr>Url</a></code></td>
+    <td>Check whether a path is a HTTP URL.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsUserInGroup" class="internal-link" title="ganeti.utils.io.IsUserInGroup"><wbr></wbr>Is<wbr></wbr>User<wbr></wbr>In<wbr></wbr>Group</a></code></td>
+    <td>Returns True if the user belongs to the group.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListVisibleFiles" class="internal-link" title="ganeti.utils.io.ListVisibleFiles"><wbr></wbr>List<wbr></wbr>Visible<wbr></wbr>Files</a></code></td>
+    <td>Returns a list of visible files in a directory.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Makedirs" class="internal-link" title="ganeti.utils.io.Makedirs"><wbr></wbr>Makedirs</a></code></td>
+    <td>Super-mkdir; create a leaf directory and all intermediate ones.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MakeDirWithPerm" class="internal-link" title="ganeti.utils.io.MakeDirWithPerm"><wbr></wbr>Make<wbr></wbr>Dir<wbr></wbr>With<wbr></wbr>Perm</a></code></td>
+    <td>Enforces that given path is a dir and has given mode, uid and gid set.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#NewUUID" class="internal-link" title="ganeti.utils.io.NewUUID"><wbr></wbr>New<wbr></wbr>UUID</a></code></td>
+    <td>Returns a random UUID.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#OpenTTY" class="internal-link" title="ganeti.utils.io.OpenTTY"><wbr></wbr>Open<wbr></wbr>TTY</a></code></td>
+    <td>Returns a text I/O object pointing a TTY (/dev/tty by default)</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PathJoin" class="internal-link" title="ganeti.utils.io.PathJoin"><wbr></wbr>Path<wbr></wbr>Join</a></code></td>
+    <td>Safe-join a list of path components.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadBinaryFile" class="internal-link" title="ganeti.utils.io.ReadBinaryFile"><wbr></wbr>Read<wbr></wbr>Binary<wbr></wbr>File</a></code></td>
+    <td>Reads a binary file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadFile" class="internal-link" title="ganeti.utils.io.ReadFile"><wbr></wbr>Read<wbr></wbr>File</a></code></td>
+    <td>Reads a text file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadLockedPidFile" class="internal-link" title="ganeti.utils.io.ReadLockedPidFile"><wbr></wbr>Read<wbr></wbr>Locked<wbr></wbr>Pid<wbr></wbr>File</a></code></td>
+    <td>Reads a locked PID file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadOneLineFile" class="internal-link" title="ganeti.utils.io.ReadOneLineFile"><wbr></wbr>Read<wbr></wbr>One<wbr></wbr>Line<wbr></wbr>File</a></code></td>
+    <td>Return the first non-empty line from a file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadPidFile" class="internal-link" title="ganeti.utils.io.ReadPidFile"><wbr></wbr>Read<wbr></wbr>Pid<wbr></wbr>File</a></code></td>
+    <td>Read a pid from a file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ReadWatcherPauseFile" class="internal-link" title="ganeti.utils.io.ReadWatcherPauseFile"><wbr></wbr>Read<wbr></wbr>Watcher<wbr></wbr>Pause<wbr></wbr>File</a></code></td>
+    <td>Reads the watcher pause file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveDir" class="internal-link" title="ganeti.utils.io.RemoveDir"><wbr></wbr>Remove<wbr></wbr>Dir</a></code></td>
+    <td>Remove an empty directory.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveFile" class="internal-link" title="ganeti.utils.io.RemoveFile"><wbr></wbr>Remove<wbr></wbr>File</a></code></td>
+    <td>Remove a file ignoring some errors.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RenameFile" class="internal-link" title="ganeti.utils.io.RenameFile"><wbr></wbr>Rename<wbr></wbr>File</a></code></td>
+    <td>Renames a file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SafeWriteFile" class="internal-link" title="ganeti.utils.io.SafeWriteFile"><wbr></wbr>Safe<wbr></wbr>Write<wbr></wbr>File</a></code></td>
+    <td>Wraper over <code><a href="ganeti.utils.io.html#WriteFile" class="internal-link" title="ganeti.utils.io.WriteFile">WriteFile</a></code> that locks the target file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TailFile" class="internal-link" title="ganeti.utils.io.TailFile"><wbr></wbr>Tail<wbr></wbr>File</a></code></td>
+    <td>Return the last lines from a file.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#TimestampForFilename" class="internal-link" title="ganeti.utils.io.TimestampForFilename"><wbr></wbr>Timestamp<wbr></wbr>For<wbr></wbr>Filename</a></code></td>
+    <td>Returns the current time formatted for filenames.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyFileID" class="internal-link" title="ganeti.utils.io.VerifyFileID"><wbr></wbr>Verify<wbr></wbr>File<wbr></wbr>ID</a></code></td>
+    <td>Verifies that two file IDs are matching.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WriteFile" class="internal-link" title="ganeti.utils.io.WriteFile"><wbr></wbr>Write<wbr></wbr>File</a></code></td>
+    <td>(Over)write a file atomically.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WritePidFile" class="internal-link" title="ganeti.utils.io.WritePidFile"><wbr></wbr>Write<wbr></wbr>Pid<wbr></wbr>File</a></code></td>
+    <td>Write the current process pidfile.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KEEP_PERMS_VALUES" class="internal-link" title="ganeti.utils.io.KEEP_PERMS_VALUES">KEEP<wbr></wbr>_PERMS<wbr></wbr>_VALUES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KP_ALWAYS" class="internal-link" title="ganeti.utils.io.KP_ALWAYS">KP<wbr></wbr>_ALWAYS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KP_IF_EXISTS" class="internal-link" title="ganeti.utils.io.KP_IF_EXISTS">KP<wbr></wbr>_IF<wbr></wbr>_EXISTS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#KP_NEVER" class="internal-link" title="ganeti.utils.io.KP_NEVER">KP<wbr></wbr>_NEVER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#URL_RE" class="internal-link" title="ganeti.utils.io.URL_RE">URL<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ParsePidFileContents" class="internal-link" title="ganeti.utils.io._ParsePidFileContents">_<wbr></wbr>Parse<wbr></wbr>Pid<wbr></wbr>File<wbr></wbr>Contents</a></code></td>
+    <td>Tries to extract a process ID from a PID file's content.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LOST_AND_FOUND" class="internal-link" title="ganeti.utils.io._LOST_AND_FOUND">_LOST<wbr></wbr>_AND<wbr></wbr>_FOUND</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.BytesToMebibyte">
+    
+  </a>
+  <a name="BytesToMebibyte">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BytesToMebibyte</span>(value):
+    
+    <a class="headerLink" href="#BytesToMebibyte" title="ganeti.utils.io.BytesToMebibyte">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts bytes to mebibytes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span>int</td><td class="fieldArgDesc">Value in bytes</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">Value in mebibytes</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.CalculateDirectorySize">
+    
+  </a>
+  <a name="CalculateDirectorySize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CalculateDirectorySize</span>(path):
+    
+    <a class="headerLink" href="#CalculateDirectorySize" title="ganeti.utils.io.CalculateDirectorySize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculates the size of a directory recursively.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>string</td><td class="fieldArgDesc">Path to directory</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">Size in mebibytes</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.CanRead">
+    
+  </a>
+  <a name="CanRead">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CanRead</span>(username, filename):
+    
+    <a class="headerLink" href="#CanRead" title="ganeti.utils.io.CanRead">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns True if the user can access (read) the file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">username:</span>string</td><td class="fieldArgDesc">the name of the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">the name of the file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.CreateBackup">
+    
+  </a>
+  <a name="CreateBackup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CreateBackup</span>(file_name):
+    
+    <a class="headerLink" href="#CreateBackup" title="ganeti.utils.io.CreateBackup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a backup of a file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name:</span>str</td><td class="fieldArgDesc">file to be backed up</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the path to the newly created backup</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.ProgrammerError.html" class="internal-link" title="ganeti.errors.ProgrammerError">errors.ProgrammerError</a></code></td><td>for invalid file names</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.DaemonPidFileName">
+    
+  </a>
+  <a name="DaemonPidFileName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DaemonPidFileName</span>(name):
+    
+    <a class="headerLink" href="#DaemonPidFileName" title="ganeti.utils.io.DaemonPidFileName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute a ganeti pid file absolute path</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span>str</td><td class="fieldArgDesc">the daemon name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the full path to the pidfile corresponding to the given daemon name</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.EnforcePermission">
+    
+  </a>
+  <a name="EnforcePermission">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EnforcePermission</span>(path, mode, uid=None, gid=None, must_exist=True, _chmod_fn=os.chmod, _chown_fn=os.chown, _stat_fn=os.stat):
+    
+    <a class="headerLink" href="#EnforcePermission" title="ganeti.utils.io.EnforcePermission">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Enforces that given path has given permissions.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path</span></td><td class="fieldArgDesc">The path to the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">The mode of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">uid</span></td><td class="fieldArgDesc">The uid of the owner of this file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gid</span></td><td class="fieldArgDesc">The gid of the owner of this file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">must<wbr></wbr>_exist</span></td><td class="fieldArgDesc">Specifies if non-existance of path will be an error</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_chmod<wbr></wbr>_fn</span></td><td class="fieldArgDesc">chmod function to use (unittest only)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_chown<wbr></wbr>_fn</span></td><td class="fieldArgDesc">chown function to use (unittest only)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_stat<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.EnsureDirs">
+    
+  </a>
+  <a name="EnsureDirs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EnsureDirs</span>(dirs):
+    
+    <a class="headerLink" href="#EnsureDirs" title="ganeti.utils.io.EnsureDirs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Make required directories, if they don't exist.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dirs:</span>list of (string, integer)</td><td class="fieldArgDesc">list of tuples (dir_name, dir_mode)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ErrnoOrStr">
+    
+  </a>
+  <a name="ErrnoOrStr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ErrnoOrStr</span>(err):
+    
+    <a class="headerLink" href="#ErrnoOrStr" title="ganeti.utils.io.ErrnoOrStr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Format an EnvironmentError exception.</p>
+<p>If the <code>err</code> argument has an errno attribute, it will be looked up and converted into a textual <tt class="rst-docutils literal"><span class="pre">E...</span></tt> description. Otherwise the string representation of the error will be returned.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">err:</span><code>EnvironmentError</code></td><td class="fieldArgDesc">the exception to format</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.FindFile">
+    
+  </a>
+  <a name="FindFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FindFile</span>(name, search_path, test=os.path.exists):
+    
+    <a class="headerLink" href="#FindFile" title="ganeti.utils.io.FindFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Look for a filesystem object in a given path.</p>
+<p>This is an abstract method to search for filesystem object (files, dirs) under a given search path.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span>str</td><td class="fieldArgDesc">the name to look for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">search<wbr></wbr>_path:</span>iterable of string</td><td class="fieldArgDesc">locations to start at</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test:</span>callable</td><td class="fieldArgDesc">a function taking one argument that should return True if the a given object is valid; the default value is os.path.exists, causing only existing files to be returned</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str or None</td><td class="fieldArgDesc">full path to the object if found, None otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.GetFileID">
+    
+  </a>
+  <a name="GetFileID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetFileID</span>(path=None, fd=None):
+    
+    <a class="headerLink" href="#GetFileID" title="ganeti.utils.io.GetFileID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the file 'id', i.e. the dev/inode and mtime information.</p>
+<p>Either the path to the file or the fd must be given.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path</span></td><td class="fieldArgDesc">the file path</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fd</span></td><td class="fieldArgDesc">a file descriptor</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a tuple of (device number, inode number, mtime)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.GetFilesystemStats">
+    
+  </a>
+  <a name="GetFilesystemStats">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetFilesystemStats</span>(path):
+    
+    <a class="headerLink" href="#GetFilesystemStats" title="ganeti.utils.io.GetFilesystemStats">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the total and free space on a filesystem.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>string</td><td class="fieldArgDesc">Path on filesystem to be examined</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">tuple of (Total space, Free space) in mebibytes</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.IsBelowDir">
+    
+  </a>
+  <a name="IsBelowDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsBelowDir</span>(root, other_path):
+    
+    <a class="headerLink" href="#IsBelowDir" title="ganeti.utils.io.IsBelowDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether a path is below a root dir.</p>
+<p>This works around the nasty byte-byte comparison of commonprefix.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.IsNormAbsPath">
+    
+  </a>
+  <a name="IsNormAbsPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsNormAbsPath</span>(path):
+    
+    <a class="headerLink" href="#IsNormAbsPath" title="ganeti.utils.io.IsNormAbsPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether a path is absolute and also normalized</p>
+<p>This avoids things like /dir/../../other/path to be valid.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.IsUrl">
+    
+  </a>
+  <a name="IsUrl">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsUrl</span>(path):
+    
+    <a class="headerLink" href="#IsUrl" title="ganeti.utils.io.IsUrl">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether a path is a HTTP URL.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.IsUserInGroup">
+    
+  </a>
+  <a name="IsUserInGroup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsUserInGroup</span>(uid, gid):
+    
+    <a class="headerLink" href="#IsUserInGroup" title="ganeti.utils.io.IsUserInGroup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns True if the user belongs to the group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">uid:</span>int</td><td class="fieldArgDesc">the user id</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gid:</span>int</td><td class="fieldArgDesc">the group id</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ListVisibleFiles">
+    
+  </a>
+  <a name="ListVisibleFiles">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListVisibleFiles</span>(path, _is_mountpoint=os.path.ismount):
+    
+    <a class="headerLink" href="#ListVisibleFiles" title="ganeti.utils.io.ListVisibleFiles">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a list of visible files in a directory.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>str</td><td class="fieldArgDesc">the directory to enumerate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_is<wbr></wbr>_mountpoint</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of all files not starting with a dot</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>ProgrammerError</code></td><td>if <code>path</code> is not an absolue and normalized path</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.Makedirs">
+    
+  </a>
+  <a name="Makedirs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Makedirs</span>(path, mode=488):
+    
+    <a class="headerLink" href="#Makedirs" title="ganeti.utils.io.Makedirs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Super-mkdir; create a leaf directory and all intermediate ones.</p>
+<p>This is a wrapper around <tt class="rst-docutils literal">os.makedirs</tt> adding error handling not implemented before Python 2.5.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.MakeDirWithPerm">
+    
+  </a>
+  <a name="MakeDirWithPerm">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MakeDirWithPerm</span>(path, mode, uid, gid, _lstat_fn=os.lstat, _mkdir_fn=os.mkdir, _perm_fn=<a href="#EnforcePermission" class="internal-link" title="ganeti.utils.io.EnforcePermission">EnforcePermission</a>):
+    
+    <a class="headerLink" href="#MakeDirWithPerm" title="ganeti.utils.io.MakeDirWithPerm">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Enforces that given path is a dir and has given mode, uid and gid set.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path</span></td><td class="fieldArgDesc">The path to the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">The mode of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">uid</span></td><td class="fieldArgDesc">The uid of the owner of this file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gid</span></td><td class="fieldArgDesc">The gid of the owner of this file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_lstat<wbr></wbr>_fn</span></td><td class="fieldArgDesc">Stat function to use (unittest only)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_mkdir<wbr></wbr>_fn</span></td><td class="fieldArgDesc">mkdir function to use (unittest only)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_perm<wbr></wbr>_fn</span></td><td class="fieldArgDesc">permission setter function to use (unittest only)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.NewUUID">
+    
+  </a>
+  <a name="NewUUID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">NewUUID</span>():
+    
+    <a class="headerLink" href="#NewUUID" title="ganeti.utils.io.NewUUID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a random UUID.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Note</td></tr><tr><td colspan="2">This is a Linux-specific method as it uses the /proc filesystem.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.OpenTTY">
+    
+  </a>
+  <a name="OpenTTY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">OpenTTY</span>(device=<span class="rst-variable-quote">'</span><span class="rst-variable-string">/dev/tty</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#OpenTTY" title="ganeti.utils.io.OpenTTY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a text I/O object pointing a TTY (/dev/tty by default)</p>
+<p>As of Python 3.7, /dev/tty cannot be opened in buffered and/or text mode, see https://bugs.python.org/issue20074. Work around this by using TextIOWrapper over a BufferedRWPair to return a line-buffered TTY I/O object.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">device:</span>string</td><td class="fieldArgDesc">path to the TTY/PTY device to open</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.PathJoin">
+    
+  </a>
+  <a name="PathJoin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PathJoin</span>(*args):
+    
+    <a class="headerLink" href="#PathJoin" title="ganeti.utils.io.PathJoin">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Safe-join a list of path components.</p>
+<p>Requirements:</p>
+<ul class="rst-simple">
+<li>the first argument must be an absolute path</li>
+<li>no component in the path must have backtracking (e.g. /../), since we check for normalization at the end</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc">the path components to be joined</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>ValueError</code></td><td>for invalid paths</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadBinaryFile">
+    
+  </a>
+  <a name="ReadBinaryFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadBinaryFile</span>(file_name, size=-1, preread=None):
+    
+    <a class="headerLink" href="#ReadBinaryFile" title="ganeti.utils.io.ReadBinaryFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads a binary file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">size:</span>int</td><td class="fieldArgDesc">Read at most size bytes (if negative, entire file)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">preread:</span>callable receiving file handle as single parameter</td><td class="fieldArgDesc">Function called before file is read</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bytes</td><td class="fieldArgDesc">the (possibly partial) content of the file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>IOError</code></td><td>if the file cannot be opened</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadFile">
+    
+  </a>
+  <a name="ReadFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadFile</span>(file_name, size=-1, preread=None):
+    
+    <a class="headerLink" href="#ReadFile" title="ganeti.utils.io.ReadFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads a text file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">size:</span>int</td><td class="fieldArgDesc">Read at most size bytes (if negative, entire file)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">preread:</span>callable receiving file handle as single parameter</td><td class="fieldArgDesc">Function called before file is read</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the (possibly partial) content of the file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>IOError</code></td><td>if the file cannot be opened</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadLockedPidFile">
+    
+  </a>
+  <a name="ReadLockedPidFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadLockedPidFile</span>(path):
+    
+    <a class="headerLink" href="#ReadLockedPidFile" title="ganeti.utils.io.ReadLockedPidFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads a locked PID file.</p>
+<p>This can be used together with <code><a href="ganeti.utils.process.html#StartDaemon" class="internal-link" title="ganeti.utils.process.StartDaemon">utils.process.StartDaemon</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>string</td><td class="fieldArgDesc">Path to PID file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">PID as integer or, if file was unlocked or couldn't be opened, None</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadOneLineFile">
+    
+  </a>
+  <a name="ReadOneLineFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadOneLineFile</span>(file_name, strict=False):
+    
+    <a class="headerLink" href="#ReadOneLineFile" title="ganeti.utils.io.ReadOneLineFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the first non-empty line from a file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">strict:</span>boolean</td><td class="fieldArgDesc">if True, abort if the file has more than one non-empty line</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadPidFile">
+    
+  </a>
+  <a name="ReadPidFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadPidFile</span>(pidfile):
+    
+    <a class="headerLink" href="#ReadPidFile" title="ganeti.utils.io.ReadPidFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read a pid from a file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pidfile:</span>string</td><td class="fieldArgDesc">path to the file containing the pid</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">The process id, if the file exists and contains a valid PID, otherwise 0</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.ReadWatcherPauseFile">
+    
+  </a>
+  <a name="ReadWatcherPauseFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadWatcherPauseFile</span>(filename, now=None, remove_after=3600):
+    
+    <a class="headerLink" href="#ReadWatcherPauseFile" title="ganeti.utils.io.ReadWatcherPauseFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads the watcher pause file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">Path to watcher pause file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">now:</span>None, float or int</td><td class="fieldArgDesc">Current time as Unix timestamp</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">remove<wbr></wbr>_after:</span>int</td><td class="fieldArgDesc">Remove watcher pause file after specified amount of seconds past the pause end time</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.RemoveDir">
+    
+  </a>
+  <a name="RemoveDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveDir</span>(dirname):
+    
+    <a class="headerLink" href="#RemoveDir" title="ganeti.utils.io.RemoveDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove an empty directory.</p>
+<p>Remove a directory, ignoring non-existing ones. Other errors are passed. This includes the case, where the directory is not empty, so it can't be removed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dirname:</span>str</td><td class="fieldArgDesc">the empty directory to be removed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.RemoveFile">
+    
+  </a>
+  <a name="RemoveFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveFile</span>(filename):
+    
+    <a class="headerLink" href="#RemoveFile" title="ganeti.utils.io.RemoveFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a file ignoring some errors.</p>
+<p>Remove a file, ignoring non-existing ones or directories. Other errors are passed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>str</td><td class="fieldArgDesc">the file to be removed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.RenameFile">
+    
+  </a>
+  <a name="RenameFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RenameFile</span>(old, new, mkdir=False, mkdir_mode=488, dir_uid=None, dir_gid=None):
+    
+    <a class="headerLink" href="#RenameFile" title="ganeti.utils.io.RenameFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Renames a file.</p>
+<p>This just creates the very least directory if it does not exist and <tt class="rst-docutils literal">mkdir</tt> is set to true.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">old:</span>string</td><td class="fieldArgDesc">Original path</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new:</span>string</td><td class="fieldArgDesc">New path</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mkdir:</span>bool</td><td class="fieldArgDesc">Whether to create target directory if it doesn't exist</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mkdir<wbr></wbr>_mode:</span>int</td><td class="fieldArgDesc">Mode for newly created directories</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dir<wbr></wbr>_uid:</span>int</td><td class="fieldArgDesc">The uid for the (if fresh created) dir</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dir<wbr></wbr>_gid:</span>int</td><td class="fieldArgDesc">The gid for the (if fresh created) dir</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.SafeWriteFile">
+    
+  </a>
+  <a name="SafeWriteFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SafeWriteFile</span>(file_name, file_id, **kwargs):
+    
+    <a class="headerLink" href="#SafeWriteFile" title="ganeti.utils.io.SafeWriteFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wraper over <code><a href="#WriteFile" class="internal-link" title="ganeti.utils.io.WriteFile">WriteFile</a></code> that locks the target file.</p>
+<p>By keeping the target file locked during WriteFile, we ensure that cooperating writers will safely serialise access to the file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name:</span>str</td><td class="fieldArgDesc">the target filename</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_id:</span>tuple</td><td class="fieldArgDesc">a result from <code><a href="#GetFileID" class="internal-link" title="ganeti.utils.io.GetFileID">GetFileID</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">**kwargs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.TailFile">
+    
+  </a>
+  <a name="TailFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TailFile</span>(fname, lines=20):
+    
+    <a class="headerLink" href="#TailFile" title="ganeti.utils.io.TailFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the last lines from a file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fname</span></td><td class="fieldArgDesc">the file name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lines:</span>int</td><td class="fieldArgDesc">the (maximum) number of lines to return</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Note</td></tr><tr><td colspan="2">this function will only read and parse the last 4KB of the file; if the lines are very long, it could be that less than the requested number of lines are returned</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.TimestampForFilename">
+    
+  </a>
+  <a name="TimestampForFilename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TimestampForFilename</span>():
+    
+    <a class="headerLink" href="#TimestampForFilename" title="ganeti.utils.io.TimestampForFilename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the current time formatted for filenames.</p>
+<p>The format doesn't contain colons as some shells and applications treat them as separators. Uses the local timezone.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.VerifyFileID">
+    
+  </a>
+  <a name="VerifyFileID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyFileID</span>(fi_disk, fi_ours):
+    
+    <a class="headerLink" href="#VerifyFileID" title="ganeti.utils.io.VerifyFileID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies that two file IDs are matching.</p>
+<p>Differences in the inode/device are not accepted, but and older timestamp for fi_disk is accepted.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fi<wbr></wbr>_disk</span></td><td class="fieldArgDesc">tuple (dev, inode, mtime) representing the actual file data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fi<wbr></wbr>_ours</span></td><td class="fieldArgDesc">tuple (dev, inode, mtime) representing the last written file data</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.WriteFile">
+    
+  </a>
+  <a name="WriteFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WriteFile</span>(file_name, fn=None, data=None, mode=None, uid=-1, gid=-1, atime=None, mtime=None, close=True, dry_run=False, backup=False, prewrite=None, postwrite=None, keep_perms=<a href="#KP_NEVER" class="internal-link" title="ganeti.utils.io.KP_NEVER">KP_NEVER</a>):
+    
+    <a class="headerLink" href="#WriteFile" title="ganeti.utils.io.WriteFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>(Over)write a file atomically.</p>
+<p>The file_name and either fn (a function taking one argument, the file descriptor, and which should write the data to it) or data (the contents of the file) must be passed. The other arguments are optional and allow setting the file mode, owner and group, and the mtime/atime of the file.</p>
+<p>If the function doesn't raise an exception, it has succeeded and the target file has the new contents. If the function has raised an exception, an existing target file should be unmodified and the temporary file should be removed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_name:</span>str</td><td class="fieldArgDesc">the target filename</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fn:</span>callable</td><td class="fieldArgDesc">content writing function, called with file descriptor as parameter</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>str or bytes</td><td class="fieldArgDesc">contents of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode:</span>int</td><td class="fieldArgDesc">file mode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">uid:</span>int</td><td class="fieldArgDesc">the owner of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">gid:</span>int</td><td class="fieldArgDesc">the group of the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">atime:</span>int</td><td class="fieldArgDesc">a custom access time to be set on the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mtime:</span>int</td><td class="fieldArgDesc">a custom modification time to be set on the file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">close:</span>boolean</td><td class="fieldArgDesc">whether to close file after writing it</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dry<wbr></wbr>_run</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">backup</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">prewrite:</span>callable</td><td class="fieldArgDesc">function to be called before writing content</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">postwrite:</span>callable</td><td class="fieldArgDesc">function to be called after writing content</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">keep<wbr></wbr>_perms:</span>members of <code><a href="#KEEP_PERMS_VALUES" class="internal-link" title="ganeti.utils.io.KEEP_PERMS_VALUES">KEEP_PERMS_VALUES</a></code></td><td class="fieldArgDesc">if <code><a href="#KP_NEVER" class="internal-link" title="ganeti.utils.io.KP_NEVER">KP_NEVER</a></code> (default), owner, group, and mode are taken from the other parameters; if <code><a href="#KP_ALWAYS" class="internal-link" title="ganeti.utils.io.KP_ALWAYS">KP_ALWAYS</a></code>, owner, group, and mode are copied from the existing file; if <code><a href="#KP_IF_EXISTS" class="internal-link" title="ganeti.utils.io.KP_IF_EXISTS">KP_IF_EXISTS</a></code>, owner, group, and mode are taken from the file, and if the file doesn't exist, they are taken from the other parameters. It is an error to pass <code><a href="#KP_ALWAYS" class="internal-link" title="ganeti.utils.io.KP_ALWAYS">KP_ALWAYS</a></code> when the file doesn't exist or when <tt class="rst-docutils literal">uid</tt>, <tt class="rst-docutils literal">gid</tt>, or <tt class="rst-docutils literal">mode</tt> are set to non-default values.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">None or int</td><td class="fieldArgDesc">None if the 'close' parameter evaluates to True, otherwise the file descriptor</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.ProgrammerError.html" class="internal-link" title="ganeti.errors.ProgrammerError">errors.ProgrammerError</a></code></td><td>if any of the arguments are not valid</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.io.WritePidFile">
+    
+  </a>
+  <a name="WritePidFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WritePidFile</span>(pidfile):
+    
+    <a class="headerLink" href="#WritePidFile" title="ganeti.utils.io.WritePidFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write the current process pidfile.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pidfile:</span>string</td><td class="fieldArgDesc">the path to the file to be written</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the file descriptor of the lock file; do not close this unless you want to unlock the pid file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.LockError.html" class="internal-link" title="ganeti.errors.LockError">errors.LockError</a></code></td><td>if the pid file already exists and points to a live process</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.io.KEEP_PERMS_VALUES">
+    
+  </a>
+  <a name="KEEP_PERMS_VALUES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KEEP_PERMS_VALUES</span> =
+    
+    <a class="headerLink" href="#KEEP_PERMS_VALUES" title="ganeti.utils.io.KEEP_PERMS_VALUES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="#KP_NEVER" class="internal-link" title="ganeti.utils.io.KP_NEVER">KP_NEVER</a>, <wbr></wbr><a href="#KP_ALWAYS" class="internal-link" title="ganeti.utils.io.KP_ALWAYS">KP_ALWAYS</a>, <wbr></wbr><a href="#KP_IF_EXISTS" class="internal-link" title="ganeti.utils.io.KP_IF_EXISTS">KP_IF_EXISTS</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.io.KP_ALWAYS">
+    
+  </a>
+  <a name="KP_ALWAYS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KP_ALWAYS</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#KP_ALWAYS" title="ganeti.utils.io.KP_ALWAYS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.io.KP_IF_EXISTS">
+    
+  </a>
+  <a name="KP_IF_EXISTS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KP_IF_EXISTS</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#KP_IF_EXISTS" title="ganeti.utils.io.KP_IF_EXISTS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>2</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.io.KP_NEVER">
+    
+  </a>
+  <a name="KP_NEVER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">KP_NEVER</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#KP_NEVER" title="ganeti.utils.io.KP_NEVER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>0</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.utils.io.URL_RE">
+    
+  </a>
+  <a name="URL_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">URL_RE</span> =
+    
+    <a class="headerLink" href="#URL_RE" title="ganeti.utils.io.URL_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span><span class="rst-re-group">(</span>https<span class="rst-re-op">?</span><span class="rst-re-op">|</span>ftps<span class="rst-re-op">?</span><span class="rst-re-group">)</span>://<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.io._ParsePidFileContents">
+    
+  </a>
+  <a name="_ParsePidFileContents">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParsePidFileContents</span>(data):
+    
+    <a class="headerLink" href="#_ParsePidFileContents" title="ganeti.utils.io._ParsePidFileContents">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to extract a process ID from a PID file's content.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">Zero if nothing could be read, PID otherwise</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.io._LOST_AND_FOUND">
+    
+  </a>
+  <a name="_LOST_AND_FOUND">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LOST_AND_FOUND</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_LOST_AND_FOUND" title="ganeti.utils.io._LOST_AND_FOUND">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">lost+found</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

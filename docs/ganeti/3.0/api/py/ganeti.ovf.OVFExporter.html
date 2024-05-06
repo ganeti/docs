@@ -1,0 +1,1965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.ovf.OVFExporter</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.ovf.OVFExporter.html" class="internal-link" title="This class"><wbr></wbr>OVFExporter</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Parse" class="internal-link" title="ganeti.ovf.OVFExporter.Parse"><wbr></wbr>Parse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Save" class="internal-link" title="ganeti.ovf.OVFExporter.Save"><wbr></wbr>Save</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrepareTarFile" class="internal-link" title="ganeti.ovf.OVFExporter._PrepareTarFile">_<wbr></wbr>Prepare<wbr></wbr>Tar<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetDiskOptions" class="internal-link" title="ganeti.ovf.OVFExporter._GetDiskOptions">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseDisks" class="internal-link" title="ganeti.ovf.OVFExporter._ParseDisks">_<wbr></wbr>Parse<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseGaneti" class="internal-link" title="ganeti.ovf.OVFExporter._ParseGaneti">_<wbr></wbr>Parse<wbr></wbr>Ganeti</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseMemory" class="internal-link" title="ganeti.ovf.OVFExporter._ParseMemory">_<wbr></wbr>Parse<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseName" class="internal-link" title="ganeti.ovf.OVFExporter._ParseName">_<wbr></wbr>Parse<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseNetworks" class="internal-link" title="ganeti.ovf.OVFExporter._ParseNetworks">_<wbr></wbr>Parse<wbr></wbr>Networks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseVCPUs" class="internal-link" title="ganeti.ovf.OVFExporter._ParseVCPUs">_<wbr></wbr>Parse<wbr></wbr>VCPUs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PrepareManifest" class="internal-link" title="ganeti.ovf.OVFExporter._PrepareManifest">_<wbr></wbr>Prepare<wbr></wbr>Manifest</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ReadInputData" class="internal-link" title="ganeti.ovf.OVFExporter._ReadInputData">_<wbr></wbr>Read<wbr></wbr>Input<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#__init__" class="internal-link" title="ganeti.ovf.Converter.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#Cleanup" class="internal-link" title="ganeti.ovf.Converter.Cleanup"><wbr></wbr>Cleanup</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#_GetDiskQemuInfo" class="internal-link" title="ganeti.ovf.Converter._GetDiskQemuInfo">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Qemu<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#_CompressDisk" class="internal-link" title="ganeti.ovf.Converter._CompressDisk">_<wbr></wbr>Compress<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#_ConvertDisk" class="internal-link" title="ganeti.ovf.Converter._ConvertDisk">_<wbr></wbr>Convert<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#config_parser" class="internal-link" title="ganeti.ovf.OVFExporter.config_parser">config<wbr></wbr>_parser</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#input_dir" class="internal-link" title="ganeti.ovf.OVFExporter.input_dir">input<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#input_path" class="internal-link" title="ganeti.ovf.OVFExporter.input_path">input<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#output_dir" class="internal-link" title="ganeti.ovf.OVFExporter.output_dir">output<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#output_path" class="internal-link" title="ganeti.ovf.OVFExporter.output_path">output<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ovf_writer" class="internal-link" title="ganeti.ovf.OVFExporter.ovf_writer">ovf<wbr></wbr>_writer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#packed_dir" class="internal-link" title="ganeti.ovf.OVFExporter.packed_dir">packed<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reference_files" class="internal-link" title="ganeti.ovf.OVFExporter.reference_files">reference<wbr></wbr>_files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#references_files" class="internal-link" title="ganeti.ovf.OVFExporter.references_files">references<wbr></wbr>_files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_disk" class="internal-link" title="ganeti.ovf.OVFExporter.results_disk">results<wbr></wbr>_disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_ganeti" class="internal-link" title="ganeti.ovf.OVFExporter.results_ganeti">results<wbr></wbr>_ganeti</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_memory" class="internal-link" title="ganeti.ovf.OVFExporter.results_memory">results<wbr></wbr>_memory</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_name" class="internal-link" title="ganeti.ovf.OVFExporter.results_name">results<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_network" class="internal-link" title="ganeti.ovf.OVFExporter.results_network">results<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#results_vcpus" class="internal-link" title="ganeti.ovf.OVFExporter.results_vcpus">results<wbr></wbr>_vcpus</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#temp_dir" class="internal-link" title="ganeti.ovf.OVFExporter.temp_dir">temp<wbr></wbr>_dir</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#options" class="internal-link" title="ganeti.ovf.Converter.options">options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html#temp_file_manager" class="internal-link" title="ganeti.ovf.Converter.temp_file_manager">temp<wbr></wbr>_file<wbr></wbr>_manager</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.ovf.html" class="internal-link" title="The parent of this class">ovf</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.ConfigParserWithDefaults.html" class="internal-link" title="ganeti.ovf.ConfigParserWithDefaults"><wbr></wbr>Config<wbr></wbr>Parser<wbr></wbr>With<wbr></wbr>Defaults</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html" class="internal-link" title="ganeti.ovf.Converter"><wbr></wbr>Converter</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFExporter.html" class="internal-link" title="ganeti.ovf.OVFExporter"><wbr></wbr>OVFExporter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFImporter.html" class="internal-link" title="ganeti.ovf.OVFImporter"><wbr></wbr>OVFImporter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFReader.html" class="internal-link" title="ganeti.ovf.OVFReader"><wbr></wbr>OVFReader</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFWriter.html" class="internal-link" title="ganeti.ovf.OVFWriter"><wbr></wbr>OVFWriter</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CheckQemuImg" class="internal-link" title="ganeti.ovf.CheckQemuImg"><wbr></wbr>Check<wbr></wbr>Qemu<wbr></wbr>Img</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#LinkFile" class="internal-link" title="ganeti.ovf.LinkFile"><wbr></wbr>Link<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#SubElementText" class="internal-link" title="ganeti.ovf.SubElementText"><wbr></wbr>Sub<wbr></wbr>Element<wbr></wbr>Text</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOCATION_UNITS" class="internal-link" title="ganeti.ovf.ALLOCATION_UNITS">ALLOCATION<wbr></wbr>_UNITS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOWED_ACTIONS" class="internal-link" title="ganeti.ovf.ALLOWED_ACTIONS">ALLOWED<wbr></wbr>_ACTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOWED_FORMATS" class="internal-link" title="ganeti.ovf.ALLOWED_FORMATS">ALLOWED<wbr></wbr>_FORMATS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#AUTO_BALANCE" class="internal-link" title="ganeti.ovf.AUTO_BALANCE">AUTO<wbr></wbr>_BALANCE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CERT_EXT" class="internal-link" title="ganeti.ovf.CERT_EXT">CERT<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESS" class="internal-link" title="ganeti.ovf.COMPRESS">COMPRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESSION_EXT" class="internal-link" title="ganeti.ovf.COMPRESSION_EXT">COMPRESSION<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESSION_TYPE" class="internal-link" title="ganeti.ovf.COMPRESSION_TYPE">COMPRESSION<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CONVERT_UNITS_TO_MB" class="internal-link" title="ganeti.ovf.CONVERT_UNITS_TO_MB">CONVERT<wbr></wbr>_UNITS<wbr></wbr>_TO<wbr></wbr>_MB</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COW" class="internal-link" title="ganeti.ovf.COW">COW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DECOMPRESS" class="internal-link" title="ganeti.ovf.DECOMPRESS">DECOMPRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DISK_FORMAT" class="internal-link" title="ganeti.ovf.DISK_FORMAT">DISK<wbr></wbr>_FORMAT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DISK_TEMPLATE" class="internal-link" title="ganeti.ovf.DISK_TEMPLATE">DISK<wbr></wbr>_TEMPLATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#FILE_EXTENSIONS" class="internal-link" title="ganeti.ovf.FILE_EXTENSIONS">FILE<wbr></wbr>_EXTENSIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#GANETI_SCHEMA" class="internal-link" title="ganeti.ovf.GANETI_SCHEMA">GANETI<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#HYPERV" class="internal-link" title="ganeti.ovf.HYPERV">HYPERV</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#INSTANCE_ID" class="internal-link" title="ganeti.ovf.INSTANCE_ID">INSTANCE<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#MEMORY" class="internal-link" title="ganeti.ovf.MEMORY">MEMORY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#MF_EXT" class="internal-link" title="ganeti.ovf.MF_EXT">MF<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#NAME" class="internal-link" title="ganeti.ovf.NAME">NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#NO_COMPRESSION" class="internal-link" title="ganeti.ovf.NO_COMPRESSION">NO<wbr></wbr>_COMPRESSION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OS" class="internal-link" title="ganeti.ovf.OS">OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVA_EXT" class="internal-link" title="ganeti.ovf.OVA_EXT">OVA<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVF_EXT" class="internal-link" title="ganeti.ovf.OVF_EXT">OVF<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVF_SCHEMA" class="internal-link" title="ganeti.ovf.OVF_SCHEMA">OVF<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RASD_SCHEMA" class="internal-link" title="ganeti.ovf.RASD_SCHEMA">RASD<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RASD_TYPE" class="internal-link" title="ganeti.ovf.RASD_TYPE">RASD<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RAW" class="internal-link" title="ganeti.ovf.RAW">RAW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#SCSI_SUBTYPE" class="internal-link" title="ganeti.ovf.SCSI_SUBTYPE">SCSI<wbr></wbr>_SUBTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#TAGS" class="internal-link" title="ganeti.ovf.TAGS">TAGS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VCPUS" class="internal-link" title="ganeti.ovf.VCPUS">VCPUS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VERSION" class="internal-link" title="ganeti.ovf.VERSION">VERSION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VMDK" class="internal-link" title="ganeti.ovf.VMDK">VMDK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VS_TYPE" class="internal-link" title="ganeti.ovf.VS_TYPE">VS<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VSSD_SCHEMA" class="internal-link" title="ganeti.ovf.VSSD_SCHEMA">VSSD<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#XML_SCHEMA" class="internal-link" title="ganeti.ovf.XML_SCHEMA">XML<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code><wbr></wbr>.<code><a href="ganeti.ovf.OVFExporter.html" class="internal-link" title="ganeti.ovf.OVFExporter">OVFExporter</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">OVFExporter</span>(<a href="ganeti.ovf.Converter.html" class="internal-link" title="ganeti.ovf.Converter">Converter</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.ovf.OVFExporter">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Converter from Ganeti config file to OVF</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id996">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Parse" class="internal-link" title="ganeti.ovf.OVFExporter.Parse"><wbr></wbr>Parse</a></code></td>
+    <td>Parses the data and creates a structure containing all required info.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Save" class="internal-link" title="ganeti.ovf.OVFExporter.Save"><wbr></wbr>Save</a></code></td>
+    <td>Saves the gathered configuration in an apropriate format.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#config_parser" class="internal-link" title="ganeti.ovf.OVFExporter.config_parser">config<wbr></wbr>_parser</a></code></td>
+    <td>parser for the config.ini file</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#input_dir" class="internal-link" title="ganeti.ovf.OVFExporter.input_dir">input<wbr></wbr>_dir</a></code></td>
+    <td>directory in which the config.ini file resides</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#input_path" class="internal-link" title="ganeti.ovf.OVFExporter.input_path">input<wbr></wbr>_path</a></code></td>
+    <td>complete path to the config.ini file</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#output_dir" class="internal-link" title="ganeti.ovf.OVFExporter.output_dir">output<wbr></wbr>_dir</a></code></td>
+    <td>directory to which the results of conversion shall be written</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#output_path" class="internal-link" title="ganeti.ovf.OVFExporter.output_path">output<wbr></wbr>_path</a></code></td>
+    <td>complete path to .ovf file</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ovf_writer" class="internal-link" title="ganeti.ovf.OVFExporter.ovf_writer">ovf<wbr></wbr>_writer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#packed_dir" class="internal-link" title="ganeti.ovf.OVFExporter.packed_dir">packed<wbr></wbr>_dir</a></code></td>
+    <td>if we want OVA package, this points to the real (i.e. not temp) output directory</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#reference_files" class="internal-link" title="ganeti.ovf.OVFExporter.reference_files">reference<wbr></wbr>_files</a></code></td>
+    <td>files referenced in the ovf file</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#references_files" class="internal-link" title="ganeti.ovf.OVFExporter.references_files">references<wbr></wbr>_files</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_disk" class="internal-link" title="ganeti.ovf.OVFExporter.results_disk">results<wbr></wbr>_disk</a></code></td>
+    <td>list of dictionaries of disk options from config.ini</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_ganeti" class="internal-link" title="ganeti.ovf.OVFExporter.results_ganeti">results<wbr></wbr>_ganeti</a></code></td>
+    <td>dictionary of Ganeti-specific options from config.ini</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_memory" class="internal-link" title="ganeti.ovf.OVFExporter.results_memory">results<wbr></wbr>_memory</a></code></td>
+    <td>RAM memory in MB</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_name" class="internal-link" title="ganeti.ovf.OVFExporter.results_name">results<wbr></wbr>_name</a></code></td>
+    <td>name of the instance</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_network" class="internal-link" title="ganeti.ovf.OVFExporter.results_network">results<wbr></wbr>_network</a></code></td>
+    <td>list of dictionaries of network options form config.ini</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#results_vcpus" class="internal-link" title="ganeti.ovf.OVFExporter.results_vcpus">results<wbr></wbr>_vcpus</a></code></td>
+    <td>number of VCPUs</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#temp_dir" class="internal-link" title="ganeti.ovf.OVFExporter.temp_dir">temp<wbr></wbr>_dir</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_PrepareTarFile" class="internal-link" title="ganeti.ovf.OVFExporter._PrepareTarFile">_<wbr></wbr>Prepare<wbr></wbr>Tar<wbr></wbr>File</a></code></td>
+    <td>Creates tarfile from the files in OVF package.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetDiskOptions" class="internal-link" title="ganeti.ovf.OVFExporter._GetDiskOptions">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Options</a></code></td>
+    <td>Convert the disk and gather disk info for .ovf file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseDisks" class="internal-link" title="ganeti.ovf.OVFExporter._ParseDisks">_<wbr></wbr>Parse<wbr></wbr>Disks</a></code></td>
+    <td>Parses disk data from config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseGaneti" class="internal-link" title="ganeti.ovf.OVFExporter._ParseGaneti">_<wbr></wbr>Parse<wbr></wbr>Ganeti</a></code></td>
+    <td>Parses Ganeti data from config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseMemory" class="internal-link" title="ganeti.ovf.OVFExporter._ParseMemory">_<wbr></wbr>Parse<wbr></wbr>Memory</a></code></td>
+    <td>Parses vcpus number from config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseName" class="internal-link" title="ganeti.ovf.OVFExporter._ParseName">_<wbr></wbr>Parse<wbr></wbr>Name</a></code></td>
+    <td>Parses name from command line options or config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseNetworks" class="internal-link" title="ganeti.ovf.OVFExporter._ParseNetworks">_<wbr></wbr>Parse<wbr></wbr>Networks</a></code></td>
+    <td>Parses network data from config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ParseVCPUs" class="internal-link" title="ganeti.ovf.OVFExporter._ParseVCPUs">_<wbr></wbr>Parse<wbr></wbr>VCPUs</a></code></td>
+    <td>Parses vcpus number from config file.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_PrepareManifest" class="internal-link" title="ganeti.ovf.OVFExporter._PrepareManifest">_<wbr></wbr>Prepare<wbr></wbr>Manifest</a></code></td>
+    <td>Creates manifest for all the files in OVF package.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ReadInputData" class="internal-link" title="ganeti.ovf.OVFExporter._ReadInputData">_<wbr></wbr>Read<wbr></wbr>Input<wbr></wbr>Data</a></code></td>
+    <td>Reads the data on which the conversion will take place.</td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.ovf.Converter.html" class="internal-link" title="ganeti.ovf.Converter">Converter</a></code>:
+            </p>
+            <table class="children sortable" id="id997">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.ovf.Converter.html#__init__" class="internal-link" title="ganeti.ovf.Converter.__init__">__init__</a></code></td>
+    <td>Initialize the converter.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.ovf.Converter.html#Cleanup" class="internal-link" title="ganeti.ovf.Converter.Cleanup"><wbr></wbr>Cleanup</a></code></td>
+    <td>Cleans the temporary directory, if one was created.</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.ovf.Converter.html#options" class="internal-link" title="ganeti.ovf.Converter.options">options</a></code></td>
+    <td>options parsed from the command line</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.ovf.Converter.html#temp_file_manager" class="internal-link" title="ganeti.ovf.Converter.temp_file_manager">temp<wbr></wbr>_file<wbr></wbr>_manager</a></code></td>
+    <td>container for temporary files created during conversion</td>
+  </tr><tr class="basestaticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="ganeti.ovf.Converter.html#_GetDiskQemuInfo" class="internal-link" title="ganeti.ovf.Converter._GetDiskQemuInfo">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Qemu<wbr></wbr>Info</a></code></td>
+    <td>Figures out some information of the disk using qemu-img.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.ovf.Converter.html#_CompressDisk" class="internal-link" title="ganeti.ovf.Converter._CompressDisk">_<wbr></wbr>Compress<wbr></wbr>Disk</a></code></td>
+    <td>Performs (de)compression on the disk and returns the new path</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.ovf.Converter.html#_ConvertDisk" class="internal-link" title="ganeti.ovf.Converter._ConvertDisk">_<wbr></wbr>Convert<wbr></wbr>Disk</a></code></td>
+    <td>Performes conversion to specified format.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.Parse">
+    
+  </a>
+  <a name="Parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Parse</span>(self):
+    
+    <a class="headerLink" href="#Parse" title="ganeti.ovf.OVFExporter.Parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.ovf.Converter.html#Parse" class="internal-link">ganeti.ovf.Converter.Parse</a></code></div>
+    <div><p>Parses the data and creates a structure containing all required info.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.Save">
+    
+  </a>
+  <a name="Save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Save</span>(self):
+    
+    <a class="headerLink" href="#Save" title="ganeti.ovf.OVFExporter.Save">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.ovf.Converter.html#Save" class="internal-link">ganeti.ovf.Converter.Save</a></code></div>
+    <div><p>Saves the gathered configuration in an apropriate format.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if unable to create output directory</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.config_parser">
+    
+  </a>
+  <a name="config_parser">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">config_parser</span>: <code><a href="ganeti.ovf.ConfigParserWithDefaults.html" class="internal-link" title="ganeti.ovf.ConfigParserWithDefaults">ConfigParserWithDefaults</a></code> =
+    
+    <a class="headerLink" href="#config_parser" title="ganeti.ovf.OVFExporter.config_parser">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>parser for the config.ini file</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.input_dir">
+    
+  </a>
+  <a name="input_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">input_dir</span>: string =
+    
+    <a class="headerLink" href="#input_dir" title="ganeti.ovf.OVFExporter.input_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>directory in which the config.ini file resides</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.input_path">
+    
+  </a>
+  <a name="input_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">input_path</span>: string =
+    
+    <a class="headerLink" href="#input_path" title="ganeti.ovf.OVFExporter.input_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>complete path to the config.ini file</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.output_dir">
+    
+  </a>
+  <a name="output_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">output_dir</span>: string =
+    
+    <a class="headerLink" href="#output_dir" title="ganeti.ovf.OVFExporter.output_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.ovf.Converter.html#output_dir" class="internal-link">ganeti.ovf.Converter.output_dir</a></code></div>
+    <div><p>directory to which the results of conversion shall be written</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.output_path">
+    
+  </a>
+  <a name="output_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">output_path</span>: string =
+    
+    <a class="headerLink" href="#output_path" title="ganeti.ovf.OVFExporter.output_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>complete path to .ovf file</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.ovf_writer">
+    
+  </a>
+  <a name="ovf_writer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ovf_writer</span> =
+    
+    <a class="headerLink" href="#ovf_writer" title="ganeti.ovf.OVFExporter.ovf_writer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.packed_dir">
+    
+  </a>
+  <a name="packed_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">packed_dir</span>: string =
+    
+    <a class="headerLink" href="#packed_dir" title="ganeti.ovf.OVFExporter.packed_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>if we want OVA package, this points to the real (i.e. not temp) output directory</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.reference_files">
+    
+  </a>
+  <a name="reference_files">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">reference_files</span>: list =
+    
+    <a class="headerLink" href="#reference_files" title="ganeti.ovf.OVFExporter.reference_files">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>files referenced in the ovf file</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.references_files">
+    
+  </a>
+  <a name="references_files">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">references_files</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#references_files" title="ganeti.ovf.OVFExporter.references_files">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_disk">
+    
+  </a>
+  <a name="results_disk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_disk</span>: list =
+    
+    <a class="headerLink" href="#results_disk" title="ganeti.ovf.OVFExporter.results_disk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>list of dictionaries of disk options from config.ini</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_ganeti">
+    
+  </a>
+  <a name="results_ganeti">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_ganeti</span>: dict =
+    
+    <a class="headerLink" href="#results_ganeti" title="ganeti.ovf.OVFExporter.results_ganeti">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>dictionary of Ganeti-specific options from config.ini</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_memory">
+    
+  </a>
+  <a name="results_memory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_memory</span>: string =
+    
+    <a class="headerLink" href="#results_memory" title="ganeti.ovf.OVFExporter.results_memory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>RAM memory in MB</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_name">
+    
+  </a>
+  <a name="results_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_name</span>: string =
+    
+    <a class="headerLink" href="#results_name" title="ganeti.ovf.OVFExporter.results_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>name of the instance</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_network">
+    
+  </a>
+  <a name="results_network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_network</span>: list =
+    
+    <a class="headerLink" href="#results_network" title="ganeti.ovf.OVFExporter.results_network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>list of dictionaries of network options form config.ini</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.results_vcpus">
+    
+  </a>
+  <a name="results_vcpus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">results_vcpus</span>: string =
+    
+    <a class="headerLink" href="#results_vcpus" title="ganeti.ovf.OVFExporter.results_vcpus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>number of VCPUs</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFExporter.temp_dir">
+    
+  </a>
+  <a name="temp_dir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">temp_dir</span> =
+    
+    <a class="headerLink" href="#temp_dir" title="ganeti.ovf.OVFExporter.temp_dir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.ovf.Converter.html#temp_dir" class="internal-link">ganeti.ovf.Converter.temp_dir</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._PrepareTarFile">
+    
+  </a>
+  <a name="_PrepareTarFile">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_PrepareTarFile</span>(tar_path, files_list):
+    
+    <a class="headerLink" href="#_PrepareTarFile" title="ganeti.ovf.OVFExporter._PrepareTarFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates tarfile from the files in OVF package.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tar<wbr></wbr>_path:</span>string</td><td class="fieldArgDesc">path to the resulting file</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">files<wbr></wbr>_list:</span>list</td><td class="fieldArgDesc">list of files in the OVF package</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._GetDiskOptions">
+    
+  </a>
+  <a name="_GetDiskOptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetDiskOptions</span>(self, disk_file, compression):
+    
+    <a class="headerLink" href="#_GetDiskOptions" title="ganeti.ovf.OVFExporter._GetDiskOptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert the disk and gather disk info for .ovf file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_file:</span>string</td><td class="fieldArgDesc">name of the disk (without the full path)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">compression:</span>bool</td><td class="fieldArgDesc">whether the disk should be compressed or not</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>when disk image does not exist</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseDisks">
+    
+  </a>
+  <a name="_ParseDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseDisks</span>(self):
+    
+    <a class="headerLink" href="#_ParseDisks" title="ganeti.ovf.OVFExporter._ParseDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses disk data from config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">list of dictionaries of disk options</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseGaneti">
+    
+  </a>
+  <a name="_ParseGaneti">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseGaneti</span>(self):
+    
+    <a class="headerLink" href="#_ParseGaneti" title="ganeti.ovf.OVFExporter._ParseGaneti">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses Ganeti data from config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dictionary</td><td class="fieldArgDesc">dictionary of Ganeti-specific options</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseMemory">
+    
+  </a>
+  <a name="_ParseMemory">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseMemory</span>(self):
+    
+    <a class="headerLink" href="#_ParseMemory" title="ganeti.ovf.OVFExporter._ParseMemory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses vcpus number from config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">amount of memory in MB</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if amount of memory equals 0</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseName">
+    
+  </a>
+  <a name="_ParseName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseName</span>(self):
+    
+    <a class="headerLink" href="#_ParseName" title="ganeti.ovf.OVFExporter._ParseName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses name from command line options or config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">name of Ganeti instance</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if name of the instance is not provided</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseNetworks">
+    
+  </a>
+  <a name="_ParseNetworks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseNetworks</span>(self):
+    
+    <a class="headerLink" href="#_ParseNetworks" title="ganeti.ovf.OVFExporter._ParseNetworks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses network data from config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">list of dictionaries of network options</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>then network mode is not recognized</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ParseVCPUs">
+    
+  </a>
+  <a name="_ParseVCPUs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseVCPUs</span>(self):
+    
+    <a class="headerLink" href="#_ParseVCPUs" title="ganeti.ovf.OVFExporter._ParseVCPUs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses vcpus number from config file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">number of virtual CPUs</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if number of VCPUs equals 0</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._PrepareManifest">
+    
+  </a>
+  <a name="_PrepareManifest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PrepareManifest</span>(self, path):
+    
+    <a class="headerLink" href="#_PrepareManifest" title="ganeti.ovf.OVFExporter._PrepareManifest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates manifest for all the files in OVF package.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>string</td><td class="fieldArgDesc">path to manifesto file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if error occurs when writing file</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.ovf.OVFExporter._ReadInputData">
+    
+  </a>
+  <a name="_ReadInputData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ReadInputData</span>(self, input_path):
+    
+    <a class="headerLink" href="#_ReadInputData" title="ganeti.ovf.OVFExporter._ReadInputData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.ovf.Converter.html#_ReadInputData" class="internal-link">ganeti.ovf.Converter._ReadInputData</a></code></div>
+    <div><p>Reads the data on which the conversion will take place.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">input<wbr></wbr>_path:</span>string</td><td class="fieldArgDesc">absolute path to the config.ini input file</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>error when reading the config file</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

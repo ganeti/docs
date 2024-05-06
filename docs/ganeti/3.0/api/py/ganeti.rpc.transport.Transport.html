@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.rpc.transport.Transport</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.rpc.transport.Transport.html" class="internal-link" title="This class"><wbr></wbr>Transport</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RetryOnNetworkError" class="internal-link" title="ganeti.rpc.transport.Transport.RetryOnNetworkError"><wbr></wbr>Retry<wbr></wbr>On<wbr></wbr>Network<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.rpc.transport.Transport.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Call" class="internal-link" title="ganeti.rpc.transport.Transport.Call"><wbr></wbr>Call</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Close" class="internal-link" title="ganeti.rpc.transport.Transport.Close"><wbr></wbr>Close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Recv" class="internal-link" title="ganeti.rpc.transport.Transport.Recv"><wbr></wbr>Recv</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Send" class="internal-link" title="ganeti.rpc.transport.Transport.Send"><wbr></wbr>Send</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_Connect" class="internal-link" title="ganeti.rpc.transport.Transport._Connect">_<wbr></wbr>Connect</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckSocket" class="internal-link" title="ganeti.rpc.transport.Transport._CheckSocket">_<wbr></wbr>Check<wbr></wbr>Socket</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#address" class="internal-link" title="ganeti.rpc.transport.Transport.address">address</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#socket" class="internal-link" title="ganeti.rpc.transport.Transport.socket">socket</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_buffer" class="internal-link" title="ganeti.rpc.transport.Transport._buffer">_buffer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ctimeout" class="internal-link" title="ganeti.rpc.transport.Transport._ctimeout">_ctimeout</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_msgs" class="internal-link" title="ganeti.rpc.transport.Transport._msgs">_msgs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_rwtimeout" class="internal-link" title="ganeti.rpc.transport.Transport._rwtimeout">_rwtimeout</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.rpc.transport.html" class="internal-link" title="The parent of this class">transport</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.transport.FdTransport.html" class="internal-link" title="ganeti.rpc.transport.FdTransport"><wbr></wbr>Fd<wbr></wbr>Transport</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.transport.Transport.html" class="internal-link" title="ganeti.rpc.transport.Transport"><wbr></wbr>Transport</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code><wbr></wbr>.<code><a href="ganeti.rpc.transport.html" class="internal-link" title="ganeti.rpc.transport">transport</a></code><wbr></wbr>.<code><a href="ganeti.rpc.transport.Transport.html" class="internal-link" title="ganeti.rpc.transport.Transport">Transport</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">Transport</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.rpc.transport.Transport">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Low-level transport class.</p>
+<p>This is used on the client side.</p>
+<p>This could be replaced by any other class that provides the same semantics to the Client. This means:</p>
+<ul class="rst-simple">
+<li>can send messages and receive messages</li>
+<li>safe for multithreading</li>
+</ul>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1250">
+  
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#RetryOnNetworkError" class="internal-link" title="ganeti.rpc.transport.Transport.RetryOnNetworkError"><wbr></wbr>Retry<wbr></wbr>On<wbr></wbr>Network<wbr></wbr>Error</a></code></td>
+    <td>Calls a given function, retrying if it fails on a network IO exception.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.rpc.transport.Transport.__init__">__init__</a></code></td>
+    <td>Constructor for the Client class.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Call" class="internal-link" title="ganeti.rpc.transport.Transport.Call"><wbr></wbr>Call</a></code></td>
+    <td>Send a message and wait for the response.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Close" class="internal-link" title="ganeti.rpc.transport.Transport.Close"><wbr></wbr>Close</a></code></td>
+    <td>Close the socket</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Recv" class="internal-link" title="ganeti.rpc.transport.Transport.Recv"><wbr></wbr>Recv</a></code></td>
+    <td>Try to receive a message from the socket.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Send" class="internal-link" title="ganeti.rpc.transport.Transport.Send"><wbr></wbr>Send</a></code></td>
+    <td>Send a message.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#address" class="internal-link" title="ganeti.rpc.transport.Transport.address">address</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#socket" class="internal-link" title="ganeti.rpc.transport.Transport.socket">socket</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_Connect" class="internal-link" title="ganeti.rpc.transport.Transport._Connect">_<wbr></wbr>Connect</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckSocket" class="internal-link" title="ganeti.rpc.transport.Transport._CheckSocket">_<wbr></wbr>Check<wbr></wbr>Socket</a></code></td>
+    <td>Make sure we are connected.</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_buffer" class="internal-link" title="ganeti.rpc.transport.Transport._buffer">_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_ctimeout" class="internal-link" title="ganeti.rpc.transport.Transport._ctimeout">_ctimeout</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_msgs" class="internal-link" title="ganeti.rpc.transport.Transport._msgs">_msgs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_rwtimeout" class="internal-link" title="ganeti.rpc.transport.Transport._rwtimeout">_rwtimeout</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basestaticmethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.RetryOnNetworkError">
+    
+  </a>
+  <a name="RetryOnNetworkError">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">RetryOnNetworkError</span>(fn, on_error, retries=15, wait_on_error=5):
+    
+    <a class="headerLink" href="#RetryOnNetworkError" title="ganeti.rpc.transport.Transport.RetryOnNetworkError">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calls a given function, retrying if it fails on a network IO exception.</p>
+<p>This allows to re-establish a broken connection and retry an IO operation.</p>
+<p>The function receives one an integer argument stating the current retry number, 0 being the first call, 1 being the first retry, 2 the second, and so on.</p>
+<p>If any exception occurs, on_error is invoked first with the exception given as an argument. Then, if the exception is a network exception, the function call is retried once more.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, address, timeouts=None, allow_non_master=None):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.rpc.transport.Transport.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Constructor for the Client class.</p>
+<p>There are two timeouts used since we might want to wait for a long time for a response, but the connect timeout should be lower.</p>
+<p>If not passed, we use the default luxi timeouts from the global constants file.</p>
+<p>Note that on reading data, since the timeout applies to an invidual receive, it might be that the total duration is longer than timeout value passed (we make a hard limit at twice the read timeout).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">address:</span>socket address</td><td class="fieldArgDesc">address the transport connects to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeouts:</span>list of ints</td><td class="fieldArgDesc">timeouts to be used on connect and read/write</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">allow<wbr></wbr>_non<wbr></wbr>_master:</span>bool</td><td class="fieldArgDesc">skip checks for the master node on errors</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.Call">
+    
+  </a>
+  <a name="Call">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Call</span>(self, msg):
+    
+    <a class="headerLink" href="#Call" title="ganeti.rpc.transport.Transport.Call">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Send a message and wait for the response.</p>
+<p>This is just a wrapper over Send and Recv.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.Close">
+    
+  </a>
+  <a name="Close">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Close</span>(self):
+    
+    <a class="headerLink" href="#Close" title="ganeti.rpc.transport.Transport.Close">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Close the socket</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.Recv">
+    
+  </a>
+  <a name="Recv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Recv</span>(self):
+    
+    <a class="headerLink" href="#Recv" title="ganeti.rpc.transport.Transport.Recv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try to receive a message from the socket.</p>
+<p>In case we already have messages queued, we just return from the queue. Otherwise, we try to read data with a _rwtimeout network timeout, and making sure we don't go over 2x_rwtimeout as a global limit.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.Send">
+    
+  </a>
+  <a name="Send">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Send</span>(self, msg):
+    
+    <a class="headerLink" href="#Send" title="ganeti.rpc.transport.Transport.Send">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Send a message.</p>
+<p>This just sends a message and doesn't wait for the response.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.address">
+    
+  </a>
+  <a name="address">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">address</span> =
+    
+    <a class="headerLink" href="#address" title="ganeti.rpc.transport.Transport.address">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.rpc.transport.Transport.socket">
+    
+  </a>
+  <a name="socket">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">socket</span> =
+    
+    <a class="headerLink" href="#socket" title="ganeti.rpc.transport.Transport.socket">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._Connect">
+    
+  </a>
+  <a name="_Connect">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_Connect</span>(sock, address, timeout, allow_non_master):
+    
+    <a class="headerLink" href="#_Connect" title="ganeti.rpc.transport.Transport._Connect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._CheckSocket">
+    
+  </a>
+  <a name="_CheckSocket">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckSocket</span>(self):
+    
+    <a class="headerLink" href="#_CheckSocket" title="ganeti.rpc.transport.Transport._CheckSocket">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Make sure we are connected.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._buffer">
+    
+  </a>
+  <a name="_buffer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_buffer</span> =
+    
+    <a class="headerLink" href="#_buffer" title="ganeti.rpc.transport.Transport._buffer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._ctimeout">
+    
+  </a>
+  <a name="_ctimeout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ctimeout</span> =
+    
+    <a class="headerLink" href="#_ctimeout" title="ganeti.rpc.transport.Transport._ctimeout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._msgs">
+    
+  </a>
+  <a name="_msgs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_msgs</span> =
+    
+    <a class="headerLink" href="#_msgs" title="ganeti.rpc.transport.Transport._msgs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.rpc.transport.Transport._rwtimeout">
+    
+  </a>
+  <a name="_rwtimeout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_rwtimeout</span> =
+    
+    <a class="headerLink" href="#_rwtimeout" title="ganeti.rpc.transport.Transport._rwtimeout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

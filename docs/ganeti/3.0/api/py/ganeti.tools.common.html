@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.tools.common</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.tools.common.html" class="internal-link" title="This module">common</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateClientCertificate" class="internal-link" title="ganeti.tools.common.GenerateClientCertificate"><wbr></wbr>Generate<wbr></wbr>Client<wbr></wbr>Certificate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateRootSshKeys" class="internal-link" title="ganeti.tools.common.GenerateRootSshKeys"><wbr></wbr>Generate<wbr></wbr>Root<wbr></wbr>Ssh<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LoadData" class="internal-link" title="ganeti.tools.common.LoadData"><wbr></wbr>Load<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyCertificateSoft" class="internal-link" title="ganeti.tools.common.VerifyCertificateSoft"><wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Soft</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyCertificateStrong" class="internal-link" title="ganeti.tools.common.VerifyCertificateStrong"><wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Strong</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyClusterName" class="internal-link" title="ganeti.tools.common.VerifyClusterName"><wbr></wbr>Verify<wbr></wbr>Cluster<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyHmac" class="internal-link" title="ganeti.tools.common.VerifyHmac"><wbr></wbr>Verify<wbr></wbr>Hmac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyOptions" class="internal-link" title="ganeti.tools.common.VerifyOptions"><wbr></wbr>Verify<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyCertificateSoft" class="internal-link" title="ganeti.tools.common._VerifyCertificateSoft">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Soft</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyCertificateStrong" class="internal-link" title="ganeti.tools.common._VerifyCertificateStrong">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Strong</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.tools.html" class="internal-link" title="The parent of this module">tools</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.burnin.html" class="internal-link" title="ganeti.tools.burnin">burnin</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.cfgupgrade.html" class="internal-link" title="ganeti.tools.cfgupgrade">cfgupgrade</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.common.html" class="internal-link" title="ganeti.tools.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.ensure_dirs.html" class="internal-link" title="ganeti.tools.ensure_dirs">ensure<wbr></wbr>_dirs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.node_cleanup.html" class="internal-link" title="ganeti.tools.node_cleanup">node<wbr></wbr>_cleanup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.node_daemon_setup.html" class="internal-link" title="ganeti.tools.node_daemon_setup">node<wbr></wbr>_daemon<wbr></wbr>_setup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.prepare_node_join.html" class="internal-link" title="ganeti.tools.prepare_node_join">prepare<wbr></wbr>_node<wbr></wbr>_join</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.ssh_update.html" class="internal-link" title="ganeti.tools.ssh_update">ssh<wbr></wbr>_update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.ssl_update.html" class="internal-link" title="ganeti.tools.ssl_update">ssl<wbr></wbr>_update</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code><wbr></wbr>.<code><a href="ganeti.tools.common.html" class="internal-link" title="ganeti.tools.common">common</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Common functions for tool scripts.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1342">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateClientCertificate" class="internal-link" title="ganeti.tools.common.GenerateClientCertificate"><wbr></wbr>Generate<wbr></wbr>Client<wbr></wbr>Certificate</a></code></td>
+    <td>Regenerates the client certificate of the node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateRootSshKeys" class="internal-link" title="ganeti.tools.common.GenerateRootSshKeys"><wbr></wbr>Generate<wbr></wbr>Root<wbr></wbr>Ssh<wbr></wbr>Keys</a></code></td>
+    <td>Generates root's SSH keys for this node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#LoadData" class="internal-link" title="ganeti.tools.common.LoadData"><wbr></wbr>Load<wbr></wbr>Data</a></code></td>
+    <td>Parses and verifies input data.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyCertificateSoft" class="internal-link" title="ganeti.tools.common.VerifyCertificateSoft"><wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Soft</a></code></td>
+    <td>Verifies cluster certificate if existing.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyCertificateStrong" class="internal-link" title="ganeti.tools.common.VerifyCertificateStrong"><wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Strong</a></code></td>
+    <td>Verifies cluster certificate. Throws error when not existing.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyClusterName" class="internal-link" title="ganeti.tools.common.VerifyClusterName"><wbr></wbr>Verify<wbr></wbr>Cluster<wbr></wbr>Name</a></code></td>
+    <td>Verifies cluster name.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyHmac" class="internal-link" title="ganeti.tools.common.VerifyHmac"><wbr></wbr>Verify<wbr></wbr>Hmac</a></code></td>
+    <td>Verifies the presence of the hmac secret.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyOptions" class="internal-link" title="ganeti.tools.common.VerifyOptions"><wbr></wbr>Verify<wbr></wbr>Options</a></code></td>
+    <td>Verifies options and arguments for correctness.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyCertificateSoft" class="internal-link" title="ganeti.tools.common._VerifyCertificateSoft">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Soft</a></code></td>
+    <td>Verifies a certificate against the local node daemon certificate.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyCertificateStrong" class="internal-link" title="ganeti.tools.common._VerifyCertificateStrong">_<wbr></wbr>Verify<wbr></wbr>Certificate<wbr></wbr>Strong</a></code></td>
+    <td>Verifies a certificate against the local node daemon certificate.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.GenerateClientCertificate">
+    
+  </a>
+  <a name="GenerateClientCertificate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateClientCertificate</span>(data, error_fn, client_cert=<a href="ganeti.pathutils.html#NODED_CLIENT_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CLIENT_CERT_FILE">pathutils.NODED_CLIENT_CERT_FILE</a>, signing_cert=<a href="ganeti.pathutils.html#NODED_CERT_FILE" class="internal-link" title="ganeti.pathutils.NODED_CERT_FILE">pathutils.NODED_CERT_FILE</a>):
+    
+    <a class="headerLink" href="#GenerateClientCertificate" title="ganeti.tools.common.GenerateClientCertificate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Regenerates the client certificate of the node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>string</td><td class="fieldArgDesc">the JSON-formated input data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">client<wbr></wbr>_cert</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">signing<wbr></wbr>_cert</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.GenerateRootSshKeys">
+    
+  </a>
+  <a name="GenerateRootSshKeys">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateRootSshKeys</span>(key_type, key_bits, error_fn, _suffix=<span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, _homedir_fn=None):
+    
+    <a class="headerLink" href="#GenerateRootSshKeys" title="ganeti.tools.common.GenerateRootSshKeys">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates root's SSH keys for this node.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.LoadData">
+    
+  </a>
+  <a name="LoadData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">LoadData</span>(raw, data_check):
+    
+    <a class="headerLink" href="#LoadData" title="ganeti.tools.common.LoadData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parses and verifies input data.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.VerifyCertificateSoft">
+    
+  </a>
+  <a name="VerifyCertificateSoft">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyCertificateSoft</span>(data, error_fn, _verify_fn=<a href="#_VerifyCertificateSoft" class="internal-link" title="ganeti.tools.common._VerifyCertificateSoft">_VerifyCertificateSoft</a>):
+    
+    <a class="headerLink" href="#VerifyCertificateSoft" title="ganeti.tools.common.VerifyCertificateSoft">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies cluster certificate if existing.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">function to call in case of an error</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_verify<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Formatted key and certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.VerifyCertificateStrong">
+    
+  </a>
+  <a name="VerifyCertificateStrong">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyCertificateStrong</span>(data, error_fn, _verify_fn=<a href="#_VerifyCertificateStrong" class="internal-link" title="ganeti.tools.common._VerifyCertificateStrong">_VerifyCertificateStrong</a>):
+    
+    <a class="headerLink" href="#VerifyCertificateStrong" title="ganeti.tools.common.VerifyCertificateStrong">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies cluster certificate. Throws error when not existing.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">function to call in case of an error</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_verify<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Formatted key and certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.VerifyClusterName">
+    
+  </a>
+  <a name="VerifyClusterName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyClusterName</span>(data, error_fn, cluster_name_constant, _verify_fn=<a href="ganeti.ssconf.html#VerifyClusterName" class="internal-link" title="ganeti.ssconf.VerifyClusterName">ssconf.VerifyClusterName</a>):
+    
+    <a class="headerLink" href="#VerifyClusterName" title="ganeti.tools.common.VerifyClusterName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies cluster name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster<wbr></wbr>_name<wbr></wbr>_constant</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_verify<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.VerifyHmac">
+    
+  </a>
+  <a name="VerifyHmac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyHmac</span>(data, error_fn):
+    
+    <a class="headerLink" href="#VerifyHmac" title="ganeti.tools.common.VerifyHmac">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies the presence of the hmac secret.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.tools.common.VerifyOptions">
+    
+  </a>
+  <a name="VerifyOptions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyOptions</span>(parser, opts, args):
+    
+    <a class="headerLink" href="#VerifyOptions" title="ganeti.tools.common.VerifyOptions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies options and arguments for correctness.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.tools.common._VerifyCertificateSoft">
+    
+  </a>
+  <a name="_VerifyCertificateSoft">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyCertificateSoft</span>(cert_pem, error_fn, _check_fn=<a href="ganeti.utils.x509.html#CheckNodeCertificate" class="internal-link" title="ganeti.utils.x509.CheckNodeCertificate">utils.CheckNodeCertificate</a>):
+    
+    <a class="headerLink" href="#_VerifyCertificateSoft" title="ganeti.tools.common._VerifyCertificateSoft">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a certificate against the local node daemon certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert<wbr></wbr>_pem:</span>string</td><td class="fieldArgDesc">Certificate in PEM format (no key)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_check<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.tools.common._VerifyCertificateStrong">
+    
+  </a>
+  <a name="_VerifyCertificateStrong">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyCertificateStrong</span>(cert_pem, error_fn, _check_fn=<a href="ganeti.utils.x509.html#CheckNodeCertificate" class="internal-link" title="ganeti.utils.x509.CheckNodeCertificate">utils.CheckNodeCertificate</a>):
+    
+    <a class="headerLink" href="#_VerifyCertificateStrong" title="ganeti.tools.common._VerifyCertificateStrong">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies a certificate against the local node daemon certificate.</p>
+<p>Includes elaborate tests of encodings etc., and returns formatted certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert<wbr></wbr>_pem:</span>string</td><td class="fieldArgDesc">Certificate and key in PEM format</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">function to call in case of an error</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_check<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Formatted key and certificate</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

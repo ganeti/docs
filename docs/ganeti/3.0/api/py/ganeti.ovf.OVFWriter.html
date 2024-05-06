@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.ovf.OVFWriter</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.ovf.OVFWriter.html" class="internal-link" title="This class"><wbr></wbr>OVFWriter</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.ovf.OVFWriter.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PrettyXmlDump" class="internal-link" title="ganeti.ovf.OVFWriter.PrettyXmlDump"><wbr></wbr>Pretty<wbr></wbr>Xml<wbr></wbr>Dump</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SaveDisksData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveDisksData"><wbr></wbr>Save<wbr></wbr>Disks<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SaveGanetiData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveGanetiData"><wbr></wbr>Save<wbr></wbr>Ganeti<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SaveNetworksData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveNetworksData"><wbr></wbr>Save<wbr></wbr>Networks<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SaveVirtualSystemData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveVirtualSystemData"><wbr></wbr>Save<wbr></wbr>Virtual<wbr></wbr>System<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SaveNameAndParams" class="internal-link" title="ganeti.ovf.OVFWriter._SaveNameAndParams">_<wbr></wbr>Save<wbr></wbr>Name<wbr></wbr>And<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hardware_list" class="internal-link" title="ganeti.ovf.OVFWriter.hardware_list">hardware<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#next_instance_id" class="internal-link" title="ganeti.ovf.OVFWriter.next_instance_id">next<wbr></wbr>_instance<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tree" class="internal-link" title="ganeti.ovf.OVFWriter.tree">tree</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#virtual_system_type" class="internal-link" title="ganeti.ovf.OVFWriter.virtual_system_type">virtual<wbr></wbr>_system<wbr></wbr>_type</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.ovf.html" class="internal-link" title="The parent of this class">ovf</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.ConfigParserWithDefaults.html" class="internal-link" title="ganeti.ovf.ConfigParserWithDefaults"><wbr></wbr>Config<wbr></wbr>Parser<wbr></wbr>With<wbr></wbr>Defaults</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.Converter.html" class="internal-link" title="ganeti.ovf.Converter"><wbr></wbr>Converter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFExporter.html" class="internal-link" title="ganeti.ovf.OVFExporter"><wbr></wbr>OVFExporter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFImporter.html" class="internal-link" title="ganeti.ovf.OVFImporter"><wbr></wbr>OVFImporter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFReader.html" class="internal-link" title="ganeti.ovf.OVFReader"><wbr></wbr>OVFReader</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.OVFWriter.html" class="internal-link" title="ganeti.ovf.OVFWriter"><wbr></wbr>OVFWriter</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CheckQemuImg" class="internal-link" title="ganeti.ovf.CheckQemuImg"><wbr></wbr>Check<wbr></wbr>Qemu<wbr></wbr>Img</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#LinkFile" class="internal-link" title="ganeti.ovf.LinkFile"><wbr></wbr>Link<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#SubElementText" class="internal-link" title="ganeti.ovf.SubElementText"><wbr></wbr>Sub<wbr></wbr>Element<wbr></wbr>Text</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOCATION_UNITS" class="internal-link" title="ganeti.ovf.ALLOCATION_UNITS">ALLOCATION<wbr></wbr>_UNITS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOWED_ACTIONS" class="internal-link" title="ganeti.ovf.ALLOWED_ACTIONS">ALLOWED<wbr></wbr>_ACTIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#ALLOWED_FORMATS" class="internal-link" title="ganeti.ovf.ALLOWED_FORMATS">ALLOWED<wbr></wbr>_FORMATS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#AUTO_BALANCE" class="internal-link" title="ganeti.ovf.AUTO_BALANCE">AUTO<wbr></wbr>_BALANCE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CERT_EXT" class="internal-link" title="ganeti.ovf.CERT_EXT">CERT<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESS" class="internal-link" title="ganeti.ovf.COMPRESS">COMPRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESSION_EXT" class="internal-link" title="ganeti.ovf.COMPRESSION_EXT">COMPRESSION<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COMPRESSION_TYPE" class="internal-link" title="ganeti.ovf.COMPRESSION_TYPE">COMPRESSION<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#CONVERT_UNITS_TO_MB" class="internal-link" title="ganeti.ovf.CONVERT_UNITS_TO_MB">CONVERT<wbr></wbr>_UNITS<wbr></wbr>_TO<wbr></wbr>_MB</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#COW" class="internal-link" title="ganeti.ovf.COW">COW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DECOMPRESS" class="internal-link" title="ganeti.ovf.DECOMPRESS">DECOMPRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DISK_FORMAT" class="internal-link" title="ganeti.ovf.DISK_FORMAT">DISK<wbr></wbr>_FORMAT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#DISK_TEMPLATE" class="internal-link" title="ganeti.ovf.DISK_TEMPLATE">DISK<wbr></wbr>_TEMPLATE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#FILE_EXTENSIONS" class="internal-link" title="ganeti.ovf.FILE_EXTENSIONS">FILE<wbr></wbr>_EXTENSIONS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#GANETI_SCHEMA" class="internal-link" title="ganeti.ovf.GANETI_SCHEMA">GANETI<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#HYPERV" class="internal-link" title="ganeti.ovf.HYPERV">HYPERV</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#INSTANCE_ID" class="internal-link" title="ganeti.ovf.INSTANCE_ID">INSTANCE<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#MEMORY" class="internal-link" title="ganeti.ovf.MEMORY">MEMORY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#MF_EXT" class="internal-link" title="ganeti.ovf.MF_EXT">MF<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#NAME" class="internal-link" title="ganeti.ovf.NAME">NAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#NO_COMPRESSION" class="internal-link" title="ganeti.ovf.NO_COMPRESSION">NO<wbr></wbr>_COMPRESSION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OS" class="internal-link" title="ganeti.ovf.OS">OS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVA_EXT" class="internal-link" title="ganeti.ovf.OVA_EXT">OVA<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVF_EXT" class="internal-link" title="ganeti.ovf.OVF_EXT">OVF<wbr></wbr>_EXT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#OVF_SCHEMA" class="internal-link" title="ganeti.ovf.OVF_SCHEMA">OVF<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RASD_SCHEMA" class="internal-link" title="ganeti.ovf.RASD_SCHEMA">RASD<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RASD_TYPE" class="internal-link" title="ganeti.ovf.RASD_TYPE">RASD<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#RAW" class="internal-link" title="ganeti.ovf.RAW">RAW</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#SCSI_SUBTYPE" class="internal-link" title="ganeti.ovf.SCSI_SUBTYPE">SCSI<wbr></wbr>_SUBTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#TAGS" class="internal-link" title="ganeti.ovf.TAGS">TAGS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VCPUS" class="internal-link" title="ganeti.ovf.VCPUS">VCPUS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VERSION" class="internal-link" title="ganeti.ovf.VERSION">VERSION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VMDK" class="internal-link" title="ganeti.ovf.VMDK">VMDK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VS_TYPE" class="internal-link" title="ganeti.ovf.VS_TYPE">VS<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#VSSD_SCHEMA" class="internal-link" title="ganeti.ovf.VSSD_SCHEMA">VSSD<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html#XML_SCHEMA" class="internal-link" title="ganeti.ovf.XML_SCHEMA">XML<wbr></wbr>_SCHEMA</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code><wbr></wbr>.<code><a href="ganeti.ovf.OVFWriter.html" class="internal-link" title="ganeti.ovf.OVFWriter">OVFWriter</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">OVFWriter</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.ovf.OVFWriter">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Writer class for OVF files.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id991">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.ovf.OVFWriter.__init__">__init__</a></code></td>
+    <td>Initialize the writer - set the top element.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#PrettyXmlDump" class="internal-link" title="ganeti.ovf.OVFWriter.PrettyXmlDump"><wbr></wbr>Pretty<wbr></wbr>Xml<wbr></wbr>Dump</a></code></td>
+    <td>Formatter of the XML file.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SaveDisksData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveDisksData"><wbr></wbr>Save<wbr></wbr>Disks<wbr></wbr>Data</a></code></td>
+    <td>Convert disk information to certain OVF sections.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SaveGanetiData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveGanetiData"><wbr></wbr>Save<wbr></wbr>Ganeti<wbr></wbr>Data</a></code></td>
+    <td>Convert Ganeti-specific information to GanetiSection.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SaveNetworksData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveNetworksData"><wbr></wbr>Save<wbr></wbr>Networks<wbr></wbr>Data</a></code></td>
+    <td>Convert network information to NetworkSection.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SaveVirtualSystemData" class="internal-link" title="ganeti.ovf.OVFWriter.SaveVirtualSystemData"><wbr></wbr>Save<wbr></wbr>Virtual<wbr></wbr>System<wbr></wbr>Data</a></code></td>
+    <td>Convert virtual system information to OVF sections.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hardware_list" class="internal-link" title="ganeti.ovf.OVFWriter.hardware_list">hardware<wbr></wbr>_list</a></code></td>
+    <td>list of items prepared for VirtualHardwareSection</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#next_instance_id" class="internal-link" title="ganeti.ovf.OVFWriter.next_instance_id">next<wbr></wbr>_instance<wbr></wbr>_id</a></code></td>
+    <td>next instance id to be used when creating elements on hardware_list</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tree" class="internal-link" title="ganeti.ovf.OVFWriter.tree">tree</a></code></td>
+    <td>XML tree that we are constructing</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#virtual_system_type" class="internal-link" title="ganeti.ovf.OVFWriter.virtual_system_type">virtual<wbr></wbr>_system<wbr></wbr>_type</a></code></td>
+    <td>value of vssd:VirtualSystemType, for external usage in VMWare this requires to be vmx</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_SaveNameAndParams" class="internal-link" title="ganeti.ovf.OVFWriter._SaveNameAndParams">_<wbr></wbr>Save<wbr></wbr>Name<wbr></wbr>And<wbr></wbr>Params</a></code></td>
+    <td>Save name and parameters information under root using data.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, has_gnt_section):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.ovf.OVFWriter.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the writer - set the top element.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">has<wbr></wbr>_gnt<wbr></wbr>_section:</span>bool</td><td class="fieldArgDesc">if the Ganeti schema should be added - i.e. this means that Ganeti section will be present</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.PrettyXmlDump">
+    
+  </a>
+  <a name="PrettyXmlDump">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PrettyXmlDump</span>(self):
+    
+    <a class="headerLink" href="#PrettyXmlDump" title="ganeti.ovf.OVFWriter.PrettyXmlDump">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formatter of the XML file.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">XML tree in the form of nicely-formatted string</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.SaveDisksData">
+    
+  </a>
+  <a name="SaveDisksData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SaveDisksData</span>(self, disks):
+    
+    <a class="headerLink" href="#SaveDisksData" title="ganeti.ovf.OVFWriter.SaveDisksData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert disk information to certain OVF sections.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list</td><td class="fieldArgDesc">list of dictionaries of disk options from config.ini</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.SaveGanetiData">
+    
+  </a>
+  <a name="SaveGanetiData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SaveGanetiData</span>(self, ganeti, networks):
+    
+    <a class="headerLink" href="#SaveGanetiData" title="ganeti.ovf.OVFWriter.SaveGanetiData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert Ganeti-specific information to GanetiSection.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ganeti:</span>dict</td><td class="fieldArgDesc">dictionary of Ganeti-specific options from config.ini</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">networks:</span>list</td><td class="fieldArgDesc">list of dictionaries of network options form config.ini</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.SaveNetworksData">
+    
+  </a>
+  <a name="SaveNetworksData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SaveNetworksData</span>(self, networks):
+    
+    <a class="headerLink" href="#SaveNetworksData" title="ganeti.ovf.OVFWriter.SaveNetworksData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert network information to NetworkSection.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">networks:</span>list</td><td class="fieldArgDesc">list of dictionaries of network options form config.ini</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.SaveVirtualSystemData">
+    
+  </a>
+  <a name="SaveVirtualSystemData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SaveVirtualSystemData</span>(self, name, vcpus, memory):
+    
+    <a class="headerLink" href="#SaveVirtualSystemData" title="ganeti.ovf.OVFWriter.SaveVirtualSystemData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Convert virtual system information to OVF sections.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span>string</td><td class="fieldArgDesc">name of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vcpus:</span>int</td><td class="fieldArgDesc">number of VCPUs</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">memory:</span>int</td><td class="fieldArgDesc">RAM memory in MB</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.hardware_list">
+    
+  </a>
+  <a name="hardware_list">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hardware_list</span>: list =
+    
+    <a class="headerLink" href="#hardware_list" title="ganeti.ovf.OVFWriter.hardware_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>list of items prepared for VirtualHardwareSection</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.next_instance_id">
+    
+  </a>
+  <a name="next_instance_id">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">next_instance_id</span>: int =
+    
+    <a class="headerLink" href="#next_instance_id" title="ganeti.ovf.OVFWriter.next_instance_id">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>next instance id to be used when creating elements on hardware_list</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.tree">
+    
+  </a>
+  <a name="tree">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tree</span>: ET.ElementTree =
+    
+    <a class="headerLink" href="#tree" title="ganeti.ovf.OVFWriter.tree">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>XML tree that we are constructing</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.ovf.OVFWriter.virtual_system_type">
+    
+  </a>
+  <a name="virtual_system_type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">virtual_system_type</span>: string =
+    
+    <a class="headerLink" href="#virtual_system_type" title="ganeti.ovf.OVFWriter.virtual_system_type">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>value of vssd:VirtualSystemType, for external usage in VMWare this requires to be vmx</p>
+</div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.ovf.OVFWriter._SaveNameAndParams">
+    
+  </a>
+  <a name="_SaveNameAndParams">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_SaveNameAndParams</span>(root, data):
+    
+    <a class="headerLink" href="#_SaveNameAndParams" title="ganeti.ovf.OVFWriter._SaveNameAndParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Save name and parameters information under root using data.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">root:</span>ET.Element</td><td class="fieldArgDesc">root element for the Name and Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc">data from which we gather the values</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
