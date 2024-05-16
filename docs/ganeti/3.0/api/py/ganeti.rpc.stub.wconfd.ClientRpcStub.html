@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.rpc.stub.wconfd.ClientRpcStub</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.rpc.stub.wconfd.ClientRpcStub.html" class="internal-link" title="This class"><wbr></wbr>Client<wbr></wbr>Rpc<wbr></wbr>Stub</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstance"><wbr></wbr>Add<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstanceDisk"><wbr></wbr>Add<wbr></wbr>Instance<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddTcpUdpPort" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddTcpUdpPort"><wbr></wbr>Add<wbr></wbr>Tcp<wbr></wbr>Udp<wbr></wbr>Port</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AllocateDRBDMinor" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocateDRBDMinor"><wbr></wbr>Allocate<wbr></wbr>DRBDMinor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AllocatePort" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocatePort"><wbr></wbr>Allocate<wbr></wbr>Port</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AttachInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AttachInstanceDisk"><wbr></wbr>Attach<wbr></wbr>Instance<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CleanupLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CleanupLocks"><wbr></wbr>Cleanup<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CommitReleaseTemporaryIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitReleaseTemporaryIp"><wbr></wbr>Commit<wbr></wbr>Release<wbr></wbr>Temporary<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CommitTemporaryIps" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitTemporaryIps"><wbr></wbr>Commit<wbr></wbr>Temporary<wbr></wbr>Ips</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeDRBDMap" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ComputeDRBDMap"><wbr></wbr>Compute<wbr></wbr>DRBDMap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DetachInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DetachInstanceDisk"><wbr></wbr>Detach<wbr></wbr>Instance<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DownGradeLocksLevel" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DownGradeLocksLevel"><wbr></wbr>Down<wbr></wbr>Grade<wbr></wbr>Locks<wbr></wbr>Level</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DropAllReservations" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DropAllReservations"><wbr></wbr>Drop<wbr></wbr>All<wbr></wbr>Reservations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Echo" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.Echo"><wbr></wbr>Echo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FlushConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfig"><wbr></wbr>Flush<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FlushConfigGroup" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfigGroup"><wbr></wbr>Flush<wbr></wbr>Config<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FreeLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocks"><wbr></wbr>Free<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FreeLocksLevel" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocksLevel"><wbr></wbr>Free<wbr></wbr>Locks<wbr></wbr>Level</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateDRBDSecret" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateDRBDSecret"><wbr></wbr>Generate<wbr></wbr>DRBDSecret</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateIp"><wbr></wbr>Generate<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateMAC" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateMAC"><wbr></wbr>Generate<wbr></wbr>MAC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GuardedOpportunisticLockUnion" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GuardedOpportunisticLockUnion"><wbr></wbr>Guarded<wbr></wbr>Opportunistic<wbr></wbr>Lock<wbr></wbr>Union</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HasPendingRequest" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.HasPendingRequest"><wbr></wbr>Has<wbr></wbr>Pending<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IntersectLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.IntersectLocks"><wbr></wbr>Intersect<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListAllLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocks"><wbr></wbr>List<wbr></wbr>All<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListAllLocksOwners" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocksOwners"><wbr></wbr>List<wbr></wbr>All<wbr></wbr>Locks<wbr></wbr>Owners</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocks"><wbr></wbr>List<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListLocksWaitingStatus" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocksWaitingStatus"><wbr></wbr>List<wbr></wbr>Locks<wbr></wbr>Waiting<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListReservedIps" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListReservedIps"><wbr></wbr>List<wbr></wbr>Reserved<wbr></wbr>Ips</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LockConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.LockConfig"><wbr></wbr>Lock<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#OpportunisticLockUnion" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.OpportunisticLockUnion"><wbr></wbr>Opportunistic<wbr></wbr>Lock<wbr></wbr>Union</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PrepareClusterDestruction" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.PrepareClusterDestruction"><wbr></wbr>Prepare<wbr></wbr>Cluster<wbr></wbr>Destruction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReadConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReadConfig"><wbr></wbr>Read<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReleaseDRBDMinors" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseDRBDMinors"><wbr></wbr>Release<wbr></wbr>DRBDMinors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReleaseIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseIp"><wbr></wbr>Release<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstance"><wbr></wbr>Remove<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstanceDisk"><wbr></wbr>Remove<wbr></wbr>Instance<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReserveIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveIp"><wbr></wbr>Reserve<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReserveLV" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveLV"><wbr></wbr>Reserve<wbr></wbr>LV</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ReserveMAC" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveMAC"><wbr></wbr>Reserve<wbr></wbr>MAC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetInstancePrimaryNode" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstancePrimaryNode"><wbr></wbr>Set<wbr></wbr>Instance<wbr></wbr>Primary<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetInstanceStatus" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstanceStatus"><wbr></wbr>Set<wbr></wbr>Instance<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TryUpdateLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.TryUpdateLocks"><wbr></wbr>Try<wbr></wbr>Update<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UnlockConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UnlockConfig"><wbr></wbr>Unlock<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateCluster" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateCluster"><wbr></wbr>Update<wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateDisk"><wbr></wbr>Update<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateInstance"><wbr></wbr>Update<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateLocksWaiting" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateLocksWaiting"><wbr></wbr>Update<wbr></wbr>Locks<wbr></wbr>Waiting</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateNetwork" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNetwork"><wbr></wbr>Update<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateNode" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNode"><wbr></wbr>Update<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpdateNodeGroup" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNodeGroup"><wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.VerifyConfig"><wbr></wbr>Verify<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WriteConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfig"><wbr></wbr>Write<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WriteConfigAndUnlock" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfigAndUnlock"><wbr></wbr>Write<wbr></wbr>Config<wbr></wbr>And<wbr></wbr>Unlock</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GenericInvoke" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GenericInvoke">_<wbr></wbr>Generic<wbr></wbr>Invoke</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetSocketPath" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GetSocketPath">_<wbr></wbr>Get<wbr></wbr>Socket<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.rpc.stub.wconfd.html" class="internal-link" title="The parent of this class">wconfd</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.stub.wconfd.ClientRpcStub.html" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub"><wbr></wbr>Client<wbr></wbr>Rpc<wbr></wbr>Stub</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code><wbr></wbr>.<code><a href="ganeti.rpc.stub.html" class="internal-link" title="ganeti.rpc.stub">stub</a></code><wbr></wbr>.<code><a href="ganeti.rpc.stub.wconfd.html" class="internal-link" title="ganeti.rpc.stub.wconfd">wconfd</a></code><wbr></wbr>.<code><a href="ganeti.rpc.stub.wconfd.ClientRpcStub.html" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub">ClientRpcStub</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ClientRpcStub</span>(object):</code></p><p>Known subclasses: <code><a href="ganeti.wconfd.Client.html" class="internal-link">ganeti.wconfd.Client</a></code></p>
+          <p><a href="classIndex.html#ganeti.rpc.stub.wconfd.ClientRpcStub">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1248">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AddInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstance"><wbr></wbr>Add<wbr></wbr>Instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AddInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstanceDisk"><wbr></wbr>Add<wbr></wbr>Instance<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AddTcpUdpPort" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddTcpUdpPort"><wbr></wbr>Add<wbr></wbr>Tcp<wbr></wbr>Udp<wbr></wbr>Port</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AllocateDRBDMinor" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocateDRBDMinor"><wbr></wbr>Allocate<wbr></wbr>DRBDMinor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AllocatePort" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocatePort"><wbr></wbr>Allocate<wbr></wbr>Port</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AttachInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AttachInstanceDisk"><wbr></wbr>Attach<wbr></wbr>Instance<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CleanupLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CleanupLocks"><wbr></wbr>Cleanup<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CommitReleaseTemporaryIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitReleaseTemporaryIp"><wbr></wbr>Commit<wbr></wbr>Release<wbr></wbr>Temporary<wbr></wbr>Ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CommitTemporaryIps" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitTemporaryIps"><wbr></wbr>Commit<wbr></wbr>Temporary<wbr></wbr>Ips</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ComputeDRBDMap" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ComputeDRBDMap"><wbr></wbr>Compute<wbr></wbr>DRBDMap</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DetachInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DetachInstanceDisk"><wbr></wbr>Detach<wbr></wbr>Instance<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DownGradeLocksLevel" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DownGradeLocksLevel"><wbr></wbr>Down<wbr></wbr>Grade<wbr></wbr>Locks<wbr></wbr>Level</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DropAllReservations" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DropAllReservations"><wbr></wbr>Drop<wbr></wbr>All<wbr></wbr>Reservations</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Echo" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.Echo"><wbr></wbr>Echo</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FlushConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfig"><wbr></wbr>Flush<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FlushConfigGroup" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfigGroup"><wbr></wbr>Flush<wbr></wbr>Config<wbr></wbr>Group</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FreeLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocks"><wbr></wbr>Free<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#FreeLocksLevel" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocksLevel"><wbr></wbr>Free<wbr></wbr>Locks<wbr></wbr>Level</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GenerateDRBDSecret" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateDRBDSecret"><wbr></wbr>Generate<wbr></wbr>DRBDSecret</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GenerateIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateIp"><wbr></wbr>Generate<wbr></wbr>Ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GenerateMAC" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateMAC"><wbr></wbr>Generate<wbr></wbr>MAC</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GuardedOpportunisticLockUnion" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GuardedOpportunisticLockUnion"><wbr></wbr>Guarded<wbr></wbr>Opportunistic<wbr></wbr>Lock<wbr></wbr>Union</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#HasPendingRequest" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.HasPendingRequest"><wbr></wbr>Has<wbr></wbr>Pending<wbr></wbr>Request</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#IntersectLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.IntersectLocks"><wbr></wbr>Intersect<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ListAllLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocks"><wbr></wbr>List<wbr></wbr>All<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ListAllLocksOwners" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocksOwners"><wbr></wbr>List<wbr></wbr>All<wbr></wbr>Locks<wbr></wbr>Owners</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ListLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocks"><wbr></wbr>List<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ListLocksWaitingStatus" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocksWaitingStatus"><wbr></wbr>List<wbr></wbr>Locks<wbr></wbr>Waiting<wbr></wbr>Status</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ListReservedIps" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListReservedIps"><wbr></wbr>List<wbr></wbr>Reserved<wbr></wbr>Ips</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#LockConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.LockConfig"><wbr></wbr>Lock<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#OpportunisticLockUnion" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.OpportunisticLockUnion"><wbr></wbr>Opportunistic<wbr></wbr>Lock<wbr></wbr>Union</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#PrepareClusterDestruction" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.PrepareClusterDestruction"><wbr></wbr>Prepare<wbr></wbr>Cluster<wbr></wbr>Destruction</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReadConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReadConfig"><wbr></wbr>Read<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReleaseDRBDMinors" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseDRBDMinors"><wbr></wbr>Release<wbr></wbr>DRBDMinors</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReleaseIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseIp"><wbr></wbr>Release<wbr></wbr>Ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#RemoveInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstance"><wbr></wbr>Remove<wbr></wbr>Instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#RemoveInstanceDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstanceDisk"><wbr></wbr>Remove<wbr></wbr>Instance<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReserveIp" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveIp"><wbr></wbr>Reserve<wbr></wbr>Ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReserveLV" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveLV"><wbr></wbr>Reserve<wbr></wbr>LV</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ReserveMAC" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveMAC"><wbr></wbr>Reserve<wbr></wbr>MAC</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SetInstancePrimaryNode" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstancePrimaryNode"><wbr></wbr>Set<wbr></wbr>Instance<wbr></wbr>Primary<wbr></wbr>Node</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SetInstanceStatus" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstanceStatus"><wbr></wbr>Set<wbr></wbr>Instance<wbr></wbr>Status</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#TryUpdateLocks" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.TryUpdateLocks"><wbr></wbr>Try<wbr></wbr>Update<wbr></wbr>Locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UnlockConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UnlockConfig"><wbr></wbr>Unlock<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateCluster" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateCluster"><wbr></wbr>Update<wbr></wbr>Cluster</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateDisk" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateDisk"><wbr></wbr>Update<wbr></wbr>Disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateInstance" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateInstance"><wbr></wbr>Update<wbr></wbr>Instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateLocksWaiting" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateLocksWaiting"><wbr></wbr>Update<wbr></wbr>Locks<wbr></wbr>Waiting</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateNetwork" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNetwork"><wbr></wbr>Update<wbr></wbr>Network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateNode" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNode"><wbr></wbr>Update<wbr></wbr>Node</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#UpdateNodeGroup" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNodeGroup"><wbr></wbr>Update<wbr></wbr>Node<wbr></wbr>Group</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#VerifyConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.VerifyConfig"><wbr></wbr>Verify<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#WriteConfig" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfig"><wbr></wbr>Write<wbr></wbr>Config</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#WriteConfigAndUnlock" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfigAndUnlock"><wbr></wbr>Write<wbr></wbr>Config<wbr></wbr>And<wbr></wbr>Unlock</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GenericInvoke" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GenericInvoke">_<wbr></wbr>Generic<wbr></wbr>Invoke</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetSocketPath" class="internal-link" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GetSocketPath">_<wbr></wbr>Get<wbr></wbr>Socket<wbr></wbr>Path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstance">
+    
+  </a>
+  <a name="AddInstance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddInstance</span>(self, instance, clientId, bool):
+    
+    <a class="headerLink" href="#AddInstance" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstanceDisk">
+    
+  </a>
+  <a name="AddInstanceDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddInstanceDisk</span>(self, instanceUUID, disk, intMaybeForJSON, bool):
+    
+    <a class="headerLink" href="#AddInstanceDisk" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddInstanceDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AddTcpUdpPort">
+    
+  </a>
+  <a name="AddTcpUdpPort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddTcpUdpPort</span>(self, int):
+    
+    <a class="headerLink" href="#AddTcpUdpPort" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AddTcpUdpPort">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocateDRBDMinor">
+    
+  </a>
+  <a name="AllocateDRBDMinor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AllocateDRBDMinor</span>(self, diskUUID, nodeUUIDList):
+    
+    <a class="headerLink" href="#AllocateDRBDMinor" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocateDRBDMinor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocatePort">
+    
+  </a>
+  <a name="AllocatePort">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AllocatePort</span>(self):
+    
+    <a class="headerLink" href="#AllocatePort" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AllocatePort">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.AttachInstanceDisk">
+    
+  </a>
+  <a name="AttachInstanceDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AttachInstanceDisk</span>(self, instanceUUID, diskUUID, intMaybeForJSON):
+    
+    <a class="headerLink" href="#AttachInstanceDisk" title="ganeti.rpc.stub.wconfd.ClientRpcStub.AttachInstanceDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.CleanupLocks">
+    
+  </a>
+  <a name="CleanupLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CleanupLocks</span>(self):
+    
+    <a class="headerLink" href="#CleanupLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CleanupLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitReleaseTemporaryIp">
+    
+  </a>
+  <a name="CommitReleaseTemporaryIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CommitReleaseTemporaryIp</span>(self, networkUUID, ip4Address):
+    
+    <a class="headerLink" href="#CommitReleaseTemporaryIp" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitReleaseTemporaryIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitTemporaryIps">
+    
+  </a>
+  <a name="CommitTemporaryIps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CommitTemporaryIps</span>(self, clientId):
+    
+    <a class="headerLink" href="#CommitTemporaryIps" title="ganeti.rpc.stub.wconfd.ClientRpcStub.CommitTemporaryIps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ComputeDRBDMap">
+    
+  </a>
+  <a name="ComputeDRBDMap">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeDRBDMap</span>(self):
+    
+    <a class="headerLink" href="#ComputeDRBDMap" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ComputeDRBDMap">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.DetachInstanceDisk">
+    
+  </a>
+  <a name="DetachInstanceDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DetachInstanceDisk</span>(self, instanceUUID, diskUUID):
+    
+    <a class="headerLink" href="#DetachInstanceDisk" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DetachInstanceDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.DownGradeLocksLevel">
+    
+  </a>
+  <a name="DownGradeLocksLevel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DownGradeLocksLevel</span>(self, clientId, lockLevel):
+    
+    <a class="headerLink" href="#DownGradeLocksLevel" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DownGradeLocksLevel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.DropAllReservations">
+    
+  </a>
+  <a name="DropAllReservations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DropAllReservations</span>(self, clientId):
+    
+    <a class="headerLink" href="#DropAllReservations" title="ganeti.rpc.stub.wconfd.ClientRpcStub.DropAllReservations">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.Echo">
+    
+  </a>
+  <a name="Echo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Echo</span>(self, string):
+    
+    <a class="headerLink" href="#Echo" title="ganeti.rpc.stub.wconfd.ClientRpcStub.Echo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfig">
+    
+  </a>
+  <a name="FlushConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FlushConfig</span>(self):
+    
+    <a class="headerLink" href="#FlushConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfigGroup">
+    
+  </a>
+  <a name="FlushConfigGroup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FlushConfigGroup</span>(self, string):
+    
+    <a class="headerLink" href="#FlushConfigGroup" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FlushConfigGroup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocks">
+    
+  </a>
+  <a name="FreeLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FreeLocks</span>(self, clientId):
+    
+    <a class="headerLink" href="#FreeLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocksLevel">
+    
+  </a>
+  <a name="FreeLocksLevel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FreeLocksLevel</span>(self, clientId, lockLevel):
+    
+    <a class="headerLink" href="#FreeLocksLevel" title="ganeti.rpc.stub.wconfd.ClientRpcStub.FreeLocksLevel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateDRBDSecret">
+    
+  </a>
+  <a name="GenerateDRBDSecret">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateDRBDSecret</span>(self, clientId):
+    
+    <a class="headerLink" href="#GenerateDRBDSecret" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateDRBDSecret">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateIp">
+    
+  </a>
+  <a name="GenerateIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateIp</span>(self, clientId, networkUUID):
+    
+    <a class="headerLink" href="#GenerateIp" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateMAC">
+    
+  </a>
+  <a name="GenerateMAC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateMAC</span>(self, clientId, networkUUIDMaybeForJSON):
+    
+    <a class="headerLink" href="#GenerateMAC" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GenerateMAC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.GuardedOpportunisticLockUnion">
+    
+  </a>
+  <a name="GuardedOpportunisticLockUnion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GuardedOpportunisticLockUnion</span>(self, int, clientId, ganetiLocks_ownerState_PairList):
+    
+    <a class="headerLink" href="#GuardedOpportunisticLockUnion" title="ganeti.rpc.stub.wconfd.ClientRpcStub.GuardedOpportunisticLockUnion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.HasPendingRequest">
+    
+  </a>
+  <a name="HasPendingRequest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">HasPendingRequest</span>(self, clientId):
+    
+    <a class="headerLink" href="#HasPendingRequest" title="ganeti.rpc.stub.wconfd.ClientRpcStub.HasPendingRequest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.IntersectLocks">
+    
+  </a>
+  <a name="IntersectLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IntersectLocks</span>(self, clientId, ganetiLocksList):
+    
+    <a class="headerLink" href="#IntersectLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.IntersectLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocks">
+    
+  </a>
+  <a name="ListAllLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListAllLocks</span>(self):
+    
+    <a class="headerLink" href="#ListAllLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocksOwners">
+    
+  </a>
+  <a name="ListAllLocksOwners">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListAllLocksOwners</span>(self):
+    
+    <a class="headerLink" href="#ListAllLocksOwners" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListAllLocksOwners">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocks">
+    
+  </a>
+  <a name="ListLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListLocks</span>(self, clientId):
+    
+    <a class="headerLink" href="#ListLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocksWaitingStatus">
+    
+  </a>
+  <a name="ListLocksWaitingStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListLocksWaitingStatus</span>(self):
+    
+    <a class="headerLink" href="#ListLocksWaitingStatus" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListLocksWaitingStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ListReservedIps">
+    
+  </a>
+  <a name="ListReservedIps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListReservedIps</span>(self, clientId):
+    
+    <a class="headerLink" href="#ListReservedIps" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ListReservedIps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.LockConfig">
+    
+  </a>
+  <a name="LockConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">LockConfig</span>(self, clientId, bool):
+    
+    <a class="headerLink" href="#LockConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.LockConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.OpportunisticLockUnion">
+    
+  </a>
+  <a name="OpportunisticLockUnion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">OpportunisticLockUnion</span>(self, clientId, ganetiLocks_ownerState_PairList):
+    
+    <a class="headerLink" href="#OpportunisticLockUnion" title="ganeti.rpc.stub.wconfd.ClientRpcStub.OpportunisticLockUnion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.PrepareClusterDestruction">
+    
+  </a>
+  <a name="PrepareClusterDestruction">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PrepareClusterDestruction</span>(self, clientId):
+    
+    <a class="headerLink" href="#PrepareClusterDestruction" title="ganeti.rpc.stub.wconfd.ClientRpcStub.PrepareClusterDestruction">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReadConfig">
+    
+  </a>
+  <a name="ReadConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReadConfig</span>(self):
+    
+    <a class="headerLink" href="#ReadConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReadConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseDRBDMinors">
+    
+  </a>
+  <a name="ReleaseDRBDMinors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReleaseDRBDMinors</span>(self, diskUUID):
+    
+    <a class="headerLink" href="#ReleaseDRBDMinors" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseDRBDMinors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseIp">
+    
+  </a>
+  <a name="ReleaseIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReleaseIp</span>(self, clientId, networkUUID, ip4Address):
+    
+    <a class="headerLink" href="#ReleaseIp" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReleaseIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstance">
+    
+  </a>
+  <a name="RemoveInstance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveInstance</span>(self, instanceUUID):
+    
+    <a class="headerLink" href="#RemoveInstance" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstanceDisk">
+    
+  </a>
+  <a name="RemoveInstanceDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveInstanceDisk</span>(self, instanceUUID, diskUUID):
+    
+    <a class="headerLink" href="#RemoveInstanceDisk" title="ganeti.rpc.stub.wconfd.ClientRpcStub.RemoveInstanceDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveIp">
+    
+  </a>
+  <a name="ReserveIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReserveIp</span>(self, clientId, networkUUID, ip4Address, bool):
+    
+    <a class="headerLink" href="#ReserveIp" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveLV">
+    
+  </a>
+  <a name="ReserveLV">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReserveLV</span>(self, clientId, logicalVolume):
+    
+    <a class="headerLink" href="#ReserveLV" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveLV">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveMAC">
+    
+  </a>
+  <a name="ReserveMAC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ReserveMAC</span>(self, clientId, mAC):
+    
+    <a class="headerLink" href="#ReserveMAC" title="ganeti.rpc.stub.wconfd.ClientRpcStub.ReserveMAC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstancePrimaryNode">
+    
+  </a>
+  <a name="SetInstancePrimaryNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetInstancePrimaryNode</span>(self, instanceUUID, nodeUUID):
+    
+    <a class="headerLink" href="#SetInstancePrimaryNode" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstancePrimaryNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstanceStatus">
+    
+  </a>
+  <a name="SetInstanceStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetInstanceStatus</span>(self, instanceUUID, adminStateMaybeForJSON, boolMaybeForJSON, adminStateSourceMaybeForJSON):
+    
+    <a class="headerLink" href="#SetInstanceStatus" title="ganeti.rpc.stub.wconfd.ClientRpcStub.SetInstanceStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.TryUpdateLocks">
+    
+  </a>
+  <a name="TryUpdateLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">TryUpdateLocks</span>(self, clientId, ganetiLockRequest):
+    
+    <a class="headerLink" href="#TryUpdateLocks" title="ganeti.rpc.stub.wconfd.ClientRpcStub.TryUpdateLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UnlockConfig">
+    
+  </a>
+  <a name="UnlockConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UnlockConfig</span>(self, clientId):
+    
+    <a class="headerLink" href="#UnlockConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UnlockConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateCluster">
+    
+  </a>
+  <a name="UpdateCluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateCluster</span>(self, cluster):
+    
+    <a class="headerLink" href="#UpdateCluster" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateCluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateDisk">
+    
+  </a>
+  <a name="UpdateDisk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateDisk</span>(self, disk):
+    
+    <a class="headerLink" href="#UpdateDisk" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateDisk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateInstance">
+    
+  </a>
+  <a name="UpdateInstance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateInstance</span>(self, instance):
+    
+    <a class="headerLink" href="#UpdateInstance" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateInstance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateLocksWaiting">
+    
+  </a>
+  <a name="UpdateLocksWaiting">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateLocksWaiting</span>(self, clientId, integer, ganetiLockRequest):
+    
+    <a class="headerLink" href="#UpdateLocksWaiting" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateLocksWaiting">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNetwork">
+    
+  </a>
+  <a name="UpdateNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateNetwork</span>(self, network):
+    
+    <a class="headerLink" href="#UpdateNetwork" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNode">
+    
+  </a>
+  <a name="UpdateNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateNode</span>(self, node):
+    
+    <a class="headerLink" href="#UpdateNode" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNodeGroup">
+    
+  </a>
+  <a name="UpdateNodeGroup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpdateNodeGroup</span>(self, nodeGroup):
+    
+    <a class="headerLink" href="#UpdateNodeGroup" title="ganeti.rpc.stub.wconfd.ClientRpcStub.UpdateNodeGroup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.VerifyConfig">
+    
+  </a>
+  <a name="VerifyConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyConfig</span>(self):
+    
+    <a class="headerLink" href="#VerifyConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.VerifyConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfig">
+    
+  </a>
+  <a name="WriteConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WriteConfig</span>(self, clientId, configData):
+    
+    <a class="headerLink" href="#WriteConfig" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfigAndUnlock">
+    
+  </a>
+  <a name="WriteConfigAndUnlock">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WriteConfigAndUnlock</span>(self, clientId, configData):
+    
+    <a class="headerLink" href="#WriteConfigAndUnlock" title="ganeti.rpc.stub.wconfd.ClientRpcStub.WriteConfigAndUnlock">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub._GenericInvoke">
+    
+  </a>
+  <a name="_GenericInvoke">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GenericInvoke</span>(self, method, *args):
+    
+    <a class="headerLink" href="#_GenericInvoke" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GenericInvoke">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.rpc.stub.wconfd.ClientRpcStub._GetSocketPath">
+    
+  </a>
+  <a name="_GetSocketPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetSocketPath</span>(self):
+    
+    <a class="headerLink" href="#_GetSocketPath" title="ganeti.rpc.stub.wconfd.ClientRpcStub._GetSocketPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

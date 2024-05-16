@@ -1,0 +1,1637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.storage.bdev.RADOSBlockDevice</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.storage.bdev.RADOSBlockDevice.html" class="internal-link" title="This class"><wbr></wbr>RADOSBlock<wbr></wbr>Device</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Create" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Create"><wbr></wbr>Create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Assemble" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Assemble"><wbr></wbr>Assemble</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Attach" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Attach"><wbr></wbr>Attach</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Close" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Close"><wbr></wbr>Close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Export" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Export"><wbr></wbr>Export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.GetUserspaceAccessUri"><wbr></wbr>Get<wbr></wbr>Userspace<wbr></wbr>Access<wbr></wbr>Uri</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Grow" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Grow"><wbr></wbr>Grow</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Import" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Import"><wbr></wbr>Import</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Open" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Open"><wbr></wbr>Open</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Remove" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Remove"><wbr></wbr>Remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Rename" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Rename"><wbr></wbr>Rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Shutdown" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Shutdown"><wbr></wbr>Shutdown</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VolumeToBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._VolumeToBlockdev">_<wbr></wbr>Volume<wbr></wbr>To<wbr></wbr>Blockdev</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseRbdShowmappedJson" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedJson">_<wbr></wbr>Parse<wbr></wbr>Rbd<wbr></wbr>Showmapped<wbr></wbr>Json</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ParseRbdShowmappedPlain" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedPlain">_<wbr></wbr>Parse<wbr></wbr>Rbd<wbr></wbr>Showmapped<wbr></wbr>Plain</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MapVolumeToBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._MapVolumeToBlockdev">_<wbr></wbr>Map<wbr></wbr>Volume<wbr></wbr>To<wbr></wbr>Blockdev</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UnmapVolumeFromBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._UnmapVolumeFromBlockdev">_<wbr></wbr>Unmap<wbr></wbr>Volume<wbr></wbr>From<wbr></wbr>Blockdev</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#__eq__" class="internal-link" title="ganeti.storage.base.BlockDev.__eq__">__eq__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#__repr__" class="internal-link" title="ganeti.storage.base.BlockDev.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#CombinedSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.CombinedSyncStatus"><wbr></wbr>Combined<wbr></wbr>Sync<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualDimensions" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualDimensions"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Dimensions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualSize" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSize"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetActualSpindles" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSpindles"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Spindles</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#GetSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.GetSyncStatus"><wbr></wbr>Get<wbr></wbr>Sync<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#PauseResumeSync" class="internal-link" title="ganeti.storage.base.BlockDev.PauseResumeSync"><wbr></wbr>Pause<wbr></wbr>Resume<wbr></wbr>Sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#SetInfo" class="internal-link" title="ganeti.storage.base.BlockDev.SetInfo"><wbr></wbr>Set<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#SetSyncParams" class="internal-link" title="ganeti.storage.base.BlockDev.SetSyncParams"><wbr></wbr>Set<wbr></wbr>Sync<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#Snapshot" class="internal-link" title="ganeti.storage.base.BlockDev.Snapshot"><wbr></wbr>Snapshot</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#attached" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.attached">attached</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dev_path" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.dev_path">dev<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#driver" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.driver">driver</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#major" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.major">major</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#minor" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.minor">minor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#rbd_name" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_name">rbd<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#rbd_pool" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_pool">rbd<wbr></wbr>_pool</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#dyn_params" class="internal-link" title="ganeti.storage.base.BlockDev.dyn_params">dyn<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#params" class="internal-link" title="ganeti.storage.base.BlockDev.params">params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#size" class="internal-link" title="ganeti.storage.base.BlockDev.size">size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#unique_id" class="internal-link" title="ganeti.storage.base.BlockDev.unique_id">unique<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.base.BlockDev.html#_children" class="internal-link" title="ganeti.storage.base.BlockDev._children">_children</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.storage.bdev.html" class="internal-link" title="The parent of this class">bdev</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.LogicalVolume.html" class="internal-link" title="ganeti.storage.bdev.LogicalVolume"><wbr></wbr>Logical<wbr></wbr>Volume</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.PersistentBlockDevice.html" class="internal-link" title="ganeti.storage.bdev.PersistentBlockDevice"><wbr></wbr>Persistent<wbr></wbr>Block<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.RADOSBlockDevice.html" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice"><wbr></wbr>RADOSBlock<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.RbdShowmappedJsonError.html" class="internal-link" title="ganeti.storage.bdev.RbdShowmappedJsonError"><wbr></wbr>Rbd<wbr></wbr>Showmapped<wbr></wbr>Json<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#Assemble" class="internal-link" title="ganeti.storage.bdev.Assemble"><wbr></wbr>Assemble</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#Create" class="internal-link" title="ganeti.storage.bdev.Create"><wbr></wbr>Create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#FindDevice" class="internal-link" title="ganeti.storage.bdev.FindDevice"><wbr></wbr>Find<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#_CheckResult" class="internal-link" title="ganeti.storage.bdev._CheckResult">_<wbr></wbr>Check<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#_VerifyDiskParams" class="internal-link" title="ganeti.storage.bdev._VerifyDiskParams">_<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#_VerifyDiskType" class="internal-link" title="ganeti.storage.bdev._VerifyDiskType">_<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.bdev.html#DEV_MAP" class="internal-link" title="ganeti.storage.bdev.DEV_MAP">DEV<wbr></wbr>_MAP</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code><wbr></wbr>.<code><a href="ganeti.storage.bdev.html" class="internal-link" title="ganeti.storage.bdev">bdev</a></code><wbr></wbr>.<code><a href="ganeti.storage.bdev.RADOSBlockDevice.html" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice">RADOSBlockDevice</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">RADOSBlockDevice</span>(<a href="ganeti.storage.base.BlockDev.html" class="internal-link" title="ganeti.storage.base.BlockDev">base.BlockDev</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.storage.bdev.RADOSBlockDevice">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>A RADOS Block Device (rbd).</p>
+<p>This class implements the RADOS Block Device for the backend. You need the rbd kernel driver, the RADOS Tools and a working RADOS cluster for this to be functional.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1288">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#Create" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Create"><wbr></wbr>Create</a></code></td>
+    <td>Create a new rbd device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.__init__">__init__</a></code></td>
+    <td>Attaches to an rbd device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Assemble" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Assemble"><wbr></wbr>Assemble</a></code></td>
+    <td>Assemble the device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Attach" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Attach"><wbr></wbr>Attach</a></code></td>
+    <td>Attach to an existing rbd device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Close" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Close"><wbr></wbr>Close</a></code></td>
+    <td>Notifies that the device will no longer be used for I/O.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Export" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Export"><wbr></wbr>Export</a></code></td>
+    <td>Builds the shell command for exporting data from device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.GetUserspaceAccessUri"><wbr></wbr>Get<wbr></wbr>Userspace<wbr></wbr>Access<wbr></wbr>Uri</a></code></td>
+    <td>Generate KVM userspace URIs to be used as `-drive file` settings.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Grow" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Grow"><wbr></wbr>Grow</a></code></td>
+    <td>Grow the Volume.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Import" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Import"><wbr></wbr>Import</a></code></td>
+    <td>Builds the shell command for importing data to device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Open" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Open"><wbr></wbr>Open</a></code></td>
+    <td>Make the device ready for I/O.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Remove" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Remove"><wbr></wbr>Remove</a></code></td>
+    <td>Remove the rbd device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Rename" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Rename"><wbr></wbr>Rename</a></code></td>
+    <td>Rename this device.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Shutdown" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.Shutdown"><wbr></wbr>Shutdown</a></code></td>
+    <td>Shutdown the device.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#attached" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.attached">attached</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#dev_path" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.dev_path">dev<wbr></wbr>_path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#driver" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.driver">driver</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#major" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.major">major</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#minor" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.minor">minor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#rbd_name" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_name">rbd<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#rbd_pool" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_pool">rbd<wbr></wbr>_pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_VolumeToBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._VolumeToBlockdev">_<wbr></wbr>Volume<wbr></wbr>To<wbr></wbr>Blockdev</a></code></td>
+    <td>Do the 'volume name'-to-'rbd block device' resolving.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ParseRbdShowmappedJson" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedJson">_<wbr></wbr>Parse<wbr></wbr>Rbd<wbr></wbr>Showmapped<wbr></wbr>Json</a></code></td>
+    <td>Parse the json output of `rbd showmapped'.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ParseRbdShowmappedPlain" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedPlain">_<wbr></wbr>Parse<wbr></wbr>Rbd<wbr></wbr>Showmapped<wbr></wbr>Plain</a></code></td>
+    <td>Parse the (plain / text) output of `rbd showmapped'.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_MapVolumeToBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._MapVolumeToBlockdev">_<wbr></wbr>Map<wbr></wbr>Volume<wbr></wbr>To<wbr></wbr>Blockdev</a></code></td>
+    <td>Maps existing rbd volumes to block devices.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_UnmapVolumeFromBlockdev" class="internal-link" title="ganeti.storage.bdev.RADOSBlockDevice._UnmapVolumeFromBlockdev">_<wbr></wbr>Unmap<wbr></wbr>Volume<wbr></wbr>From<wbr></wbr>Blockdev</a></code></td>
+    <td>Unmaps the rbd device from the Volume it is mapped.</td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.storage.base.BlockDev.html" class="internal-link" title="ganeti.storage.base.BlockDev">BlockDev</a></code>:
+            </p>
+            <table class="children sortable" id="id1289">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#__eq__" class="internal-link" title="ganeti.storage.base.BlockDev.__eq__">__eq__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#__repr__" class="internal-link" title="ganeti.storage.base.BlockDev.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#CombinedSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.CombinedSyncStatus"><wbr></wbr>Combined<wbr></wbr>Sync<wbr></wbr>Status</a></code></td>
+    <td>Calculate the mirror status recursively for our children.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualDimensions" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualDimensions"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Dimensions</a></code></td>
+    <td>Return the actual disk size and number of spindles used.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualSize" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSize"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Size</a></code></td>
+    <td>Return the actual disk size.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetActualSpindles" class="internal-link" title="ganeti.storage.base.BlockDev.GetActualSpindles"><wbr></wbr>Get<wbr></wbr>Actual<wbr></wbr>Spindles</a></code></td>
+    <td>Return the actual number of spindles used.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#GetSyncStatus" class="internal-link" title="ganeti.storage.base.BlockDev.GetSyncStatus"><wbr></wbr>Get<wbr></wbr>Sync<wbr></wbr>Status</a></code></td>
+    <td>Returns the sync status of the device.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#PauseResumeSync" class="internal-link" title="ganeti.storage.base.BlockDev.PauseResumeSync"><wbr></wbr>Pause<wbr></wbr>Resume<wbr></wbr>Sync</a></code></td>
+    <td>Pause/Resume the sync of the mirror.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#SetInfo" class="internal-link" title="ganeti.storage.base.BlockDev.SetInfo"><wbr></wbr>Set<wbr></wbr>Info</a></code></td>
+    <td>Update metadata with info text.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#SetSyncParams" class="internal-link" title="ganeti.storage.base.BlockDev.SetSyncParams"><wbr></wbr>Set<wbr></wbr>Sync<wbr></wbr>Params</a></code></td>
+    <td>Adjust the synchronization parameters of the mirror.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#Snapshot" class="internal-link" title="ganeti.storage.base.BlockDev.Snapshot"><wbr></wbr>Snapshot</a></code></td>
+    <td>Creates a snapshot of the block device.</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#dyn_params" class="internal-link" title="ganeti.storage.base.BlockDev.dyn_params">dyn<wbr></wbr>_params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#params" class="internal-link" title="ganeti.storage.base.BlockDev.params">params</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#size" class="internal-link" title="ganeti.storage.base.BlockDev.size">size</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#unique_id" class="internal-link" title="ganeti.storage.base.BlockDev.unique_id">unique<wbr></wbr>_id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.storage.base.BlockDev.html#_children" class="internal-link" title="ganeti.storage.base.BlockDev._children">_children</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Create">
+    
+  </a>
+  <a name="Create">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">Create</span>(cls, unique_id, children, size, spindles, params, excl_stor, dyn_params, **kwargs):
+    
+    <a class="headerLink" href="#Create" title="ganeti.storage.bdev.RADOSBlockDevice.Create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Create" class="internal-link">ganeti.storage.base.BlockDev.Create</a></code></div>
+    <div><p>Create a new rbd device.</p>
+<p>Provision a new rbd volume inside a RADOS pool.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, unique_id, children, size, params, dyn_params, **kwargs):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.storage.bdev.RADOSBlockDevice.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#__init__" class="internal-link">ganeti.storage.base.BlockDev.__init__</a></code></div>
+    <div><p>Attaches to an rbd device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Assemble">
+    
+  </a>
+  <a name="Assemble">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Assemble</span>(self):
+    
+    <a class="headerLink" href="#Assemble" title="ganeti.storage.bdev.RADOSBlockDevice.Assemble">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Assemble" class="internal-link">ganeti.storage.base.BlockDev.Assemble</a></code></div>
+    <div><p>Assemble the device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Attach">
+    
+  </a>
+  <a name="Attach">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Attach</span>(self):
+    
+    <a class="headerLink" href="#Attach" title="ganeti.storage.bdev.RADOSBlockDevice.Attach">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Attach" class="internal-link">ganeti.storage.base.BlockDev.Attach</a></code></div>
+    <div><p>Attach to an existing rbd device.</p>
+<p>This method maps the rbd volume that matches our name with an rbd device and then attaches to this device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Close">
+    
+  </a>
+  <a name="Close">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Close</span>(self):
+    
+    <a class="headerLink" href="#Close" title="ganeti.storage.bdev.RADOSBlockDevice.Close">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Close" class="internal-link">ganeti.storage.base.BlockDev.Close</a></code></div>
+    <div><p>Notifies that the device will no longer be used for I/O.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Export">
+    
+  </a>
+  <a name="Export">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Export</span>(self):
+    
+    <a class="headerLink" href="#Export" title="ganeti.storage.bdev.RADOSBlockDevice.Export">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Export" class="internal-link">ganeti.storage.base.BlockDev.Export</a></code></div>
+    <div><p>Builds the shell command for exporting data from device.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="ganeti.storage.base.BlockDev.html#Export" class="internal-link" title="ganeti.storage.base.BlockDev.Export">BlockDev.Export</a></code> for details</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.GetUserspaceAccessUri">
+    
+  </a>
+  <a name="GetUserspaceAccessUri">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetUserspaceAccessUri</span>(self, hypervisor):
+    
+    <a class="headerLink" href="#GetUserspaceAccessUri" title="ganeti.storage.bdev.RADOSBlockDevice.GetUserspaceAccessUri">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#GetUserspaceAccessUri" class="internal-link">ganeti.storage.base.BlockDev.GetUserspaceAccessUri</a></code></div>
+    <div><p>Generate KVM userspace URIs to be used as `-drive file` settings.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="ganeti.storage.base.BlockDev.html#GetUserspaceAccessUri" class="internal-link" title="ganeti.storage.base.BlockDev.GetUserspaceAccessUri">BlockDev.GetUserspaceAccessUri</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Grow">
+    
+  </a>
+  <a name="Grow">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Grow</span>(self, amount, dryrun, backingstore, excl_stor):
+    
+    <a class="headerLink" href="#Grow" title="ganeti.storage.bdev.RADOSBlockDevice.Grow">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Grow" class="internal-link">ganeti.storage.base.BlockDev.Grow</a></code></div>
+    <div><p>Grow the Volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">amount:</span>integer</td><td class="fieldArgDesc">the amount (in mebibytes) to grow with</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dryrun:</span>boolean</td><td class="fieldArgDesc">whether to execute the operation in simulation mode only, without actually increasing the size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">backingstore</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">excl<wbr></wbr>_stor</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Import">
+    
+  </a>
+  <a name="Import">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Import</span>(self):
+    
+    <a class="headerLink" href="#Import" title="ganeti.storage.bdev.RADOSBlockDevice.Import">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Import" class="internal-link">ganeti.storage.base.BlockDev.Import</a></code></div>
+    <div><p>Builds the shell command for importing data to device.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="ganeti.storage.base.BlockDev.html#Import" class="internal-link" title="ganeti.storage.base.BlockDev.Import">BlockDev.Import</a></code> for details</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Open">
+    
+  </a>
+  <a name="Open">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Open</span>(self, force=False, exclusive=True):
+    
+    <a class="headerLink" href="#Open" title="ganeti.storage.bdev.RADOSBlockDevice.Open">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Open" class="internal-link">ganeti.storage.base.BlockDev.Open</a></code></div>
+    <div><p>Make the device ready for I/O.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Remove">
+    
+  </a>
+  <a name="Remove">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Remove</span>(self):
+    
+    <a class="headerLink" href="#Remove" title="ganeti.storage.bdev.RADOSBlockDevice.Remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Remove" class="internal-link">ganeti.storage.base.BlockDev.Remove</a></code></div>
+    <div><p>Remove the rbd device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Rename">
+    
+  </a>
+  <a name="Rename">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Rename</span>(self, new_id):
+    
+    <a class="headerLink" href="#Rename" title="ganeti.storage.bdev.RADOSBlockDevice.Rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Rename" class="internal-link">ganeti.storage.base.BlockDev.Rename</a></code></div>
+    <div><p>Rename this device.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.Shutdown">
+    
+  </a>
+  <a name="Shutdown">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Shutdown</span>(self):
+    
+    <a class="headerLink" href="#Shutdown" title="ganeti.storage.bdev.RADOSBlockDevice.Shutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#Shutdown" class="internal-link">ganeti.storage.base.BlockDev.Shutdown</a></code></div>
+    <div><p>Shutdown the device.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.attached">
+    
+  </a>
+  <a name="attached">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">attached</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#attached" title="ganeti.storage.bdev.RADOSBlockDevice.attached">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#attached" class="internal-link">ganeti.storage.base.BlockDev.attached</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.dev_path">
+    
+  </a>
+  <a name="dev_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">dev_path</span> =
+    
+    <a class="headerLink" href="#dev_path" title="ganeti.storage.bdev.RADOSBlockDevice.dev_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#dev_path" class="internal-link">ganeti.storage.base.BlockDev.dev_path</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.driver">
+    
+  </a>
+  <a name="driver">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">driver</span> =
+    
+    <a class="headerLink" href="#driver" title="ganeti.storage.bdev.RADOSBlockDevice.driver">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.major">
+    
+  </a>
+  <a name="major">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">major</span> =
+    
+    <a class="headerLink" href="#major" title="ganeti.storage.bdev.RADOSBlockDevice.major">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#major" class="internal-link">ganeti.storage.base.BlockDev.major</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.minor">
+    
+  </a>
+  <a name="minor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">minor</span> =
+    
+    <a class="headerLink" href="#minor" title="ganeti.storage.bdev.RADOSBlockDevice.minor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.storage.base.BlockDev.html#minor" class="internal-link">ganeti.storage.base.BlockDev.minor</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.rbd_name">
+    
+  </a>
+  <a name="rbd_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">rbd_name</span> =
+    
+    <a class="headerLink" href="#rbd_name" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice.rbd_pool">
+    
+  </a>
+  <a name="rbd_pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">rbd_pool</span> =
+    
+    <a class="headerLink" href="#rbd_pool" title="ganeti.storage.bdev.RADOSBlockDevice.rbd_pool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice._VolumeToBlockdev">
+    
+  </a>
+  <a name="_VolumeToBlockdev">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_VolumeToBlockdev</span>(cls, pool, volume_name):
+    
+    <a class="headerLink" href="#_VolumeToBlockdev" title="ganeti.storage.bdev.RADOSBlockDevice._VolumeToBlockdev">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Do the 'volume name'-to-'rbd block device' resolving.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pool:</span>string</td><td class="fieldArgDesc">RADOS pool to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">volume<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the name of the volume whose device we search for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string or None</td><td class="fieldArgDesc">block device path if the volume is mapped, else None</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedJson">
+    
+  </a>
+  <a name="_ParseRbdShowmappedJson">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseRbdShowmappedJson</span>(output, volume_pool, volume_name):
+    
+    <a class="headerLink" href="#_ParseRbdShowmappedJson" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedJson">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the json output of `rbd showmapped'.</p>
+<p>This method parses the json output of `rbd showmapped' and returns the rbd block device path (e.g. /dev/rbd0) that matches the given rbd volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output:</span>string</td><td class="fieldArgDesc">the json output of `rbd showmapped'</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">volume<wbr></wbr>_pool:</span>string</td><td class="fieldArgDesc">name of the volume whose device we search for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">volume<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">name of the pool in which we search</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string or None</td><td class="fieldArgDesc">block device path if the volume is mapped, else None</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedPlain">
+    
+  </a>
+  <a name="_ParseRbdShowmappedPlain">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ParseRbdShowmappedPlain</span>(output, volume_name):
+    
+    <a class="headerLink" href="#_ParseRbdShowmappedPlain" title="ganeti.storage.bdev.RADOSBlockDevice._ParseRbdShowmappedPlain">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the (plain / text) output of `rbd showmapped'.</p>
+<p>This method parses the output of `rbd showmapped' and returns the rbd block device path (e.g. /dev/rbd0) that matches the given rbd volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">output:</span>string</td><td class="fieldArgDesc">the plain text output of `rbd showmapped'</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">volume<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the name of the volume whose device we search for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string or None</td><td class="fieldArgDesc">block device path if the volume is mapped, else None</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice._MapVolumeToBlockdev">
+    
+  </a>
+  <a name="_MapVolumeToBlockdev">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MapVolumeToBlockdev</span>(self, unique_id):
+    
+    <a class="headerLink" href="#_MapVolumeToBlockdev" title="ganeti.storage.bdev.RADOSBlockDevice._MapVolumeToBlockdev">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Maps existing rbd volumes to block devices.</p>
+<p>This method should be idempotent if the mapping already exists.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">the block device path that corresponds to the volume</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.storage.bdev.RADOSBlockDevice._UnmapVolumeFromBlockdev">
+    
+  </a>
+  <a name="_UnmapVolumeFromBlockdev">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UnmapVolumeFromBlockdev</span>(self, unique_id):
+    
+    <a class="headerLink" href="#_UnmapVolumeFromBlockdev" title="ganeti.storage.bdev.RADOSBlockDevice._UnmapVolumeFromBlockdev">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Unmaps the rbd device from the Volume it is mapped.</p>
+<p>Unmaps the rbd device from the Volume it was previously mapped to. This method should be idempotent if the Volume isn't mapped.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

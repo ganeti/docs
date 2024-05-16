@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.utils.text</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.utils.text.html" class="internal-link" title="This module">text</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.LineSplitter.html" class="internal-link" title="ganeti.utils.text.LineSplitter"><wbr></wbr>Line<wbr></wbr>Splitter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.ShellWriter.html" class="internal-link" title="ganeti.utils.text.ShellWriter"><wbr></wbr>Shell<wbr></wbr>Writer</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildShellCmd" class="internal-link" title="ganeti.utils.text.BuildShellCmd"><wbr></wbr>Build<wbr></wbr>Shell<wbr></wbr>Cmd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CommaJoin" class="internal-link" title="ganeti.utils.text.CommaJoin"><wbr></wbr>Comma<wbr></wbr>Join</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DnsNameGlobPattern" class="internal-link" title="ganeti.utils.text.DnsNameGlobPattern"><wbr></wbr>Dns<wbr></wbr>Name<wbr></wbr>Glob<wbr></wbr>Pattern</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EscapeAndJoin" class="internal-link" title="ganeti.utils.text.EscapeAndJoin"><wbr></wbr>Escape<wbr></wbr>And<wbr></wbr>Join</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FilterEmptyLinesAndComments" class="internal-link" title="ganeti.utils.text.FilterEmptyLinesAndComments"><wbr></wbr>Filter<wbr></wbr>Empty<wbr></wbr>Lines<wbr></wbr>And<wbr></wbr>Comments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatKeyValue" class="internal-link" title="ganeti.utils.text.FormatKeyValue"><wbr></wbr>Format<wbr></wbr>Key<wbr></wbr>Value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatOrdinal" class="internal-link" title="ganeti.utils.text.FormatOrdinal"><wbr></wbr>Format<wbr></wbr>Ordinal</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatSeconds" class="internal-link" title="ganeti.utils.text.FormatSeconds"><wbr></wbr>Format<wbr></wbr>Seconds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatTime" class="internal-link" title="ganeti.utils.text.FormatTime"><wbr></wbr>Format<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FormatUnit" class="internal-link" title="ganeti.utils.text.FormatUnit"><wbr></wbr>Format<wbr></wbr>Unit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateSecret" class="internal-link" title="ganeti.utils.text.GenerateSecret"><wbr></wbr>Generate<wbr></wbr>Secret</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsValidShellParam" class="internal-link" title="ganeti.utils.text.IsValidShellParam"><wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Shell<wbr></wbr>Param</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MatchNameComponent" class="internal-link" title="ganeti.utils.text.MatchNameComponent"><wbr></wbr>Match<wbr></wbr>Name<wbr></wbr>Component</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NormalizeAndValidateMac" class="internal-link" title="ganeti.utils.text.NormalizeAndValidateMac"><wbr></wbr>Normalize<wbr></wbr>And<wbr></wbr>Validate<wbr></wbr>Mac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NormalizeAndValidateThreeOctetMacPrefix" class="internal-link" title="ganeti.utils.text.NormalizeAndValidateThreeOctetMacPrefix"><wbr></wbr>Normalize<wbr></wbr>And<wbr></wbr>Validate<wbr></wbr>Three<wbr></wbr>Octet<wbr></wbr>Mac<wbr></wbr>Prefix</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseUnit" class="internal-link" title="ganeti.utils.text.ParseUnit"><wbr></wbr>Parse<wbr></wbr>Unit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SafeEncode" class="internal-link" title="ganeti.utils.text.SafeEncode"><wbr></wbr>Safe<wbr></wbr>Encode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShellCombineCommands" class="internal-link" title="ganeti.utils.text.ShellCombineCommands"><wbr></wbr>Shell<wbr></wbr>Combine<wbr></wbr>Commands</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShellQuote" class="internal-link" title="ganeti.utils.text.ShellQuote"><wbr></wbr>Shell<wbr></wbr>Quote</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShellQuoteArgs" class="internal-link" title="ganeti.utils.text.ShellQuoteArgs"><wbr></wbr>Shell<wbr></wbr>Quote<wbr></wbr>Args</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Truncate" class="internal-link" title="ganeti.utils.text.Truncate"><wbr></wbr>Truncate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UnescapeAndSplit" class="internal-link" title="ganeti.utils.text.UnescapeAndSplit"><wbr></wbr>Unescape<wbr></wbr>And<wbr></wbr>Split</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DnsNameGlobHelper" class="internal-link" title="ganeti.utils.text._DnsNameGlobHelper">_<wbr></wbr>Dns<wbr></wbr>Name<wbr></wbr>Glob<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MacAddressCheck" class="internal-link" title="ganeti.utils.text._MacAddressCheck">_<wbr></wbr>Mac<wbr></wbr>Address<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MakeMacAddrRegexp" class="internal-link" title="ganeti.utils.text._MakeMacAddrRegexp">_<wbr></wbr>Make<wbr></wbr>Mac<wbr></wbr>Addr<wbr></wbr>Regexp</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ASCII_ELLIPSIS" class="internal-link" title="ganeti.utils.text._ASCII_ELLIPSIS">_ASCII<wbr></wbr>_ELLIPSIS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MAC_ADDR_OCTET_RE" class="internal-link" title="ganeti.utils.text._MAC_ADDR_OCTET_RE">_MAC<wbr></wbr>_ADDR<wbr></wbr>_OCTET<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MAC_CHECK_RE" class="internal-link" title="ganeti.utils.text._MAC_CHECK_RE">_MAC<wbr></wbr>_CHECK<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MAC_PREFIX_CHECK_RE" class="internal-link" title="ganeti.utils.text._MAC_PREFIX_CHECK_RE">_MAC<wbr></wbr>_PREFIX<wbr></wbr>_CHECK<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PARSEUNIT_REGEX" class="internal-link" title="ganeti.utils.text._PARSEUNIT_REGEX">_PARSEUNIT<wbr></wbr>_REGEX</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SHELL_UNQUOTED_RE" class="internal-link" title="ganeti.utils.text._SHELL_UNQUOTED_RE">_SHELL<wbr></wbr>_UNQUOTED<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SHELLPARAM_REGEX" class="internal-link" title="ganeti.utils.text._SHELLPARAM_REGEX">_SHELLPARAM<wbr></wbr>_REGEX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.utils.html" class="internal-link" title="The parent of this module">utils</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.algo.html" class="internal-link" title="ganeti.utils.algo">algo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.bitarrays.html" class="internal-link" title="ganeti.utils.bitarrays">bitarrays</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.filelock.html" class="internal-link" title="ganeti.utils.filelock">filelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.hash.html" class="internal-link" title="ganeti.utils.hash">hash</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.io.html" class="internal-link" title="ganeti.utils.io">io</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.livelock.html" class="internal-link" title="ganeti.utils.livelock">livelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.log.html" class="internal-link" title="ganeti.utils.log">log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.lvm.html" class="internal-link" title="ganeti.utils.lvm">lvm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.mlock.html" class="internal-link" title="ganeti.utils.mlock">mlock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.nodesetup.html" class="internal-link" title="ganeti.utils.nodesetup">nodesetup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.process.html" class="internal-link" title="ganeti.utils.process">process</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.retry.html" class="internal-link" title="ganeti.utils.retry">retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.security.html" class="internal-link" title="ganeti.utils.security">security</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.storage.html" class="internal-link" title="ganeti.utils.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.tags.html" class="internal-link" title="ganeti.utils.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.text.html" class="internal-link" title="ganeti.utils.text">text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.version.html" class="internal-link" title="ganeti.utils.version">version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.wrapper.html" class="internal-link" title="ganeti.utils.wrapper">wrapper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.x509.html" class="internal-link" title="ganeti.utils.x509">x509</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FdConditionWaiterHelper.html" class="internal-link" title="ganeti.utils.FdConditionWaiterHelper"><wbr></wbr>Fd<wbr></wbr>Condition<wbr></wbr>Waiter<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.FieldSet.html" class="internal-link" title="ganeti.utils.FieldSet"><wbr></wbr>Field<wbr></wbr>Set</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalHandler.html" class="internal-link" title="ganeti.utils.SignalHandler"><wbr></wbr>Signal<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.SignalWakeupFd.html" class="internal-link" title="ganeti.utils.SignalWakeupFd"><wbr></wbr>Signal<wbr></wbr>Wakeup<wbr></wbr>Fd</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AllDiskOfType" class="internal-link" title="ganeti.utils.AllDiskOfType"><wbr></wbr>All<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#AnyDiskOfType" class="internal-link" title="ganeti.utils.AnyDiskOfType"><wbr></wbr>Any<wbr></wbr>Disk<wbr></wbr>Of<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#BridgeExists" class="internal-link" title="ganeti.utils.BridgeExists"><wbr></wbr>Bridge<wbr></wbr>Exists</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EnsureDaemon" class="internal-link" title="ganeti.utils.EnsureDaemon"><wbr></wbr>Ensure<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#EpochNano" class="internal-link" title="ganeti.utils.EpochNano"><wbr></wbr>Epoch<wbr></wbr>Nano</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FindMatch" class="internal-link" title="ganeti.utils.FindMatch"><wbr></wbr>Find<wbr></wbr>Match</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#FirstFree" class="internal-link" title="ganeti.utils.FirstFree"><wbr></wbr>First<wbr></wbr>Free</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ForceDictType" class="internal-link" title="ganeti.utils.ForceDictType"><wbr></wbr>Force<wbr></wbr>Dict<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplate" class="internal-link" title="ganeti.utils.GetDiskTemplate"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetDiskTemplateString" class="internal-link" title="ganeti.utils.GetDiskTemplateString"><wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetHomeDir" class="internal-link" title="ganeti.utils.GetHomeDir"><wbr></wbr>Get<wbr></wbr>Home<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#GetMounts" class="internal-link" title="ganeti.utils.GetMounts"><wbr></wbr>Get<wbr></wbr>Mounts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ListVolumeGroups" class="internal-link" title="ganeti.utils.ListVolumeGroups"><wbr></wbr>List<wbr></wbr>Volume<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#MergeTime" class="internal-link" title="ganeti.utils.MergeTime"><wbr></wbr>Merge<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseCpuMask" class="internal-link" title="ganeti.utils.ParseCpuMask"><wbr></wbr>Parse<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ParseMultiCpuMask" class="internal-link" title="ganeti.utils.ParseMultiCpuMask"><wbr></wbr>Parse<wbr></wbr>Multi<wbr></wbr>Cpu<wbr></wbr>Mask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SendFds" class="internal-link" title="ganeti.utils.SendFds"><wbr></wbr>Send<wbr></wbr>Fds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SignalHandled" class="internal-link" title="ganeti.utils.SignalHandled"><wbr></wbr>Signal<wbr></wbr>Handled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SingleWaitForFdCondition" class="internal-link" title="ganeti.utils.SingleWaitForFdCondition"><wbr></wbr>Single<wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#SplitTime" class="internal-link" title="ganeti.utils.SplitTime"><wbr></wbr>Split<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#StopDaemon" class="internal-link" title="ganeti.utils.StopDaemon"><wbr></wbr>Stop<wbr></wbr>Daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TimeoutExpired" class="internal-link" title="ganeti.utils.TimeoutExpired"><wbr></wbr>Timeout<wbr></wbr>Expired</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#TryConvert" class="internal-link" title="ganeti.utils.TryConvert"><wbr></wbr>Try<wbr></wbr>Convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateDeviceNames" class="internal-link" title="ganeti.utils.ValidateDeviceNames"><wbr></wbr>Validate<wbr></wbr>Device<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#ValidateServiceName" class="internal-link" title="ganeti.utils.ValidateServiceName"><wbr></wbr>Validate<wbr></wbr>Service<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#VerifyDictOptions" class="internal-link" title="ganeti.utils.VerifyDictOptions"><wbr></wbr>Verify<wbr></wbr>Dict<wbr></wbr>Options</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#WaitForFdCondition" class="internal-link" title="ganeti.utils.WaitForFdCondition"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Fd<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_ComputeMissingKeys" class="internal-link" title="ganeti.utils._ComputeMissingKeys">_<wbr></wbr>Compute<wbr></wbr>Missing<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#UUID_RE" class="internal-link" title="ganeti.utils.UUID_RE">UUID<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html#_VALID_SERVICE_NAME_RE" class="internal-link" title="ganeti.utils._VALID_SERVICE_NAME_RE">_VALID<wbr></wbr>_SERVICE<wbr></wbr>_NAME<wbr></wbr>_RE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code><wbr></wbr>.<code><a href="ganeti.utils.text.html" class="internal-link" title="ganeti.utils.text">text</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Utility functions for manipulating or working with text.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1378">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.utils.text.LineSplitter.html" class="internal-link" title="ganeti.utils.text.LineSplitter"><wbr></wbr>Line<wbr></wbr>Splitter</a></code></td>
+    <td>Splits byte data chunks into lines of text separated by newline.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.utils.text.ShellWriter.html" class="internal-link" title="ganeti.utils.text.ShellWriter"><wbr></wbr>Shell<wbr></wbr>Writer</a></code></td>
+    <td>Helper class to write scripts with indentation.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#BuildShellCmd" class="internal-link" title="ganeti.utils.text.BuildShellCmd"><wbr></wbr>Build<wbr></wbr>Shell<wbr></wbr>Cmd</a></code></td>
+    <td>Build a safe shell command line from the given arguments.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CommaJoin" class="internal-link" title="ganeti.utils.text.CommaJoin"><wbr></wbr>Comma<wbr></wbr>Join</a></code></td>
+    <td>Nicely join a set of identifiers.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DnsNameGlobPattern" class="internal-link" title="ganeti.utils.text.DnsNameGlobPattern"><wbr></wbr>Dns<wbr></wbr>Name<wbr></wbr>Glob<wbr></wbr>Pattern</a></code></td>
+    <td>Generates regular expression from DNS name globbing pattern.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EscapeAndJoin" class="internal-link" title="ganeti.utils.text.EscapeAndJoin"><wbr></wbr>Escape<wbr></wbr>And<wbr></wbr>Join</a></code></td>
+    <td>Encode a list in a way parsable by UnescapeAndSplit.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FilterEmptyLinesAndComments" class="internal-link" title="ganeti.utils.text.FilterEmptyLinesAndComments"><wbr></wbr>Filter<wbr></wbr>Empty<wbr></wbr>Lines<wbr></wbr>And<wbr></wbr>Comments</a></code></td>
+    <td>Filters empty lines and comments from a line-based string.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatKeyValue" class="internal-link" title="ganeti.utils.text.FormatKeyValue"><wbr></wbr>Format<wbr></wbr>Key<wbr></wbr>Value</a></code></td>
+    <td>Formats a dictionary as "key=value" parameters.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatOrdinal" class="internal-link" title="ganeti.utils.text.FormatOrdinal"><wbr></wbr>Format<wbr></wbr>Ordinal</a></code></td>
+    <td>Formats a number as an ordinal in the English language.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatSeconds" class="internal-link" title="ganeti.utils.text.FormatSeconds"><wbr></wbr>Format<wbr></wbr>Seconds</a></code></td>
+    <td>Formats seconds for easier reading.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatTime" class="internal-link" title="ganeti.utils.text.FormatTime"><wbr></wbr>Format<wbr></wbr>Time</a></code></td>
+    <td>Formats a time value.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FormatUnit" class="internal-link" title="ganeti.utils.text.FormatUnit"><wbr></wbr>Format<wbr></wbr>Unit</a></code></td>
+    <td>Formats an incoming number of MiB with the appropriate unit.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateSecret" class="internal-link" title="ganeti.utils.text.GenerateSecret"><wbr></wbr>Generate<wbr></wbr>Secret</a></code></td>
+    <td>Generates a random secret.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsValidShellParam" class="internal-link" title="ganeti.utils.text.IsValidShellParam"><wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Shell<wbr></wbr>Param</a></code></td>
+    <td>Verifies is the given word is safe from the shell's p.o.v.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MatchNameComponent" class="internal-link" title="ganeti.utils.text.MatchNameComponent"><wbr></wbr>Match<wbr></wbr>Name<wbr></wbr>Component</a></code></td>
+    <td>Try to match a name against a list.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#NormalizeAndValidateMac" class="internal-link" title="ganeti.utils.text.NormalizeAndValidateMac"><wbr></wbr>Normalize<wbr></wbr>And<wbr></wbr>Validate<wbr></wbr>Mac</a></code></td>
+    <td>Normalizes and check if a MAC address is valid and contains six octets.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#NormalizeAndValidateThreeOctetMacPrefix" class="internal-link" title="ganeti.utils.text.NormalizeAndValidateThreeOctetMacPrefix"><wbr></wbr>Normalize<wbr></wbr>And<wbr></wbr>Validate<wbr></wbr>Three<wbr></wbr>Octet<wbr></wbr>Mac<wbr></wbr>Prefix</a></code></td>
+    <td>Normalizes a potential MAC address prefix (three octets).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ParseUnit" class="internal-link" title="ganeti.utils.text.ParseUnit"><wbr></wbr>Parse<wbr></wbr>Unit</a></code></td>
+    <td>Tries to extract number and scale from the given string.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SafeEncode" class="internal-link" title="ganeti.utils.text.SafeEncode"><wbr></wbr>Safe<wbr></wbr>Encode</a></code></td>
+    <td>Return a 'safe' version of a source string.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShellCombineCommands" class="internal-link" title="ganeti.utils.text.ShellCombineCommands"><wbr></wbr>Shell<wbr></wbr>Combine<wbr></wbr>Commands</a></code></td>
+    <td>Out of a list of shell comands construct a single one.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShellQuote" class="internal-link" title="ganeti.utils.text.ShellQuote"><wbr></wbr>Shell<wbr></wbr>Quote</a></code></td>
+    <td>Quotes shell argument according to POSIX.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShellQuoteArgs" class="internal-link" title="ganeti.utils.text.ShellQuoteArgs"><wbr></wbr>Shell<wbr></wbr>Quote<wbr></wbr>Args</a></code></td>
+    <td>Quotes a list of shell arguments.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Truncate" class="internal-link" title="ganeti.utils.text.Truncate"><wbr></wbr>Truncate</a></code></td>
+    <td>Truncate string and add ellipsis if needed.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#UnescapeAndSplit" class="internal-link" title="ganeti.utils.text.UnescapeAndSplit"><wbr></wbr>Unescape<wbr></wbr>And<wbr></wbr>Split</a></code></td>
+    <td>Split and unescape a string based on a given separator.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_DnsNameGlobHelper" class="internal-link" title="ganeti.utils.text._DnsNameGlobHelper">_<wbr></wbr>Dns<wbr></wbr>Name<wbr></wbr>Glob<wbr></wbr>Helper</a></code></td>
+    <td>Helper function for <code><a href="ganeti.utils.text.html#DnsNameGlobPattern" class="internal-link" title="ganeti.utils.text.DnsNameGlobPattern">DnsNameGlobPattern</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MacAddressCheck" class="internal-link" title="ganeti.utils.text._MacAddressCheck">_<wbr></wbr>Mac<wbr></wbr>Address<wbr></wbr>Check</a></code></td>
+    <td>Checks a MAC address using a regular expression.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MakeMacAddrRegexp" class="internal-link" title="ganeti.utils.text._MakeMacAddrRegexp">_<wbr></wbr>Make<wbr></wbr>Mac<wbr></wbr>Addr<wbr></wbr>Regexp</a></code></td>
+    <td>Builds a regular expression for verifying MAC addresses.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ASCII_ELLIPSIS" class="internal-link" title="ganeti.utils.text._ASCII_ELLIPSIS">_ASCII<wbr></wbr>_ELLIPSIS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MAC_ADDR_OCTET_RE" class="internal-link" title="ganeti.utils.text._MAC_ADDR_OCTET_RE">_MAC<wbr></wbr>_ADDR<wbr></wbr>_OCTET<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MAC_CHECK_RE" class="internal-link" title="ganeti.utils.text._MAC_CHECK_RE">_MAC<wbr></wbr>_CHECK<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MAC_PREFIX_CHECK_RE" class="internal-link" title="ganeti.utils.text._MAC_PREFIX_CHECK_RE">_MAC<wbr></wbr>_PREFIX<wbr></wbr>_CHECK<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_PARSEUNIT_REGEX" class="internal-link" title="ganeti.utils.text._PARSEUNIT_REGEX">_PARSEUNIT<wbr></wbr>_REGEX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_SHELL_UNQUOTED_RE" class="internal-link" title="ganeti.utils.text._SHELL_UNQUOTED_RE">_SHELL<wbr></wbr>_UNQUOTED<wbr></wbr>_RE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_SHELLPARAM_REGEX" class="internal-link" title="ganeti.utils.text._SHELLPARAM_REGEX">_SHELLPARAM<wbr></wbr>_REGEX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.BuildShellCmd">
+    
+  </a>
+  <a name="BuildShellCmd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildShellCmd</span>(template, *args):
+    
+    <a class="headerLink" href="#BuildShellCmd" title="ganeti.utils.text.BuildShellCmd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Build a safe shell command line from the given arguments.</p>
+<p>This function will check all arguments in the args list so that they are valid shell parameters (i.e. they don't contain shell metacharacters). If everything is ok, it will return the result of template % args.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">template:</span>str</td><td class="fieldArgDesc">the string holding the template for the string formatting</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*args</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the expanded command line</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.CommaJoin">
+    
+  </a>
+  <a name="CommaJoin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CommaJoin</span>(names):
+    
+    <a class="headerLink" href="#CommaJoin" title="ganeti.utils.text.CommaJoin">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Nicely join a set of identifiers.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">names</span></td><td class="fieldArgDesc">set, list or tuple</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a string with the formatted results</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.DnsNameGlobPattern">
+    
+  </a>
+  <a name="DnsNameGlobPattern">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DnsNameGlobPattern</span>(pattern):
+    
+    <a class="headerLink" href="#DnsNameGlobPattern" title="ganeti.utils.text.DnsNameGlobPattern">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates regular expression from DNS name globbing pattern.</p>
+<p>A DNS name globbing pattern (e.g. <tt class="rst-docutils literal">*.site</tt>) is converted to a regular expression. Escape sequences or ranges (e.g. [a-z]) are not supported.</p>
+<p>Matching always starts at the leftmost part. An asterisk (*) matches all characters except the dot (.) separating DNS name parts. A question mark (?) matches a single character except the dot (.).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pattern:</span>string</td><td class="fieldArgDesc">DNS name globbing pattern</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Regular expression</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.EscapeAndJoin">
+    
+  </a>
+  <a name="EscapeAndJoin">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EscapeAndJoin</span>(slist, sep=<span class="rst-variable-quote">'</span><span class="rst-variable-string">,</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#EscapeAndJoin" title="ganeti.utils.text.EscapeAndJoin">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Encode a list in a way parsable by UnescapeAndSplit.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">slist:</span>list of strings</td><td class="fieldArgDesc">the strings to be encoded</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sep</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">the encoding of the list oas a string</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FilterEmptyLinesAndComments">
+    
+  </a>
+  <a name="FilterEmptyLinesAndComments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FilterEmptyLinesAndComments</span>(text):
+    
+    <a class="headerLink" href="#FilterEmptyLinesAndComments" title="ganeti.utils.text.FilterEmptyLinesAndComments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Filters empty lines and comments from a line-based string.</p>
+<p>Whitespace is also removed from the beginning and end of all lines.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>string</td><td class="fieldArgDesc">Input string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FormatKeyValue">
+    
+  </a>
+  <a name="FormatKeyValue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatKeyValue</span>(data):
+    
+    <a class="headerLink" href="#FormatKeyValue" title="ganeti.utils.text.FormatKeyValue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a dictionary as "key=value" parameters.</p>
+<p>The keys are sorted to have a stable order.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data:</span>dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FormatOrdinal">
+    
+  </a>
+  <a name="FormatOrdinal">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatOrdinal</span>(value):
+    
+    <a class="headerLink" href="#FormatOrdinal" title="ganeti.utils.text.FormatOrdinal">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a number as an ordinal in the English language.</p>
+<p>E.g. the number 1 becomes "1st", 22 becomes "22nd".</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span>integer</td><td class="fieldArgDesc">Number</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FormatSeconds">
+    
+  </a>
+  <a name="FormatSeconds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatSeconds</span>(secs):
+    
+    <a class="headerLink" href="#FormatSeconds" title="ganeti.utils.text.FormatSeconds">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats seconds for easier reading.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">secs:</span>number</td><td class="fieldArgDesc">Number of seconds</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Formatted seconds (e.g. "2d 9h 19m 49s")</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FormatTime">
+    
+  </a>
+  <a name="FormatTime">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatTime</span>(val, usecs=None):
+    
+    <a class="headerLink" href="#FormatTime" title="ganeti.utils.text.FormatTime">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats a time value.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">val:</span>float or None</td><td class="fieldArgDesc">Timestamp as returned by time.time() (seconds since Epoch, 1970-01-01 00:00:00 UTC)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">usecs</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a string value or N/A if we don't have a valid timestamp</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.FormatUnit">
+    
+  </a>
+  <a name="FormatUnit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FormatUnit</span>(value, units, roman=False):
+    
+    <a class="headerLink" href="#FormatUnit" title="ganeti.utils.text.FormatUnit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Formats an incoming number of MiB with the appropriate unit.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span>int</td><td class="fieldArgDesc">integer representing the value in MiB (1048576)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">units:</span>char</td><td class="fieldArgDesc"><p>the type of formatting we should do:</p>
+<ul class="rst-simple">
+<li>'h' for automatic scaling</li>
+<li>'m' for MiBs</li>
+<li>'g' for GiBs</li>
+<li>'t' for TiBs</li>
+</ul>
+</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roman</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the formatted value (with suffix)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.GenerateSecret">
+    
+  </a>
+  <a name="GenerateSecret">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateSecret</span>(numbytes=20):
+    
+    <a class="headerLink" href="#GenerateSecret" title="ganeti.utils.text.GenerateSecret">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a random secret.</p>
+<p>This will generate a pseudo-random secret returning an hex string (so that it can be used where an ASCII string is needed).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">numbytes</span></td><td class="fieldArgDesc">the number of bytes which will be represented by the returned string (defaulting to 20, the length of a SHA1 hash)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">an hex representation of the pseudo-random sequence</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.IsValidShellParam">
+    
+  </a>
+  <a name="IsValidShellParam">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsValidShellParam</span>(word):
+    
+    <a class="headerLink" href="#IsValidShellParam" title="ganeti.utils.text.IsValidShellParam">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies is the given word is safe from the shell's p.o.v.</p>
+<p>This means that we can pass this to a command via the shell and be sure that it doesn't alter the command line and is passed as such to the actual command.</p>
+<p>Note that we are overly restrictive here, in order to be on the safe side.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">word:</span>str</td><td class="fieldArgDesc">the word to check</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">boolean</td><td class="fieldArgDesc">True if the word is 'safe'</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.MatchNameComponent">
+    
+  </a>
+  <a name="MatchNameComponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MatchNameComponent</span>(key, name_list, case_sensitive=True):
+    
+    <a class="headerLink" href="#MatchNameComponent" title="ganeti.utils.text.MatchNameComponent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try to match a name against a list.</p>
+<p>This function will try to match a name like test1 against a list like <tt class="rst-docutils literal">['test1.example.com', 'test2.example.com', <span class="pre">...]</span></tt>. Against this list, <em>'test1'</em> as well as <em>'test1.example'</em> will match, but not <em>'test1.ex'</em>. A multiple match will be considered as no match at all (e.g. <em>'test1'</em> against <tt class="rst-docutils literal">['test1.example.com', 'test1.example.org']</tt>), except when the key fully matches an entry (e.g. <em>'test1'</em> against <tt class="rst-docutils literal">['test1', 'test1.example.com']</tt>).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span>str</td><td class="fieldArgDesc">the name to be searched</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name<wbr></wbr>_list:</span>list</td><td class="fieldArgDesc">the list of strings against which to search the key</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">case<wbr></wbr>_sensitive:</span>boolean</td><td class="fieldArgDesc">whether to provide a case-sensitive match</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">None or str</td><td class="fieldArgDesc">None if there is no match <em>or</em> if there are multiple matches, otherwise the element from the list which matches</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.NormalizeAndValidateMac">
+    
+  </a>
+  <a name="NormalizeAndValidateMac">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">NormalizeAndValidateMac</span>(mac):
+    
+    <a class="headerLink" href="#NormalizeAndValidateMac" title="ganeti.utils.text.NormalizeAndValidateMac">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Normalizes and check if a MAC address is valid and contains six octets.</p>
+<p>Checks whether the supplied MAC address is formally correct. Accepts colon-separated format only. Normalize it to all lower case.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mac:</span>string</td><td class="fieldArgDesc">MAC address to be validated</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Normalized and validated MAC address</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>If the MAC address isn't valid</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.NormalizeAndValidateThreeOctetMacPrefix">
+    
+  </a>
+  <a name="NormalizeAndValidateThreeOctetMacPrefix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">NormalizeAndValidateThreeOctetMacPrefix</span>(mac):
+    
+    <a class="headerLink" href="#NormalizeAndValidateThreeOctetMacPrefix" title="ganeti.utils.text.NormalizeAndValidateThreeOctetMacPrefix">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Normalizes a potential MAC address prefix (three octets).</p>
+<p>Checks whether the supplied string is a valid MAC address prefix consisting of three colon-separated octets. The result is normalized to all lower case.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mac:</span>string</td><td class="fieldArgDesc">Prefix to be validated</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Normalized and validated prefix</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>If the MAC address prefix isn't valid</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.ParseUnit">
+    
+  </a>
+  <a name="ParseUnit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseUnit</span>(input_string):
+    
+    <a class="headerLink" href="#ParseUnit" title="ganeti.utils.text.ParseUnit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to extract number and scale from the given string.</p>
+<p>Input must be in the format <tt class="rst-docutils literal">NUMBER+ [DOT NUMBER+] SPACE* [UNIT]</tt>. If no unit is specified, it defaults to MiB. Return value is always an int in MiB.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.SafeEncode">
+    
+  </a>
+  <a name="SafeEncode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SafeEncode</span>(text):
+    
+    <a class="headerLink" href="#SafeEncode" title="ganeti.utils.text.SafeEncode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return a 'safe' version of a source string.</p>
+<p>This function mangles the input string and returns a version that should be safe to display/encode as ASCII. To this end, we first convert it to ASCII using the 'backslashreplace' encoding which should get rid of any non-ASCII chars, and then we process it through a loop copied from the string repr sources in the python; we don't use string_escape anymore since that escape single quotes and backslashes too, and that is too much; and that escaping is not stable, i.e. string_escape(string_escape(x)) != string_escape(x).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>str or unicode</td><td class="fieldArgDesc">input data</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">a safe version of text</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.ShellCombineCommands">
+    
+  </a>
+  <a name="ShellCombineCommands">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShellCombineCommands</span>(cmdlist):
+    
+    <a class="headerLink" href="#ShellCombineCommands" title="ganeti.utils.text.ShellCombineCommands">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Out of a list of shell comands construct a single one.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.ShellQuote">
+    
+  </a>
+  <a name="ShellQuote">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShellQuote</span>(value):
+    
+    <a class="headerLink" href="#ShellQuote" title="ganeti.utils.text.ShellQuote">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Quotes shell argument according to POSIX.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span>str</td><td class="fieldArgDesc">the argument to be quoted</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the quoted value</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.ShellQuoteArgs">
+    
+  </a>
+  <a name="ShellQuoteArgs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShellQuoteArgs</span>(args):
+    
+    <a class="headerLink" href="#ShellQuoteArgs" title="ganeti.utils.text.ShellQuoteArgs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Quotes a list of shell arguments.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">list of arguments to be quoted</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">the quoted arguments concatenated with spaces</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.Truncate">
+    
+  </a>
+  <a name="Truncate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Truncate</span>(text, length):
+    
+    <a class="headerLink" href="#Truncate" title="ganeti.utils.text.Truncate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Truncate string and add ellipsis if needed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>string</td><td class="fieldArgDesc">Text</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">length:</span>integer</td><td class="fieldArgDesc">Desired length</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Truncated text</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.utils.text.UnescapeAndSplit">
+    
+  </a>
+  <a name="UnescapeAndSplit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UnescapeAndSplit</span>(text, sep=<span class="rst-variable-quote">'</span><span class="rst-variable-string">,</span><span class="rst-variable-quote">'</span>):
+    
+    <a class="headerLink" href="#UnescapeAndSplit" title="ganeti.utils.text.UnescapeAndSplit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Split and unescape a string based on a given separator.</p>
+<p>This function splits a string based on a separator where the separator itself can be escape in order to be an element of the elements. The escaping rules are (assuming coma being the separator):</p>
+<ul class="rst-simple">
+<li>a plain , separates the elements</li>
+<li>a sequence \\\\, (double backslash plus comma) is handled as a backslash plus a separator comma</li>
+<li>a sequence \, (backslash plus comma) is handled as a non-separator comma</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>string</td><td class="fieldArgDesc">the separator</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sep:</span>string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">a list of strings</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.text._DnsNameGlobHelper">
+    
+  </a>
+  <a name="_DnsNameGlobHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_DnsNameGlobHelper</span>(match):
+    
+    <a class="headerLink" href="#_DnsNameGlobHelper" title="ganeti.utils.text._DnsNameGlobHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function for <code><a href="#DnsNameGlobPattern" class="internal-link" title="ganeti.utils.text.DnsNameGlobPattern">DnsNameGlobPattern</a></code>.</p>
+<p>Returns regular expression pattern for parts of the pattern.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.text._MacAddressCheck">
+    
+  </a>
+  <a name="_MacAddressCheck">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MacAddressCheck</span>(check_re, mac, msg):
+    
+    <a class="headerLink" href="#_MacAddressCheck" title="ganeti.utils.text._MacAddressCheck">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks a MAC address using a regular expression.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">check<wbr></wbr>_re</span></td><td class="fieldArgDesc">Compiled regular expression as returned by <tt class="rst-docutils literal">re.compile</tt></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mac:</span>string</td><td class="fieldArgDesc">MAC address to be validated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">msg:</span>string</td><td class="fieldArgDesc">Error message (%s will be replaced with MAC address)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.utils.text._MakeMacAddrRegexp">
+    
+  </a>
+  <a name="_MakeMacAddrRegexp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MakeMacAddrRegexp</span>(octets):
+    
+    <a class="headerLink" href="#_MakeMacAddrRegexp" title="ganeti.utils.text._MakeMacAddrRegexp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Builds a regular expression for verifying MAC addresses.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">octets:</span>integer</td><td class="fieldArgDesc">How many octets to expect (1-6)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Compiled regular expression</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._ASCII_ELLIPSIS">
+    
+  </a>
+  <a name="_ASCII_ELLIPSIS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ASCII_ELLIPSIS</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_ASCII_ELLIPSIS" title="ganeti.utils.text._ASCII_ELLIPSIS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">...</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._MAC_ADDR_OCTET_RE">
+    
+  </a>
+  <a name="_MAC_ADDR_OCTET_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MAC_ADDR_OCTET_RE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_MAC_ADDR_OCTET_RE" title="ganeti.utils.text._MAC_ADDR_OCTET_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">[0-9a-f]{2}</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._MAC_CHECK_RE">
+    
+  </a>
+  <a name="_MAC_CHECK_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MAC_CHECK_RE</span> =
+    
+    <a class="headerLink" href="#_MAC_CHECK_RE" title="ganeti.utils.text._MAC_CHECK_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#_MakeMacAddrRegexp" class="internal-link" title="ganeti.utils.text._MakeMacAddrRegexp">_MakeMacAddrRegexp</a>(<wbr></wbr>6)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._MAC_PREFIX_CHECK_RE">
+    
+  </a>
+  <a name="_MAC_PREFIX_CHECK_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MAC_PREFIX_CHECK_RE</span> =
+    
+    <a class="headerLink" href="#_MAC_PREFIX_CHECK_RE" title="ganeti.utils.text._MAC_PREFIX_CHECK_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="#_MakeMacAddrRegexp" class="internal-link" title="ganeti.utils.text._MakeMacAddrRegexp">_MakeMacAddrRegexp</a>(<wbr></wbr>3)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._PARSEUNIT_REGEX">
+    
+  </a>
+  <a name="_PARSEUNIT_REGEX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_PARSEUNIT_REGEX</span> =
+    
+    <a class="headerLink" href="#_PARSEUNIT_REGEX" title="ganeti.utils.text._PARSEUNIT_REGEX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">(</span><span class="rst-re-group">[</span>\.\d<span class="rst-re-group">]</span><span class="rst-re-op">+</span><span class="rst-re-group">)</span>\s<span class="rst-re-op">*</span><span class="rst-re-group">(</span><span class="rst-re-group">[</span>a<span class="rst-re-op">-</span>zA<span class="rst-re-op">-</span>Z<span class="rst-re-group">]</span><span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-op">?</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._SHELL_UNQUOTED_RE">
+    
+  </a>
+  <a name="_SHELL_UNQUOTED_RE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_SHELL_UNQUOTED_RE</span> =
+    
+    <a class="headerLink" href="#_SHELL_UNQUOTED_RE" title="ganeti.utils.text._SHELL_UNQUOTED_RE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">[</span>-\.,=:/_\+@A<span class="rst-re-op">-</span>Za<span class="rst-re-op">-</span>z0<span class="rst-re-op">-</span>9<span class="rst-re-group">]</span><span class="rst-re-op">+</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.utils.text._SHELLPARAM_REGEX">
+    
+  </a>
+  <a name="_SHELLPARAM_REGEX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_SHELLPARAM_REGEX</span> =
+    
+    <a class="headerLink" href="#_SHELLPARAM_REGEX" title="ganeti.utils.text._SHELLPARAM_REGEX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>re.compile(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">[</span>-a<span class="rst-re-op">-</span>zA<span class="rst-re-op">-</span>Z0<span class="rst-re-op">-</span>9\._\+/:%@<span class="rst-re-group">]</span><span class="rst-re-op">+</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

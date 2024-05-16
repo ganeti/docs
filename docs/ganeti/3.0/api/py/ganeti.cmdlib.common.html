@@ -1,0 +1,2968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.common</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.common.html" class="internal-link" title="This module">common</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddInstanceCommunicationNetworkOp" class="internal-link" title="ganeti.cmdlib.common.AddInstanceCommunicationNetworkOp"><wbr></wbr>Add<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddMasterCandidateSshKey" class="internal-link" title="ganeti.cmdlib.common.AddMasterCandidateSshKey"><wbr></wbr>Add<wbr></wbr>Master<wbr></wbr>Candidate<wbr></wbr>Ssh<wbr></wbr>Key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddNodeCertToCandidateCerts" class="internal-link" title="ganeti.cmdlib.common.AddNodeCertToCandidateCerts"><wbr></wbr>Add<wbr></wbr>Node<wbr></wbr>Cert<wbr></wbr>To<wbr></wbr>Candidate<wbr></wbr>Certs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AdjustCandidatePool" class="internal-link" title="ganeti.cmdlib.common.AdjustCandidatePool"><wbr></wbr>Adjust<wbr></wbr>Candidate<wbr></wbr>Pool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AnnotateDiskParams" class="internal-link" title="ganeti.cmdlib.common.AnnotateDiskParams"><wbr></wbr>Annotate<wbr></wbr>Disk<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckDiskAccessModeConsistency" class="internal-link" title="ganeti.cmdlib.common.CheckDiskAccessModeConsistency"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Consistency</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckDiskAccessModeValidity" class="internal-link" title="ganeti.cmdlib.common.CheckDiskAccessModeValidity"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Validity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckDiskTemplateEnabled" class="internal-link" title="ganeti.cmdlib.common.CheckDiskTemplateEnabled"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckHVParams" class="internal-link" title="ganeti.cmdlib.common.CheckHVParams"><wbr></wbr>Check<wbr></wbr>HVParams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckIAllocatorOrNode" class="internal-link" title="ganeti.cmdlib.common.CheckIAllocatorOrNode"><wbr></wbr>Check<wbr></wbr>IAllocator<wbr></wbr>Or<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckImageValidity" class="internal-link" title="ganeti.cmdlib.common.CheckImageValidity"><wbr></wbr>Check<wbr></wbr>Image<wbr></wbr>Validity</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckInstanceNodeGroups" class="internal-link" title="ganeti.cmdlib.common.CheckInstanceNodeGroups"><wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>Node<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckInstancesNodeGroups" class="internal-link" title="ganeti.cmdlib.common.CheckInstancesNodeGroups"><wbr></wbr>Check<wbr></wbr>Instances<wbr></wbr>Node<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckInstanceState" class="internal-link" title="ganeti.cmdlib.common.CheckInstanceState"><wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckIpolicyVsDiskTemplates" class="internal-link" title="ganeti.cmdlib.common.CheckIpolicyVsDiskTemplates"><wbr></wbr>Check<wbr></wbr>Ipolicy<wbr></wbr>Vs<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckNodeGroupInstances" class="internal-link" title="ganeti.cmdlib.common.CheckNodeGroupInstances"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Group<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckNodeOnline" class="internal-link" title="ganeti.cmdlib.common.CheckNodeOnline"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Online</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckNodePVs" class="internal-link" title="ganeti.cmdlib.common.CheckNodePVs"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>PVs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckOSImage" class="internal-link" title="ganeti.cmdlib.common.CheckOSImage"><wbr></wbr>Check<wbr></wbr>OSImage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckOSParams" class="internal-link" title="ganeti.cmdlib.common.CheckOSParams"><wbr></wbr>Check<wbr></wbr>OSParams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckParamsNotGlobal" class="internal-link" title="ganeti.cmdlib.common.CheckParamsNotGlobal"><wbr></wbr>Check<wbr></wbr>Params<wbr></wbr>Not<wbr></wbr>Global</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckStorageTypeEnabled" class="internal-link" title="ganeti.cmdlib.common.CheckStorageTypeEnabled"><wbr></wbr>Check<wbr></wbr>Storage<wbr></wbr>Type<wbr></wbr>Enabled</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeAncillaryFiles" class="internal-link" title="ganeti.cmdlib.common.ComputeAncillaryFiles"><wbr></wbr>Compute<wbr></wbr>Ancillary<wbr></wbr>Files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeIPolicyDiskSizesViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicyDiskSizesViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Disk<wbr></wbr>Sizes<wbr></wbr>Violation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeIPolicyInstanceViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicyInstanceViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Instance<wbr></wbr>Violation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeIPolicySpecViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicySpecViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Spec<wbr></wbr>Violation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeNewInstanceViolations" class="internal-link" title="ganeti.cmdlib.common.ComputeNewInstanceViolations"><wbr></wbr>Compute<wbr></wbr>New<wbr></wbr>Instance<wbr></wbr>Violations</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ConnectInstanceCommunicationNetworkOp" class="internal-link" title="ganeti.cmdlib.common.ConnectInstanceCommunicationNetworkOp"><wbr></wbr>Connect<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network<wbr></wbr>Op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DetermineImageSize" class="internal-link" title="ganeti.cmdlib.common.DetermineImageSize"><wbr></wbr>Determine<wbr></wbr>Image<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EnsureKvmdOnNodes" class="internal-link" title="ganeti.cmdlib.common.EnsureKvmdOnNodes"><wbr></wbr>Ensure<wbr></wbr>Kvmd<wbr></wbr>On<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandInstanceUuidAndName" class="internal-link" title="ganeti.cmdlib.common.ExpandInstanceUuidAndName"><wbr></wbr>Expand<wbr></wbr>Instance<wbr></wbr>Uuid<wbr></wbr>And<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNodeUuidAndName" class="internal-link" title="ganeti.cmdlib.common.ExpandNodeUuidAndName"><wbr></wbr>Expand<wbr></wbr>Node<wbr></wbr>Uuid<wbr></wbr>And<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FindFaultyInstanceDisks" class="internal-link" title="ganeti.cmdlib.common.FindFaultyInstanceDisks"><wbr></wbr>Find<wbr></wbr>Faulty<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetClientCertDigest" class="internal-link" title="ganeti.cmdlib.common.GetClientCertDigest"><wbr></wbr>Get<wbr></wbr>Client<wbr></wbr>Cert<wbr></wbr>Digest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetDefaultIAllocator" class="internal-link" title="ganeti.cmdlib.common.GetDefaultIAllocator"><wbr></wbr>Get<wbr></wbr>Default<wbr></wbr>IAllocator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUpdatedIPolicy" class="internal-link" title="ganeti.cmdlib.common.GetUpdatedIPolicy"><wbr></wbr>Get<wbr></wbr>Updated<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUpdatedParams" class="internal-link" title="ganeti.cmdlib.common.GetUpdatedParams"><wbr></wbr>Get<wbr></wbr>Updated<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetWantedInstances" class="internal-link" title="ganeti.cmdlib.common.GetWantedInstances"><wbr></wbr>Get<wbr></wbr>Wanted<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetWantedNodes" class="internal-link" title="ganeti.cmdlib.common.GetWantedNodes"><wbr></wbr>Get<wbr></wbr>Wanted<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsExclusiveStorageEnabledNode" class="internal-link" title="ganeti.cmdlib.common.IsExclusiveStorageEnabledNode"><wbr></wbr>Is<wbr></wbr>Exclusive<wbr></wbr>Storage<wbr></wbr>Enabled<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsInstanceRunning" class="internal-link" title="ganeti.cmdlib.common.IsInstanceRunning"><wbr></wbr>Is<wbr></wbr>Instance<wbr></wbr>Running</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsValidDiskAccessModeCombination" class="internal-link" title="ganeti.cmdlib.common.IsValidDiskAccessModeCombination"><wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Combination</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#LoadNodeEvacResult" class="internal-link" title="ganeti.cmdlib.common.LoadNodeEvacResult"><wbr></wbr>Load<wbr></wbr>Node<wbr></wbr>Evac<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MapInstanceLvsToNodes" class="internal-link" title="ganeti.cmdlib.common.MapInstanceLvsToNodes"><wbr></wbr>Map<wbr></wbr>Instance<wbr></wbr>Lvs<wbr></wbr>To<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MergeAndVerifyDiskState" class="internal-link" title="ganeti.cmdlib.common.MergeAndVerifyDiskState"><wbr></wbr>Merge<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MergeAndVerifyHvState" class="internal-link" title="ganeti.cmdlib.common.MergeAndVerifyHvState"><wbr></wbr>Merge<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Hv<wbr></wbr>State</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RedistributeAncillaryFiles" class="internal-link" title="ganeti.cmdlib.common.RedistributeAncillaryFiles"><wbr></wbr>Redistribute<wbr></wbr>Ancillary<wbr></wbr>Files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveNodeCertFromCandidateCerts" class="internal-link" title="ganeti.cmdlib.common.RemoveNodeCertFromCandidateCerts"><wbr></wbr>Remove<wbr></wbr>Node<wbr></wbr>Cert<wbr></wbr>From<wbr></wbr>Candidate<wbr></wbr>Certs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunPostHook" class="internal-link" title="ganeti.cmdlib.common.RunPostHook"><wbr></wbr>Run<wbr></wbr>Post<wbr></wbr>Hook</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShareAll" class="internal-link" title="ganeti.cmdlib.common.ShareAll"><wbr></wbr>Share<wbr></wbr>All</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SupportsOob" class="internal-link" title="ganeti.cmdlib.common.SupportsOob"><wbr></wbr>Supports<wbr></wbr>Oob</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UploadHelper" class="internal-link" title="ganeti.cmdlib.common.UploadHelper"><wbr></wbr>Upload<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WarnAboutFailedSshUpdates" class="internal-link" title="ganeti.cmdlib.common.WarnAboutFailedSshUpdates"><wbr></wbr>Warn<wbr></wbr>About<wbr></wbr>Failed<wbr></wbr>Ssh<wbr></wbr>Updates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeMinMaxSpec" class="internal-link" title="ganeti.cmdlib.common._ComputeMinMaxSpec">_<wbr></wbr>Compute<wbr></wbr>Min<wbr></wbr>Max<wbr></wbr>Spec</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeViolatingInstances" class="internal-link" title="ganeti.cmdlib.common._ComputeViolatingInstances">_<wbr></wbr>Compute<wbr></wbr>Violating<wbr></wbr>Instances</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ExpandItemName" class="internal-link" title="ganeti.cmdlib.common._ExpandItemName">_<wbr></wbr>Expand<wbr></wbr>Item<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FilterVmNodes" class="internal-link" title="ganeti.cmdlib.common._FilterVmNodes">_<wbr></wbr>Filter<wbr></wbr>Vm<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_NodeEvacDest" class="internal-link" title="ganeti.cmdlib.common._NodeEvacDest">_<wbr></wbr>Node<wbr></wbr>Evac<wbr></wbr>Dest</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetOpEarlyRelease" class="internal-link" title="ganeti.cmdlib.common._SetOpEarlyRelease">_<wbr></wbr>Set<wbr></wbr>Op<wbr></wbr>Early<wbr></wbr>Release</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpdateAndVerifySubDict" class="internal-link" title="ganeti.cmdlib.common._UpdateAndVerifySubDict">_<wbr></wbr>Update<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Sub<wbr></wbr>Dict</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_DOWN" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_DOWN">INSTANCE<wbr></wbr>_DOWN</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_NOT_RUNNING" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_NOT_RUNNING">INSTANCE<wbr></wbr>_NOT<wbr></wbr>_RUNNING</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#INSTANCE_ONLINE" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_ONLINE">INSTANCE<wbr></wbr>_ONLINE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.cmdlib.html" class="internal-link" title="The parent of this module">cmdlib</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.backup.html" class="internal-link" title="ganeti.cmdlib.backup">backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.html" class="internal-link" title="ganeti.cmdlib.base">base</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.common.html" class="internal-link" title="ganeti.cmdlib.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.group.html" class="internal-link" title="ganeti.cmdlib.group">group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance.html" class="internal-link" title="ganeti.cmdlib.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_create.html" class="internal-link" title="ganeti.cmdlib.instance_create">instance<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_helpervm.html" class="internal-link" title="ganeti.cmdlib.instance_helpervm">instance<wbr></wbr>_helpervm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_migration.html" class="internal-link" title="ganeti.cmdlib.instance_migration">instance<wbr></wbr>_migration</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_operation.html" class="internal-link" title="ganeti.cmdlib.instance_operation">instance<wbr></wbr>_operation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_query.html" class="internal-link" title="ganeti.cmdlib.instance_query">instance<wbr></wbr>_query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_set_params.html" class="internal-link" title="ganeti.cmdlib.instance_set_params">instance<wbr></wbr>_set<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="ganeti.cmdlib.instance_storage">instance<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_utils.html" class="internal-link" title="ganeti.cmdlib.instance_utils">instance<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.misc.html" class="internal-link" title="ganeti.cmdlib.misc">misc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html" class="internal-link" title="ganeti.cmdlib.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.node.html" class="internal-link" title="ganeti.cmdlib.node">node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.operating_system.html" class="internal-link" title="ganeti.cmdlib.operating_system">operating<wbr></wbr>_system</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.query.html" class="internal-link" title="ganeti.cmdlib.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.tags.html" class="internal-link" title="ganeti.cmdlib.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.test.html" class="internal-link" title="ganeti.cmdlib.test">test</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.common.html" class="internal-link" title="ganeti.cmdlib.common">common</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Common functions used by multiple logical units.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id149">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddInstanceCommunicationNetworkOp" class="internal-link" title="ganeti.cmdlib.common.AddInstanceCommunicationNetworkOp"><wbr></wbr>Add<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network<wbr></wbr>Op</a></code></td>
+    <td>Create an OpCode that adds the instance communication network.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddMasterCandidateSshKey" class="internal-link" title="ganeti.cmdlib.common.AddMasterCandidateSshKey"><wbr></wbr>Add<wbr></wbr>Master<wbr></wbr>Candidate<wbr></wbr>Ssh<wbr></wbr>Key</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddNodeCertToCandidateCerts" class="internal-link" title="ganeti.cmdlib.common.AddNodeCertToCandidateCerts"><wbr></wbr>Add<wbr></wbr>Node<wbr></wbr>Cert<wbr></wbr>To<wbr></wbr>Candidate<wbr></wbr>Certs</a></code></td>
+    <td>Add the node's client SSL certificate digest to the candidate certs.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AdjustCandidatePool" class="internal-link" title="ganeti.cmdlib.common.AdjustCandidatePool"><wbr></wbr>Adjust<wbr></wbr>Candidate<wbr></wbr>Pool</a></code></td>
+    <td>Adjust the candidate pool after node operations.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AnnotateDiskParams" class="internal-link" title="ganeti.cmdlib.common.AnnotateDiskParams"><wbr></wbr>Annotate<wbr></wbr>Disk<wbr></wbr>Params</a></code></td>
+    <td>Little helper wrapper to the rpc annotation method.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckDiskAccessModeConsistency" class="internal-link" title="ganeti.cmdlib.common.CheckDiskAccessModeConsistency"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Consistency</a></code></td>
+    <td>Checks if the access param is consistent with the cluster configuration.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckDiskAccessModeValidity" class="internal-link" title="ganeti.cmdlib.common.CheckDiskAccessModeValidity"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Validity</a></code></td>
+    <td>Checks if the access parameter is legal.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckDiskTemplateEnabled" class="internal-link" title="ganeti.cmdlib.common.CheckDiskTemplateEnabled"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Enabled</a></code></td>
+    <td>Helper function to check if a disk template is enabled.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckHVParams" class="internal-link" title="ganeti.cmdlib.common.CheckHVParams"><wbr></wbr>Check<wbr></wbr>HVParams</a></code></td>
+    <td>Hypervisor parameter validation.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckIAllocatorOrNode" class="internal-link" title="ganeti.cmdlib.common.CheckIAllocatorOrNode"><wbr></wbr>Check<wbr></wbr>IAllocator<wbr></wbr>Or<wbr></wbr>Node</a></code></td>
+    <td>Check the sanity of iallocator and node arguments and use the cluster-wide iallocator if appropriate.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckImageValidity" class="internal-link" title="ganeti.cmdlib.common.CheckImageValidity"><wbr></wbr>Check<wbr></wbr>Image<wbr></wbr>Validity</a></code></td>
+    <td>Checks if a given image description is either a valid file path or a URL.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckInstanceNodeGroups" class="internal-link" title="ganeti.cmdlib.common.CheckInstanceNodeGroups"><wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>Node<wbr></wbr>Groups</a></code></td>
+    <td>Checks if the owned node groups are still correct for an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckInstancesNodeGroups" class="internal-link" title="ganeti.cmdlib.common.CheckInstancesNodeGroups"><wbr></wbr>Check<wbr></wbr>Instances<wbr></wbr>Node<wbr></wbr>Groups</a></code></td>
+    <td>Checks if node groups for locked instances are still correct.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckInstanceState" class="internal-link" title="ganeti.cmdlib.common.CheckInstanceState"><wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>State</a></code></td>
+    <td>Ensure that an instance is in one of the required states.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckIpolicyVsDiskTemplates" class="internal-link" title="ganeti.cmdlib.common.CheckIpolicyVsDiskTemplates"><wbr></wbr>Check<wbr></wbr>Ipolicy<wbr></wbr>Vs<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Checks ipolicy disk templates against enabled disk tempaltes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckNodeGroupInstances" class="internal-link" title="ganeti.cmdlib.common.CheckNodeGroupInstances"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Group<wbr></wbr>Instances</a></code></td>
+    <td>Checks if the instances in a node group are still correct.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckNodeOnline" class="internal-link" title="ganeti.cmdlib.common.CheckNodeOnline"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>Online</a></code></td>
+    <td>Ensure that a given node is online.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckNodePVs" class="internal-link" title="ganeti.cmdlib.common.CheckNodePVs"><wbr></wbr>Check<wbr></wbr>Node<wbr></wbr>PVs</a></code></td>
+    <td>Check node PVs.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckOSImage" class="internal-link" title="ganeti.cmdlib.common.CheckOSImage"><wbr></wbr>Check<wbr></wbr>OSImage</a></code></td>
+    <td>Checks if the OS image in the OS parameters of an opcode is valid.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckOSParams" class="internal-link" title="ganeti.cmdlib.common.CheckOSParams"><wbr></wbr>Check<wbr></wbr>OSParams</a></code></td>
+    <td>OS parameters validation.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckParamsNotGlobal" class="internal-link" title="ganeti.cmdlib.common.CheckParamsNotGlobal"><wbr></wbr>Check<wbr></wbr>Params<wbr></wbr>Not<wbr></wbr>Global</a></code></td>
+    <td>Make sure that none of the given paramters is global.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckStorageTypeEnabled" class="internal-link" title="ganeti.cmdlib.common.CheckStorageTypeEnabled"><wbr></wbr>Check<wbr></wbr>Storage<wbr></wbr>Type<wbr></wbr>Enabled</a></code></td>
+    <td>Helper function to check if a storage type is enabled.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeAncillaryFiles" class="internal-link" title="ganeti.cmdlib.common.ComputeAncillaryFiles"><wbr></wbr>Compute<wbr></wbr>Ancillary<wbr></wbr>Files</a></code></td>
+    <td>Compute files external to Ganeti which need to be consistent.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeIPolicyDiskSizesViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicyDiskSizesViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Disk<wbr></wbr>Sizes<wbr></wbr>Violation</a></code></td>
+    <td>Verifies ipolicy against provided disk sizes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeIPolicyInstanceViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicyInstanceViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Instance<wbr></wbr>Violation</a></code></td>
+    <td>Compute if instance meets the specs of ipolicy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeIPolicySpecViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicySpecViolation"><wbr></wbr>Compute<wbr></wbr>IPolicy<wbr></wbr>Spec<wbr></wbr>Violation</a></code></td>
+    <td>Verifies ipolicy against provided specs.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeNewInstanceViolations" class="internal-link" title="ganeti.cmdlib.common.ComputeNewInstanceViolations"><wbr></wbr>Compute<wbr></wbr>New<wbr></wbr>Instance<wbr></wbr>Violations</a></code></td>
+    <td>Computes a set of any instances that would violate the new ipolicy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ConnectInstanceCommunicationNetworkOp" class="internal-link" title="ganeti.cmdlib.common.ConnectInstanceCommunicationNetworkOp"><wbr></wbr>Connect<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network<wbr></wbr>Op</a></code></td>
+    <td>Create an OpCode that connects a group to the instance communication network.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DetermineImageSize" class="internal-link" title="ganeti.cmdlib.common.DetermineImageSize"><wbr></wbr>Determine<wbr></wbr>Image<wbr></wbr>Size</a></code></td>
+    <td>Determines the size of the specified image.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EnsureKvmdOnNodes" class="internal-link" title="ganeti.cmdlib.common.EnsureKvmdOnNodes"><wbr></wbr>Ensure<wbr></wbr>Kvmd<wbr></wbr>On<wbr></wbr>Nodes</a></code></td>
+    <td>Ensure KVM daemon is running on nodes with KVM instances.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ExpandInstanceUuidAndName" class="internal-link" title="ganeti.cmdlib.common.ExpandInstanceUuidAndName"><wbr></wbr>Expand<wbr></wbr>Instance<wbr></wbr>Uuid<wbr></wbr>And<wbr></wbr>Name</a></code></td>
+    <td>Wrapper over <code><a href="ganeti.cmdlib.common.html#_ExpandItemName" class="internal-link" title="ganeti.cmdlib.common._ExpandItemName">_ExpandItemName</a></code> for instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ExpandNodeUuidAndName" class="internal-link" title="ganeti.cmdlib.common.ExpandNodeUuidAndName"><wbr></wbr>Expand<wbr></wbr>Node<wbr></wbr>Uuid<wbr></wbr>And<wbr></wbr>Name</a></code></td>
+    <td>Expand a short node name into the node UUID and full name.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FindFaultyInstanceDisks" class="internal-link" title="ganeti.cmdlib.common.FindFaultyInstanceDisks"><wbr></wbr>Find<wbr></wbr>Faulty<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetClientCertDigest" class="internal-link" title="ganeti.cmdlib.common.GetClientCertDigest"><wbr></wbr>Get<wbr></wbr>Client<wbr></wbr>Cert<wbr></wbr>Digest</a></code></td>
+    <td>Get the client SSL certificate digest for the node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetDefaultIAllocator" class="internal-link" title="ganeti.cmdlib.common.GetDefaultIAllocator"><wbr></wbr>Get<wbr></wbr>Default<wbr></wbr>IAllocator</a></code></td>
+    <td>Decides on which iallocator to use.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetUpdatedIPolicy" class="internal-link" title="ganeti.cmdlib.common.GetUpdatedIPolicy"><wbr></wbr>Get<wbr></wbr>Updated<wbr></wbr>IPolicy</a></code></td>
+    <td>Return the new version of an instance policy.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetUpdatedParams" class="internal-link" title="ganeti.cmdlib.common.GetUpdatedParams"><wbr></wbr>Get<wbr></wbr>Updated<wbr></wbr>Params</a></code></td>
+    <td>Return the new version of a parameter dictionary.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetWantedInstances" class="internal-link" title="ganeti.cmdlib.common.GetWantedInstances"><wbr></wbr>Get<wbr></wbr>Wanted<wbr></wbr>Instances</a></code></td>
+    <td>Returns list of checked and expanded instance names.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetWantedNodes" class="internal-link" title="ganeti.cmdlib.common.GetWantedNodes"><wbr></wbr>Get<wbr></wbr>Wanted<wbr></wbr>Nodes</a></code></td>
+    <td>Returns list of checked and expanded node names.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsExclusiveStorageEnabledNode" class="internal-link" title="ganeti.cmdlib.common.IsExclusiveStorageEnabledNode"><wbr></wbr>Is<wbr></wbr>Exclusive<wbr></wbr>Storage<wbr></wbr>Enabled<wbr></wbr>Node</a></code></td>
+    <td>Whether exclusive_storage is in effect for the given node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsInstanceRunning" class="internal-link" title="ganeti.cmdlib.common.IsInstanceRunning"><wbr></wbr>Is<wbr></wbr>Instance<wbr></wbr>Running</a></code></td>
+    <td>Given an instance object, checks if the instance is running.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsValidDiskAccessModeCombination" class="internal-link" title="ganeti.cmdlib.common.IsValidDiskAccessModeCombination"><wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Disk<wbr></wbr>Access<wbr></wbr>Mode<wbr></wbr>Combination</a></code></td>
+    <td>Checks if an hypervisor can read a disk template with given mode.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#LoadNodeEvacResult" class="internal-link" title="ganeti.cmdlib.common.LoadNodeEvacResult"><wbr></wbr>Load<wbr></wbr>Node<wbr></wbr>Evac<wbr></wbr>Result</a></code></td>
+    <td>Unpacks the result of change-group and node-evacuate iallocator requests.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MapInstanceLvsToNodes" class="internal-link" title="ganeti.cmdlib.common.MapInstanceLvsToNodes"><wbr></wbr>Map<wbr></wbr>Instance<wbr></wbr>Lvs<wbr></wbr>To<wbr></wbr>Nodes</a></code></td>
+    <td>Creates a map from (node, volume) to instance name.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MergeAndVerifyDiskState" class="internal-link" title="ganeti.cmdlib.common.MergeAndVerifyDiskState"><wbr></wbr>Merge<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Disk<wbr></wbr>State</a></code></td>
+    <td>Combines the disk state from an opcode with the one of the object</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MergeAndVerifyHvState" class="internal-link" title="ganeti.cmdlib.common.MergeAndVerifyHvState"><wbr></wbr>Merge<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Hv<wbr></wbr>State</a></code></td>
+    <td>Combines the hv state from an opcode with the one of the object</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RedistributeAncillaryFiles" class="internal-link" title="ganeti.cmdlib.common.RedistributeAncillaryFiles"><wbr></wbr>Redistribute<wbr></wbr>Ancillary<wbr></wbr>Files</a></code></td>
+    <td>Distribute additional files which are part of the cluster configuration.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveNodeCertFromCandidateCerts" class="internal-link" title="ganeti.cmdlib.common.RemoveNodeCertFromCandidateCerts"><wbr></wbr>Remove<wbr></wbr>Node<wbr></wbr>Cert<wbr></wbr>From<wbr></wbr>Candidate<wbr></wbr>Certs</a></code></td>
+    <td>Removes the node's certificate from the candidate certificates list.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunPostHook" class="internal-link" title="ganeti.cmdlib.common.RunPostHook"><wbr></wbr>Run<wbr></wbr>Post<wbr></wbr>Hook</a></code></td>
+    <td>Runs the post-hook for an opcode on a single node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShareAll" class="internal-link" title="ganeti.cmdlib.common.ShareAll"><wbr></wbr>Share<wbr></wbr>All</a></code></td>
+    <td>Returns a dict declaring all lock levels shared.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SupportsOob" class="internal-link" title="ganeti.cmdlib.common.SupportsOob"><wbr></wbr>Supports<wbr></wbr>Oob</a></code></td>
+    <td>Tells if node supports OOB.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#UploadHelper" class="internal-link" title="ganeti.cmdlib.common.UploadHelper"><wbr></wbr>Upload<wbr></wbr>Helper</a></code></td>
+    <td>Helper for uploading a file and showing warnings.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WarnAboutFailedSshUpdates" class="internal-link" title="ganeti.cmdlib.common.WarnAboutFailedSshUpdates"><wbr></wbr>Warn<wbr></wbr>About<wbr></wbr>Failed<wbr></wbr>Ssh<wbr></wbr>Updates</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_DOWN" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_DOWN">INSTANCE<wbr></wbr>_DOWN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_NOT_RUNNING" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_NOT_RUNNING">INSTANCE<wbr></wbr>_NOT<wbr></wbr>_RUNNING</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#INSTANCE_ONLINE" class="internal-link" title="ganeti.cmdlib.common.INSTANCE_ONLINE">INSTANCE<wbr></wbr>_ONLINE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ComputeMinMaxSpec" class="internal-link" title="ganeti.cmdlib.common._ComputeMinMaxSpec">_<wbr></wbr>Compute<wbr></wbr>Min<wbr></wbr>Max<wbr></wbr>Spec</a></code></td>
+    <td>Computes if value is in the desired range.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ComputeViolatingInstances" class="internal-link" title="ganeti.cmdlib.common._ComputeViolatingInstances">_<wbr></wbr>Compute<wbr></wbr>Violating<wbr></wbr>Instances</a></code></td>
+    <td>Computes a set of instances who violates given ipolicy.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ExpandItemName" class="internal-link" title="ganeti.cmdlib.common._ExpandItemName">_<wbr></wbr>Expand<wbr></wbr>Item<wbr></wbr>Name</a></code></td>
+    <td>Expand an item name.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FilterVmNodes" class="internal-link" title="ganeti.cmdlib.common._FilterVmNodes">_<wbr></wbr>Filter<wbr></wbr>Vm<wbr></wbr>Nodes</a></code></td>
+    <td>Filters out non-vm_capable nodes from a list.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_NodeEvacDest" class="internal-link" title="ganeti.cmdlib.common._NodeEvacDest">_<wbr></wbr>Node<wbr></wbr>Evac<wbr></wbr>Dest</a></code></td>
+    <td>Returns group or nodes depending on caller's choice.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SetOpEarlyRelease" class="internal-link" title="ganeti.cmdlib.common._SetOpEarlyRelease">_<wbr></wbr>Set<wbr></wbr>Op<wbr></wbr>Early<wbr></wbr>Release</a></code></td>
+    <td>Sets <tt class="rst-docutils literal">early_release</tt> flag on opcodes if available.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_UpdateAndVerifySubDict" class="internal-link" title="ganeti.cmdlib.common._UpdateAndVerifySubDict">_<wbr></wbr>Update<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Sub<wbr></wbr>Dict</a></code></td>
+    <td>Updates and verifies a dict with sub dicts of the same type.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.AddInstanceCommunicationNetworkOp">
+    
+  </a>
+  <a name="AddInstanceCommunicationNetworkOp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddInstanceCommunicationNetworkOp</span>(network):
+    
+    <a class="headerLink" href="#AddInstanceCommunicationNetworkOp" title="ganeti.cmdlib.common.AddInstanceCommunicationNetworkOp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create an OpCode that adds the instance communication network.</p>
+<p>This OpCode contains the configuration necessary for the instance communication network.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">network:</span>string</td><td class="fieldArgDesc">name or UUID of the instance communication network</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.opcodes.OpCode.html" class="internal-link" title="ganeti.opcodes.OpCode">ganeti.opcodes.OpCode</a></code></td><td class="fieldArgDesc">OpCode that creates the instance communication network</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.AddMasterCandidateSshKey">
+    
+  </a>
+  <a name="AddMasterCandidateSshKey">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddMasterCandidateSshKey</span>(lu, master_node, node, potential_master_candidates, feedback_fn):
+    
+    <a class="headerLink" href="#AddMasterCandidateSshKey" title="ganeti.cmdlib.common.AddMasterCandidateSshKey">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.AddNodeCertToCandidateCerts">
+    
+  </a>
+  <a name="AddNodeCertToCandidateCerts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddNodeCertToCandidateCerts</span>(lu, cfg, node_uuid):
+    
+    <a class="headerLink" href="#AddNodeCertToCandidateCerts" title="ganeti.cmdlib.common.AddNodeCertToCandidateCerts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add the node's client SSL certificate digest to the candidate certs.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">ConfigWriter</a></code></td><td class="fieldArgDesc">the configuration client to use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">the node's UUID</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.AdjustCandidatePool">
+    
+  </a>
+  <a name="AdjustCandidatePool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AdjustCandidatePool</span>(lu, exceptions, master_node, potential_master_candidates, feedback_fn, modify_ssh_setup):
+    
+    <a class="headerLink" href="#AdjustCandidatePool" title="ganeti.cmdlib.common.AdjustCandidatePool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Adjust the candidate pool after node operations.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">exceptions</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">master<wbr></wbr>_node:</span>string</td><td class="fieldArgDesc">name of the master node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">potential<wbr></wbr>_master<wbr></wbr>_candidates:</span>list of string</td><td class="fieldArgDesc">list of node names of potential master candidates</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>function</td><td class="fieldArgDesc">function emitting user-visible output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">modify<wbr></wbr>_ssh<wbr></wbr>_setup:</span>boolean</td><td class="fieldArgDesc">whether or not the ssh setup can be modified.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.AnnotateDiskParams">
+    
+  </a>
+  <a name="AnnotateDiskParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AnnotateDiskParams</span>(instance, devs, cfg):
+    
+    <a class="headerLink" href="#AnnotateDiskParams" title="ganeti.cmdlib.common.AnnotateDiskParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Little helper wrapper to the rpc annotation method.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance</span></td><td class="fieldArgDesc">The instance object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">devs:</span>List of <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code></td><td class="fieldArgDesc">The root devices (not any of its children!)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg</span></td><td class="fieldArgDesc">The config object @returns The annotated disk copies @see <code><a href="ganeti.rpc.node.html#AnnotateDiskParams" class="internal-link" title="ganeti.rpc.node.AnnotateDiskParams">ganeti.rpc.node.AnnotateDiskParams</a></code></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckDiskAccessModeConsistency">
+    
+  </a>
+  <a name="CheckDiskAccessModeConsistency">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckDiskAccessModeConsistency</span>(parameters, cfg, group=None):
+    
+    <a class="headerLink" href="#CheckDiskAccessModeConsistency" title="ganeti.cmdlib.common.CheckDiskAccessModeConsistency">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the access param is consistent with the cluster configuration.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">parameters</span></td><td class="fieldArgDesc">the parameters to validate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg</span></td><td class="fieldArgDesc">the cfg object of the cluster</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group</span></td><td class="fieldArgDesc">if set, only check for consistency within this group.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the LU attempts to change the access parameter to an invalid value, such as "pink bunny".</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the LU attempts to change the access parameter to an inconsistent value, such as asking for RBD userspace access to the chroot hypervisor.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Note</td></tr><tr><td colspan="2">requires a configuration lock to run.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckDiskAccessModeValidity">
+    
+  </a>
+  <a name="CheckDiskAccessModeValidity">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckDiskAccessModeValidity</span>(parameters):
+    
+    <a class="headerLink" href="#CheckDiskAccessModeValidity" title="ganeti.cmdlib.common.CheckDiskAccessModeValidity">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the access parameter is legal.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the check fails.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#CheckDiskAccessModeConsistency" class="internal-link" title="ganeti.cmdlib.common.CheckDiskAccessModeConsistency">CheckDiskAccessModeConsistency</a></code> for cluster consistency checks.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckDiskTemplateEnabled">
+    
+  </a>
+  <a name="CheckDiskTemplateEnabled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckDiskTemplateEnabled</span>(cluster, disk_template):
+    
+    <a class="headerLink" href="#CheckDiskTemplateEnabled" title="ganeti.cmdlib.common.CheckDiskTemplateEnabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function to check if a disk template is enabled.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster:</span><tt class="rst-docutils literal">objects.Cluster</tt></td><td class="fieldArgDesc">the cluster's configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>str</td><td class="fieldArgDesc">the disk template to be checked</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckHVParams">
+    
+  </a>
+  <a name="CheckHVParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckHVParams</span>(lu, node_uuids, hvname, hvparams):
+    
+    <a class="headerLink" href="#CheckHVParams" title="ganeti.cmdlib.common.CheckHVParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Hypervisor parameter validation.</p>
+<p>This function abstracts the hypervisor parameter validation to be used in both instance create and instance modify.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit for which we check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list</td><td class="fieldArgDesc">the list of nodes on which we should check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hvname:</span>string</td><td class="fieldArgDesc">the name of the hypervisor we should use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hvparams:</span>dict</td><td class="fieldArgDesc">the parameters which we need to check</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the parameters are not valid</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckIAllocatorOrNode">
+    
+  </a>
+  <a name="CheckIAllocatorOrNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckIAllocatorOrNode</span>(lu, iallocator_slot, node_slot):
+    
+    <a class="headerLink" href="#CheckIAllocatorOrNode" title="ganeti.cmdlib.common.CheckIAllocatorOrNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the sanity of iallocator and node arguments and use the cluster-wide iallocator if appropriate.</p>
+<p>Check that at most one of (iallocator, node) is specified. If none is specified, or the iallocator is <code><a href="ganeti._constants.html#DEFAULT_IALLOCATOR_SHORTCUT" class="internal-link" title="ganeti._constants.DEFAULT_IALLOCATOR_SHORTCUT">constants.DEFAULT_IALLOCATOR_SHORTCUT</a></code>, then the LU's opcode's iallocator slot is filled with the cluster-wide default iallocator.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">iallocator<wbr></wbr>_slot:</span>string</td><td class="fieldArgDesc">the name of the opcode iallocator slot</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_slot:</span>string</td><td class="fieldArgDesc">the name of the opcode target node slot</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckImageValidity">
+    
+  </a>
+  <a name="CheckImageValidity">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckImageValidity</span>(image, error_message):
+    
+    <a class="headerLink" href="#CheckImageValidity" title="ganeti.cmdlib.common.CheckImageValidity">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a given image description is either a valid file path or a URL.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">image:</span>string</td><td class="fieldArgDesc">An absolute path or URL, the assumed location of a disk image.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">error<wbr></wbr>_message:</span>string</td><td class="fieldArgDesc">The error message to show if the image is not valid.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>If the validation fails.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckInstanceNodeGroups">
+    
+  </a>
+  <a name="CheckInstanceNodeGroups">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckInstanceNodeGroups</span>(cfg, inst_uuid, owned_groups, primary_only=False):
+    
+    <a class="headerLink" href="#CheckInstanceNodeGroups" title="ganeti.cmdlib.common.CheckInstanceNodeGroups">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the owned node groups are still correct for an instance.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">inst<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">Instance UUID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">owned<wbr></wbr>_groups:</span>set or frozenset</td><td class="fieldArgDesc">List of currently owned node groups</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">primary<wbr></wbr>_only:</span>boolean</td><td class="fieldArgDesc">Whether to check node groups for only the primary node</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckInstancesNodeGroups">
+    
+  </a>
+  <a name="CheckInstancesNodeGroups">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckInstancesNodeGroups</span>(cfg, instances, owned_groups, owned_node_uuids, cur_group_uuid):
+    
+    <a class="headerLink" href="#CheckInstancesNodeGroups" title="ganeti.cmdlib.common.CheckInstancesNodeGroups">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if node groups for locked instances are still correct.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">Cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instances:</span>dict; string as key, <code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code> as value</td><td class="fieldArgDesc">Dictionary, instance UUID as key, instance object as value</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">owned<wbr></wbr>_groups:</span>iterable of string</td><td class="fieldArgDesc">List of owned groups</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">owned<wbr></wbr>_node<wbr></wbr>_uuids:</span>iterable of string</td><td class="fieldArgDesc">List of owned nodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cur<wbr></wbr>_group<wbr></wbr>_uuid:</span>string or None</td><td class="fieldArgDesc">Optional group UUID to check against instance's groups</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckInstanceState">
+    
+  </a>
+  <a name="CheckInstanceState">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckInstanceState</span>(lu, instance, req_states, msg=None):
+    
+    <a class="headerLink" href="#CheckInstanceState" title="ganeti.cmdlib.common.CheckInstanceState">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure that an instance is in one of the required states.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc">the LU on behalf of which we make the check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance</span></td><td class="fieldArgDesc">the instance to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">req<wbr></wbr>_states</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">msg</span></td><td class="fieldArgDesc">if passed, should be a message to replace the default one</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the instance is not in the required state</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckIpolicyVsDiskTemplates">
+    
+  </a>
+  <a name="CheckIpolicyVsDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckIpolicyVsDiskTemplates</span>(ipolicy, enabled_disk_templates):
+    
+    <a class="headerLink" href="#CheckIpolicyVsDiskTemplates" title="ganeti.cmdlib.common.CheckIpolicyVsDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks ipolicy disk templates against enabled disk tempaltes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">the new ipolicy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">enabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of string</td><td class="fieldArgDesc">list of enabled disk templates on the cluster</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if there is at least one allowed disk template that is not also enabled.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckNodeGroupInstances">
+    
+  </a>
+  <a name="CheckNodeGroupInstances">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckNodeGroupInstances</span>(cfg, group_uuid, owned_instance_names):
+    
+    <a class="headerLink" href="#CheckNodeGroupInstances" title="ganeti.cmdlib.common.CheckNodeGroupInstances">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the instances in a node group are still correct.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">Node group UUID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">owned<wbr></wbr>_instance<wbr></wbr>_names:</span>set or frozenset</td><td class="fieldArgDesc">List of currently owned instances</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckNodeOnline">
+    
+  </a>
+  <a name="CheckNodeOnline">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckNodeOnline</span>(lu, node_uuid, msg=None):
+    
+    <a class="headerLink" href="#CheckNodeOnline" title="ganeti.cmdlib.common.CheckNodeOnline">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure that a given node is online.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc">the LU on behalf of which we make the check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid</span></td><td class="fieldArgDesc">the node to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">msg</span></td><td class="fieldArgDesc">if passed, should be a message to replace the default one</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the node is offline</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckNodePVs">
+    
+  </a>
+  <a name="CheckNodePVs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckNodePVs</span>(nresult, exclusive_storage):
+    
+    <a class="headerLink" href="#CheckNodePVs" title="ganeti.cmdlib.common.CheckNodePVs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check node PVs.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckOSImage">
+    
+  </a>
+  <a name="CheckOSImage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckOSImage</span>(op):
+    
+    <a class="headerLink" href="#CheckOSImage" title="ganeti.cmdlib.common.CheckOSImage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the OS image in the OS parameters of an opcode is valid.</p>
+<p>This function can also be used in LUs as they carry an opcode.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">op:</span><code><a href="ganeti.opcodes.OpCode.html" class="internal-link" title="ganeti.opcodes.OpCode">opcodes.OpCode</a></code></td><td class="fieldArgDesc">opcode containing the OS params</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string or NoneType</td><td class="fieldArgDesc">None if the OS parameters in the opcode do not contain the OS image, otherwise the OS image value contained in the OS parameters</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if OS image is not a URL or an absolute path</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckOSParams">
+    
+  </a>
+  <a name="CheckOSParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckOSParams</span>(lu, required, node_uuids, osname, osparams, force_variant):
+    
+    <a class="headerLink" href="#CheckOSParams" title="ganeti.cmdlib.common.CheckOSParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>OS parameters validation.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit for which we check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">required:</span>boolean</td><td class="fieldArgDesc">whether the validation should fail if the OS is not found</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list</td><td class="fieldArgDesc">the list of nodes on which we should check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">osname:</span>string</td><td class="fieldArgDesc">the name of the OS we should use</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">osparams:</span>dict</td><td class="fieldArgDesc">the parameters which we need to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force<wbr></wbr>_variant</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the parameters are not valid</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckParamsNotGlobal">
+    
+  </a>
+  <a name="CheckParamsNotGlobal">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckParamsNotGlobal</span>(params, glob_pars, kind, bad_levels, good_levels):
+    
+    <a class="headerLink" href="#CheckParamsNotGlobal" title="ganeti.cmdlib.common.CheckParamsNotGlobal">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Make sure that none of the given paramters is global.</p>
+<p>If a global parameter is found, an <code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code> exception is raised. This is used to avoid setting global parameters for individual nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">params:</span>dictionary</td><td class="fieldArgDesc">Parameters to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">glob<wbr></wbr>_pars:</span>dictionary</td><td class="fieldArgDesc">Forbidden parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">kind:</span>string</td><td class="fieldArgDesc">Kind of parameters (e.g. "node")</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bad<wbr></wbr>_levels:</span>string</td><td class="fieldArgDesc">Level(s) at which the parameters are forbidden (e.g. "instance")</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">good<wbr></wbr>_levels:</span>strings</td><td class="fieldArgDesc">Level(s) at which the parameters are allowed (e.g. "cluster or group")</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.CheckStorageTypeEnabled">
+    
+  </a>
+  <a name="CheckStorageTypeEnabled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckStorageTypeEnabled</span>(cluster, storage_type):
+    
+    <a class="headerLink" href="#CheckStorageTypeEnabled" title="ganeti.cmdlib.common.CheckStorageTypeEnabled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper function to check if a storage type is enabled.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster:</span><tt class="rst-docutils literal">objects.Cluster</tt></td><td class="fieldArgDesc">the cluster's configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">storage<wbr></wbr>_type:</span>str</td><td class="fieldArgDesc">the storage type to be checked</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ComputeAncillaryFiles">
+    
+  </a>
+  <a name="ComputeAncillaryFiles">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeAncillaryFiles</span>(cluster, redist):
+    
+    <a class="headerLink" href="#ComputeAncillaryFiles" title="ganeti.cmdlib.common.ComputeAncillaryFiles">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute files external to Ganeti which need to be consistent.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">redist:</span>boolean</td><td class="fieldArgDesc">Whether to include files which need to be redistributed</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ComputeIPolicyDiskSizesViolation">
+    
+  </a>
+  <a name="ComputeIPolicyDiskSizesViolation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeIPolicyDiskSizesViolation</span>(ipolicy, disk_sizes, disks, _compute_fn=<a href="#_ComputeMinMaxSpec" class="internal-link" title="ganeti.cmdlib.common._ComputeMinMaxSpec">_ComputeMinMaxSpec</a>):
+    
+    <a class="headerLink" href="#ComputeIPolicyDiskSizesViolation" title="ganeti.cmdlib.common.ComputeIPolicyDiskSizesViolation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies ipolicy against provided disk sizes.</p>
+<p>No other specs except the disk sizes, the number of disks and the disk template are checked.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">The ipolicy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_sizes:</span>list of ints</td><td class="fieldArgDesc">Disk sizes of used disk (len must match <tt class="rst-docutils literal">disk_count</tt>)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">Disk</a></code></td><td class="fieldArgDesc">The Disk objects of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_compute<wbr></wbr>_fn</span></td><td class="fieldArgDesc">The compute function (unittest only)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A list of violations, or an empty list of no violations are found</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ComputeIPolicyInstanceViolation">
+    
+  </a>
+  <a name="ComputeIPolicyInstanceViolation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeIPolicyInstanceViolation</span>(ipolicy, instance, cfg, _compute_fn=<a href="#ComputeIPolicySpecViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicySpecViolation">ComputeIPolicySpecViolation</a>):
+    
+    <a class="headerLink" href="#ComputeIPolicyInstanceViolation" title="ganeti.cmdlib.common.ComputeIPolicyInstanceViolation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute if instance meets the specs of ipolicy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">The ipolicy to verify against</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">The instance to verify</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">Cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_compute<wbr></wbr>_fn</span></td><td class="fieldArgDesc">The function to verify ipolicy (unittest only)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><code><a href="#ComputeIPolicySpecViolation" class="internal-link" title="ganeti.cmdlib.common.ComputeIPolicySpecViolation">ComputeIPolicySpecViolation</a></code></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ComputeIPolicySpecViolation">
+    
+  </a>
+  <a name="ComputeIPolicySpecViolation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeIPolicySpecViolation</span>(ipolicy, mem_size, cpu_count, disk_count, nic_count, disk_sizes, spindle_use, disk_types, _compute_fn=<a href="#_ComputeMinMaxSpec" class="internal-link" title="ganeti.cmdlib.common._ComputeMinMaxSpec">_ComputeMinMaxSpec</a>):
+    
+    <a class="headerLink" href="#ComputeIPolicySpecViolation" title="ganeti.cmdlib.common.ComputeIPolicySpecViolation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifies ipolicy against provided specs.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy:</span>dict</td><td class="fieldArgDesc">The ipolicy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mem<wbr></wbr>_size:</span>int</td><td class="fieldArgDesc">The memory size</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cpu<wbr></wbr>_count:</span>int</td><td class="fieldArgDesc">Used cpu cores</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_count:</span>int</td><td class="fieldArgDesc">Number of disks used</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nic<wbr></wbr>_count:</span>int</td><td class="fieldArgDesc">Number of nics used</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_sizes:</span>list of ints</td><td class="fieldArgDesc">Disk sizes of used disk (len must match <tt class="rst-docutils literal">disk_count</tt>)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">spindle<wbr></wbr>_use:</span>int</td><td class="fieldArgDesc">The number of spindles this instance uses</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_types:</span>list of strings</td><td class="fieldArgDesc">The disk template of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_compute<wbr></wbr>_fn</span></td><td class="fieldArgDesc">The compute function (unittest only)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A list of violations, or an empty list of no violations are found</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ComputeNewInstanceViolations">
+    
+  </a>
+  <a name="ComputeNewInstanceViolations">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeNewInstanceViolations</span>(old_ipolicy, new_ipolicy, instances, cfg):
+    
+    <a class="headerLink" href="#ComputeNewInstanceViolations" title="ganeti.cmdlib.common.ComputeNewInstanceViolations">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes a set of any instances that would violate the new ipolicy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">old<wbr></wbr>_ipolicy</span></td><td class="fieldArgDesc">The current (still in-place) ipolicy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_ipolicy</span></td><td class="fieldArgDesc">The new (to become) ipolicy</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instances</span></td><td class="fieldArgDesc">List of instances to verify</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">Cluster configuration</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A list of instances which violates the new ipolicy but did not before</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ConnectInstanceCommunicationNetworkOp">
+    
+  </a>
+  <a name="ConnectInstanceCommunicationNetworkOp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ConnectInstanceCommunicationNetworkOp</span>(group_uuid, network):
+    
+    <a class="headerLink" href="#ConnectInstanceCommunicationNetworkOp" title="ganeti.cmdlib.common.ConnectInstanceCommunicationNetworkOp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create an OpCode that connects a group to the instance communication network.</p>
+<p>This OpCode contains the configuration necessary for the instance communication network.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">UUID of the group to connect</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">network:</span>string</td><td class="fieldArgDesc">name or UUID of the network to connect to, i.e., the instance communication network</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.opcodes.OpCode.html" class="internal-link" title="ganeti.opcodes.OpCode">ganeti.opcodes.OpCode</a></code></td><td class="fieldArgDesc">OpCode that connects the group to the instance communication network</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.DetermineImageSize">
+    
+  </a>
+  <a name="DetermineImageSize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DetermineImageSize</span>(lu, image, node_uuid):
+    
+    <a class="headerLink" href="#DetermineImageSize" title="ganeti.cmdlib.common.DetermineImageSize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determines the size of the specified image.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">image:</span>string</td><td class="fieldArgDesc">absolute filepath or URL of the image</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">if <code>image</code> is a filepath, this is the UUID of the node where the image is located</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">size of the image in MB, rounded up</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>OpExecError</code></td><td>if the image does not exist</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.EnsureKvmdOnNodes">
+    
+  </a>
+  <a name="EnsureKvmdOnNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EnsureKvmdOnNodes</span>(lu, feedback_fn, nodes=None, silent_stop=False):
+    
+    <a class="headerLink" href="#EnsureKvmdOnNodes" title="ganeti.cmdlib.common.EnsureKvmdOnNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure KVM daemon is running on nodes with KVM instances.</p>
+<p>If user shutdown is enabled in the cluster:</p>
+<ul class="rst-simple">
+<li>The KVM daemon will be started on VM capable nodes containing KVM instances.</li>
+<li>The KVM daemon will be stopped on non VM capable nodes.</li>
+</ul>
+<p>If user shutdown is disabled in the cluster:</p>
+<ul class="rst-simple">
+<li>The KVM daemon will be stopped on all nodes</li>
+</ul>
+<p>Issues a warning for each failed RPC call.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>callable</td><td class="fieldArgDesc">feedback function</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>list of string</td><td class="fieldArgDesc">if supplied, it overrides the node uuids to start/stop; this is used mainly for optimization</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">silent<wbr></wbr>_stop:</span>bool</td><td class="fieldArgDesc">if we should suppress warnings in case KVM daemon is already stopped</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ExpandInstanceUuidAndName">
+    
+  </a>
+  <a name="ExpandInstanceUuidAndName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandInstanceUuidAndName</span>(cfg, expected_uuid, name):
+    
+    <a class="headerLink" href="#ExpandInstanceUuidAndName" title="ganeti.cmdlib.common.ExpandInstanceUuidAndName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper over <code><a href="#_ExpandItemName" class="internal-link" title="ganeti.cmdlib.common._ExpandItemName">_ExpandItemName</a></code> for instance.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ExpandNodeUuidAndName">
+    
+  </a>
+  <a name="ExpandNodeUuidAndName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNodeUuidAndName</span>(cfg, expected_uuid, name):
+    
+    <a class="headerLink" href="#ExpandNodeUuidAndName" title="ganeti.cmdlib.common.ExpandNodeUuidAndName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Expand a short node name into the node UUID and full name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">expected<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">expected UUID for the node (or None if there is no expectation). If it does not match, a <code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code> is raised.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name:</span>string</td><td class="fieldArgDesc">the short node name</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.FindFaultyInstanceDisks">
+    
+  </a>
+  <a name="FindFaultyInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FindFaultyInstanceDisks</span>(cfg, rpc_runner, instance, node_uuid, prereq):
+    
+    <a class="headerLink" href="#FindFaultyInstanceDisks" title="ganeti.cmdlib.common.FindFaultyInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetClientCertDigest">
+    
+  </a>
+  <a name="GetClientCertDigest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetClientCertDigest</span>(lu, node_uuid, filename=None):
+    
+    <a class="headerLink" href="#GetClientCertDigest" title="ganeti.cmdlib.common.GetClientCertDigest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the client SSL certificate digest for the node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">the node's UUID</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">the certificate's filename</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">the digest of the newly created certificate</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetDefaultIAllocator">
+    
+  </a>
+  <a name="GetDefaultIAllocator">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetDefaultIAllocator</span>(cfg, ialloc):
+    
+    <a class="headerLink" href="#GetDefaultIAllocator" title="ganeti.cmdlib.common.GetDefaultIAllocator">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Decides on which iallocator to use.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">Cluster configuration object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ialloc:</span>string or None</td><td class="fieldArgDesc">Iallocator specified in opcode</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">Iallocator name</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetUpdatedIPolicy">
+    
+  </a>
+  <a name="GetUpdatedIPolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetUpdatedIPolicy</span>(old_ipolicy, new_ipolicy, group_policy=False):
+    
+    <a class="headerLink" href="#GetUpdatedIPolicy" title="ganeti.cmdlib.common.GetUpdatedIPolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the new version of an instance policy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">old<wbr></wbr>_ipolicy</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_ipolicy</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">group<wbr></wbr>_policy</span></td><td class="fieldArgDesc">whether this policy applies to a group and thus we should support removal of policy entries</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetUpdatedParams">
+    
+  </a>
+  <a name="GetUpdatedParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetUpdatedParams</span>(old_params, update_dict, use_default=True, use_none=False):
+    
+    <a class="headerLink" href="#GetUpdatedParams" title="ganeti.cmdlib.common.GetUpdatedParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the new version of a parameter dictionary.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">old<wbr></wbr>_params:</span>dict</td><td class="fieldArgDesc">old parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">update<wbr></wbr>_dict:</span>dict</td><td class="fieldArgDesc">dict containing new parameter values, or constants.VALUE_DEFAULT to reset the parameter to its default value</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">use<wbr></wbr>_default:</span>whether to recognise <code><a href="ganeti._constants.html#VALUE_DEFAULT" class="internal-link" title="ganeti._constants.VALUE_DEFAULT">constants.VALUE_DEFAULT</a></code> values as 'to be deleted' values</td><td class="fieldArgDesc">boolean</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">use<wbr></wbr>_none:</span>whether to recognise <tt class="rst-docutils literal">None</tt> values as 'to be deleted' values</td><td class="fieldArgDesc">boolean</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">the new parameter dictionary</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetWantedInstances">
+    
+  </a>
+  <a name="GetWantedInstances">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetWantedInstances</span>(lu, short_inst_names):
+    
+    <a class="headerLink" href="#GetWantedInstances" title="ganeti.cmdlib.common.GetWantedInstances">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns list of checked and expanded instance names.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">short<wbr></wbr>_inst<wbr></wbr>_names:</span>list</td><td class="fieldArgDesc">list of instance names or None for all instances</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple of lists</td><td class="fieldArgDesc">tuple of (instance UUIDs, instance names)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the instances parameter is wrong type</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if any of the passed instances is not found</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.GetWantedNodes">
+    
+  </a>
+  <a name="GetWantedNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetWantedNodes</span>(lu, short_node_names):
+    
+    <a class="headerLink" href="#GetWantedNodes" title="ganeti.cmdlib.common.GetWantedNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns list of checked and expanded node names.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">short<wbr></wbr>_node<wbr></wbr>_names:</span>list</td><td class="fieldArgDesc">list of node names or None for all nodes</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple of lists</td><td class="fieldArgDesc">tupe with (list of node UUIDs, list of node names)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.ProgrammerError.html" class="internal-link" title="ganeti.errors.ProgrammerError">errors.ProgrammerError</a></code></td><td>if the nodes parameter is wrong type</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.IsExclusiveStorageEnabledNode">
+    
+  </a>
+  <a name="IsExclusiveStorageEnabledNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsExclusiveStorageEnabledNode</span>(cfg, node):
+    
+    <a class="headerLink" href="#IsExclusiveStorageEnabledNode" title="ganeti.cmdlib.common.IsExclusiveStorageEnabledNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether exclusive_storage is in effect for the given node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">The node</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">The effective value of exclusive_storage</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.IsInstanceRunning">
+    
+  </a>
+  <a name="IsInstanceRunning">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsInstanceRunning</span>(lu, instance, prereq=True):
+    
+    <a class="headerLink" href="#IsInstanceRunning" title="ganeti.cmdlib.common.IsInstanceRunning">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Given an instance object, checks if the instance is running.</p>
+<p>This function asks the backend whether the instance is running and user shutdown instances are considered not to be running.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">LU on behalf of which we make the check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">instance to check whether it is running</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">prereq</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">'True' if the instance is running, 'False' otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.IsValidDiskAccessModeCombination">
+    
+  </a>
+  <a name="IsValidDiskAccessModeCombination">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsValidDiskAccessModeCombination</span>(hv, disk_template, mode):
+    
+    <a class="headerLink" href="#IsValidDiskAccessModeCombination" title="ganeti.cmdlib.common.IsValidDiskAccessModeCombination">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if an hypervisor can read a disk template with given mode.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hv</span></td><td class="fieldArgDesc">the hypervisor that will access the data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template</span></td><td class="fieldArgDesc">the disk template the data is stored as</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">mode</span></td><td class="fieldArgDesc">how the hypervisor should access the data</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">True if the hypervisor can read a given read disk_template in the specified mode.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.LoadNodeEvacResult">
+    
+  </a>
+  <a name="LoadNodeEvacResult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">LoadNodeEvacResult</span>(lu, alloc_result, early_release, use_nodes):
+    
+    <a class="headerLink" href="#LoadNodeEvacResult" title="ganeti.cmdlib.common.LoadNodeEvacResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Unpacks the result of change-group and node-evacuate iallocator requests.</p>
+<p>Iallocator modes <code><a href="ganeti._constants.html#IALLOCATOR_MODE_NODE_EVAC" class="internal-link" title="ganeti._constants.IALLOCATOR_MODE_NODE_EVAC">constants.IALLOCATOR_MODE_NODE_EVAC</a></code> and <code><a href="ganeti._constants.html#IALLOCATOR_MODE_CHG_GROUP" class="internal-link" title="ganeti._constants.IALLOCATOR_MODE_CHG_GROUP">constants.IALLOCATOR_MODE_CHG_GROUP</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">Logical unit instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">alloc<wbr></wbr>_result:</span>tuple/list</td><td class="fieldArgDesc">Result from iallocator</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">early<wbr></wbr>_release:</span>bool</td><td class="fieldArgDesc">Whether to release locks early if possible</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">use<wbr></wbr>_nodes:</span>bool</td><td class="fieldArgDesc">Whether to display node names instead of groups</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.MapInstanceLvsToNodes">
+    
+  </a>
+  <a name="MapInstanceLvsToNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MapInstanceLvsToNodes</span>(cfg, instances):
+    
+    <a class="headerLink" href="#MapInstanceLvsToNodes" title="ganeti.cmdlib.common.MapInstanceLvsToNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a map from (node, volume) to instance name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instances:</span>list of <code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict; tuple of (node uuid, volume name) as key, <code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code> object as value</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.MergeAndVerifyDiskState">
+    
+  </a>
+  <a name="MergeAndVerifyDiskState">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MergeAndVerifyDiskState</span>(op_input, obj_input):
+    
+    <a class="headerLink" href="#MergeAndVerifyDiskState" title="ganeti.cmdlib.common.MergeAndVerifyDiskState">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Combines the disk state from an opcode with the one of the object</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">op<wbr></wbr>_input</span></td><td class="fieldArgDesc">The input dict from the opcode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj<wbr></wbr>_input</span></td><td class="fieldArgDesc">The input dict from the objects</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The verified and updated dict</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.MergeAndVerifyHvState">
+    
+  </a>
+  <a name="MergeAndVerifyHvState">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MergeAndVerifyHvState</span>(op_input, obj_input):
+    
+    <a class="headerLink" href="#MergeAndVerifyHvState" title="ganeti.cmdlib.common.MergeAndVerifyHvState">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Combines the hv state from an opcode with the one of the object</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">op<wbr></wbr>_input</span></td><td class="fieldArgDesc">The input dict from the opcode</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj<wbr></wbr>_input</span></td><td class="fieldArgDesc">The input dict from the objects</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The verified and updated dict</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.RedistributeAncillaryFiles">
+    
+  </a>
+  <a name="RedistributeAncillaryFiles">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RedistributeAncillaryFiles</span>(lu):
+    
+    <a class="headerLink" href="#RedistributeAncillaryFiles" title="ganeti.cmdlib.common.RedistributeAncillaryFiles">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Distribute additional files which are part of the cluster configuration.</p>
+<p>ConfigWriter takes care of distributing the config and ssconf files, but there are more files which should be distributed to all nodes. This function makes sure those are copied.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.RemoveNodeCertFromCandidateCerts">
+    
+  </a>
+  <a name="RemoveNodeCertFromCandidateCerts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveNodeCertFromCandidateCerts</span>(cfg, node_uuid):
+    
+    <a class="headerLink" href="#RemoveNodeCertFromCandidateCerts" title="ganeti.cmdlib.common.RemoveNodeCertFromCandidateCerts">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Removes the node's certificate from the candidate certificates list.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><tt class="rst-docutils literal">config.ConfigWriter</tt></td><td class="fieldArgDesc">the cluster's configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">the node's UUID</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.RunPostHook">
+    
+  </a>
+  <a name="RunPostHook">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunPostHook</span>(lu, node_name):
+    
+    <a class="headerLink" href="#RunPostHook" title="ganeti.cmdlib.common.RunPostHook">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs the post-hook for an opcode on a single node.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.ShareAll">
+    
+  </a>
+  <a name="ShareAll">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShareAll</span>():
+    
+    <a class="headerLink" href="#ShareAll" title="ganeti.cmdlib.common.ShareAll">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a dict declaring all lock levels shared.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.SupportsOob">
+    
+  </a>
+  <a name="SupportsOob">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SupportsOob</span>(cfg, node):
+    
+    <a class="headerLink" href="#SupportsOob" title="ganeti.cmdlib.common.SupportsOob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tells if node supports OOB.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span><code><a href="ganeti.objects.Node.html" class="internal-link" title="ganeti.objects.Node">objects.Node</a></code></td><td class="fieldArgDesc">The node</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The OOB script if supported or an empty string otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.UploadHelper">
+    
+  </a>
+  <a name="UploadHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UploadHelper</span>(lu, node_uuids, fname):
+    
+    <a class="headerLink" href="#UploadHelper" title="ganeti.cmdlib.common.UploadHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Helper for uploading a file and showing warnings.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.common.WarnAboutFailedSshUpdates">
+    
+  </a>
+  <a name="WarnAboutFailedSshUpdates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WarnAboutFailedSshUpdates</span>(result, master_uuid, feedback_fn):
+    
+    <a class="headerLink" href="#WarnAboutFailedSshUpdates" title="ganeti.cmdlib.common.WarnAboutFailedSshUpdates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.common.INSTANCE_DOWN">
+    
+  </a>
+  <a name="INSTANCE_DOWN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_DOWN</span> =
+    
+    <a class="headerLink" href="#INSTANCE_DOWN" title="ganeti.cmdlib.common.INSTANCE_DOWN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti._constants.html#ADMINST_DOWN" class="internal-link" title="ganeti._constants.ADMINST_DOWN">constants.ADMINST_DOWN</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.common.INSTANCE_NOT_RUNNING">
+    
+  </a>
+  <a name="INSTANCE_NOT_RUNNING">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_NOT_RUNNING</span> =
+    
+    <a class="headerLink" href="#INSTANCE_NOT_RUNNING" title="ganeti.cmdlib.common.INSTANCE_NOT_RUNNING">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti._constants.html#ADMINST_DOWN" class="internal-link" title="ganeti._constants.ADMINST_DOWN">constants.ADMINST_DOWN</a>, <wbr></wbr><a href="ganeti._constants.html#ADMINST_OFFLINE" class="internal-link" title="ganeti._constants.ADMINST_OFFLINE">constants.ADMINST_OFFLINE</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.common.INSTANCE_ONLINE">
+    
+  </a>
+  <a name="INSTANCE_ONLINE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">INSTANCE_ONLINE</span> =
+    
+    <a class="headerLink" href="#INSTANCE_ONLINE" title="ganeti.cmdlib.common.INSTANCE_ONLINE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti._constants.html#ADMINST_DOWN" class="internal-link" title="ganeti._constants.ADMINST_DOWN">constants.ADMINST_DOWN</a>, <wbr></wbr><a href="ganeti._constants.html#ADMINST_UP" class="internal-link" title="ganeti._constants.ADMINST_UP">constants.ADMINST_UP</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._ComputeMinMaxSpec">
+    
+  </a>
+  <a name="_ComputeMinMaxSpec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeMinMaxSpec</span>(name, qualifier, ispecs, value):
+    
+    <a class="headerLink" href="#_ComputeMinMaxSpec" title="ganeti.cmdlib.common._ComputeMinMaxSpec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes if value is in the desired range.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name</span></td><td class="fieldArgDesc">name of the parameter for which we perform the check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">qualifier</span></td><td class="fieldArgDesc">a qualifier used in the error message (e.g. 'disk/1', not just 'disk')</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ispecs</span></td><td class="fieldArgDesc">dictionary containing min and max values</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value</span></td><td class="fieldArgDesc">actual value that we want to use</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">None or an error string</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._ComputeViolatingInstances">
+    
+  </a>
+  <a name="_ComputeViolatingInstances">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeViolatingInstances</span>(ipolicy, instances, cfg):
+    
+    <a class="headerLink" href="#_ComputeViolatingInstances" title="ganeti.cmdlib.common._ComputeViolatingInstances">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes a set of instances who violates given ipolicy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ipolicy</span></td><td class="fieldArgDesc">The ipolicy to verify</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instances:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">List of instances to verify</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">Cluster configuration</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A frozenset of instance names violating the ipolicy</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._ExpandItemName">
+    
+  </a>
+  <a name="_ExpandItemName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ExpandItemName</span>(expand_fn, name, kind):
+    
+    <a class="headerLink" href="#_ExpandItemName" title="ganeti.cmdlib.common._ExpandItemName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Expand an item name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">expand<wbr></wbr>_fn</span></td><td class="fieldArgDesc">the function to use for expansion</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name</span></td><td class="fieldArgDesc">requested item name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">kind</span></td><td class="fieldArgDesc">text description ('Node' or 'Instance')</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the result of the expand_fn, if successful</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the item is not found</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._FilterVmNodes">
+    
+  </a>
+  <a name="_FilterVmNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FilterVmNodes</span>(lu, node_uuids):
+    
+    <a class="headerLink" href="#_FilterVmNodes" title="ganeti.cmdlib.common._FilterVmNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Filters out non-vm_capable nodes from a list.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit for which we check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list</td><td class="fieldArgDesc">the list of nodes on which we should check</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of vm-capable nodes</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._NodeEvacDest">
+    
+  </a>
+  <a name="_NodeEvacDest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_NodeEvacDest</span>(use_nodes, group, node_names):
+    
+    <a class="headerLink" href="#_NodeEvacDest" title="ganeti.cmdlib.common._NodeEvacDest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns group or nodes depending on caller's choice.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._SetOpEarlyRelease">
+    
+  </a>
+  <a name="_SetOpEarlyRelease">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetOpEarlyRelease</span>(early_release, op):
+    
+    <a class="headerLink" href="#_SetOpEarlyRelease" title="ganeti.cmdlib.common._SetOpEarlyRelease">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sets <tt class="rst-docutils literal">early_release</tt> flag on opcodes if available.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.common._UpdateAndVerifySubDict">
+    
+  </a>
+  <a name="_UpdateAndVerifySubDict">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpdateAndVerifySubDict</span>(base, updates, type_check):
+    
+    <a class="headerLink" href="#_UpdateAndVerifySubDict" title="ganeti.cmdlib.common._UpdateAndVerifySubDict">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Updates and verifies a dict with sub dicts of the same type.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">base</span></td><td class="fieldArgDesc">The dict with the old data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">updates</span></td><td class="fieldArgDesc">The dict with the new data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">type<wbr></wbr>_check</span></td><td class="fieldArgDesc">Dict suitable to ForceDictType to verify correct types</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">A new dict with updated and verified values</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

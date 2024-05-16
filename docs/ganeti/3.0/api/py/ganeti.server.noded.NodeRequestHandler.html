@@ -1,0 +1,4804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.server.noded.NodeRequestHandler</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.server.noded.NodeRequestHandler.html" class="internal-link" title="This class"><wbr></wbr>Node<wbr></wbr>Request<wbr></wbr>Handler</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_verify_light" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify_light">perspective<wbr></wbr>_node<wbr></wbr>_verify<wbr></wbr>_light</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_accept_instance" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_accept_instance">perspective<wbr></wbr>_accept<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_all_instances_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_all_instances_info">perspective<wbr></wbr>_all<wbr></wbr>_instances<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_bdev_sizes" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_bdev_sizes">perspective<wbr></wbr>_bdev<wbr></wbr>_sizes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_addchildren" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_addchildren">perspective<wbr></wbr>_blockdev<wbr></wbr>_addchildren</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_assemble" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_assemble">perspective<wbr></wbr>_blockdev<wbr></wbr>_assemble</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_close" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_close">perspective<wbr></wbr>_blockdev<wbr></wbr>_close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_convert" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_convert">perspective<wbr></wbr>_blockdev<wbr></wbr>_convert</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_create">perspective<wbr></wbr>_blockdev<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_find" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_find">perspective<wbr></wbr>_blockdev<wbr></wbr>_find</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_getdimensions" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getdimensions">perspective<wbr></wbr>_blockdev<wbr></wbr>_getdimensions</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_getmirrorstatus" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus">perspective<wbr></wbr>_blockdev<wbr></wbr>_getmirrorstatus</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_getmirrorstatus_multi" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus_multi">perspective<wbr></wbr>_blockdev<wbr></wbr>_getmirrorstatus<wbr></wbr>_multi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_grow" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_grow">perspective<wbr></wbr>_blockdev<wbr></wbr>_grow</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_image" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_image">perspective<wbr></wbr>_blockdev<wbr></wbr>_image</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_open" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_open">perspective<wbr></wbr>_blockdev<wbr></wbr>_open</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_pause_resume_sync" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_pause_resume_sync">perspective<wbr></wbr>_blockdev<wbr></wbr>_pause<wbr></wbr>_resume<wbr></wbr>_sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_remove">perspective<wbr></wbr>_blockdev<wbr></wbr>_remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_removechildren" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_removechildren">perspective<wbr></wbr>_blockdev<wbr></wbr>_removechildren</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_rename">perspective<wbr></wbr>_blockdev<wbr></wbr>_rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_setinfo" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_setinfo">perspective<wbr></wbr>_blockdev<wbr></wbr>_setinfo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_shutdown" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_shutdown">perspective<wbr></wbr>_blockdev<wbr></wbr>_shutdown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_snapshot" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_snapshot">perspective<wbr></wbr>_blockdev<wbr></wbr>_snapshot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_blockdev_wipe" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_wipe">perspective<wbr></wbr>_blockdev<wbr></wbr>_wipe</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_bridges_exist" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_bridges_exist">perspective<wbr></wbr>_bridges<wbr></wbr>_exist</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_drbd_attach_net" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_attach_net">perspective<wbr></wbr>_drbd<wbr></wbr>_attach<wbr></wbr>_net</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_drbd_disconnect_net" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_disconnect_net">perspective<wbr></wbr>_drbd<wbr></wbr>_disconnect<wbr></wbr>_net</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_drbd_helper" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_helper">perspective<wbr></wbr>_drbd<wbr></wbr>_helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_drbd_needs_activation" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_needs_activation">perspective<wbr></wbr>_drbd<wbr></wbr>_needs<wbr></wbr>_activation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_drbd_wait_sync" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_wait_sync">perspective<wbr></wbr>_drbd<wbr></wbr>_wait<wbr></wbr>_sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_etc_hosts_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_etc_hosts_modify">perspective<wbr></wbr>_etc<wbr></wbr>_hosts<wbr></wbr>_modify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_export_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_info">perspective<wbr></wbr>_export<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_export_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_list">perspective<wbr></wbr>_export<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_export_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_remove">perspective<wbr></wbr>_export<wbr></wbr>_remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_export_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_start">perspective<wbr></wbr>_export<wbr></wbr>_start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_extstorage_diagnose" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_extstorage_diagnose">perspective<wbr></wbr>_extstorage<wbr></wbr>_diagnose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_file_storage_dir_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_create">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_file_storage_dir_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_remove">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_file_storage_dir_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_rename">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_finalize_export" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_finalize_export">perspective<wbr></wbr>_finalize<wbr></wbr>_export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_get_file_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_get_file_info">perspective<wbr></wbr>_get<wbr></wbr>_file<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_get_watcher_pause" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_get_watcher_pause">perspective<wbr></wbr>_get<wbr></wbr>_watcher<wbr></wbr>_pause</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_hooks_runner" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hooks_runner">perspective<wbr></wbr>_hooks<wbr></wbr>_runner</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_hotplug_device" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_device">perspective<wbr></wbr>_hotplug<wbr></wbr>_device</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_hotplug_supported" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_supported">perspective<wbr></wbr>_hotplug<wbr></wbr>_supported</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_hypervisor_validate_params" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hypervisor_validate_params">perspective<wbr></wbr>_hypervisor<wbr></wbr>_validate<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_iallocator_runner" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_iallocator_runner">perspective<wbr></wbr>_iallocator<wbr></wbr>_runner</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_impexp_abort" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_abort">perspective<wbr></wbr>_impexp<wbr></wbr>_abort</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_impexp_cleanup" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_cleanup">perspective<wbr></wbr>_impexp<wbr></wbr>_cleanup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_impexp_status" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_status">perspective<wbr></wbr>_impexp<wbr></wbr>_status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_import_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_import_start">perspective<wbr></wbr>_import<wbr></wbr>_start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_balloon_memory" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_balloon_memory">perspective<wbr></wbr>_instance<wbr></wbr>_balloon<wbr></wbr>_memory</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_console_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_console_info">perspective<wbr></wbr>_instance<wbr></wbr>_console<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_finalize_migration_dst" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_dst">perspective<wbr></wbr>_instance<wbr></wbr>_finalize<wbr></wbr>_migration<wbr></wbr>_dst</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_finalize_migration_src" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_src">perspective<wbr></wbr>_instance<wbr></wbr>_finalize<wbr></wbr>_migration<wbr></wbr>_src</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_get_migration_status" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_get_migration_status">perspective<wbr></wbr>_instance<wbr></wbr>_get<wbr></wbr>_migration<wbr></wbr>_status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_info">perspective<wbr></wbr>_instance<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_list">perspective<wbr></wbr>_instance<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_metadata_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_metadata_modify">perspective<wbr></wbr>_instance<wbr></wbr>_metadata<wbr></wbr>_modify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_migratable" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migratable">perspective<wbr></wbr>_instance<wbr></wbr>_migratable</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_migrate" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migrate">perspective<wbr></wbr>_instance<wbr></wbr>_migrate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_os_add" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_os_add">perspective<wbr></wbr>_instance<wbr></wbr>_os<wbr></wbr>_add</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_reboot" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_reboot">perspective<wbr></wbr>_instance<wbr></wbr>_reboot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_run_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_run_rename">perspective<wbr></wbr>_instance<wbr></wbr>_run<wbr></wbr>_rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_shutdown" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_shutdown">perspective<wbr></wbr>_instance<wbr></wbr>_shutdown</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_instance_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_start">perspective<wbr></wbr>_instance<wbr></wbr>_start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_jobqueue_purge" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_purge">perspective<wbr></wbr>_jobqueue<wbr></wbr>_purge</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_jobqueue_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_rename">perspective<wbr></wbr>_jobqueue<wbr></wbr>_rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_jobqueue_set_drain_flag" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_set_drain_flag">perspective<wbr></wbr>_jobqueue<wbr></wbr>_set<wbr></wbr>_drain<wbr></wbr>_flag</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_jobqueue_update" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_update">perspective<wbr></wbr>_jobqueue<wbr></wbr>_update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_lv_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_lv_list">perspective<wbr></wbr>_lv<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_master_node_name" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_master_node_name">perspective<wbr></wbr>_master<wbr></wbr>_node<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_migration_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_migration_info">perspective<wbr></wbr>_migration<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_activate_master_ip" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_activate_master_ip">perspective<wbr></wbr>_node<wbr></wbr>_activate<wbr></wbr>_master<wbr></wbr>_ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_change_master_netmask" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_change_master_netmask">perspective<wbr></wbr>_node<wbr></wbr>_change<wbr></wbr>_master<wbr></wbr>_netmask</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_configure_ovs" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_configure_ovs">perspective<wbr></wbr>_node<wbr></wbr>_configure<wbr></wbr>_ovs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_crypto_tokens" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_crypto_tokens">perspective<wbr></wbr>_node<wbr></wbr>_crypto<wbr></wbr>_tokens</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_deactivate_master_ip" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_deactivate_master_ip">perspective<wbr></wbr>_node<wbr></wbr>_deactivate<wbr></wbr>_master<wbr></wbr>_ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_demote_from_mc" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_demote_from_mc">perspective<wbr></wbr>_node<wbr></wbr>_demote<wbr></wbr>_from<wbr></wbr>_mc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_ensure_daemon" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ensure_daemon">perspective<wbr></wbr>_node<wbr></wbr>_ensure<wbr></wbr>_daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_has_ip_address" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_has_ip_address">perspective<wbr></wbr>_node<wbr></wbr>_has<wbr></wbr>_ip<wbr></wbr>_address</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_info">perspective<wbr></wbr>_node<wbr></wbr>_info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_leave_cluster" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_leave_cluster">perspective<wbr></wbr>_node<wbr></wbr>_leave<wbr></wbr>_cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_powercycle" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_powercycle">perspective<wbr></wbr>_node<wbr></wbr>_powercycle</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_ssh_key_add" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_add">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_key<wbr></wbr>_add</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_ssh_key_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_remove">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_key<wbr></wbr>_remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_ssh_keys_renew" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_keys_renew">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_keys<wbr></wbr>_renew</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_start_master_daemons" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_start_master_daemons">perspective<wbr></wbr>_node<wbr></wbr>_start<wbr></wbr>_master<wbr></wbr>_daemons</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_stop_master" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_stop_master">perspective<wbr></wbr>_node<wbr></wbr>_stop<wbr></wbr>_master</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_verify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify">perspective<wbr></wbr>_node<wbr></wbr>_verify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_node_volumes" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_volumes">perspective<wbr></wbr>_node<wbr></wbr>_volumes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_os_diagnose" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_diagnose">perspective<wbr></wbr>_os<wbr></wbr>_diagnose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_os_export" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_export">perspective<wbr></wbr>_os<wbr></wbr>_export</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_os_validate" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_validate">perspective<wbr></wbr>_os<wbr></wbr>_validate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_restricted_command" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_restricted_command">perspective<wbr></wbr>_restricted<wbr></wbr>_command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_run_oob" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_run_oob">perspective<wbr></wbr>_run<wbr></wbr>_oob</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_set_watcher_pause" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_set_watcher_pause">perspective<wbr></wbr>_set<wbr></wbr>_watcher<wbr></wbr>_pause</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_storage_execute" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_execute">perspective<wbr></wbr>_storage<wbr></wbr>_execute</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_storage_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_list">perspective<wbr></wbr>_storage<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_storage_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_modify">perspective<wbr></wbr>_storage<wbr></wbr>_modify</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_test_delay" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_test_delay">perspective<wbr></wbr>_test<wbr></wbr>_delay</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_upload_file" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file">perspective<wbr></wbr>_upload<wbr></wbr>_file</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_upload_file_single" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file_single">perspective<wbr></wbr>_upload<wbr></wbr>_file<wbr></wbr>_single</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_version" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_version">perspective<wbr></wbr>_version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_vg_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_vg_list">perspective<wbr></wbr>_vg<wbr></wbr>_list</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_write_ssconf_files" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_write_ssconf_files">perspective<wbr></wbr>_write<wbr></wbr>_ssconf<wbr></wbr>_files</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_x509_cert_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_create">perspective<wbr></wbr>_x509<wbr></wbr>_cert<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perspective_x509_cert_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_remove">perspective<wbr></wbr>_x509<wbr></wbr>_cert<wbr></wbr>_remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HandleRequest" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.HandleRequest"><wbr></wbr>Handle<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpServerHandler.html#FormatErrorMessage" class="internal-link" title="ganeti.http.server.HttpServerHandler.FormatErrorMessage"><wbr></wbr>Format<wbr></wbr>Error<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpServerHandler.html#PreHandleRequest" class="internal-link" title="ganeti.http.server.HttpServerHandler.PreHandleRequest"><wbr></wbr>Pre<wbr></wbr>Handle<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#noded_pid" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.noded_pid">noded<wbr></wbr>_pid</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.server.noded.html" class="internal-link" title="The parent of this class">noded</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.MlockallRequestExecutor.html" class="internal-link" title="ganeti.server.noded.MlockallRequestExecutor"><wbr></wbr>Mlockall<wbr></wbr>Request<wbr></wbr>Executor</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.NodeRequestHandler.html" class="internal-link" title="ganeti.server.noded.NodeRequestHandler"><wbr></wbr>Node<wbr></wbr>Request<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#CheckNoded" class="internal-link" title="ganeti.server.noded.CheckNoded"><wbr></wbr>Check<wbr></wbr>Noded</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#ExecNoded" class="internal-link" title="ganeti.server.noded.ExecNoded"><wbr></wbr>Exec<wbr></wbr>Noded</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#Main" class="internal-link" title="ganeti.server.noded.Main"><wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#PrepNoded" class="internal-link" title="ganeti.server.noded.PrepNoded"><wbr></wbr>Prep<wbr></wbr>Noded</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#SSLVerifyPeer" class="internal-link" title="ganeti.server.noded.SSLVerifyPeer"><wbr></wbr>SSLVerify<wbr></wbr>Peer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#_DecodeImportExportIO" class="internal-link" title="ganeti.server.noded._DecodeImportExportIO">_<wbr></wbr>Decode<wbr></wbr>Import<wbr></wbr>Export<wbr></wbr>IO</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#_DefaultAlternative" class="internal-link" title="ganeti.server.noded._DefaultAlternative">_<wbr></wbr>Default<wbr></wbr>Alternative</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#_extendReasonTrail" class="internal-link" title="ganeti.server.noded._extendReasonTrail">_extend<wbr></wbr>Reason<wbr></wbr>Trail</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#_PrepareQueueLock" class="internal-link" title="ganeti.server.noded._PrepareQueueLock">_<wbr></wbr>Prepare<wbr></wbr>Queue<wbr></wbr>Lock</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#_RequireJobQueueLock" class="internal-link" title="ganeti.server.noded._RequireJobQueueLock">_<wbr></wbr>Require<wbr></wbr>Job<wbr></wbr>Queue<wbr></wbr>Lock</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.noded.html#queue_lock" class="internal-link" title="ganeti.server.noded.queue_lock">queue<wbr></wbr>_lock</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code><wbr></wbr>.<code><a href="ganeti.server.noded.html" class="internal-link" title="ganeti.server.noded">noded</a></code><wbr></wbr>.<code><a href="ganeti.server.noded.NodeRequestHandler.html" class="internal-link" title="ganeti.server.noded.NodeRequestHandler">NodeRequestHandler</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">NodeRequestHandler</span>(<a href="ganeti.http.server.HttpServerHandler.html" class="internal-link" title="ganeti.http.server.HttpServerHandler">http.server.HttpServerHandler</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.server.noded.NodeRequestHandler">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>The server implementation.</p>
+<p>This class holds all methods exposed over the RPC interface.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1267">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#perspective_node_verify_light" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify_light">perspective<wbr></wbr>_node<wbr></wbr>_verify<wbr></wbr>_light</a></code></td>
+    <td>Run a light verify sequence on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_accept_instance" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_accept_instance">perspective<wbr></wbr>_accept<wbr></wbr>_instance</a></code></td>
+    <td>Prepare the node to accept an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_all_instances_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_all_instances_info">perspective<wbr></wbr>_all<wbr></wbr>_instances<wbr></wbr>_info</a></code></td>
+    <td>Query information about all instances.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_bdev_sizes" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_bdev_sizes">perspective<wbr></wbr>_bdev<wbr></wbr>_sizes</a></code></td>
+    <td>Query the list of block devices</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_addchildren" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_addchildren">perspective<wbr></wbr>_blockdev<wbr></wbr>_addchildren</a></code></td>
+    <td>Add a child to a mirror device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_assemble" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_assemble">perspective<wbr></wbr>_blockdev<wbr></wbr>_assemble</a></code></td>
+    <td>Assemble a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_close" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_close">perspective<wbr></wbr>_blockdev<wbr></wbr>_close</a></code></td>
+    <td>Closes the given block devices.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_convert" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_convert">perspective<wbr></wbr>_blockdev<wbr></wbr>_convert</a></code></td>
+    <td>Copy data from source block device to target.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_create">perspective<wbr></wbr>_blockdev<wbr></wbr>_create</a></code></td>
+    <td>Create a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_find" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_find">perspective<wbr></wbr>_blockdev<wbr></wbr>_find</a></code></td>
+    <td>Expose the FindBlockDevice functionality for a disk.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_getdimensions" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getdimensions">perspective<wbr></wbr>_blockdev<wbr></wbr>_getdimensions</a></code></td>
+    <td>Compute the sizes of the given block devices.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_getmirrorstatus" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus">perspective<wbr></wbr>_blockdev<wbr></wbr>_getmirrorstatus</a></code></td>
+    <td>Return the mirror status for a list of disks.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_getmirrorstatus_multi" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus_multi">perspective<wbr></wbr>_blockdev<wbr></wbr>_getmirrorstatus<wbr></wbr>_multi</a></code></td>
+    <td>Return the mirror status for a list of disks.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_grow" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_grow">perspective<wbr></wbr>_blockdev<wbr></wbr>_grow</a></code></td>
+    <td>Grow a stack of devices.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_image" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_image">perspective<wbr></wbr>_blockdev<wbr></wbr>_image</a></code></td>
+    <td>Image a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_open" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_open">perspective<wbr></wbr>_blockdev<wbr></wbr>_open</a></code></td>
+    <td>Opens the given block devices.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_pause_resume_sync" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_pause_resume_sync">perspective<wbr></wbr>_blockdev<wbr></wbr>_pause<wbr></wbr>_resume<wbr></wbr>_sync</a></code></td>
+    <td>Pause/resume sync of a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_remove">perspective<wbr></wbr>_blockdev<wbr></wbr>_remove</a></code></td>
+    <td>Remove a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_removechildren" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_removechildren">perspective<wbr></wbr>_blockdev<wbr></wbr>_removechildren</a></code></td>
+    <td>Remove a child from a mirror device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_rename">perspective<wbr></wbr>_blockdev<wbr></wbr>_rename</a></code></td>
+    <td>Remove a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_setinfo" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_setinfo">perspective<wbr></wbr>_blockdev<wbr></wbr>_setinfo</a></code></td>
+    <td>Sets metadata information on the given block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_shutdown" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_shutdown">perspective<wbr></wbr>_blockdev<wbr></wbr>_shutdown</a></code></td>
+    <td>Shutdown a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_snapshot" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_snapshot">perspective<wbr></wbr>_blockdev<wbr></wbr>_snapshot</a></code></td>
+    <td>Create a snapshot device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_blockdev_wipe" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_wipe">perspective<wbr></wbr>_blockdev<wbr></wbr>_wipe</a></code></td>
+    <td>Wipe a block device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_bridges_exist" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_bridges_exist">perspective<wbr></wbr>_bridges<wbr></wbr>_exist</a></code></td>
+    <td>Check if all bridges given exist on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_drbd_attach_net" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_attach_net">perspective<wbr></wbr>_drbd<wbr></wbr>_attach<wbr></wbr>_net</a></code></td>
+    <td>Attaches the network connection of drbd disks.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_drbd_disconnect_net" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_disconnect_net">perspective<wbr></wbr>_drbd<wbr></wbr>_disconnect<wbr></wbr>_net</a></code></td>
+    <td>Disconnects the network connection of drbd disks.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_drbd_helper" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_helper">perspective<wbr></wbr>_drbd<wbr></wbr>_helper</a></code></td>
+    <td>Query drbd helper.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_drbd_needs_activation" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_needs_activation">perspective<wbr></wbr>_drbd<wbr></wbr>_needs<wbr></wbr>_activation</a></code></td>
+    <td>Checks if the drbd devices need activation</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_drbd_wait_sync" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_wait_sync">perspective<wbr></wbr>_drbd<wbr></wbr>_wait<wbr></wbr>_sync</a></code></td>
+    <td>Wait until DRBD disks are synched.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_etc_hosts_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_etc_hosts_modify">perspective<wbr></wbr>_etc<wbr></wbr>_hosts<wbr></wbr>_modify</a></code></td>
+    <td>Modify a node entry in /etc/hosts.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_export_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_info">perspective<wbr></wbr>_export<wbr></wbr>_info</a></code></td>
+    <td>Query information about an existing export on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_export_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_list">perspective<wbr></wbr>_export<wbr></wbr>_list</a></code></td>
+    <td>List the available exports on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_export_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_remove">perspective<wbr></wbr>_export<wbr></wbr>_remove</a></code></td>
+    <td>Remove an export.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_export_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_export_start">perspective<wbr></wbr>_export<wbr></wbr>_start</a></code></td>
+    <td>Starts an export daemon.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_extstorage_diagnose" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_extstorage_diagnose">perspective<wbr></wbr>_extstorage<wbr></wbr>_diagnose</a></code></td>
+    <td>Query detailed information about existing extstorage providers.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_file_storage_dir_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_create">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_create</a></code></td>
+    <td>Create the file storage directory.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_file_storage_dir_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_remove">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_remove</a></code></td>
+    <td>Remove the file storage directory.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_file_storage_dir_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_rename">perspective<wbr></wbr>_file<wbr></wbr>_storage<wbr></wbr>_dir<wbr></wbr>_rename</a></code></td>
+    <td>Rename the file storage directory.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_finalize_export" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_finalize_export">perspective<wbr></wbr>_finalize<wbr></wbr>_export</a></code></td>
+    <td>Expose the finalize export functionality.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_get_file_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_get_file_info">perspective<wbr></wbr>_get<wbr></wbr>_file<wbr></wbr>_info</a></code></td>
+    <td>Get info on whether a file exists and its properties.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_get_watcher_pause" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_get_watcher_pause">perspective<wbr></wbr>_get<wbr></wbr>_watcher<wbr></wbr>_pause</a></code></td>
+    <td>Get watcher pause end.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_hooks_runner" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hooks_runner">perspective<wbr></wbr>_hooks<wbr></wbr>_runner</a></code></td>
+    <td>Run hook scripts.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_hotplug_device" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_device">perspective<wbr></wbr>_hotplug<wbr></wbr>_device</a></code></td>
+    <td>Hotplugs device to a running instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_hotplug_supported" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_supported">perspective<wbr></wbr>_hotplug<wbr></wbr>_supported</a></code></td>
+    <td>Checks if hotplug is supported.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_hypervisor_validate_params" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_hypervisor_validate_params">perspective<wbr></wbr>_hypervisor<wbr></wbr>_validate<wbr></wbr>_params</a></code></td>
+    <td>Validate the hypervisor parameters.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_iallocator_runner" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_iallocator_runner">perspective<wbr></wbr>_iallocator<wbr></wbr>_runner</a></code></td>
+    <td>Run an iallocator script.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_impexp_abort" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_abort">perspective<wbr></wbr>_impexp<wbr></wbr>_abort</a></code></td>
+    <td>Aborts an import or export.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_impexp_cleanup" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_cleanup">perspective<wbr></wbr>_impexp<wbr></wbr>_cleanup</a></code></td>
+    <td>Cleans up after an import or export.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_impexp_status" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_status">perspective<wbr></wbr>_impexp<wbr></wbr>_status</a></code></td>
+    <td>Retrieves the status of an import or export daemon.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_import_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_import_start">perspective<wbr></wbr>_import<wbr></wbr>_start</a></code></td>
+    <td>Starts an import daemon.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_balloon_memory" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_balloon_memory">perspective<wbr></wbr>_instance<wbr></wbr>_balloon<wbr></wbr>_memory</a></code></td>
+    <td>Modify instance runtime memory.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_console_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_console_info">perspective<wbr></wbr>_instance<wbr></wbr>_console<wbr></wbr>_info</a></code></td>
+    <td>Query information on how to get console access to instances</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_finalize_migration_dst" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_dst">perspective<wbr></wbr>_instance<wbr></wbr>_finalize<wbr></wbr>_migration<wbr></wbr>_dst</a></code></td>
+    <td>Finalize the instance migration on the destination node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_finalize_migration_src" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_src">perspective<wbr></wbr>_instance<wbr></wbr>_finalize<wbr></wbr>_migration<wbr></wbr>_src</a></code></td>
+    <td>Finalize the instance migration on the source node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_get_migration_status" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_get_migration_status">perspective<wbr></wbr>_instance<wbr></wbr>_get<wbr></wbr>_migration<wbr></wbr>_status</a></code></td>
+    <td>Reports migration status.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_info">perspective<wbr></wbr>_instance<wbr></wbr>_info</a></code></td>
+    <td>Query instance information.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_list">perspective<wbr></wbr>_instance<wbr></wbr>_list</a></code></td>
+    <td>Query the list of running instances.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_metadata_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_metadata_modify">perspective<wbr></wbr>_instance<wbr></wbr>_metadata<wbr></wbr>_modify</a></code></td>
+    <td>Modify instance metadata.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_migratable" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migratable">perspective<wbr></wbr>_instance<wbr></wbr>_migratable</a></code></td>
+    <td>Query whether the specified instance can be migrated.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_migrate" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migrate">perspective<wbr></wbr>_instance<wbr></wbr>_migrate</a></code></td>
+    <td>Migrates an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_os_add" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_os_add">perspective<wbr></wbr>_instance<wbr></wbr>_os<wbr></wbr>_add</a></code></td>
+    <td>Install an OS on a given instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_reboot" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_reboot">perspective<wbr></wbr>_instance<wbr></wbr>_reboot</a></code></td>
+    <td>Reboot an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_run_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_run_rename">perspective<wbr></wbr>_instance<wbr></wbr>_run<wbr></wbr>_rename</a></code></td>
+    <td>Runs the OS rename script for an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_shutdown" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_shutdown">perspective<wbr></wbr>_instance<wbr></wbr>_shutdown</a></code></td>
+    <td>Shutdown an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_instance_start" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_start">perspective<wbr></wbr>_instance<wbr></wbr>_start</a></code></td>
+    <td>Start an instance.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_jobqueue_purge" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_purge">perspective<wbr></wbr>_jobqueue<wbr></wbr>_purge</a></code></td>
+    <td>Purge job queue.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_jobqueue_rename" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_rename">perspective<wbr></wbr>_jobqueue<wbr></wbr>_rename</a></code></td>
+    <td>Rename a job queue file.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_jobqueue_set_drain_flag" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_set_drain_flag">perspective<wbr></wbr>_jobqueue<wbr></wbr>_set<wbr></wbr>_drain<wbr></wbr>_flag</a></code></td>
+    <td>Set job queue's drain flag.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_jobqueue_update" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_update">perspective<wbr></wbr>_jobqueue<wbr></wbr>_update</a></code></td>
+    <td>Update job queue.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_lv_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_lv_list">perspective<wbr></wbr>_lv<wbr></wbr>_list</a></code></td>
+    <td>Query the list of logical volumes in a given volume group.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_master_node_name" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_master_node_name">perspective<wbr></wbr>_master<wbr></wbr>_node<wbr></wbr>_name</a></code></td>
+    <td>Returns the master node name.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_migration_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_migration_info">perspective<wbr></wbr>_migration<wbr></wbr>_info</a></code></td>
+    <td>Gather information about an instance to be migrated.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_activate_master_ip" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_activate_master_ip">perspective<wbr></wbr>_node<wbr></wbr>_activate<wbr></wbr>_master<wbr></wbr>_ip</a></code></td>
+    <td>Activate the master IP on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_change_master_netmask" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_change_master_netmask">perspective<wbr></wbr>_node<wbr></wbr>_change<wbr></wbr>_master<wbr></wbr>_netmask</a></code></td>
+    <td>Change the master IP netmask.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_configure_ovs" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_configure_ovs">perspective<wbr></wbr>_node<wbr></wbr>_configure<wbr></wbr>_ovs</a></code></td>
+    <td>Sets up OpenvSwitch on the node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_crypto_tokens" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_crypto_tokens">perspective<wbr></wbr>_node<wbr></wbr>_crypto<wbr></wbr>_tokens</a></code></td>
+    <td>Gets the node's public crypto tokens.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_deactivate_master_ip" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_deactivate_master_ip">perspective<wbr></wbr>_node<wbr></wbr>_deactivate<wbr></wbr>_master<wbr></wbr>_ip</a></code></td>
+    <td>Deactivate the master IP on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_demote_from_mc" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_demote_from_mc">perspective<wbr></wbr>_node<wbr></wbr>_demote<wbr></wbr>_from<wbr></wbr>_mc</a></code></td>
+    <td>Demote a node from the master candidate role.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_ensure_daemon" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ensure_daemon">perspective<wbr></wbr>_node<wbr></wbr>_ensure<wbr></wbr>_daemon</a></code></td>
+    <td>Ensure daemon is running.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_has_ip_address" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_has_ip_address">perspective<wbr></wbr>_node<wbr></wbr>_has<wbr></wbr>_ip<wbr></wbr>_address</a></code></td>
+    <td>Checks if a node has the given ip address.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_info" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_info">perspective<wbr></wbr>_node<wbr></wbr>_info</a></code></td>
+    <td>Query node information.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_leave_cluster" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_leave_cluster">perspective<wbr></wbr>_node<wbr></wbr>_leave<wbr></wbr>_cluster</a></code></td>
+    <td>Cleanup after leaving a cluster.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_powercycle" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_powercycle">perspective<wbr></wbr>_node<wbr></wbr>_powercycle</a></code></td>
+    <td>Tries to powercycle the node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_ssh_key_add" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_add">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_key<wbr></wbr>_add</a></code></td>
+    <td>Distributes a new node's SSH key if authorized.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_ssh_key_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_remove">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_key<wbr></wbr>_remove</a></code></td>
+    <td>Removes a node's SSH key from the other nodes' SSH files.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_ssh_keys_renew" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_keys_renew">perspective<wbr></wbr>_node<wbr></wbr>_ssh<wbr></wbr>_keys<wbr></wbr>_renew</a></code></td>
+    <td>Generates a new root SSH key pair on the node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_start_master_daemons" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_start_master_daemons">perspective<wbr></wbr>_node<wbr></wbr>_start<wbr></wbr>_master<wbr></wbr>_daemons</a></code></td>
+    <td>Start the master daemons on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_stop_master" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_stop_master">perspective<wbr></wbr>_node<wbr></wbr>_stop<wbr></wbr>_master</a></code></td>
+    <td>Stops master daemons on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_verify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify">perspective<wbr></wbr>_node<wbr></wbr>_verify</a></code></td>
+    <td>Run a verify sequence on this node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_node_volumes" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_volumes">perspective<wbr></wbr>_node<wbr></wbr>_volumes</a></code></td>
+    <td>Query the list of all logical volume groups.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_os_diagnose" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_diagnose">perspective<wbr></wbr>_os<wbr></wbr>_diagnose</a></code></td>
+    <td>Query detailed information about existing OSes.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_os_export" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_export">perspective<wbr></wbr>_os<wbr></wbr>_export</a></code></td>
+    <td>Export an OS definition into an instance specific package.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_os_validate" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_os_validate">perspective<wbr></wbr>_os<wbr></wbr>_validate</a></code></td>
+    <td>Run a given OS' validation routine.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_restricted_command" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_restricted_command">perspective<wbr></wbr>_restricted<wbr></wbr>_command</a></code></td>
+    <td>Runs a restricted command.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_run_oob" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_run_oob">perspective<wbr></wbr>_run<wbr></wbr>_oob</a></code></td>
+    <td>Runs oob on node.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_set_watcher_pause" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_set_watcher_pause">perspective<wbr></wbr>_set<wbr></wbr>_watcher<wbr></wbr>_pause</a></code></td>
+    <td>Set watcher pause.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_storage_execute" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_execute">perspective<wbr></wbr>_storage<wbr></wbr>_execute</a></code></td>
+    <td>Execute an operation on a storage unit.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_storage_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_list">perspective<wbr></wbr>_storage<wbr></wbr>_list</a></code></td>
+    <td>Get list of storage units.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_storage_modify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_modify">perspective<wbr></wbr>_storage<wbr></wbr>_modify</a></code></td>
+    <td>Modify a storage unit.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_test_delay" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_test_delay">perspective<wbr></wbr>_test<wbr></wbr>_delay</a></code></td>
+    <td>Run test delay.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_upload_file" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file">perspective<wbr></wbr>_upload<wbr></wbr>_file</a></code></td>
+    <td>Upload a file.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_upload_file_single" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file_single">perspective<wbr></wbr>_upload<wbr></wbr>_file<wbr></wbr>_single</a></code></td>
+    <td>Upload a file.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_version" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_version">perspective<wbr></wbr>_version</a></code></td>
+    <td>Query version information.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_vg_list" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_vg_list">perspective<wbr></wbr>_vg<wbr></wbr>_list</a></code></td>
+    <td>Query the list of volume groups.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_write_ssconf_files" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_write_ssconf_files">perspective<wbr></wbr>_write<wbr></wbr>_ssconf<wbr></wbr>_files</a></code></td>
+    <td>Write ssconf files.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_x509_cert_create" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_create">perspective<wbr></wbr>_x509<wbr></wbr>_cert<wbr></wbr>_create</a></code></td>
+    <td>Creates a new X509 certificate for SSL/TLS.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#perspective_x509_cert_remove" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_remove">perspective<wbr></wbr>_x509<wbr></wbr>_cert<wbr></wbr>_remove</a></code></td>
+    <td>Removes a X509 certificate.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#HandleRequest" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.HandleRequest"><wbr></wbr>Handle<wbr></wbr>Request</a></code></td>
+    <td>Handle a request.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#noded_pid" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.noded_pid">noded<wbr></wbr>_pid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.http.server.HttpServerHandler.html" class="internal-link" title="ganeti.http.server.HttpServerHandler">HttpServerHandler</a></code>:
+            </p>
+            <table class="children sortable" id="id1268">
+  
+  
+  <tr class="basestaticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="ganeti.http.server.HttpServerHandler.html#FormatErrorMessage" class="internal-link" title="ganeti.http.server.HttpServerHandler.FormatErrorMessage"><wbr></wbr>Format<wbr></wbr>Error<wbr></wbr>Message</a></code></td>
+    <td>Formats the body of an error message.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.server.HttpServerHandler.html#PreHandleRequest" class="internal-link" title="ganeti.http.server.HttpServerHandler.PreHandleRequest"><wbr></wbr>Pre<wbr></wbr>Handle<wbr></wbr>Request</a></code></td>
+    <td>Called before handling a request.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_verify_light">
+    
+  </a>
+  <a name="perspective_node_verify_light">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_verify_light</span>(cls, params):
+    
+    <a class="headerLink" href="#perspective_node_verify_light" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify_light">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a light verify sequence on this node.</p>
+<p>This call is meant to perform a less strict verification of the node in certain situations. Right now, it is invoked only when a node is just about to be added to a cluster, and even then, it performs the same checks as <code><a href="#perspective_node_verify" class="internal-link" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify">perspective_node_verify</a></code>.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_accept_instance">
+    
+  </a>
+  <a name="perspective_accept_instance">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_accept_instance</span>(params):
+    
+    <a class="headerLink" href="#perspective_accept_instance" title="ganeti.server.noded.NodeRequestHandler.perspective_accept_instance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare the node to accept an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_all_instances_info">
+    
+  </a>
+  <a name="perspective_all_instances_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_all_instances_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_all_instances_info" title="ganeti.server.noded.NodeRequestHandler.perspective_all_instances_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query information about all instances.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_bdev_sizes">
+    
+  </a>
+  <a name="perspective_bdev_sizes">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_bdev_sizes</span>(params):
+    
+    <a class="headerLink" href="#perspective_bdev_sizes" title="ganeti.server.noded.NodeRequestHandler.perspective_bdev_sizes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query the list of block devices</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_addchildren">
+    
+  </a>
+  <a name="perspective_blockdev_addchildren">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_addchildren</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_addchildren" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_addchildren">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add a child to a mirror device.</p>
+<p>Note: this is only valid for mirror devices. It's the caller's duty to send a correct disk, otherwise we raise an error.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_assemble">
+    
+  </a>
+  <a name="perspective_blockdev_assemble">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_assemble</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_assemble" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_assemble">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Assemble a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_close">
+    
+  </a>
+  <a name="perspective_blockdev_close">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_close</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_close" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_close">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Closes the given block devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_convert">
+    
+  </a>
+  <a name="perspective_blockdev_convert">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_convert</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_convert" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_convert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Copy data from source block device to target.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_create">
+    
+  </a>
+  <a name="perspective_blockdev_create">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_create</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_create" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_find">
+    
+  </a>
+  <a name="perspective_blockdev_find">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_find</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_find" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_find">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Expose the FindBlockDevice functionality for a disk.</p>
+<p>This will try to find but not activate a disk.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getdimensions">
+    
+  </a>
+  <a name="perspective_blockdev_getdimensions">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_getdimensions</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_getdimensions" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getdimensions">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the sizes of the given block devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus">
+    
+  </a>
+  <a name="perspective_blockdev_getmirrorstatus">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_getmirrorstatus</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_getmirrorstatus" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the mirror status for a list of disks.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus_multi">
+    
+  </a>
+  <a name="perspective_blockdev_getmirrorstatus_multi">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_getmirrorstatus_multi</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_getmirrorstatus_multi" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_getmirrorstatus_multi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the mirror status for a list of disks.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_grow">
+    
+  </a>
+  <a name="perspective_blockdev_grow">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_grow</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_grow" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_grow">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Grow a stack of devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_image">
+    
+  </a>
+  <a name="perspective_blockdev_image">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_image</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_image" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_image">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Image a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_open">
+    
+  </a>
+  <a name="perspective_blockdev_open">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_open</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_open" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_open">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Opens the given block devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_pause_resume_sync">
+    
+  </a>
+  <a name="perspective_blockdev_pause_resume_sync">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_pause_resume_sync</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_pause_resume_sync" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_pause_resume_sync">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Pause/resume sync of a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_remove">
+    
+  </a>
+  <a name="perspective_blockdev_remove">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_remove</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_remove" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_removechildren">
+    
+  </a>
+  <a name="perspective_blockdev_removechildren">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_removechildren</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_removechildren" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_removechildren">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a child from a mirror device.</p>
+<p>This is only valid for mirror devices, of course. It's the callers duty to send a correct disk, otherwise we raise an error.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_rename">
+    
+  </a>
+  <a name="perspective_blockdev_rename">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_rename</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_rename" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_setinfo">
+    
+  </a>
+  <a name="perspective_blockdev_setinfo">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_setinfo</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_setinfo" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_setinfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sets metadata information on the given block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_shutdown">
+    
+  </a>
+  <a name="perspective_blockdev_shutdown">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_shutdown</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_shutdown" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_shutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shutdown a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_snapshot">
+    
+  </a>
+  <a name="perspective_blockdev_snapshot">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_snapshot</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_snapshot" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_snapshot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a snapshot device.</p>
+<p>Note that this is only valid for LVM and ExtStorage disks, if we get passed something else we raise an exception. The snapshot device can be remove by calling the generic block device remove call.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_wipe">
+    
+  </a>
+  <a name="perspective_blockdev_wipe">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_blockdev_wipe</span>(params):
+    
+    <a class="headerLink" href="#perspective_blockdev_wipe" title="ganeti.server.noded.NodeRequestHandler.perspective_blockdev_wipe">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wipe a block device.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_bridges_exist">
+    
+  </a>
+  <a name="perspective_bridges_exist">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_bridges_exist</span>(params):
+    
+    <a class="headerLink" href="#perspective_bridges_exist" title="ganeti.server.noded.NodeRequestHandler.perspective_bridges_exist">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check if all bridges given exist on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_drbd_attach_net">
+    
+  </a>
+  <a name="perspective_drbd_attach_net">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_drbd_attach_net</span>(params):
+    
+    <a class="headerLink" href="#perspective_drbd_attach_net" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_attach_net">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Attaches the network connection of drbd disks.</p>
+<p>Note that this is only valid for drbd disks, so the members of the disk list must all be drbd devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_drbd_disconnect_net">
+    
+  </a>
+  <a name="perspective_drbd_disconnect_net">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_drbd_disconnect_net</span>(params):
+    
+    <a class="headerLink" href="#perspective_drbd_disconnect_net" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_disconnect_net">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Disconnects the network connection of drbd disks.</p>
+<p>Note that this is only valid for drbd disks, so the members of the disk list must all be drbd devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_drbd_helper">
+    
+  </a>
+  <a name="perspective_drbd_helper">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_drbd_helper</span>(_):
+    
+    <a class="headerLink" href="#perspective_drbd_helper" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_helper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query drbd helper.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_drbd_needs_activation">
+    
+  </a>
+  <a name="perspective_drbd_needs_activation">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_drbd_needs_activation</span>(params):
+    
+    <a class="headerLink" href="#perspective_drbd_needs_activation" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_needs_activation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the drbd devices need activation</p>
+<p>Note that this is only valid for drbd disks, so the members of the disk list must all be drbd devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_drbd_wait_sync">
+    
+  </a>
+  <a name="perspective_drbd_wait_sync">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_drbd_wait_sync</span>(params):
+    
+    <a class="headerLink" href="#perspective_drbd_wait_sync" title="ganeti.server.noded.NodeRequestHandler.perspective_drbd_wait_sync">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wait until DRBD disks are synched.</p>
+<p>Note that this is only valid for drbd disks, so the members of the disk list must all be drbd devices.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_etc_hosts_modify">
+    
+  </a>
+  <a name="perspective_etc_hosts_modify">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_etc_hosts_modify</span>(params):
+    
+    <a class="headerLink" href="#perspective_etc_hosts_modify" title="ganeti.server.noded.NodeRequestHandler.perspective_etc_hosts_modify">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify a node entry in /etc/hosts.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_export_info">
+    
+  </a>
+  <a name="perspective_export_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_export_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_export_info" title="ganeti.server.noded.NodeRequestHandler.perspective_export_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query information about an existing export on this node.</p>
+<p>The given path may not contain an export, in which case we return None.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_export_list">
+    
+  </a>
+  <a name="perspective_export_list">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_export_list</span>(params):
+    
+    <a class="headerLink" href="#perspective_export_list" title="ganeti.server.noded.NodeRequestHandler.perspective_export_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List the available exports on this node.</p>
+<p>Note that as opposed to export_info, which may query data about an export in any path, this only queries the standard Ganeti path (pathutils.EXPORT_DIR).</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_export_remove">
+    
+  </a>
+  <a name="perspective_export_remove">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_export_remove</span>(params):
+    
+    <a class="headerLink" href="#perspective_export_remove" title="ganeti.server.noded.NodeRequestHandler.perspective_export_remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove an export.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_export_start">
+    
+  </a>
+  <a name="perspective_export_start">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_export_start</span>(params):
+    
+    <a class="headerLink" href="#perspective_export_start" title="ganeti.server.noded.NodeRequestHandler.perspective_export_start">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Starts an export daemon.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_extstorage_diagnose">
+    
+  </a>
+  <a name="perspective_extstorage_diagnose">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_extstorage_diagnose</span>(params):
+    
+    <a class="headerLink" href="#perspective_extstorage_diagnose" title="ganeti.server.noded.NodeRequestHandler.perspective_extstorage_diagnose">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query detailed information about existing extstorage providers.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_create">
+    
+  </a>
+  <a name="perspective_file_storage_dir_create">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_file_storage_dir_create</span>(params):
+    
+    <a class="headerLink" href="#perspective_file_storage_dir_create" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create the file storage directory.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_remove">
+    
+  </a>
+  <a name="perspective_file_storage_dir_remove">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_file_storage_dir_remove</span>(params):
+    
+    <a class="headerLink" href="#perspective_file_storage_dir_remove" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove the file storage directory.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_rename">
+    
+  </a>
+  <a name="perspective_file_storage_dir_rename">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_file_storage_dir_rename</span>(params):
+    
+    <a class="headerLink" href="#perspective_file_storage_dir_rename" title="ganeti.server.noded.NodeRequestHandler.perspective_file_storage_dir_rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Rename the file storage directory.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_finalize_export">
+    
+  </a>
+  <a name="perspective_finalize_export">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_finalize_export</span>(params):
+    
+    <a class="headerLink" href="#perspective_finalize_export" title="ganeti.server.noded.NodeRequestHandler.perspective_finalize_export">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Expose the finalize export functionality.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_get_file_info">
+    
+  </a>
+  <a name="perspective_get_file_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_get_file_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_get_file_info" title="ganeti.server.noded.NodeRequestHandler.perspective_get_file_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get info on whether a file exists and its properties.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_get_watcher_pause">
+    
+  </a>
+  <a name="perspective_get_watcher_pause">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_get_watcher_pause</span>(params):
+    
+    <a class="headerLink" href="#perspective_get_watcher_pause" title="ganeti.server.noded.NodeRequestHandler.perspective_get_watcher_pause">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get watcher pause end.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_hooks_runner">
+    
+  </a>
+  <a name="perspective_hooks_runner">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_hooks_runner</span>(params):
+    
+    <a class="headerLink" href="#perspective_hooks_runner" title="ganeti.server.noded.NodeRequestHandler.perspective_hooks_runner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run hook scripts.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_device">
+    
+  </a>
+  <a name="perspective_hotplug_device">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_hotplug_device</span>(params):
+    
+    <a class="headerLink" href="#perspective_hotplug_device" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_device">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Hotplugs device to a running instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_supported">
+    
+  </a>
+  <a name="perspective_hotplug_supported">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_hotplug_supported</span>(params):
+    
+    <a class="headerLink" href="#perspective_hotplug_supported" title="ganeti.server.noded.NodeRequestHandler.perspective_hotplug_supported">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if hotplug is supported.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_hypervisor_validate_params">
+    
+  </a>
+  <a name="perspective_hypervisor_validate_params">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_hypervisor_validate_params</span>(params):
+    
+    <a class="headerLink" href="#perspective_hypervisor_validate_params" title="ganeti.server.noded.NodeRequestHandler.perspective_hypervisor_validate_params">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Validate the hypervisor parameters.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_iallocator_runner">
+    
+  </a>
+  <a name="perspective_iallocator_runner">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_iallocator_runner</span>(params):
+    
+    <a class="headerLink" href="#perspective_iallocator_runner" title="ganeti.server.noded.NodeRequestHandler.perspective_iallocator_runner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run an iallocator script.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_impexp_abort">
+    
+  </a>
+  <a name="perspective_impexp_abort">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_impexp_abort</span>(params):
+    
+    <a class="headerLink" href="#perspective_impexp_abort" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_abort">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Aborts an import or export.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_impexp_cleanup">
+    
+  </a>
+  <a name="perspective_impexp_cleanup">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_impexp_cleanup</span>(params):
+    
+    <a class="headerLink" href="#perspective_impexp_cleanup" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_cleanup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cleans up after an import or export.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_impexp_status">
+    
+  </a>
+  <a name="perspective_impexp_status">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_impexp_status</span>(params):
+    
+    <a class="headerLink" href="#perspective_impexp_status" title="ganeti.server.noded.NodeRequestHandler.perspective_impexp_status">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves the status of an import or export daemon.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_import_start">
+    
+  </a>
+  <a name="perspective_import_start">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_import_start</span>(params):
+    
+    <a class="headerLink" href="#perspective_import_start" title="ganeti.server.noded.NodeRequestHandler.perspective_import_start">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Starts an import daemon.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_balloon_memory">
+    
+  </a>
+  <a name="perspective_instance_balloon_memory">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_balloon_memory</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_balloon_memory" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_balloon_memory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify instance runtime memory.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_console_info">
+    
+  </a>
+  <a name="perspective_instance_console_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_console_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_console_info" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_console_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query information on how to get console access to instances</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_dst">
+    
+  </a>
+  <a name="perspective_instance_finalize_migration_dst">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_finalize_migration_dst</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_finalize_migration_dst" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_dst">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Finalize the instance migration on the destination node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_src">
+    
+  </a>
+  <a name="perspective_instance_finalize_migration_src">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_finalize_migration_src</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_finalize_migration_src" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_finalize_migration_src">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Finalize the instance migration on the source node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_get_migration_status">
+    
+  </a>
+  <a name="perspective_instance_get_migration_status">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_get_migration_status</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_get_migration_status" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_get_migration_status">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reports migration status.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_info">
+    
+  </a>
+  <a name="perspective_instance_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_info" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query instance information.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_list">
+    
+  </a>
+  <a name="perspective_instance_list">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_list</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_list" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query the list of running instances.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_metadata_modify">
+    
+  </a>
+  <a name="perspective_instance_metadata_modify">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_metadata_modify</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_metadata_modify" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_metadata_modify">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify instance metadata.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_migratable">
+    
+  </a>
+  <a name="perspective_instance_migratable">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_migratable</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_migratable" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migratable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query whether the specified instance can be migrated.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_migrate">
+    
+  </a>
+  <a name="perspective_instance_migrate">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_migrate</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_migrate" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_migrate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Migrates an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_os_add">
+    
+  </a>
+  <a name="perspective_instance_os_add">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_os_add</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_os_add" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_os_add">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Install an OS on a given instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_reboot">
+    
+  </a>
+  <a name="perspective_instance_reboot">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_reboot</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_reboot" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_reboot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reboot an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_run_rename">
+    
+  </a>
+  <a name="perspective_instance_run_rename">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_run_rename</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_run_rename" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_run_rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs the OS rename script for an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_shutdown">
+    
+  </a>
+  <a name="perspective_instance_shutdown">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_shutdown</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_shutdown" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_shutdown">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shutdown an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_instance_start">
+    
+  </a>
+  <a name="perspective_instance_start">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_instance_start</span>(params):
+    
+    <a class="headerLink" href="#perspective_instance_start" title="ganeti.server.noded.NodeRequestHandler.perspective_instance_start">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start an instance.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_purge">
+    
+  </a>
+  <a name="perspective_jobqueue_purge">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />@<a href="ganeti.server.noded.html#_RequireJobQueueLock" class="internal-link" title="ganeti.server.noded._RequireJobQueueLock">_RequireJobQueueLock</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_jobqueue_purge</span>(params):
+    
+    <a class="headerLink" href="#perspective_jobqueue_purge" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_purge">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Purge job queue.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_rename">
+    
+  </a>
+  <a name="perspective_jobqueue_rename">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />@<a href="ganeti.server.noded.html#_RequireJobQueueLock" class="internal-link" title="ganeti.server.noded._RequireJobQueueLock">_RequireJobQueueLock</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_jobqueue_rename</span>(params):
+    
+    <a class="headerLink" href="#perspective_jobqueue_rename" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_rename">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Rename a job queue file.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_set_drain_flag">
+    
+  </a>
+  <a name="perspective_jobqueue_set_drain_flag">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />@<a href="ganeti.server.noded.html#_RequireJobQueueLock" class="internal-link" title="ganeti.server.noded._RequireJobQueueLock">_RequireJobQueueLock</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_jobqueue_set_drain_flag</span>(params):
+    
+    <a class="headerLink" href="#perspective_jobqueue_set_drain_flag" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_set_drain_flag">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set job queue's drain flag.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_update">
+    
+  </a>
+  <a name="perspective_jobqueue_update">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />@<a href="ganeti.server.noded.html#_RequireJobQueueLock" class="internal-link" title="ganeti.server.noded._RequireJobQueueLock">_RequireJobQueueLock</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_jobqueue_update</span>(params):
+    
+    <a class="headerLink" href="#perspective_jobqueue_update" title="ganeti.server.noded.NodeRequestHandler.perspective_jobqueue_update">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Update job queue.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_lv_list">
+    
+  </a>
+  <a name="perspective_lv_list">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_lv_list</span>(params):
+    
+    <a class="headerLink" href="#perspective_lv_list" title="ganeti.server.noded.NodeRequestHandler.perspective_lv_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query the list of logical volumes in a given volume group.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_master_node_name">
+    
+  </a>
+  <a name="perspective_master_node_name">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_master_node_name</span>(params):
+    
+    <a class="headerLink" href="#perspective_master_node_name" title="ganeti.server.noded.NodeRequestHandler.perspective_master_node_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the master node name.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_migration_info">
+    
+  </a>
+  <a name="perspective_migration_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_migration_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_migration_info" title="ganeti.server.noded.NodeRequestHandler.perspective_migration_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gather information about an instance to be migrated.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_activate_master_ip">
+    
+  </a>
+  <a name="perspective_node_activate_master_ip">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_activate_master_ip</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_activate_master_ip" title="ganeti.server.noded.NodeRequestHandler.perspective_node_activate_master_ip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Activate the master IP on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_change_master_netmask">
+    
+  </a>
+  <a name="perspective_node_change_master_netmask">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_change_master_netmask</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_change_master_netmask" title="ganeti.server.noded.NodeRequestHandler.perspective_node_change_master_netmask">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Change the master IP netmask.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_configure_ovs">
+    
+  </a>
+  <a name="perspective_node_configure_ovs">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_configure_ovs</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_configure_ovs" title="ganeti.server.noded.NodeRequestHandler.perspective_node_configure_ovs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sets up OpenvSwitch on the node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_crypto_tokens">
+    
+  </a>
+  <a name="perspective_node_crypto_tokens">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_crypto_tokens</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_crypto_tokens" title="ganeti.server.noded.NodeRequestHandler.perspective_node_crypto_tokens">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets the node's public crypto tokens.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_deactivate_master_ip">
+    
+  </a>
+  <a name="perspective_node_deactivate_master_ip">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_deactivate_master_ip</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_deactivate_master_ip" title="ganeti.server.noded.NodeRequestHandler.perspective_node_deactivate_master_ip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Deactivate the master IP on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_demote_from_mc">
+    
+  </a>
+  <a name="perspective_node_demote_from_mc">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_demote_from_mc</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_demote_from_mc" title="ganeti.server.noded.NodeRequestHandler.perspective_node_demote_from_mc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Demote a node from the master candidate role.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_ensure_daemon">
+    
+  </a>
+  <a name="perspective_node_ensure_daemon">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_ensure_daemon</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_ensure_daemon" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ensure_daemon">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure daemon is running.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_has_ip_address">
+    
+  </a>
+  <a name="perspective_node_has_ip_address">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_has_ip_address</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_has_ip_address" title="ganeti.server.noded.NodeRequestHandler.perspective_node_has_ip_address">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a node has the given ip address.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_info">
+    
+  </a>
+  <a name="perspective_node_info">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_info</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_info" title="ganeti.server.noded.NodeRequestHandler.perspective_node_info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query node information.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_leave_cluster">
+    
+  </a>
+  <a name="perspective_node_leave_cluster">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_leave_cluster</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_leave_cluster" title="ganeti.server.noded.NodeRequestHandler.perspective_node_leave_cluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cleanup after leaving a cluster.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_powercycle">
+    
+  </a>
+  <a name="perspective_node_powercycle">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_powercycle</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_powercycle" title="ganeti.server.noded.NodeRequestHandler.perspective_node_powercycle">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to powercycle the node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_add">
+    
+  </a>
+  <a name="perspective_node_ssh_key_add">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_ssh_key_add</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_ssh_key_add" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_add">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Distributes a new node's SSH key if authorized.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_remove">
+    
+  </a>
+  <a name="perspective_node_ssh_key_remove">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_ssh_key_remove</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_ssh_key_remove" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_key_remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Removes a node's SSH key from the other nodes' SSH files.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_keys_renew">
+    
+  </a>
+  <a name="perspective_node_ssh_keys_renew">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_ssh_keys_renew</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_ssh_keys_renew" title="ganeti.server.noded.NodeRequestHandler.perspective_node_ssh_keys_renew">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generates a new root SSH key pair on the node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_start_master_daemons">
+    
+  </a>
+  <a name="perspective_node_start_master_daemons">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_start_master_daemons</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_start_master_daemons" title="ganeti.server.noded.NodeRequestHandler.perspective_node_start_master_daemons">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start the master daemons on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_stop_master">
+    
+  </a>
+  <a name="perspective_node_stop_master">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_stop_master</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_stop_master" title="ganeti.server.noded.NodeRequestHandler.perspective_node_stop_master">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Stops master daemons on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_verify">
+    
+  </a>
+  <a name="perspective_node_verify">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_verify</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_verify" title="ganeti.server.noded.NodeRequestHandler.perspective_node_verify">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a verify sequence on this node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_node_volumes">
+    
+  </a>
+  <a name="perspective_node_volumes">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_node_volumes</span>(params):
+    
+    <a class="headerLink" href="#perspective_node_volumes" title="ganeti.server.noded.NodeRequestHandler.perspective_node_volumes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query the list of all logical volume groups.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_os_diagnose">
+    
+  </a>
+  <a name="perspective_os_diagnose">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_os_diagnose</span>(params):
+    
+    <a class="headerLink" href="#perspective_os_diagnose" title="ganeti.server.noded.NodeRequestHandler.perspective_os_diagnose">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query detailed information about existing OSes.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_os_export">
+    
+  </a>
+  <a name="perspective_os_export">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_os_export</span>(params):
+    
+    <a class="headerLink" href="#perspective_os_export" title="ganeti.server.noded.NodeRequestHandler.perspective_os_export">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Export an OS definition into an instance specific package.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_os_validate">
+    
+  </a>
+  <a name="perspective_os_validate">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_os_validate</span>(params):
+    
+    <a class="headerLink" href="#perspective_os_validate" title="ganeti.server.noded.NodeRequestHandler.perspective_os_validate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a given OS' validation routine.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_restricted_command">
+    
+  </a>
+  <a name="perspective_restricted_command">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_restricted_command</span>(params):
+    
+    <a class="headerLink" href="#perspective_restricted_command" title="ganeti.server.noded.NodeRequestHandler.perspective_restricted_command">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs a restricted command.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_run_oob">
+    
+  </a>
+  <a name="perspective_run_oob">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_run_oob</span>(params):
+    
+    <a class="headerLink" href="#perspective_run_oob" title="ganeti.server.noded.NodeRequestHandler.perspective_run_oob">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs oob on node.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_set_watcher_pause">
+    
+  </a>
+  <a name="perspective_set_watcher_pause">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_set_watcher_pause</span>(params):
+    
+    <a class="headerLink" href="#perspective_set_watcher_pause" title="ganeti.server.noded.NodeRequestHandler.perspective_set_watcher_pause">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set watcher pause.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_storage_execute">
+    
+  </a>
+  <a name="perspective_storage_execute">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_storage_execute</span>(params):
+    
+    <a class="headerLink" href="#perspective_storage_execute" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_execute">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Execute an operation on a storage unit.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_storage_list">
+    
+  </a>
+  <a name="perspective_storage_list">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_storage_list</span>(params):
+    
+    <a class="headerLink" href="#perspective_storage_list" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get list of storage units.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_storage_modify">
+    
+  </a>
+  <a name="perspective_storage_modify">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_storage_modify</span>(params):
+    
+    <a class="headerLink" href="#perspective_storage_modify" title="ganeti.server.noded.NodeRequestHandler.perspective_storage_modify">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify a storage unit.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_test_delay">
+    
+  </a>
+  <a name="perspective_test_delay">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_test_delay</span>(params):
+    
+    <a class="headerLink" href="#perspective_test_delay" title="ganeti.server.noded.NodeRequestHandler.perspective_test_delay">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run test delay.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_upload_file">
+    
+  </a>
+  <a name="perspective_upload_file">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_upload_file</span>(params):
+    
+    <a class="headerLink" href="#perspective_upload_file" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Upload a file.</p>
+<p>Note that the backend implementation imposes strict rules on which files are accepted.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_upload_file_single">
+    
+  </a>
+  <a name="perspective_upload_file_single">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_upload_file_single</span>(params):
+    
+    <a class="headerLink" href="#perspective_upload_file_single" title="ganeti.server.noded.NodeRequestHandler.perspective_upload_file_single">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Upload a file.</p>
+<p>Note that the backend implementation imposes strict rules on which files are accepted.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_version">
+    
+  </a>
+  <a name="perspective_version">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_version</span>(params):
+    
+    <a class="headerLink" href="#perspective_version" title="ganeti.server.noded.NodeRequestHandler.perspective_version">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query version information.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_vg_list">
+    
+  </a>
+  <a name="perspective_vg_list">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_vg_list</span>(params):
+    
+    <a class="headerLink" href="#perspective_vg_list" title="ganeti.server.noded.NodeRequestHandler.perspective_vg_list">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Query the list of volume groups.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_write_ssconf_files">
+    
+  </a>
+  <a name="perspective_write_ssconf_files">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_write_ssconf_files</span>(params):
+    
+    <a class="headerLink" href="#perspective_write_ssconf_files" title="ganeti.server.noded.NodeRequestHandler.perspective_write_ssconf_files">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write ssconf files.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_create">
+    
+  </a>
+  <a name="perspective_x509_cert_create">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_x509_cert_create</span>(params):
+    
+    <a class="headerLink" href="#perspective_x509_cert_create" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_create">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a new X509 certificate for SSL/TLS.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_remove">
+    
+  </a>
+  <a name="perspective_x509_cert_remove">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">perspective_x509_cert_remove</span>(params):
+    
+    <a class="headerLink" href="#perspective_x509_cert_remove" title="ganeti.server.noded.NodeRequestHandler.perspective_x509_cert_remove">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Removes a X509 certificate.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.server.noded.NodeRequestHandler.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.HandleRequest">
+    
+  </a>
+  <a name="HandleRequest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">HandleRequest</span>(self, req):
+    
+    <a class="headerLink" href="#HandleRequest" title="ganeti.server.noded.NodeRequestHandler.HandleRequest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.http.server.HttpServerHandler.html#HandleRequest" class="internal-link">ganeti.http.server.HttpServerHandler.HandleRequest</a></code></div>
+    <div><p>Handle a request.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.server.noded.NodeRequestHandler.noded_pid">
+    
+  </a>
+  <a name="noded_pid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">noded_pid</span> =
+    
+    <a class="headerLink" href="#noded_pid" title="ganeti.server.noded.NodeRequestHandler.noded_pid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

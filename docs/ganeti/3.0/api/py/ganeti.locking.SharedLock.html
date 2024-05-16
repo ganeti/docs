@@ -1,0 +1,1848 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.locking.SharedLock</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.locking.SharedLock.html" class="internal-link" title="This class"><wbr></wbr>Shared<wbr></wbr>Lock</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.locking.SharedLock.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="ganeti.locking.SharedLock.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#acquire" class="internal-link" title="ganeti.locking.SharedLock.acquire">acquire</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#delete" class="internal-link" title="ganeti.locking.SharedLock.delete">delete</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#downgrade" class="internal-link" title="ganeti.locking.SharedLock.downgrade">downgrade</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetLockInfo" class="internal-link" title="ganeti.locking.SharedLock.GetLockInfo"><wbr></wbr>Get<wbr></wbr>Lock<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#is_owned" class="internal-link" title="ganeti.locking.SharedLock.is_owned">is<wbr></wbr>_owned</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#release" class="internal-link" title="ganeti.locking.SharedLock.release">release</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__acquire_unlocked" class="internal-link" title="ganeti.locking.SharedLock.__acquire_unlocked">__acquire<wbr></wbr>_unlocked</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__can_acquire" class="internal-link" title="ganeti.locking.SharedLock.__can_acquire">__can<wbr></wbr>_acquire</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__check_deleted" class="internal-link" title="ganeti.locking.SharedLock.__check_deleted">__check<wbr></wbr>_deleted</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__do_acquire" class="internal-link" title="ganeti.locking.SharedLock.__do_acquire">__do<wbr></wbr>_acquire</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__find_first_pending_queue" class="internal-link" title="ganeti.locking.SharedLock.__find_first_pending_queue">__find<wbr></wbr>_first<wbr></wbr>_pending<wbr></wbr>_queue</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__is_exclusive" class="internal-link" title="ganeti.locking.SharedLock.__is_exclusive">__is<wbr></wbr>_exclusive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__is_on_top" class="internal-link" title="ganeti.locking.SharedLock.__is_on_top">__is<wbr></wbr>_on<wbr></wbr>_top</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__is_owned" class="internal-link" title="ganeti.locking.SharedLock.__is_owned">__is<wbr></wbr>_owned</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__is_sharer" class="internal-link" title="ganeti.locking.SharedLock.__is_sharer">__is<wbr></wbr>_sharer</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__notify_topmost" class="internal-link" title="ganeti.locking.SharedLock.__notify_topmost">__notify<wbr></wbr>_topmost</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_acquire_restore" class="internal-link" title="ganeti.locking.SharedLock._acquire_restore">_acquire<wbr></wbr>_restore</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_check_empty" class="internal-link" title="ganeti.locking.SharedLock._check_empty">_check<wbr></wbr>_empty</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_count_pending" class="internal-link" title="ganeti.locking.SharedLock._count_pending">_count<wbr></wbr>_pending</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_notify_topmost" class="internal-link" title="ganeti.locking.SharedLock._notify_topmost">_notify<wbr></wbr>_topmost</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_release_save" class="internal-link" title="ganeti.locking.SharedLock._release_save">_release<wbr></wbr>_save</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__slots__" class="internal-link" title="ganeti.locking.SharedLock.__slots__">__slots__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#name" class="internal-link" title="ganeti.locking.SharedLock.name">name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__deleted" class="internal-link" title="ganeti.locking.SharedLock.__deleted">__deleted</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__exc" class="internal-link" title="ganeti.locking.SharedLock.__exc">__exc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__lock" class="internal-link" title="ganeti.locking.SharedLock.__lock">__lock</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__pending" class="internal-link" title="ganeti.locking.SharedLock.__pending">__pending</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__pending_by_prio" class="internal-link" title="ganeti.locking.SharedLock.__pending_by_prio">__pending<wbr></wbr>_by<wbr></wbr>_prio</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__pending_shared" class="internal-link" title="ganeti.locking.SharedLock.__pending_shared">__pending<wbr></wbr>_shared</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__shr" class="internal-link" title="ganeti.locking.SharedLock.__shr">__shr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__time_fn" class="internal-link" title="ganeti.locking.SharedLock.__time_fn">__time<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.locking.html" class="internal-link" title="The parent of this class">locking</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.PipeCondition.html" class="internal-link" title="ganeti.locking.PipeCondition"><wbr></wbr>Pipe<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.SharedLock.html" class="internal-link" title="ganeti.locking.SharedLock"><wbr></wbr>Shared<wbr></wbr>Lock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.SingleNotifyPipeCondition.html" class="internal-link" title="ganeti.locking.SingleNotifyPipeCondition"><wbr></wbr>Single<wbr></wbr>Notify<wbr></wbr>Pipe<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking._BaseCondition.html" class="internal-link" title="ganeti.locking._BaseCondition">_<wbr></wbr>Base<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking._PipeConditionWithMode.html" class="internal-link" title="ganeti.locking._PipeConditionWithMode">_<wbr></wbr>Pipe<wbr></wbr>Condition<wbr></wbr>With<wbr></wbr>Mode</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking._SingleNotifyPipeConditionWaiter.html" class="internal-link" title="ganeti.locking._SingleNotifyPipeConditionWaiter">_<wbr></wbr>Single<wbr></wbr>Notify<wbr></wbr>Pipe<wbr></wbr>Condition<wbr></wbr>Waiter</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking._AcquireTimeout.html" class="internal-link" title="ganeti.locking._AcquireTimeout">_<wbr></wbr>Acquire<wbr></wbr>Timeout</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#ssynchronized" class="internal-link" title="ganeti.locking.ssynchronized">ssynchronized</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_TimeoutZero" class="internal-link" title="ganeti.locking._TimeoutZero">_<wbr></wbr>Timeout<wbr></wbr>Zero</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">ALL<wbr></wbr>_SET</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#BGL" class="internal-link" title="ganeti.locking.BGL">BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_CLUSTER" class="internal-link" title="ganeti.locking.LEVEL_CLUSTER">LEVEL<wbr></wbr>_CLUSTER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_INSTANCE" class="internal-link" title="ganeti.locking.LEVEL_INSTANCE">LEVEL<wbr></wbr>_INSTANCE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_NAMES" class="internal-link" title="ganeti.locking.LEVEL_NAMES">LEVEL<wbr></wbr>_NAMES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_NETWORK" class="internal-link" title="ganeti.locking.LEVEL_NETWORK">LEVEL<wbr></wbr>_NETWORK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_NODE" class="internal-link" title="ganeti.locking.LEVEL_NODE">LEVEL<wbr></wbr>_NODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_NODE_RES" class="internal-link" title="ganeti.locking.LEVEL_NODE_RES">LEVEL<wbr></wbr>_NODE<wbr></wbr>_RES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVEL_NODEGROUP" class="internal-link" title="ganeti.locking.LEVEL_NODEGROUP">LEVEL<wbr></wbr>_NODEGROUP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVELS" class="internal-link" title="ganeti.locking.LEVELS">LEVELS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LEVELS_MOD" class="internal-link" title="ganeti.locking.LEVELS_MOD">LEVELS<wbr></wbr>_MOD</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#LOCKSET_NAME" class="internal-link" title="ganeti.locking.LOCKSET_NAME">LOCKSET<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_DEFAULT_PRIORITY" class="internal-link" title="ganeti.locking._DEFAULT_PRIORITY">_DEFAULT<wbr></wbr>_PRIORITY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_DELETED_TEXT" class="internal-link" title="ganeti.locking._DELETED_TEXT">_DELETED<wbr></wbr>_TEXT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_EXCLUSIVE_TEXT" class="internal-link" title="ganeti.locking._EXCLUSIVE_TEXT">_EXCLUSIVE<wbr></wbr>_TEXT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_LOCK_ACQUIRE_MIN_TIMEOUT" class="internal-link" title="ganeti.locking._LOCK_ACQUIRE_MIN_TIMEOUT">_LOCK<wbr></wbr>_ACQUIRE<wbr></wbr>_MIN<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html#_SHARED_TEXT" class="internal-link" title="ganeti.locking._SHARED_TEXT">_SHARED<wbr></wbr>_TEXT</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code><wbr></wbr>.<code><a href="ganeti.locking.SharedLock.html" class="internal-link" title="ganeti.locking.SharedLock">SharedLock</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">SharedLock</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.locking.SharedLock">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Implements a shared lock.</p>
+<p>Multiple threads can acquire the lock in a shared way by calling <tt class="rst-docutils literal">acquire(shared=1)</tt>. In order to acquire the lock in an exclusive way threads can call <tt class="rst-docutils literal">acquire(shared=0)</tt>.</p>
+<p>Notes on data structures: <tt class="rst-docutils literal">__pending</tt> contains a priority queue (heapq) of all pending acquires: <tt class="rst-docutils literal">[(priority1: prioqueue1), (priority2: prioqueue2), <span class="pre">...]</span></tt>. Each per-priority queue contains a normal in-order list of conditions to be notified when the lock can be acquired. Shared locks are grouped together by priority and the condition for them is stored in <tt class="rst-docutils literal">__pending_shared</tt> if it already exists. <tt class="rst-docutils literal">__pending_by_prio</tt> keeps references for the per-priority queues indexed by priority for faster access.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id500">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.locking.SharedLock.__init__">__init__</a></code></td>
+    <td>Construct a new SharedLock.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__repr__" class="internal-link" title="ganeti.locking.SharedLock.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#acquire" class="internal-link" title="ganeti.locking.SharedLock.acquire">acquire</a></code></td>
+    <td>Acquire a shared lock.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#delete" class="internal-link" title="ganeti.locking.SharedLock.delete">delete</a></code></td>
+    <td>Delete a Shared Lock.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#downgrade" class="internal-link" title="ganeti.locking.SharedLock.downgrade">downgrade</a></code></td>
+    <td>Changes the lock mode from exclusive to shared.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetLockInfo" class="internal-link" title="ganeti.locking.SharedLock.GetLockInfo"><wbr></wbr>Get<wbr></wbr>Lock<wbr></wbr>Info</a></code></td>
+    <td>Retrieves information for querying locks.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#is_owned" class="internal-link" title="ganeti.locking.SharedLock.is_owned">is<wbr></wbr>_owned</a></code></td>
+    <td>Is the current thread somehow owning the lock at this time?</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#release" class="internal-link" title="ganeti.locking.SharedLock.release">release</a></code></td>
+    <td>Release a Shared Lock.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#__slots__" class="internal-link" title="ganeti.locking.SharedLock.__slots__">__slots__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#name" class="internal-link" title="ganeti.locking.SharedLock.name">name</a></code></td>
+    <td>the name of the lock</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__acquire_unlocked" class="internal-link" title="ganeti.locking.SharedLock.__acquire_unlocked">__acquire<wbr></wbr>_unlocked</a></code></td>
+    <td>Acquire a shared lock.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__can_acquire" class="internal-link" title="ganeti.locking.SharedLock.__can_acquire">__can<wbr></wbr>_acquire</a></code></td>
+    <td>Determine whether lock can be acquired.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__check_deleted" class="internal-link" title="ganeti.locking.SharedLock.__check_deleted">__check<wbr></wbr>_deleted</a></code></td>
+    <td>Raises an exception if the lock has been deleted.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__do_acquire" class="internal-link" title="ganeti.locking.SharedLock.__do_acquire">__do<wbr></wbr>_acquire</a></code></td>
+    <td>Actually acquire the lock.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__find_first_pending_queue" class="internal-link" title="ganeti.locking.SharedLock.__find_first_pending_queue">__find<wbr></wbr>_first<wbr></wbr>_pending<wbr></wbr>_queue</a></code></td>
+    <td>Tries to find the topmost queued entry with pending acquires.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__is_exclusive" class="internal-link" title="ganeti.locking.SharedLock.__is_exclusive">__is<wbr></wbr>_exclusive</a></code></td>
+    <td>Is the current thread holding the lock exclusively at this time?</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__is_on_top" class="internal-link" title="ganeti.locking.SharedLock.__is_on_top">__is<wbr></wbr>_on<wbr></wbr>_top</a></code></td>
+    <td>Checks whether the passed condition is on top of the queue.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__is_owned" class="internal-link" title="ganeti.locking.SharedLock.__is_owned">__is<wbr></wbr>_owned</a></code></td>
+    <td>Is the current thread somehow owning the lock at this time?</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__is_sharer" class="internal-link" title="ganeti.locking.SharedLock.__is_sharer">__is<wbr></wbr>_sharer</a></code></td>
+    <td>Is the current thread sharing the lock at this time?</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#__notify_topmost" class="internal-link" title="ganeti.locking.SharedLock.__notify_topmost">__notify<wbr></wbr>_topmost</a></code></td>
+    <td>Notifies topmost condition in queue of pending acquires.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_acquire_restore" class="internal-link" title="ganeti.locking.SharedLock._acquire_restore">_acquire<wbr></wbr>_restore</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_check_empty" class="internal-link" title="ganeti.locking.SharedLock._check_empty">_check<wbr></wbr>_empty</a></code></td>
+    <td>Checks whether there are any pending acquires.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_count_pending" class="internal-link" title="ganeti.locking.SharedLock._count_pending">_count<wbr></wbr>_pending</a></code></td>
+    <td>Returns the number of pending acquires.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_notify_topmost" class="internal-link" title="ganeti.locking.SharedLock._notify_topmost">_notify<wbr></wbr>_topmost</a></code></td>
+    <td>Exported version of <code><a href="ganeti.locking.SharedLock.html#__notify_topmost" class="internal-link" title="ganeti.locking.SharedLock.__notify_topmost">__notify_topmost</a></code>.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_release_save" class="internal-link" title="ganeti.locking.SharedLock._release_save">_release<wbr></wbr>_save</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__deleted" class="internal-link" title="ganeti.locking.SharedLock.__deleted">__deleted</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__exc" class="internal-link" title="ganeti.locking.SharedLock.__exc">__exc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__lock" class="internal-link" title="ganeti.locking.SharedLock.__lock">__lock</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__pending" class="internal-link" title="ganeti.locking.SharedLock.__pending">__pending</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__pending_by_prio" class="internal-link" title="ganeti.locking.SharedLock.__pending_by_prio">__pending<wbr></wbr>_by<wbr></wbr>_prio</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__pending_shared" class="internal-link" title="ganeti.locking.SharedLock.__pending_shared">__pending<wbr></wbr>_shared</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__shr" class="internal-link" title="ganeti.locking.SharedLock.__shr">__shr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__time_fn" class="internal-link" title="ganeti.locking.SharedLock.__time_fn">__time<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, name, monitor=None, _time_fn=time.time):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.locking.SharedLock.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Construct a new SharedLock.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">name</span></td><td class="fieldArgDesc">the name of the lock</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">monitor</span></td><td class="fieldArgDesc">Lock monitor with which to register</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_time<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span>(self):
+    
+    <a class="headerLink" href="#__repr__" title="ganeti.locking.SharedLock.__repr__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.acquire">
+    
+  </a>
+  <a name="acquire">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">acquire</span>(self, shared=0, timeout=None, priority=None, test_notify=None):
+    
+    <a class="headerLink" href="#acquire" title="ganeti.locking.SharedLock.acquire">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Acquire a shared lock.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shared:</span>integer (0/1) used as a boolean</td><td class="fieldArgDesc">whether to acquire in shared mode; by default an exclusive lock will be acquired</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span>float</td><td class="fieldArgDesc">maximum waiting time before giving up</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">priority:</span>integer</td><td class="fieldArgDesc">Priority for acquiring lock</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">test<wbr></wbr>_notify:</span>callable or None</td><td class="fieldArgDesc">Special callback function for unittesting</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.delete">
+    
+  </a>
+  <a name="delete">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">delete</span>(self, timeout=None, priority=None):
+    
+    <a class="headerLink" href="#delete" title="ganeti.locking.SharedLock.delete">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Delete a Shared Lock.</p>
+<p>This operation will declare the lock for removal. First the lock will be acquired in exclusive mode if you don't already own it, then the lock will be put in a state where any future and pending acquire() fail.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout:</span>float</td><td class="fieldArgDesc">maximum waiting time before giving up</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">priority:</span>integer</td><td class="fieldArgDesc">Priority for acquiring lock</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.downgrade">
+    
+  </a>
+  <a name="downgrade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">downgrade</span>(self):
+    
+    <a class="headerLink" href="#downgrade" title="ganeti.locking.SharedLock.downgrade">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Changes the lock mode from exclusive to shared.</p>
+<p>Pending acquires in shared mode on the same priority will go ahead.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.GetLockInfo">
+    
+  </a>
+  <a name="GetLockInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetLockInfo</span>(self, requested):
+    
+    <a class="headerLink" href="#GetLockInfo" title="ganeti.locking.SharedLock.GetLockInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Retrieves information for querying locks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">requested:</span>set</td><td class="fieldArgDesc">Requested information, see <tt class="rst-docutils literal">query.LQ_*</tt></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.is_owned">
+    
+  </a>
+  <a name="is_owned">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_owned</span>(self, shared=-1):
+    
+    <a class="headerLink" href="#is_owned" title="ganeti.locking.SharedLock.is_owned">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Is the current thread somehow owning the lock at this time?</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shared</span></td><td class="fieldArgDesc"><ul class="rst-simple">
+<li>&lt; 0: check for any type of ownership (default)</li>
+<li>0: check for exclusive ownership</li>
+<li>&gt; 0: check for shared ownership</li>
+</ul>
+</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.locking.SharedLock.release">
+    
+  </a>
+  <a name="release">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">release</span>(self):
+    
+    <a class="headerLink" href="#release" title="ganeti.locking.SharedLock.release">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Release a Shared Lock.</p>
+<p>You must have acquired the lock, either in shared or in exclusive mode, before calling this function.</p>
+</div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="ganeti.locking.SharedLock.__slots__">
+    
+  </a>
+  <a name="__slots__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__slots__</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#__slots__" title="ganeti.locking.SharedLock.__slots__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.locking.SharedLock.name">
+    
+  </a>
+  <a name="name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">name</span>: string =
+    
+    <a class="headerLink" href="#name" title="ganeti.locking.SharedLock.name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the name of the lock</p>
+</div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__acquire_unlocked">
+    
+  </a>
+  <a name="__acquire_unlocked">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__acquire_unlocked</span>(self, shared, timeout, priority):
+    
+    <a class="headerLink" href="#__acquire_unlocked" title="ganeti.locking.SharedLock.__acquire_unlocked">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Acquire a shared lock.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shared</span></td><td class="fieldArgDesc">whether to acquire in shared mode; by default an exclusive lock will be acquired</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timeout</span></td><td class="fieldArgDesc">maximum waiting time before giving up</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">priority:</span>integer</td><td class="fieldArgDesc">Priority for acquiring lock</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__can_acquire">
+    
+  </a>
+  <a name="__can_acquire">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__can_acquire</span>(self, shared):
+    
+    <a class="headerLink" href="#__can_acquire" title="ganeti.locking.SharedLock.__can_acquire">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine whether lock can be acquired.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__check_deleted">
+    
+  </a>
+  <a name="__check_deleted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__check_deleted</span>(self):
+    
+    <a class="headerLink" href="#__check_deleted" title="ganeti.locking.SharedLock.__check_deleted">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Raises an exception if the lock has been deleted.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__do_acquire">
+    
+  </a>
+  <a name="__do_acquire">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__do_acquire</span>(self, shared):
+    
+    <a class="headerLink" href="#__do_acquire" title="ganeti.locking.SharedLock.__do_acquire">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Actually acquire the lock.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__find_first_pending_queue">
+    
+  </a>
+  <a name="__find_first_pending_queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__find_first_pending_queue</span>(self):
+    
+    <a class="headerLink" href="#__find_first_pending_queue" title="ganeti.locking.SharedLock.__find_first_pending_queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to find the topmost queued entry with pending acquires.</p>
+<p>Removes empty entries while going through the list.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__is_exclusive">
+    
+  </a>
+  <a name="__is_exclusive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__is_exclusive</span>(self):
+    
+    <a class="headerLink" href="#__is_exclusive" title="ganeti.locking.SharedLock.__is_exclusive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Is the current thread holding the lock exclusively at this time?</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__is_on_top">
+    
+  </a>
+  <a name="__is_on_top">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__is_on_top</span>(self, cond):
+    
+    <a class="headerLink" href="#__is_on_top" title="ganeti.locking.SharedLock.__is_on_top">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the passed condition is on top of the queue.</p>
+<p>The caller must make sure the queue isn't empty.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__is_owned">
+    
+  </a>
+  <a name="__is_owned">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__is_owned</span>(self, shared=-1):
+    
+    <a class="headerLink" href="#__is_owned" title="ganeti.locking.SharedLock.__is_owned">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Is the current thread somehow owning the lock at this time?</p>
+<p>This is a private version of the function, which presumes you're holding the internal lock.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__is_sharer">
+    
+  </a>
+  <a name="__is_sharer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__is_sharer</span>(self):
+    
+    <a class="headerLink" href="#__is_sharer" title="ganeti.locking.SharedLock.__is_sharer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Is the current thread sharing the lock at this time?</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__notify_topmost">
+    
+  </a>
+  <a name="__notify_topmost">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__notify_topmost</span>(self):
+    
+    <a class="headerLink" href="#__notify_topmost" title="ganeti.locking.SharedLock.__notify_topmost">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Notifies topmost condition in queue of pending acquires.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock._acquire_restore">
+    
+  </a>
+  <a name="_acquire_restore">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_acquire_restore</span>(self, shared):
+    
+    <a class="headerLink" href="#_acquire_restore" title="ganeti.locking.SharedLock._acquire_restore">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock._check_empty">
+    
+  </a>
+  <a name="_check_empty">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_check_empty</span>(self):
+    
+    <a class="headerLink" href="#_check_empty" title="ganeti.locking.SharedLock._check_empty">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether there are any pending acquires.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock._count_pending">
+    
+  </a>
+  <a name="_count_pending">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_count_pending</span>(self):
+    
+    <a class="headerLink" href="#_count_pending" title="ganeti.locking.SharedLock._count_pending">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns the number of pending acquires.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock._notify_topmost">
+    
+  </a>
+  <a name="_notify_topmost">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_notify_topmost</span>(self):
+    
+    <a class="headerLink" href="#_notify_topmost" title="ganeti.locking.SharedLock._notify_topmost">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Exported version of <code><a href="#__notify_topmost" class="internal-link" title="ganeti.locking.SharedLock.__notify_topmost">__notify_topmost</a></code>.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.locking.SharedLock._release_save">
+    
+  </a>
+  <a name="_release_save">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_release_save</span>(self):
+    
+    <a class="headerLink" href="#_release_save" title="ganeti.locking.SharedLock._release_save">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__deleted">
+    
+  </a>
+  <a name="__deleted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__deleted</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#__deleted" title="ganeti.locking.SharedLock.__deleted">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__exc">
+    
+  </a>
+  <a name="__exc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__exc</span> =
+    
+    <a class="headerLink" href="#__exc" title="ganeti.locking.SharedLock.__exc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__lock">
+    
+  </a>
+  <a name="__lock">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__lock</span> =
+    
+    <a class="headerLink" href="#__lock" title="ganeti.locking.SharedLock.__lock">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__pending">
+    
+  </a>
+  <a name="__pending">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__pending</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#__pending" title="ganeti.locking.SharedLock.__pending">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__pending_by_prio">
+    
+  </a>
+  <a name="__pending_by_prio">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__pending_by_prio</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#__pending_by_prio" title="ganeti.locking.SharedLock.__pending_by_prio">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__pending_shared">
+    
+  </a>
+  <a name="__pending_shared">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__pending_shared</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#__pending_shared" title="ganeti.locking.SharedLock.__pending_shared">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__shr">
+    
+  </a>
+  <a name="__shr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__shr</span>: <code>set</code> =
+    
+    <a class="headerLink" href="#__shr" title="ganeti.locking.SharedLock.__shr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.locking.SharedLock.__time_fn">
+    
+  </a>
+  <a name="__time_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__time_fn</span> =
+    
+    <a class="headerLink" href="#__time_fn" title="ganeti.locking.SharedLock.__time_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

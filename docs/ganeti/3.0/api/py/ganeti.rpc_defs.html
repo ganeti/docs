@@ -1,0 +1,2448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.rpc_defs</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.rpc_defs.html" class="internal-link" title="This module">rpc<wbr></wbr>_defs</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BlockdevFindPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevFindPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Find<wbr></wbr>Post<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BlockdevGetMirrorStatusMultiPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Multi<wbr></wbr>Post<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BlockdevGetMirrorStatusMultiPreProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPreProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Multi<wbr></wbr>Pre<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BlockdevGetMirrorStatusPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ImpExpStatusPostProc" class="internal-link" title="ganeti.rpc_defs._ImpExpStatusPostProc">_<wbr></wbr>Imp<wbr></wbr>Exp<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MigrationStatusPostProc" class="internal-link" title="ganeti.rpc_defs._MigrationStatusPostProc">_<wbr></wbr>Migration<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_NodeInfoPreProc" class="internal-link" title="ganeti.rpc_defs._NodeInfoPreProc">_<wbr></wbr>Node<wbr></wbr>Info<wbr></wbr>Pre<wbr></wbr>Proc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_Prepare" class="internal-link" title="ganeti.rpc_defs._Prepare">_<wbr></wbr>Prepare</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TestDelayTimeout" class="internal-link" title="ganeti.rpc_defs._TestDelayTimeout">_<wbr></wbr>Test<wbr></wbr>Delay<wbr></wbr>Timeout</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ACCEPT_OFFLINE_NODE" class="internal-link" title="ganeti.rpc_defs.ACCEPT_OFFLINE_NODE">ACCEPT<wbr></wbr>_OFFLINE<wbr></wbr>_NODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CALLS" class="internal-link" title="ganeti.rpc_defs.CALLS">CALLS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_BLOCKDEV_RENAME" class="internal-link" title="ganeti.rpc_defs.ED_BLOCKDEV_RENAME">ED<wbr></wbr>_BLOCKDEV<wbr></wbr>_RENAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_COMPRESS" class="internal-link" title="ganeti.rpc_defs.ED_COMPRESS">ED<wbr></wbr>_COMPRESS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_DEVICE_DICT" class="internal-link" title="ganeti.rpc_defs.ED_DEVICE_DICT">ED<wbr></wbr>_DEVICE<wbr></wbr>_DICT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_DISKS_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_DISKS_DICT_DP">ED<wbr></wbr>_DISKS<wbr></wbr>_DICT<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_FILE_DETAILS" class="internal-link" title="ganeti.rpc_defs.ED_FILE_DETAILS">ED<wbr></wbr>_FILE<wbr></wbr>_DETAILS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_FINALIZE_EXPORT_DISKS" class="internal-link" title="ganeti.rpc_defs.ED_FINALIZE_EXPORT_DISKS">ED<wbr></wbr>_FINALIZE<wbr></wbr>_EXPORT<wbr></wbr>_DISKS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_IMPEXP_IO" class="internal-link" title="ganeti.rpc_defs.ED_IMPEXP_IO">ED<wbr></wbr>_IMPEXP<wbr></wbr>_IO</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_INST_DICT" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT">ED<wbr></wbr>_INST<wbr></wbr>_DICT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_INST_DICT_HVP_BEP_DP" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT_HVP_BEP_DP">ED<wbr></wbr>_INST<wbr></wbr>_DICT<wbr></wbr>_HVP<wbr></wbr>_BEP<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_INST_DICT_OSP_DP" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT_OSP_DP">ED<wbr></wbr>_INST<wbr></wbr>_DICT<wbr></wbr>_OSP<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_MULTI_DISKS_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_MULTI_DISKS_DICT_DP">ED<wbr></wbr>_MULTI<wbr></wbr>_DISKS<wbr></wbr>_DICT<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_NIC_DICT" class="internal-link" title="ganeti.rpc_defs.ED_NIC_DICT">ED<wbr></wbr>_NIC<wbr></wbr>_DICT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_NODE_TO_DISK_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_NODE_TO_DISK_DICT_DP">ED<wbr></wbr>_NODE<wbr></wbr>_TO<wbr></wbr>_DISK<wbr></wbr>_DICT<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_OBJECT_DICT" class="internal-link" title="ganeti.rpc_defs.ED_OBJECT_DICT">ED<wbr></wbr>_OBJECT<wbr></wbr>_DICT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_OBJECT_DICT_LIST" class="internal-link" title="ganeti.rpc_defs.ED_OBJECT_DICT_LIST">ED<wbr></wbr>_OBJECT<wbr></wbr>_DICT<wbr></wbr>_LIST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ED_SINGLE_DISK_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_SINGLE_DISK_DICT_DP">ED<wbr></wbr>_SINGLE<wbr></wbr>_DISK<wbr></wbr>_DICT<wbr></wbr>_DP</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BLOCKDEV_CALLS" class="internal-link" title="ganeti.rpc_defs._BLOCKDEV_CALLS">_BLOCKDEV<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EXTSTORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._EXTSTORAGE_CALLS">_EXTSTORAGE<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FILE_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._FILE_STORAGE_CALLS">_FILE<wbr></wbr>_STORAGE<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_IMPEXP_CALLS" class="internal-link" title="ganeti.rpc_defs._IMPEXP_CALLS">_IMPEXP<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_INSTANCE_CALLS" class="internal-link" title="ganeti.rpc_defs._INSTANCE_CALLS">_INSTANCE<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MISC_CALLS" class="internal-link" title="ganeti.rpc_defs._MISC_CALLS">_MISC<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_NODE_CALLS" class="internal-link" title="ganeti.rpc_defs._NODE_CALLS">_NODE<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_OS_CALLS" class="internal-link" title="ganeti.rpc_defs._OS_CALLS">_OS<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._STORAGE_CALLS">_STORAGE<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_X509_CALLS" class="internal-link" title="ganeti.rpc_defs._X509_CALLS">_X509<wbr></wbr>_CALLS</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.html" class="internal-link" title="The parent of this module">ganeti</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.build.html" class="internal-link" title="ganeti.build">build</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.confd.html" class="internal-link" title="ganeti.confd">confd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.config.html" class="internal-link" title="ganeti.config">config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.impexpd.html" class="internal-link" title="ganeti.impexpd">impexpd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc.html" class="internal-link" title="ganeti.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.server.html" class="internal-link" title="ganeti.server">server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.tools.html" class="internal-link" title="ganeti.tools">tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.utils.html" class="internal-link" title="ganeti.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.watcher.html" class="internal-link" title="ganeti.watcher">watcher</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.asyncnotifier.html" class="internal-link" title="ganeti.asyncnotifier">asyncnotifier</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.backend.html" class="internal-link" title="ganeti.backend">backend</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.bootstrap.html" class="internal-link" title="ganeti.bootstrap">bootstrap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli.html" class="internal-link" title="ganeti.cli">cli</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cli_opts.html" class="internal-link" title="ganeti.cli_opts">cli<wbr></wbr>_opts</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.compat.html" class="internal-link" title="ganeti.compat">compat</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.constants.html" class="internal-link" title="ganeti.constants">constants</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.daemon.html" class="internal-link" title="ganeti.daemon">daemon</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.errors.html" class="internal-link" title="ganeti.errors">errors</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ht.html" class="internal-link" title="ganeti.ht">ht</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jstore.html" class="internal-link" title="ganeti.jstore">jstore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.locking.html" class="internal-link" title="ganeti.locking">locking</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.luxi.html" class="internal-link" title="ganeti.luxi">luxi</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.metad.html" class="internal-link" title="ganeti.metad">metad</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.netutils.html" class="internal-link" title="ganeti.netutils">netutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.network.html" class="internal-link" title="ganeti.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes.html" class="internal-link" title="ganeti.opcodes">opcodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.opcodes_base.html" class="internal-link" title="ganeti.opcodes_base">opcodes<wbr></wbr>_base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.outils.html" class="internal-link" title="ganeti.outils">outils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ovf.html" class="internal-link" title="ganeti.ovf">ovf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.pathutils.html" class="internal-link" title="ganeti.pathutils">pathutils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.qlang.html" class="internal-link" title="ganeti.qlang">qlang</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.query.html" class="internal-link" title="ganeti.query">query</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc<wbr></wbr>_defs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.runtime.html" class="internal-link" title="ganeti.runtime">runtime</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.serializer.html" class="internal-link" title="ganeti.serializer">serializer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssconf.html" class="internal-link" title="ganeti.ssconf">ssconf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.ssh.html" class="internal-link" title="ganeti.ssh">ssh</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.uidpool.html" class="internal-link" title="ganeti.uidpool">uidpool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.vcluster.html" class="internal-link" title="ganeti.vcluster">vcluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.wconfd.html" class="internal-link" title="ganeti.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.workerpool.html" class="internal-link" title="ganeti.workerpool">workerpool</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._constants.html" class="internal-link" title="ganeti._constants">_constants</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._generated_rpc.html" class="internal-link" title="ganeti._generated_rpc">_generated<wbr></wbr>_rpc</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti._vcsversion.html" class="internal-link" title="ganeti._vcsversion">_vcsversion</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.rpc_defs.html" class="internal-link" title="ganeti.rpc_defs">rpc_defs</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>RPC definitions for communication between master and node daemons.</p>
+<p>RPC definition fields:</p>
+<ul class="rst-simple">
+<li>Name as string</li>
+<li><code><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a></code> for single-node calls, <code><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a></code> for multi-node</li>
+<li>Name resolver option(s), can be callable receiving all arguments in a tuple</li>
+<li>Timeout (e.g. <code><a href="ganeti._constants.html#RPC_TMO_NORMAL" class="internal-link" title="ganeti._constants.RPC_TMO_NORMAL">constants.RPC_TMO_NORMAL</a></code>), or callback receiving all arguments in a tuple to calculate timeout</li>
+<li>List of arguments as tuples<ul>
+<li>Name as string</li>
+<li>Argument kind used for encoding/decoding</li>
+<li>Description for docstring (can be <tt class="rst-docutils literal">None</tt>)</li>
+</ul>
+</li>
+<li>Custom body encoder (e.g. for preparing per-node bodies)</li>
+<li>Return value wrapper (e.g. for deserializing into <code><a href="ganeti.objects.html" class="internal-link" title="ganeti.objects">objects</a></code>-based objects)</li>
+<li>Short call description for docstring</li>
+</ul>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1252">
+  
+  
+  <tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ACCEPT_OFFLINE_NODE" class="internal-link" title="ganeti.rpc_defs.ACCEPT_OFFLINE_NODE">ACCEPT<wbr></wbr>_OFFLINE<wbr></wbr>_NODE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CALLS" class="internal-link" title="ganeti.rpc_defs.CALLS">CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_BLOCKDEV_RENAME" class="internal-link" title="ganeti.rpc_defs.ED_BLOCKDEV_RENAME">ED<wbr></wbr>_BLOCKDEV<wbr></wbr>_RENAME</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_COMPRESS" class="internal-link" title="ganeti.rpc_defs.ED_COMPRESS">ED<wbr></wbr>_COMPRESS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_DEVICE_DICT" class="internal-link" title="ganeti.rpc_defs.ED_DEVICE_DICT">ED<wbr></wbr>_DEVICE<wbr></wbr>_DICT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_DISKS_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_DISKS_DICT_DP">ED<wbr></wbr>_DISKS<wbr></wbr>_DICT<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_FILE_DETAILS" class="internal-link" title="ganeti.rpc_defs.ED_FILE_DETAILS">ED<wbr></wbr>_FILE<wbr></wbr>_DETAILS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_FINALIZE_EXPORT_DISKS" class="internal-link" title="ganeti.rpc_defs.ED_FINALIZE_EXPORT_DISKS">ED<wbr></wbr>_FINALIZE<wbr></wbr>_EXPORT<wbr></wbr>_DISKS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_IMPEXP_IO" class="internal-link" title="ganeti.rpc_defs.ED_IMPEXP_IO">ED<wbr></wbr>_IMPEXP<wbr></wbr>_IO</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_INST_DICT" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT">ED<wbr></wbr>_INST<wbr></wbr>_DICT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_INST_DICT_HVP_BEP_DP" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT_HVP_BEP_DP">ED<wbr></wbr>_INST<wbr></wbr>_DICT<wbr></wbr>_HVP<wbr></wbr>_BEP<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_INST_DICT_OSP_DP" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT_OSP_DP">ED<wbr></wbr>_INST<wbr></wbr>_DICT<wbr></wbr>_OSP<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_MULTI_DISKS_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_MULTI_DISKS_DICT_DP">ED<wbr></wbr>_MULTI<wbr></wbr>_DISKS<wbr></wbr>_DICT<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_NIC_DICT" class="internal-link" title="ganeti.rpc_defs.ED_NIC_DICT">ED<wbr></wbr>_NIC<wbr></wbr>_DICT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_NODE_TO_DISK_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_NODE_TO_DISK_DICT_DP">ED<wbr></wbr>_NODE<wbr></wbr>_TO<wbr></wbr>_DISK<wbr></wbr>_DICT<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_OBJECT_DICT" class="internal-link" title="ganeti.rpc_defs.ED_OBJECT_DICT">ED<wbr></wbr>_OBJECT<wbr></wbr>_DICT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_OBJECT_DICT_LIST" class="internal-link" title="ganeti.rpc_defs.ED_OBJECT_DICT_LIST">ED<wbr></wbr>_OBJECT<wbr></wbr>_DICT<wbr></wbr>_LIST</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ED_SINGLE_DISK_DICT_DP" class="internal-link" title="ganeti.rpc_defs.ED_SINGLE_DISK_DICT_DP">ED<wbr></wbr>_SINGLE<wbr></wbr>_DISK<wbr></wbr>_DICT<wbr></wbr>_DP</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BlockdevFindPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevFindPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Find<wbr></wbr>Post<wbr></wbr>Proc</a></code></td>
+    <td>Post-processor for <code><a href="ganeti._generated_rpc.RpcClientDefault.html#call_blockdev_find" class="internal-link" title="ganeti._generated_rpc.RpcClientDefault.call_blockdev_find">rpc.node.RpcRunner.call_blockdev_find</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BlockdevGetMirrorStatusMultiPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Multi<wbr></wbr>Post<wbr></wbr>Proc</a></code></td>
+    <td>Post-processor for call_blockdev_getmirrorstatus_multi.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BlockdevGetMirrorStatusMultiPreProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPreProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Multi<wbr></wbr>Pre<wbr></wbr>Proc</a></code></td>
+    <td>Prepares the appropriate node values for blockdev_getmirrorstatus_multi.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BlockdevGetMirrorStatusPostProc" class="internal-link" title="ganeti.rpc_defs._BlockdevGetMirrorStatusPostProc">_<wbr></wbr>Blockdev<wbr></wbr>Get<wbr></wbr>Mirror<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code></td>
+    <td>Post-processor for call_blockdev_getmirrorstatus.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ImpExpStatusPostProc" class="internal-link" title="ganeti.rpc_defs._ImpExpStatusPostProc">_<wbr></wbr>Imp<wbr></wbr>Exp<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code></td>
+    <td>Post-processor for import/export status.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MigrationStatusPostProc" class="internal-link" title="ganeti.rpc_defs._MigrationStatusPostProc">_<wbr></wbr>Migration<wbr></wbr>Status<wbr></wbr>Post<wbr></wbr>Proc</a></code></td>
+    <td>Post-processor for <code><a href="ganeti._generated_rpc.RpcClientDefault.html#call_instance_get_migration_status" class="internal-link" title="ganeti._generated_rpc.RpcClientDefault.call_instance_get_migration_status">rpc.node.RpcRunner.call_instance_get_migration_status</a></code></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_NodeInfoPreProc" class="internal-link" title="ganeti.rpc_defs._NodeInfoPreProc">_<wbr></wbr>Node<wbr></wbr>Info<wbr></wbr>Pre<wbr></wbr>Proc</a></code></td>
+    <td>Prepare the storage_units argument for node_info calls.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_Prepare" class="internal-link" title="ganeti.rpc_defs._Prepare">_<wbr></wbr>Prepare</a></code></td>
+    <td>Converts list of calls to dictionary.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_TestDelayTimeout" class="internal-link" title="ganeti.rpc_defs._TestDelayTimeout">_<wbr></wbr>Test<wbr></wbr>Delay<wbr></wbr>Timeout</a></code></td>
+    <td>Calculate timeout for "test_delay" RPC.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_BLOCKDEV_CALLS" class="internal-link" title="ganeti.rpc_defs._BLOCKDEV_CALLS">_BLOCKDEV<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EXTSTORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._EXTSTORAGE_CALLS">_EXTSTORAGE<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_FILE_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._FILE_STORAGE_CALLS">_FILE<wbr></wbr>_STORAGE<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_IMPEXP_CALLS" class="internal-link" title="ganeti.rpc_defs._IMPEXP_CALLS">_IMPEXP<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_INSTANCE_CALLS" class="internal-link" title="ganeti.rpc_defs._INSTANCE_CALLS">_INSTANCE<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MISC_CALLS" class="internal-link" title="ganeti.rpc_defs._MISC_CALLS">_MISC<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_NODE_CALLS" class="internal-link" title="ganeti.rpc_defs._NODE_CALLS">_NODE<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_OS_CALLS" class="internal-link" title="ganeti.rpc_defs._OS_CALLS">_OS<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._STORAGE_CALLS">_STORAGE<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_X509_CALLS" class="internal-link" title="ganeti.rpc_defs._X509_CALLS">_X509<wbr></wbr>_CALLS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ACCEPT_OFFLINE_NODE">
+    
+  </a>
+  <a name="ACCEPT_OFFLINE_NODE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ACCEPT_OFFLINE_NODE</span> =
+    
+    <a class="headerLink" href="#ACCEPT_OFFLINE_NODE" title="ganeti.rpc_defs.ACCEPT_OFFLINE_NODE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>object()</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.CALLS">
+    
+  </a>
+  <a name="CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CALLS</span> =
+    
+    <a class="headerLink" href="#CALLS" title="ganeti.rpc_defs.CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">RpcClientDefault</span><span class="rst-variable-quote">'</span>: <a href="#_Prepare" class="internal-link" title="ganeti.rpc_defs._Prepare">_Prepare</a>(<wbr></wbr>((((((((<a href="#_IMPEXP_CALLS" class="internal-link" title="ganeti.rpc_defs._IMPEXP_CALLS">_IMPEXP_CALLS</a>+<a href="#_X509_CALLS" class="internal-link" title="ganeti.rpc_defs._X509_CALLS">_X509_CALLS</a>)+<a href="#_OS_CALLS" class="internal-link" title="ganeti.rpc_defs._OS_CALLS">_OS_CALLS</a>)+<a href="#_NODE_CALLS" class="internal-link" title="ganeti.rpc_defs._NODE_CALLS">_NODE_CALLS</a>)+<a href="#_FILE_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._FILE_STORAGE_CALLS">_FILE_STORAGE_CALLS</a>)+<a href="#_MISC_CALLS" class="internal-link" title="ganeti.rpc_defs._MISC_CALLS">_MISC_CALLS</a>)+<a href="#_INSTANCE_CALLS" class="internal-link" title="ganeti.rpc_defs._INSTANCE_CALLS">_INSTANCE_CALLS</a>)+<a href="#_BLOCKDEV_CALLS" class="internal-link" title="ganeti.rpc_defs._BLOCKDEV_CALLS">_BLOCKDEV_CALLS</a>)+<a href="#_STORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._STORAGE_CALLS">_STORAGE_CALLS</a>)+<a href="#_EXTSTORAGE_CALLS" class="internal-link" title="ganeti.rpc_defs._EXTSTORAGE_CALLS">_EXTSTORAGE_CALLS</a>),
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">RpcClientJobQueue</span><span class="rst-variable-quote">'</span>: <a href="#_Prepare" class="internal-link" title="ganeti.rpc_defs._Prepare">_Prepare</a>(<wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">jobqueue_update</span><span class="rst-variable-quote">'</span>,
+                                 <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+                                 <wbr></wbr>None,
+                                 <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_URGENT" class="internal-link" title="ganeti._constants.RPC_TMO_URGENT">constants.RPC_TMO_URGENT</a>,
+                                 <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">file_name</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None),
+                                  <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">content</span><span class="rst-variable-quote">'</span>, <wbr></wbr><a href="#ED_COMPRESS" class="internal-link" title="ganeti.rpc_defs.ED_COMPRESS">ED_COMPRESS</a>, <wbr></wbr>None)],
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_BLOCKDEV_RENAME">
+    
+  </a>
+  <a name="ED_BLOCKDEV_RENAME">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_BLOCKDEV_RENAME</span> =
+    
+    <a class="headerLink" href="#ED_BLOCKDEV_RENAME" title="ganeti.rpc_defs.ED_BLOCKDEV_RENAME">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_COMPRESS">
+    
+  </a>
+  <a name="ED_COMPRESS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_COMPRESS</span> =
+    
+    <a class="headerLink" href="#ED_COMPRESS" title="ganeti.rpc_defs.ED_COMPRESS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_DEVICE_DICT">
+    
+  </a>
+  <a name="ED_DEVICE_DICT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_DEVICE_DICT</span> =
+    
+    <a class="headerLink" href="#ED_DEVICE_DICT" title="ganeti.rpc_defs.ED_DEVICE_DICT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_DISKS_DICT_DP">
+    
+  </a>
+  <a name="ED_DISKS_DICT_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_DISKS_DICT_DP</span> =
+    
+    <a class="headerLink" href="#ED_DISKS_DICT_DP" title="ganeti.rpc_defs.ED_DISKS_DICT_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_FILE_DETAILS">
+    
+  </a>
+  <a name="ED_FILE_DETAILS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_FILE_DETAILS</span> =
+    
+    <a class="headerLink" href="#ED_FILE_DETAILS" title="ganeti.rpc_defs.ED_FILE_DETAILS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_FINALIZE_EXPORT_DISKS">
+    
+  </a>
+  <a name="ED_FINALIZE_EXPORT_DISKS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_FINALIZE_EXPORT_DISKS</span> =
+    
+    <a class="headerLink" href="#ED_FINALIZE_EXPORT_DISKS" title="ganeti.rpc_defs.ED_FINALIZE_EXPORT_DISKS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_IMPEXP_IO">
+    
+  </a>
+  <a name="ED_IMPEXP_IO">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_IMPEXP_IO</span> =
+    
+    <a class="headerLink" href="#ED_IMPEXP_IO" title="ganeti.rpc_defs.ED_IMPEXP_IO">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_INST_DICT">
+    
+  </a>
+  <a name="ED_INST_DICT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_INST_DICT</span> =
+    
+    <a class="headerLink" href="#ED_INST_DICT" title="ganeti.rpc_defs.ED_INST_DICT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_INST_DICT_HVP_BEP_DP">
+    
+  </a>
+  <a name="ED_INST_DICT_HVP_BEP_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_INST_DICT_HVP_BEP_DP</span> =
+    
+    <a class="headerLink" href="#ED_INST_DICT_HVP_BEP_DP" title="ganeti.rpc_defs.ED_INST_DICT_HVP_BEP_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_INST_DICT_OSP_DP">
+    
+  </a>
+  <a name="ED_INST_DICT_OSP_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_INST_DICT_OSP_DP</span> =
+    
+    <a class="headerLink" href="#ED_INST_DICT_OSP_DP" title="ganeti.rpc_defs.ED_INST_DICT_OSP_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_MULTI_DISKS_DICT_DP">
+    
+  </a>
+  <a name="ED_MULTI_DISKS_DICT_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_MULTI_DISKS_DICT_DP</span> =
+    
+    <a class="headerLink" href="#ED_MULTI_DISKS_DICT_DP" title="ganeti.rpc_defs.ED_MULTI_DISKS_DICT_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_NIC_DICT">
+    
+  </a>
+  <a name="ED_NIC_DICT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_NIC_DICT</span> =
+    
+    <a class="headerLink" href="#ED_NIC_DICT" title="ganeti.rpc_defs.ED_NIC_DICT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_NODE_TO_DISK_DICT_DP">
+    
+  </a>
+  <a name="ED_NODE_TO_DISK_DICT_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_NODE_TO_DISK_DICT_DP</span> =
+    
+    <a class="headerLink" href="#ED_NODE_TO_DISK_DICT_DP" title="ganeti.rpc_defs.ED_NODE_TO_DISK_DICT_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_OBJECT_DICT">
+    
+  </a>
+  <a name="ED_OBJECT_DICT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_OBJECT_DICT</span> =
+    
+    <a class="headerLink" href="#ED_OBJECT_DICT" title="ganeti.rpc_defs.ED_OBJECT_DICT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_OBJECT_DICT_LIST">
+    
+  </a>
+  <a name="ED_OBJECT_DICT_LIST">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_OBJECT_DICT_LIST</span> =
+    
+    <a class="headerLink" href="#ED_OBJECT_DICT_LIST" title="ganeti.rpc_defs.ED_OBJECT_DICT_LIST">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.ED_SINGLE_DISK_DICT_DP">
+    
+  </a>
+  <a name="ED_SINGLE_DISK_DICT_DP">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ED_SINGLE_DISK_DICT_DP</span> =
+    
+    <a class="headerLink" href="#ED_SINGLE_DISK_DICT_DP" title="ganeti.rpc_defs.ED_SINGLE_DISK_DICT_DP">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.MULTI">
+    
+  </a>
+  <a name="MULTI">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">MULTI</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#MULTI" title="ganeti.rpc_defs.MULTI">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">multi-node</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rpc_defs.SINGLE">
+    
+  </a>
+  <a name="SINGLE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">SINGLE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#SINGLE" title="ganeti.rpc_defs.SINGLE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">single-node</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._BlockdevFindPostProc">
+    
+  </a>
+  <a name="_BlockdevFindPostProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BlockdevFindPostProc</span>(result):
+    
+    <a class="headerLink" href="#_BlockdevFindPostProc" title="ganeti.rpc_defs._BlockdevFindPostProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Post-processor for <code><a href="ganeti._generated_rpc.RpcClientDefault.html#call_blockdev_find" class="internal-link" title="ganeti._generated_rpc.RpcClientDefault.call_blockdev_find">rpc.node.RpcRunner.call_blockdev_find</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPostProc">
+    
+  </a>
+  <a name="_BlockdevGetMirrorStatusMultiPostProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BlockdevGetMirrorStatusMultiPostProc</span>(result):
+    
+    <a class="headerLink" href="#_BlockdevGetMirrorStatusMultiPostProc" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPostProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Post-processor for call_blockdev_getmirrorstatus_multi.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPreProc">
+    
+  </a>
+  <a name="_BlockdevGetMirrorStatusMultiPreProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BlockdevGetMirrorStatusMultiPreProc</span>(node, args):
+    
+    <a class="headerLink" href="#_BlockdevGetMirrorStatusMultiPreProc" title="ganeti.rpc_defs._BlockdevGetMirrorStatusMultiPreProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepares the appropriate node values for blockdev_getmirrorstatus_multi.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._BlockdevGetMirrorStatusPostProc">
+    
+  </a>
+  <a name="_BlockdevGetMirrorStatusPostProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BlockdevGetMirrorStatusPostProc</span>(result):
+    
+    <a class="headerLink" href="#_BlockdevGetMirrorStatusPostProc" title="ganeti.rpc_defs._BlockdevGetMirrorStatusPostProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Post-processor for call_blockdev_getmirrorstatus.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._ImpExpStatusPostProc">
+    
+  </a>
+  <a name="_ImpExpStatusPostProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ImpExpStatusPostProc</span>(result):
+    
+    <a class="headerLink" href="#_ImpExpStatusPostProc" title="ganeti.rpc_defs._ImpExpStatusPostProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Post-processor for import/export status.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">Payload containing list of <code><a href="ganeti.objects.ImportExportStatus.html" class="internal-link" title="ganeti.objects.ImportExportStatus">objects.ImportExportStatus</a></code> instances</td><td class="fieldArgDesc">Returns a list of the state of each named import/export or None if a status couldn't be retrieved</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._MigrationStatusPostProc">
+    
+  </a>
+  <a name="_MigrationStatusPostProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MigrationStatusPostProc</span>(result):
+    
+    <a class="headerLink" href="#_MigrationStatusPostProc" title="ganeti.rpc_defs._MigrationStatusPostProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Post-processor for <code><a href="ganeti._generated_rpc.RpcClientDefault.html#call_instance_get_migration_status" class="internal-link" title="ganeti._generated_rpc.RpcClientDefault.call_instance_get_migration_status">rpc.node.RpcRunner.call_instance_get_migration_status</a></code></p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._NodeInfoPreProc">
+    
+  </a>
+  <a name="_NodeInfoPreProc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_NodeInfoPreProc</span>(node, args):
+    
+    <a class="headerLink" href="#_NodeInfoPreProc" title="ganeti.rpc_defs._NodeInfoPreProc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare the storage_units argument for node_info calls.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._Prepare">
+    
+  </a>
+  <a name="_Prepare">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_Prepare</span>(calls):
+    
+    <a class="headerLink" href="#_Prepare" title="ganeti.rpc_defs._Prepare">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts list of calls to dictionary.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rpc_defs._TestDelayTimeout">
+    
+  </a>
+  <a name="_TestDelayTimeout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_TestDelayTimeout</span>(duration):
+    
+    <a class="headerLink" href="#_TestDelayTimeout" title="ganeti.rpc_defs._TestDelayTimeout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculate timeout for "test_delay" RPC.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._BLOCKDEV_CALLS">
+    
+  </a>
+  <a name="_BLOCKDEV_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_BLOCKDEV_CALLS</span> =
+    
+    <a class="headerLink" href="#_BLOCKDEV_CALLS" title="ganeti.rpc_defs._BLOCKDEV_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">bdev_sizes</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_URGENT" class="internal-link" title="ganeti._constants.RPC_TMO_URGENT">constants.RPC_TMO_URGENT</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">devices</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None)],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._EXTSTORAGE_CALLS">
+    
+  </a>
+  <a name="_EXTSTORAGE_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EXTSTORAGE_CALLS</span> =
+    
+    <a class="headerLink" href="#_EXTSTORAGE_CALLS" title="ganeti.rpc_defs._EXTSTORAGE_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">extstorage_diagnose</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_FAST" class="internal-link" title="ganeti._constants.RPC_TMO_FAST">constants.RPC_TMO_FAST</a>,
+  <wbr></wbr>[],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._FILE_STORAGE_CALLS">
+    
+  </a>
+  <a name="_FILE_STORAGE_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_FILE_STORAGE_CALLS</span> =
+    
+    <a class="headerLink" href="#_FILE_STORAGE_CALLS" title="ganeti.rpc_defs._FILE_STORAGE_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">file_storage_dir_create</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_FAST" class="internal-link" title="ganeti._constants.RPC_TMO_FAST">constants.RPC_TMO_FAST</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">file_storage_dir</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">File storage directory</span><span class="rst-variable-quote">'</span>)],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._IMPEXP_CALLS">
+    
+  </a>
+  <a name="_IMPEXP_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_IMPEXP_CALLS</span> =
+    
+    <a class="headerLink" href="#_IMPEXP_CALLS" title="ganeti.rpc_defs._IMPEXP_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">import_start</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_NORMAL" class="internal-link" title="ganeti._constants.RPC_TMO_NORMAL">constants.RPC_TMO_NORMAL</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">opts</span><span class="rst-variable-quote">'</span>, <wbr></wbr><a href="#ED_OBJECT_DICT" class="internal-link" title="ganeti.rpc_defs.ED_OBJECT_DICT">ED_OBJECT_DICT</a>, <wbr></wbr>None),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">instance</span><span class="rst-variable-quote">'</span>, <wbr></wbr><a href="#ED_INST_DICT" class="internal-link" title="ganeti.rpc_defs.ED_INST_DICT">ED_INST_DICT</a>, <wbr></wbr>None),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">component</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None),
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._INSTANCE_CALLS">
+    
+  </a>
+  <a name="_INSTANCE_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_INSTANCE_CALLS</span> =
+    
+    <a class="headerLink" href="#_INSTANCE_CALLS" title="ganeti.rpc_defs._INSTANCE_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">instance_info</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_URGENT" class="internal-link" title="ganeti._constants.RPC_TMO_URGENT">constants.RPC_TMO_URGENT</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">instance</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Instance name</span><span class="rst-variable-quote">'</span>),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">hname</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Hypervisor type</span><span class="rst-variable-quote">'</span>),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">hvparams</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Hypervisor parameters</span><span class="rst-variable-quote">'</span>)],
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._MISC_CALLS">
+    
+  </a>
+  <a name="_MISC_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MISC_CALLS</span> =
+    
+    <a class="headerLink" href="#_MISC_CALLS" title="ganeti.rpc_defs._MISC_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">lv_list</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_URGENT" class="internal-link" title="ganeti._constants.RPC_TMO_URGENT">constants.RPC_TMO_URGENT</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">vg_name</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None)],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._NODE_CALLS">
+    
+  </a>
+  <a name="_NODE_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_NODE_CALLS</span> =
+    
+    <a class="headerLink" href="#_NODE_CALLS" title="ganeti.rpc_defs._NODE_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">node_has_ip_address</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_FAST" class="internal-link" title="ganeti._constants.RPC_TMO_FAST">constants.RPC_TMO_FAST</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">address</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">IP address</span><span class="rst-variable-quote">'</span>)],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._OS_CALLS">
+    
+  </a>
+  <a name="_OS_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_OS_CALLS</span> =
+    
+    <a class="headerLink" href="#_OS_CALLS" title="ganeti.rpc_defs._OS_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">os_diagnose</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_FAST" class="internal-link" title="ganeti._constants.RPC_TMO_FAST">constants.RPC_TMO_FAST</a>,
+  <wbr></wbr>[],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._STORAGE_CALLS">
+    
+  </a>
+  <a name="_STORAGE_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_STORAGE_CALLS</span> =
+    
+    <a class="headerLink" href="#_STORAGE_CALLS" title="ganeti.rpc_defs._STORAGE_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">storage_list</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#MULTI" class="internal-link" title="ganeti.rpc_defs.MULTI">MULTI</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_NORMAL" class="internal-link" title="ganeti._constants.RPC_TMO_NORMAL">constants.RPC_TMO_NORMAL</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">su_name</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">su_args</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None),
+   <wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">name</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr>None),
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rpc_defs._X509_CALLS">
+    
+  </a>
+  <a name="_X509_CALLS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_X509_CALLS</span> =
+    
+    <a class="headerLink" href="#_X509_CALLS" title="ganeti.rpc_defs._X509_CALLS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">x509_cert_create</span><span class="rst-variable-quote">'</span>,
+  <wbr></wbr><a href="#SINGLE" class="internal-link" title="ganeti.rpc_defs.SINGLE">SINGLE</a>,
+  <wbr></wbr>None,
+  <wbr></wbr><a href="ganeti._constants.html#RPC_TMO_NORMAL" class="internal-link" title="ganeti._constants.RPC_TMO_NORMAL">constants.RPC_TMO_NORMAL</a>,
+  <wbr></wbr>[<wbr></wbr>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">validity</span><span class="rst-variable-quote">'</span>, <wbr></wbr>None, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">Validity in seconds</span><span class="rst-variable-quote">'</span>)],
+  <wbr></wbr>None,
+  <wbr></wbr>None,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

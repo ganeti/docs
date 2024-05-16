@@ -1,0 +1,1981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.client.gnt_node</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.client.gnt_node.html" class="internal-link" title="This module">gnt<wbr></wbr>_node</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_node.ReplyStatus.html" class="internal-link" title="ganeti.client.gnt_node.ReplyStatus"><wbr></wbr>Reply<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddNode" class="internal-link" title="ganeti.client.gnt_node.AddNode"><wbr></wbr>Add<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ConvertStorageType" class="internal-link" title="ganeti.client.gnt_node.ConvertStorageType"><wbr></wbr>Convert<wbr></wbr>Storage<wbr></wbr>Type</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#EvacuateNode" class="internal-link" title="ganeti.client.gnt_node.EvacuateNode"><wbr></wbr>Evacuate<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FailoverNode" class="internal-link" title="ganeti.client.gnt_node.FailoverNode"><wbr></wbr>Failover<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Health" class="internal-link" title="ganeti.client.gnt_node.Health"><wbr></wbr>Health</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListDrbd" class="internal-link" title="ganeti.client.gnt_node.ListDrbd"><wbr></wbr>List<wbr></wbr>Drbd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListNodeFields" class="internal-link" title="ganeti.client.gnt_node.ListNodeFields"><wbr></wbr>List<wbr></wbr>Node<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListNodes" class="internal-link" title="ganeti.client.gnt_node.ListNodes"><wbr></wbr>List<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListStorage" class="internal-link" title="ganeti.client.gnt_node.ListStorage"><wbr></wbr>List<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListVolumes" class="internal-link" title="ganeti.client.gnt_node.ListVolumes"><wbr></wbr>List<wbr></wbr>Volumes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_node.Main"><wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MigrateNode" class="internal-link" title="ganeti.client.gnt_node.MigrateNode"><wbr></wbr>Migrate<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ModifyStorage" class="internal-link" title="ganeti.client.gnt_node.ModifyStorage"><wbr></wbr>Modify<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PowercycleNode" class="internal-link" title="ganeti.client.gnt_node.PowercycleNode"><wbr></wbr>Powercycle<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PowerNode" class="internal-link" title="ganeti.client.gnt_node.PowerNode"><wbr></wbr>Power<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveNode" class="internal-link" title="ganeti.client.gnt_node.RemoveNode"><wbr></wbr>Remove<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RepairStorage" class="internal-link" title="ganeti.client.gnt_node.RepairStorage"><wbr></wbr>Repair<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RestrictedCommand" class="internal-link" title="ganeti.client.gnt_node.RestrictedCommand"><wbr></wbr>Restricted<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetNodeParams" class="internal-link" title="ganeti.client.gnt_node.SetNodeParams"><wbr></wbr>Set<wbr></wbr>Node<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowNodeConfig" class="internal-link" title="ganeti.client.gnt_node.ShowNodeConfig"><wbr></wbr>Show<wbr></wbr>Node<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatNodeInfo" class="internal-link" title="ganeti.client.gnt_node._FormatNodeInfo">_<wbr></wbr>Format<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ReadSshKeys" class="internal-link" title="ganeti.client.gnt_node._ReadSshKeys">_<wbr></wbr>Read<wbr></wbr>Ssh<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetupSSH" class="internal-link" title="ganeti.client.gnt_node._SetupSSH">_<wbr></wbr>Setup<wbr></wbr>SSH</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TryReadFile" class="internal-link" title="ganeti.client.gnt_node._TryReadFile">_<wbr></wbr>Try<wbr></wbr>Read<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IGNORE_STATUS_OPT" class="internal-link" title="ganeti.client.gnt_node.IGNORE_STATUS_OPT">IGNORE<wbr></wbr>_STATUS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NONODE_SETUP_OPT" class="internal-link" title="ganeti.client.gnt_node.NONODE_SETUP_OPT">NONODE<wbr></wbr>_SETUP<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aliases" class="internal-link" title="ganeti.client.gnt_node.aliases">aliases</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_node.commands">commands</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ENV_OVERRIDE" class="internal-link" title="ganeti.client.gnt_node._ENV_OVERRIDE">_ENV<wbr></wbr>_OVERRIDE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_DEF_FIELDS">_LIST<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_POWER_COMMANDS" class="internal-link" title="ganeti.client.gnt_node._LIST_POWER_COMMANDS">_LIST<wbr></wbr>_POWER<wbr></wbr>_COMMANDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_STOR_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_STOR_DEF_FIELDS">_LIST<wbr></wbr>_STOR<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_STOR_HEADERS" class="internal-link" title="ganeti.client.gnt_node._LIST_STOR_HEADERS">_LIST<wbr></wbr>_STOR<wbr></wbr>_HEADERS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_VOL_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_VOL_DEF_FIELDS">_LIST<wbr></wbr>_VOL<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MODIFIABLE_STORAGE_TYPES" class="internal-link" title="ganeti.client.gnt_node._MODIFIABLE_STORAGE_TYPES">_MODIFIABLE<wbr></wbr>_STORAGE<wbr></wbr>_TYPES</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_OOB_COMMAND_ASK" class="internal-link" title="ganeti.client.gnt_node._OOB_COMMAND_ASK">_OOB<wbr></wbr>_COMMAND<wbr></wbr>_ASK</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_REPAIRABLE_STORAGE_TYPES" class="internal-link" title="ganeti.client.gnt_node._REPAIRABLE_STORAGE_TYPES">_REPAIRABLE<wbr></wbr>_STORAGE<wbr></wbr>_TYPES</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_STORAGE_TYPE_OPT" class="internal-link" title="ganeti.client.gnt_node._STORAGE_TYPE_OPT">_STORAGE<wbr></wbr>_TYPE<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_USER_STORAGE_TYPE" class="internal-link" title="ganeti.client.gnt_node._USER_STORAGE_TYPE">_USER<wbr></wbr>_STORAGE<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.client.html" class="internal-link" title="The parent of this module">client</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.base.html" class="internal-link" title="ganeti.client.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_backup.html" class="internal-link" title="ganeti.client.gnt_backup">gnt<wbr></wbr>_backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_cluster.html" class="internal-link" title="ganeti.client.gnt_cluster">gnt<wbr></wbr>_cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_debug.html" class="internal-link" title="ganeti.client.gnt_debug">gnt<wbr></wbr>_debug</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_filter.html" class="internal-link" title="ganeti.client.gnt_filter">gnt<wbr></wbr>_filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_group.html" class="internal-link" title="ganeti.client.gnt_group">gnt<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_instance.html" class="internal-link" title="ganeti.client.gnt_instance">gnt<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_job.html" class="internal-link" title="ganeti.client.gnt_job">gnt<wbr></wbr>_job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_network.html" class="internal-link" title="ganeti.client.gnt_network">gnt<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_node.html" class="internal-link" title="ganeti.client.gnt_node">gnt<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_os.html" class="internal-link" title="ganeti.client.gnt_os">gnt<wbr></wbr>_os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_storage.html" class="internal-link" title="ganeti.client.gnt_storage">gnt<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code><wbr></wbr>.<code><a href="ganeti.client.gnt_node.html" class="internal-link" title="ganeti.client.gnt_node">gnt_node</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Node related commands</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id78">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.client.gnt_node.ReplyStatus.html" class="internal-link" title="ganeti.client.gnt_node.ReplyStatus"><wbr></wbr>Reply<wbr></wbr>Status</a></code></td>
+    <td>Class holding a reply status for synchronous confd clients.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddNode" class="internal-link" title="ganeti.client.gnt_node.AddNode"><wbr></wbr>Add<wbr></wbr>Node</a></code></td>
+    <td>Add a node to the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ConvertStorageType" class="internal-link" title="ganeti.client.gnt_node.ConvertStorageType"><wbr></wbr>Convert<wbr></wbr>Storage<wbr></wbr>Type</a></code></td>
+    <td>Converts a user storage type to its internal name.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#EvacuateNode" class="internal-link" title="ganeti.client.gnt_node.EvacuateNode"><wbr></wbr>Evacuate<wbr></wbr>Node</a></code></td>
+    <td>Relocate all secondary instance from a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#FailoverNode" class="internal-link" title="ganeti.client.gnt_node.FailoverNode"><wbr></wbr>Failover<wbr></wbr>Node</a></code></td>
+    <td>Failover all primary instance on a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Health" class="internal-link" title="ganeti.client.gnt_node.Health"><wbr></wbr>Health</a></code></td>
+    <td>Show health of a node using OOB.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListDrbd" class="internal-link" title="ganeti.client.gnt_node.ListDrbd"><wbr></wbr>List<wbr></wbr>Drbd</a></code></td>
+    <td>Modifies a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListNodeFields" class="internal-link" title="ganeti.client.gnt_node.ListNodeFields"><wbr></wbr>List<wbr></wbr>Node<wbr></wbr>Fields</a></code></td>
+    <td>List node fields.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListNodes" class="internal-link" title="ganeti.client.gnt_node.ListNodes"><wbr></wbr>List<wbr></wbr>Nodes</a></code></td>
+    <td>List nodes and their properties.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListStorage" class="internal-link" title="ganeti.client.gnt_node.ListStorage"><wbr></wbr>List<wbr></wbr>Storage</a></code></td>
+    <td>List physical volumes on node(s).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListVolumes" class="internal-link" title="ganeti.client.gnt_node.ListVolumes"><wbr></wbr>List<wbr></wbr>Volumes</a></code></td>
+    <td>List logical volumes on node(s).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_node.Main"><wbr></wbr>Main</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MigrateNode" class="internal-link" title="ganeti.client.gnt_node.MigrateNode"><wbr></wbr>Migrate<wbr></wbr>Node</a></code></td>
+    <td>Migrate all primary instance on a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ModifyStorage" class="internal-link" title="ganeti.client.gnt_node.ModifyStorage"><wbr></wbr>Modify<wbr></wbr>Storage</a></code></td>
+    <td>Modify storage volume on a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PowercycleNode" class="internal-link" title="ganeti.client.gnt_node.PowercycleNode"><wbr></wbr>Powercycle<wbr></wbr>Node</a></code></td>
+    <td>Remove a node from the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#PowerNode" class="internal-link" title="ganeti.client.gnt_node.PowerNode"><wbr></wbr>Power<wbr></wbr>Node</a></code></td>
+    <td>Change/ask power state of a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveNode" class="internal-link" title="ganeti.client.gnt_node.RemoveNode"><wbr></wbr>Remove<wbr></wbr>Node</a></code></td>
+    <td>Remove a node from the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RepairStorage" class="internal-link" title="ganeti.client.gnt_node.RepairStorage"><wbr></wbr>Repair<wbr></wbr>Storage</a></code></td>
+    <td>Repairs a storage volume on a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RestrictedCommand" class="internal-link" title="ganeti.client.gnt_node.RestrictedCommand"><wbr></wbr>Restricted<wbr></wbr>Command</a></code></td>
+    <td>Runs a remote command on node(s).</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetNodeParams" class="internal-link" title="ganeti.client.gnt_node.SetNodeParams"><wbr></wbr>Set<wbr></wbr>Node<wbr></wbr>Params</a></code></td>
+    <td>Modifies a node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowNodeConfig" class="internal-link" title="ganeti.client.gnt_node.ShowNodeConfig"><wbr></wbr>Show<wbr></wbr>Node<wbr></wbr>Config</a></code></td>
+    <td>Show node information.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#IGNORE_STATUS_OPT" class="internal-link" title="ganeti.client.gnt_node.IGNORE_STATUS_OPT">IGNORE<wbr></wbr>_STATUS<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#NONODE_SETUP_OPT" class="internal-link" title="ganeti.client.gnt_node.NONODE_SETUP_OPT">NONODE<wbr></wbr>_SETUP<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#aliases" class="internal-link" title="ganeti.client.gnt_node.aliases">aliases</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_node.commands">commands</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatNodeInfo" class="internal-link" title="ganeti.client.gnt_node._FormatNodeInfo">_<wbr></wbr>Format<wbr></wbr>Node<wbr></wbr>Info</a></code></td>
+    <td>Format node information for <code><a href="ganeti.cli.html#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo">cli.PrintGenericInfo()</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ReadSshKeys" class="internal-link" title="ganeti.client.gnt_node._ReadSshKeys">_<wbr></wbr>Read<wbr></wbr>Ssh<wbr></wbr>Keys</a></code></td>
+    <td>Reads the DSA SSH keys according to <tt class="rst-docutils literal">keyfiles</tt>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SetupSSH" class="internal-link" title="ganeti.client.gnt_node._SetupSSH">_<wbr></wbr>Setup<wbr></wbr>SSH</a></code></td>
+    <td>Configures a destination node's SSH daemon.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_TryReadFile" class="internal-link" title="ganeti.client.gnt_node._TryReadFile">_<wbr></wbr>Try<wbr></wbr>Read<wbr></wbr>File</a></code></td>
+    <td>Tries to read a file.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ENV_OVERRIDE" class="internal-link" title="ganeti.client.gnt_node._ENV_OVERRIDE">_ENV<wbr></wbr>_OVERRIDE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_DEF_FIELDS">_LIST<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_POWER_COMMANDS" class="internal-link" title="ganeti.client.gnt_node._LIST_POWER_COMMANDS">_LIST<wbr></wbr>_POWER<wbr></wbr>_COMMANDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_STOR_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_STOR_DEF_FIELDS">_LIST<wbr></wbr>_STOR<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_STOR_HEADERS" class="internal-link" title="ganeti.client.gnt_node._LIST_STOR_HEADERS">_LIST<wbr></wbr>_STOR<wbr></wbr>_HEADERS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_VOL_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_node._LIST_VOL_DEF_FIELDS">_LIST<wbr></wbr>_VOL<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MODIFIABLE_STORAGE_TYPES" class="internal-link" title="ganeti.client.gnt_node._MODIFIABLE_STORAGE_TYPES">_MODIFIABLE<wbr></wbr>_STORAGE<wbr></wbr>_TYPES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_OOB_COMMAND_ASK" class="internal-link" title="ganeti.client.gnt_node._OOB_COMMAND_ASK">_OOB<wbr></wbr>_COMMAND<wbr></wbr>_ASK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_REPAIRABLE_STORAGE_TYPES" class="internal-link" title="ganeti.client.gnt_node._REPAIRABLE_STORAGE_TYPES">_REPAIRABLE<wbr></wbr>_STORAGE<wbr></wbr>_TYPES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_STORAGE_TYPE_OPT" class="internal-link" title="ganeti.client.gnt_node._STORAGE_TYPE_OPT">_STORAGE<wbr></wbr>_TYPE<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_USER_STORAGE_TYPE" class="internal-link" title="ganeti.client.gnt_node._USER_STORAGE_TYPE">_USER<wbr></wbr>_STORAGE<wbr></wbr>_TYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.AddNode">
+    
+  </a>
+  <a name="AddNode">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="ganeti.rpc.node.html#RunWithRPC" class="internal-link" title="ganeti.rpc.node.RunWithRPC">RunWithRPC</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">AddNode</span>(opts, args):
+    
+    <a class="headerLink" href="#AddNode" title="ganeti.client.gnt_node.AddNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add a node to the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the new node name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ConvertStorageType">
+    
+  </a>
+  <a name="ConvertStorageType">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ConvertStorageType</span>(user_storage_type):
+    
+    <a class="headerLink" href="#ConvertStorageType" title="ganeti.client.gnt_node.ConvertStorageType">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts a user storage type to its internal name.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.EvacuateNode">
+    
+  </a>
+  <a name="EvacuateNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">EvacuateNode</span>(opts, args):
+    
+    <a class="headerLink" href="#EvacuateNode" title="ganeti.client.gnt_node.EvacuateNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Relocate all secondary instance from a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.FailoverNode">
+    
+  </a>
+  <a name="FailoverNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">FailoverNode</span>(opts, args):
+    
+    <a class="headerLink" href="#FailoverNode" title="ganeti.client.gnt_node.FailoverNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Failover all primary instance on a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.Health">
+    
+  </a>
+  <a name="Health">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Health</span>(opts, args):
+    
+    <a class="headerLink" href="#Health" title="ganeti.client.gnt_node.Health">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show health of a node using OOB.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the name of the node to be removed</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ListDrbd">
+    
+  </a>
+  <a name="ListDrbd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListDrbd</span>(opts, args):
+    
+    <a class="headerLink" href="#ListDrbd" title="ganeti.client.gnt_node.ListDrbd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the node name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ListNodeFields">
+    
+  </a>
+  <a name="ListNodeFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListNodeFields</span>(opts, args):
+    
+    <a class="headerLink" href="#ListNodeFields" title="ganeti.client.gnt_node.ListNodeFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List node fields.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">fields to list, or empty for all</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ListNodes">
+    
+  </a>
+  <a name="ListNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListNodes</span>(opts, args):
+    
+    <a class="headerLink" href="#ListNodes" title="ganeti.client.gnt_node.ListNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List nodes and their properties.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">nodes to list, or empty for all</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ListStorage">
+    
+  </a>
+  <a name="ListStorage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListStorage</span>(opts, args):
+    
+    <a class="headerLink" href="#ListStorage" title="ganeti.client.gnt_node.ListStorage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List physical volumes on node(s).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should either be an empty list, in which case we list data for all nodes, or contain a list of nodes to display data only for those</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ListVolumes">
+    
+  </a>
+  <a name="ListVolumes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListVolumes</span>(opts, args):
+    
+    <a class="headerLink" href="#ListVolumes" title="ganeti.client.gnt_node.ListVolumes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List logical volumes on node(s).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should either be an empty list, in which case we list data for all nodes, or contain a list of nodes to display data only for those</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.Main">
+    
+  </a>
+  <a name="Main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Main</span>():
+    
+    <a class="headerLink" href="#Main" title="ganeti.client.gnt_node.Main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.MigrateNode">
+    
+  </a>
+  <a name="MigrateNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MigrateNode</span>(opts, args):
+    
+    <a class="headerLink" href="#MigrateNode" title="ganeti.client.gnt_node.MigrateNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Migrate all primary instance on a node.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ModifyStorage">
+    
+  </a>
+  <a name="ModifyStorage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ModifyStorage</span>(opts, args):
+    
+    <a class="headerLink" href="#ModifyStorage" title="ganeti.client.gnt_node.ModifyStorage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify storage volume on a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain 3 items: node name, storage type and volume name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.PowercycleNode">
+    
+  </a>
+  <a name="PowercycleNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PowercycleNode</span>(opts, args):
+    
+    <a class="headerLink" href="#PowercycleNode" title="ganeti.client.gnt_node.PowercycleNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a node from the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the name of the node to be removed</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.PowerNode">
+    
+  </a>
+  <a name="PowerNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">PowerNode</span>(opts, args):
+    
+    <a class="headerLink" href="#PowerNode" title="ganeti.client.gnt_node.PowerNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Change/ask power state of a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the name of the node to be removed</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.RemoveNode">
+    
+  </a>
+  <a name="RemoveNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveNode</span>(opts, args):
+    
+    <a class="headerLink" href="#RemoveNode" title="ganeti.client.gnt_node.RemoveNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove a node from the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the name of the node to be removed</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.RepairStorage">
+    
+  </a>
+  <a name="RepairStorage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RepairStorage</span>(opts, args):
+    
+    <a class="headerLink" href="#RepairStorage" title="ganeti.client.gnt_node.RepairStorage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Repairs a storage volume on a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain 3 items: node name, storage type and volume name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.RestrictedCommand">
+    
+  </a>
+  <a name="RestrictedCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RestrictedCommand</span>(opts, args):
+    
+    <a class="headerLink" href="#RestrictedCommand" title="ganeti.client.gnt_node.RestrictedCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Runs a remote command on node(s).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">Command line options selected by user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">Command line arguments</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">Exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.SetNodeParams">
+    
+  </a>
+  <a name="SetNodeParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetNodeParams</span>(opts, args):
+    
+    <a class="headerLink" href="#SetNodeParams" title="ganeti.client.gnt_node.SetNodeParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies a node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the node name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_node.ShowNodeConfig">
+    
+  </a>
+  <a name="ShowNodeConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowNodeConfig</span>(opts, args):
+    
+    <a class="headerLink" href="#ShowNodeConfig" title="ganeti.client.gnt_node.ShowNodeConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show node information.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should either be an empty list, in which case we show information about all nodes, or should contain a list of nodes to be queried for information</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_node.IGNORE_STATUS_OPT">
+    
+  </a>
+  <a name="IGNORE_STATUS_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">IGNORE_STATUS_OPT</span> =
+    
+    <a class="headerLink" href="#IGNORE_STATUS_OPT" title="ganeti.client.gnt_node.IGNORE_STATUS_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--ignore-status</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">ignore_status</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Ignore the Node(s) offline status (potentially DANGEROUS)</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_node.NONODE_SETUP_OPT">
+    
+  </a>
+  <a name="NONODE_SETUP_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">NONODE_SETUP_OPT</span> =
+    
+    <a class="headerLink" href="#NONODE_SETUP_OPT" title="ganeti.client.gnt_node.NONODE_SETUP_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--no-node-setup</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=True,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_false</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">node_setup</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Do not make initial SSH setup on remote node (needs to be done </span><span class="rst-variable-linewrap">↵</span>
+<span class="rst-variable-string">manually)</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.client.gnt_node.aliases">
+    
+  </a>
+  <a name="aliases">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">aliases</span>: <code>dict[<wbr></wbr>str, <wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#aliases" title="ganeti.client.gnt_node.aliases">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.client.gnt_node.commands">
+    
+  </a>
+  <a name="commands">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">commands</span> =
+    
+    <a class="headerLink" href="#commands" title="ganeti.client.gnt_node.commands">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_node._FormatNodeInfo">
+    
+  </a>
+  <a name="_FormatNodeInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatNodeInfo</span>(node_info):
+    
+    <a class="headerLink" href="#_FormatNodeInfo" title="ganeti.client.gnt_node._FormatNodeInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Format node information for <code><a href="ganeti.cli.html#PrintGenericInfo" class="internal-link" title="ganeti.cli.PrintGenericInfo">cli.PrintGenericInfo()</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_node._ReadSshKeys">
+    
+  </a>
+  <a name="_ReadSshKeys">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ReadSshKeys</span>(keyfiles, _tostderr_fn=<a href="ganeti.cli.html#ToStderr" class="internal-link" title="ganeti.cli.ToStderr">ToStderr</a>):
+    
+    <a class="headerLink" href="#_ReadSshKeys" title="ganeti.client.gnt_node._ReadSshKeys">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads the DSA SSH keys according to <tt class="rst-docutils literal">keyfiles</tt>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">keyfiles:</span>dict</td><td class="fieldArgDesc">Dictionary with keys of <code><a href="ganeti._constants.html#SSHK_ALL" class="internal-link" title="ganeti._constants.SSHK_ALL">constants.SSHK_ALL</a></code> and two-values tuples (private and public key file)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_tostderr<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">List of three-values tuples (<code><a href="ganeti._constants.html#SSHK_ALL" class="internal-link" title="ganeti._constants.SSHK_ALL">constants.SSHK_ALL</a></code>, private and public key as strings)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_node._SetupSSH">
+    
+  </a>
+  <a name="_SetupSSH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetupSSH</span>(options, cluster_name, node, ssh_port, cl):
+    
+    <a class="headerLink" href="#_SetupSSH" title="ganeti.client.gnt_node._SetupSSH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Configures a destination node's SSH daemon.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">options</span></td><td class="fieldArgDesc">Command line options @type cluster_name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster<wbr></wbr>_name</span></td><td class="fieldArgDesc">Cluster name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node:</span>string</td><td class="fieldArgDesc">Destination node name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ssh<wbr></wbr>_port:</span>int</td><td class="fieldArgDesc">Destination node ssh port</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl</span></td><td class="fieldArgDesc">luxi client</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_node._TryReadFile">
+    
+  </a>
+  <a name="_TryReadFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_TryReadFile</span>(path):
+    
+    <a class="headerLink" href="#_TryReadFile" title="ganeti.client.gnt_node._TryReadFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tries to read a file.</p>
+<p>If the file is not found, <tt class="rst-docutils literal">None</tt> is returned.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">path:</span>string</td><td class="fieldArgDesc">Filename</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">None or string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: todo</td></tr><tr><td colspan="2">Consider adding a generic ENOENT wrapper</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._ENV_OVERRIDE">
+    
+  </a>
+  <a name="_ENV_OVERRIDE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ENV_OVERRIDE</span> =
+    
+    <a class="headerLink" href="#_ENV_OVERRIDE" title="ganeti.client.gnt_node._ENV_OVERRIDE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.compat.html#UniqueFrozenset" class="internal-link" title="ganeti.compat.UniqueFrozenset">compat.UniqueFrozenset</a>(<wbr></wbr>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">list</span><span class="rst-variable-quote">'</span>])</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._LIST_DEF_FIELDS">
+    
+  </a>
+  <a name="_LIST_DEF_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_DEF_FIELDS</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_LIST_DEF_FIELDS" title="ganeti.client.gnt_node._LIST_DEF_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">dtotal</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">dfree</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">mtotal</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">mnode</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">mfree</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">pinst_cnt</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._LIST_POWER_COMMANDS">
+    
+  </a>
+  <a name="_LIST_POWER_COMMANDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_POWER_COMMANDS</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_LIST_POWER_COMMANDS" title="ganeti.client.gnt_node._LIST_POWER_COMMANDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">on</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">off</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">cycle</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">status</span><span class="rst-variable-quote">'</span>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._LIST_STOR_DEF_FIELDS">
+    
+  </a>
+  <a name="_LIST_STOR_DEF_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_STOR_DEF_FIELDS</span> =
+    
+    <a class="headerLink" href="#_LIST_STOR_DEF_FIELDS" title="ganeti.client.gnt_node._LIST_STOR_DEF_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><a href="ganeti._constants.html#SF_NODE" class="internal-link" title="ganeti._constants.SF_NODE">constants.SF_NODE</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_TYPE" class="internal-link" title="ganeti._constants.SF_TYPE">constants.SF_TYPE</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_NAME" class="internal-link" title="ganeti._constants.SF_NAME">constants.SF_NAME</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_SIZE" class="internal-link" title="ganeti._constants.SF_SIZE">constants.SF_SIZE</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_USED" class="internal-link" title="ganeti._constants.SF_USED">constants.SF_USED</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_FREE" class="internal-link" title="ganeti._constants.SF_FREE">constants.SF_FREE</a>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_ALLOCATABLE" class="internal-link" title="ganeti._constants.SF_ALLOCATABLE">constants.SF_ALLOCATABLE</a>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._LIST_STOR_HEADERS">
+    
+  </a>
+  <a name="_LIST_STOR_HEADERS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_STOR_HEADERS</span> =
+    
+    <a class="headerLink" href="#_LIST_STOR_HEADERS" title="ganeti.client.gnt_node._LIST_STOR_HEADERS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#SF_NODE" class="internal-link" title="ganeti._constants.SF_NODE">constants.SF_NODE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Node</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_TYPE" class="internal-link" title="ganeti._constants.SF_TYPE">constants.SF_TYPE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Type</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_NAME" class="internal-link" title="ganeti._constants.SF_NAME">constants.SF_NAME</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_SIZE" class="internal-link" title="ganeti._constants.SF_SIZE">constants.SF_SIZE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Size</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_USED" class="internal-link" title="ganeti._constants.SF_USED">constants.SF_USED</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Used</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_FREE" class="internal-link" title="ganeti._constants.SF_FREE">constants.SF_FREE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Free</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#SF_ALLOCATABLE" class="internal-link" title="ganeti._constants.SF_ALLOCATABLE">constants.SF_ALLOCATABLE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">Allocatable</span><span class="rst-variable-quote">'</span>}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._LIST_VOL_DEF_FIELDS">
+    
+  </a>
+  <a name="_LIST_VOL_DEF_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_VOL_DEF_FIELDS</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_LIST_VOL_DEF_FIELDS" title="ganeti.client.gnt_node._LIST_VOL_DEF_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">node</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">phys</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">vg</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">name</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">size</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">instance</span><span class="rst-variable-quote">'</span>]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._MODIFIABLE_STORAGE_TYPES">
+    
+  </a>
+  <a name="_MODIFIABLE_STORAGE_TYPES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MODIFIABLE_STORAGE_TYPES</span> =
+    
+    <a class="headerLink" href="#_MODIFIABLE_STORAGE_TYPES" title="ganeti.client.gnt_node._MODIFIABLE_STORAGE_TYPES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>list(<wbr></wbr><a href="ganeti._constants.html#MODIFIABLE_STORAGE_FIELDS" class="internal-link" title="ganeti._constants.MODIFIABLE_STORAGE_FIELDS">constants.MODIFIABLE_STORAGE_FIELDS</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._OOB_COMMAND_ASK">
+    
+  </a>
+  <a name="_OOB_COMMAND_ASK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_OOB_COMMAND_ASK</span> =
+    
+    <a class="headerLink" href="#_OOB_COMMAND_ASK" title="ganeti.client.gnt_node._OOB_COMMAND_ASK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.compat.html#UniqueFrozenset" class="internal-link" title="ganeti.compat.UniqueFrozenset">compat.UniqueFrozenset</a>(<wbr></wbr>[<wbr></wbr><a href="ganeti._constants.html#OOB_POWER_OFF" class="internal-link" title="ganeti._constants.OOB_POWER_OFF">constants.OOB_POWER_OFF</a>, <wbr></wbr><a href="ganeti._constants.html#OOB_POWER_CYCLE" class="internal-link" title="ganeti._constants.OOB_POWER_CYCLE">constants.OOB_POWER_CYCLE</a>])</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._REPAIRABLE_STORAGE_TYPES">
+    
+  </a>
+  <a name="_REPAIRABLE_STORAGE_TYPES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_REPAIRABLE_STORAGE_TYPES</span> =
+    
+    <a class="headerLink" href="#_REPAIRABLE_STORAGE_TYPES" title="ganeti.client.gnt_node._REPAIRABLE_STORAGE_TYPES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[st for st, so in constants.VALID_STORAGE_OPERATIONS.items() if constants.
+    SO_FIX_CONSISTENCY in so]</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._STORAGE_TYPE_OPT">
+    
+  </a>
+  <a name="_STORAGE_TYPE_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_STORAGE_TYPE_OPT</span> =
+    
+    <a class="headerLink" href="#_STORAGE_TYPE_OPT" title="ganeti.client.gnt_node._STORAGE_TYPE_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">-t</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--storage-type</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">user_storage_type</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>choices=list(<wbr></wbr><a href="#_USER_STORAGE_TYPE" class="internal-link" title="ganeti.client.gnt_node._USER_STORAGE_TYPE">_USER_STORAGE_TYPE</a>),
+           <wbr></wbr>default=None,
+           <wbr></wbr>metavar=<span class="rst-variable-quote">'</span><span class="rst-variable-string">STORAGE_TYPE</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Storage type (%s)</span><span class="rst-variable-quote">'</span>%<a href="ganeti.utils.text.html#CommaJoin" class="internal-link" title="ganeti.utils.text.CommaJoin">utils.CommaJoin</a>(<wbr></wbr>list(<wbr></wbr><a href="#_USER_STORAGE_TYPE" class="internal-link" title="ganeti.client.gnt_node._USER_STORAGE_TYPE">_USER_STORAGE_TYPE</a>)))</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_node._USER_STORAGE_TYPE">
+    
+  </a>
+  <a name="_USER_STORAGE_TYPE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_USER_STORAGE_TYPE</span> =
+    
+    <a class="headerLink" href="#_USER_STORAGE_TYPE" title="ganeti.client.gnt_node._USER_STORAGE_TYPE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#ST_FILE" class="internal-link" title="ganeti._constants.ST_FILE">constants.ST_FILE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">file</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#ST_LVM_PV" class="internal-link" title="ganeti._constants.ST_LVM_PV">constants.ST_LVM_PV</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">lvm-pv</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#ST_LVM_VG" class="internal-link" title="ganeti._constants.ST_LVM_VG">constants.ST_LVM_VG</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">lvm-vg</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#ST_SHARED_FILE" class="internal-link" title="ganeti._constants.ST_SHARED_FILE">constants.ST_SHARED_FILE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">sharedfile</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#ST_GLUSTER" class="internal-link" title="ganeti._constants.ST_GLUSTER">constants.ST_GLUSTER</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">gluster</span><span class="rst-variable-quote">'</span>}</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

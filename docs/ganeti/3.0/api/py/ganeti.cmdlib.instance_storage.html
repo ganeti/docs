@@ -1,0 +1,2032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.instance_storage</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="This module">instance<wbr></wbr>_storage</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Activate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Deactivate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk"><wbr></wbr>LUInstance<wbr></wbr>Grow<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks"><wbr></wbr>LUInstance<wbr></wbr>Recreate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks"><wbr></wbr>LUInstance<wbr></wbr>Replace<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.TemporaryDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TemporaryDisk"><wbr></wbr>Temporary<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.TLReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TLReplaceDisks"><wbr></wbr>TLReplace<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AssembleInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.AssembleInstanceDisks"><wbr></wbr>Assemble<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CalculateFileStorageDir" class="internal-link" title="ganeti.cmdlib.instance_storage.CalculateFileStorageDir"><wbr></wbr>Calculate<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckDiskConsistency" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskConsistency"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckDiskExtProvider" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskExtProvider"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Ext<wbr></wbr>Provider</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckNodesFreeDiskPerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckNodesFreeDiskPerVG"><wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>Per<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckRADOSFreeSpace" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckRADOSFreeSpace"><wbr></wbr>Check<wbr></wbr>RADOSFree<wbr></wbr>Space</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckSpindlesExclusiveStorage" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckSpindlesExclusiveStorage"><wbr></wbr>Check<wbr></wbr>Spindles<wbr></wbr>Exclusive<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CommitDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CommitDisks"><wbr></wbr>Commit<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisks"><wbr></wbr>Compute<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeDisksInfo" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisksInfo"><wbr></wbr>Compute<wbr></wbr>Disks<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ComputeDiskSizePerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDiskSizePerVG"><wbr></wbr>Compute<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>Per<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks"><wbr></wbr>Create<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CreateSingleBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateSingleBlockDev"><wbr></wbr>Create<wbr></wbr>Single<wbr></wbr>Block<wbr></wbr>Dev</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandCheckDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ExpandCheckDisks"><wbr></wbr>Expand<wbr></wbr>Check<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GenerateDiskTemplate" class="internal-link" title="ganeti.cmdlib.instance_storage.GenerateDiskTemplate"><wbr></wbr>Generate<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ImageDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ImageDisks"><wbr></wbr>Image<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IsExclusiveStorageEnabledNodeUuid" class="internal-link" title="ganeti.cmdlib.instance_storage.IsExclusiveStorageEnabledNodeUuid"><wbr></wbr>Is<wbr></wbr>Exclusive<wbr></wbr>Storage<wbr></wbr>Enabled<wbr></wbr>Node<wbr></wbr>Uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ShutdownInstanceDisks"><wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#StartInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.StartInstanceDisks"><wbr></wbr>Start<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WaitForSync" class="internal-link" title="ganeti.cmdlib.instance_storage.WaitForSync"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks"><wbr></wbr>Wipe<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WipeOrCleanupDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeOrCleanupDisks"><wbr></wbr>Wipe<wbr></wbr>Or<wbr></wbr>Cleanup<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BlockdevFind" class="internal-link" title="ganeti.cmdlib.instance_storage._BlockdevFind">_<wbr></wbr>Blockdev<wbr></wbr>Find</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CalcEta" class="internal-link" title="ganeti.cmdlib.instance_storage._CalcEta">_<wbr></wbr>Calc<wbr></wbr>Eta</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckDiskConsistencyInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">_<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckNodesFreeDiskOnVG" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckNodesFreeDiskOnVG">_<wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>On<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckVgCapacityForNode" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckVgCapacityForNode">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Capacity<wbr></wbr>For<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CreateBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDev">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CreateBlockDevInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DiskSizeInBytesToMebibytes" class="internal-link" title="ganeti.cmdlib.instance_storage._DiskSizeInBytesToMebibytes">_<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>In<wbr></wbr>Bytes<wbr></wbr>To<wbr></wbr>Mebibytes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GenerateDRBD8Branch" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateDRBD8Branch">_<wbr></wbr>Generate<wbr></wbr>DRBD8<wbr></wbr>Branch</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GenerateUniqueNames" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateUniqueNames">_<wbr></wbr>Generate<wbr></wbr>Unique<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PerformNodeInfoCall" class="internal-link" title="ganeti.cmdlib.instance_storage._PerformNodeInfoCall">_<wbr></wbr>Perform<wbr></wbr>Node<wbr></wbr>Info<wbr></wbr>Call</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SafeShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._SafeShutdownInstanceDisks">_<wbr></wbr>Safe<wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UndoCreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._UndoCreateDisks">_<wbr></wbr>Undo<wbr></wbr>Create<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DISK_TEMPLATE_NAME_PREFIX" class="internal-link" title="ganeti.cmdlib.instance_storage._DISK_TEMPLATE_NAME_PREFIX">_DISK<wbr></wbr>_TEMPLATE<wbr></wbr>_NAME<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.cmdlib.html" class="internal-link" title="The parent of this module">cmdlib</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.backup.html" class="internal-link" title="ganeti.cmdlib.backup">backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.html" class="internal-link" title="ganeti.cmdlib.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.common.html" class="internal-link" title="ganeti.cmdlib.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.group.html" class="internal-link" title="ganeti.cmdlib.group">group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance.html" class="internal-link" title="ganeti.cmdlib.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_create.html" class="internal-link" title="ganeti.cmdlib.instance_create">instance<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_helpervm.html" class="internal-link" title="ganeti.cmdlib.instance_helpervm">instance<wbr></wbr>_helpervm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_migration.html" class="internal-link" title="ganeti.cmdlib.instance_migration">instance<wbr></wbr>_migration</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_operation.html" class="internal-link" title="ganeti.cmdlib.instance_operation">instance<wbr></wbr>_operation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_query.html" class="internal-link" title="ganeti.cmdlib.instance_query">instance<wbr></wbr>_query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_set_params.html" class="internal-link" title="ganeti.cmdlib.instance_set_params">instance<wbr></wbr>_set<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="ganeti.cmdlib.instance_storage">instance<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_utils.html" class="internal-link" title="ganeti.cmdlib.instance_utils">instance<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.misc.html" class="internal-link" title="ganeti.cmdlib.misc">misc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html" class="internal-link" title="ganeti.cmdlib.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.node.html" class="internal-link" title="ganeti.cmdlib.node">node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.operating_system.html" class="internal-link" title="ganeti.cmdlib.operating_system">operating<wbr></wbr>_system</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.query.html" class="internal-link" title="ganeti.cmdlib.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.tags.html" class="internal-link" title="ganeti.cmdlib.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.test.html" class="internal-link" title="ganeti.cmdlib.test">test</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="ganeti.cmdlib.instance_storage">instance_storage</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Logical units dealing with storage of instances.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id210">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Activate<wbr></wbr>Disks</a></code></td>
+    <td>Bring up an instance's disks.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Deactivate<wbr></wbr>Disks</a></code></td>
+    <td>Shutdown an instance's disks.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk"><wbr></wbr>LUInstance<wbr></wbr>Grow<wbr></wbr>Disk</a></code></td>
+    <td>Grow a disk of an instance.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks"><wbr></wbr>LUInstance<wbr></wbr>Recreate<wbr></wbr>Disks</a></code></td>
+    <td>Recreate an instance's missing disks.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks"><wbr></wbr>LUInstance<wbr></wbr>Replace<wbr></wbr>Disks</a></code></td>
+    <td>Replace the disks of an instance.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.TemporaryDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TemporaryDisk"><wbr></wbr>Temporary<wbr></wbr>Disk</a></code></td>
+    <td>Creates a new temporary bootable disk, and makes sure it is destroyed.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.instance_storage.TLReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TLReplaceDisks"><wbr></wbr>TLReplace<wbr></wbr>Disks</a></code></td>
+    <td>Replaces disks for an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AssembleInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.AssembleInstanceDisks"><wbr></wbr>Assemble<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td>Prepare the block devices for an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CalculateFileStorageDir" class="internal-link" title="ganeti.cmdlib.instance_storage.CalculateFileStorageDir"><wbr></wbr>Calculate<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code></td>
+    <td>Calculate final instance file storage dir.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckDiskConsistency" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskConsistency"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency</a></code></td>
+    <td>Wrapper around <code><a href="ganeti.cmdlib.instance_storage.html#_CheckDiskConsistencyInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">_CheckDiskConsistencyInner</a></code>.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckDiskExtProvider" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskExtProvider"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Ext<wbr></wbr>Provider</a></code></td>
+    <td>Check that the given disk should or should not have the provider param.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckNodesFreeDiskPerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckNodesFreeDiskPerVG"><wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>Per<wbr></wbr>VG</a></code></td>
+    <td>Checks if nodes have enough free disk space in all the VGs.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckRADOSFreeSpace" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckRADOSFreeSpace"><wbr></wbr>Check<wbr></wbr>RADOSFree<wbr></wbr>Space</a></code></td>
+    <td>Compute disk size requirements inside the RADOS cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckSpindlesExclusiveStorage" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckSpindlesExclusiveStorage"><wbr></wbr>Check<wbr></wbr>Spindles<wbr></wbr>Exclusive<wbr></wbr>Storage</a></code></td>
+    <td>Check the presence of the spindle options with exclusive_storage.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CommitDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CommitDisks"><wbr></wbr>Commit<wbr></wbr>Disks</a></code></td>
+    <td>Recursively remove the forthcoming flag</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisks"><wbr></wbr>Compute<wbr></wbr>Disks</a></code></td>
+    <td>Computes the instance disks.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeDisksInfo" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisksInfo"><wbr></wbr>Compute<wbr></wbr>Disks<wbr></wbr>Info</a></code></td>
+    <td>Computes the new instance's disks for the template conversion.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ComputeDiskSizePerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDiskSizePerVG"><wbr></wbr>Compute<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>Per<wbr></wbr>VG</a></code></td>
+    <td>Compute disk size requirements in the volume group</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks"><wbr></wbr>Create<wbr></wbr>Disks</a></code></td>
+    <td>Create all disks for an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CreateSingleBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateSingleBlockDev"><wbr></wbr>Create<wbr></wbr>Single<wbr></wbr>Block<wbr></wbr>Dev</a></code></td>
+    <td>Create a single block device on a given node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ExpandCheckDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ExpandCheckDisks"><wbr></wbr>Expand<wbr></wbr>Check<wbr></wbr>Disks</a></code></td>
+    <td>Return the instance disks selected by the disks list</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GenerateDiskTemplate" class="internal-link" title="ganeti.cmdlib.instance_storage.GenerateDiskTemplate"><wbr></wbr>Generate<wbr></wbr>Disk<wbr></wbr>Template</a></code></td>
+    <td>Generate the entire disk layout for a given template type.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ImageDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ImageDisks"><wbr></wbr>Image<wbr></wbr>Disks</a></code></td>
+    <td>Dumps an image onto an instance disk.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#IsExclusiveStorageEnabledNodeUuid" class="internal-link" title="ganeti.cmdlib.instance_storage.IsExclusiveStorageEnabledNodeUuid"><wbr></wbr>Is<wbr></wbr>Exclusive<wbr></wbr>Storage<wbr></wbr>Enabled<wbr></wbr>Node<wbr></wbr>Uuid</a></code></td>
+    <td>Whether exclusive_storage is in effect for the given node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ShutdownInstanceDisks"><wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td>Shutdown block devices of an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#StartInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.StartInstanceDisks"><wbr></wbr>Start<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td>Start the disks of an instance.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WaitForSync" class="internal-link" title="ganeti.cmdlib.instance_storage.WaitForSync"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Sync</a></code></td>
+    <td>Sleep and poll for an instance's disk to sync.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks"><wbr></wbr>Wipe<wbr></wbr>Disks</a></code></td>
+    <td>Wipes instance disks.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WipeOrCleanupDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeOrCleanupDisks"><wbr></wbr>Wipe<wbr></wbr>Or<wbr></wbr>Cleanup<wbr></wbr>Disks</a></code></td>
+    <td>Wrapper for <code><a href="ganeti.cmdlib.instance_storage.html#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks">WipeDisks</a></code> that handles errors.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BlockdevFind" class="internal-link" title="ganeti.cmdlib.instance_storage._BlockdevFind">_<wbr></wbr>Blockdev<wbr></wbr>Find</a></code></td>
+    <td>Wrapper around call_blockdev_find to annotate diskparams.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CalcEta" class="internal-link" title="ganeti.cmdlib.instance_storage._CalcEta">_<wbr></wbr>Calc<wbr></wbr>Eta</a></code></td>
+    <td>Calculates the ETA based on size written and total size.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckDiskConsistencyInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">_<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency<wbr></wbr>Inner</a></code></td>
+    <td>Check that mirrors are not degraded.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckNodesFreeDiskOnVG" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckNodesFreeDiskOnVG">_<wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>On<wbr></wbr>VG</a></code></td>
+    <td>Checks if nodes have enough free disk space in the specified VG.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CheckVgCapacityForNode" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckVgCapacityForNode">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Capacity<wbr></wbr>For<wbr></wbr>Node</a></code></td>
+    <td>Checks the vg capacity for a given node.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CreateBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDev">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev</a></code></td>
+    <td>Wrapper around <code><a href="ganeti.cmdlib.instance_storage.html#_CreateBlockDevInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">_CreateBlockDevInner</a></code>.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CreateBlockDevInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev<wbr></wbr>Inner</a></code></td>
+    <td>Create a tree of block devices on a given node.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_DiskSizeInBytesToMebibytes" class="internal-link" title="ganeti.cmdlib.instance_storage._DiskSizeInBytesToMebibytes">_<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>In<wbr></wbr>Bytes<wbr></wbr>To<wbr></wbr>Mebibytes</a></code></td>
+    <td>Converts a disk size in bytes to mebibytes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GenerateDRBD8Branch" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateDRBD8Branch">_<wbr></wbr>Generate<wbr></wbr>DRBD8<wbr></wbr>Branch</a></code></td>
+    <td>Generate a drbd8 device complete with its children.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GenerateUniqueNames" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateUniqueNames">_<wbr></wbr>Generate<wbr></wbr>Unique<wbr></wbr>Names</a></code></td>
+    <td>Generate a suitable LV name.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_PerformNodeInfoCall" class="internal-link" title="ganeti.cmdlib.instance_storage._PerformNodeInfoCall">_<wbr></wbr>Perform<wbr></wbr>Node<wbr></wbr>Info<wbr></wbr>Call</a></code></td>
+    <td>Prepares the input and performs a node info call.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SafeShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._SafeShutdownInstanceDisks">_<wbr></wbr>Safe<wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code></td>
+    <td>Shutdown block devices of an instance.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_UndoCreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._UndoCreateDisks">_<wbr></wbr>Undo<wbr></wbr>Create<wbr></wbr>Disks</a></code></td>
+    <td>Undo the work performed by <code><a href="ganeti.cmdlib.instance_storage.html#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks">CreateDisks</a></code>.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_DISK_TEMPLATE_NAME_PREFIX" class="internal-link" title="ganeti.cmdlib.instance_storage._DISK_TEMPLATE_NAME_PREFIX">_DISK<wbr></wbr>_TEMPLATE<wbr></wbr>_NAME<wbr></wbr>_PREFIX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.AssembleInstanceDisks">
+    
+  </a>
+  <a name="AssembleInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AssembleInstanceDisks</span>(lu, instance, disks=None, ignore_secondaries=False, ignore_size=False):
+    
+    <a class="headerLink" href="#AssembleInstanceDisks" title="ganeti.cmdlib.instance_storage.AssembleInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare the block devices for an instance.</p>
+<p>This sets up the block devices on all nodes.</p>
+<p>Modifies the configuration of the instance, so the caller should re-read the instance configuration, if needed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance for whose disks we assemble</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code> or None</td><td class="fieldArgDesc">which disks to assemble (or all, if None)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ignore<wbr></wbr>_secondaries:</span>boolean</td><td class="fieldArgDesc">if true, errors on secondary nodes won't result in an error return from the function</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ignore<wbr></wbr>_size:</span>boolean</td><td class="fieldArgDesc">if true, the current known size of the disk will not be used during the disk activation, useful for cases when the size is wrong</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">False if the operation failed, otherwise a list of (host, instance_visible_name, node_visible_name) with the mapping from node devices to instance devices, as well as the payloads of the RPC calls</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CalculateFileStorageDir">
+    
+  </a>
+  <a name="CalculateFileStorageDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CalculateFileStorageDir</span>(disk_type, cfg, instance_name, file_storage_dir=None):
+    
+    <a class="headerLink" href="#CalculateFileStorageDir" title="ganeti.cmdlib.instance_storage.CalculateFileStorageDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculate final instance file storage dir.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_type:</span>disk template</td><td class="fieldArgDesc"><code><a href="ganeti._constants.html#DT_FILE" class="internal-link" title="ganeti._constants.DT_FILE">constants.DT_FILE</a></code>, <code><a href="ganeti._constants.html#DT_SHARED_FILE" class="internal-link" title="ganeti._constants.DT_SHARED_FILE">constants.DT_SHARED_FILE</a></code>, or <code><a href="ganeti._constants.html#DT_GLUSTER" class="internal-link" title="ganeti._constants.DT_GLUSTER">constants.DT_GLUSTER</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span>ConfigWriter</td><td class="fieldArgDesc">the configuration that is to be used.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">name of the instance this disk is for.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_storage<wbr></wbr>_dir:</span>path</td><td class="fieldArgDesc">the path below the configured base.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">The file storage directory for the instance</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CheckDiskConsistency">
+    
+  </a>
+  <a name="CheckDiskConsistency">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckDiskConsistency</span>(lu, instance, dev, node_uuid, on_primary, ldisk=False):
+    
+    <a class="headerLink" href="#CheckDiskConsistency" title="ganeti.cmdlib.instance_storage.CheckDiskConsistency">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper around <code><a href="#_CheckDiskConsistencyInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">_CheckDiskConsistencyInner</a></code>.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CheckDiskExtProvider">
+    
+  </a>
+  <a name="CheckDiskExtProvider">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckDiskExtProvider</span>(diskdict, disk_template):
+    
+    <a class="headerLink" href="#CheckDiskExtProvider" title="ganeti.cmdlib.instance_storage.CheckDiskExtProvider">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check that the given disk should or should not have the provider param.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">diskdict:</span>dict</td><td class="fieldArgDesc">disk parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">the desired template of this disk</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>when the parameter is used in the wrong way</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CheckNodesFreeDiskPerVG">
+    
+  </a>
+  <a name="CheckNodesFreeDiskPerVG">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckNodesFreeDiskPerVG</span>(lu, node_uuids, req_sizes):
+    
+    <a class="headerLink" href="#CheckNodesFreeDiskPerVG" title="ganeti.cmdlib.instance_storage.CheckNodesFreeDiskPerVG">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if nodes have enough free disk space in all the VGs.</p>
+<p>This function checks if all given nodes have the needed amount of free disk. In case any node has less disk or we cannot get the information from the node, this function raises an OpPrereqError exception.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><tt class="rst-docutils literal">LogicalUnit</tt></td><td class="fieldArgDesc">a logical unit from which we get configuration data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span><tt class="rst-docutils literal">list</tt></td><td class="fieldArgDesc">the list of node UUIDs to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">req<wbr></wbr>_sizes:</span><tt class="rst-docutils literal">dict</tt></td><td class="fieldArgDesc">the hash of vg and corresponding amount of disk in MiB to check for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the node doesn't have enough disk, or we cannot check the node</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CheckRADOSFreeSpace">
+    
+  </a>
+  <a name="CheckRADOSFreeSpace">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckRADOSFreeSpace</span>():
+    
+    <a class="headerLink" href="#CheckRADOSFreeSpace" title="ganeti.cmdlib.instance_storage.CheckRADOSFreeSpace">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute disk size requirements inside the RADOS cluster.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CheckSpindlesExclusiveStorage">
+    
+  </a>
+  <a name="CheckSpindlesExclusiveStorage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckSpindlesExclusiveStorage</span>(diskdict, es_flag, required):
+    
+    <a class="headerLink" href="#CheckSpindlesExclusiveStorage" title="ganeti.cmdlib.instance_storage.CheckSpindlesExclusiveStorage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the presence of the spindle options with exclusive_storage.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">diskdict:</span>dict</td><td class="fieldArgDesc">disk parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">es<wbr></wbr>_flag:</span>bool</td><td class="fieldArgDesc">the effective value of the exlusive_storage flag</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">required:</span>bool</td><td class="fieldArgDesc">whether spindles are required or just optional @raise errors.OpPrereqError when spindles are given and they should not</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CommitDisks">
+    
+  </a>
+  <a name="CommitDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CommitDisks</span>(disks):
+    
+    <a class="headerLink" href="#CommitDisks" title="ganeti.cmdlib.instance_storage.CommitDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Recursively remove the forthcoming flag</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ComputeDisks">
+    
+  </a>
+  <a name="ComputeDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeDisks</span>(disks, disk_template, default_vg):
+    
+    <a class="headerLink" href="#ComputeDisks" title="ganeti.cmdlib.instance_storage.ComputeDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes the instance disks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of dictionaries</td><td class="fieldArgDesc">The disks' input dictionary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">The disk template of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">default<wbr></wbr>_vg:</span>string</td><td class="fieldArgDesc">The default_vg to assume</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The computed disks</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ComputeDisksInfo">
+    
+  </a>
+  <a name="ComputeDisksInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeDisksInfo</span>(disks, disk_template, default_vg, ext_params):
+    
+    <a class="headerLink" href="#ComputeDisksInfo" title="ganeti.cmdlib.instance_storage.ComputeDisksInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes the new instance's disks for the template conversion.</p>
+<p>This method is used by the disks template conversion mechanism. Using the 'ComputeDisks' method as an auxiliary method computes the disks that will be used for generating the new disk template of the instance. It computes the size, mode, and name parameters from the instance's current disks, such as the volume group and the access parameters for the templates that support them. For conversions targeting an extstorage template, the mandatory provider's name or any user-provided extstorage parameters will also be included in the result.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of {objects.Disk}</td><td class="fieldArgDesc">The current disks of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">The disk template of the instance</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">default<wbr></wbr>_vg:</span>string</td><td class="fieldArgDesc">The default volume group to assume</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ext<wbr></wbr>_params:</span>dict</td><td class="fieldArgDesc">The extstorage parameters</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of dictionaries</td><td class="fieldArgDesc">The computed disks' information for the new template</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ComputeDiskSizePerVG">
+    
+  </a>
+  <a name="ComputeDiskSizePerVG">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ComputeDiskSizePerVG</span>(disk_template, disks):
+    
+    <a class="headerLink" href="#ComputeDiskSizePerVG" title="ganeti.cmdlib.instance_storage.ComputeDiskSizePerVG">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute disk size requirements in the volume group</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CreateDisks">
+    
+  </a>
+  <a name="CreateDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CreateDisks</span>(lu, instance, disk_template=None, to_skip=None, target_node_uuid=None, disks=None):
+    
+    <a class="headerLink" href="#CreateDisks" title="ganeti.cmdlib.instance_storage.CreateDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create all disks for an instance.</p>
+<p>This abstracts away some work from AddInstance.</p>
+<p>Since the instance may not have been saved to the config file yet, this function can not query the config file for the instance's disks; in that case they need to be passed as an argument.</p>
+<p>This function is also used by the disk template conversion mechanism to create the new disks of the instance. Since the instance will have the old template at the time we create the new disks, the new template must be passed as an extra argument.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance whose disks we should create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">if provided, overrides the instance's disk_template</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">to<wbr></wbr>_skip:</span>list</td><td class="fieldArgDesc">list of indices to skip</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">target<wbr></wbr>_node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">if passed, overrides the target node for creation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of {objects.Disk}</td><td class="fieldArgDesc">the disks to create; if not specified, all the disks of the instance are created</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">information about the created disks, to be used to call <code><a href="#_UndoCreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._UndoCreateDisks">_UndoCreateDisks</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>in case of error</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.CreateSingleBlockDev">
+    
+  </a>
+  <a name="CreateSingleBlockDev">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CreateSingleBlockDev</span>(lu, node_uuid, instance, device, info, force_open, excl_stor):
+    
+    <a class="headerLink" href="#CreateSingleBlockDev" title="ganeti.cmdlib.instance_storage.CreateSingleBlockDev">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a single block device on a given node.</p>
+<p>This will not recurse over children of the device, so they must be created in advance.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc">the lu on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid</span></td><td class="fieldArgDesc">the node on which to create the device</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance which owns the device</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">device:</span><code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code></td><td class="fieldArgDesc">the device to create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">info</span></td><td class="fieldArgDesc">the extra 'metadata' we should attach to the device (this will be represented as a LVM tag)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force<wbr></wbr>_open:</span>boolean</td><td class="fieldArgDesc">this parameter will be passes to the <code><a href="ganeti.backend.html#BlockdevCreate" class="internal-link" title="ganeti.backend.BlockdevCreate">backend.BlockdevCreate</a></code> function where it specifies whether we run on primary or not, and it affects both the child assembly and the device own Open() execution</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">excl<wbr></wbr>_stor:</span>boolean</td><td class="fieldArgDesc">Whether exclusive_storage is active for the node</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ExpandCheckDisks">
+    
+  </a>
+  <a name="ExpandCheckDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandCheckDisks</span>(instance_disks, disks):
+    
+    <a class="headerLink" href="#ExpandCheckDisks" title="ganeti.cmdlib.instance_storage.ExpandCheckDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the instance disks selected by the disks list</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance<wbr></wbr>_disks</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>list of <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code> or None</td><td class="fieldArgDesc">selected disks</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code></td><td class="fieldArgDesc">selected instance disks to act on</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.GenerateDiskTemplate">
+    
+  </a>
+  <a name="GenerateDiskTemplate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GenerateDiskTemplate</span>(lu, template_name, instance_uuid, primary_node_uuid, secondary_node_uuids, disk_info, file_storage_dir, file_driver, base_index, feedback_fn, full_disk_params, forthcoming=False):
+    
+    <a class="headerLink" href="#GenerateDiskTemplate" title="ganeti.cmdlib.instance_storage.GenerateDiskTemplate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate the entire disk layout for a given template type.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ImageDisks">
+    
+  </a>
+  <a name="ImageDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ImageDisks</span>(lu, instance, image, disks=None):
+    
+    <a class="headerLink" href="#ImageDisks" title="ganeti.cmdlib.instance_storage.ImageDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Dumps an image onto an instance disk.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance whose disks we should create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">image:</span>string</td><td class="fieldArgDesc">the image whose disks we should create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>None or list of ints</td><td class="fieldArgDesc">disk indices</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.IsExclusiveStorageEnabledNodeUuid">
+    
+  </a>
+  <a name="IsExclusiveStorageEnabledNodeUuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">IsExclusiveStorageEnabledNodeUuid</span>(cfg, node_uuid):
+    
+    <a class="headerLink" href="#IsExclusiveStorageEnabledNodeUuid" title="ganeti.cmdlib.instance_storage.IsExclusiveStorageEnabledNodeUuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Whether exclusive_storage is in effect for the given node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">The cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid:</span>string</td><td class="fieldArgDesc">The node UUID</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">The effective value of exclusive_storage</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if no node exists with the given name</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.ShutdownInstanceDisks">
+    
+  </a>
+  <a name="ShutdownInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShutdownInstanceDisks</span>(lu, instance, disks=None, ignore_primary=False):
+    
+    <a class="headerLink" href="#ShutdownInstanceDisks" title="ganeti.cmdlib.instance_storage.ShutdownInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shutdown block devices of an instance.</p>
+<p>This does the shutdown on all nodes of the instance.</p>
+<p>If the ignore_primary is false, errors on the primary node are ignored.</p>
+<p>Modifies the configuration of the instance, so the caller should re-read the instance configuration, if needed.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.StartInstanceDisks">
+    
+  </a>
+  <a name="StartInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">StartInstanceDisks</span>(lu, instance, force):
+    
+    <a class="headerLink" href="#StartInstanceDisks" title="ganeti.cmdlib.instance_storage.StartInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start the disks of an instance.</p>
+<p>Modifies the configuration of the instance, so the caller should re-read the instance configuration, if needed.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.WaitForSync">
+    
+  </a>
+  <a name="WaitForSync">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WaitForSync</span>(lu, instance, disks=None, oneshot=False):
+    
+    <a class="headerLink" href="#WaitForSync" title="ganeti.cmdlib.instance_storage.WaitForSync">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sleep and poll for an instance's disk to sync.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.WipeDisks">
+    
+  </a>
+  <a name="WipeDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WipeDisks</span>(lu, instance, disks=None):
+    
+    <a class="headerLink" href="#WipeDisks" title="ganeti.cmdlib.instance_storage.WipeDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wipes instance disks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance whose disks we should create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks:</span>None or list of tuple of (number, <code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code>, number)</td><td class="fieldArgDesc">Disk details; tuple contains disk index, disk object and the start offset</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.WipeOrCleanupDisks">
+    
+  </a>
+  <a name="WipeOrCleanupDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WipeOrCleanupDisks</span>(lu, instance, disks=None, cleanup=None):
+    
+    <a class="headerLink" href="#WipeOrCleanupDisks" title="ganeti.cmdlib.instance_storage.WipeOrCleanupDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper for <code><a href="#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks">WipeDisks</a></code> that handles errors.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance whose disks we should wipe</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks</span></td><td class="fieldArgDesc">see <code><a href="#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks">WipeDisks</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cleanup</span></td><td class="fieldArgDesc">the result returned by <code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks">CreateDisks</a></code>, used for cleanup in case of error</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>in case of failure</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._BlockdevFind">
+    
+  </a>
+  <a name="_BlockdevFind">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BlockdevFind</span>(lu, node_uuid, dev, instance):
+    
+    <a class="headerLink" href="#_BlockdevFind" title="ganeti.cmdlib.instance_storage._BlockdevFind">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper around call_blockdev_find to annotate diskparams.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc">A reference to the lu object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid</span></td><td class="fieldArgDesc">The node to call out</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">dev</span></td><td class="fieldArgDesc">The device to find</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance</span></td><td class="fieldArgDesc">The instance object the device belongs to @returns The result of the rpc call</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CalcEta">
+    
+  </a>
+  <a name="_CalcEta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CalcEta</span>(time_taken, written, total_size):
+    
+    <a class="headerLink" href="#_CalcEta" title="ganeti.cmdlib.instance_storage._CalcEta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculates the ETA based on size written and total size.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">time<wbr></wbr>_taken</span></td><td class="fieldArgDesc">The time taken so far</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">written</span></td><td class="fieldArgDesc">amount written so far</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">total<wbr></wbr>_size</span></td><td class="fieldArgDesc">The total size of data to be written</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The remaining time in seconds</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">
+    
+  </a>
+  <a name="_CheckDiskConsistencyInner">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckDiskConsistencyInner</span>(lu, instance, dev, node_uuid, on_primary, ldisk=False):
+    
+    <a class="headerLink" href="#_CheckDiskConsistencyInner" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check that mirrors are not degraded.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: attention</td></tr><tr><td colspan="2"><p>The device has to be annotated already.</p>
+<p>The ldisk parameter, if True, will change the test from the is_degraded attribute (which represents overall non-ok status for the device(s)) to the ldisk (representing the local storage status).</p>
+</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CheckNodesFreeDiskOnVG">
+    
+  </a>
+  <a name="_CheckNodesFreeDiskOnVG">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckNodesFreeDiskOnVG</span>(lu, node_uuids, vg, requested):
+    
+    <a class="headerLink" href="#_CheckNodesFreeDiskOnVG" title="ganeti.cmdlib.instance_storage._CheckNodesFreeDiskOnVG">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if nodes have enough free disk space in the specified VG.</p>
+<p>This function checks if all given nodes have the needed amount of free disk. In case any node has less disk or we cannot get the information from the node, this function raises an OpPrereqError exception.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><tt class="rst-docutils literal">LogicalUnit</tt></td><td class="fieldArgDesc">a logical unit from which we get configuration data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span><tt class="rst-docutils literal">list</tt></td><td class="fieldArgDesc">the list of node UUIDs to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg:</span><tt class="rst-docutils literal">str</tt></td><td class="fieldArgDesc">the volume group to check</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">requested:</span><tt class="rst-docutils literal">int</tt></td><td class="fieldArgDesc">the amount of disk in MiB to check for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the node doesn't have enough disk, or we cannot check the node</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CheckVgCapacityForNode">
+    
+  </a>
+  <a name="_CheckVgCapacityForNode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckVgCapacityForNode</span>(node_name, node_info, vg, requested):
+    
+    <a class="headerLink" href="#_CheckVgCapacityForNode" title="ganeti.cmdlib.instance_storage._CheckVgCapacityForNode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks the vg capacity for a given node.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the name of the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_info:</span>tuple (_, list of dicts, _)</td><td class="fieldArgDesc">the result of the node info call for one node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg:</span>string</td><td class="fieldArgDesc">volume group name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">requested:</span>int</td><td class="fieldArgDesc">the amount of disk in MiB to check for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the node doesn't have enough disk, or we cannot check the node</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CreateBlockDev">
+    
+  </a>
+  <a name="_CreateBlockDev">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CreateBlockDev</span>(lu, node_uuid, instance, device, force_create, info, force_open):
+    
+    <a class="headerLink" href="#_CreateBlockDev" title="ganeti.cmdlib.instance_storage._CreateBlockDev">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Wrapper around <code><a href="#_CreateBlockDevInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">_CreateBlockDevInner</a></code>.</p>
+<p>This method annotates the root device first.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._CreateBlockDevInner">
+    
+  </a>
+  <a name="_CreateBlockDevInner">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CreateBlockDevInner</span>(lu, node_uuid, instance, device, force_create, info, force_open, excl_stor):
+    
+    <a class="headerLink" href="#_CreateBlockDevInner" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Create a tree of block devices on a given node.</p>
+<p>If this device type has to be created on secondaries, create it and all its children.</p>
+<p>If not, just recurse to children keeping the same 'force' value.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu</span></td><td class="fieldArgDesc">the lu on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuid</span></td><td class="fieldArgDesc">the node on which to create the device</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance which owns the device</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">device:</span><code><a href="ganeti.objects.Disk.html" class="internal-link" title="ganeti.objects.Disk">objects.Disk</a></code></td><td class="fieldArgDesc">the device to create</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force<wbr></wbr>_create:</span>boolean</td><td class="fieldArgDesc">whether to force creation of this device; this will be change to True whenever we find a device which has CreateOnSecondary() attribute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">info</span></td><td class="fieldArgDesc">the extra 'metadata' we should attach to the device (this will be represented as a LVM tag)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force<wbr></wbr>_open:</span>boolean</td><td class="fieldArgDesc">this parameter will be passes to the <code><a href="ganeti.backend.html#BlockdevCreate" class="internal-link" title="ganeti.backend.BlockdevCreate">backend.BlockdevCreate</a></code> function where it specifies whether we run on primary or not, and it affects both the child assembly and the device own Open() execution</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">excl<wbr></wbr>_stor:</span>boolean</td><td class="fieldArgDesc">Whether exclusive_storage is active for the node</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">list of created devices</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Unknown Field: attention</td></tr><tr><td colspan="2">The device has to be annotated already.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._DiskSizeInBytesToMebibytes">
+    
+  </a>
+  <a name="_DiskSizeInBytesToMebibytes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_DiskSizeInBytesToMebibytes</span>(lu, size):
+    
+    <a class="headerLink" href="#_DiskSizeInBytesToMebibytes" title="ganeti.cmdlib.instance_storage._DiskSizeInBytesToMebibytes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts a disk size in bytes to mebibytes.</p>
+<p>Warns and rounds up if the size isn't an even multiple of 1 MiB.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._GenerateDRBD8Branch">
+    
+  </a>
+  <a name="_GenerateDRBD8Branch">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GenerateDRBD8Branch</span>(lu, primary_uuid, secondary_uuid, size, vgnames, names, iv_name, forthcoming=False):
+    
+    <a class="headerLink" href="#_GenerateDRBD8Branch" title="ganeti.cmdlib.instance_storage._GenerateDRBD8Branch">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate a drbd8 device complete with its children.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._GenerateUniqueNames">
+    
+  </a>
+  <a name="_GenerateUniqueNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GenerateUniqueNames</span>(lu, exts):
+    
+    <a class="headerLink" href="#_GenerateUniqueNames" title="ganeti.cmdlib.instance_storage._GenerateUniqueNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Generate a suitable LV name.</p>
+<p>This will generate a logical volume name for the given instance.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._PerformNodeInfoCall">
+    
+  </a>
+  <a name="_PerformNodeInfoCall">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_PerformNodeInfoCall</span>(lu, node_uuids, vg):
+    
+    <a class="headerLink" href="#_PerformNodeInfoCall" title="ganeti.cmdlib.instance_storage._PerformNodeInfoCall">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepares the input and performs a node info call.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><tt class="rst-docutils literal">LogicalUnit</tt></td><td class="fieldArgDesc">a logical unit from which we get configuration data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list of string</td><td class="fieldArgDesc">list of node UUIDs to perform the call for</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">vg:</span>string</td><td class="fieldArgDesc">the volume group's name</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._SafeShutdownInstanceDisks">
+    
+  </a>
+  <a name="_SafeShutdownInstanceDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SafeShutdownInstanceDisks</span>(lu, instance, disks=None, req_states=None):
+    
+    <a class="headerLink" href="#_SafeShutdownInstanceDisks" title="ganeti.cmdlib.instance_storage._SafeShutdownInstanceDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shutdown block devices of an instance.</p>
+<p>This function checks if an instance is running, before calling _ShutdownInstanceDisks.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._UndoCreateDisks">
+    
+  </a>
+  <a name="_UndoCreateDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UndoCreateDisks</span>(lu, disks_created, instance):
+    
+    <a class="headerLink" href="#_UndoCreateDisks" title="ganeti.cmdlib.instance_storage._UndoCreateDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Undo the work performed by <code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks">CreateDisks</a></code>.</p>
+<p>This function is called in case of an error to undo the work of <code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks">CreateDisks</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lu:</span><code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code></td><td class="fieldArgDesc">the logical unit on whose behalf we execute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disks<wbr></wbr>_created</span></td><td class="fieldArgDesc">the result returned by <code><a href="#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks">CreateDisks</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">instance:</span><code><a href="ganeti.objects.Instance.html" class="internal-link" title="ganeti.objects.Instance">objects.Instance</a></code></td><td class="fieldArgDesc">the instance for which disks were created</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage._DISK_TEMPLATE_NAME_PREFIX">
+    
+  </a>
+  <a name="_DISK_TEMPLATE_NAME_PREFIX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_DISK_TEMPLATE_NAME_PREFIX</span> =
+    
+    <a class="headerLink" href="#_DISK_TEMPLATE_NAME_PREFIX" title="ganeti.cmdlib.instance_storage._DISK_TEMPLATE_NAME_PREFIX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="ganeti._constants.html#DT_PLAIN" class="internal-link" title="ganeti._constants.DT_PLAIN">constants.DT_PLAIN</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#DT_RBD" class="internal-link" title="ganeti._constants.DT_RBD">constants.DT_RBD</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">.rbd</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#DT_EXT" class="internal-link" title="ganeti._constants.DT_EXT">constants.DT_EXT</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">.ext</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#DT_FILE" class="internal-link" title="ganeti._constants.DT_FILE">constants.DT_FILE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">.file</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><a href="ganeti._constants.html#DT_SHARED_FILE" class="internal-link" title="ganeti._constants.DT_SHARED_FILE">constants.DT_SHARED_FILE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">.sharedfile</span><span class="rst-variable-quote">'</span>}</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

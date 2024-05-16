@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.storage.gluster.GlusterVolume</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.storage.gluster.GlusterVolume.html" class="internal-link" title="This class"><wbr></wbr>Gluster<wbr></wbr>Volume</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__eq__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__eq__">__eq__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__hash__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__hash__">__hash__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetKVMMountString" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.GetKVMMountString"><wbr></wbr>Get<wbr></wbr>KVMMount<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Mount" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.Mount"><wbr></wbr>Mount</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Unmount" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.Unmount"><wbr></wbr>Unmount</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetFUSEMountString" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._GetFUSEMountString">_<wbr></wbr>Get<wbr></wbr>FUSEMount<wbr></wbr>String</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GuessMountFailReasons" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._GuessMountFailReasons">_<wbr></wbr>Guess<wbr></wbr>Mount<wbr></wbr>Fail<wbr></wbr>Reasons</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_IsMounted" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._IsMounted">_<wbr></wbr>Is<wbr></wbr>Mounted</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mount_point" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.mount_point">mount<wbr></wbr>_point</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#server_addr" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.server_addr">server<wbr></wbr>_addr</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#port" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.port">port</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#server_ip" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.server_ip">server<wbr></wbr>_ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#volume" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.volume">volume</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_port" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._port">_port</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_run_cmd" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._run_cmd">_run<wbr></wbr>_cmd</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_server_ip" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._server_ip">_server<wbr></wbr>_ip</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_volume" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._volume">_volume</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.storage.gluster.html" class="internal-link" title="The parent of this class">gluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.gluster.GlusterStorage.html" class="internal-link" title="ganeti.storage.gluster.GlusterStorage"><wbr></wbr>Gluster<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.gluster.GlusterVolume.html" class="internal-link" title="ganeti.storage.gluster.GlusterVolume"><wbr></wbr>Gluster<wbr></wbr>Volume</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code><wbr></wbr>.<code><a href="ganeti.storage.gluster.html" class="internal-link" title="ganeti.storage.gluster">gluster</a></code><wbr></wbr>.<code><a href="ganeti.storage.gluster.GlusterVolume.html" class="internal-link" title="ganeti.storage.gluster.GlusterVolume">GlusterVolume</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">GlusterVolume</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.storage.gluster.GlusterVolume">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>This class represents a Gluster volume.</p>
+<p>Volumes are uniquely identified by:</p>
+<ul class="rst-simple">
+<li>their IP address</li>
+<li>their port</li>
+<li>the volume name itself</li>
+</ul>
+<p>Two GlusterVolume objects x, y with same IP address, port and volume name are considered equal.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1328">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__eq__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__eq__">__eq__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__hash__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__hash__">__hash__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__init__">__init__</a></code></td>
+    <td>Creates a Gluster volume object.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__repr__" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetKVMMountString" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.GetKVMMountString"><wbr></wbr>Get<wbr></wbr>KVMMount<wbr></wbr>String</a></code></td>
+    <td>Return the string KVM needs to use this volume.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Mount" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.Mount"><wbr></wbr>Mount</a></code></td>
+    <td>Try and mount the volume. No-op if the volume is already mounted.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Unmount" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.Unmount"><wbr></wbr>Unmount</a></code></td>
+    <td>Try and unmount the volume.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mount_point" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.mount_point">mount<wbr></wbr>_point</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#server_addr" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.server_addr">server<wbr></wbr>_addr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#port" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.port">port</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#server_ip" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.server_ip">server<wbr></wbr>_ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
+    <td><code><a href="#volume" class="internal-link" title="ganeti.storage.gluster.GlusterVolume.volume">volume</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetFUSEMountString" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._GetFUSEMountString">_<wbr></wbr>Get<wbr></wbr>FUSEMount<wbr></wbr>String</a></code></td>
+    <td>Return the string FUSE needs to mount this volume.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GuessMountFailReasons" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._GuessMountFailReasons">_<wbr></wbr>Guess<wbr></wbr>Mount<wbr></wbr>Fail<wbr></wbr>Reasons</a></code></td>
+    <td>Try and give reasons why the mount might've failed.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_IsMounted" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._IsMounted">_<wbr></wbr>Is<wbr></wbr>Mounted</a></code></td>
+    <td>Checks if we are mounted or not.</td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_port" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._port">_port</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_run_cmd" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._run_cmd">_run<wbr></wbr>_cmd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_server_ip" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._server_ip">_server<wbr></wbr>_ip</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_volume" class="internal-link" title="ganeti.storage.gluster.GlusterVolume._volume">_volume</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.__eq__">
+    
+  </a>
+  <a name="__eq__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__eq__</span>(self, other):
+    
+    <a class="headerLink" href="#__eq__" title="ganeti.storage.gluster.GlusterVolume.__eq__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.__hash__">
+    
+  </a>
+  <a name="__hash__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__hash__</span>(self):
+    
+    <a class="headerLink" href="#__hash__" title="ganeti.storage.gluster.GlusterVolume.__hash__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, server_addr, port, volume, _run_cmd=<a href="ganeti.utils.process.html#RunCmd" class="internal-link" title="ganeti.utils.process.RunCmd">utils.RunCmd</a>, _mount_point=None):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.storage.gluster.GlusterVolume.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a Gluster volume object.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">server<wbr></wbr>_addr:</span>str</td><td class="fieldArgDesc">The address to connect to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">port:</span>int</td><td class="fieldArgDesc">The port to connect to (Gluster standard is 24007)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">volume:</span>str</td><td class="fieldArgDesc">The gluster volume to use for storage.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_run<wbr></wbr>_cmd</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_mount<wbr></wbr>_point</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span>(self):
+    
+    <a class="headerLink" href="#__repr__" title="ganeti.storage.gluster.GlusterVolume.__repr__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.GetKVMMountString">
+    
+  </a>
+  <a name="GetKVMMountString">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetKVMMountString</span>(self, path):
+    
+    <a class="headerLink" href="#GetKVMMountString" title="ganeti.storage.gluster.GlusterVolume.GetKVMMountString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the string KVM needs to use this volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.Mount">
+    
+  </a>
+  <a name="Mount">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Mount</span>(self):
+    
+    <a class="headerLink" href="#Mount" title="ganeti.storage.gluster.GlusterVolume.Mount">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try and mount the volume. No-op if the volume is already mounted.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">context manager</td><td class="fieldArgDesc"><p>A simple context manager that lets you use this volume for short lived operations like so:</p>
+<pre class="rst-literal-block">
+ with volume.mount():
+   # Do operations on volume
+ # Volume is now unmounted
+</pre>
+</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>BlockDeviceError</code></td><td>if the mount was unsuccessful</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.Unmount">
+    
+  </a>
+  <a name="Unmount">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Unmount</span>(self):
+    
+    <a class="headerLink" href="#Unmount" title="ganeti.storage.gluster.GlusterVolume.Unmount">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try and unmount the volume.</p>
+<p>Failures are logged but otherwise ignored.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code>BlockDeviceError</code></td><td>if the volume was not mounted to begin with.</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.mount_point">
+    
+  </a>
+  <a name="mount_point">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mount_point</span> =
+    
+    <a class="headerLink" href="#mount_point" title="ganeti.storage.gluster.GlusterVolume.mount_point">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.server_addr">
+    
+  </a>
+  <a name="server_addr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">server_addr</span> =
+    
+    <a class="headerLink" href="#server_addr" title="ganeti.storage.gluster.GlusterVolume.server_addr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.port">
+    
+  </a>
+  <a name="port">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">port</span> =
+    
+    <a class="headerLink" href="#port" title="ganeti.storage.gluster.GlusterVolume.port">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.server_ip">
+    
+  </a>
+  <a name="server_ip">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">server_ip</span> =
+    
+    <a class="headerLink" href="#server_ip" title="ganeti.storage.gluster.GlusterVolume.server_ip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume.volume">
+    
+  </a>
+  <a name="volume">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">volume</span> =
+    
+    <a class="headerLink" href="#volume" title="ganeti.storage.gluster.GlusterVolume.volume">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._GetFUSEMountString">
+    
+  </a>
+  <a name="_GetFUSEMountString">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetFUSEMountString</span>(self):
+    
+    <a class="headerLink" href="#_GetFUSEMountString" title="ganeti.storage.gluster.GlusterVolume._GetFUSEMountString">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the string FUSE needs to mount this volume.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._GuessMountFailReasons">
+    
+  </a>
+  <a name="_GuessMountFailReasons">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GuessMountFailReasons</span>(self):
+    
+    <a class="headerLink" href="#_GuessMountFailReasons" title="ganeti.storage.gluster.GlusterVolume._GuessMountFailReasons">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Try and give reasons why the mount might've failed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">str</td><td class="fieldArgDesc">A semicolon-separated list of problems found with the current setup suitable for display to the user.</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._IsMounted">
+    
+  </a>
+  <a name="_IsMounted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_IsMounted</span>(self):
+    
+    <a class="headerLink" href="#_IsMounted" title="ganeti.storage.gluster.GlusterVolume._IsMounted">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if we are mounted or not.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">True if this volume is mounted.</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._port">
+    
+  </a>
+  <a name="_port">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_port</span> =
+    
+    <a class="headerLink" href="#_port" title="ganeti.storage.gluster.GlusterVolume._port">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._run_cmd">
+    
+  </a>
+  <a name="_run_cmd">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_run_cmd</span> =
+    
+    <a class="headerLink" href="#_run_cmd" title="ganeti.storage.gluster.GlusterVolume._run_cmd">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._server_ip">
+    
+  </a>
+  <a name="_server_ip">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_server_ip</span> =
+    
+    <a class="headerLink" href="#_server_ip" title="ganeti.storage.gluster.GlusterVolume._server_ip">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.storage.gluster.GlusterVolume._volume">
+    
+  </a>
+  <a name="_volume">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_volume</span> =
+    
+    <a class="headerLink" href="#_volume" title="ganeti.storage.gluster.GlusterVolume._volume">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

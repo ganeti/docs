@@ -1,0 +1,2462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.cluster.LUClusterSetParams</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.cluster.LUClusterSetParams.html" class="internal-link" title="This class"><wbr></wbr>LUCluster<wbr></wbr>Set<wbr></wbr>Params</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.Exec"><wbr></wbr>Exec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstanceCommunicationNetwork">_<wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EnsureInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">_<wbr></wbr>Ensure<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetDiskTemplateSetsInner" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSetsInner">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Sets<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ModifyInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._ModifyInstanceCommunicationNetwork">_<wbr></wbr>Modify<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BuildOSParams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._BuildOSParams">_<wbr></wbr>Build<wbr></wbr>OSParams</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelper">_<wbr></wbr>Check<wbr></wbr>Drbd<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckDrbdHelperOnNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelperOnNodes">_<wbr></wbr>Check<wbr></wbr>Drbd<wbr></wbr>Helper<wbr></wbr>On<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckInstancesOfDisabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstancesOfDisabledDiskTemplates">_<wbr></wbr>Check<wbr></wbr>Instances<wbr></wbr>Of<wbr></wbr>Disabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckIpolicy" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckIpolicy">_<wbr></wbr>Check<wbr></wbr>Ipolicy</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckVgName" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgName">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckVgNameOnNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgNameOnNodes">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Name<wbr></wbr>On<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetDiskTemplateSets" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSets">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Sets</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetDrbdHelper">_<wbr></wbr>Set<wbr></wbr>Drbd<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetFileStorageDir" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetFileStorageDir">_<wbr></wbr>Set<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetSharedFileStorageDir" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetSharedFileStorageDir">_<wbr></wbr>Set<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetVgName" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetVgName">_<wbr></wbr>Set<wbr></wbr>Vg<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.HPATH">HPATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cluster" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.cluster">cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.needed_locks">needed<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_beparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_beparams">new<wbr></wbr>_beparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_disk_state" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_disk_state">new<wbr></wbr>_disk<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_diskparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_diskparams">new<wbr></wbr>_diskparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_hv_state" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hv_state">new<wbr></wbr>_hv<wbr></wbr>_state</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_hvparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hvparams">new<wbr></wbr>_hvparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_ipolicy" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ipolicy">new<wbr></wbr>_ipolicy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_ndparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ndparams">new<wbr></wbr>_ndparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_nicparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_nicparams">new<wbr></wbr>_nicparams</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_os_hvp" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_os_hvp">new<wbr></wbr>_os<wbr></wbr>_hvp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_osp" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp">new<wbr></wbr>_osp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#new_osp_private" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp_private">new<wbr></wbr>_osp<wbr></wbr>_private</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#share_locks" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.share_locks">share<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="The parent of this class">cluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.html" class="internal-link" title="ganeti.cmdlib.cluster.verify">verify</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.ClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.ClusterQuery"><wbr></wbr>Cluster<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterActivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterActivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Activate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterConfigQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterConfigQuery"><wbr></wbr>LUCluster<wbr></wbr>Config<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Deactivate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterDestroy.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDestroy"><wbr></wbr>LUCluster<wbr></wbr>Destroy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterPostInit.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterPostInit"><wbr></wbr>LUCluster<wbr></wbr>Post<wbr></wbr>Init</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterQuery"><wbr></wbr>LUCluster<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRedistConf.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRedistConf"><wbr></wbr>LUCluster<wbr></wbr>Redist<wbr></wbr>Conf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRename.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRename"><wbr></wbr>LUCluster<wbr></wbr>Rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRenewCrypto.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRenewCrypto"><wbr></wbr>LUCluster<wbr></wbr>Renew<wbr></wbr>Crypto</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes"><wbr></wbr>LUCluster<wbr></wbr>Repair<wbr></wbr>Disk<wbr></wbr>Sizes</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterSetParams.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams"><wbr></wbr>LUCluster<wbr></wbr>Set<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#CheckCompressionTools" class="internal-link" title="ganeti.cmdlib.cluster.CheckCompressionTools"><wbr></wbr>Check<wbr></wbr>Compression<wbr></wbr>Tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#CheckFileBasedStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileBasedStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Based<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#CheckFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#CheckGlusterStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckGlusterStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Gluster<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#CheckSharedFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckSharedFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html#_ValidateNetmask" class="internal-link" title="ganeti.cmdlib.cluster._ValidateNetmask">_<wbr></wbr>Validate<wbr></wbr>Netmask</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.LUClusterSetParams.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams">LUClusterSetParams</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LUClusterSetParams</span>(<a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.cmdlib.cluster.LUClusterSetParams">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Change the parameters of the cluster.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id147">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code></td>
+    <td>Build hooks env.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code></td>
+    <td>Build hooks nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Check parameters</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code></td>
+    <td>Check prerequisites.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.Exec"><wbr></wbr>Exec</a></code></td>
+    <td>Change the parameters of the cluster.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code></td>
+    <td>Expand names for this LU.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.HPATH">HPATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cluster" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.cluster">cluster</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.needed_locks">needed<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_beparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_beparams">new<wbr></wbr>_beparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_disk_state" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_disk_state">new<wbr></wbr>_disk<wbr></wbr>_state</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_diskparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_diskparams">new<wbr></wbr>_diskparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_hv_state" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hv_state">new<wbr></wbr>_hv<wbr></wbr>_state</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_hvparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hvparams">new<wbr></wbr>_hvparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_ipolicy" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ipolicy">new<wbr></wbr>_ipolicy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_ndparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ndparams">new<wbr></wbr>_ndparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_nicparams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_nicparams">new<wbr></wbr>_nicparams</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_os_hvp" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_os_hvp">new<wbr></wbr>_os<wbr></wbr>_hvp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_osp" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp">new<wbr></wbr>_osp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#new_osp_private" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp_private">new<wbr></wbr>_osp<wbr></wbr>_private</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#share_locks" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams.share_locks">share<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_CheckInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstanceCommunicationNetwork">_<wbr></wbr>Check<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code></td>
+    <td>Check whether an existing network is configured for instance communication.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_EnsureInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">_<wbr></wbr>Ensure<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code></td>
+    <td>Ensure that the instance communication network exists and is connected to all groups.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_GetDiskTemplateSetsInner" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSetsInner">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Sets<wbr></wbr>Inner</a></code></td>
+    <td>Computes three sets of disk templates.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ModifyInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._ModifyInstanceCommunicationNetwork">_<wbr></wbr>Modify<wbr></wbr>Instance<wbr></wbr>Communication<wbr></wbr>Network</a></code></td>
+    <td>Update the instance communication network stored in the cluster configuration.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_BuildOSParams" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._BuildOSParams">_<wbr></wbr>Build<wbr></wbr>OSParams</a></code></td>
+    <td>Calculate the new OS parameters for this operation.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelper">_<wbr></wbr>Check<wbr></wbr>Drbd<wbr></wbr>Helper</a></code></td>
+    <td>Check the DRBD usermode helper.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckDrbdHelperOnNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelperOnNodes">_<wbr></wbr>Check<wbr></wbr>Drbd<wbr></wbr>Helper<wbr></wbr>On<wbr></wbr>Nodes</a></code></td>
+    <td>Checks whether the set DRBD helper actually exists on the nodes.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckInstancesOfDisabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstancesOfDisabledDiskTemplates">_<wbr></wbr>Check<wbr></wbr>Instances<wbr></wbr>Of<wbr></wbr>Disabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Check whether we try to disable a disk template that is in use.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckIpolicy" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckIpolicy">_<wbr></wbr>Check<wbr></wbr>Ipolicy</a></code></td>
+    <td>Checks the ipolicy.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckVgName" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgName">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Name</a></code></td>
+    <td>Check the consistency of the vg name on all nodes and in case it gets unset whether there are instances still using it.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckVgNameOnNodes" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgNameOnNodes">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Name<wbr></wbr>On<wbr></wbr>Nodes</a></code></td>
+    <td>Check the status of the volume group on each node.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_GetDiskTemplateSets" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSets">_<wbr></wbr>Get<wbr></wbr>Disk<wbr></wbr>Template<wbr></wbr>Sets</a></code></td>
+    <td>Computes three sets of disk templates.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_SetDrbdHelper" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetDrbdHelper">_<wbr></wbr>Set<wbr></wbr>Drbd<wbr></wbr>Helper</a></code></td>
+    <td>Set the DRBD usermode helper.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_SetFileStorageDir" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetFileStorageDir">_<wbr></wbr>Set<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code></td>
+    <td>Set the file storage directory.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_SetSharedFileStorageDir" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetSharedFileStorageDir">_<wbr></wbr>Set<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code></td>
+    <td>Set the shared file storage directory.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_SetVgName" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetVgName">_<wbr></wbr>Set<wbr></wbr>Vg<wbr></wbr>Name</a></code></td>
+    <td>Determines and sets the new volume group name.</td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>:
+            </p>
+            <table class="children sortable" id="id148">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code></td>
+    <td>Constructor for LogicalUnit.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code></td>
+    <td>Raise AssertionError if the LU holds some locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code></td>
+    <td>Declare LU locking needs for a level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code></td>
+    <td>Notify the LU about the results of its hooks.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code></td>
+    <td>Return the list of locks owned by the LU at a given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code></td>
+    <td>Extend list of nodes to run the post LU hook.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code></td>
+    <td>Prepare the LU to run again.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code></td>
+    <td>Return a request to release the specified locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code></td>
+    <td>the value (if any) that will be returned to the caller in dry-run mode (signalled by opcode dry_run parameter)</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code></td>
+    <td>Helper function to expand and lock an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code></td>
+    <td>Helper function to declare instances' nodes for locking.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksEnv">
+    
+  </a>
+  <a name="BuildHooksEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksEnv</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksEnv" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksEnv" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksEnv</a></code></div>
+    <div><p>Build hooks env.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksNodes">
+    
+  </a>
+  <a name="BuildHooksNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksNodes</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksNodes" title="ganeti.cmdlib.cluster.LUClusterSetParams.BuildHooksNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksNodes" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksNodes</a></code></div>
+    <div><p>Build hooks nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.CheckArguments">
+    
+  </a>
+  <a name="CheckArguments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckArguments</span>(self):
+    
+    <a class="headerLink" href="#CheckArguments" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckArguments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckArguments</a></code></div>
+    <div><p>Check parameters</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.CheckPrereq">
+    
+  </a>
+  <a name="CheckPrereq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckPrereq</span>(self):
+    
+    <a class="headerLink" href="#CheckPrereq" title="ganeti.cmdlib.cluster.LUClusterSetParams.CheckPrereq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckPrereq" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckPrereq</a></code></div>
+    <div><p>Check prerequisites.</p>
+<p>This checks whether the given params don't conflict and if the given volume group is valid.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.Exec">
+    
+  </a>
+  <a name="Exec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Exec</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#Exec" title="ganeti.cmdlib.cluster.LUClusterSetParams.Exec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#Exec" class="internal-link">ganeti.cmdlib.base.LogicalUnit.Exec</a></code></div>
+    <div><p>Change the parameters of the cluster.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.ExpandNames">
+    
+  </a>
+  <a name="ExpandNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNames</span>(self):
+    
+    <a class="headerLink" href="#ExpandNames" title="ganeti.cmdlib.cluster.LUClusterSetParams.ExpandNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#ExpandNames" class="internal-link">ganeti.cmdlib.base.LogicalUnit.ExpandNames</a></code></div>
+    <div><p>Expand names for this LU.</p>
+<p>This method is called before starting to execute the opcode, and it should update all the parameters of the opcode to their canonical form (e.g. a short node name must be fully expanded after this method has successfully completed). This way locking, hooks, logging, etc. can work correctly.</p>
+<p>LUs which implement this method must also populate the self.needed_locks member, as a dict with lock levels as keys, and a list of needed lock names as values. Rules:</p>
+<ul class="rst-simple">
+<li>use an empty dict if you don't need any lock</li>
+<li>if you don't need any lock at a particular level omit that level (note that in this case <tt class="rst-docutils literal">DeclareLocks</tt> won't be called at all for that level)</li>
+<li>if you need locks at a level, but you can't calculate it in this function, initialise that level with an empty list and do further processing in <code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks">LogicalUnit.DeclareLocks</a></code> (see that function's docstring)</li>
+<li>don't put anything for the BGL level</li>
+<li>if you want all locks at a level use <code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">locking.ALL_SET</a></code> as a value</li>
+</ul>
+<p>If you need to share locks (rather than acquire them exclusively) at one level you can modify self.share_locks, setting a true value (usually 1) for that level. By default locks are not shared.</p>
+<p>This function can also define a list of tasklets, which then will be executed in order instead of the usual LU-level CheckPrereq and Exec functions, if those are not defined by the LU.</p>
+<p>Examples:</p>
+<pre class="rst-literal-block">
+  # Acquire all nodes and one instance
+  self.needed_locks = {
+    locking.LEVEL_NODE: locking.ALL_SET,
+    locking.LEVEL_INSTANCE: ['instance1.example.com'],
+  }
+  # Acquire just two nodes
+  self.needed_locks = {
+    locking.LEVEL_NODE: ['node1-uuid', 'node2-uuid'],
+  }
+  # Acquire no locks
+  self.needed_locks = {} # No, you can't leave it to the default value None
+</pre>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.HPATH">
+    
+  </a>
+  <a name="HPATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HPATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HPATH" title="ganeti.cmdlib.cluster.LUClusterSetParams.HPATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HPATH" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HPATH</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">cluster-modify</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.REQ_BGL">
+    
+  </a>
+  <a name="REQ_BGL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">REQ_BGL</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#REQ_BGL" title="ganeti.cmdlib.cluster.LUClusterSetParams.REQ_BGL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#REQ_BGL" class="internal-link">ganeti.cmdlib.base.LogicalUnit.REQ_BGL</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>False</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.cluster">
+    
+  </a>
+  <a name="cluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cluster</span> =
+    
+    <a class="headerLink" href="#cluster" title="ganeti.cmdlib.cluster.LUClusterSetParams.cluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.needed_locks">
+    
+  </a>
+  <a name="needed_locks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">needed_locks</span> =
+    
+    <a class="headerLink" href="#needed_locks" title="ganeti.cmdlib.cluster.LUClusterSetParams.needed_locks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.needed_locks</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_beparams">
+    
+  </a>
+  <a name="new_beparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_beparams</span> =
+    
+    <a class="headerLink" href="#new_beparams" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_beparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_disk_state">
+    
+  </a>
+  <a name="new_disk_state">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_disk_state</span> =
+    
+    <a class="headerLink" href="#new_disk_state" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_disk_state">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_diskparams">
+    
+  </a>
+  <a name="new_diskparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_diskparams</span> =
+    
+    <a class="headerLink" href="#new_diskparams" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_diskparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_hv_state">
+    
+  </a>
+  <a name="new_hv_state">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_hv_state</span> =
+    
+    <a class="headerLink" href="#new_hv_state" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hv_state">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_hvparams">
+    
+  </a>
+  <a name="new_hvparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_hvparams</span> =
+    
+    <a class="headerLink" href="#new_hvparams" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_hvparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_ipolicy">
+    
+  </a>
+  <a name="new_ipolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_ipolicy</span> =
+    
+    <a class="headerLink" href="#new_ipolicy" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ipolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_ndparams">
+    
+  </a>
+  <a name="new_ndparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_ndparams</span> =
+    
+    <a class="headerLink" href="#new_ndparams" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_ndparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_nicparams">
+    
+  </a>
+  <a name="new_nicparams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_nicparams</span> =
+    
+    <a class="headerLink" href="#new_nicparams" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_nicparams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_os_hvp">
+    
+  </a>
+  <a name="new_os_hvp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_os_hvp</span> =
+    
+    <a class="headerLink" href="#new_os_hvp" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_os_hvp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp">
+    
+  </a>
+  <a name="new_osp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_osp</span> =
+    
+    <a class="headerLink" href="#new_osp" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp_private">
+    
+  </a>
+  <a name="new_osp_private">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">new_osp_private</span> =
+    
+    <a class="headerLink" href="#new_osp_private" title="ganeti.cmdlib.cluster.LUClusterSetParams.new_osp_private">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams.share_locks">
+    
+  </a>
+  <a name="share_locks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">share_locks</span> =
+    
+    <a class="headerLink" href="#share_locks" title="ganeti.cmdlib.cluster.LUClusterSetParams.share_locks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.share_locks</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstanceCommunicationNetwork">
+    
+  </a>
+  <a name="_CheckInstanceCommunicationNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckInstanceCommunicationNetwork</span>(network, warning_fn):
+    
+    <a class="headerLink" href="#_CheckInstanceCommunicationNetwork" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstanceCommunicationNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether an existing network is configured for instance communication.</p>
+<p>Checks whether an existing network is configured with the parameters that are advisable for instance communication, and otherwise issue security warnings.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">network:</span><code><a href="ganeti.objects.Network.html" class="internal-link" title="ganeti.objects.Network">ganeti.objects.Network</a></code></td><td class="fieldArgDesc"><code><a href="ganeti.objects.Network.html" class="internal-link" title="ganeti.objects.Network">ganeti.objects.Network</a></code> object whose configuration is being checked</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">warning<wbr></wbr>_fn:</span>function</td><td class="fieldArgDesc">function used to print warnings</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">None</td><td class="fieldArgDesc">None</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">
+    
+  </a>
+  <a name="_EnsureInstanceCommunicationNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_EnsureInstanceCommunicationNetwork</span>(cfg, network_name):
+    
+    <a class="headerLink" href="#_EnsureInstanceCommunicationNetwork" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Ensure that the instance communication network exists and is connected to all groups.</p>
+<p>The instance communication network given by <code>network_name</code> it is created, if necessary, via the opcode 'OpNetworkAdd'.  Also, the instance communication network is connected to all existing node groups, if necessary, via the opcode 'OpNetworkConnect'.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">network<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">instance communication network name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.cmdlib.base.ResultWithJobs.html" class="internal-link" title="ganeti.cmdlib.base.ResultWithJobs">ganeti.cmdlib.ResultWithJobs</a></code> or <code>None</code></td><td class="fieldArgDesc"><code><a href="ganeti.cmdlib.base.ResultWithJobs.html" class="internal-link" title="ganeti.cmdlib.base.ResultWithJobs">ganeti.cmdlib.ResultWithJobs</a></code> if the instance communication needs to be created or it needs to be connected to a group, otherwise <code>None</code></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSetsInner">
+    
+  </a>
+  <a name="_GetDiskTemplateSetsInner">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetDiskTemplateSetsInner</span>(op_enabled_disk_templates, old_enabled_disk_templates):
+    
+    <a class="headerLink" href="#_GetDiskTemplateSetsInner" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSetsInner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes three sets of disk templates.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">_GetDiskTemplateSets</tt> for more details.</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._ModifyInstanceCommunicationNetwork">
+    
+  </a>
+  <a name="_ModifyInstanceCommunicationNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ModifyInstanceCommunicationNetwork</span>(cfg, network_name, feedback_fn):
+    
+    <a class="headerLink" href="#_ModifyInstanceCommunicationNetwork" title="ganeti.cmdlib.cluster.LUClusterSetParams._ModifyInstanceCommunicationNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Update the instance communication network stored in the cluster configuration.</p>
+<p>Compares the user-supplied instance communication network against the one stored in the Ganeti cluster configuration.  If there is a change, the instance communication network may be possibly created and connected to all groups (see <code><a href="#_EnsureInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">LUClusterSetParams._EnsureInstanceCommunicationNetwork</a></code>).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">network<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">instance communication network name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feedback<wbr></wbr>_fn:</span>function</td><td class="fieldArgDesc">see <code>ganeti.cmdlist.base.LogicalUnit</code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="#_EnsureInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">LUClusterSetParams._EnsureInstanceCommunicationNetwork</a></code> or <code>None</code></td><td class="fieldArgDesc">see <code><a href="#_EnsureInstanceCommunicationNetwork" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams._EnsureInstanceCommunicationNetwork">LUClusterSetParams._EnsureInstanceCommunicationNetwork</a></code></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._BuildOSParams">
+    
+  </a>
+  <a name="_BuildOSParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BuildOSParams</span>(self, cluster):
+    
+    <a class="headerLink" href="#_BuildOSParams" title="ganeti.cmdlib.cluster.LUClusterSetParams._BuildOSParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Calculate the new OS parameters for this operation.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelper">
+    
+  </a>
+  <a name="_CheckDrbdHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckDrbdHelper</span>(self, node_uuids, drbd_enabled, drbd_gets_enabled):
+    
+    <a class="headerLink" href="#_CheckDrbdHelper" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the DRBD usermode helper.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list of strings</td><td class="fieldArgDesc">a list of nodes' UUIDs</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_enabled:</span>boolean</td><td class="fieldArgDesc">whether DRBD will be enabled after this operation (no matter if it was disabled before or not)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_gets<wbr></wbr>_enabled:</span>boolen</td><td class="fieldArgDesc">true if DRBD was disabled before this operation, but will be enabled afterwards</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelperOnNodes">
+    
+  </a>
+  <a name="_CheckDrbdHelperOnNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckDrbdHelperOnNodes</span>(self, drbd_helper, node_uuids):
+    
+    <a class="headerLink" href="#_CheckDrbdHelperOnNodes" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckDrbdHelperOnNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the set DRBD helper actually exists on the nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">drbd<wbr></wbr>_helper:</span>string</td><td class="fieldArgDesc">path of the drbd usermode helper binary</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_uuids:</span>list of strings</td><td class="fieldArgDesc">list of node UUIDs to check for the helper</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstancesOfDisabledDiskTemplates">
+    
+  </a>
+  <a name="_CheckInstancesOfDisabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckInstancesOfDisabledDiskTemplates</span>(self, disabled_disk_templates):
+    
+    <a class="headerLink" href="#_CheckInstancesOfDisabledDiskTemplates" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckInstancesOfDisabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether we try to disable a disk template that is in use.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of string</td><td class="fieldArgDesc">list of disk templates that are going to be disabled by this operation</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckIpolicy">
+    
+  </a>
+  <a name="_CheckIpolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckIpolicy</span>(self, cluster, enabled_disk_templates):
+    
+    <a class="headerLink" href="#_CheckIpolicy" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckIpolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks the ipolicy.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster:</span><tt class="rst-docutils literal">objects.Cluster</tt></td><td class="fieldArgDesc">the cluster's configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">enabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of string</td><td class="fieldArgDesc">list of (possibly newly) enabled disk templates</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgName">
+    
+  </a>
+  <a name="_CheckVgName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckVgName</span>(self, node_uuids, enabled_disk_templates, new_enabled_disk_templates):
+    
+    <a class="headerLink" href="#_CheckVgName" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the consistency of the vg name on all nodes and in case it gets unset whether there are instances still using it.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgNameOnNodes">
+    
+  </a>
+  <a name="_CheckVgNameOnNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckVgNameOnNodes</span>(self, node_uuids):
+    
+    <a class="headerLink" href="#_CheckVgNameOnNodes" title="ganeti.cmdlib.cluster.LUClusterSetParams._CheckVgNameOnNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check the status of the volume group on each node.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSets">
+    
+  </a>
+  <a name="_GetDiskTemplateSets">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetDiskTemplateSets</span>(self, cluster):
+    
+    <a class="headerLink" href="#_GetDiskTemplateSets" title="ganeti.cmdlib.cluster.LUClusterSetParams._GetDiskTemplateSets">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Computes three sets of disk templates.</p>
+<p>The three sets are:</p>
+<ul class="rst-simple">
+<li>disk templates that will be enabled after this operation (no matter if they were enabled before or not)</li>
+<li>disk templates that get enabled by this operation (thus haven't been enabled before.)</li>
+<li>disk templates that get disabled by this operation</li>
+</ul>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._SetDrbdHelper">
+    
+  </a>
+  <a name="_SetDrbdHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetDrbdHelper</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_SetDrbdHelper" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetDrbdHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set the DRBD usermode helper.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._SetFileStorageDir">
+    
+  </a>
+  <a name="_SetFileStorageDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetFileStorageDir</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_SetFileStorageDir" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetFileStorageDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set the file storage directory.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._SetSharedFileStorageDir">
+    
+  </a>
+  <a name="_SetSharedFileStorageDir">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetSharedFileStorageDir</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_SetSharedFileStorageDir" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetSharedFileStorageDir">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set the shared file storage directory.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.cluster.LUClusterSetParams._SetVgName">
+    
+  </a>
+  <a name="_SetVgName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetVgName</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#_SetVgName" title="ganeti.cmdlib.cluster.LUClusterSetParams._SetVgName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determines and sets the new volume group name.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

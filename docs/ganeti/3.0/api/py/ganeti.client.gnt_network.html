@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.client.gnt_network</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.client.gnt_network.html" class="internal-link" title="This module">gnt<wbr></wbr>_network</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddNetwork" class="internal-link" title="ganeti.client.gnt_network.AddNetwork"><wbr></wbr>Add<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ConnectNetwork" class="internal-link" title="ganeti.client.gnt_network.ConnectNetwork"><wbr></wbr>Connect<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DisconnectNetwork" class="internal-link" title="ganeti.client.gnt_network.DisconnectNetwork"><wbr></wbr>Disconnect<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListNetworkFields" class="internal-link" title="ganeti.client.gnt_network.ListNetworkFields"><wbr></wbr>List<wbr></wbr>Network<wbr></wbr>Fields</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ListNetworks" class="internal-link" title="ganeti.client.gnt_network.ListNetworks"><wbr></wbr>List<wbr></wbr>Networks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_network.Main"><wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RemoveNetwork" class="internal-link" title="ganeti.client.gnt_network.RemoveNetwork"><wbr></wbr>Remove<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RenameNetwork" class="internal-link" title="ganeti.client.gnt_network.RenameNetwork"><wbr></wbr>Rename<wbr></wbr>Network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetNetworkParams" class="internal-link" title="ganeti.client.gnt_network.SetNetworkParams"><wbr></wbr>Set<wbr></wbr>Network<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowNetworkConfig" class="internal-link" title="ganeti.client.gnt_network.ShowNetworkConfig"><wbr></wbr>Show<wbr></wbr>Network<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetDefaultGroups" class="internal-link" title="ganeti.client.gnt_network._GetDefaultGroups">_<wbr></wbr>Get<wbr></wbr>Default<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_HandleReservedIPs" class="internal-link" title="ganeti.client.gnt_network._HandleReservedIPs">_<wbr></wbr>Handle<wbr></wbr>Reserved<wbr></wbr>IPs</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_network.commands">commands</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_LIST_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_network._LIST_DEF_FIELDS">_LIST<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.client.html" class="internal-link" title="The parent of this module">client</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.base.html" class="internal-link" title="ganeti.client.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_backup.html" class="internal-link" title="ganeti.client.gnt_backup">gnt<wbr></wbr>_backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_cluster.html" class="internal-link" title="ganeti.client.gnt_cluster">gnt<wbr></wbr>_cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_debug.html" class="internal-link" title="ganeti.client.gnt_debug">gnt<wbr></wbr>_debug</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_filter.html" class="internal-link" title="ganeti.client.gnt_filter">gnt<wbr></wbr>_filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_group.html" class="internal-link" title="ganeti.client.gnt_group">gnt<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_instance.html" class="internal-link" title="ganeti.client.gnt_instance">gnt<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_job.html" class="internal-link" title="ganeti.client.gnt_job">gnt<wbr></wbr>_job</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_network.html" class="internal-link" title="ganeti.client.gnt_network">gnt<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_node.html" class="internal-link" title="ganeti.client.gnt_node">gnt<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_os.html" class="internal-link" title="ganeti.client.gnt_os">gnt<wbr></wbr>_os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_storage.html" class="internal-link" title="ganeti.client.gnt_storage">gnt<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code><wbr></wbr>.<code><a href="ganeti.client.gnt_network.html" class="internal-link" title="ganeti.client.gnt_network">gnt_network</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>IP pool related commands</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id77">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#AddNetwork" class="internal-link" title="ganeti.client.gnt_network.AddNetwork"><wbr></wbr>Add<wbr></wbr>Network</a></code></td>
+    <td>Add a network to the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ConnectNetwork" class="internal-link" title="ganeti.client.gnt_network.ConnectNetwork"><wbr></wbr>Connect<wbr></wbr>Network</a></code></td>
+    <td>Map a network to a node group.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DisconnectNetwork" class="internal-link" title="ganeti.client.gnt_network.DisconnectNetwork"><wbr></wbr>Disconnect<wbr></wbr>Network</a></code></td>
+    <td>Unmap a network from a node group.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListNetworkFields" class="internal-link" title="ganeti.client.gnt_network.ListNetworkFields"><wbr></wbr>List<wbr></wbr>Network<wbr></wbr>Fields</a></code></td>
+    <td>List network fields.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ListNetworks" class="internal-link" title="ganeti.client.gnt_network.ListNetworks"><wbr></wbr>List<wbr></wbr>Networks</a></code></td>
+    <td>List Ip pools and their properties.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_network.Main"><wbr></wbr>Main</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RemoveNetwork" class="internal-link" title="ganeti.client.gnt_network.RemoveNetwork"><wbr></wbr>Remove<wbr></wbr>Network</a></code></td>
+    <td>Remove an IP address pool from the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RenameNetwork" class="internal-link" title="ganeti.client.gnt_network.RenameNetwork"><wbr></wbr>Rename<wbr></wbr>Network</a></code></td>
+    <td>Rename a network.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetNetworkParams" class="internal-link" title="ganeti.client.gnt_network.SetNetworkParams"><wbr></wbr>Set<wbr></wbr>Network<wbr></wbr>Params</a></code></td>
+    <td>Modifies an IP address pool's parameters.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowNetworkConfig" class="internal-link" title="ganeti.client.gnt_network.ShowNetworkConfig"><wbr></wbr>Show<wbr></wbr>Network<wbr></wbr>Config</a></code></td>
+    <td>Show network information.</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_network.commands">commands</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetDefaultGroups" class="internal-link" title="ganeti.client.gnt_network._GetDefaultGroups">_<wbr></wbr>Get<wbr></wbr>Default<wbr></wbr>Groups</a></code></td>
+    <td>Gets list of groups to operate on.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_HandleReservedIPs" class="internal-link" title="ganeti.client.gnt_network._HandleReservedIPs">_<wbr></wbr>Handle<wbr></wbr>Reserved<wbr></wbr>IPs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_LIST_DEF_FIELDS" class="internal-link" title="ganeti.client.gnt_network._LIST_DEF_FIELDS">_LIST<wbr></wbr>_DEF<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.AddNetwork">
+    
+  </a>
+  <a name="AddNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddNetwork</span>(opts, args):
+    
+    <a class="headerLink" href="#AddNetwork" title="ganeti.client.gnt_network.AddNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Add a network to the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">a list of length 1 with the network name to create</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.ConnectNetwork">
+    
+  </a>
+  <a name="ConnectNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ConnectNetwork</span>(opts, args):
+    
+    <a class="headerLink" href="#ConnectNetwork" title="ganeti.client.gnt_network.ConnectNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Map a network to a node group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">Network, mode, physlink and node groups</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.DisconnectNetwork">
+    
+  </a>
+  <a name="DisconnectNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DisconnectNetwork</span>(opts, args):
+    
+    <a class="headerLink" href="#DisconnectNetwork" title="ganeti.client.gnt_network.DisconnectNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Unmap a network from a node group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">Network and node groups</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.ListNetworkFields">
+    
+  </a>
+  <a name="ListNetworkFields">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListNetworkFields</span>(opts, args):
+    
+    <a class="headerLink" href="#ListNetworkFields" title="ganeti.client.gnt_network.ListNetworkFields">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List network fields.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">fields to list, or empty for all</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.ListNetworks">
+    
+  </a>
+  <a name="ListNetworks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ListNetworks</span>(opts, args):
+    
+    <a class="headerLink" href="#ListNetworks" title="ganeti.client.gnt_network.ListNetworks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>List Ip pools and their properties.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">networks to list, or empty for all</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.Main">
+    
+  </a>
+  <a name="Main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Main</span>():
+    
+    <a class="headerLink" href="#Main" title="ganeti.client.gnt_network.Main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.RemoveNetwork">
+    
+  </a>
+  <a name="RemoveNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RemoveNetwork</span>(opts, args):
+    
+    <a class="headerLink" href="#RemoveNetwork" title="ganeti.client.gnt_network.RemoveNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove an IP address pool from the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">a list of length 1 with the id of the IP address pool to remove</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.RenameNetwork">
+    
+  </a>
+  <a name="RenameNetwork">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RenameNetwork</span>(opts, args):
+    
+    <a class="headerLink" href="#RenameNetwork" title="ganeti.client.gnt_network.RenameNetwork">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Rename a network.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">a list of length 2, [old_name, new_name]</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.SetNetworkParams">
+    
+  </a>
+  <a name="SetNetworkParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetNetworkParams</span>(opts, args):
+    
+    <a class="headerLink" href="#SetNetworkParams" title="ganeti.client.gnt_network.SetNetworkParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modifies an IP address pool's parameters.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the node group name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_network.ShowNetworkConfig">
+    
+  </a>
+  <a name="ShowNetworkConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowNetworkConfig</span>(_, args):
+    
+    <a class="headerLink" href="#ShowNetworkConfig" title="ganeti.client.gnt_network.ShowNetworkConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show network information.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should either be an empty list, in which case we show information about all nodes, or should contain a list of networks (names or UUIDs) to be queried for information</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.client.gnt_network.commands">
+    
+  </a>
+  <a name="commands">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">commands</span> =
+    
+    <a class="headerLink" href="#commands" title="ganeti.client.gnt_network.commands">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_network._GetDefaultGroups">
+    
+  </a>
+  <a name="_GetDefaultGroups">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetDefaultGroups</span>(cl, groups):
+    
+    <a class="headerLink" href="#_GetDefaultGroups" title="ganeti.client.gnt_network._GetDefaultGroups">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets list of groups to operate on.</p>
+<p>If <tt class="rst-docutils literal">groups</tt> doesn't contain groups, a list of all groups in the cluster is returned.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cl:</span><code><a href="ganeti.luxi.Client.html" class="internal-link" title="ganeti.luxi.Client">luxi.Client</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">groups:</span>list</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_network._HandleReservedIPs">
+    
+  </a>
+  <a name="_HandleReservedIPs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_HandleReservedIPs</span>(ips):
+    
+    <a class="headerLink" href="#_HandleReservedIPs" title="ganeti.client.gnt_network._HandleReservedIPs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_network._LIST_DEF_FIELDS">
+    
+  </a>
+  <a name="_LIST_DEF_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_LIST_DEF_FIELDS</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#_LIST_DEF_FIELDS" title="ganeti.client.gnt_network._LIST_DEF_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">name</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">network</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">gateway</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">mac_prefix</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">group_list</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">tags</span><span class="rst-variable-quote">'</span>]</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

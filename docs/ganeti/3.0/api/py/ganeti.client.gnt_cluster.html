@@ -1,0 +1,3304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.client.gnt_cluster</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.client.gnt_cluster.html" class="internal-link" title="This module">gnt<wbr></wbr>_cluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_cluster._RunWhenNodesReachableHelper.html" class="internal-link" title="ganeti.client.gnt_cluster._RunWhenNodesReachableHelper">_<wbr></wbr>Run<wbr></wbr>When<wbr></wbr>Nodes<wbr></wbr>Reachable<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ActivateMasterIp" class="internal-link" title="ganeti.client.gnt_cluster.ActivateMasterIp"><wbr></wbr>Activate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ClusterCopyFile" class="internal-link" title="ganeti.client.gnt_cluster.ClusterCopyFile"><wbr></wbr>Cluster<wbr></wbr>Copy<wbr></wbr>File</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DeactivateMasterIp" class="internal-link" title="ganeti.client.gnt_cluster.DeactivateMasterIp"><wbr></wbr>Deactivate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DestroyCluster" class="internal-link" title="ganeti.client.gnt_cluster.DestroyCluster"><wbr></wbr>Destroy<wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Epo" class="internal-link" title="ganeti.client.gnt_cluster.Epo"><wbr></wbr>Epo</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#InitCluster" class="internal-link" title="ganeti.client.gnt_cluster.InitCluster"><wbr></wbr>Init<wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_cluster.Main"><wbr></wbr>Main</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MasterFailover" class="internal-link" title="ganeti.client.gnt_cluster.MasterFailover"><wbr></wbr>Master<wbr></wbr>Failover</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MasterPing" class="internal-link" title="ganeti.client.gnt_cluster.MasterPing"><wbr></wbr>Master<wbr></wbr>Ping</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#QueueOps" class="internal-link" title="ganeti.client.gnt_cluster.QueueOps"><wbr></wbr>Queue<wbr></wbr>Ops</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RedistributeConfig" class="internal-link" title="ganeti.client.gnt_cluster.RedistributeConfig"><wbr></wbr>Redistribute<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RenameCluster" class="internal-link" title="ganeti.client.gnt_cluster.RenameCluster"><wbr></wbr>Rename<wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RenewCrypto" class="internal-link" title="ganeti.client.gnt_cluster.RenewCrypto"><wbr></wbr>Renew<wbr></wbr>Crypto</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RepairDiskSizes" class="internal-link" title="ganeti.client.gnt_cluster.RepairDiskSizes"><wbr></wbr>Repair<wbr></wbr>Disk<wbr></wbr>Sizes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunClusterCommand" class="internal-link" title="ganeti.client.gnt_cluster.RunClusterCommand"><wbr></wbr>Run<wbr></wbr>Cluster<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SearchTags" class="internal-link" title="ganeti.client.gnt_cluster.SearchTags"><wbr></wbr>Search<wbr></wbr>Tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetClusterParams" class="internal-link" title="ganeti.client.gnt_cluster.SetClusterParams"><wbr></wbr>Set<wbr></wbr>Cluster<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowClusterConfig" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterConfig"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowClusterMaster" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterMaster"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Master</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowClusterVersion" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterVersion"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Version</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShowCreateCommand" class="internal-link" title="ganeti.client.gnt_cluster.ShowCreateCommand"><wbr></wbr>Show<wbr></wbr>Create<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#UpgradeGanetiCommand" class="internal-link" title="ganeti.client.gnt_cluster.UpgradeGanetiCommand"><wbr></wbr>Upgrade<wbr></wbr>Ganeti<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyCluster" class="internal-link" title="ganeti.client.gnt_cluster.VerifyCluster"><wbr></wbr>Verify<wbr></wbr>Cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#VerifyDisks" class="internal-link" title="ganeti.client.gnt_cluster.VerifyDisks"><wbr></wbr>Verify<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#WatcherOps" class="internal-link" title="ganeti.client.gnt_cluster.WatcherOps"><wbr></wbr>Watcher<wbr></wbr>Ops</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BuildGanetiPubKeys" class="internal-link" title="ganeti.client.gnt_cluster._BuildGanetiPubKeys">_<wbr></wbr>Build<wbr></wbr>Ganeti<wbr></wbr>Pub<wbr></wbr>Keys</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EpoOff" class="internal-link" title="ganeti.client.gnt_cluster._EpoOff">_<wbr></wbr>Epo<wbr></wbr>Off</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EpoOn" class="internal-link" title="ganeti.client.gnt_cluster._EpoOn">_<wbr></wbr>Epo<wbr></wbr>On</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ExecuteCommands" class="internal-link" title="ganeti.client.gnt_cluster._ExecuteCommands">_<wbr></wbr>Execute<wbr></wbr>Commands</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatDataCollectors" class="internal-link" title="ganeti.client.gnt_cluster._FormatDataCollectors">_<wbr></wbr>Format<wbr></wbr>Data<wbr></wbr>Collectors</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_FormatGroupedParams" class="internal-link" title="ganeti.client.gnt_cluster._FormatGroupedParams">_<wbr></wbr>Format<wbr></wbr>Grouped<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetCompressionTools" class="internal-link" title="ganeti.client.gnt_cluster._GetCompressionTools">_<wbr></wbr>Get<wbr></wbr>Compression<wbr></wbr>Tools</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetConfigVersion" class="internal-link" title="ganeti.client.gnt_cluster._GetConfigVersion">_<wbr></wbr>Get<wbr></wbr>Config<wbr></wbr>Version</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetCreateCommand" class="internal-link" title="ganeti.client.gnt_cluster._GetCreateCommand">_<wbr></wbr>Get<wbr></wbr>Create<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetDrbdHelper" class="internal-link" title="ganeti.client.gnt_cluster._GetDrbdHelper">_<wbr></wbr>Get<wbr></wbr>Drbd<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetEnabledDiskTemplates" class="internal-link" title="ganeti.client.gnt_cluster._GetEnabledDiskTemplates">_<wbr></wbr>Get<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetRunning" class="internal-link" title="ganeti.client.gnt_cluster._GetRunning">_<wbr></wbr>Get<wbr></wbr>Running</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetVgName" class="internal-link" title="ganeti.client.gnt_cluster._GetVgName">_<wbr></wbr>Get<wbr></wbr>Vg<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitDrbdHelper" class="internal-link" title="ganeti.client.gnt_cluster._InitDrbdHelper">_<wbr></wbr>Init<wbr></wbr>Drbd<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitEnabledDiskTemplates" class="internal-link" title="ganeti.client.gnt_cluster._InitEnabledDiskTemplates">_<wbr></wbr>Init<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitVgName" class="internal-link" title="ganeti.client.gnt_cluster._InitVgName">_<wbr></wbr>Init<wbr></wbr>Vg<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InstanceStart" class="internal-link" title="ganeti.client.gnt_cluster._InstanceStart">_<wbr></wbr>Instance<wbr></wbr>Start</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MaybeInstanceStartup" class="internal-link" title="ganeti.client.gnt_cluster._MaybeInstanceStartup">_<wbr></wbr>Maybe<wbr></wbr>Instance<wbr></wbr>Startup</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_OobPower" class="internal-link" title="ganeti.client.gnt_cluster._OobPower">_<wbr></wbr>Oob<wbr></wbr>Power</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ReadAndVerifyCert" class="internal-link" title="ganeti.client.gnt_cluster._ReadAndVerifyCert">_<wbr></wbr>Read<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Cert</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ReadIntentToUpgrade" class="internal-link" title="ganeti.client.gnt_cluster._ReadIntentToUpgrade">_<wbr></wbr>Read<wbr></wbr>Intent<wbr></wbr>To<wbr></wbr>Upgrade</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RenewCrypto" class="internal-link" title="ganeti.client.gnt_cluster._RenewCrypto">_<wbr></wbr>Renew<wbr></wbr>Crypto</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RunCommandAndReport" class="internal-link" title="ganeti.client.gnt_cluster._RunCommandAndReport">_<wbr></wbr>Run<wbr></wbr>Command<wbr></wbr>And<wbr></wbr>Report</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RunWhenNodesReachable" class="internal-link" title="ganeti.client.gnt_cluster._RunWhenNodesReachable">_<wbr></wbr>Run<wbr></wbr>When<wbr></wbr>Nodes<wbr></wbr>Reachable</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SetGanetiVersionAndEnsure" class="internal-link" title="ganeti.client.gnt_cluster._SetGanetiVersionAndEnsure">_<wbr></wbr>Set<wbr></wbr>Ganeti<wbr></wbr>Version<wbr></wbr>And<wbr></wbr>Ensure</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ShowWatcherPause" class="internal-link" title="ganeti.client.gnt_cluster._ShowWatcherPause">_<wbr></wbr>Show<wbr></wbr>Watcher<wbr></wbr>Pause</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SwitchVersionAndConfig" class="internal-link" title="ganeti.client.gnt_cluster._SwitchVersionAndConfig">_<wbr></wbr>Switch<wbr></wbr>Version<wbr></wbr>And<wbr></wbr>Config</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpgradeAfterConfigurationChange" class="internal-link" title="ganeti.client.gnt_cluster._UpgradeAfterConfigurationChange">_<wbr></wbr>Upgrade<wbr></wbr>After<wbr></wbr>Configuration<wbr></wbr>Change</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UpgradeBeforeConfigurationChange" class="internal-link" title="ganeti.client.gnt_cluster._UpgradeBeforeConfigurationChange">_<wbr></wbr>Upgrade<wbr></wbr>Before<wbr></wbr>Configuration<wbr></wbr>Change</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyCommand" class="internal-link" title="ganeti.client.gnt_cluster._VerifyCommand">_<wbr></wbr>Verify<wbr></wbr>Command</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyCommandRaw" class="internal-link" title="ganeti.client.gnt_cluster._VerifyCommandRaw">_<wbr></wbr>Verify<wbr></wbr>Command<wbr></wbr>Raw</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VerifyVersionInstalled" class="internal-link" title="ganeti.client.gnt_cluster._VerifyVersionInstalled">_<wbr></wbr>Verify<wbr></wbr>Version<wbr></wbr>Installed</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_VersionSpecificDowngrade" class="internal-link" title="ganeti.client.gnt_cluster._VersionSpecificDowngrade">_<wbr></wbr>Version<wbr></wbr>Specific<wbr></wbr>Downgrade</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_WriteIntentToUpgrade" class="internal-link" title="ganeti.client.gnt_cluster._WriteIntentToUpgrade">_<wbr></wbr>Write<wbr></wbr>Intent<wbr></wbr>To<wbr></wbr>Upgrade</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DATA_COLLECTOR_INTERVAL_OPT" class="internal-link" title="ganeti.client.gnt_cluster.DATA_COLLECTOR_INTERVAL_OPT">DATA<wbr></wbr>_COLLECTOR<wbr></wbr>_INTERVAL<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FORCE_DISTRIBUTION" class="internal-link" title="ganeti.client.gnt_cluster.FORCE_DISTRIBUTION">FORCE<wbr></wbr>_DISTRIBUTION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FORCE_FAILOVER" class="internal-link" title="ganeti.client.gnt_cluster.FORCE_FAILOVER">FORCE<wbr></wbr>_FAILOVER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GROUPS_OPT" class="internal-link" title="ganeti.client.gnt_cluster.GROUPS_OPT">GROUPS<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#IGNORE_OFFLINE_NODES_FAILOVER" class="internal-link" title="ganeti.client.gnt_cluster.IGNORE_OFFLINE_NODES_FAILOVER">IGNORE<wbr></wbr>_OFFLINE<wbr></wbr>_NODES<wbr></wbr>_FAILOVER</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ON_OPT" class="internal-link" title="ganeti.client.gnt_cluster.ON_OPT">ON<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RESUME_OPT" class="internal-link" title="ganeti.client.gnt_cluster.RESUME_OPT">RESUME<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#STRICT_OPT" class="internal-link" title="ganeti.client.gnt_cluster.STRICT_OPT">STRICT<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TO_OPT" class="internal-link" title="ganeti.client.gnt_cluster.TO_OPT">TO<wbr></wbr>_OPT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aliases" class="internal-link" title="ganeti.client.gnt_cluster.aliases">aliases</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_cluster.commands">commands</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EPO_PING_INTERVAL" class="internal-link" title="ganeti.client.gnt_cluster._EPO_PING_INTERVAL">_EPO<wbr></wbr>_PING<wbr></wbr>_INTERVAL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EPO_PING_TIMEOUT" class="internal-link" title="ganeti.client.gnt_cluster._EPO_PING_TIMEOUT">_EPO<wbr></wbr>_PING<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EPO_REACHABLE_TIMEOUT" class="internal-link" title="ganeti.client.gnt_cluster._EPO_REACHABLE_TIMEOUT">_EPO<wbr></wbr>_REACHABLE<wbr></wbr>_TIMEOUT</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.client.html" class="internal-link" title="The parent of this module">client</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.base.html" class="internal-link" title="ganeti.client.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_backup.html" class="internal-link" title="ganeti.client.gnt_backup">gnt<wbr></wbr>_backup</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_cluster.html" class="internal-link" title="ganeti.client.gnt_cluster">gnt<wbr></wbr>_cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_debug.html" class="internal-link" title="ganeti.client.gnt_debug">gnt<wbr></wbr>_debug</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_filter.html" class="internal-link" title="ganeti.client.gnt_filter">gnt<wbr></wbr>_filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_group.html" class="internal-link" title="ganeti.client.gnt_group">gnt<wbr></wbr>_group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_instance.html" class="internal-link" title="ganeti.client.gnt_instance">gnt<wbr></wbr>_instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_job.html" class="internal-link" title="ganeti.client.gnt_job">gnt<wbr></wbr>_job</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_network.html" class="internal-link" title="ganeti.client.gnt_network">gnt<wbr></wbr>_network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_node.html" class="internal-link" title="ganeti.client.gnt_node">gnt<wbr></wbr>_node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_os.html" class="internal-link" title="ganeti.client.gnt_os">gnt<wbr></wbr>_os</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.client.gnt_storage.html" class="internal-link" title="ganeti.client.gnt_storage">gnt<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.client.html" class="internal-link" title="ganeti.client">client</a></code><wbr></wbr>.<code><a href="ganeti.client.gnt_cluster.html" class="internal-link" title="ganeti.client.gnt_cluster">gnt_cluster</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Cluster related commands</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id68">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ActivateMasterIp" class="internal-link" title="ganeti.client.gnt_cluster.ActivateMasterIp"><wbr></wbr>Activate<wbr></wbr>Master<wbr></wbr>Ip</a></code></td>
+    <td>Activates the master IP.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ClusterCopyFile" class="internal-link" title="ganeti.client.gnt_cluster.ClusterCopyFile"><wbr></wbr>Cluster<wbr></wbr>Copy<wbr></wbr>File</a></code></td>
+    <td>Copy a file from master to some nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DeactivateMasterIp" class="internal-link" title="ganeti.client.gnt_cluster.DeactivateMasterIp"><wbr></wbr>Deactivate<wbr></wbr>Master<wbr></wbr>Ip</a></code></td>
+    <td>Deactivates the master IP.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#DestroyCluster" class="internal-link" title="ganeti.client.gnt_cluster.DestroyCluster"><wbr></wbr>Destroy<wbr></wbr>Cluster</a></code></td>
+    <td>Destroy the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Epo" class="internal-link" title="ganeti.client.gnt_cluster.Epo"><wbr></wbr>Epo</a></code></td>
+    <td>EPO operations.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#InitCluster" class="internal-link" title="ganeti.client.gnt_cluster.InitCluster"><wbr></wbr>Init<wbr></wbr>Cluster</a></code></td>
+    <td>Initialize the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#Main" class="internal-link" title="ganeti.client.gnt_cluster.Main"><wbr></wbr>Main</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MasterFailover" class="internal-link" title="ganeti.client.gnt_cluster.MasterFailover"><wbr></wbr>Master<wbr></wbr>Failover</a></code></td>
+    <td>Failover the master node.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#MasterPing" class="internal-link" title="ganeti.client.gnt_cluster.MasterPing"><wbr></wbr>Master<wbr></wbr>Ping</a></code></td>
+    <td>Checks if the master is alive.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#QueueOps" class="internal-link" title="ganeti.client.gnt_cluster.QueueOps"><wbr></wbr>Queue<wbr></wbr>Ops</a></code></td>
+    <td>Queue operations.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RedistributeConfig" class="internal-link" title="ganeti.client.gnt_cluster.RedistributeConfig"><wbr></wbr>Redistribute<wbr></wbr>Config</a></code></td>
+    <td>Forces push of the cluster configuration.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RenameCluster" class="internal-link" title="ganeti.client.gnt_cluster.RenameCluster"><wbr></wbr>Rename<wbr></wbr>Cluster</a></code></td>
+    <td>Rename the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RenewCrypto" class="internal-link" title="ganeti.client.gnt_cluster.RenewCrypto"><wbr></wbr>Renew<wbr></wbr>Crypto</a></code></td>
+    <td>Renews cluster certificates, keys and secrets.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RepairDiskSizes" class="internal-link" title="ganeti.client.gnt_cluster.RepairDiskSizes"><wbr></wbr>Repair<wbr></wbr>Disk<wbr></wbr>Sizes</a></code></td>
+    <td>Verify sizes of cluster disks.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#RunClusterCommand" class="internal-link" title="ganeti.client.gnt_cluster.RunClusterCommand"><wbr></wbr>Run<wbr></wbr>Cluster<wbr></wbr>Command</a></code></td>
+    <td>Run a command on some nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SearchTags" class="internal-link" title="ganeti.client.gnt_cluster.SearchTags"><wbr></wbr>Search<wbr></wbr>Tags</a></code></td>
+    <td>Searches the tags on all the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SetClusterParams" class="internal-link" title="ganeti.client.gnt_cluster.SetClusterParams"><wbr></wbr>Set<wbr></wbr>Cluster<wbr></wbr>Params</a></code></td>
+    <td>Modify the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowClusterConfig" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterConfig"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Config</a></code></td>
+    <td>Shows cluster information.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowClusterMaster" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterMaster"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Master</a></code></td>
+    <td>Write name of master node to the standard output.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowClusterVersion" class="internal-link" title="ganeti.client.gnt_cluster.ShowClusterVersion"><wbr></wbr>Show<wbr></wbr>Cluster<wbr></wbr>Version</a></code></td>
+    <td>Write version of ganeti software to the standard output.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#ShowCreateCommand" class="internal-link" title="ganeti.client.gnt_cluster.ShowCreateCommand"><wbr></wbr>Show<wbr></wbr>Create<wbr></wbr>Command</a></code></td>
+    <td>Shows the command that can be used to re-create the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#UpgradeGanetiCommand" class="internal-link" title="ganeti.client.gnt_cluster.UpgradeGanetiCommand"><wbr></wbr>Upgrade<wbr></wbr>Ganeti<wbr></wbr>Command</a></code></td>
+    <td>Upgrade a cluster to a new ganeti version.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyCluster" class="internal-link" title="ganeti.client.gnt_cluster.VerifyCluster"><wbr></wbr>Verify<wbr></wbr>Cluster</a></code></td>
+    <td>Verify integrity of cluster, performing various test on nodes.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#VerifyDisks" class="internal-link" title="ganeti.client.gnt_cluster.VerifyDisks"><wbr></wbr>Verify<wbr></wbr>Disks</a></code></td>
+    <td>Verify integrity of cluster disks.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#WatcherOps" class="internal-link" title="ganeti.client.gnt_cluster.WatcherOps"><wbr></wbr>Watcher<wbr></wbr>Ops</a></code></td>
+    <td>Watcher operations.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DATA_COLLECTOR_INTERVAL_OPT" class="internal-link" title="ganeti.client.gnt_cluster.DATA_COLLECTOR_INTERVAL_OPT">DATA<wbr></wbr>_COLLECTOR<wbr></wbr>_INTERVAL<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FORCE_DISTRIBUTION" class="internal-link" title="ganeti.client.gnt_cluster.FORCE_DISTRIBUTION">FORCE<wbr></wbr>_DISTRIBUTION</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FORCE_FAILOVER" class="internal-link" title="ganeti.client.gnt_cluster.FORCE_FAILOVER">FORCE<wbr></wbr>_FAILOVER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#GROUPS_OPT" class="internal-link" title="ganeti.client.gnt_cluster.GROUPS_OPT">GROUPS<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#IGNORE_OFFLINE_NODES_FAILOVER" class="internal-link" title="ganeti.client.gnt_cluster.IGNORE_OFFLINE_NODES_FAILOVER">IGNORE<wbr></wbr>_OFFLINE<wbr></wbr>_NODES<wbr></wbr>_FAILOVER</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#ON_OPT" class="internal-link" title="ganeti.client.gnt_cluster.ON_OPT">ON<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#RESUME_OPT" class="internal-link" title="ganeti.client.gnt_cluster.RESUME_OPT">RESUME<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#STRICT_OPT" class="internal-link" title="ganeti.client.gnt_cluster.STRICT_OPT">STRICT<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#TO_OPT" class="internal-link" title="ganeti.client.gnt_cluster.TO_OPT">TO<wbr></wbr>_OPT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#aliases" class="internal-link" title="ganeti.client.gnt_cluster.aliases">aliases</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#commands" class="internal-link" title="ganeti.client.gnt_cluster.commands">commands</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.client.gnt_cluster._RunWhenNodesReachableHelper.html" class="internal-link" title="ganeti.client.gnt_cluster._RunWhenNodesReachableHelper">_<wbr></wbr>Run<wbr></wbr>When<wbr></wbr>Nodes<wbr></wbr>Reachable<wbr></wbr>Helper</a></code></td>
+    <td>Helper class to make shared internal state sharing easier.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_BuildGanetiPubKeys" class="internal-link" title="ganeti.client.gnt_cluster._BuildGanetiPubKeys">_<wbr></wbr>Build<wbr></wbr>Ganeti<wbr></wbr>Pub<wbr></wbr>Keys</a></code></td>
+    <td>Recreates the 'ganeti_pub_key' file by polling all nodes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_EpoOff" class="internal-link" title="ganeti.client.gnt_cluster._EpoOff">_<wbr></wbr>Epo<wbr></wbr>Off</a></code></td>
+    <td>Does the actual power off.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_EpoOn" class="internal-link" title="ganeti.client.gnt_cluster._EpoOn">_<wbr></wbr>Epo<wbr></wbr>On</a></code></td>
+    <td>Does the actual power on.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ExecuteCommands" class="internal-link" title="ganeti.client.gnt_cluster._ExecuteCommands">_<wbr></wbr>Execute<wbr></wbr>Commands</a></code></td>
+    <td>Execute a list of functions, in reverse order.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatDataCollectors" class="internal-link" title="ganeti.client.gnt_cluster._FormatDataCollectors">_<wbr></wbr>Format<wbr></wbr>Data<wbr></wbr>Collectors</a></code></td>
+    <td>Format Grouped parameters (be, nic, disk) by group.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_FormatGroupedParams" class="internal-link" title="ganeti.client.gnt_cluster._FormatGroupedParams">_<wbr></wbr>Format<wbr></wbr>Grouped<wbr></wbr>Params</a></code></td>
+    <td>Format Grouped parameters (be, nic, disk) by group.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetCompressionTools" class="internal-link" title="ganeti.client.gnt_cluster._GetCompressionTools">_<wbr></wbr>Get<wbr></wbr>Compression<wbr></wbr>Tools</a></code></td>
+    <td>Determine the list of custom compression tools.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetConfigVersion" class="internal-link" title="ganeti.client.gnt_cluster._GetConfigVersion">_<wbr></wbr>Get<wbr></wbr>Config<wbr></wbr>Version</a></code></td>
+    <td>Determine the version the configuration file currently has.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetCreateCommand" class="internal-link" title="ganeti.client.gnt_cluster._GetCreateCommand">_<wbr></wbr>Get<wbr></wbr>Create<wbr></wbr>Command</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetDrbdHelper" class="internal-link" title="ganeti.client.gnt_cluster._GetDrbdHelper">_<wbr></wbr>Get<wbr></wbr>Drbd<wbr></wbr>Helper</a></code></td>
+    <td>Determine the DRBD usermode helper.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetEnabledDiskTemplates" class="internal-link" title="ganeti.client.gnt_cluster._GetEnabledDiskTemplates">_<wbr></wbr>Get<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Determine the list of enabled disk templates.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetRunning" class="internal-link" title="ganeti.client.gnt_cluster._GetRunning">_<wbr></wbr>Get<wbr></wbr>Running</a></code></td>
+    <td>Determine the list of running jobs.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_GetVgName" class="internal-link" title="ganeti.client.gnt_cluster._GetVgName">_<wbr></wbr>Get<wbr></wbr>Vg<wbr></wbr>Name</a></code></td>
+    <td>Determine the volume group name.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitDrbdHelper" class="internal-link" title="ganeti.client.gnt_cluster._InitDrbdHelper">_<wbr></wbr>Init<wbr></wbr>Drbd<wbr></wbr>Helper</a></code></td>
+    <td>Initialize the DRBD usermode helper.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitEnabledDiskTemplates" class="internal-link" title="ganeti.client.gnt_cluster._InitEnabledDiskTemplates">_<wbr></wbr>Init<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Initialize the list of enabled disk templates.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InitVgName" class="internal-link" title="ganeti.client.gnt_cluster._InitVgName">_<wbr></wbr>Init<wbr></wbr>Vg<wbr></wbr>Name</a></code></td>
+    <td>Initialize the volume group name.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_InstanceStart" class="internal-link" title="ganeti.client.gnt_cluster._InstanceStart">_<wbr></wbr>Instance<wbr></wbr>Start</a></code></td>
+    <td>Puts the instances in the list to desired state.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_MaybeInstanceStartup" class="internal-link" title="ganeti.client.gnt_cluster._MaybeInstanceStartup">_<wbr></wbr>Maybe<wbr></wbr>Instance<wbr></wbr>Startup</a></code></td>
+    <td>Start the instances conditional based on node_states.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_OobPower" class="internal-link" title="ganeti.client.gnt_cluster._OobPower">_<wbr></wbr>Oob<wbr></wbr>Power</a></code></td>
+    <td>Puts the node in the list to desired power state.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ReadAndVerifyCert" class="internal-link" title="ganeti.client.gnt_cluster._ReadAndVerifyCert">_<wbr></wbr>Read<wbr></wbr>And<wbr></wbr>Verify<wbr></wbr>Cert</a></code></td>
+    <td>Reads and verifies an X509 certificate.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ReadIntentToUpgrade" class="internal-link" title="ganeti.client.gnt_cluster._ReadIntentToUpgrade">_<wbr></wbr>Read<wbr></wbr>Intent<wbr></wbr>To<wbr></wbr>Upgrade</a></code></td>
+    <td>Read the file documenting the intent to upgrade the cluster.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RenewCrypto" class="internal-link" title="ganeti.client.gnt_cluster._RenewCrypto">_<wbr></wbr>Renew<wbr></wbr>Crypto</a></code></td>
+    <td>Renews cluster certificates, keys and secrets.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RunCommandAndReport" class="internal-link" title="ganeti.client.gnt_cluster._RunCommandAndReport">_<wbr></wbr>Run<wbr></wbr>Command<wbr></wbr>And<wbr></wbr>Report</a></code></td>
+    <td>Run a command and report its output, iff it failed.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_RunWhenNodesReachable" class="internal-link" title="ganeti.client.gnt_cluster._RunWhenNodesReachable">_<wbr></wbr>Run<wbr></wbr>When<wbr></wbr>Nodes<wbr></wbr>Reachable</a></code></td>
+    <td>Run action_cb when nodes become reachable.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SetGanetiVersionAndEnsure" class="internal-link" title="ganeti.client.gnt_cluster._SetGanetiVersionAndEnsure">_<wbr></wbr>Set<wbr></wbr>Ganeti<wbr></wbr>Version<wbr></wbr>And<wbr></wbr>Ensure</a></code></td>
+    <td>Symlink the active version of ganeti to the given versionstring, and run the ensure-dirs script.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ShowWatcherPause" class="internal-link" title="ganeti.client.gnt_cluster._ShowWatcherPause">_<wbr></wbr>Show<wbr></wbr>Watcher<wbr></wbr>Pause</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_SwitchVersionAndConfig" class="internal-link" title="ganeti.client.gnt_cluster._SwitchVersionAndConfig">_<wbr></wbr>Switch<wbr></wbr>Version<wbr></wbr>And<wbr></wbr>Config</a></code></td>
+    <td>Switch to the new Ganeti version and change the configuration, in correct order.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_UpgradeAfterConfigurationChange" class="internal-link" title="ganeti.client.gnt_cluster._UpgradeAfterConfigurationChange">_<wbr></wbr>Upgrade<wbr></wbr>After<wbr></wbr>Configuration<wbr></wbr>Change</a></code></td>
+    <td>Carry out the upgrade actions necessary after switching to the new Ganeti version and updating the configuration.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_UpgradeBeforeConfigurationChange" class="internal-link" title="ganeti.client.gnt_cluster._UpgradeBeforeConfigurationChange">_<wbr></wbr>Upgrade<wbr></wbr>Before<wbr></wbr>Configuration<wbr></wbr>Change</a></code></td>
+    <td>Carry out all the tasks necessary for an upgrade that happen before the configuration file, or Ganeti version, changes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyCommand" class="internal-link" title="ganeti.client.gnt_cluster._VerifyCommand">_<wbr></wbr>Verify<wbr></wbr>Command</a></code></td>
+    <td>Verify that a given command succeeds on all online nodes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyCommandRaw" class="internal-link" title="ganeti.client.gnt_cluster._VerifyCommandRaw">_<wbr></wbr>Verify<wbr></wbr>Command<wbr></wbr>Raw</a></code></td>
+    <td>Verify that a given command succeeds on all online nodes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VerifyVersionInstalled" class="internal-link" title="ganeti.client.gnt_cluster._VerifyVersionInstalled">_<wbr></wbr>Verify<wbr></wbr>Version<wbr></wbr>Installed</a></code></td>
+    <td>Verify that the given version of ganeti is installed on all online nodes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_VersionSpecificDowngrade" class="internal-link" title="ganeti.client.gnt_cluster._VersionSpecificDowngrade">_<wbr></wbr>Version<wbr></wbr>Specific<wbr></wbr>Downgrade</a></code></td>
+    <td>Perform any additional downrade tasks that are version specific and need to be done just after the configuration downgrade. This function needs to be idempotent, so that it can be redone if the downgrade procedure gets interrupted after changing the configuration.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_WriteIntentToUpgrade" class="internal-link" title="ganeti.client.gnt_cluster._WriteIntentToUpgrade">_<wbr></wbr>Write<wbr></wbr>Intent<wbr></wbr>To<wbr></wbr>Upgrade</a></code></td>
+    <td>Write file documenting the intent to upgrade the cluster.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EPO_PING_INTERVAL" class="internal-link" title="ganeti.client.gnt_cluster._EPO_PING_INTERVAL">_EPO<wbr></wbr>_PING<wbr></wbr>_INTERVAL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EPO_PING_TIMEOUT" class="internal-link" title="ganeti.client.gnt_cluster._EPO_PING_TIMEOUT">_EPO<wbr></wbr>_PING<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EPO_REACHABLE_TIMEOUT" class="internal-link" title="ganeti.client.gnt_cluster._EPO_REACHABLE_TIMEOUT">_EPO<wbr></wbr>_REACHABLE<wbr></wbr>_TIMEOUT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ActivateMasterIp">
+    
+  </a>
+  <a name="ActivateMasterIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ActivateMasterIp</span>(opts, args):
+    
+    <a class="headerLink" href="#ActivateMasterIp" title="ganeti.client.gnt_cluster.ActivateMasterIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Activates the master IP.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ClusterCopyFile">
+    
+  </a>
+  <a name="ClusterCopyFile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ClusterCopyFile</span>(opts, args):
+    
+    <a class="headerLink" href="#ClusterCopyFile" title="ganeti.client.gnt_cluster.ClusterCopyFile">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Copy a file from master to some nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the path of the file to be copied</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.DeactivateMasterIp">
+    
+  </a>
+  <a name="DeactivateMasterIp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DeactivateMasterIp</span>(opts, args):
+    
+    <a class="headerLink" href="#DeactivateMasterIp" title="ganeti.client.gnt_cluster.DeactivateMasterIp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Deactivates the master IP.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.DestroyCluster">
+    
+  </a>
+  <a name="DestroyCluster">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="ganeti.rpc.node.html#RunWithRPC" class="internal-link" title="ganeti.rpc.node.RunWithRPC">RunWithRPC</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">DestroyCluster</span>(opts, args):
+    
+    <a class="headerLink" href="#DestroyCluster" title="ganeti.client.gnt_cluster.DestroyCluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Destroy the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.Epo">
+    
+  </a>
+  <a name="Epo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Epo</span>(opts, args, qcl=None, _on_fn=<a href="#_EpoOn" class="internal-link" title="ganeti.client.gnt_cluster._EpoOn">_EpoOn</a>, _off_fn=<a href="#_EpoOff" class="internal-link" title="ganeti.client.gnt_cluster._EpoOff">_EpoOff</a>, _confirm_fn=<a href="ganeti.cli.html#ConfirmOperation" class="internal-link" title="ganeti.cli.ConfirmOperation">ConfirmOperation</a>, _stdout_fn=<a href="ganeti.cli.html#ToStdout" class="internal-link" title="ganeti.cli.ToStdout">ToStdout</a>, _stderr_fn=<a href="ganeti.cli.html#ToStderr" class="internal-link" title="ganeti.cli.ToStderr">ToStderr</a>):
+    
+    <a class="headerLink" href="#Epo" title="ganeti.client.gnt_cluster.Epo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>EPO operations.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the subcommand</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">qcl</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_on<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_off<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_confirm<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_stdout<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_stderr<wbr></wbr>_fn</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.InitCluster">
+    
+  </a>
+  <a name="InitCluster">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="ganeti.rpc.node.html#RunWithRPC" class="internal-link" title="ganeti.rpc.node.RunWithRPC">RunWithRPC</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">InitCluster</span>(opts, args):
+    
+    <a class="headerLink" href="#InitCluster" title="ganeti.client.gnt_cluster.InitCluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the desired cluster name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.Main">
+    
+  </a>
+  <a name="Main">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Main</span>():
+    
+    <a class="headerLink" href="#Main" title="ganeti.client.gnt_cluster.Main">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.MasterFailover">
+    
+  </a>
+  <a name="MasterFailover">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="ganeti.rpc.node.html#RunWithRPC" class="internal-link" title="ganeti.rpc.node.RunWithRPC">RunWithRPC</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">MasterFailover</span>(opts, args):
+    
+    <a class="headerLink" href="#MasterFailover" title="ganeti.client.gnt_cluster.MasterFailover">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Failover the master node.</p>
+<p>This command, when run on a non-master node, will cause the current master to cease being master, and the non-master to become new master.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.MasterPing">
+    
+  </a>
+  <a name="MasterPing">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MasterPing</span>(opts, args):
+    
+    <a class="headerLink" href="#MasterPing" title="ganeti.client.gnt_cluster.MasterPing">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if the master is alive.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.QueueOps">
+    
+  </a>
+  <a name="QueueOps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">QueueOps</span>(opts, args):
+    
+    <a class="headerLink" href="#QueueOps" title="ganeti.client.gnt_cluster.QueueOps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Queue operations.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the subcommand</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RedistributeConfig">
+    
+  </a>
+  <a name="RedistributeConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RedistributeConfig</span>(opts, args):
+    
+    <a class="headerLink" href="#RedistributeConfig" title="ganeti.client.gnt_cluster.RedistributeConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Forces push of the cluster configuration.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RenameCluster">
+    
+  </a>
+  <a name="RenameCluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RenameCluster</span>(opts, args):
+    
+    <a class="headerLink" href="#RenameCluster" title="ganeti.client.gnt_cluster.RenameCluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Rename the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the new cluster name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RenewCrypto">
+    
+  </a>
+  <a name="RenewCrypto">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RenewCrypto</span>(opts, args):
+    
+    <a class="headerLink" href="#RenewCrypto" title="ganeti.client.gnt_cluster.RenewCrypto">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Renews cluster certificates, keys and secrets.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RepairDiskSizes">
+    
+  </a>
+  <a name="RepairDiskSizes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RepairDiskSizes</span>(opts, args):
+    
+    <a class="headerLink" href="#RepairDiskSizes" title="ganeti.client.gnt_cluster.RepairDiskSizes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify sizes of cluster disks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">optional list of instances to restrict check to</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RunClusterCommand">
+    
+  </a>
+  <a name="RunClusterCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunClusterCommand</span>(opts, args):
+    
+    <a class="headerLink" href="#RunClusterCommand" title="ganeti.client.gnt_cluster.RunClusterCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a command on some nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain the command to be run and its arguments</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.SearchTags">
+    
+  </a>
+  <a name="SearchTags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SearchTags</span>(opts, args):
+    
+    <a class="headerLink" href="#SearchTags" title="ganeti.client.gnt_cluster.SearchTags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Searches the tags on all the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the tag pattern</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.SetClusterParams">
+    
+  </a>
+  <a name="SetClusterParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetClusterParams</span>(opts, args):
+    
+    <a class="headerLink" href="#SetClusterParams" title="ganeti.client.gnt_cluster.SetClusterParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Modify the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ShowClusterConfig">
+    
+  </a>
+  <a name="ShowClusterConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowClusterConfig</span>(opts, args):
+    
+    <a class="headerLink" href="#ShowClusterConfig" title="ganeti.client.gnt_cluster.ShowClusterConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shows cluster information.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ShowClusterMaster">
+    
+  </a>
+  <a name="ShowClusterMaster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowClusterMaster</span>(opts, args):
+    
+    <a class="headerLink" href="#ShowClusterMaster" title="ganeti.client.gnt_cluster.ShowClusterMaster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write name of master node to the standard output.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ShowClusterVersion">
+    
+  </a>
+  <a name="ShowClusterVersion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowClusterVersion</span>(opts, args):
+    
+    <a class="headerLink" href="#ShowClusterVersion" title="ganeti.client.gnt_cluster.ShowClusterVersion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write version of ganeti software to the standard output.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ShowCreateCommand">
+    
+  </a>
+  <a name="ShowCreateCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ShowCreateCommand</span>(opts, args):
+    
+    <a class="headerLink" href="#ShowCreateCommand" title="ganeti.client.gnt_cluster.ShowCreateCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Shows the command that can be used to re-create the cluster.</p>
+<p>Currently it works only for ipolicy specs.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.UpgradeGanetiCommand">
+    
+  </a>
+  <a name="UpgradeGanetiCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">UpgradeGanetiCommand</span>(opts, args):
+    
+    <a class="headerLink" href="#UpgradeGanetiCommand" title="ganeti.client.gnt_cluster.UpgradeGanetiCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Upgrade a cluster to a new ganeti version.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.VerifyCluster">
+    
+  </a>
+  <a name="VerifyCluster">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyCluster</span>(opts, args):
+    
+    <a class="headerLink" href="#VerifyCluster" title="ganeti.client.gnt_cluster.VerifyCluster">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify integrity of cluster, performing various test on nodes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.VerifyDisks">
+    
+  </a>
+  <a name="VerifyDisks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">VerifyDisks</span>(opts, args):
+    
+    <a class="headerLink" href="#VerifyDisks" title="ganeti.client.gnt_cluster.VerifyDisks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify integrity of cluster disks.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should be an empty list</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.client.gnt_cluster.WatcherOps">
+    
+  </a>
+  <a name="WatcherOps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">WatcherOps</span>(opts, args):
+    
+    <a class="headerLink" href="#WatcherOps" title="ganeti.client.gnt_cluster.WatcherOps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Watcher operations.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">the command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span>list</td><td class="fieldArgDesc">should contain only one element, the subcommand</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the desired exit code</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.DATA_COLLECTOR_INTERVAL_OPT">
+    
+  </a>
+  <a name="DATA_COLLECTOR_INTERVAL_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DATA_COLLECTOR_INTERVAL_OPT</span> =
+    
+    <a class="headerLink" href="#DATA_COLLECTOR_INTERVAL_OPT" title="ganeti.client.gnt_cluster.DATA_COLLECTOR_INTERVAL_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--data-collector-interval</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default={},
+           <wbr></wbr>type=<span class="rst-variable-quote">'</span><span class="rst-variable-string">keyval</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Set collection intervals in seconds of data collectors.</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.FORCE_DISTRIBUTION">
+    
+  </a>
+  <a name="FORCE_DISTRIBUTION">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FORCE_DISTRIBUTION</span> =
+    
+    <a class="headerLink" href="#FORCE_DISTRIBUTION" title="ganeti.client.gnt_cluster.FORCE_DISTRIBUTION">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--yes-do-it</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">yes_do_it</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Unconditionally distribute the configuration, even if the queue</span><span class="rst-variable-linewrap">↵</span>
+<span class="rst-variable-string"> is drained</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.FORCE_FAILOVER">
+    
+  </a>
+  <a name="FORCE_FAILOVER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FORCE_FAILOVER</span> =
+    
+    <a class="headerLink" href="#FORCE_FAILOVER" title="ganeti.client.gnt_cluster.FORCE_FAILOVER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--yes-do-it</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">yes_do_it</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Override interactive check for --no-voting</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.GROUPS_OPT">
+    
+  </a>
+  <a name="GROUPS_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">GROUPS_OPT</span> =
+    
+    <a class="headerLink" href="#GROUPS_OPT" title="ganeti.client.gnt_cluster.GROUPS_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--groups</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">groups</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Arguments are node groups instead of nodes</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.IGNORE_OFFLINE_NODES_FAILOVER">
+    
+  </a>
+  <a name="IGNORE_OFFLINE_NODES_FAILOVER">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">IGNORE_OFFLINE_NODES_FAILOVER</span> =
+    
+    <a class="headerLink" href="#IGNORE_OFFLINE_NODES_FAILOVER" title="ganeti.client.gnt_cluster.IGNORE_OFFLINE_NODES_FAILOVER">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--ignore-offline-nodes</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">ignore_offline_nodes</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Ignores offline nodes for master failover voting</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=True)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.ON_OPT">
+    
+  </a>
+  <a name="ON_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ON_OPT</span> =
+    
+    <a class="headerLink" href="#ON_OPT" title="ganeti.client.gnt_cluster.ON_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--on</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">on</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Recover from an EPO</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.RESUME_OPT">
+    
+  </a>
+  <a name="RESUME_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">RESUME_OPT</span> =
+    
+    <a class="headerLink" href="#RESUME_OPT" title="ganeti.client.gnt_cluster.RESUME_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--resume</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Resume any pending Ganeti upgrades</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.STRICT_OPT">
+    
+  </a>
+  <a name="STRICT_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">STRICT_OPT</span> =
+    
+    <a class="headerLink" href="#STRICT_OPT" title="ganeti.client.gnt_cluster.STRICT_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--no-strict</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=False,
+           <wbr></wbr>dest=<span class="rst-variable-quote">'</span><span class="rst-variable-string">no_strict</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>action=<span class="rst-variable-quote">'</span><span class="rst-variable-string">store_true</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">Do not run group verify in strict mode</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.client.gnt_cluster.TO_OPT">
+    
+  </a>
+  <a name="TO_OPT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TO_OPT</span> =
+    
+    <a class="headerLink" href="#TO_OPT" title="ganeti.client.gnt_cluster.TO_OPT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="ganeti.cli_opts.CliOption.html" class="internal-link" title="ganeti.cli_opts.CliOption">cli_option</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">--to</span><span class="rst-variable-quote">'</span>,
+           <wbr></wbr>default=None, <wbr></wbr>type=<span class="rst-variable-quote">'</span><span class="rst-variable-string">string</span><span class="rst-variable-quote">'</span>, <wbr></wbr>help=<span class="rst-variable-quote">'</span><span class="rst-variable-string">The Ganeti version to upgrade to</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.client.gnt_cluster.aliases">
+    
+  </a>
+  <a name="aliases">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">aliases</span>: <code>dict[<wbr></wbr>str, <wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#aliases" title="ganeti.client.gnt_cluster.aliases">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="ganeti.client.gnt_cluster.commands">
+    
+  </a>
+  <a name="commands">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">commands</span> =
+    
+    <a class="headerLink" href="#commands" title="ganeti.client.gnt_cluster.commands">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._BuildGanetiPubKeys">
+    
+  </a>
+  <a name="_BuildGanetiPubKeys">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BuildGanetiPubKeys</span>(options, pub_key_file=<a href="ganeti.pathutils.html#SSH_PUB_KEYS" class="internal-link" title="ganeti.pathutils.SSH_PUB_KEYS">pathutils.SSH_PUB_KEYS</a>, cl=None, get_online_nodes_fn=<a href="ganeti.cli.html#GetOnlineNodes" class="internal-link" title="ganeti.cli.GetOnlineNodes">GetOnlineNodes</a>, get_nodes_ssh_ports_fn=<a href="ganeti.cli.html#GetNodesSshPorts" class="internal-link" title="ganeti.cli.GetNodesSshPorts">GetNodesSshPorts</a>, get_node_uuids_fn=<a href="ganeti.cli.html#GetNodeUUIDs" class="internal-link" title="ganeti.cli.GetNodeUUIDs">GetNodeUUIDs</a>, homedir_fn=None):
+    
+    <a class="headerLink" href="#_BuildGanetiPubKeys" title="ganeti.client.gnt_cluster._BuildGanetiPubKeys">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Recreates the 'ganeti_pub_key' file by polling all nodes.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._EpoOff">
+    
+  </a>
+  <a name="_EpoOff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_EpoOff</span>(opts, node_list, inst_map):
+    
+    <a class="headerLink" href="#_EpoOff" title="ganeti.client.gnt_cluster._EpoOff">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Does the actual power off.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">The command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_list</span></td><td class="fieldArgDesc">The list of nodes to operate on (all need to support OOB)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">inst<wbr></wbr>_map</span></td><td class="fieldArgDesc">A dict of inst -&gt; nodes mapping</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The desired exit status</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._EpoOn">
+    
+  </a>
+  <a name="_EpoOn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_EpoOn</span>(opts, full_node_list, node_list, inst_map):
+    
+    <a class="headerLink" href="#_EpoOn" title="ganeti.client.gnt_cluster._EpoOn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Does the actual power on.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">The command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">full<wbr></wbr>_node<wbr></wbr>_list</span></td><td class="fieldArgDesc">All nodes to operate on (includes nodes not supporting OOB)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_list</span></td><td class="fieldArgDesc">The list of nodes to operate on (all need to support OOB)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">inst<wbr></wbr>_map</span></td><td class="fieldArgDesc">A dict of inst -&gt; nodes mapping</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The desired exit status</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._ExecuteCommands">
+    
+  </a>
+  <a name="_ExecuteCommands">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ExecuteCommands</span>(fns):
+    
+    <a class="headerLink" href="#_ExecuteCommands" title="ganeti.client.gnt_cluster._ExecuteCommands">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Execute a list of functions, in reverse order.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">fns:</span>list of functions.</td><td class="fieldArgDesc">the functions to be executed.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._FormatDataCollectors">
+    
+  </a>
+  <a name="_FormatDataCollectors">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatDataCollectors</span>(paramsdict):
+    
+    <a class="headerLink" href="#_FormatDataCollectors" title="ganeti.client.gnt_cluster._FormatDataCollectors">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Format Grouped parameters (be, nic, disk) by group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">paramsdict:</span>dict of dicts</td><td class="fieldArgDesc">response of QueryClusterInfo</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict of dicts</td><td class="fieldArgDesc">parameter grouped by data collector</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._FormatGroupedParams">
+    
+  </a>
+  <a name="_FormatGroupedParams">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_FormatGroupedParams</span>(paramsdict, roman=False):
+    
+    <a class="headerLink" href="#_FormatGroupedParams" title="ganeti.client.gnt_cluster._FormatGroupedParams">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Format Grouped parameters (be, nic, disk) by group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">paramsdict:</span>dict of dicts</td><td class="fieldArgDesc">{group: {param: value, ...}, ...}</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">roman</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict of dicts</td><td class="fieldArgDesc">copy of the input dictionaries with strings as values</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetCompressionTools">
+    
+  </a>
+  <a name="_GetCompressionTools">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetCompressionTools</span>(opts):
+    
+    <a class="headerLink" href="#_GetCompressionTools" title="ganeti.client.gnt_cluster._GetCompressionTools">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the list of custom compression tools.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetConfigVersion">
+    
+  </a>
+  <a name="_GetConfigVersion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetConfigVersion</span>():
+    
+    <a class="headerLink" href="#_GetConfigVersion" title="ganeti.client.gnt_cluster._GetConfigVersion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the version the configuration file currently has.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple or None</td><td class="fieldArgDesc">(major, minor, revision) if the version can be determined, None otherwise</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetCreateCommand">
+    
+  </a>
+  <a name="_GetCreateCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetCreateCommand</span>(info):
+    
+    <a class="headerLink" href="#_GetCreateCommand" title="ganeti.client.gnt_cluster._GetCreateCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetDrbdHelper">
+    
+  </a>
+  <a name="_GetDrbdHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetDrbdHelper</span>(opts, enabled_disk_templates):
+    
+    <a class="headerLink" href="#_GetDrbdHelper" title="ganeti.client.gnt_cluster._GetDrbdHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the DRBD usermode helper.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetEnabledDiskTemplates">
+    
+  </a>
+  <a name="_GetEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetEnabledDiskTemplates</span>(opts):
+    
+    <a class="headerLink" href="#_GetEnabledDiskTemplates" title="ganeti.client.gnt_cluster._GetEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the list of enabled disk templates.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetRunning">
+    
+  </a>
+  <a name="_GetRunning">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetRunning</span>():
+    
+    <a class="headerLink" href="#_GetRunning" title="ganeti.client.gnt_cluster._GetRunning">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the list of running jobs.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the number of jobs still running</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._GetVgName">
+    
+  </a>
+  <a name="_GetVgName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_GetVgName</span>(opts, enabled_disk_templates):
+    
+    <a class="headerLink" href="#_GetVgName" title="ganeti.client.gnt_cluster._GetVgName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Determine the volume group name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">enabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of strings</td><td class="fieldArgDesc">cluster-wide enabled disk-templates</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._InitDrbdHelper">
+    
+  </a>
+  <a name="_InitDrbdHelper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitDrbdHelper</span>(opts, enabled_disk_templates, feedback_fn=<a href="ganeti.cli.html#ToStdout" class="internal-link" title="ganeti.cli.ToStdout">ToStdout</a>):
+    
+    <a class="headerLink" href="#_InitDrbdHelper" title="ganeti.client.gnt_cluster._InitDrbdHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the DRBD usermode helper.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._InitEnabledDiskTemplates">
+    
+  </a>
+  <a name="_InitEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitEnabledDiskTemplates</span>(opts):
+    
+    <a class="headerLink" href="#_InitEnabledDiskTemplates" title="ganeti.client.gnt_cluster._InitEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the list of enabled disk templates.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._InitVgName">
+    
+  </a>
+  <a name="_InitVgName">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InitVgName</span>(opts, enabled_disk_templates):
+    
+    <a class="headerLink" href="#_InitVgName" title="ganeti.client.gnt_cluster._InitVgName">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize the volume group name.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">enabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of strings</td><td class="fieldArgDesc">cluster-wide enabled disk templates</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._InstanceStart">
+    
+  </a>
+  <a name="_InstanceStart">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_InstanceStart</span>(opts, inst_list, start, no_remember=False):
+    
+    <a class="headerLink" href="#_InstanceStart" title="ganeti.client.gnt_cluster._InstanceStart">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Puts the instances in the list to desired state.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">The command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">inst<wbr></wbr>_list</span></td><td class="fieldArgDesc">The list of instances to operate on</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">start</span></td><td class="fieldArgDesc">True if they should be started, False for shutdown</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">no<wbr></wbr>_remember</span></td><td class="fieldArgDesc">If the instance state should be remembered</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The success of the operation (none failed)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._MaybeInstanceStartup">
+    
+  </a>
+  <a name="_MaybeInstanceStartup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_MaybeInstanceStartup</span>(opts, inst_map, nodes_online, _instance_start_fn=<a href="#_InstanceStart" class="internal-link" title="ganeti.client.gnt_cluster._InstanceStart">_InstanceStart</a>):
+    
+    <a class="headerLink" href="#_MaybeInstanceStartup" title="ganeti.client.gnt_cluster._MaybeInstanceStartup">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start the instances conditional based on node_states.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">The command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">inst<wbr></wbr>_map</span></td><td class="fieldArgDesc">A dict of inst -&gt; nodes mapping</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes<wbr></wbr>_online</span></td><td class="fieldArgDesc">A list of nodes online</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">_instance<wbr></wbr>_start<wbr></wbr>_fn</span></td><td class="fieldArgDesc">Callback to start instances (unittest use only)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Success of the operation on all instances</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._OobPower">
+    
+  </a>
+  <a name="_OobPower">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_OobPower</span>(opts, node_list, power):
+    
+    <a class="headerLink" href="#_OobPower" title="ganeti.client.gnt_cluster._OobPower">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Puts the node in the list to desired power state.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opts</span></td><td class="fieldArgDesc">The command line options selected by the user</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_list</span></td><td class="fieldArgDesc">The list of nodes to operate on</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">power</span></td><td class="fieldArgDesc">True if they should be powered on, False otherwise</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">The success of the operation (none failed)</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._ReadAndVerifyCert">
+    
+  </a>
+  <a name="_ReadAndVerifyCert">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ReadAndVerifyCert</span>(cert_filename, verify_private_key=False):
+    
+    <a class="headerLink" href="#_ReadAndVerifyCert" title="ganeti.client.gnt_cluster._ReadAndVerifyCert">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads and verifies an X509 certificate.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cert<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">the path of the file containing the certificate to verify encoded in PEM format</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verify<wbr></wbr>_private<wbr></wbr>_key:</span>bool</td><td class="fieldArgDesc">whether to verify the private key in addition to the public certificate</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">a string containing the PEM-encoded certificate.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._ReadIntentToUpgrade">
+    
+  </a>
+  <a name="_ReadIntentToUpgrade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ReadIntentToUpgrade</span>():
+    
+    <a class="headerLink" href="#_ReadIntentToUpgrade" title="ganeti.client.gnt_cluster._ReadIntentToUpgrade">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read the file documenting the intent to upgrade the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">(string, string) or (None, None)</td><td class="fieldArgDesc">(old version, version to upgrade to), if the file exists, and (None, None) otherwise.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._RenewCrypto">
+    
+  </a>
+  <a name="_RenewCrypto">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RenewCrypto</span>(new_cluster_cert, new_rapi_cert, rapi_cert_filename, new_spice_cert, spice_cert_filename, spice_cacert_filename, new_confd_hmac_key, new_cds, cds_filename, force, new_node_cert, new_ssh_keys, ssh_key_type, ssh_key_bits, verbose, debug):
+    
+    <a class="headerLink" href="#_RenewCrypto" title="ganeti.client.gnt_cluster._RenewCrypto">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Renews cluster certificates, keys and secrets.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_cluster<wbr></wbr>_cert:</span>bool</td><td class="fieldArgDesc">Whether to generate a new cluster certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_rapi<wbr></wbr>_cert:</span>bool</td><td class="fieldArgDesc">Whether to generate a new RAPI certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rapi<wbr></wbr>_cert<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">Path to file containing new RAPI certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_spice<wbr></wbr>_cert:</span>bool</td><td class="fieldArgDesc">Whether to generate a new SPICE certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">spice<wbr></wbr>_cert<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">Path to file containing new SPICE certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">spice<wbr></wbr>_cacert<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">Path to file containing the certificate of the CA that signed the SPICE certificate</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_confd<wbr></wbr>_hmac<wbr></wbr>_key:</span>bool</td><td class="fieldArgDesc">Whether to generate a new HMAC key</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_cds:</span>bool</td><td class="fieldArgDesc">Whether to generate a new cluster domain secret</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cds<wbr></wbr>_filename:</span>string</td><td class="fieldArgDesc">Path to file containing new cluster domain secret</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">force:</span>bool</td><td class="fieldArgDesc">Whether to ask user for confirmation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_node<wbr></wbr>_cert:</span>bool</td><td class="fieldArgDesc">Whether to generate new node certificates</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">new<wbr></wbr>_ssh<wbr></wbr>_keys:</span>bool</td><td class="fieldArgDesc">Whether to generate new node SSH keys</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ssh<wbr></wbr>_key<wbr></wbr>_type:</span>One of <code><a href="ganeti._constants.html#SSHK_ALL" class="internal-link" title="ganeti._constants.SSHK_ALL">constants.SSHK_ALL</a></code></td><td class="fieldArgDesc">The type of SSH key to be generated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ssh<wbr></wbr>_key<wbr></wbr>_bits:</span>int</td><td class="fieldArgDesc">The length of the key to be generated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">verbose:</span>boolean</td><td class="fieldArgDesc">Show verbose output</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">debug:</span>boolean</td><td class="fieldArgDesc">Show debug output</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._RunCommandAndReport">
+    
+  </a>
+  <a name="_RunCommandAndReport">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RunCommandAndReport</span>(cmd):
+    
+    <a class="headerLink" href="#_RunCommandAndReport" title="ganeti.client.gnt_cluster._RunCommandAndReport">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run a command and report its output, iff it failed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>list</td><td class="fieldArgDesc">the command to execute</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">False, if the execution failed.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._RunWhenNodesReachable">
+    
+  </a>
+  <a name="_RunWhenNodesReachable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RunWhenNodesReachable</span>(node_list, action_cb, interval):
+    
+    <a class="headerLink" href="#_RunWhenNodesReachable" title="ganeti.client.gnt_cluster._RunWhenNodesReachable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run action_cb when nodes become reachable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_list</span></td><td class="fieldArgDesc">The list of nodes to be reachable</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">action<wbr></wbr>_cb</span></td><td class="fieldArgDesc">Callback called when a new host is reachable</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">interval</span></td><td class="fieldArgDesc">The earliest time to retry</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._SetGanetiVersionAndEnsure">
+    
+  </a>
+  <a name="_SetGanetiVersionAndEnsure">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SetGanetiVersionAndEnsure</span>(versionstring):
+    
+    <a class="headerLink" href="#_SetGanetiVersionAndEnsure" title="ganeti.client.gnt_cluster._SetGanetiVersionAndEnsure">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Symlink the active version of ganeti to the given versionstring, and run the ensure-dirs script.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">versionstring:</span>string</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of nodes where the version change failed</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._ShowWatcherPause">
+    
+  </a>
+  <a name="_ShowWatcherPause">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ShowWatcherPause</span>(until):
+    
+    <a class="headerLink" href="#_ShowWatcherPause" title="ganeti.client.gnt_cluster._ShowWatcherPause">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._SwitchVersionAndConfig">
+    
+  </a>
+  <a name="_SwitchVersionAndConfig">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_SwitchVersionAndConfig</span>(versionstring, downgrade):
+    
+    <a class="headerLink" href="#_SwitchVersionAndConfig" title="ganeti.client.gnt_cluster._SwitchVersionAndConfig">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Switch to the new Ganeti version and change the configuration, in correct order.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">versionstring:</span>string</td><td class="fieldArgDesc">the version to change to</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">downgrade:</span>bool</td><td class="fieldArgDesc">True, if the configuration should be downgraded</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">(bool, list)</td><td class="fieldArgDesc">tupe of a bool indicating success, and a list of additional rollback tasks</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._UpgradeAfterConfigurationChange">
+    
+  </a>
+  <a name="_UpgradeAfterConfigurationChange">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpgradeAfterConfigurationChange</span>(oldversion):
+    
+    <a class="headerLink" href="#_UpgradeAfterConfigurationChange" title="ganeti.client.gnt_cluster._UpgradeAfterConfigurationChange">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Carry out the upgrade actions necessary after switching to the new Ganeti version and updating the configuration.</p>
+<p>As this part is run at a time where the new version of Ganeti is already running, no communication should happen via luxi, as this is not a stable interface. Also, as the configuration change is the point of no return, all actions are pushed through, even if some of them fail.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">oldversion:</span>string</td><td class="fieldArgDesc">the version the upgrade started from</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc">the intended return value</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._UpgradeBeforeConfigurationChange">
+    
+  </a>
+  <a name="_UpgradeBeforeConfigurationChange">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_UpgradeBeforeConfigurationChange</span>(versionstring):
+    
+    <a class="headerLink" href="#_UpgradeBeforeConfigurationChange" title="ganeti.client.gnt_cluster._UpgradeBeforeConfigurationChange">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Carry out all the tasks necessary for an upgrade that happen before the configuration file, or Ganeti version, changes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">versionstring:</span>string</td><td class="fieldArgDesc">the version to upgrade to</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">(bool, list)</td><td class="fieldArgDesc">tuple of a bool indicating success and a list of rollback tasks</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._VerifyCommand">
+    
+  </a>
+  <a name="_VerifyCommand">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyCommand</span>(cmd):
+    
+    <a class="headerLink" href="#_VerifyCommand" title="ganeti.client.gnt_cluster._VerifyCommand">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify that a given command succeeds on all online nodes.</p>
+<p>As this function is intended to run during upgrades, it is implemented in such a way that it still works, if all Ganeti daemons are down.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>list</td><td class="fieldArgDesc">a list of unquoted shell arguments</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of node names that are online where the command failed.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._VerifyCommandRaw">
+    
+  </a>
+  <a name="_VerifyCommandRaw">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyCommandRaw</span>(command):
+    
+    <a class="headerLink" href="#_VerifyCommandRaw" title="ganeti.client.gnt_cluster._VerifyCommandRaw">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify that a given command succeeds on all online nodes.</p>
+<p>As this function is intended to run during upgrades, it is implemented in such a way that it still works, if all Ganeti daemons are down.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">command</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cmd:</span>string</td><td class="fieldArgDesc">a bare string to pass to SSH. The caller must do their own shell/ssh escaping.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of node names that are online where the command failed.</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._VerifyVersionInstalled">
+    
+  </a>
+  <a name="_VerifyVersionInstalled">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VerifyVersionInstalled</span>(versionstring):
+    
+    <a class="headerLink" href="#_VerifyVersionInstalled" title="ganeti.client.gnt_cluster._VerifyVersionInstalled">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verify that the given version of ganeti is installed on all online nodes.</p>
+<p>Do nothing, if this is the case, otherwise print an appropriate message to stderr.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">versionstring:</span>string</td><td class="fieldArgDesc">the version to check for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">bool</td><td class="fieldArgDesc">True, if the version is installed on all online nodes</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._VersionSpecificDowngrade">
+    
+  </a>
+  <a name="_VersionSpecificDowngrade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_VersionSpecificDowngrade</span>():
+    
+    <a class="headerLink" href="#_VersionSpecificDowngrade" title="ganeti.client.gnt_cluster._VersionSpecificDowngrade">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Perform any additional downrade tasks that are version specific and need to be done just after the configuration downgrade. This function needs to be idempotent, so that it can be redone if the downgrade procedure gets interrupted after changing the configuration.</p>
+<p>Note that this function has to be reset with every version bump.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">True upon success</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._WriteIntentToUpgrade">
+    
+  </a>
+  <a name="_WriteIntentToUpgrade">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_WriteIntentToUpgrade</span>(version):
+    
+    <a class="headerLink" href="#_WriteIntentToUpgrade" title="ganeti.client.gnt_cluster._WriteIntentToUpgrade">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write file documenting the intent to upgrade the cluster.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">version:</span>string</td><td class="fieldArgDesc">the version we intent to upgrade to</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._EPO_PING_INTERVAL">
+    
+  </a>
+  <a name="_EPO_PING_INTERVAL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EPO_PING_INTERVAL</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_EPO_PING_INTERVAL" title="ganeti.client.gnt_cluster._EPO_PING_INTERVAL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>30</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._EPO_PING_TIMEOUT">
+    
+  </a>
+  <a name="_EPO_PING_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EPO_PING_TIMEOUT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_EPO_PING_TIMEOUT" title="ganeti.client.gnt_cluster._EPO_PING_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.client.gnt_cluster._EPO_REACHABLE_TIMEOUT">
+    
+  </a>
+  <a name="_EPO_REACHABLE_TIMEOUT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EPO_REACHABLE_TIMEOUT</span> =
+    
+    <a class="headerLink" href="#_EPO_REACHABLE_TIMEOUT" title="ganeti.client.gnt_cluster._EPO_REACHABLE_TIMEOUT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>15*60</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

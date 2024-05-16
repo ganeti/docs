@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.storage.drbd.DRBD8</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.storage.drbd.DRBD8.html" class="internal-link" title="This class">DRBD8</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FindUnusedMinor" class="internal-link" title="ganeti.storage.drbd.DRBD8.FindUnusedMinor"><wbr></wbr>Find<wbr></wbr>Unused<wbr></wbr>Minor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetCmdGenerator" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetCmdGenerator"><wbr></wbr>Get<wbr></wbr>Cmd<wbr></wbr>Generator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetProcInfo" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetProcInfo"><wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUsedDevs" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetUsedDevs"><wbr></wbr>Get<wbr></wbr>Used<wbr></wbr>Devs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetUsermodeHelper" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetUsermodeHelper"><wbr></wbr>Get<wbr></wbr>Usermode<wbr></wbr>Helper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ShutdownAll" class="internal-link" title="ganeti.storage.drbd.DRBD8.ShutdownAll"><wbr></wbr>Shutdown<wbr></wbr>All</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MAX_MINORS" class="internal-link" title="ganeti.storage.drbd.DRBD8._MAX_MINORS">_MAX<wbr></wbr>_MINORS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_USERMODE_HELPER_FILE" class="internal-link" title="ganeti.storage.drbd.DRBD8._USERMODE_HELPER_FILE">_USERMODE<wbr></wbr>_HELPER<wbr></wbr>_FILE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.storage.drbd.html" class="internal-link" title="The parent of this class">drbd</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd.DRBD8.html" class="internal-link" title="ganeti.storage.drbd.DRBD8">DRBD8</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd.DRBD8Dev.html" class="internal-link" title="ganeti.storage.drbd.DRBD8Dev"><wbr></wbr>DRBD8<wbr></wbr>Dev</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd.html#_CanReadDevice" class="internal-link" title="ganeti.storage.drbd._CanReadDevice">_<wbr></wbr>Can<wbr></wbr>Read<wbr></wbr>Device</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd.html#_DEVICE_READ_SIZE" class="internal-link" title="ganeti.storage.drbd._DEVICE_READ_SIZE">_DEVICE<wbr></wbr>_READ<wbr></wbr>_SIZE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code><wbr></wbr>.<code><a href="ganeti.storage.drbd.html" class="internal-link" title="ganeti.storage.drbd">drbd</a></code><wbr></wbr>.<code><a href="ganeti.storage.drbd.DRBD8.html" class="internal-link" title="ganeti.storage.drbd.DRBD8">DRBD8</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">DRBD8</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.storage.drbd.DRBD8">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Various methods to deals with the DRBD system as a whole.</p>
+<p>This class provides a set of methods to deal with the DRBD installation on the node or with uninitialized devices as opposed to a DRBD device.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1303">
+  
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#FindUnusedMinor" class="internal-link" title="ganeti.storage.drbd.DRBD8.FindUnusedMinor"><wbr></wbr>Find<wbr></wbr>Unused<wbr></wbr>Minor</a></code></td>
+    <td>Find an unused DRBD device.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#GetCmdGenerator" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetCmdGenerator"><wbr></wbr>Get<wbr></wbr>Cmd<wbr></wbr>Generator</a></code></td>
+    <td>Creates a suitable <code><a href="ganeti.storage.drbd_cmdgen.BaseDRBDCmdGenerator.html" class="internal-link" title="ganeti.storage.drbd_cmdgen.BaseDRBDCmdGenerator">BaseDRBDCmdGenerator</a></code> based on the given info.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#GetProcInfo" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetProcInfo"><wbr></wbr>Get<wbr></wbr>Proc<wbr></wbr>Info</a></code></td>
+    <td>Reads and parses information from /proc/drbd.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#GetUsedDevs" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetUsedDevs"><wbr></wbr>Get<wbr></wbr>Used<wbr></wbr>Devs</a></code></td>
+    <td>Compute the list of used DRBD minors.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#GetUsermodeHelper" class="internal-link" title="ganeti.storage.drbd.DRBD8.GetUsermodeHelper"><wbr></wbr>Get<wbr></wbr>Usermode<wbr></wbr>Helper</a></code></td>
+    <td>Returns DRBD usermode_helper currently set.</td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#ShutdownAll" class="internal-link" title="ganeti.storage.drbd.DRBD8.ShutdownAll"><wbr></wbr>Shutdown<wbr></wbr>All</a></code></td>
+    <td>Deactivate the device.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MAX_MINORS" class="internal-link" title="ganeti.storage.drbd.DRBD8._MAX_MINORS">_MAX<wbr></wbr>_MINORS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_USERMODE_HELPER_FILE" class="internal-link" title="ganeti.storage.drbd.DRBD8._USERMODE_HELPER_FILE">_USERMODE<wbr></wbr>_HELPER<wbr></wbr>_FILE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.FindUnusedMinor">
+    
+  </a>
+  <a name="FindUnusedMinor">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">FindUnusedMinor</span>():
+    
+    <a class="headerLink" href="#FindUnusedMinor" title="ganeti.storage.drbd.DRBD8.FindUnusedMinor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Find an unused DRBD device.</p>
+<p>This is specific to 8.x as the minors are allocated dynamically, so non-existing numbers up to a max minor count are actually free.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.GetCmdGenerator">
+    
+  </a>
+  <a name="GetCmdGenerator">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">GetCmdGenerator</span>(info):
+    
+    <a class="headerLink" href="#GetCmdGenerator" title="ganeti.storage.drbd.DRBD8.GetCmdGenerator">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Creates a suitable <code><a href="ganeti.storage.drbd_cmdgen.BaseDRBDCmdGenerator.html" class="internal-link" title="ganeti.storage.drbd_cmdgen.BaseDRBDCmdGenerator">BaseDRBDCmdGenerator</a></code> based on the given info.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">info:</span>DRBD8Info</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">BaseDRBDCmdGenerator</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.GetProcInfo">
+    
+  </a>
+  <a name="GetProcInfo">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">GetProcInfo</span>():
+    
+    <a class="headerLink" href="#GetProcInfo" title="ganeti.storage.drbd.DRBD8.GetProcInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Reads and parses information from /proc/drbd.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">DRBD8Info</td><td class="fieldArgDesc">a <code><a href="ganeti.storage.drbd_info.DRBD8Info.html" class="internal-link" title="ganeti.storage.drbd_info.DRBD8Info">DRBD8Info</a></code> instance containing the current /proc/drbd info</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.GetUsedDevs">
+    
+  </a>
+  <a name="GetUsedDevs">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">GetUsedDevs</span>():
+    
+    <a class="headerLink" href="#GetUsedDevs" title="ganeti.storage.drbd.DRBD8.GetUsedDevs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the list of used DRBD minors.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list of ints</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.GetUsermodeHelper">
+    
+  </a>
+  <a name="GetUsermodeHelper">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">GetUsermodeHelper</span>(filename=<a href="#_USERMODE_HELPER_FILE" class="internal-link" title="ganeti.storage.drbd.DRBD8._USERMODE_HELPER_FILE">_USERMODE_HELPER_FILE</a>):
+    
+    <a class="headerLink" href="#GetUsermodeHelper" title="ganeti.storage.drbd.DRBD8.GetUsermodeHelper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns DRBD usermode_helper currently set.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">filename:</span>string</td><td class="fieldArgDesc">the filename to read the usermode helper from</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">string</td><td class="fieldArgDesc">the currently configured DRBD usermode helper</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8.ShutdownAll">
+    
+  </a>
+  <a name="ShutdownAll">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">ShutdownAll</span>(minor):
+    
+    <a class="headerLink" href="#ShutdownAll" title="ganeti.storage.drbd.DRBD8.ShutdownAll">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Deactivate the device.</p>
+<p>This will, of course, fail if the device is in use.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">minor:</span>int</td><td class="fieldArgDesc">the minor to shut down</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8._MAX_MINORS">
+    
+  </a>
+  <a name="_MAX_MINORS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MAX_MINORS</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#_MAX_MINORS" title="ganeti.storage.drbd.DRBD8._MAX_MINORS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>255</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.storage.drbd.DRBD8._USERMODE_HELPER_FILE">
+    
+  </a>
+  <a name="_USERMODE_HELPER_FILE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_USERMODE_HELPER_FILE</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_USERMODE_HELPER_FILE" title="ganeti.storage.drbd.DRBD8._USERMODE_HELPER_FILE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">/sys/module/drbd/parameters/usermode_helper</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

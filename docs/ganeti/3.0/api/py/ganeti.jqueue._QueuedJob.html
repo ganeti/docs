@@ -1,0 +1,1513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.jqueue._QueuedJob</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="This class">_<wbr></wbr>Queued<wbr></wbr>Job</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Restore" class="internal-link" title="ganeti.jqueue._QueuedJob.Restore"><wbr></wbr>Restore</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.jqueue._QueuedJob.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__repr__" class="internal-link" title="ganeti.jqueue._QueuedJob.__repr__">__repr__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#AddReasons" class="internal-link" title="ganeti.jqueue._QueuedJob.AddReasons"><wbr></wbr>Add<wbr></wbr>Reasons</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CalcPriority" class="internal-link" title="ganeti.jqueue._QueuedJob.CalcPriority"><wbr></wbr>Calc<wbr></wbr>Priority</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CalcStatus" class="internal-link" title="ganeti.jqueue._QueuedJob.CalcStatus"><wbr></wbr>Calc<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Cancel" class="internal-link" title="ganeti.jqueue._QueuedJob.Cancel"><wbr></wbr>Cancel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ChangePriority" class="internal-link" title="ganeti.jqueue._QueuedJob.ChangePriority"><wbr></wbr>Change<wbr></wbr>Priority</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Finalize" class="internal-link" title="ganeti.jqueue._QueuedJob.Finalize"><wbr></wbr>Finalize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetLogEntries" class="internal-link" title="ganeti.jqueue._QueuedJob.GetLogEntries"><wbr></wbr>Get<wbr></wbr>Log<wbr></wbr>Entries</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#MarkUnfinishedOps" class="internal-link" title="ganeti.jqueue._QueuedJob.MarkUnfinishedOps"><wbr></wbr>Mark<wbr></wbr>Unfinished<wbr></wbr>Ops</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Serialize" class="internal-link" title="ganeti.jqueue._QueuedJob.Serialize"><wbr></wbr>Serialize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SetPid" class="internal-link" title="ganeti.jqueue._QueuedJob.SetPid"><wbr></wbr>Set<wbr></wbr>Pid</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_InitInMemory" class="internal-link" title="ganeti.jqueue._QueuedJob._InitInMemory">_<wbr></wbr>Init<wbr></wbr>In<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__slots__" class="internal-link" title="ganeti.jqueue._QueuedJob.__slots__">__slots__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#archived" class="internal-link" title="ganeti.jqueue._QueuedJob.archived">archived</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#end_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.end_timestamp">end<wbr></wbr>_timestamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#id" class="internal-link" title="ganeti.jqueue._QueuedJob.id">id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#livelock" class="internal-link" title="ganeti.jqueue._QueuedJob.livelock">livelock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log_serial" class="internal-link" title="ganeti.jqueue._QueuedJob.log_serial">log<wbr></wbr>_serial</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ops" class="internal-link" title="ganeti.jqueue._QueuedJob.ops">ops</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#process_id" class="internal-link" title="ganeti.jqueue._QueuedJob.process_id">process<wbr></wbr>_id</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#queue" class="internal-link" title="ganeti.jqueue._QueuedJob.queue">queue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#received_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.received_timestamp">received<wbr></wbr>_timestamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.start_timestamp">start<wbr></wbr>_timestamp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start_timestmap" class="internal-link" title="ganeti.jqueue._QueuedJob.start_timestmap">start<wbr></wbr>_timestmap</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#writable" class="internal-link" title="ganeti.jqueue._QueuedJob.writable">writable</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.jqueue.html" class="internal-link" title="The parent of this class">jqueue</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.exec.html" class="internal-link" title="ganeti.jqueue.exec">exec</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue"><wbr></wbr>Job<wbr></wbr>Queue</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.CancelJob.html" class="internal-link" title="ganeti.jqueue.CancelJob"><wbr></wbr>Cancel<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._JobDependencyManager.html" class="internal-link" title="ganeti.jqueue._JobDependencyManager">_<wbr></wbr>Job<wbr></wbr>Dependency<wbr></wbr>Manager</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._JobProcessor.html" class="internal-link" title="ganeti.jqueue._JobProcessor">_<wbr></wbr>Job<wbr></wbr>Processor</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link" title="ganeti.jqueue._OpExecCallbacks">_<wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Callbacks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._OpExecContext.html" class="internal-link" title="ganeti.jqueue._OpExecContext">_<wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Context</a></code>
+            </div>
+        
+
+    </li><li class="private thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_<wbr></wbr>Queued<wbr></wbr>Job</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._QueuedOpCode.html" class="internal-link" title="ganeti.jqueue._QueuedOpCode">_<wbr></wbr>Queued<wbr></wbr>Op<wbr></wbr>Code</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue._TimeoutStrategyWrapper.html" class="internal-link" title="ganeti.jqueue._TimeoutStrategyWrapper">_<wbr></wbr>Timeout<wbr></wbr>Strategy<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#TimeStampNow" class="internal-link" title="ganeti.jqueue.TimeStampNow"><wbr></wbr>Time<wbr></wbr>Stamp<wbr></wbr>Now</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_CallJqUpdate" class="internal-link" title="ganeti.jqueue._CallJqUpdate">_<wbr></wbr>Call<wbr></wbr>Jq<wbr></wbr>Update</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_EncodeOpError" class="internal-link" title="ganeti.jqueue._EncodeOpError">_<wbr></wbr>Encode<wbr></wbr>Op<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.jqueue.html#_GetIdAttr" class="internal-link" title="ganeti.jqueue._GetIdAttr">_<wbr></wbr>Get<wbr></wbr>Id<wbr></wbr>Attr</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class private"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.jqueue.html" class="internal-link" title="ganeti.jqueue">jqueue</a></code><wbr></wbr>.<code><a href="ganeti.jqueue._QueuedJob.html" class="internal-link" title="ganeti.jqueue._QueuedJob">_QueuedJob</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">_QueuedJob</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.jqueue._QueuedJob">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>In-memory job representation.</p>
+<p>This is what we use to track the user-submitted jobs. Locking must be taken care of by users of this class.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id482">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#Restore" class="internal-link" title="ganeti.jqueue._QueuedJob.Restore"><wbr></wbr>Restore</a></code></td>
+    <td>Restore a _QueuedJob from serialized state:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.jqueue._QueuedJob.__init__">__init__</a></code></td>
+    <td>Constructor for the _QueuedJob.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__repr__" class="internal-link" title="ganeti.jqueue._QueuedJob.__repr__">__repr__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#AddReasons" class="internal-link" title="ganeti.jqueue._QueuedJob.AddReasons"><wbr></wbr>Add<wbr></wbr>Reasons</a></code></td>
+    <td>Extend the reason trail</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CalcPriority" class="internal-link" title="ganeti.jqueue._QueuedJob.CalcPriority"><wbr></wbr>Calc<wbr></wbr>Priority</a></code></td>
+    <td>Gets the current priority for this job.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CalcStatus" class="internal-link" title="ganeti.jqueue._QueuedJob.CalcStatus"><wbr></wbr>Calc<wbr></wbr>Status</a></code></td>
+    <td>Compute the status of this job.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Cancel" class="internal-link" title="ganeti.jqueue._QueuedJob.Cancel"><wbr></wbr>Cancel</a></code></td>
+    <td>Marks job as canceled/-ing if possible.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ChangePriority" class="internal-link" title="ganeti.jqueue._QueuedJob.ChangePriority"><wbr></wbr>Change<wbr></wbr>Priority</a></code></td>
+    <td>Changes the job priority.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Finalize" class="internal-link" title="ganeti.jqueue._QueuedJob.Finalize"><wbr></wbr>Finalize</a></code></td>
+    <td>Marks the job as finalized.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#GetLogEntries" class="internal-link" title="ganeti.jqueue._QueuedJob.GetLogEntries"><wbr></wbr>Get<wbr></wbr>Log<wbr></wbr>Entries</a></code></td>
+    <td>Selectively returns the log entries.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#MarkUnfinishedOps" class="internal-link" title="ganeti.jqueue._QueuedJob.MarkUnfinishedOps"><wbr></wbr>Mark<wbr></wbr>Unfinished<wbr></wbr>Ops</a></code></td>
+    <td>Mark unfinished opcodes with a given status and result.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Serialize" class="internal-link" title="ganeti.jqueue._QueuedJob.Serialize"><wbr></wbr>Serialize</a></code></td>
+    <td>Serialize the _JobQueue instance.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SetPid" class="internal-link" title="ganeti.jqueue._QueuedJob.SetPid"><wbr></wbr>Set<wbr></wbr>Pid</a></code></td>
+    <td>Sets the job's process ID</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#__slots__" class="internal-link" title="ganeti.jqueue._QueuedJob.__slots__">__slots__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#archived" class="internal-link" title="ganeti.jqueue._QueuedJob.archived">archived</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#end_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.end_timestamp">end<wbr></wbr>_timestamp</a></code></td>
+    <td>the timestamp for end of execution</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#id" class="internal-link" title="ganeti.jqueue._QueuedJob.id">id</a></code></td>
+    <td>the job ID</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#livelock" class="internal-link" title="ganeti.jqueue._QueuedJob.livelock">livelock</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#log_serial" class="internal-link" title="ganeti.jqueue._QueuedJob.log_serial">log<wbr></wbr>_serial</a></code></td>
+    <td>holds the index for the next log entry</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ops" class="internal-link" title="ganeti.jqueue._QueuedJob.ops">ops</a></code></td>
+    <td>the list of _QueuedOpCode that constitute the job</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#process_id" class="internal-link" title="ganeti.jqueue._QueuedJob.process_id">process<wbr></wbr>_id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#queue" class="internal-link" title="ganeti.jqueue._QueuedJob.queue">queue</a></code></td>
+    <td>the parent queue</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#received_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.received_timestamp">received<wbr></wbr>_timestamp</a></code></td>
+    <td>the timestamp for when the job was received</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#start_timestamp" class="internal-link" title="ganeti.jqueue._QueuedJob.start_timestamp">start<wbr></wbr>_timestamp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#start_timestmap" class="internal-link" title="ganeti.jqueue._QueuedJob.start_timestmap">start<wbr></wbr>_timestmap</a></code></td>
+    <td>the timestamp for start of execution</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#writable" class="internal-link" title="ganeti.jqueue._QueuedJob.writable">writable</a></code></td>
+    <td>Whether the job is allowed to be modified</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_InitInMemory" class="internal-link" title="ganeti.jqueue._QueuedJob._InitInMemory">_<wbr></wbr>Init<wbr></wbr>In<wbr></wbr>Memory</a></code></td>
+    <td>Initializes in-memory variables.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.Restore">
+    
+  </a>
+  <a name="Restore">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">Restore</span>(cls, queue, state, writable, archived):
+    
+    <a class="headerLink" href="#Restore" title="ganeti.jqueue._QueuedJob.Restore">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Restore a _QueuedJob from serialized state:</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">queue:</span><code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue">JobQueue</a></code></td><td class="fieldArgDesc">to which queue the restored job belongs</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">state:</span>dict</td><td class="fieldArgDesc">the serialized state</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">writable:</span>bool</td><td class="fieldArgDesc">Whether job can be modified</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">archived:</span>bool</td><td class="fieldArgDesc">Whether job was already archived</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">_JobQueue</td><td class="fieldArgDesc">the restored _JobQueue instance</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, queue, job_id, ops, writable):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.jqueue._QueuedJob.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Constructor for the _QueuedJob.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">queue:</span><code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue">JobQueue</a></code></td><td class="fieldArgDesc">our parent queue</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">job<wbr></wbr>_id:</span>job_id</td><td class="fieldArgDesc">our job id</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">ops:</span>list</td><td class="fieldArgDesc">the list of opcodes we hold, which will be encapsulated in _QueuedOpCodes</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">writable:</span>bool</td><td class="fieldArgDesc">Whether job can be modified</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.__repr__">
+    
+  </a>
+  <a name="__repr__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__repr__</span>(self):
+    
+    <a class="headerLink" href="#__repr__" title="ganeti.jqueue._QueuedJob.__repr__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.AddReasons">
+    
+  </a>
+  <a name="AddReasons">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">AddReasons</span>(self, pickup=False):
+    
+    <a class="headerLink" href="#AddReasons" title="ganeti.jqueue._QueuedJob.AddReasons">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extend the reason trail</p>
+<p>Add the reason for all the opcodes of this job to be executed.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.CalcPriority">
+    
+  </a>
+  <a name="CalcPriority">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CalcPriority</span>(self):
+    
+    <a class="headerLink" href="#CalcPriority" title="ganeti.jqueue._QueuedJob.CalcPriority">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Gets the current priority for this job.</p>
+<p>Only unfinished opcodes are considered. When all are done, the default priority is used.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">int</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.CalcStatus">
+    
+  </a>
+  <a name="CalcStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CalcStatus</span>(self):
+    
+    <a class="headerLink" href="#CalcStatus" title="ganeti.jqueue._QueuedJob.CalcStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the status of this job.</p>
+<p>This function iterates over all the _QueuedOpCodes in the job and based on their status, computes the job status.</p>
+<p>The algorithm is:</p>
+<ul>
+<li><p class="rst-first">if we find a cancelled, or finished with error, the job status will be the same</p>
+</li>
+<li><p class="rst-first">otherwise, the last opcode with the status one of:</p>
+<ul class="rst-simple">
+<li>waitlock</li>
+<li>canceling</li>
+<li>running</li>
+</ul>
+<p>will determine the job status</p>
+</li>
+<li><p class="rst-first">otherwise, it means either all opcodes are queued, or success, and the job status will be the same</p>
+</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the job status</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.Cancel">
+    
+  </a>
+  <a name="Cancel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Cancel</span>(self):
+    
+    <a class="headerLink" href="#Cancel" title="ganeti.jqueue._QueuedJob.Cancel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Marks job as canceled/-ing if possible.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (bool, string)</td><td class="fieldArgDesc">Boolean describing whether job was successfully canceled or marked as canceling and a text message</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.ChangePriority">
+    
+  </a>
+  <a name="ChangePriority">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ChangePriority</span>(self, priority):
+    
+    <a class="headerLink" href="#ChangePriority" title="ganeti.jqueue._QueuedJob.ChangePriority">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Changes the job priority.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">priority:</span>int</td><td class="fieldArgDesc">New priority</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple; (bool, string)</td><td class="fieldArgDesc">Boolean describing whether job's priority was successfully changed and a text message</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.Finalize">
+    
+  </a>
+  <a name="Finalize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Finalize</span>(self):
+    
+    <a class="headerLink" href="#Finalize" title="ganeti.jqueue._QueuedJob.Finalize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Marks the job as finalized.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.GetLogEntries">
+    
+  </a>
+  <a name="GetLogEntries">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetLogEntries</span>(self, newer_than):
+    
+    <a class="headerLink" href="#GetLogEntries" title="ganeti.jqueue._QueuedJob.GetLogEntries">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Selectively returns the log entries.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">newer<wbr></wbr>_than:</span>None or int</td><td class="fieldArgDesc">if this is None, return all log entries, otherwise return only the log entries with serial higher than this value</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">the list of the log entries selected</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.MarkUnfinishedOps">
+    
+  </a>
+  <a name="MarkUnfinishedOps">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">MarkUnfinishedOps</span>(self, status, result):
+    
+    <a class="headerLink" href="#MarkUnfinishedOps" title="ganeti.jqueue._QueuedJob.MarkUnfinishedOps">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Mark unfinished opcodes with a given status and result.</p>
+<p>This is an utility function for marking all running or waiting to be run opcodes with a given status. Opcodes which are already finalised are not changed.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">status</span></td><td class="fieldArgDesc">a given opcode status</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">result</span></td><td class="fieldArgDesc">the opcode result</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.Serialize">
+    
+  </a>
+  <a name="Serialize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Serialize</span>(self):
+    
+    <a class="headerLink" href="#Serialize" title="ganeti.jqueue._QueuedJob.Serialize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Serialize the _JobQueue instance.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">the serialized state</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.SetPid">
+    
+  </a>
+  <a name="SetPid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SetPid</span>(self, pid):
+    
+    <a class="headerLink" href="#SetPid" title="ganeti.jqueue._QueuedJob.SetPid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sets the job's process ID</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pid:</span>int</td><td class="fieldArgDesc">the process ID</td></tr></table></div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.__slots__">
+    
+  </a>
+  <a name="__slots__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__slots__</span>: <code>list[<wbr></wbr>str]</code> =
+    
+    <a class="headerLink" href="#__slots__" title="ganeti.jqueue._QueuedJob.__slots__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.archived">
+    
+  </a>
+  <a name="archived">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">archived</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#archived" title="ganeti.jqueue._QueuedJob.archived">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.end_timestamp">
+    
+  </a>
+  <a name="end_timestamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">end_timestamp</span> =
+    
+    <a class="headerLink" href="#end_timestamp" title="ganeti.jqueue._QueuedJob.end_timestamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the timestamp for end of execution</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.id">
+    
+  </a>
+  <a name="id">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">id</span> =
+    
+    <a class="headerLink" href="#id" title="ganeti.jqueue._QueuedJob.id">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the job ID</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.livelock">
+    
+  </a>
+  <a name="livelock">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">livelock</span> =
+    
+    <a class="headerLink" href="#livelock" title="ganeti.jqueue._QueuedJob.livelock">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.log_serial">
+    
+  </a>
+  <a name="log_serial">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log_serial</span>: int =
+    
+    <a class="headerLink" href="#log_serial" title="ganeti.jqueue._QueuedJob.log_serial">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>holds the index for the next log entry</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.ops">
+    
+  </a>
+  <a name="ops">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ops</span>: list =
+    
+    <a class="headerLink" href="#ops" title="ganeti.jqueue._QueuedJob.ops">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the list of _QueuedOpCode that constitute the job</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.process_id">
+    
+  </a>
+  <a name="process_id">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">process_id</span> =
+    
+    <a class="headerLink" href="#process_id" title="ganeti.jqueue._QueuedJob.process_id">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.queue">
+    
+  </a>
+  <a name="queue">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">queue</span>: <code><a href="ganeti.jqueue.JobQueue.html" class="internal-link" title="ganeti.jqueue.JobQueue">JobQueue</a></code> =
+    
+    <a class="headerLink" href="#queue" title="ganeti.jqueue._QueuedJob.queue">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the parent queue</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.received_timestamp">
+    
+  </a>
+  <a name="received_timestamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">received_timestamp</span> =
+    
+    <a class="headerLink" href="#received_timestamp" title="ganeti.jqueue._QueuedJob.received_timestamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the timestamp for when the job was received</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.start_timestamp">
+    
+  </a>
+  <a name="start_timestamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">start_timestamp</span> =
+    
+    <a class="headerLink" href="#start_timestamp" title="ganeti.jqueue._QueuedJob.start_timestamp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.start_timestmap">
+    
+  </a>
+  <a name="start_timestmap">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">start_timestmap</span> =
+    
+    <a class="headerLink" href="#start_timestmap" title="ganeti.jqueue._QueuedJob.start_timestmap">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>the timestamp for start of execution</p>
+</div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob.writable">
+    
+  </a>
+  <a name="writable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">writable</span> =
+    
+    <a class="headerLink" href="#writable" title="ganeti.jqueue._QueuedJob.writable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Whether the job is allowed to be modified</p>
+</div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.jqueue._QueuedJob._InitInMemory">
+    
+  </a>
+  <a name="_InitInMemory">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_InitInMemory</span>(obj, writable):
+    
+    <a class="headerLink" href="#_InitInMemory" title="ganeti.jqueue._QueuedJob._InitInMemory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initializes in-memory variables.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

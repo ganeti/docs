@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.hooksmaster.HooksMaster</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.hooksmaster.HooksMaster.html" class="internal-link" title="This class"><wbr></wbr>Hooks<wbr></wbr>Master</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildFromLu" class="internal-link" title="ganeti.hooksmaster.HooksMaster.BuildFromLu"><wbr></wbr>Build<wbr></wbr>From<wbr></wbr>Lu</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.hooksmaster.HooksMaster.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunConfigUpdate" class="internal-link" title="ganeti.hooksmaster.HooksMaster.RunConfigUpdate"><wbr></wbr>Run<wbr></wbr>Config<wbr></wbr>Update</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#RunPhase" class="internal-link" title="ganeti.hooksmaster.HooksMaster.RunPhase"><wbr></wbr>Run<wbr></wbr>Phase</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BuildEnv" class="internal-link" title="ganeti.hooksmaster.HooksMaster._BuildEnv">_<wbr></wbr>Build<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RunWrapper" class="internal-link" title="ganeti.hooksmaster.HooksMaster._RunWrapper">_<wbr></wbr>Run<wbr></wbr>Wrapper</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#build_env_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.build_env_fn">build<wbr></wbr>_env<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cluster_name" class="internal-link" title="ganeti.hooksmaster.HooksMaster.cluster_name">cluster<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hooks_execution_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_execution_fn">hooks<wbr></wbr>_execution<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hooks_path" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_path">hooks<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hooks_results_adapt_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_results_adapt_fn">hooks<wbr></wbr>_results<wbr></wbr>_adapt<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#htype" class="internal-link" title="ganeti.hooksmaster.HooksMaster.htype">htype</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#log_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.log_fn">log<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#master_name" class="internal-link" title="ganeti.hooksmaster.HooksMaster.master_name">master<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#opcode" class="internal-link" title="ganeti.hooksmaster.HooksMaster.opcode">opcode</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#post_nodes" class="internal-link" title="ganeti.hooksmaster.HooksMaster.post_nodes">post<wbr></wbr>_nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pre_env" class="internal-link" title="ganeti.hooksmaster.HooksMaster.pre_env">pre<wbr></wbr>_env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pre_nodes" class="internal-link" title="ganeti.hooksmaster.HooksMaster.pre_nodes">pre<wbr></wbr>_nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#prepare_post_nodes_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.prepare_post_nodes_fn">prepare<wbr></wbr>_post<wbr></wbr>_nodes<wbr></wbr>_fn</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.hooksmaster.html" class="internal-link" title="The parent of this class">hooksmaster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.HooksMaster.html" class="internal-link" title="ganeti.hooksmaster.HooksMaster"><wbr></wbr>Hooks<wbr></wbr>Master</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hooksmaster.html#_RpcResultsToHooksResults" class="internal-link" title="ganeti.hooksmaster._RpcResultsToHooksResults">_<wbr></wbr>Rpc<wbr></wbr>Results<wbr></wbr>To<wbr></wbr>Hooks<wbr></wbr>Results</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.hooksmaster.html" class="internal-link" title="ganeti.hooksmaster">hooksmaster</a></code><wbr></wbr>.<code><a href="ganeti.hooksmaster.HooksMaster.html" class="internal-link" title="ganeti.hooksmaster.HooksMaster">HooksMaster</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">HooksMaster</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.hooksmaster.HooksMaster">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id367">
+  
+  
+  <tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#BuildFromLu" class="internal-link" title="ganeti.hooksmaster.HooksMaster.BuildFromLu"><wbr></wbr>Build<wbr></wbr>From<wbr></wbr>Lu</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.hooksmaster.HooksMaster.__init__">__init__</a></code></td>
+    <td>Base class for hooks masters.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#RunConfigUpdate" class="internal-link" title="ganeti.hooksmaster.HooksMaster.RunConfigUpdate"><wbr></wbr>Run<wbr></wbr>Config<wbr></wbr>Update</a></code></td>
+    <td>Run the special configuration update hook</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#RunPhase" class="internal-link" title="ganeti.hooksmaster.HooksMaster.RunPhase"><wbr></wbr>Run<wbr></wbr>Phase</a></code></td>
+    <td>Run all the scripts for a phase.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#build_env_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.build_env_fn">build<wbr></wbr>_env<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cluster_name" class="internal-link" title="ganeti.hooksmaster.HooksMaster.cluster_name">cluster<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hooks_execution_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_execution_fn">hooks<wbr></wbr>_execution<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hooks_path" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_path">hooks<wbr></wbr>_path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hooks_results_adapt_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.hooks_results_adapt_fn">hooks<wbr></wbr>_results<wbr></wbr>_adapt<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#htype" class="internal-link" title="ganeti.hooksmaster.HooksMaster.htype">htype</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#log_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.log_fn">log<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#master_name" class="internal-link" title="ganeti.hooksmaster.HooksMaster.master_name">master<wbr></wbr>_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#opcode" class="internal-link" title="ganeti.hooksmaster.HooksMaster.opcode">opcode</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#post_nodes" class="internal-link" title="ganeti.hooksmaster.HooksMaster.post_nodes">post<wbr></wbr>_nodes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pre_env" class="internal-link" title="ganeti.hooksmaster.HooksMaster.pre_env">pre<wbr></wbr>_env</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pre_nodes" class="internal-link" title="ganeti.hooksmaster.HooksMaster.pre_nodes">pre<wbr></wbr>_nodes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#prepare_post_nodes_fn" class="internal-link" title="ganeti.hooksmaster.HooksMaster.prepare_post_nodes_fn">prepare<wbr></wbr>_post<wbr></wbr>_nodes<wbr></wbr>_fn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_BuildEnv" class="internal-link" title="ganeti.hooksmaster.HooksMaster._BuildEnv">_<wbr></wbr>Build<wbr></wbr>Env</a></code></td>
+    <td>Compute the environment and the target nodes.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_RunWrapper" class="internal-link" title="ganeti.hooksmaster.HooksMaster._RunWrapper">_<wbr></wbr>Run<wbr></wbr>Wrapper</a></code></td>
+    <td>Simple wrapper over self.callfn.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basestaticmethod">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.BuildFromLu">
+    
+  </a>
+  <a name="BuildFromLu">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">BuildFromLu</span>(hooks_execution_fn, lu):
+    
+    <a class="headerLink" href="#BuildFromLu" title="ganeti.hooksmaster.HooksMaster.BuildFromLu">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, opcode, hooks_path, nodes, hooks_execution_fn, hooks_results_adapt_fn, build_env_fn, prepare_post_nodes_fn, log_fn, htype=None, cluster_name=None, master_name=None):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.hooksmaster.HooksMaster.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Base class for hooks masters.</p>
+<p>This class invokes the execution of hooks according to the behaviour specified by its parameters.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">opcode:</span>string</td><td class="fieldArgDesc">opcode of the operation to which the hooks are tied</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hooks<wbr></wbr>_path:</span>string</td><td class="fieldArgDesc">prefix of the hooks directories</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">nodes:</span>2-tuple of lists</td><td class="fieldArgDesc">2-tuple of lists containing nodes on which pre-hooks must be run and nodes on which post-hooks must be run</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hooks<wbr></wbr>_execution<wbr></wbr>_fn:</span>function that accepts the following parameters: (node_list, hooks_path, phase, environment)</td><td class="fieldArgDesc">function that will execute the hooks; can be None, indicating that no conversion is necessary.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hooks<wbr></wbr>_results<wbr></wbr>_adapt<wbr></wbr>_fn:</span>function</td><td class="fieldArgDesc">function that will adapt the return value of hooks_execution_fn to the format expected by RunPhase</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">build<wbr></wbr>_env<wbr></wbr>_fn:</span>function that returns a dictionary having strings as keys</td><td class="fieldArgDesc">function that builds the environment for the hooks</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">prepare<wbr></wbr>_post<wbr></wbr>_nodes<wbr></wbr>_fn:</span>function that take a list of node UUIDs and returns a list of node UUIDs</td><td class="fieldArgDesc">function that is invoked right before executing post hooks and can change the list of node UUIDs to run the post hooks on</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">log<wbr></wbr>_fn:</span>function that accepts a string</td><td class="fieldArgDesc">logging function</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">htype:</span>string or None</td><td class="fieldArgDesc">None or one of <code><a href="ganeti._constants.html#HTYPE_CLUSTER" class="internal-link" title="ganeti._constants.HTYPE_CLUSTER">constants.HTYPE_CLUSTER</a></code>, <code><a href="ganeti._constants.html#HTYPE_NODE" class="internal-link" title="ganeti._constants.HTYPE_NODE">constants.HTYPE_NODE</a></code>, <code><a href="ganeti._constants.html#HTYPE_INSTANCE" class="internal-link" title="ganeti._constants.HTYPE_INSTANCE">constants.HTYPE_INSTANCE</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">name of the cluster</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">master<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">name of the master</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.RunConfigUpdate">
+    
+  </a>
+  <a name="RunConfigUpdate">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunConfigUpdate</span>(self):
+    
+    <a class="headerLink" href="#RunConfigUpdate" title="ganeti.hooksmaster.HooksMaster.RunConfigUpdate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run the special configuration update hook</p>
+<p>This is a special hook that runs only on the master after each top-level LI if the configuration has been updated.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.RunPhase">
+    
+  </a>
+  <a name="RunPhase">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">RunPhase</span>(self, phase, node_names=None):
+    
+    <a class="headerLink" href="#RunPhase" title="ganeti.hooksmaster.HooksMaster.RunPhase">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run all the scripts for a phase.</p>
+<p>This is the main function of the HookMaster. It executes self.hooks_execution_fn, and after running self.hooks_results_adapt_fn on its results it expects them to be in the form {node_name: (fail_msg, [(script, result, output), ...]}).</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">phase</span></td><td class="fieldArgDesc">one of <code><a href="ganeti._constants.html#HOOKS_PHASE_POST" class="internal-link" title="ganeti._constants.HOOKS_PHASE_POST">constants.HOOKS_PHASE_POST</a></code> or <code><a href="ganeti._constants.html#HOOKS_PHASE_PRE" class="internal-link" title="ganeti._constants.HOOKS_PHASE_PRE">constants.HOOKS_PHASE_PRE</a></code>; it denotes the hooks phase</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_names</span></td><td class="fieldArgDesc">overrides the predefined list of nodes for the given phase</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">the processed results of the hooks multi-node rpc call</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.HooksFailure.html" class="internal-link" title="ganeti.errors.HooksFailure">errors.HooksFailure</a></code></td><td>on communication failure to the nodes</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.HooksAbort.html" class="internal-link" title="ganeti.errors.HooksAbort">errors.HooksAbort</a></code></td><td>on failure of one of the hooks</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.build_env_fn">
+    
+  </a>
+  <a name="build_env_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">build_env_fn</span> =
+    
+    <a class="headerLink" href="#build_env_fn" title="ganeti.hooksmaster.HooksMaster.build_env_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.cluster_name">
+    
+  </a>
+  <a name="cluster_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cluster_name</span> =
+    
+    <a class="headerLink" href="#cluster_name" title="ganeti.hooksmaster.HooksMaster.cluster_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.hooks_execution_fn">
+    
+  </a>
+  <a name="hooks_execution_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hooks_execution_fn</span> =
+    
+    <a class="headerLink" href="#hooks_execution_fn" title="ganeti.hooksmaster.HooksMaster.hooks_execution_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.hooks_path">
+    
+  </a>
+  <a name="hooks_path">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hooks_path</span> =
+    
+    <a class="headerLink" href="#hooks_path" title="ganeti.hooksmaster.HooksMaster.hooks_path">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.hooks_results_adapt_fn">
+    
+  </a>
+  <a name="hooks_results_adapt_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hooks_results_adapt_fn</span> =
+    
+    <a class="headerLink" href="#hooks_results_adapt_fn" title="ganeti.hooksmaster.HooksMaster.hooks_results_adapt_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.htype">
+    
+  </a>
+  <a name="htype">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">htype</span> =
+    
+    <a class="headerLink" href="#htype" title="ganeti.hooksmaster.HooksMaster.htype">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.log_fn">
+    
+  </a>
+  <a name="log_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">log_fn</span> =
+    
+    <a class="headerLink" href="#log_fn" title="ganeti.hooksmaster.HooksMaster.log_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.master_name">
+    
+  </a>
+  <a name="master_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">master_name</span> =
+    
+    <a class="headerLink" href="#master_name" title="ganeti.hooksmaster.HooksMaster.master_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.opcode">
+    
+  </a>
+  <a name="opcode">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">opcode</span> =
+    
+    <a class="headerLink" href="#opcode" title="ganeti.hooksmaster.HooksMaster.opcode">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.post_nodes">
+    
+  </a>
+  <a name="post_nodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">post_nodes</span> =
+    
+    <a class="headerLink" href="#post_nodes" title="ganeti.hooksmaster.HooksMaster.post_nodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.pre_env">
+    
+  </a>
+  <a name="pre_env">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pre_env</span> =
+    
+    <a class="headerLink" href="#pre_env" title="ganeti.hooksmaster.HooksMaster.pre_env">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.pre_nodes">
+    
+  </a>
+  <a name="pre_nodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pre_nodes</span> =
+    
+    <a class="headerLink" href="#pre_nodes" title="ganeti.hooksmaster.HooksMaster.pre_nodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster.prepare_post_nodes_fn">
+    
+  </a>
+  <a name="prepare_post_nodes_fn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">prepare_post_nodes_fn</span> =
+    
+    <a class="headerLink" href="#prepare_post_nodes_fn" title="ganeti.hooksmaster.HooksMaster.prepare_post_nodes_fn">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster._BuildEnv">
+    
+  </a>
+  <a name="_BuildEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BuildEnv</span>(self, phase):
+    
+    <a class="headerLink" href="#_BuildEnv" title="ganeti.hooksmaster.HooksMaster._BuildEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the environment and the target nodes.</p>
+<p>Based on the opcode and the current node list, this builds the environment for the hooks and the target node list for the run.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.hooksmaster.HooksMaster._RunWrapper">
+    
+  </a>
+  <a name="_RunWrapper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_RunWrapper</span>(self, node_list, hpath, phase, phase_env):
+    
+    <a class="headerLink" href="#_RunWrapper" title="ganeti.hooksmaster.HooksMaster._RunWrapper">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Simple wrapper over self.callfn.</p>
+<p>This method fixes the environment before executing the hooks.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

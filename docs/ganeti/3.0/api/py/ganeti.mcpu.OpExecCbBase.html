@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.mcpu.OpExecCbBase</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.mcpu.OpExecCbBase.html" class="internal-link" title="This class"><wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Cb<wbr></wbr>Base</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CurrentPriority" class="internal-link" title="ganeti.mcpu.OpExecCbBase.CurrentPriority"><wbr></wbr>Current<wbr></wbr>Priority</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Feedback" class="internal-link" title="ganeti.mcpu.OpExecCbBase.Feedback"><wbr></wbr>Feedback</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NotifyRetry" class="internal-link" title="ganeti.mcpu.OpExecCbBase.NotifyRetry"><wbr></wbr>Notify<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#NotifyStart" class="internal-link" title="ganeti.mcpu.OpExecCbBase.NotifyStart"><wbr></wbr>Notify<wbr></wbr>Start</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SubmitManyJobs" class="internal-link" title="ganeti.mcpu.OpExecCbBase.SubmitManyJobs"><wbr></wbr>Submit<wbr></wbr>Many<wbr></wbr>Jobs</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.mcpu.html" class="internal-link" title="The parent of this class">mcpu</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.LockAttemptTimeoutStrategy.html" class="internal-link" title="ganeti.mcpu.LockAttemptTimeoutStrategy"><wbr></wbr>Lock<wbr></wbr>Attempt<wbr></wbr>Timeout<wbr></wbr>Strategy</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.OpExecCbBase.html" class="internal-link" title="ganeti.mcpu.OpExecCbBase"><wbr></wbr>Op<wbr></wbr>Exec<wbr></wbr>Cb<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.Processor.html" class="internal-link" title="ganeti.mcpu.Processor"><wbr></wbr>Processor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.LockAcquireTimeout.html" class="internal-link" title="ganeti.mcpu.LockAcquireTimeout"><wbr></wbr>Lock<wbr></wbr>Acquire<wbr></wbr>Timeout</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_CalculateLockAttemptTimeouts" class="internal-link" title="ganeti.mcpu._CalculateLockAttemptTimeouts">_<wbr></wbr>Calculate<wbr></wbr>Lock<wbr></wbr>Attempt<wbr></wbr>Timeouts</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_CheckSecretParameters" class="internal-link" title="ganeti.mcpu._CheckSecretParameters">_<wbr></wbr>Check<wbr></wbr>Secret<wbr></wbr>Parameters</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_ComputeDispatchTable" class="internal-link" title="ganeti.mcpu._ComputeDispatchTable">_<wbr></wbr>Compute<wbr></wbr>Dispatch<wbr></wbr>Table</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_FailingSubmitManyJobs" class="internal-link" title="ganeti.mcpu._FailingSubmitManyJobs">_<wbr></wbr>Failing<wbr></wbr>Submit<wbr></wbr>Many<wbr></wbr>Jobs</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_LockList" class="internal-link" title="ganeti.mcpu._LockList">_<wbr></wbr>Lock<wbr></wbr>List</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_LUNameForOpName" class="internal-link" title="ganeti.mcpu._LUNameForOpName">_<wbr></wbr>LUName<wbr></wbr>For<wbr></wbr>Op<wbr></wbr>Name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_ProcessResult" class="internal-link" title="ganeti.mcpu._ProcessResult">_<wbr></wbr>Process<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_SetBaseOpParams" class="internal-link" title="ganeti.mcpu._SetBaseOpParams">_<wbr></wbr>Set<wbr></wbr>Base<wbr></wbr>Op<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#lusExecuting" class="internal-link" title="ganeti.mcpu.lusExecuting">lus<wbr></wbr>Executing</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#sighupReceived" class="internal-link" title="ganeti.mcpu.sighupReceived">sighup<wbr></wbr>Received</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_LU_PREFIX" class="internal-link" title="ganeti.mcpu._LU_PREFIX">_LU<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.mcpu.html#_OP_PREFIX" class="internal-link" title="ganeti.mcpu._OP_PREFIX">_OP<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.mcpu.html" class="internal-link" title="ganeti.mcpu">mcpu</a></code><wbr></wbr>.<code><a href="ganeti.mcpu.OpExecCbBase.html" class="internal-link" title="ganeti.mcpu.OpExecCbBase">OpExecCbBase</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">OpExecCbBase</span>(object):</code></p><p>Known subclasses: <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></p>
+          <p><a href="classIndex.html#ganeti.mcpu.OpExecCbBase">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Base class for OpCode execution callbacks.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id555">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CurrentPriority" class="internal-link" title="ganeti.mcpu.OpExecCbBase.CurrentPriority"><wbr></wbr>Current<wbr></wbr>Priority</a></code></td>
+    <td>Returns current priority or <tt class="rst-docutils literal">None</tt>.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Feedback" class="internal-link" title="ganeti.mcpu.OpExecCbBase.Feedback"><wbr></wbr>Feedback</a></code></td>
+    <td>Sends feedback from the LU code to the end-user.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#NotifyRetry" class="internal-link" title="ganeti.mcpu.OpExecCbBase.NotifyRetry"><wbr></wbr>Notify<wbr></wbr>Retry</a></code></td>
+    <td>Called when we are about to reset an LU to retry again.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#NotifyStart" class="internal-link" title="ganeti.mcpu.OpExecCbBase.NotifyStart"><wbr></wbr>Notify<wbr></wbr>Start</a></code></td>
+    <td>Called when we are about to execute the LU.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#SubmitManyJobs" class="internal-link" title="ganeti.mcpu.OpExecCbBase.SubmitManyJobs"><wbr></wbr>Submit<wbr></wbr>Many<wbr></wbr>Jobs</a></code></td>
+    <td>Submits jobs for processing.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.mcpu.OpExecCbBase.CurrentPriority">
+    
+  </a>
+  <a name="CurrentPriority">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CurrentPriority</span>(self):
+    
+    <a class="headerLink" href="#CurrentPriority" title="ganeti.mcpu.OpExecCbBase.CurrentPriority">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></div>
+    <div><p>Returns current priority or <tt class="rst-docutils literal">None</tt>.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.mcpu.OpExecCbBase.Feedback">
+    
+  </a>
+  <a name="Feedback">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Feedback</span>(self, *args):
+    
+    <a class="headerLink" href="#Feedback" title="ganeti.mcpu.OpExecCbBase.Feedback">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></div>
+    <div><p>Sends feedback from the LU code to the end-user.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.mcpu.OpExecCbBase.NotifyRetry">
+    
+  </a>
+  <a name="NotifyRetry">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">NotifyRetry</span>(self):
+    
+    <a class="headerLink" href="#NotifyRetry" title="ganeti.mcpu.OpExecCbBase.NotifyRetry">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></div>
+    <div><p>Called when we are about to reset an LU to retry again.</p>
+<p>This function is called after PrepareRetry successfully completed.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.mcpu.OpExecCbBase.NotifyStart">
+    
+  </a>
+  <a name="NotifyStart">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">NotifyStart</span>(self):
+    
+    <a class="headerLink" href="#NotifyStart" title="ganeti.mcpu.OpExecCbBase.NotifyStart">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></div>
+    <div><p>Called when we are about to execute the LU.</p>
+<p>This function is called when we're about to start the lu's Exec() method, that is, after we have acquired all locks.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.mcpu.OpExecCbBase.SubmitManyJobs">
+    
+  </a>
+  <a name="SubmitManyJobs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SubmitManyJobs</span>(self, jobs):
+    
+    <a class="headerLink" href="#SubmitManyJobs" title="ganeti.mcpu.OpExecCbBase.SubmitManyJobs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.jqueue._OpExecCallbacks.html" class="internal-link">ganeti.jqueue._OpExecCallbacks</a></code></div>
+    <div><p>Submits jobs for processing.</p>
+<p>See <code><a href="ganeti.jqueue.JobQueue.html#SubmitManyJobs" class="internal-link" title="ganeti.jqueue.JobQueue.SubmitManyJobs">jqueue.JobQueue.SubmitManyJobs</a></code>.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.storage.drbd_info.BaseShowInfo</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.storage.drbd_info.BaseShowInfo.html" class="internal-link" title="This class"><wbr></wbr>Base<wbr></wbr>Show<wbr></wbr>Info</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetDevInfo" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo.GetDevInfo"><wbr></wbr>Get<wbr></wbr>Dev<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ConstructShowParser" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ConstructShowParser">_<wbr></wbr>Construct<wbr></wbr>Show<wbr></wbr>Parser</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetShowParser" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._GetShowParser">_<wbr></wbr>Get<wbr></wbr>Show<wbr></wbr>Parser</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_TransformParseResult" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._TransformParseResult">_<wbr></wbr>Transform<wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PARSE_SHOW" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._PARSE_SHOW">_PARSE<wbr></wbr>_SHOW</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_colon" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._colon">_colon</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_comment" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._comment">_comment</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_dbl_quote" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._dbl_quote">_dbl<wbr></wbr>_quote</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_defa" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._defa">_defa</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_device_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._device_value">_device<wbr></wbr>_value</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ipv4_addr" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ipv4_addr">_ipv4<wbr></wbr>_addr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ipv6_addr" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ipv6_addr">_ipv6<wbr></wbr>_addr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_keyword" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._keyword">_keyword</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_lbrace" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._lbrace">_lbrace</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_lbracket" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._lbracket">_lbracket</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_meta_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._meta_value">_meta<wbr></wbr>_value</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_number" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._number">_number</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_quoted" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._quoted">_quoted</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_rbrace" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._rbrace">_rbrace</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_rbracket" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._rbracket">_rbracket</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_semi" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._semi">_semi</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_stmt" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._stmt">_stmt</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._value">_value</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.storage.drbd_info.html" class="internal-link" title="The parent of this class">drbd<wbr></wbr>_info</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd_info.BaseShowInfo.html" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo"><wbr></wbr>Base<wbr></wbr>Show<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd_info.DRBD83ShowInfo.html" class="internal-link" title="ganeti.storage.drbd_info.DRBD83ShowInfo"><wbr></wbr>DRBD83<wbr></wbr>Show<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd_info.DRBD84ShowInfo.html" class="internal-link" title="ganeti.storage.drbd_info.DRBD84ShowInfo"><wbr></wbr>DRBD84<wbr></wbr>Show<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd_info.DRBD8Info.html" class="internal-link" title="ganeti.storage.drbd_info.DRBD8Info"><wbr></wbr>DRBD8<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.storage.drbd_info.DRBD8Status.html" class="internal-link" title="ganeti.storage.drbd_info.DRBD8Status"><wbr></wbr>DRBD8<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.storage.html" class="internal-link" title="ganeti.storage">storage</a></code><wbr></wbr>.<code><a href="ganeti.storage.drbd_info.html" class="internal-link" title="ganeti.storage.drbd_info">drbd_info</a></code><wbr></wbr>.<code><a href="ganeti.storage.drbd_info.BaseShowInfo.html" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo">BaseShowInfo</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">BaseShowInfo</span>(object):</code></p><p>Known subclasses: <code><a href="ganeti.storage.drbd_info.DRBD83ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD83ShowInfo</a></code>, <code><a href="ganeti.storage.drbd_info.DRBD84ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD84ShowInfo</a></code></p>
+          <p><a href="classIndex.html#ganeti.storage.drbd_info.BaseShowInfo">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Base class for parsing the `drbdsetup show` output.</p>
+<p>Holds various common pyparsing expressions which are used by subclasses. Also provides caching of the constructed parser.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1315">
+  
+  
+  <tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#GetDevInfo" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo.GetDevInfo"><wbr></wbr>Get<wbr></wbr>Dev<wbr></wbr>Info</a></code></td>
+    <td>Parse details about a given DRBD minor.</td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_ConstructShowParser" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ConstructShowParser">_<wbr></wbr>Construct<wbr></wbr>Show<wbr></wbr>Parser</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_GetShowParser" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._GetShowParser">_<wbr></wbr>Get<wbr></wbr>Show<wbr></wbr>Parser</a></code></td>
+    <td>Return a parser for `drbd show` output.</td>
+  </tr><tr class="classmethod private">
+    
+    <td>Class Method</td>
+    <td><code><a href="#_TransformParseResult" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._TransformParseResult">_<wbr></wbr>Transform<wbr></wbr>Parse<wbr></wbr>Result</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_PARSE_SHOW" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._PARSE_SHOW">_PARSE<wbr></wbr>_SHOW</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_colon" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._colon">_colon</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_comment" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._comment">_comment</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_dbl_quote" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._dbl_quote">_dbl<wbr></wbr>_quote</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_defa" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._defa">_defa</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_device_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._device_value">_device<wbr></wbr>_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_ipv4_addr" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ipv4_addr">_ipv4<wbr></wbr>_addr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_ipv6_addr" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._ipv6_addr">_ipv6<wbr></wbr>_addr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_keyword" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._keyword">_keyword</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_lbrace" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._lbrace">_lbrace</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_lbracket" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._lbracket">_lbracket</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_meta_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._meta_value">_meta<wbr></wbr>_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_number" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._number">_number</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_quoted" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._quoted">_quoted</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_rbrace" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._rbrace">_rbrace</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_rbracket" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._rbracket">_rbracket</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_semi" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._semi">_semi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_stmt" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._stmt">_stmt</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_value" class="internal-link" title="ganeti.storage.drbd_info.BaseShowInfo._value">_value</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="baseclassmethod">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo.GetDevInfo">
+    
+  </a>
+  <a name="GetDevInfo">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">GetDevInfo</span>(cls, show_data):
+    
+    <a class="headerLink" href="#GetDevInfo" title="ganeti.storage.drbd_info.BaseShowInfo.GetDevInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse details about a given DRBD minor.</p>
+<p>This returns, if available, the local backing device (as a path) and the local and remote (ip, port) information from a string containing the output of the `drbdsetup show` command as returned by DRBD8Dev._GetShowData.</p>
+<p>This will return a dict with keys:</p>
+<ul class="rst-simple">
+<li>local_dev</li>
+<li>meta_dev</li>
+<li>meta_index</li>
+<li>local_addr</li>
+<li>remote_addr</li>
+</ul>
+</div>
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._ConstructShowParser">
+    
+  </a>
+  <a name="_ConstructShowParser">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ConstructShowParser</span>(cls):
+    
+    <a class="headerLink" href="#_ConstructShowParser" title="ganeti.storage.drbd_info.BaseShowInfo._ConstructShowParser">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.storage.drbd_info.DRBD83ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD83ShowInfo</a></code>, <code><a href="ganeti.storage.drbd_info.DRBD84ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD84ShowInfo</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._GetShowParser">
+    
+  </a>
+  <a name="_GetShowParser">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetShowParser</span>(cls):
+    
+    <a class="headerLink" href="#_GetShowParser" title="ganeti.storage.drbd_info.BaseShowInfo._GetShowParser">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return a parser for `drbd show` output.</p>
+<p>This will either create or return an already-created parser for the output of the command `drbd show`.</p>
+</div>
+  </div>
+</div><div class="baseclassmethod private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._TransformParseResult">
+    
+  </a>
+  <a name="_TransformParseResult">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_TransformParseResult</span>(cls, parse_result):
+    
+    <a class="headerLink" href="#_TransformParseResult" title="ganeti.storage.drbd_info.BaseShowInfo._TransformParseResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.storage.drbd_info.DRBD83ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD83ShowInfo</a></code>, <code><a href="ganeti.storage.drbd_info.DRBD84ShowInfo.html" class="internal-link">ganeti.storage.drbd_info.DRBD84ShowInfo</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._PARSE_SHOW">
+    
+  </a>
+  <a name="_PARSE_SHOW">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_PARSE_SHOW</span> =
+    
+    <a class="headerLink" href="#_PARSE_SHOW" title="ganeti.storage.drbd_info.BaseShowInfo._PARSE_SHOW">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>None</code></pre></td></tr></table>
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._colon">
+    
+  </a>
+  <a name="_colon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_colon</span> =
+    
+    <a class="headerLink" href="#_colon" title="ganeti.storage.drbd_info.BaseShowInfo._colon">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._comment">
+    
+  </a>
+  <a name="_comment">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_comment</span> =
+    
+    <a class="headerLink" href="#_comment" title="ganeti.storage.drbd_info.BaseShowInfo._comment">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._dbl_quote">
+    
+  </a>
+  <a name="_dbl_quote">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_dbl_quote</span> =
+    
+    <a class="headerLink" href="#_dbl_quote" title="ganeti.storage.drbd_info.BaseShowInfo._dbl_quote">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._defa">
+    
+  </a>
+  <a name="_defa">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_defa</span> =
+    
+    <a class="headerLink" href="#_defa" title="ganeti.storage.drbd_info.BaseShowInfo._defa">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._device_value">
+    
+  </a>
+  <a name="_device_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_device_value</span> =
+    
+    <a class="headerLink" href="#_device_value" title="ganeti.storage.drbd_info.BaseShowInfo._device_value">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._ipv4_addr">
+    
+  </a>
+  <a name="_ipv4_addr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ipv4_addr</span> =
+    
+    <a class="headerLink" href="#_ipv4_addr" title="ganeti.storage.drbd_info.BaseShowInfo._ipv4_addr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._ipv6_addr">
+    
+  </a>
+  <a name="_ipv6_addr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ipv6_addr</span> =
+    
+    <a class="headerLink" href="#_ipv6_addr" title="ganeti.storage.drbd_info.BaseShowInfo._ipv6_addr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._keyword">
+    
+  </a>
+  <a name="_keyword">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_keyword</span> =
+    
+    <a class="headerLink" href="#_keyword" title="ganeti.storage.drbd_info.BaseShowInfo._keyword">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._lbrace">
+    
+  </a>
+  <a name="_lbrace">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_lbrace</span> =
+    
+    <a class="headerLink" href="#_lbrace" title="ganeti.storage.drbd_info.BaseShowInfo._lbrace">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._lbracket">
+    
+  </a>
+  <a name="_lbracket">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_lbracket</span> =
+    
+    <a class="headerLink" href="#_lbracket" title="ganeti.storage.drbd_info.BaseShowInfo._lbracket">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._meta_value">
+    
+  </a>
+  <a name="_meta_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_meta_value</span> =
+    
+    <a class="headerLink" href="#_meta_value" title="ganeti.storage.drbd_info.BaseShowInfo._meta_value">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._number">
+    
+  </a>
+  <a name="_number">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_number</span> =
+    
+    <a class="headerLink" href="#_number" title="ganeti.storage.drbd_info.BaseShowInfo._number">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._quoted">
+    
+  </a>
+  <a name="_quoted">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_quoted</span> =
+    
+    <a class="headerLink" href="#_quoted" title="ganeti.storage.drbd_info.BaseShowInfo._quoted">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._rbrace">
+    
+  </a>
+  <a name="_rbrace">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_rbrace</span> =
+    
+    <a class="headerLink" href="#_rbrace" title="ganeti.storage.drbd_info.BaseShowInfo._rbrace">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._rbracket">
+    
+  </a>
+  <a name="_rbracket">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_rbracket</span> =
+    
+    <a class="headerLink" href="#_rbracket" title="ganeti.storage.drbd_info.BaseShowInfo._rbracket">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._semi">
+    
+  </a>
+  <a name="_semi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_semi</span> =
+    
+    <a class="headerLink" href="#_semi" title="ganeti.storage.drbd_info.BaseShowInfo._semi">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._stmt">
+    
+  </a>
+  <a name="_stmt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_stmt</span> =
+    
+    <a class="headerLink" href="#_stmt" title="ganeti.storage.drbd_info.BaseShowInfo._stmt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable private">
+  
+  
+  <a name="ganeti.storage.drbd_info.BaseShowInfo._value">
+    
+  </a>
+  <a name="_value">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_value</span> =
+    
+    <a class="headerLink" href="#_value" title="ganeti.storage.drbd_info.BaseShowInfo._value">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

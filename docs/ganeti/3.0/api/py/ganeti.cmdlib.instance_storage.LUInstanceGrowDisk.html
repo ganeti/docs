@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.instance_storage.LUInstanceGrowDisk</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.html" class="internal-link" title="This class"><wbr></wbr>LUInstance<wbr></wbr>Grow<wbr></wbr>Disk</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.Exec"><wbr></wbr>Exec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckDiskSpace" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckDiskSpace">_<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Space</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CheckIPolicy" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckIPolicy">_<wbr></wbr>Check<wbr></wbr>IPolicy</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.HPATH">HPATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.REQ_BGL">REQ<wbr></wbr>_BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#delta" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.delta">delta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disk" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.disk">disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#instance" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#node_es_flags" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.node_es_flags">node<wbr></wbr>_es<wbr></wbr>_flags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#target" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.target">target</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.needed_locks">needed<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="The parent of this class">instance<wbr></wbr>_storage</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceActivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Activate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceDeactivateDisks"><wbr></wbr>LUInstance<wbr></wbr>Deactivate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk"><wbr></wbr>LUInstance<wbr></wbr>Grow<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceRecreateDisks"><wbr></wbr>LUInstance<wbr></wbr>Recreate<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceReplaceDisks"><wbr></wbr>LUInstance<wbr></wbr>Replace<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.TemporaryDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TemporaryDisk"><wbr></wbr>Temporary<wbr></wbr>Disk</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.TLReplaceDisks.html" class="internal-link" title="ganeti.cmdlib.instance_storage.TLReplaceDisks"><wbr></wbr>TLReplace<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#AssembleInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.AssembleInstanceDisks"><wbr></wbr>Assemble<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CalculateFileStorageDir" class="internal-link" title="ganeti.cmdlib.instance_storage.CalculateFileStorageDir"><wbr></wbr>Calculate<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Dir</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CheckDiskConsistency" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskConsistency"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CheckDiskExtProvider" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckDiskExtProvider"><wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Ext<wbr></wbr>Provider</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CheckNodesFreeDiskPerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckNodesFreeDiskPerVG"><wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>Per<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CheckRADOSFreeSpace" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckRADOSFreeSpace"><wbr></wbr>Check<wbr></wbr>RADOSFree<wbr></wbr>Space</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CheckSpindlesExclusiveStorage" class="internal-link" title="ganeti.cmdlib.instance_storage.CheckSpindlesExclusiveStorage"><wbr></wbr>Check<wbr></wbr>Spindles<wbr></wbr>Exclusive<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CommitDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CommitDisks"><wbr></wbr>Commit<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ComputeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisks"><wbr></wbr>Compute<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ComputeDisksInfo" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDisksInfo"><wbr></wbr>Compute<wbr></wbr>Disks<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ComputeDiskSizePerVG" class="internal-link" title="ganeti.cmdlib.instance_storage.ComputeDiskSizePerVG"><wbr></wbr>Compute<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>Per<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateDisks"><wbr></wbr>Create<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#CreateSingleBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage.CreateSingleBlockDev"><wbr></wbr>Create<wbr></wbr>Single<wbr></wbr>Block<wbr></wbr>Dev</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ExpandCheckDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ExpandCheckDisks"><wbr></wbr>Expand<wbr></wbr>Check<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#GenerateDiskTemplate" class="internal-link" title="ganeti.cmdlib.instance_storage.GenerateDiskTemplate"><wbr></wbr>Generate<wbr></wbr>Disk<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ImageDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ImageDisks"><wbr></wbr>Image<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#IsExclusiveStorageEnabledNodeUuid" class="internal-link" title="ganeti.cmdlib.instance_storage.IsExclusiveStorageEnabledNodeUuid"><wbr></wbr>Is<wbr></wbr>Exclusive<wbr></wbr>Storage<wbr></wbr>Enabled<wbr></wbr>Node<wbr></wbr>Uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#ShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.ShutdownInstanceDisks"><wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#StartInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.StartInstanceDisks"><wbr></wbr>Start<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#WaitForSync" class="internal-link" title="ganeti.cmdlib.instance_storage.WaitForSync"><wbr></wbr>Wait<wbr></wbr>For<wbr></wbr>Sync</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#WipeDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeDisks"><wbr></wbr>Wipe<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#WipeOrCleanupDisks" class="internal-link" title="ganeti.cmdlib.instance_storage.WipeOrCleanupDisks"><wbr></wbr>Wipe<wbr></wbr>Or<wbr></wbr>Cleanup<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_BlockdevFind" class="internal-link" title="ganeti.cmdlib.instance_storage._BlockdevFind">_<wbr></wbr>Blockdev<wbr></wbr>Find</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CalcEta" class="internal-link" title="ganeti.cmdlib.instance_storage._CalcEta">_<wbr></wbr>Calc<wbr></wbr>Eta</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CheckDiskConsistencyInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckDiskConsistencyInner">_<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Consistency<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CheckNodesFreeDiskOnVG" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckNodesFreeDiskOnVG">_<wbr></wbr>Check<wbr></wbr>Nodes<wbr></wbr>Free<wbr></wbr>Disk<wbr></wbr>On<wbr></wbr>VG</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CheckVgCapacityForNode" class="internal-link" title="ganeti.cmdlib.instance_storage._CheckVgCapacityForNode">_<wbr></wbr>Check<wbr></wbr>Vg<wbr></wbr>Capacity<wbr></wbr>For<wbr></wbr>Node</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CreateBlockDev" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDev">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_CreateBlockDevInner" class="internal-link" title="ganeti.cmdlib.instance_storage._CreateBlockDevInner">_<wbr></wbr>Create<wbr></wbr>Block<wbr></wbr>Dev<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_DiskSizeInBytesToMebibytes" class="internal-link" title="ganeti.cmdlib.instance_storage._DiskSizeInBytesToMebibytes">_<wbr></wbr>Disk<wbr></wbr>Size<wbr></wbr>In<wbr></wbr>Bytes<wbr></wbr>To<wbr></wbr>Mebibytes</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_GenerateDRBD8Branch" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateDRBD8Branch">_<wbr></wbr>Generate<wbr></wbr>DRBD8<wbr></wbr>Branch</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_GenerateUniqueNames" class="internal-link" title="ganeti.cmdlib.instance_storage._GenerateUniqueNames">_<wbr></wbr>Generate<wbr></wbr>Unique<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_PerformNodeInfoCall" class="internal-link" title="ganeti.cmdlib.instance_storage._PerformNodeInfoCall">_<wbr></wbr>Perform<wbr></wbr>Node<wbr></wbr>Info<wbr></wbr>Call</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_SafeShutdownInstanceDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._SafeShutdownInstanceDisks">_<wbr></wbr>Safe<wbr></wbr>Shutdown<wbr></wbr>Instance<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_UndoCreateDisks" class="internal-link" title="ganeti.cmdlib.instance_storage._UndoCreateDisks">_<wbr></wbr>Undo<wbr></wbr>Create<wbr></wbr>Disks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html#_DISK_TEMPLATE_NAME_PREFIX" class="internal-link" title="ganeti.cmdlib.instance_storage._DISK_TEMPLATE_NAME_PREFIX">_DISK<wbr></wbr>_TEMPLATE<wbr></wbr>_NAME<wbr></wbr>_PREFIX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="ganeti.cmdlib.instance_storage">instance_storage</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.html" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk">LUInstanceGrowDisk</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LUInstanceGrowDisk</span>(<a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.cmdlib.instance_storage.LUInstanceGrowDisk">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Grow a disk of an instance.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id213">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code></td>
+    <td>Build hooks env.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code></td>
+    <td>Build hooks nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code></td>
+    <td>Check prerequisites.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code></td>
+    <td>Declare LU locking needs for a level</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.Exec"><wbr></wbr>Exec</a></code></td>
+    <td>Execute disk grow.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code></td>
+    <td>Expand names for this LU.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.HPATH">HPATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.REQ_BGL">REQ<wbr></wbr>_BGL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#delta" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.delta">delta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#disk" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.disk">disk</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#instance" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.instance">instance</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#node_es_flags" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.node_es_flags">node<wbr></wbr>_es<wbr></wbr>_flags</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#target" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.target">target</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckDiskSpace" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckDiskSpace">_<wbr></wbr>Check<wbr></wbr>Disk<wbr></wbr>Space</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_CheckIPolicy" class="internal-link" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckIPolicy">_<wbr></wbr>Check<wbr></wbr>IPolicy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>:
+            </p>
+            <table class="children sortable" id="id214">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code></td>
+    <td>Constructor for LogicalUnit.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code></td>
+    <td>Raise AssertionError if the LU holds some locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Check syntactic validity for the opcode arguments.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code></td>
+    <td>Notify the LU about the results of its hooks.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code></td>
+    <td>Return the list of locks owned by the LU at a given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code></td>
+    <td>Extend list of nodes to run the post LU hook.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code></td>
+    <td>Prepare the LU to run again.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code></td>
+    <td>Return a request to release the specified locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code></td>
+    <td>the value (if any) that will be returned to the caller in dry-run mode (signalled by opcode dry_run parameter)</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.needed_locks">needed<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code></td>
+    <td>Helper function to expand and lock an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code></td>
+    <td>Helper function to declare instances' nodes for locking.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksEnv">
+    
+  </a>
+  <a name="BuildHooksEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksEnv</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksEnv" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksEnv" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksEnv</a></code></div>
+    <div><p>Build hooks env.</p>
+<p>This runs on the master, the primary and all the secondaries.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksNodes">
+    
+  </a>
+  <a name="BuildHooksNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksNodes</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksNodes" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.BuildHooksNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksNodes" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksNodes</a></code></div>
+    <div><p>Build hooks nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.CheckPrereq">
+    
+  </a>
+  <a name="CheckPrereq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckPrereq</span>(self):
+    
+    <a class="headerLink" href="#CheckPrereq" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.CheckPrereq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckPrereq" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckPrereq</a></code></div>
+    <div><p>Check prerequisites.</p>
+<p>This checks that the instance is in the cluster.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.DeclareLocks">
+    
+  </a>
+  <a name="DeclareLocks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">DeclareLocks</span>(self, level):
+    
+    <a class="headerLink" href="#DeclareLocks" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.DeclareLocks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.DeclareLocks</a></code></div>
+    <div><p>Declare LU locking needs for a level</p>
+<p>While most LUs can just declare their locking needs at ExpandNames time, sometimes there's the need to calculate some locks after having acquired the ones before. This function is called just before acquiring locks at a particular level, but after acquiring the ones at lower levels, and permits such calculations. It can be used to modify self.needed_locks, and by default it does nothing.</p>
+<p>This function is only called if you have something already set in self.needed_locks for the level.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">level:</span>member of <code><a href="ganeti.locking.html#LEVELS" class="internal-link" title="ganeti.locking.LEVELS">ganeti.locking.LEVELS</a></code></td><td class="fieldArgDesc">Locking level which is going to be locked</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.Exec">
+    
+  </a>
+  <a name="Exec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Exec</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#Exec" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.Exec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#Exec" class="internal-link">ganeti.cmdlib.base.LogicalUnit.Exec</a></code></div>
+    <div><p>Execute disk grow.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.ExpandNames">
+    
+  </a>
+  <a name="ExpandNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNames</span>(self):
+    
+    <a class="headerLink" href="#ExpandNames" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.ExpandNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#ExpandNames" class="internal-link">ganeti.cmdlib.base.LogicalUnit.ExpandNames</a></code></div>
+    <div><p>Expand names for this LU.</p>
+<p>This method is called before starting to execute the opcode, and it should update all the parameters of the opcode to their canonical form (e.g. a short node name must be fully expanded after this method has successfully completed). This way locking, hooks, logging, etc. can work correctly.</p>
+<p>LUs which implement this method must also populate the self.needed_locks member, as a dict with lock levels as keys, and a list of needed lock names as values. Rules:</p>
+<ul class="rst-simple">
+<li>use an empty dict if you don't need any lock</li>
+<li>if you don't need any lock at a particular level omit that level (note that in this case <tt class="rst-docutils literal">DeclareLocks</tt> won't be called at all for that level)</li>
+<li>if you need locks at a level, but you can't calculate it in this function, initialise that level with an empty list and do further processing in <code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks">LogicalUnit.DeclareLocks</a></code> (see that function's docstring)</li>
+<li>don't put anything for the BGL level</li>
+<li>if you want all locks at a level use <code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">locking.ALL_SET</a></code> as a value</li>
+</ul>
+<p>If you need to share locks (rather than acquire them exclusively) at one level you can modify self.share_locks, setting a true value (usually 1) for that level. By default locks are not shared.</p>
+<p>This function can also define a list of tasklets, which then will be executed in order instead of the usual LU-level CheckPrereq and Exec functions, if those are not defined by the LU.</p>
+<p>Examples:</p>
+<pre class="rst-literal-block">
+  # Acquire all nodes and one instance
+  self.needed_locks = {
+    locking.LEVEL_NODE: locking.ALL_SET,
+    locking.LEVEL_INSTANCE: ['instance1.example.com'],
+  }
+  # Acquire just two nodes
+  self.needed_locks = {
+    locking.LEVEL_NODE: ['node1-uuid', 'node2-uuid'],
+  }
+  # Acquire no locks
+  self.needed_locks = {} # No, you can't leave it to the default value None
+</pre>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.HPATH">
+    
+  </a>
+  <a name="HPATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HPATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HPATH" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.HPATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HPATH" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HPATH</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">disk-grow</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.REQ_BGL">
+    
+  </a>
+  <a name="REQ_BGL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">REQ_BGL</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#REQ_BGL" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.REQ_BGL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#REQ_BGL" class="internal-link">ganeti.cmdlib.base.LogicalUnit.REQ_BGL</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>False</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.delta">
+    
+  </a>
+  <a name="delta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">delta</span> =
+    
+    <a class="headerLink" href="#delta" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.delta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.disk">
+    
+  </a>
+  <a name="disk">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">disk</span> =
+    
+    <a class="headerLink" href="#disk" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.disk">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.instance">
+    
+  </a>
+  <a name="instance">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">instance</span> =
+    
+    <a class="headerLink" href="#instance" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.instance">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.node_es_flags">
+    
+  </a>
+  <a name="node_es_flags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">node_es_flags</span> =
+    
+    <a class="headerLink" href="#node_es_flags" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.node_es_flags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.target">
+    
+  </a>
+  <a name="target">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">target</span> =
+    
+    <a class="headerLink" href="#target" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk.target">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckDiskSpace">
+    
+  </a>
+  <a name="_CheckDiskSpace">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckDiskSpace</span>(self, node_uuids, req_vgspace):
+    
+    <a class="headerLink" href="#_CheckDiskSpace" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckDiskSpace">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckIPolicy">
+    
+  </a>
+  <a name="_CheckIPolicy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CheckIPolicy</span>(self, target_size):
+    
+    <a class="headerLink" href="#_CheckIPolicy" title="ganeti.cmdlib.instance_storage.LUInstanceGrowDisk._CheckIPolicy">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

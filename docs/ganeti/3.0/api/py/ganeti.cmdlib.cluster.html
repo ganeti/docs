@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.cluster</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="This package">cluster</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.verify.html" class="internal-link" title="ganeti.cmdlib.cluster.verify">verify</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.ClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.ClusterQuery"><wbr></wbr>Cluster<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterActivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterActivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Activate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterConfigQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterConfigQuery"><wbr></wbr>LUCluster<wbr></wbr>Config<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Deactivate<wbr></wbr>Master<wbr></wbr>Ip</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterDestroy.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDestroy"><wbr></wbr>LUCluster<wbr></wbr>Destroy</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterPostInit.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterPostInit"><wbr></wbr>LUCluster<wbr></wbr>Post<wbr></wbr>Init</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterQuery"><wbr></wbr>LUCluster<wbr></wbr>Query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRedistConf.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRedistConf"><wbr></wbr>LUCluster<wbr></wbr>Redist<wbr></wbr>Conf</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRename.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRename"><wbr></wbr>LUCluster<wbr></wbr>Rename</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRenewCrypto.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRenewCrypto"><wbr></wbr>LUCluster<wbr></wbr>Renew<wbr></wbr>Crypto</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes"><wbr></wbr>LUCluster<wbr></wbr>Repair<wbr></wbr>Disk<wbr></wbr>Sizes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.LUClusterSetParams.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams"><wbr></wbr>LUCluster<wbr></wbr>Set<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckCompressionTools" class="internal-link" title="ganeti.cmdlib.cluster.CheckCompressionTools"><wbr></wbr>Check<wbr></wbr>Compression<wbr></wbr>Tools</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckFileBasedStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileBasedStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Based<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckGlusterStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckGlusterStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Gluster<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckSharedFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckSharedFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ValidateNetmask" class="internal-link" title="ganeti.cmdlib.cluster._ValidateNetmask">_<wbr></wbr>Validate<wbr></wbr>Netmask</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.cmdlib.html" class="internal-link" title="The parent of this package">cmdlib</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.backup.html" class="internal-link" title="ganeti.cmdlib.backup">backup</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.html" class="internal-link" title="ganeti.cmdlib.base">base</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.common.html" class="internal-link" title="ganeti.cmdlib.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.group.html" class="internal-link" title="ganeti.cmdlib.group">group</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance.html" class="internal-link" title="ganeti.cmdlib.instance">instance</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_create.html" class="internal-link" title="ganeti.cmdlib.instance_create">instance<wbr></wbr>_create</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_helpervm.html" class="internal-link" title="ganeti.cmdlib.instance_helpervm">instance<wbr></wbr>_helpervm</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_migration.html" class="internal-link" title="ganeti.cmdlib.instance_migration">instance<wbr></wbr>_migration</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_operation.html" class="internal-link" title="ganeti.cmdlib.instance_operation">instance<wbr></wbr>_operation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_query.html" class="internal-link" title="ganeti.cmdlib.instance_query">instance<wbr></wbr>_query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_set_params.html" class="internal-link" title="ganeti.cmdlib.instance_set_params">instance<wbr></wbr>_set<wbr></wbr>_params</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_storage.html" class="internal-link" title="ganeti.cmdlib.instance_storage">instance<wbr></wbr>_storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.instance_utils.html" class="internal-link" title="ganeti.cmdlib.instance_utils">instance<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.misc.html" class="internal-link" title="ganeti.cmdlib.misc">misc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html" class="internal-link" title="ganeti.cmdlib.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.node.html" class="internal-link" title="ganeti.cmdlib.node">node</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.operating_system.html" class="internal-link" title="ganeti.cmdlib.operating_system">operating<wbr></wbr>_system</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.query.html" class="internal-link" title="ganeti.cmdlib.query">query</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.tags.html" class="internal-link" title="ganeti.cmdlib.tags">tags</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.test.html" class="internal-link" title="ganeti.cmdlib.test">test</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="package"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.cluster.html" class="internal-link" title="ganeti.cmdlib.cluster">cluster</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          package documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Logical units dealing with the cluster.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id100">
+  
+  
+  <tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="ganeti.cmdlib.cluster.verify.html" class="internal-link" title="ganeti.cmdlib.cluster.verify">verify</a></code></td>
+    <td>Logical units for cluster verification.</td>
+  </tr>
+</table>
+          
+
+            <p class="fromInitPy">From <code>__init__.py</code>:</p><table class="children sortable" id="id101">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.ClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.ClusterQuery"><wbr></wbr>Cluster<wbr></wbr>Query</a></code></td>
+    <td><span class="undocumented">No class docstring; 0/2 instance variable, 0/1 constant, 1/3 method documented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterActivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterActivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Activate<wbr></wbr>Master<wbr></wbr>Ip</a></code></td>
+    <td>Activate the master IP on the master node.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterConfigQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterConfigQuery"><wbr></wbr>LUCluster<wbr></wbr>Config<wbr></wbr>Query</a></code></td>
+    <td>Return configuration values.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDeactivateMasterIp"><wbr></wbr>LUCluster<wbr></wbr>Deactivate<wbr></wbr>Master<wbr></wbr>Ip</a></code></td>
+    <td>Deactivate the master IP on the master node.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterDestroy.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterDestroy"><wbr></wbr>LUCluster<wbr></wbr>Destroy</a></code></td>
+    <td>Logical unit for destroying the cluster.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterPostInit.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterPostInit"><wbr></wbr>LUCluster<wbr></wbr>Post<wbr></wbr>Init</a></code></td>
+    <td>Logical unit for running hooks after cluster initialization.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterQuery.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterQuery"><wbr></wbr>LUCluster<wbr></wbr>Query</a></code></td>
+    <td>Query cluster configuration.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterRedistConf.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRedistConf"><wbr></wbr>LUCluster<wbr></wbr>Redist<wbr></wbr>Conf</a></code></td>
+    <td>Force the redistribution of cluster configuration.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterRename.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRename"><wbr></wbr>LUCluster<wbr></wbr>Rename</a></code></td>
+    <td>Rename the cluster.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterRenewCrypto.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRenewCrypto"><wbr></wbr>LUCluster<wbr></wbr>Renew<wbr></wbr>Crypto</a></code></td>
+    <td>Renew the cluster's crypto tokens.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterRepairDiskSizes"><wbr></wbr>LUCluster<wbr></wbr>Repair<wbr></wbr>Disk<wbr></wbr>Sizes</a></code></td>
+    <td>Verifies the cluster disks sizes.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.cmdlib.cluster.LUClusterSetParams.html" class="internal-link" title="ganeti.cmdlib.cluster.LUClusterSetParams"><wbr></wbr>LUCluster<wbr></wbr>Set<wbr></wbr>Params</a></code></td>
+    <td>Change the parameters of the cluster.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckCompressionTools" class="internal-link" title="ganeti.cmdlib.cluster.CheckCompressionTools"><wbr></wbr>Check<wbr></wbr>Compression<wbr></wbr>Tools</a></code></td>
+    <td>Check whether the provided compression tools look like executables.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckFileBasedStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileBasedStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Based<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Checks whether the given file-based storage directory is acceptable.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Checks whether the given file storage directory is acceptable.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckGlusterStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckGlusterStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Gluster<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Checks whether the given gluster storage directory is acceptable.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#CheckSharedFileStoragePathVsEnabledDiskTemplates" class="internal-link" title="ganeti.cmdlib.cluster.CheckSharedFileStoragePathVsEnabledDiskTemplates"><wbr></wbr>Check<wbr></wbr>Shared<wbr></wbr>File<wbr></wbr>Storage<wbr></wbr>Path<wbr></wbr>Vs<wbr></wbr>Enabled<wbr></wbr>Disk<wbr></wbr>Templates</a></code></td>
+    <td>Checks whether the given shared file storage directory is acceptable.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ValidateNetmask" class="internal-link" title="ganeti.cmdlib.cluster._ValidateNetmask">_<wbr></wbr>Validate<wbr></wbr>Netmask</a></code></td>
+    <td>Checks if a netmask is valid.</td>
+  </tr>
+</table>
+        </div>
+
+        <div id="childList">
+          <div class="basefunction private">
+  
+  
+  <a name="ganeti.cmdlib.cluster._ValidateNetmask">
+    
+  </a>
+  <a name="_ValidateNetmask">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ValidateNetmask</span>(cfg, netmask):
+    
+    <a class="headerLink" href="#_ValidateNetmask" title="ganeti.cmdlib.cluster._ValidateNetmask">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks if a netmask is valid.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cfg:</span><code><a href="ganeti.config.ConfigWriter.html" class="internal-link" title="ganeti.config.ConfigWriter">config.ConfigWriter</a></code></td><td class="fieldArgDesc">cluster configuration</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">netmask:</span>int</td><td class="fieldArgDesc">netmask to be verified</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpPrereqError.html" class="internal-link" title="ganeti.errors.OpPrereqError">errors.OpPrereqError</a></code></td><td>if the validation fails</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.cluster.CheckFileBasedStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <a name="CheckFileBasedStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckFileBasedStoragePathVsEnabledDiskTemplates</span>(logging_warn_fn, file_storage_dir, enabled_disk_templates, file_disk_template):
+    
+    <a class="headerLink" href="#CheckFileBasedStoragePathVsEnabledDiskTemplates" title="ganeti.cmdlib.cluster.CheckFileBasedStoragePathVsEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the given file-based storage directory is acceptable.</p>
+<p>Note: This function is public, because it is also used in bootstrap.py.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">logging<wbr></wbr>_warn<wbr></wbr>_fn:</span>function</td><td class="fieldArgDesc">function which accepts a string and logs it</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_storage<wbr></wbr>_dir:</span>string</td><td class="fieldArgDesc">the directory to be used for file-based instances</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">enabled<wbr></wbr>_disk<wbr></wbr>_templates:</span>list of string</td><td class="fieldArgDesc">the list of enabled disk templates</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">file<wbr></wbr>_disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">the file-based disk template for which the path should be checked</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.cluster.CheckFileStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <a name="CheckFileStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckFileStoragePathVsEnabledDiskTemplates</span>(logging_warn_fn, file_storage_dir, enabled_disk_templates):
+    
+    <a class="headerLink" href="#CheckFileStoragePathVsEnabledDiskTemplates" title="ganeti.cmdlib.cluster.CheckFileStoragePathVsEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the given file storage directory is acceptable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">CheckFileBasedStoragePathVsEnabledDiskTemplates</tt></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.cluster.CheckSharedFileStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <a name="CheckSharedFileStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckSharedFileStoragePathVsEnabledDiskTemplates</span>(logging_warn_fn, file_storage_dir, enabled_disk_templates):
+    
+    <a class="headerLink" href="#CheckSharedFileStoragePathVsEnabledDiskTemplates" title="ganeti.cmdlib.cluster.CheckSharedFileStoragePathVsEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the given shared file storage directory is acceptable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">CheckFileBasedStoragePathVsEnabledDiskTemplates</tt></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.cluster.CheckGlusterStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <a name="CheckGlusterStoragePathVsEnabledDiskTemplates">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckGlusterStoragePathVsEnabledDiskTemplates</span>(logging_warn_fn, file_storage_dir, enabled_disk_templates):
+    
+    <a class="headerLink" href="#CheckGlusterStoragePathVsEnabledDiskTemplates" title="ganeti.cmdlib.cluster.CheckGlusterStoragePathVsEnabledDiskTemplates">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Checks whether the given gluster storage directory is acceptable.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><tt class="rst-docutils literal">CheckFileBasedStoragePathVsEnabledDiskTemplates</tt></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="ganeti.cmdlib.cluster.CheckCompressionTools">
+    
+  </a>
+  <a name="CheckCompressionTools">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckCompressionTools</span>(tools):
+    
+    <a class="headerLink" href="#CheckCompressionTools" title="ganeti.cmdlib.cluster.CheckCompressionTools">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check whether the provided compression tools look like executables.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">tools:</span>list of string</td><td class="fieldArgDesc">The tools provided as opcode input</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

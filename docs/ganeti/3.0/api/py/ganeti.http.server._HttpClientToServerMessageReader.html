@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.http.server._HttpClientToServerMessageReader</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.http.server._HttpClientToServerMessageReader.html" class="internal-link" title="This class">_<wbr></wbr>Http<wbr></wbr>Client<wbr></wbr>To<wbr></wbr>Server<wbr></wbr>Message<wbr></wbr>Reader</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ParseStartLine" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.ParseStartLine"><wbr></wbr>Parse<wbr></wbr>Start<wbr></wbr>Line</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#__init__" class="internal-link" title="ganeti.http.HttpMessageReader.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#_CheckHeaderLength" class="internal-link" title="ganeti.http.HttpMessageReader._CheckHeaderLength">_<wbr></wbr>Check<wbr></wbr>Header<wbr></wbr>Length</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#_CheckStartLineLength" class="internal-link" title="ganeti.http.HttpMessageReader._CheckStartLineLength">_<wbr></wbr>Check<wbr></wbr>Start<wbr></wbr>Line<wbr></wbr>Length</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#_ContinueParsing" class="internal-link" title="ganeti.http.HttpMessageReader._ContinueParsing">_<wbr></wbr>Continue<wbr></wbr>Parsing</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#_ParseHeaders" class="internal-link" title="ganeti.http.HttpMessageReader._ParseHeaders">_<wbr></wbr>Parse<wbr></wbr>Headers</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#_WillPeerCloseConnection" class="internal-link" title="ganeti.http.HttpMessageReader._WillPeerCloseConnection">_<wbr></wbr>Will<wbr></wbr>Peer<wbr></wbr>Close<wbr></wbr>Connection</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HEADER_LENGTH_MAX" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.HEADER_LENGTH_MAX">HEADER<wbr></wbr>_LENGTH<wbr></wbr>_MAX</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#START_LINE_LENGTH_MAX" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.START_LINE_LENGTH_MAX">START<wbr></wbr>_LINE<wbr></wbr>_LENGTH<wbr></wbr>_MAX</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#PS_BODY" class="internal-link" title="ganeti.http.HttpMessageReader.PS_BODY">PS<wbr></wbr>_BODY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#PS_COMPLETE" class="internal-link" title="ganeti.http.HttpMessageReader.PS_COMPLETE">PS<wbr></wbr>_COMPLETE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#PS_HEADERS" class="internal-link" title="ganeti.http.HttpMessageReader.PS_HEADERS">PS<wbr></wbr>_HEADERS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#PS_START_LINE" class="internal-link" title="ganeti.http.HttpMessageReader.PS_START_LINE">PS<wbr></wbr>_START<wbr></wbr>_LINE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#body_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.body_buffer">body<wbr></wbr>_buffer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#content_length" class="internal-link" title="ganeti.http.HttpMessageReader.content_length">content<wbr></wbr>_length</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#header_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.header_buffer">header<wbr></wbr>_buffer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#msg" class="internal-link" title="ganeti.http.HttpMessageReader.msg">msg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#parser_status" class="internal-link" title="ganeti.http.HttpMessageReader.parser_status">parser<wbr></wbr>_status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#peer_will_close" class="internal-link" title="ganeti.http.HttpMessageReader.peer_will_close">peer<wbr></wbr>_will<wbr></wbr>_close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#sock" class="internal-link" title="ganeti.http.HttpMessageReader.sock">sock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.HttpMessageReader.html#start_line_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.start_line_buffer">start<wbr></wbr>_line<wbr></wbr>_buffer</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.http.server.html" class="internal-link" title="The parent of this class">server</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpResponder.html" class="internal-link" title="ganeti.http.server.HttpResponder"><wbr></wbr>Http<wbr></wbr>Responder</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpServer.html" class="internal-link" title="ganeti.http.server.HttpServer"><wbr></wbr>Http<wbr></wbr>Server</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpServerHandler.html" class="internal-link" title="ganeti.http.server.HttpServerHandler"><wbr></wbr>Http<wbr></wbr>Server<wbr></wbr>Handler</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.HttpServerRequestExecutor.html" class="internal-link" title="ganeti.http.server.HttpServerRequestExecutor"><wbr></wbr>Http<wbr></wbr>Server<wbr></wbr>Request<wbr></wbr>Executor</a></code>
+            </div>
+        
+
+    </li><li class="private thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server._HttpClientToServerMessageReader.html" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader">_<wbr></wbr>Http<wbr></wbr>Client<wbr></wbr>To<wbr></wbr>Server<wbr></wbr>Message<wbr></wbr>Reader</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server._HttpServerRequest.html" class="internal-link" title="ganeti.http.server._HttpServerRequest">_<wbr></wbr>Http<wbr></wbr>Server<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server._HttpServerToClientMessageWriter.html" class="internal-link" title="ganeti.http.server._HttpServerToClientMessageWriter">_<wbr></wbr>Http<wbr></wbr>Server<wbr></wbr>To<wbr></wbr>Client<wbr></wbr>Message<wbr></wbr>Writer</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#_DateTimeHeader" class="internal-link" title="ganeti.http.server._DateTimeHeader">_<wbr></wbr>Date<wbr></wbr>Time<wbr></wbr>Header</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#_HandleServerRequestInner" class="internal-link" title="ganeti.http.server._HandleServerRequestInner">_<wbr></wbr>Handle<wbr></wbr>Server<wbr></wbr>Request<wbr></wbr>Inner</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#DEFAULT_ERROR_CONTENT_TYPE" class="internal-link" title="ganeti.http.server.DEFAULT_ERROR_CONTENT_TYPE">DEFAULT<wbr></wbr>_ERROR<wbr></wbr>_CONTENT<wbr></wbr>_TYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#DEFAULT_ERROR_MESSAGE" class="internal-link" title="ganeti.http.server.DEFAULT_ERROR_MESSAGE">DEFAULT<wbr></wbr>_ERROR<wbr></wbr>_MESSAGE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#MONTHNAME" class="internal-link" title="ganeti.http.server.MONTHNAME">MONTHNAME</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.http.server.html#WEEKDAYNAME" class="internal-link" title="ganeti.http.server.WEEKDAYNAME">WEEKDAYNAME</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class private"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.http.html" class="internal-link" title="ganeti.http">http</a></code><wbr></wbr>.<code><a href="ganeti.http.server.html" class="internal-link" title="ganeti.http.server">server</a></code><wbr></wbr>.<code><a href="ganeti.http.server._HttpClientToServerMessageReader.html" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader">_HttpClientToServerMessageReader</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">_HttpClientToServerMessageReader</span>(<a href="ganeti.http.HttpMessageReader.html" class="internal-link" title="ganeti.http.HttpMessageReader">http.HttpMessageReader</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.http.server._HttpClientToServerMessageReader">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Reads an HTTP request sent by client.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id388">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ParseStartLine" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.ParseStartLine"><wbr></wbr>Parse<wbr></wbr>Start<wbr></wbr>Line</a></code></td>
+    <td>Parses the start line sent by client.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HEADER_LENGTH_MAX" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.HEADER_LENGTH_MAX">HEADER<wbr></wbr>_LENGTH<wbr></wbr>_MAX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#START_LINE_LENGTH_MAX" class="internal-link" title="ganeti.http.server._HttpClientToServerMessageReader.START_LINE_LENGTH_MAX">START<wbr></wbr>_LINE<wbr></wbr>_LENGTH<wbr></wbr>_MAX</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.http.HttpMessageReader.html" class="internal-link" title="ganeti.http.HttpMessageReader">HttpMessageReader</a></code>:
+            </p>
+            <table class="children sortable" id="id389">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#__init__" class="internal-link" title="ganeti.http.HttpMessageReader.__init__">__init__</a></code></td>
+    <td>Reads an HTTP message from a socket.</td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#PS_BODY" class="internal-link" title="ganeti.http.HttpMessageReader.PS_BODY">PS<wbr></wbr>_BODY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#PS_COMPLETE" class="internal-link" title="ganeti.http.HttpMessageReader.PS_COMPLETE">PS<wbr></wbr>_COMPLETE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#PS_HEADERS" class="internal-link" title="ganeti.http.HttpMessageReader.PS_HEADERS">PS<wbr></wbr>_HEADERS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#PS_START_LINE" class="internal-link" title="ganeti.http.HttpMessageReader.PS_START_LINE">PS<wbr></wbr>_START<wbr></wbr>_LINE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#body_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.body_buffer">body<wbr></wbr>_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#content_length" class="internal-link" title="ganeti.http.HttpMessageReader.content_length">content<wbr></wbr>_length</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#header_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.header_buffer">header<wbr></wbr>_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#msg" class="internal-link" title="ganeti.http.HttpMessageReader.msg">msg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#parser_status" class="internal-link" title="ganeti.http.HttpMessageReader.parser_status">parser<wbr></wbr>_status</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#peer_will_close" class="internal-link" title="ganeti.http.HttpMessageReader.peer_will_close">peer<wbr></wbr>_will<wbr></wbr>_close</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#sock" class="internal-link" title="ganeti.http.HttpMessageReader.sock">sock</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#start_line_buffer" class="internal-link" title="ganeti.http.HttpMessageReader.start_line_buffer">start<wbr></wbr>_line<wbr></wbr>_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#_CheckHeaderLength" class="internal-link" title="ganeti.http.HttpMessageReader._CheckHeaderLength">_<wbr></wbr>Check<wbr></wbr>Header<wbr></wbr>Length</a></code></td>
+    <td>Limits the header buffer size.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#_CheckStartLineLength" class="internal-link" title="ganeti.http.HttpMessageReader._CheckStartLineLength">_<wbr></wbr>Check<wbr></wbr>Start<wbr></wbr>Line<wbr></wbr>Length</a></code></td>
+    <td>Limits the start line buffer size.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#_ContinueParsing" class="internal-link" title="ganeti.http.HttpMessageReader._ContinueParsing">_<wbr></wbr>Continue<wbr></wbr>Parsing</a></code></td>
+    <td>Main function for HTTP message state machine.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#_ParseHeaders" class="internal-link" title="ganeti.http.HttpMessageReader._ParseHeaders">_<wbr></wbr>Parse<wbr></wbr>Headers</a></code></td>
+    <td>Parses the headers.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.http.HttpMessageReader.html#_WillPeerCloseConnection" class="internal-link" title="ganeti.http.HttpMessageReader._WillPeerCloseConnection">_<wbr></wbr>Will<wbr></wbr>Peer<wbr></wbr>Close<wbr></wbr>Connection</a></code></td>
+    <td>Evaluate whether peer will close the connection.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.http.server._HttpClientToServerMessageReader.ParseStartLine">
+    
+  </a>
+  <a name="ParseStartLine">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ParseStartLine</span>(self, start_line):
+    
+    <a class="headerLink" href="#ParseStartLine" title="ganeti.http.server._HttpClientToServerMessageReader.ParseStartLine">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.http.HttpMessageReader.html#ParseStartLine" class="internal-link">ganeti.http.HttpMessageReader.ParseStartLine</a></code></div>
+    <div><p>Parses the start line sent by client.</p>
+<p>Example: "GET /index.html HTTP/1.1"</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">start<wbr></wbr>_line:</span>string</td><td class="fieldArgDesc">Start line</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.http.server._HttpClientToServerMessageReader.HEADER_LENGTH_MAX">
+    
+  </a>
+  <a name="HEADER_LENGTH_MAX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HEADER_LENGTH_MAX</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#HEADER_LENGTH_MAX" title="ganeti.http.server._HttpClientToServerMessageReader.HEADER_LENGTH_MAX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.http.HttpMessageReader.html#HEADER_LENGTH_MAX" class="internal-link">ganeti.http.HttpMessageReader.HEADER_LENGTH_MAX</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>4096</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.http.server._HttpClientToServerMessageReader.START_LINE_LENGTH_MAX">
+    
+  </a>
+  <a name="START_LINE_LENGTH_MAX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">START_LINE_LENGTH_MAX</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#START_LINE_LENGTH_MAX" title="ganeti.http.server._HttpClientToServerMessageReader.START_LINE_LENGTH_MAX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.http.HttpMessageReader.html#START_LINE_LENGTH_MAX" class="internal-link">ganeti.http.HttpMessageReader.START_LINE_LENGTH_MAX</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>8192</code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

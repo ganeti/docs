@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.masterd.iallocator.IAllocator</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.masterd.iallocator.IAllocator.html" class="internal-link" title="This class"><wbr></wbr>IAllocator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Run" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.Run"><wbr></wbr>Run</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeBasicNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeBasicNodeData">_<wbr></wbr>Compute<wbr></wbr>Basic<wbr></wbr>Node<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeInstanceData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceData">_<wbr></wbr>Compute<wbr></wbr>Instance<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeInstanceMemory" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceMemory">_<wbr></wbr>Compute<wbr></wbr>Instance<wbr></wbr>Memory</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeNodeGroupData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeNodeGroupData">_<wbr></wbr>Compute<wbr></wbr>Node<wbr></wbr>Group<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeStorageDataFromSpaceInfo" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfo">_<wbr></wbr>Compute<wbr></wbr>Storage<wbr></wbr>Data<wbr></wbr>From<wbr></wbr>Space<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeStorageDataFromSpaceInfoByTemplate" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfoByTemplate">_<wbr></wbr>Compute<wbr></wbr>Storage<wbr></wbr>Data<wbr></wbr>From<wbr></wbr>Space<wbr></wbr>Info<wbr></wbr>By<wbr></wbr>Template</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_GetAttributeFromHypervisorNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._GetAttributeFromHypervisorNodeData">_<wbr></wbr>Get<wbr></wbr>Attribute<wbr></wbr>From<wbr></wbr>Hypervisor<wbr></wbr>Node<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_BuildInputData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._BuildInputData">_<wbr></wbr>Build<wbr></wbr>Input<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeClusterData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterData">_<wbr></wbr>Compute<wbr></wbr>Cluster<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeClusterDataNodeInfo" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterDataNodeInfo">_<wbr></wbr>Compute<wbr></wbr>Cluster<wbr></wbr>Data<wbr></wbr>Node<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ComputeDynamicNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeDynamicNodeData">_<wbr></wbr>Compute<wbr></wbr>Dynamic<wbr></wbr>Node<wbr></wbr>Data</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ValidateResult" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ValidateResult">_<wbr></wbr>Validate<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cfg" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#in_data" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.in_data">in<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#in_text" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.in_text">in<wbr></wbr>_text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#info" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.info">info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#out_data" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.out_data">out<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#out_text" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.out_text">out<wbr></wbr>_text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#req" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.req">req</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.result">result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#rpc" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#success" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.success">success</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.masterd.iallocator.html" class="internal-link" title="The parent of this class">iallocator</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAllocator.html" class="internal-link" title="ganeti.masterd.iallocator.IAllocator"><wbr></wbr>IAllocator</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqGroupChange.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqGroupChange"><wbr></wbr>IAReq<wbr></wbr>Group<wbr></wbr>Change</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqInstanceAlloc.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqInstanceAlloc"><wbr></wbr>IAReq<wbr></wbr>Instance<wbr></wbr>Alloc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqInstanceAllocateSecondary.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqInstanceAllocateSecondary"><wbr></wbr>IAReq<wbr></wbr>Instance<wbr></wbr>Allocate<wbr></wbr>Secondary</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqMultiInstanceAlloc.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqMultiInstanceAlloc"><wbr></wbr>IAReq<wbr></wbr>Multi<wbr></wbr>Instance<wbr></wbr>Alloc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqNodeEvac.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqNodeEvac"><wbr></wbr>IAReq<wbr></wbr>Node<wbr></wbr>Evac</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IAReqRelocate.html" class="internal-link" title="ganeti.masterd.iallocator.IAReqRelocate"><wbr></wbr>IAReq<wbr></wbr>Relocate</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.IARequestBase.html" class="internal-link" title="ganeti.masterd.iallocator.IARequestBase"><wbr></wbr>IARequest<wbr></wbr>Base</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator._AutoReqParam.html" class="internal-link" title="ganeti.masterd.iallocator._AutoReqParam">_<wbr></wbr>Auto<wbr></wbr>Req<wbr></wbr>Param</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_INST_NAME" class="internal-link" title="ganeti.masterd.iallocator._INST_NAME">_INST<wbr></wbr>_NAME</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_INST_UUID" class="internal-link" title="ganeti.masterd.iallocator._INST_UUID">_INST<wbr></wbr>_UUID</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_JOB_LIST" class="internal-link" title="ganeti.masterd.iallocator._JOB_LIST">_JOB<wbr></wbr>_LIST</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_NEVAC_FAILED" class="internal-link" title="ganeti.masterd.iallocator._NEVAC_FAILED">_NEVAC<wbr></wbr>_FAILED</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_NEVAC_MOVED" class="internal-link" title="ganeti.masterd.iallocator._NEVAC_MOVED">_NEVAC<wbr></wbr>_MOVED</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_NEVAC_RESULT" class="internal-link" title="ganeti.masterd.iallocator._NEVAC_RESULT">_NEVAC<wbr></wbr>_RESULT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.masterd.iallocator.html#_STRING_LIST" class="internal-link" title="ganeti.masterd.iallocator._STRING_LIST">_STRING<wbr></wbr>_LIST</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.masterd.html" class="internal-link" title="ganeti.masterd">masterd</a></code><wbr></wbr>.<code><a href="ganeti.masterd.iallocator.html" class="internal-link" title="ganeti.masterd.iallocator">iallocator</a></code><wbr></wbr>.<code><a href="ganeti.masterd.iallocator.IAllocator.html" class="internal-link" title="ganeti.masterd.iallocator.IAllocator">IAllocator</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">IAllocator</span>(object):</code></p>
+          <p><a href="classIndex.html#ganeti.masterd.iallocator.IAllocator">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>IAllocator framework.</p>
+<p>An IAllocator instance has three sets of attributes:</p>
+<ul class="rst-simple">
+<li>cfg that is needed to query the cluster</li>
+<li>input data (all members of the _KEYS class attribute are required)</li>
+<li>four buffer attributes (in|out_data|text), that represent the input (to the external script) in text and data structure format, and the output from it, again in two formats</li>
+<li>the result variables from the script (success, info, nodes) for easy usage</li>
+</ul>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id528">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Run" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.Run"><wbr></wbr>Run</a></code></td>
+    <td>Run an instance allocator and return the results.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#cfg" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#in_data" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.in_data">in<wbr></wbr>_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#in_text" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.in_text">in<wbr></wbr>_text</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#info" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.info">info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#out_data" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.out_data">out<wbr></wbr>_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#out_text" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.out_text">out<wbr></wbr>_text</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#req" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.req">req</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#result" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.result">result</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#rpc" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#success" class="internal-link" title="ganeti.masterd.iallocator.IAllocator.success">success</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeBasicNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeBasicNodeData">_<wbr></wbr>Compute<wbr></wbr>Basic<wbr></wbr>Node<wbr></wbr>Data</a></code></td>
+    <td>Compute global node data.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeInstanceData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceData">_<wbr></wbr>Compute<wbr></wbr>Instance<wbr></wbr>Data</a></code></td>
+    <td>Compute global instance data.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeInstanceMemory" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceMemory">_<wbr></wbr>Compute<wbr></wbr>Instance<wbr></wbr>Memory</a></code></td>
+    <td>Compute memory used by primary instances.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeNodeGroupData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeNodeGroupData">_<wbr></wbr>Compute<wbr></wbr>Node<wbr></wbr>Group<wbr></wbr>Data</a></code></td>
+    <td>Compute node groups data.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeStorageDataFromSpaceInfo" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfo">_<wbr></wbr>Compute<wbr></wbr>Storage<wbr></wbr>Data<wbr></wbr>From<wbr></wbr>Space<wbr></wbr>Info</a></code></td>
+    <td>Extract storage data from node info.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_ComputeStorageDataFromSpaceInfoByTemplate" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfoByTemplate">_<wbr></wbr>Compute<wbr></wbr>Storage<wbr></wbr>Data<wbr></wbr>From<wbr></wbr>Space<wbr></wbr>Info<wbr></wbr>By<wbr></wbr>Template</a></code></td>
+    <td>Extract storage data from node info.</td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_GetAttributeFromHypervisorNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._GetAttributeFromHypervisorNodeData">_<wbr></wbr>Get<wbr></wbr>Attribute<wbr></wbr>From<wbr></wbr>Hypervisor<wbr></wbr>Node<wbr></wbr>Data</a></code></td>
+    <td>Extract an attribute from the hypervisor's node information.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_BuildInputData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._BuildInputData">_<wbr></wbr>Build<wbr></wbr>Input<wbr></wbr>Data</a></code></td>
+    <td>Build input data structures.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ComputeClusterData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterData">_<wbr></wbr>Compute<wbr></wbr>Cluster<wbr></wbr>Data</a></code></td>
+    <td>Compute the generic allocator input data.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ComputeClusterDataNodeInfo" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterDataNodeInfo">_<wbr></wbr>Compute<wbr></wbr>Cluster<wbr></wbr>Data<wbr></wbr>Node<wbr></wbr>Info</a></code></td>
+    <td>Prepare and execute node info call.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ComputeDynamicNodeData" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ComputeDynamicNodeData">_<wbr></wbr>Compute<wbr></wbr>Dynamic<wbr></wbr>Node<wbr></wbr>Data</a></code></td>
+    <td>Compute global node data.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_ValidateResult" class="internal-link" title="ganeti.masterd.iallocator.IAllocator._ValidateResult">_<wbr></wbr>Validate<wbr></wbr>Result</a></code></td>
+    <td>Process the allocator results.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, cfg, rpc_runner, req):
+    
+    <a class="headerLink" href="#__init__" title="ganeti.masterd.iallocator.IAllocator.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.Run">
+    
+  </a>
+  <a name="Run">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Run</span>(self, name, validate=True, call_fn=None):
+    
+    <a class="headerLink" href="#Run" title="ganeti.masterd.iallocator.IAllocator.Run">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Run an instance allocator and return the results.</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.cfg">
+    
+  </a>
+  <a name="cfg">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">cfg</span> =
+    
+    <a class="headerLink" href="#cfg" title="ganeti.masterd.iallocator.IAllocator.cfg">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.in_data">
+    
+  </a>
+  <a name="in_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">in_data</span> =
+    
+    <a class="headerLink" href="#in_data" title="ganeti.masterd.iallocator.IAllocator.in_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.in_text">
+    
+  </a>
+  <a name="in_text">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">in_text</span> =
+    
+    <a class="headerLink" href="#in_text" title="ganeti.masterd.iallocator.IAllocator.in_text">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.info">
+    
+  </a>
+  <a name="info">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">info</span> =
+    
+    <a class="headerLink" href="#info" title="ganeti.masterd.iallocator.IAllocator.info">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.out_data">
+    
+  </a>
+  <a name="out_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">out_data</span> =
+    
+    <a class="headerLink" href="#out_data" title="ganeti.masterd.iallocator.IAllocator.out_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.out_text">
+    
+  </a>
+  <a name="out_text">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">out_text</span> =
+    
+    <a class="headerLink" href="#out_text" title="ganeti.masterd.iallocator.IAllocator.out_text">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.req">
+    
+  </a>
+  <a name="req">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">req</span> =
+    
+    <a class="headerLink" href="#req" title="ganeti.masterd.iallocator.IAllocator.req">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">result</span> =
+    
+    <a class="headerLink" href="#result" title="ganeti.masterd.iallocator.IAllocator.result">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.rpc">
+    
+  </a>
+  <a name="rpc">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">rpc</span> =
+    
+    <a class="headerLink" href="#rpc" title="ganeti.masterd.iallocator.IAllocator.rpc">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator.success">
+    
+  </a>
+  <a name="success">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">success</span> =
+    
+    <a class="headerLink" href="#success" title="ganeti.masterd.iallocator.IAllocator.success">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeBasicNodeData">
+    
+  </a>
+  <a name="_ComputeBasicNodeData">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeBasicNodeData</span>(cfg, node_cfg):
+    
+    <a class="headerLink" href="#_ComputeBasicNodeData" title="ganeti.masterd.iallocator.IAllocator._ComputeBasicNodeData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute global node data.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a dict of name: (node dict, node config)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeInstanceData">
+    
+  </a>
+  <a name="_ComputeInstanceData">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeInstanceData</span>(cfg, cluster_info, i_list):
+    
+    <a class="headerLink" href="#_ComputeInstanceData" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute global instance data.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeInstanceMemory">
+    
+  </a>
+  <a name="_ComputeInstanceMemory">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeInstanceMemory</span>(instance_list, node_instances_info, node_uuid, input_mem_free):
+    
+    <a class="headerLink" href="#_ComputeInstanceMemory" title="ganeti.masterd.iallocator.IAllocator._ComputeInstanceMemory">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute memory used by primary instances.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">tuple (int, int, int)</td><td class="fieldArgDesc">A tuple of three integers: 1. the sum of memory used by primary instances on the node (including the ones that are currently down), 2. the sum of memory used by primary instances of the node that are up, 3. the amount of memory that is free on the node considering the current usage of the instances.</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeNodeGroupData">
+    
+  </a>
+  <a name="_ComputeNodeGroupData">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeNodeGroupData</span>(cluster, ginfo):
+    
+    <a class="headerLink" href="#_ComputeNodeGroupData" title="ganeti.masterd.iallocator.IAllocator._ComputeNodeGroupData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute node groups data.</p>
+</div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfo">
+    
+  </a>
+  <a name="_ComputeStorageDataFromSpaceInfo">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeStorageDataFromSpaceInfo</span>(space_info, node_name, has_lvm):
+    
+    <a class="headerLink" href="#_ComputeStorageDataFromSpaceInfo" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extract storage data from node info.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">space<wbr></wbr>_info:</span>see result of the RPC call node info</td><td class="fieldArgDesc">the storage reporting part of the result of the RPC call node info</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the node's name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">has<wbr></wbr>_lvm:</span>boolean</td><td class="fieldArgDesc">whether or not LVM storage information is requested</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">4-tuple of integers</td><td class="fieldArgDesc">tuple of storage info (total_disk, free_disk, total_spindles, free_spindles)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfoByTemplate">
+    
+  </a>
+  <a name="_ComputeStorageDataFromSpaceInfoByTemplate">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeStorageDataFromSpaceInfoByTemplate</span>(space_info, node_name, disk_template):
+    
+    <a class="headerLink" href="#_ComputeStorageDataFromSpaceInfoByTemplate" title="ganeti.masterd.iallocator.IAllocator._ComputeStorageDataFromSpaceInfoByTemplate">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extract storage data from node info.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">space<wbr></wbr>_info:</span>see result of the RPC call node info</td><td class="fieldArgDesc">the storage reporting part of the result of the RPC call node info</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the node's name</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>string</td><td class="fieldArgDesc">the disk template to report space for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">4-tuple of integers</td><td class="fieldArgDesc">tuple of storage info (total_disk, free_disk, total_spindles, free_spindles)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._GetAttributeFromHypervisorNodeData">
+    
+  </a>
+  <a name="_GetAttributeFromHypervisorNodeData">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_GetAttributeFromHypervisorNodeData</span>(hv_info, node_name, attr):
+    
+    <a class="headerLink" href="#_GetAttributeFromHypervisorNodeData" title="ganeti.masterd.iallocator.IAllocator._GetAttributeFromHypervisorNodeData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Extract an attribute from the hypervisor's node information.</p>
+<p>This is a helper function to extract data from the hypervisor's information about the node, as part of the result of a node_info query.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hv<wbr></wbr>_info:</span>dict of strings</td><td class="fieldArgDesc">dictionary of node information from the hypervisor</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">name of the node</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">attr:</span>string</td><td class="fieldArgDesc">key of the attribute in the hv_info dictionary</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">integer</td><td class="fieldArgDesc">the value of the attribute</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="ganeti.errors.OpExecError.html" class="internal-link" title="ganeti.errors.OpExecError">errors.OpExecError</a></code></td><td>if key not in dictionary or value not integer</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._BuildInputData">
+    
+  </a>
+  <a name="_BuildInputData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_BuildInputData</span>(self, req):
+    
+    <a class="headerLink" href="#_BuildInputData" title="ganeti.masterd.iallocator.IAllocator._BuildInputData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Build input data structures.</p>
+</div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeClusterData">
+    
+  </a>
+  <a name="_ComputeClusterData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeClusterData</span>(self, disk_template=None):
+    
+    <a class="headerLink" href="#_ComputeClusterData" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute the generic allocator input data.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template:</span>list of string</td><td class="fieldArgDesc">the disk templates of the instances to be allocated</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeClusterDataNodeInfo">
+    
+  </a>
+  <a name="_ComputeClusterDataNodeInfo">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeClusterDataNodeInfo</span>(self, disk_templates, node_list, cluster_info, hypervisor_name):
+    
+    <a class="headerLink" href="#_ComputeClusterDataNodeInfo" title="ganeti.masterd.iallocator.IAllocator._ComputeClusterDataNodeInfo">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Prepare and execute node info call.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_templates:</span>list of string</td><td class="fieldArgDesc">the disk templates of the instances to be allocated</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_list:</span>list of strings</td><td class="fieldArgDesc">list of nodes' UUIDs</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cluster<wbr></wbr>_info:</span><code><a href="ganeti.objects.Cluster.html" class="internal-link" title="ganeti.objects.Cluster">objects.Cluster</a></code></td><td class="fieldArgDesc">the cluster's information from the config</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">hypervisor<wbr></wbr>_name:</span>string</td><td class="fieldArgDesc">the hypervisor name</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">same as the result of the node info RPC call</td><td class="fieldArgDesc">the result of the node info RPC call</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ComputeDynamicNodeData">
+    
+  </a>
+  <a name="_ComputeDynamicNodeData">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ComputeDynamicNodeData</span>(self, node_cfg, node_data, node_iinfo, i_list, node_results, disk_template):
+    
+    <a class="headerLink" href="#_ComputeDynamicNodeData" title="ganeti.masterd.iallocator.IAllocator._ComputeDynamicNodeData">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compute global node data.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_cfg</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_data</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_iinfo</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">i<wbr></wbr>_list</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">node<wbr></wbr>_results</span></td><td class="fieldArgDesc">the basic node structures as filled from the config</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">disk<wbr></wbr>_template</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.masterd.iallocator.IAllocator._ValidateResult">
+    
+  </a>
+  <a name="_ValidateResult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ValidateResult</span>(self):
+    
+    <a class="headerLink" href="#_ValidateResult" title="ganeti.masterd.iallocator.IAllocator._ValidateResult">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Process the allocator results.</p>
+<p>This will process and if successful save the result in self.out_data and the other parameters.</p>
+</div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

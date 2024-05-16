@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.cmdlib.network.LUNetworkSetParams</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.cmdlib.network.LUNetworkSetParams.html" class="internal-link" title="This class"><wbr></wbr>LUNetwork<wbr></wbr>Set<wbr></wbr>Params</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.Exec"><wbr></wbr>Exec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.HPATH">HPATH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gateway" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway">gateway</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#gateway6" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway6">gateway6</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#mac_prefix" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.mac_prefix">mac<wbr></wbr>_prefix</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.needed_locks">needed<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#network" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network">network</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#network6" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network6">network6</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#network_uuid" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network_uuid">network<wbr></wbr>_uuid</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#pool" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.pool">pool</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#tags" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.tags">tags</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.cmdlib.network.html" class="internal-link" title="The parent of this class">network</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkAdd.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkAdd"><wbr></wbr>LUNetwork<wbr></wbr>Add</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkConnect.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkConnect"><wbr></wbr>LUNetwork<wbr></wbr>Connect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkDisconnect.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkDisconnect"><wbr></wbr>LUNetwork<wbr></wbr>Disconnect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkRemove.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkRemove"><wbr></wbr>LUNetwork<wbr></wbr>Remove</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkRename.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkRename"><wbr></wbr>LUNetwork<wbr></wbr>Rename</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.LUNetworkSetParams.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams"><wbr></wbr>LUNetwork<wbr></wbr>Set<wbr></wbr>Params</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html#_BuildNetworkHookEnv" class="internal-link" title="ganeti.cmdlib.network._BuildNetworkHookEnv">_<wbr></wbr>Build<wbr></wbr>Network<wbr></wbr>Hook<wbr></wbr>Env</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html#_FmtNetworkConflict" class="internal-link" title="ganeti.cmdlib.network._FmtNetworkConflict">_<wbr></wbr>Fmt<wbr></wbr>Network<wbr></wbr>Conflict</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.cmdlib.network.html#_NetworkConflictCheck" class="internal-link" title="ganeti.cmdlib.network._NetworkConflictCheck">_<wbr></wbr>Network<wbr></wbr>Conflict<wbr></wbr>Check</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.html" class="internal-link" title="ganeti.cmdlib">cmdlib</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.network.html" class="internal-link" title="ganeti.cmdlib.network">network</a></code><wbr></wbr>.<code><a href="ganeti.cmdlib.network.LUNetworkSetParams.html" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams">LUNetworkSetParams</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">LUNetworkSetParams</span>(<a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a>):</code></p>
+          <p><a href="classIndex.html#ganeti.cmdlib.network.LUNetworkSetParams">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Modifies the parameters of a network.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id246">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksEnv" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksEnv"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Env</a></code></td>
+    <td>Build hooks env.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#BuildHooksNodes" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksNodes"><wbr></wbr>Build<wbr></wbr>Hooks<wbr></wbr>Nodes</a></code></td>
+    <td>Build hooks nodes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckArguments" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckArguments"><wbr></wbr>Check<wbr></wbr>Arguments</a></code></td>
+    <td>Check syntactic validity for the opcode arguments.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#CheckPrereq" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckPrereq"><wbr></wbr>Check<wbr></wbr>Prereq</a></code></td>
+    <td>Check prerequisites.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#Exec" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.Exec"><wbr></wbr>Exec</a></code></td>
+    <td>Modifies the network.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ExpandNames" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.ExpandNames"><wbr></wbr>Expand<wbr></wbr>Names</a></code></td>
+    <td>Expand names for this LU.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#HPATH" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.HPATH">HPATH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#REQ_BGL" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.REQ_BGL">REQ<wbr></wbr>_BGL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#gateway" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway">gateway</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#gateway6" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway6">gateway6</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mac_prefix" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.mac_prefix">mac<wbr></wbr>_prefix</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#needed_locks" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.needed_locks">needed<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#network" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network">network</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#network6" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network6">network6</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#network_uuid" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.network_uuid">network<wbr></wbr>_uuid</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pool" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.pool">pool</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#tags" class="internal-link" title="ganeti.cmdlib.network.LUNetworkSetParams.tags">tags</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.cmdlib.base.LogicalUnit.html" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit">LogicalUnit</a></code>:
+            </p>
+            <table class="children sortable" id="id247">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#__init__" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.__init__">__init__</a></code></td>
+    <td>Constructor for LogicalUnit.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#AssertReleasedLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.AssertReleasedLocks"><wbr></wbr>Assert<wbr></wbr>Released<wbr></wbr>Locks</a></code></td>
+    <td>Raise AssertionError if the LU holds some locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks"><wbr></wbr>Declare<wbr></wbr>Locks</a></code></td>
+    <td>Declare LU locking needs for a level</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HooksCallBack" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HooksCallBack"><wbr></wbr>Hooks<wbr></wbr>Call<wbr></wbr>Back</a></code></td>
+    <td>Notify the LU about the results of its hooks.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#owned_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.owned_locks">owned<wbr></wbr>_locks</a></code></td>
+    <td>Return the list of locks owned by the LU at a given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PreparePostHookNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PreparePostHookNodes"><wbr></wbr>Prepare<wbr></wbr>Post<wbr></wbr>Hook<wbr></wbr>Nodes</a></code></td>
+    <td>Extend list of nodes to run the post LU hook.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#PrepareRetry" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.PrepareRetry"><wbr></wbr>Prepare<wbr></wbr>Retry</a></code></td>
+    <td>Prepare the LU to run again.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#release_request" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.release_request">release<wbr></wbr>_request</a></code></td>
+    <td>Return a request to release the specified locks of the given level.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#WConfdClient" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.WConfdClient"><wbr></wbr>WConfd<wbr></wbr>Client</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseconstant">
+    
+    <td>Constant</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#HTYPE" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.HTYPE">HTYPE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#add_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.add_locks">add<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#cfg" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.cfg">cfg</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dont_collate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dont_collate_locks">dont<wbr></wbr>_collate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#dry_run_result" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.dry_run_result">dry<wbr></wbr>_run<wbr></wbr>_result</a></code></td>
+    <td>the value (if any) that will be returned to the caller in dry-run mode (signalled by opcode dry_run parameter)</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#Log" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.Log"><wbr></wbr>Log</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogInfo" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogInfo"><wbr></wbr>Log<wbr></wbr>Info</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogStep" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogStep"><wbr></wbr>Log<wbr></wbr>Step</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#LogWarning" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.LogWarning"><wbr></wbr>Log<wbr></wbr>Warning</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#op" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.op">op</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks">opportunistic<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#opportunistic_locks_count" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.opportunistic_locks_count">opportunistic<wbr></wbr>_locks<wbr></wbr>_count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#proc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.proc">proc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#recalculate_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.recalculate_locks">recalculate<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#rpc" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.rpc">rpc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#share_locks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.share_locks">share<wbr></wbr>_locks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#tasklets" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.tasklets">tasklets</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfd" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfd">wconfd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdcontext" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdcontext">wconfdcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#wconfdlocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.wconfdlocks">wconfdlocks</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_ExpandAndLockInstance" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._ExpandAndLockInstance">_<wbr></wbr>Expand<wbr></wbr>And<wbr></wbr>Lock<wbr></wbr>Instance</a></code></td>
+    <td>Helper function to expand and lock an instance.</td>
+  </tr><tr class="basemethod private">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.cmdlib.base.LogicalUnit.html#_LockInstancesNodes" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit._LockInstancesNodes">_<wbr></wbr>Lock<wbr></wbr>Instances<wbr></wbr>Nodes</a></code></td>
+    <td>Helper function to declare instances' nodes for locking.</td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksEnv">
+    
+  </a>
+  <a name="BuildHooksEnv">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksEnv</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksEnv" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksEnv">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksEnv" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksEnv</a></code></div>
+    <div><p>Build hooks env.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksNodes">
+    
+  </a>
+  <a name="BuildHooksNodes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">BuildHooksNodes</span>(self):
+    
+    <a class="headerLink" href="#BuildHooksNodes" title="ganeti.cmdlib.network.LUNetworkSetParams.BuildHooksNodes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#BuildHooksNodes" class="internal-link">ganeti.cmdlib.base.LogicalUnit.BuildHooksNodes</a></code></div>
+    <div><p>Build hooks nodes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.CheckArguments">
+    
+  </a>
+  <a name="CheckArguments">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckArguments</span>(self):
+    
+    <a class="headerLink" href="#CheckArguments" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckArguments">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckArguments" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckArguments</a></code></div>
+    <div><p>Check syntactic validity for the opcode arguments.</p>
+<p>This method is for doing a simple syntactic check and ensure validity of opcode parameters, without any cluster-related checks. While the same can be accomplished in ExpandNames and/or CheckPrereq, doing these separate is better because:</p>
+<ul class="rst-simple">
+<li>ExpandNames is left as as purely a lock-related function</li>
+<li>CheckPrereq is run after we have acquired locks (and possible waited for them)</li>
+</ul>
+<p>The function is allowed to change the self.op attribute so that later methods can no longer worry about missing parameters.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.CheckPrereq">
+    
+  </a>
+  <a name="CheckPrereq">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">CheckPrereq</span>(self):
+    
+    <a class="headerLink" href="#CheckPrereq" title="ganeti.cmdlib.network.LUNetworkSetParams.CheckPrereq">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#CheckPrereq" class="internal-link">ganeti.cmdlib.base.LogicalUnit.CheckPrereq</a></code></div>
+    <div><p>Check prerequisites.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.Exec">
+    
+  </a>
+  <a name="Exec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">Exec</span>(self, feedback_fn):
+    
+    <a class="headerLink" href="#Exec" title="ganeti.cmdlib.network.LUNetworkSetParams.Exec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#Exec" class="internal-link">ganeti.cmdlib.base.LogicalUnit.Exec</a></code></div>
+    <div><p>Modifies the network.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.ExpandNames">
+    
+  </a>
+  <a name="ExpandNames">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">ExpandNames</span>(self):
+    
+    <a class="headerLink" href="#ExpandNames" title="ganeti.cmdlib.network.LUNetworkSetParams.ExpandNames">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#ExpandNames" class="internal-link">ganeti.cmdlib.base.LogicalUnit.ExpandNames</a></code></div>
+    <div><p>Expand names for this LU.</p>
+<p>This method is called before starting to execute the opcode, and it should update all the parameters of the opcode to their canonical form (e.g. a short node name must be fully expanded after this method has successfully completed). This way locking, hooks, logging, etc. can work correctly.</p>
+<p>LUs which implement this method must also populate the self.needed_locks member, as a dict with lock levels as keys, and a list of needed lock names as values. Rules:</p>
+<ul class="rst-simple">
+<li>use an empty dict if you don't need any lock</li>
+<li>if you don't need any lock at a particular level omit that level (note that in this case <tt class="rst-docutils literal">DeclareLocks</tt> won't be called at all for that level)</li>
+<li>if you need locks at a level, but you can't calculate it in this function, initialise that level with an empty list and do further processing in <code><a href="#DeclareLocks" class="internal-link" title="ganeti.cmdlib.base.LogicalUnit.DeclareLocks">LogicalUnit.DeclareLocks</a></code> (see that function's docstring)</li>
+<li>don't put anything for the BGL level</li>
+<li>if you want all locks at a level use <code><a href="ganeti.locking.html#ALL_SET" class="internal-link" title="ganeti.locking.ALL_SET">locking.ALL_SET</a></code> as a value</li>
+</ul>
+<p>If you need to share locks (rather than acquire them exclusively) at one level you can modify self.share_locks, setting a true value (usually 1) for that level. By default locks are not shared.</p>
+<p>This function can also define a list of tasklets, which then will be executed in order instead of the usual LU-level CheckPrereq and Exec functions, if those are not defined by the LU.</p>
+<p>Examples:</p>
+<pre class="rst-literal-block">
+  # Acquire all nodes and one instance
+  self.needed_locks = {
+    locking.LEVEL_NODE: locking.ALL_SET,
+    locking.LEVEL_INSTANCE: ['instance1.example.com'],
+  }
+  # Acquire just two nodes
+  self.needed_locks = {
+    locking.LEVEL_NODE: ['node1-uuid', 'node2-uuid'],
+  }
+  # Acquire no locks
+  self.needed_locks = {} # No, you can't leave it to the default value None
+</pre>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.HPATH">
+    
+  </a>
+  <a name="HPATH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">HPATH</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#HPATH" title="ganeti.cmdlib.network.LUNetworkSetParams.HPATH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#HPATH" class="internal-link">ganeti.cmdlib.base.LogicalUnit.HPATH</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">network-modify</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.REQ_BGL">
+    
+  </a>
+  <a name="REQ_BGL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">REQ_BGL</span>: <code>bool</code> =
+    
+    <a class="headerLink" href="#REQ_BGL" title="ganeti.cmdlib.network.LUNetworkSetParams.REQ_BGL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#REQ_BGL" class="internal-link">ganeti.cmdlib.base.LogicalUnit.REQ_BGL</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>False</code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.gateway">
+    
+  </a>
+  <a name="gateway">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">gateway</span> =
+    
+    <a class="headerLink" href="#gateway" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.gateway6">
+    
+  </a>
+  <a name="gateway6">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">gateway6</span> =
+    
+    <a class="headerLink" href="#gateway6" title="ganeti.cmdlib.network.LUNetworkSetParams.gateway6">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.mac_prefix">
+    
+  </a>
+  <a name="mac_prefix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mac_prefix</span> =
+    
+    <a class="headerLink" href="#mac_prefix" title="ganeti.cmdlib.network.LUNetworkSetParams.mac_prefix">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.needed_locks">
+    
+  </a>
+  <a name="needed_locks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">needed_locks</span> =
+    
+    <a class="headerLink" href="#needed_locks" title="ganeti.cmdlib.network.LUNetworkSetParams.needed_locks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.cmdlib.base.LogicalUnit.html#needed_locks" class="internal-link">ganeti.cmdlib.base.LogicalUnit.needed_locks</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.network">
+    
+  </a>
+  <a name="network">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">network</span> =
+    
+    <a class="headerLink" href="#network" title="ganeti.cmdlib.network.LUNetworkSetParams.network">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.network6">
+    
+  </a>
+  <a name="network6">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">network6</span> =
+    
+    <a class="headerLink" href="#network6" title="ganeti.cmdlib.network.LUNetworkSetParams.network6">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.network_uuid">
+    
+  </a>
+  <a name="network_uuid">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">network_uuid</span> =
+    
+    <a class="headerLink" href="#network_uuid" title="ganeti.cmdlib.network.LUNetworkSetParams.network_uuid">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.pool">
+    
+  </a>
+  <a name="pool">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pool</span> =
+    
+    <a class="headerLink" href="#pool" title="ganeti.cmdlib.network.LUNetworkSetParams.pool">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="ganeti.cmdlib.network.LUNetworkSetParams.tags">
+    
+  </a>
+  <a name="tags">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">tags</span> =
+    
+    <a class="headerLink" href="#tags" title="ganeti.cmdlib.network.LUNetworkSetParams.tags">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

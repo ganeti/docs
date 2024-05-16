@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.rapi.connector</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          ganeti/server <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="ganeti.rapi.connector.html" class="internal-link" title="This module">connector</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.connector.Mapper.html" class="internal-link" title="ganeti.rapi.connector.Mapper"><wbr></wbr>Mapper</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.connector.UriPattern.html" class="internal-link" title="ganeti.rapi.connector.UriPattern"><wbr></wbr>Uri<wbr></wbr>Pattern</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#GetHandlers" class="internal-link" title="ganeti.rapi.connector.GetHandlers"><wbr></wbr>Get<wbr></wbr>Handlers</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CompileHandlerPath" class="internal-link" title="ganeti.rapi.connector._CompileHandlerPath">_<wbr></wbr>Compile<wbr></wbr>Handler<wbr></wbr>Path</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ConvertPattern" class="internal-link" title="ganeti.rapi.connector._ConvertPattern">_<wbr></wbr>Convert<wbr></wbr>Pattern</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CONNECTOR" class="internal-link" title="ganeti.rapi.connector.CONNECTOR">CONNECTOR</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DISK_PATTERN" class="internal-link" title="ganeti.rapi.connector._DISK_PATTERN">_DISK<wbr></wbr>_PATTERN</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_NAME_PATTERN" class="internal-link" title="ganeti.rapi.connector._NAME_PATTERN">_NAME<wbr></wbr>_PATTERN</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="ganeti.rapi.html" class="internal-link" title="The parent of this module">rapi</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.baserlib.html" class="internal-link" title="ganeti.rapi.baserlib">baserlib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.client.html" class="internal-link" title="ganeti.rapi.client">client</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.client_utils.html" class="internal-link" title="ganeti.rapi.client_utils">client<wbr></wbr>_utils</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.connector.html" class="internal-link" title="ganeti.rapi.connector">connector</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.rlib2.html" class="internal-link" title="ganeti.rapi.rlib2">rlib2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.testutils.html" class="internal-link" title="ganeti.rapi.testutils">testutils</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html#RAPI_ACCESS_ALL" class="internal-link" title="ganeti.rapi.RAPI_ACCESS_ALL">RAPI<wbr></wbr>_ACCESS<wbr></wbr>_ALL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html#RAPI_ACCESS_READ" class="internal-link" title="ganeti.rapi.RAPI_ACCESS_READ">RAPI<wbr></wbr>_ACCESS<wbr></wbr>_READ</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.rapi.html#RAPI_ACCESS_WRITE" class="internal-link" title="ganeti.rapi.RAPI_ACCESS_WRITE">RAPI<wbr></wbr>_ACCESS<wbr></wbr>_WRITE</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.rapi.html" class="internal-link" title="ganeti.rapi">rapi</a></code><wbr></wbr>.<code><a href="ganeti.rapi.connector.html" class="internal-link" title="ganeti.rapi.connector">connector</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Remote API connection map.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id1031">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.rapi.connector.Mapper.html" class="internal-link" title="ganeti.rapi.connector.Mapper"><wbr></wbr>Mapper</a></code></td>
+    <td>Map resource to method.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="ganeti.rapi.connector.UriPattern.html" class="internal-link" title="ganeti.rapi.connector.UriPattern"><wbr></wbr>Uri<wbr></wbr>Pattern</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#GetHandlers" class="internal-link" title="ganeti.rapi.connector.GetHandlers"><wbr></wbr>Get<wbr></wbr>Handlers</a></code></td>
+    <td>Returns all supported resources and their handlers.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CONNECTOR" class="internal-link" title="ganeti.rapi.connector.CONNECTOR">CONNECTOR</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_CompileHandlerPath" class="internal-link" title="ganeti.rapi.connector._CompileHandlerPath">_<wbr></wbr>Compile<wbr></wbr>Handler<wbr></wbr>Path</a></code></td>
+    <td>Compiles path for RAPI resource into regular expression.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ConvertPattern" class="internal-link" title="ganeti.rapi.connector._ConvertPattern">_<wbr></wbr>Convert<wbr></wbr>Pattern</a></code></td>
+    <td>Converts URI pattern into a regular expression group.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_DISK_PATTERN" class="internal-link" title="ganeti.rapi.connector._DISK_PATTERN">_DISK<wbr></wbr>_PATTERN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_NAME_PATTERN" class="internal-link" title="ganeti.rapi.connector._NAME_PATTERN">_NAME<wbr></wbr>_PATTERN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="ganeti.rapi.connector.GetHandlers">
+    
+  </a>
+  <a name="GetHandlers">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">GetHandlers</span>(node_name_pattern, instance_name_pattern, group_name_pattern, network_name_pattern, job_id_pattern, disk_pattern, filter_pattern, query_res_pattern, translate=None):
+    
+    <a class="headerLink" href="#GetHandlers" title="ganeti.rapi.connector.GetHandlers">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns all supported resources and their handlers.</p>
+<p><tt class="rst-docutils literal">node_name_pattern</tt> and the other <tt class="rst-docutils literal">*_pattern</tt> parameters are wrapped in <code><a href="ganeti.rapi.connector.UriPattern.html" class="internal-link" title="ganeti.rapi.connector.UriPattern">UriPattern</a></code> and, if used in a URI, passed to the function specified using <tt class="rst-docutils literal">translate</tt>. <tt class="rst-docutils literal">translate</tt> receives 1..N parameters which are either plain strings or instances of <code><a href="ganeti.rapi.connector.UriPattern.html" class="internal-link" title="ganeti.rapi.connector.UriPattern">UriPattern</a></code> and returns a dictionary key suitable for the caller of <tt class="rst-docutils literal">GetHandlers</tt>. The default implementation in <code><a href="#_CompileHandlerPath" class="internal-link" title="ganeti.rapi.connector._CompileHandlerPath">_CompileHandlerPath</a></code> returns a compiled regular expression in which each pattern is a group.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="ganeti.rapi.connector.CONNECTOR">
+    
+  </a>
+  <a name="CONNECTOR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CONNECTOR</span>: <code>dict</code> =
+    
+    <a class="headerLink" href="#CONNECTOR" title="ganeti.rapi.connector.CONNECTOR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{}</code></pre></td></tr></table>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rapi.connector._CompileHandlerPath">
+    
+  </a>
+  <a name="_CompileHandlerPath">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_CompileHandlerPath</span>(*args):
+    
+    <a class="headerLink" href="#_CompileHandlerPath" title="ganeti.rapi.connector._CompileHandlerPath">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compiles path for RAPI resource into regular expression.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">Compiled regular expression object</td></tr></table></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="ganeti.rapi.connector._ConvertPattern">
+    
+  </a>
+  <a name="_ConvertPattern">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_ConvertPattern</span>(value):
+    
+    <a class="headerLink" href="#_ConvertPattern" title="ganeti.rapi.connector._ConvertPattern">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Converts URI pattern into a regular expression group.</p>
+<p>Used by <code><a href="#_CompileHandlerPath" class="internal-link" title="ganeti.rapi.connector._CompileHandlerPath">_CompileHandlerPath</a></code>.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rapi.connector._DISK_PATTERN">
+    
+  </a>
+  <a name="_DISK_PATTERN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_DISK_PATTERN</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_DISK_PATTERN" title="ganeti.rapi.connector._DISK_PATTERN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">\\d+</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.rapi.connector._NAME_PATTERN">
+    
+  </a>
+  <a name="_NAME_PATTERN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_NAME_PATTERN</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_NAME_PATTERN" title="ganeti.rapi.connector._NAME_PATTERN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">[\\w\\._-]+</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for ganeti/server,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2024-05-06 13:21:37.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
