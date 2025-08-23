@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moving instances across node groups &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multi-version tests" href="design-multi-version-tests.html" />
+    <link rel="prev" title="Instance move improvements" href="design-move-instance-improvements.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-multi-version-tests.html" title="Multi-version tests"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-move-instance-improvements.html" title="Instance move improvements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Moving instances across node groups</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="moving-instances-across-node-groups">
+<h1>Moving instances across node groups<a class="headerlink" href="#moving-instances-across-node-groups" title="Link to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Created<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2011-Mar-28</p>
+</dd>
+<dt class="field-even">Status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2.5.0</p>
+</dd>
+</dl>
+<p>This design document explains the changes needed in Ganeti to perform
+instance moves across node groups. Reader familiarity with the following
+existing documents is advised:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="iallocator.html"><span class="doc">Current IAllocator specification</span></a></p></li>
+<li><p><a class="reference internal" href="design-shared-storage.html"><span class="doc">Shared storage model in 2.3+</span></a></p></li>
+</ul>
+<section id="motivation-and-and-design-proposal">
+<h2>Motivation and and design proposal<a class="headerlink" href="#motivation-and-and-design-proposal" title="Link to this heading">¶</a></h2>
+<p>At the moment, moving instances away from their primary or secondary
+nodes with the <code class="docutils literal notranslate"><span class="pre">relocate</span></code> and <code class="docutils literal notranslate"><span class="pre">multi-evacuate</span></code> IAllocator calls
+restricts target nodes to those on the same node group. This ensures a
+mobility domain is never crossed, and allows normal operation of each
+node group to be confined within itself.</p>
+<p>It is desirable, however, to have a way of moving instances across node
+groups so that, for example, it is possible to move a set of instances
+to another group for policy reasons, or completely empty a given group
+to perform maintenance operations.</p>
+<p>To implement this, we propose the addition of new IAllocator calls to
+compute inter-group instance moves and group-aware node evacuation,
+taking into account mobility domains as appropriate. The interface
+proposed below should be enough to cover the use cases mentioned above.</p>
+<p>With the implementation of this design proposal, the previous
+<code class="docutils literal notranslate"><span class="pre">multi-evacuate</span></code> mode will be deprecated.</p>
+</section>
+<section id="detailed-design">
+<span id="multi-reloc-detailed-design"></span><h2>Detailed design<a class="headerlink" href="#detailed-design" title="Link to this heading">¶</a></h2>
+<p>All requests honor the groups’ <code class="docutils literal notranslate"><span class="pre">alloc_policy</span></code> attribute.</p>
+<section id="changing-instance-s-groups">
+<h3>Changing instance’s groups<a class="headerlink" href="#changing-instance-s-groups" title="Link to this heading">¶</a></h3>
+<p>Takes a list of instances and a list of node group UUIDs; the instances
+will be moved away from their current group, to any of the groups in the
+target list. All instances need to have their primary node in the same
+group, which may not be a target group. If the target group list is
+empty, the request is simply “change group” and the instances are placed
+in any group but their original one.</p>
+</section>
+<section id="node-evacuation">
+<h3>Node evacuation<a class="headerlink" href="#node-evacuation" title="Link to this heading">¶</a></h3>
+<p>Evacuates instances off their primary nodes. The evacuation mode
+can be given as <code class="docutils literal notranslate"><span class="pre">primary-only</span></code>, <code class="docutils literal notranslate"><span class="pre">secondary-only</span></code> or
+<code class="docutils literal notranslate"><span class="pre">all</span></code>. The call is given a list of instances whose primary nodes need
+to be in the same node group. The returned nodes need to be in the same
+group as the original primary node.</p>
+</section>
+<section id="result">
+<span id="multi-reloc-result"></span><h3>Result<a class="headerlink" href="#result" title="Link to this heading">¶</a></h3>
+<p>In all storage models, an inter-group move can be modeled as a sequence
+of <strong>replace secondary</strong>, <strong>migration</strong> and <strong>failover</strong> operations
+(when shared storage is used, they will all be failover or migration
+operations within the corresponding mobility domain).</p>
+<p>The result of the operations described above must contain two lists of
+instances and a list of jobs (each of which is a list of serialized
+opcodes) to actually execute the operation. <a class="reference internal" href="design-chained-jobs.html"><span class="doc">Job dependencies</span></a> can be used to force jobs to run in a certain
+order while still making use of parallelism.</p>
+<p>The two lists of instances describe which instances could be
+moved/migrated and which couldn’t for some reason (“unsuccessful”). The
+union of the instances in the two lists must be equal to the set of
+instances given in the original request. The successful list of
+instances contains elements as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">instance</span> <span class="n">name</span><span class="p">,</span> <span class="n">target</span> <span class="n">group</span> <span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="n">chosen</span> <span class="n">node</span> <span class="n">names</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The choice of names is simply for readability reasons (for example,
+Ganeti could log the computed solution in the job information) and for
+being able to check (manually) for consistency that the generated
+opcodes match the intended target groups/nodes. Note that for the
+node-evacuate operation, the group is not changed, but it should still
+be returned as such (as it’s easier to have the same return type for
+both operations).</p>
+<p>The unsuccessful list of instances contains elements as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">instance</span> <span class="n">name</span><span class="p">,</span> <span class="n">explanation</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">explanation</span></code> is a string describing why the plugin was not able
+to relocate the instance.</p>
+<p>The client is given a list of job IDs (see the <a class="reference internal" href="design-lu-generated-jobs.html"><span class="doc">design for
+LU-generated jobs</span></a>) which it can watch.
+Failures should be reported to the user.</p>
+<p>Example job list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="c1"># First job</span>
+  <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;OP_INSTANCE_MIGRATE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="s2">&quot;inst1.example.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;OP_INSTANCE_MIGRATE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="s2">&quot;inst2.example.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="c1"># Second job</span>
+  <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;OP_INSTANCE_REPLACE_DISKS&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;depends&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]],</span>
+        <span class="p">],</span>
+      <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="s2">&quot;inst2.example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;replace_new_secondary&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;remote_node&quot;</span><span class="p">:</span> <span class="s2">&quot;node4.example.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="c1"># Third job</span>
+  <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;OP_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;OP_INSTANCE_FAILOVER&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;depends&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">[]],</span>
+        <span class="p">],</span>
+      <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="s2">&quot;inst8.example.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Accepted opcodes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_INSTANCE_FAILOVER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_INSTANCE_MIGRATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_INSTANCE_REPLACE_DISKS</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Moving instances across node groups</a><ul>
+<li><a class="reference internal" href="#motivation-and-and-design-proposal">Motivation and and design proposal</a></li>
+<li><a class="reference internal" href="#detailed-design">Detailed design</a><ul>
+<li><a class="reference internal" href="#changing-instance-s-groups">Changing instance’s groups</a></li>
+<li><a class="reference internal" href="#node-evacuation">Node evacuation</a></li>
+<li><a class="reference internal" href="#result">Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-move-instance-improvements.html"
+                          title="previous chapter">Instance move improvements</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-multi-version-tests.html"
+                          title="next chapter">Multi-version tests</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-multi-reloc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-multi-version-tests.html" title="Multi-version tests"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-move-instance-improvements.html" title="Instance move improvements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Moving instances across node groups</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

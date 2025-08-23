@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Design for replacing Ganeti’s HTTP server &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Design for import/export version 2" href="design-impexp2.html" />
+    <link rel="prev" title="Design for a X509 Certificate Authority" href="design-x509-ca.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-impexp2.html" title="Design for import/export version 2"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-x509-ca.html" title="Design for a X509 Certificate Authority"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" accesskey="U">Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Design for replacing Ganeti’s HTTP server</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="design-for-replacing-ganeti-s-http-server">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Design for replacing Ganeti’s HTTP server</a><a class="headerlink" href="#design-for-replacing-ganeti-s-http-server" title="Link to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Created<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2011-Mar-23</p>
+</dd>
+<dt class="field-even">Status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Draft</p>
+</dd>
+</dl>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#design-for-replacing-ganeti-s-http-server" id="id2">Design for replacing Ganeti’s HTTP server</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id3">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id4">Proposed changes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#software-choice" id="id5">Software choice</a></p></li>
+<li><p><a class="reference internal" href="#rpc-feedback" id="id6">RPC feedback</a></p></li>
+<li><p><a class="reference internal" href="#software-requirements" id="id7">Software requirements</a></p></li>
+<li><p><a class="reference internal" href="#lighttpd-ssl-configuration" id="id8">Lighttpd SSL configuration</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="current-state-and-shortcomings">
+<span id="http-srv-shortcomings"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="design-impexp2.html"><span class="doc">new design for import/export</span></a> depends on an
+HTTP server. Ganeti includes a home-grown HTTP server based on Python’s
+<code class="docutils literal notranslate"><span class="pre">BaseHTTPServer</span></code>. While it served us well so far, it only implements
+the very basics of the HTTP protocol. It is, for example, not structured
+well enough to support chunked transfers (<span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 3.6.1),
+which would have some advantages. In addition, it has not been designed
+for sending large responses.</p>
+<p>In the case of the node daemon the HTTP server can not easily be
+separated from the actual backend code and therefore must run as “root”.
+The RAPI daemon does request parsing in the same process as talking to
+the master daemon via LUXI.</p>
+</section>
+<section id="proposed-changes">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Link to this heading">¶</a></h2>
+<p>The proposal is to start using a full-fledged HTTP server in Ganeti and
+to run Ganeti’s code as <a class="reference external" href="http://www.fastcgi.com/">FastCGI</a>
+applications. Reasons:</p>
+<ul class="simple">
+<li><p>Simplify Ganeti’s code by delegating the details of HTTP and SSL to
+another piece of software</p></li>
+<li><p>Run HTTP frontend and handler backend as separate processes and users
+(esp. useful for node daemon, but also import/export and Remote API)</p></li>
+<li><p>Allows implementation of <a class="reference internal" href="#rpc-feedback"><span class="std std-ref">RPC feedback</span></a></p></li>
+</ul>
+<section id="software-choice">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Software choice</a><a class="headerlink" href="#software-choice" title="Link to this heading">¶</a></h3>
+<p>Theoretically any server able of speaking FastCGI to a backend process
+could be used. However, to keep the number of steps required for setting
+up a new cluster at roughly the same level, the implementation will be
+geared for one specific HTTP server at the beginning. Support for other
+HTTP servers can still be implemented.</p>
+<p>After a rough selection of available HTTP servers <a class="reference external" href="http://www.lighttpd.net/">lighttpd</a> and <a class="reference external" href="http://www.nginx.org/">nginx</a> were
+the most likely candidates. Both are <a class="reference external" href="http://news.netcraft.com/archives/2011/01/12/january-2011-web-server-survey-4.html">widely used</a> and tested.</p>
+<p>Nginx’ <a class="reference external" href="http://sysoev.ru/nginx/docs/">original documentation</a> is in
+Russian, translations are <a class="reference external" href="http://wiki.nginx.org/">available in a Wiki</a>. Nginx does not support old-style CGI
+programs.</p>
+<p>The author found <a class="reference external" href="http://redmine.lighttpd.net/wiki/lighttpd">lighttpd’s documentation</a> easier to understand and
+was able to configure a test server quickly. This, together with the
+support for more technologies, made deciding easier.</p>
+<p>With its use as a public-facing web server on a large number of websites
+(and possibly more behind proxies), lighttpd should be a safe choice.
+Unlike other webservers, such as the Apache HTTP Server, lighttpd’s
+codebase is of manageable size.</p>
+<p>Initially the HTTP server would only be used for import/export
+transfers, but its use can be expanded to the Remote API and node
+daemon (see <a class="reference internal" href="#rpc-feedback"><span class="std std-ref">RPC feedback</span></a>).</p>
+<p>To reduce the attack surface, an option will be provided to configure
+services (e.g. import/export) to only listen on certain network
+interfaces.</p>
+</section>
+<section id="rpc-feedback">
+<span id="id1"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">RPC feedback</a><a class="headerlink" href="#rpc-feedback" title="Link to this heading">¶</a></h3>
+<p>HTTP/1.1 supports chunked transfers (<span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2616.html"><strong>RFC 2616</strong></a>, section 3.6.1). They
+could be used to provide feedback from node daemons to the master,
+similar to the feedback from jobs. A good use would be to provide
+feedback to the user during long-running operations, e.g. downloading an
+instance’s data from another cluster.</p>
+<p>WSGI 1.0 (<span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0333/"><strong>PEP 333</strong></a>) includes the following <a class="reference external" href="http://www.python.org/dev/peps/pep-0333/#buffering-and-streaming">requirement</a>:</p>
+<blockquote>
+<div><p>WSGI servers, gateways, and middleware <strong>must not</strong> delay the
+transmission of any block; they <strong>must</strong> either fully transmit the
+block to the client, or guarantee that they will continue transmission
+even while the application is producing its next block</p>
+</div></blockquote>
+<p>This behaviour was confirmed to work with lighttpd and the
+<a class="reference internal" href="#http-software-req"><span class="std std-ref">flup</span></a> library. FastCGI by itself has no such
+guarantee; webservers with buffering might require artificial padding to
+force the message to be transmitted.</p>
+<p>The node daemon can send JSON-encoded messages back to the master daemon
+by separating them using a predefined character (see <a class="reference internal" href="design-2.0.html#luxi"><span class="std std-ref">LUXI</span></a>). The final message contains the method’s result. pycURL passes
+each received chunk to the callback set as <code class="docutils literal notranslate"><span class="pre">CURLOPT_WRITEFUNCTION</span></code>.
+Once a message is complete, the master daemon can pass it to a callback
+function inside the job, which then decides on what to do (e.g. forward
+it as job feedback to the user).</p>
+<p>A more detailed design may have to be written before deciding whether to
+implement RPC feedback.</p>
+</section>
+<section id="software-requirements">
+<span id="http-software-req"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Software requirements</a><a class="headerlink" href="#software-requirements" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>lighttpd 1.4.24 or above built with OpenSSL support (earlier versions
+<a class="reference external" href="http://redmine.lighttpd.net/issues/1288">don’t support SSL client certificates</a>)</p></li>
+<li><p><a class="reference external" href="http://trac.saddi.com/flup">flup</a> for FastCGI</p></li>
+</ul>
+</section>
+<section id="lighttpd-ssl-configuration">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Lighttpd SSL configuration</a><a class="headerlink" href="#lighttpd-ssl-configuration" title="Link to this heading">¶</a></h3>
+<p>The following sample shows how to configure SSL with client certificates
+in Lighttpd:</p>
+<div class="highlight-lighttpd notranslate"><div class="highlight"><pre><span></span><span class="nb">$SERVER</span><span class="p">[</span><span class="s2">&quot;socket&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;:443&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">ssl.engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enable&quot;</span>
+<span class="w">  </span><span class="k">ssl.pemfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;server.pem&quot;</span>
+<span class="w">  </span><span class="k">ssl.ca-file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ca.pem&quot;</span>
+<span class="w">  </span><span class="k">ssl.use-sslv</span><span class="m">2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;disable&quot;</span>
+<span class="w">  </span><span class="k">ssl.cipher-list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;HIGH:-DES:-3DES:-EXPORT:-ADH&quot;</span>
+<span class="w">  </span><span class="k">ssl.verifyclient.activate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enable&quot;</span>
+<span class="w">  </span><span class="k">ssl.verifyclient.enforce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enable&quot;</span>
+<span class="w">  </span><span class="k">ssl.verifyclient.exportcert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enable&quot;</span>
+<span class="w">  </span><span class="k">ssl.verifyclient.username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;SSL_CLIENT_S_DN_CN&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Design for replacing Ganeti’s HTTP server</a><ul>
+<li><a class="reference internal" href="#current-state-and-shortcomings">Current state and shortcomings</a></li>
+<li><a class="reference internal" href="#proposed-changes">Proposed changes</a><ul>
+<li><a class="reference internal" href="#software-choice">Software choice</a></li>
+<li><a class="reference internal" href="#rpc-feedback">RPC feedback</a></li>
+<li><a class="reference internal" href="#software-requirements">Software requirements</a></li>
+<li><a class="reference internal" href="#lighttpd-ssl-configuration">Lighttpd SSL configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-x509-ca.html"
+                          title="previous chapter">Design for a X509 Certificate Authority</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-impexp2.html"
+                          title="next chapter">Design for import/export version 2</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-http-server.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-impexp2.html" title="Design for import/export version 2"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-x509-ca.html" title="Design for a X509 Certificate Authority"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design-draft.html" >Design document drafts</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Design for replacing Ganeti’s HTTP server</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

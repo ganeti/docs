@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ganeti-listrunner &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ganeti-luxid" href="man-ganeti-luxid.html" />
+    <link rel="prev" title="ganeti-kvmd" href="man-ganeti-kvmd.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-luxid.html" title="ganeti-luxid"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-kvmd.html" title="ganeti-kvmd"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-listrunner</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ganeti-listrunner">
+<h1>ganeti-listrunner<a class="headerlink" href="#ganeti-listrunner" title="Link to this heading">¶</a></h1>
+<section id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>ganeti-listrunner - Run commands in parallel over multiple machines</p>
+</section>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><strong>ganeti-listrunner</strong> <code class="docutils literal notranslate"><span class="pre">-l</span></code> <em>logdir</em>
+{<code class="docutils literal notranslate"><span class="pre">-x</span></code> <em>executable</em> | <code class="docutils literal notranslate"><span class="pre">-c</span></code> <em>shell-cmd</em>}
+{<code class="docutils literal notranslate"><span class="pre">-f</span></code> <em>hostfile</em> | <code class="docutils literal notranslate"><span class="pre">-h</span></code> <em>hostlist</em>}
+[<code class="docutils literal notranslate"><span class="pre">-a</span></code> <em>aux-file</em>]
+[<code class="docutils literal notranslate"><span class="pre">-b</span></code> <em>batch-size</em>]
+[<code class="docutils literal notranslate"><span class="pre">-u</span></code> <em>username</em>]
+[<code class="docutils literal notranslate"><span class="pre">-A</span></code>]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><strong>ganeti-listrunner</strong> is a tool to run commands in parallel over multiple
+machines. It differs from <code class="docutils literal notranslate"><span class="pre">dsh</span></code> or other tools in that it asks for the
+password once (if not using <code class="docutils literal notranslate"><span class="pre">ssh-agent</span></code>) and then reuses the password to
+connect to all machines, thus being easily usable even when public key
+authentication or Kerberos authentication is not available.</p>
+<p>It can run either a command or a script (which gets uploaded first and deleted
+after execution) on a  list  of hosts provided either via a file (one host per
+line) or as a comma-separated list on the commandline. The output (stdout and
+stderr are merged) of the remote execution is written to a logfile. One logfile
+per  host  is written.</p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<p>The options that can be passed to the program are as follows:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-l</span></code> <em>logdir</em></dt><dd><p>The directory under which the logfiles files should be written.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-x</span></code> <em>executable</em></dt><dd><p>The executable to copy and run on the target hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-c</span></code> <em>shell-cmd</em></dt><dd><p>The shell command to run on the remote hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-f</span></code> <em>hostfile</em></dt><dd><p>The file with the target hosts, one hostname per line.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code> <em>hostlist</em></dt><dd><p>Comma-separated list of target hosts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-a</span></code> <em>aux-file</em></dt><dd><p>A file to copy to the target hosts. Can be given multiple times, in which case
+all files will be copied to the temporary directory. The executable or the
+shell command will be run from the (temporary) directory where these files
+have been copied.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-b</span></code> <em>batch-size</em></dt><dd><p>The host list will be split into batches of batch-size which will be processed
+in parallel. The default if 15, and should be increased if faster processing
+is needed.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-u</span></code> <em>username</em></dt><dd><p>Username to connect as instead of the default root username.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-A</span></code></dt><dd><p>Use an existing ssh-agent instead of password authentication.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--args</span></code></dt><dd><p>Arguments to pass to executable (<code class="docutils literal notranslate"><span class="pre">-x</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="exit-status">
+<h2>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h2>
+<p>The exist status of the command will be zero, unless it was aborted in some way
+(e.g. ^C).</p>
+</section>
+<section id="example">
+<h2>EXAMPLE<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>Run a command on a list of hosts:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>listrunner<span class="w"> </span>-l<span class="w"> </span>logdir<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;uname -a&quot;</span><span class="w"> </span>-h<span class="w"> </span>host1,host2,host3
+</pre></div>
+</div>
+<p>Upload a script, some auxiliary files and run the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>listrunner<span class="w"> </span>-l<span class="w"> </span>logdir<span class="w"> </span>-x<span class="w"> </span>runme.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-a<span class="w"> </span>seed.dat<span class="w"> </span>-a<span class="w"> </span>golden.dat<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-h<span class="w"> </span>host1,host2,host3
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<p><strong>dsh</strong>(1), <strong>cssh</strong>(1)</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ganeti-listrunner</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li><a class="reference internal" href="#example">EXAMPLE</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="man-ganeti-kvmd.html"
+                          title="previous chapter">ganeti-kvmd</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-ganeti-luxid.html"
+                          title="next chapter">ganeti-luxid</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-ganeti-listrunner.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-luxid.html" title="ganeti-luxid"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-kvmd.html" title="ganeti-kvmd"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-listrunner</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

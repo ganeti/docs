@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ganeti 3.0 design &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ganeti 3.1 design" href="design-3.1.html" />
+    <link rel="prev" title="Ganeti 2.16 design" href="design-2.16.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-3.1.html" title="Ganeti 3.1 design"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-2.16.html" title="Ganeti 2.16 design"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 3.0 design</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ganeti-3-0-design">
+<h1>Ganeti 3.0 design<a class="headerlink" href="#ganeti-3-0-design" title="Link to this heading">¶</a></h1>
+<p>This document describes the major changes between Ganeti 2.16 and 3.0.</p>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Link to this heading">¶</a></h2>
+<p>All Ganeti versions prior to 3.0 are built on Python 2 code. With Python 3 being the offical default and version 2 slowly fading out of Linux distributions, the goal of this major release is to achieve full and only Python 3 compatibility.</p>
+</section>
+<section id="minimum-supported-python-version">
+<h2>Minimum supported Python version<a class="headerlink" href="#minimum-supported-python-version" title="Link to this heading">¶</a></h2>
+<p>We require a minimum of Python 3.6 for the current code to work. This allows us to support stable distributions like Debian Buster or Ubuntu 18.04 LTS and to create working upgrade paths for our users.</p>
+</section>
+<section id="what-happened-to-ganeti-2-17">
+<h2>What happened to Ganeti 2.17?<a class="headerlink" href="#what-happened-to-ganeti-2-17" title="Link to this heading">¶</a></h2>
+<p>A beta version of 2.17 has been released on February 22nd, 2016. This version has not seen exhaustive testing but included a number of new features. To push forward with the migration to Python 3, we decided to ditch these changes and start over based on Ganeti 2.16. Since the upgrade to 2.17.0~beta1 introduced some breaking changes, there is currently no direct upgrade path between 2.17 and 3.0. The only known but untested way is to downgrade to Ganeti 2.16 first and then upgrade to 3.0. This will remove access to incomplete features like the Ganeti Maintenance Daemon.</p>
+</section>
+<section id="what-other-features-changes-have-been-introduced-with-3-0">
+<h2>What other features/changes have been introduced with 3.0?<a class="headerlink" href="#what-other-features-changes-have-been-introduced-with-3-0" title="Link to this heading">¶</a></h2>
+<p>Since 2.16, a number of bugfixes, compatibility improvements and updates to documentation have been included. Please refer to the release notes for more details. However, no changes to the on-disk data and no breaking changes to commandline tools have been included.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Ganeti 3.0 design</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#minimum-supported-python-version">Minimum supported Python version</a></li>
+<li><a class="reference internal" href="#what-happened-to-ganeti-2-17">What happened to Ganeti 2.17?</a></li>
+<li><a class="reference internal" href="#what-other-features-changes-have-been-introduced-with-3-0">What other features/changes have been introduced with 3.0?</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-2.16.html"
+                          title="previous chapter">Ganeti 2.16 design</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-3.1.html"
+                          title="next chapter">Ganeti 3.1 design</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-3.0.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-3.1.html" title="Ganeti 3.1 design"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-2.16.html" title="Ganeti 2.16 design"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ganeti 3.0 design</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

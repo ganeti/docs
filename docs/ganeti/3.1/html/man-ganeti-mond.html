@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ganeti-mond &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ganeti-noded" href="man-ganeti-noded.html" />
+    <link rel="prev" title="ganeti-luxid" href="man-ganeti-luxid.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-noded.html" title="ganeti-noded"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-luxid.html" title="ganeti-luxid"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-mond</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ganeti-mond">
+<h1>ganeti-mond<a class="headerlink" href="#ganeti-mond" title="Link to this heading">¶</a></h1>
+<section id="name">
+<h2>Name<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>ganeti-mond - Ganeti monitoring daemon</p>
+</section>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><strong>ganeti-mond</strong> [-f] [-d] [-p <em>PORT</em>] [-b <em>ADDRESS</em>] [–no-user-checks]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><strong>ganeti-mond</strong> is the daemon providing the Ganeti monitoring
+functionality. It is responsible for running the data collectors and to
+provide the collected information through a HTTP interface.</p>
+<p>For testing purposes, you can give the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option and the
+program won’t detach from the running terminal.</p>
+<p>Debug-level message can be activated by giving the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option.</p>
+<p>The <strong>ganeti-mond</strong> daemon listens to port 1815 TCP, on all interfaces,
+by default. The port can be overridden by an entry the services database
+by passing the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option.
+The <code class="docutils literal notranslate"><span class="pre">-b</span></code> option can be used to specify the address to bind to
+(defaults to <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>).
+The daemon will refuse to start if the user and group do not match the
+one defined at build time; this behaviour can be overridden by the
+<code class="docutils literal notranslate"><span class="pre">--no-user-checks</span></code> option.</p>
+<section id="communication-protocol">
+<h3>COMMUNICATION PROTOCOL<a class="headerlink" href="#communication-protocol" title="Link to this heading">¶</a></h3>
+<p>The queries to the monitoring agent will be HTTP GET requests on port 1815.
+The answer will be encoded in JSON format and will depend on the specific
+accessed resource.</p>
+<p>If a request is sent to a non-existing resource, a 404 error will be returned by
+the HTTP server.</p>
+<section id="id1">
+<h4><code class="docutils literal notranslate"><span class="pre">/</span></code><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p>The root resource. It will return the list of the supported protocol version
+numbers.</p>
+</section>
+<section id="list-collectors">
+<h4><code class="docutils literal notranslate"><span class="pre">/1/list/collectors</span></code><a class="headerlink" href="#list-collectors" title="Link to this heading">¶</a></h4>
+<p>Returns a list of tuples (kind, category, name) showing all the collectors
+available in the system.</p>
+</section>
+<section id="report-all">
+<h4><code class="docutils literal notranslate"><span class="pre">/1/report/all</span></code><a class="headerlink" href="#report-all" title="Link to this heading">¶</a></h4>
+<p>A list of the reports of all the data collectors.</p>
+<p><cite>Status reporting collectors</cite> will provide their output in non-verbose format.
+The verbose format can be requested by adding the parameter <code class="docutils literal notranslate"><span class="pre">verbose=1</span></code> to the
+request.</p>
+</section>
+<section id="report-category-collector-name">
+<h4><code class="docutils literal notranslate"><span class="pre">/1/report/[category]/[collector_name]</span></code><a class="headerlink" href="#report-category-collector-name" title="Link to this heading">¶</a></h4>
+<p>Returns the report of the collector <code class="docutils literal notranslate"><span class="pre">[collector_name]</span></code> that belongs to the
+specified <code class="docutils literal notranslate"><span class="pre">[category]</span></code>.</p>
+<p>If a collector does not belong to any category, <code class="docutils literal notranslate"><span class="pre">collector</span></code> will be used as
+the value for <code class="docutils literal notranslate"><span class="pre">[category]</span></code>.</p>
+<p><cite>Status reporting collectors</cite> will provide their output in non-verbose format.
+The verbose format can be requested by adding the parameter <code class="docutils literal notranslate"><span class="pre">verbose=1</span></code> to the
+request.</p>
+<p>Further information can be found in the Ganeti Monitoring Agent
+design document.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ganeti-mond</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#communication-protocol">COMMUNICATION PROTOCOL</a><ul>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">/</span></code></a></li>
+<li><a class="reference internal" href="#list-collectors"><code class="docutils literal notranslate"><span class="pre">/1/list/collectors</span></code></a></li>
+<li><a class="reference internal" href="#report-all"><code class="docutils literal notranslate"><span class="pre">/1/report/all</span></code></a></li>
+<li><a class="reference internal" href="#report-category-collector-name"><code class="docutils literal notranslate"><span class="pre">/1/report/[category]/[collector_name]</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="man-ganeti-luxid.html"
+                          title="previous chapter">ganeti-luxid</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-ganeti-noded.html"
+                          title="next chapter">ganeti-noded</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-ganeti-mond.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-noded.html" title="ganeti-noded"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-luxid.html" title="ganeti-luxid"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-mond</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

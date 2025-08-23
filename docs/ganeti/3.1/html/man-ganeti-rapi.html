@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ganeti-rapi &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ganeti-watcher" href="man-ganeti-watcher.html" />
+    <link rel="prev" title="ganeti-os-interface" href="man-ganeti-os-interface.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-watcher.html" title="ganeti-watcher"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-os-interface.html" title="ganeti-os-interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-rapi</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ganeti-rapi">
+<h1>ganeti-rapi<a class="headerlink" href="#ganeti-rapi" title="Link to this heading">¶</a></h1>
+<section id="name">
+<h2>Name<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>ganeti-rapi - Ganeti remote API daemon</p>
+</section>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>ganeti-rapi</strong> [-d] [-f] [-p <em>PORT</em>] [-b <em>ADDRESS</em>] [-i <em>INTERFACE</em>]</div>
+<div class="line">[--max-clients <em>CLIENTS</em>] [--no-ssl] [-K <em>SSL_KEY_FILE</em>]</div>
+<div class="line">[-C <em>SSL_CERT_FILE</em>] | [--require-authentication] [--ssl-chain <em>SSL_CHAIN_FILE</em>]</div>
+</div>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><strong>ganeti-rapi</strong> is the daemon providing a remote API for Ganeti
+clusters.</p>
+<p>It is automatically started on the master node, and by default it
+uses SSL encryption. This can be disabled by passing the
+<code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code> option, or alternatively the certificate used can be
+changed via the <code class="docutils literal notranslate"><span class="pre">-C</span></code> option and the key via the <code class="docutils literal notranslate"><span class="pre">-K</span></code> option.
+If your certificate chain involves intermediate certificates that
+the server needs to present that chain file can be privided with
+<code class="docutils literal notranslate"><span class="pre">--ssl-chain</span></code>.</p>
+<p>The daemon will listen to the “ganeti-rapi” TCP port, as listed in the
+system services database, or if not defined, to port 5080 by default.
+The port can be overridden by passing the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option. The <code class="docutils literal notranslate"><span class="pre">-b</span></code>
+option can be used to specify the address to bind to (defaults to
+<code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>). Note that if you specify the address, the watcher
+needs to be informed about it using its option <code class="docutils literal notranslate"><span class="pre">--rapi-ip</span></code>, otherwise
+it will not be able to reach the RAPI interface and will attempt to
+restart it all the time. Alternatively to setting the IP with <code class="docutils literal notranslate"><span class="pre">--b</span></code>,
+the <code class="docutils literal notranslate"><span class="pre">-i</span></code> option can be used to specify the interface to bind do.</p>
+<p>The maximum number of simultaneous client connections may be configured
+with the <code class="docutils literal notranslate"><span class="pre">--max-clients</span></code> option. This defaults to 20. Connections
+above this count are accepted, but no responses are sent until enough
+connections are closed.</p>
+<p>See the <em>Ganeti remote API</em> documentation for further information.</p>
+<p>Requests are logged to <code class="docutils literal notranslate"><span class="pre">/var/log/ganeti/rapi-daemon.log</span></code>,
+in the same format as for the node and master daemon.</p>
+</section>
+<section id="access-controls">
+<h2>ACCESS CONTROLS<a class="headerlink" href="#access-controls" title="Link to this heading">¶</a></h2>
+<p>Most query operations are allowed without authentication. Only the
+modification operations require authentication, in the form of basic
+authentication. Specify the <code class="docutils literal notranslate"><span class="pre">--require-authentication</span></code> command line
+flag to always require authentication.</p>
+<p>The users and their rights are defined in the
+<code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/rapi/users</span></code> file. The format of this file
+is described in the Ganeti documentation (<code class="docutils literal notranslate"><span class="pre">rapi.html</span></code>).</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ganeti-rapi</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#access-controls">ACCESS CONTROLS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="man-ganeti-os-interface.html"
+                          title="previous chapter">ganeti-os-interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-ganeti-watcher.html"
+                          title="next chapter">ganeti-watcher</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-ganeti-rapi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-ganeti-watcher.html" title="ganeti-watcher"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-ganeti-os-interface.html" title="ganeti-os-interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ganeti-rapi</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>
