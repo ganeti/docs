@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Submitting jobs from logical units &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ganeti monitoring agent" href="design-monitoring-agent.html" />
+    <link rel="prev" title="Improving location awareness of Ganeti" href="design-location.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-monitoring-agent.html" title="Ganeti monitoring agent"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-location.html" title="Improving location awareness of Ganeti"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Submitting jobs from logical units</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="submitting-jobs-from-logical-units">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Submitting jobs from logical units</a><a class="headerlink" href="#submitting-jobs-from-logical-units" title="Link to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Created<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2011-Mar-23</p>
+</dd>
+<dt class="field-even">Status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2.5.0</p>
+</dd>
+</dl>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#submitting-jobs-from-logical-units" id="id1">Submitting jobs from logical units</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a></p></li>
+<li><p><a class="reference internal" href="#other-discussed-solutions" id="id4">Other discussed solutions</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>This is a design document about the innards of Ganeti’s job processing.
+Readers are advised to study previous design documents on the topic:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="design-2.0.html#jqueue-original-design"><span class="std std-ref">Original job queue</span></a></p></li>
+<li><p><a class="reference internal" href="design-2.3.html#jqueue-job-priority-design"><span class="std std-ref">Job priorities</span></a></p></li>
+</ul>
+<section id="current-state-and-shortcomings">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Link to this heading">¶</a></h2>
+<p>Some Ganeti operations want to execute as many operations in parallel as
+possible. Examples are evacuating or failing over a node (<code class="docutils literal notranslate"><span class="pre">gnt-node</span>
+<span class="pre">evacuate</span></code>/<code class="docutils literal notranslate"><span class="pre">gnt-node</span> <span class="pre">failover</span></code>). Without changing large parts of the
+code, e.g. the RPC layer, to be asynchronous, or using threads inside a
+logical unit, only a single operation can be executed at a time per job.</p>
+<p>Currently clients work around this limitation by retrieving the list of
+desired targets and then re-submitting a number of jobs. This requires
+logic to be kept in the client, in some cases leading to duplication
+(e.g. CLI and RAPI).</p>
+</section>
+<section id="proposed-changes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Link to this heading">¶</a></h2>
+<p>The job queue lock is guaranteed to be released while executing an
+opcode/logical unit. This means an opcode can talk to the job queue and
+submit more jobs. It then receives the job IDs, like any job submitter
+using the LUXI interface would. These job IDs are returned to the
+client, who then will then proceed to wait for the jobs to finish.</p>
+<p>Technically, the job queue already passes a number of callbacks to the
+opcode processor. These are used for giving user feedback, notifying the
+job queue of an opcode having gotten its locks, and checking whether the
+opcode has been cancelled. A new callback function is added to submit
+jobs. Its signature and result will be equivalent to the job queue’s
+existing <code class="docutils literal notranslate"><span class="pre">SubmitManyJobs</span></code> function.</p>
+<p>Logical units can submit jobs by returning an instance of a special
+container class with a list of jobs, each of which is a list of opcodes
+(e.g.  <code class="docutils literal notranslate"><span class="pre">[[op1,</span> <span class="pre">op2],</span> <span class="pre">[op3]]</span></code>). The opcode processor will recognize
+instances of the special class when used a return value and will submit
+the contained jobs. The submission status and job IDs returned by the
+submission callback are used as the opcode’s result. It should be
+encapsulated in a dictionary allowing for future extensions.</p>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;jobs&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">True</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;8149&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">True</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;21019&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">False</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Submission failed&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">True</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;31594&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Job submissions can fail for variety of reasons, e.g. a full or drained
+job queue. Lists of jobs can not be submitted atomically, meaning some
+might fail while others succeed. The client is responsible for handling
+such cases.</p>
+</section>
+<section id="other-discussed-solutions">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Other discussed solutions</a><a class="headerlink" href="#other-discussed-solutions" title="Link to this heading">¶</a></h2>
+<p>Instead of requiring the client to wait for the returned jobs, another
+idea was to do so from within the submitting opcode in the master
+daemon. While technically possible, doing so would have two major
+drawbacks:</p>
+<ul class="simple">
+<li><p>Opcodes waiting for other jobs to finish block one job queue worker
+thread</p></li>
+<li><p>All locks must be released before starting the waiting process,
+failure to do so can lead to deadlocks</p></li>
+</ul>
+<p>Instead of returning the job IDs as part of the normal opcode result,
+introducing a new opcode field, e.g. <code class="docutils literal notranslate"><span class="pre">op_jobids</span></code>, was discussed and
+dismissed. A new field would touch many areas and possibly break some
+assumptions. There were also questions about the semantics.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Submitting jobs from logical units</a><ul>
+<li><a class="reference internal" href="#current-state-and-shortcomings">Current state and shortcomings</a></li>
+<li><a class="reference internal" href="#proposed-changes">Proposed changes</a></li>
+<li><a class="reference internal" href="#other-discussed-solutions">Other discussed solutions</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-location.html"
+                          title="previous chapter">Improving location awareness of Ganeti</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-monitoring-agent.html"
+                          title="next chapter">Ganeti monitoring agent</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-lu-generated-jobs.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-monitoring-agent.html" title="Ganeti monitoring agent"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-location.html" title="Improving location awareness of Ganeti"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Submitting jobs from logical units</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

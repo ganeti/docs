@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>hscan &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hspace" href="man-hspace.html" />
+    <link rel="prev" title="hroller" href="man-hroller.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-hspace.html" title="hspace"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-hroller.html" title="hroller"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hscan</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hscan">
+<h1>hscan<a class="headerlink" href="#hscan" title="Link to this heading">¶</a></h1>
+<section id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>hscan - Scan clusters via RAPI and save node/instance data</p>
+</section>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><strong>hscan</strong> [-p] [--no-headers] [-d <em>path</em> ] <em>cluster…</em></p>
+<p><strong>hscan</strong> --version</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>hscan is a tool for scanning clusters via RAPI and saving their data
+in the input format used by <strong>hbal</strong>(1) and <strong>hspace</strong>(1). It will
+also show a one-line score for each cluster scanned or, if desired,
+the cluster state as show by the <strong>-p</strong> option to the other tools.</p>
+<p>For each cluster, one file named <em>cluster**</em>.data** will be generated
+holding the node and instance data. This file can then be used in
+<strong>hbal</strong>(1) or <strong>hspace</strong>(1) via the <em>-t</em> option. In case the
+cluster name contains slashes (as it can happen when the cluster is a
+fully-specified URL), these will be replaced with underscores.</p>
+<p>The one-line output for each cluster will show the following:</p>
+<dl class="simple">
+<dt>Name</dt><dd><p>The name of the cluster (or the IP address that was given, etc.)</p>
+</dd>
+<dt>Nodes</dt><dd><p>The number of nodes in the cluster</p>
+</dd>
+<dt>Inst</dt><dd><p>The number of instances in the cluster</p>
+</dd>
+<dt>BNode</dt><dd><p>The number of nodes failing N+1</p>
+</dd>
+<dt>BInst</dt><dd><p>The number of instances living on N+1-failed nodes</p>
+</dd>
+<dt>t_mem</dt><dd><p>Total memory in the cluster</p>
+</dd>
+<dt>f_mem</dt><dd><p>Free memory in the cluster</p>
+</dd>
+<dt>t_disk</dt><dd><p>Total disk in the cluster</p>
+</dd>
+<dt>f_disk</dt><dd><p>Free disk space in the cluster</p>
+</dd>
+<dt>Score</dt><dd><p>The score of the cluster, as would be reported by <strong>hbal</strong>(1) if run
+on the generated data files.</p>
+</dd>
+</dl>
+<p>In case of errors while collecting data, all fields after the name of
+the cluster are replaced with the error display.</p>
+<p><strong>Note:</strong> this output format is not yet final so it should not be used
+for scripting yet.</p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<p>The options that can be passed to the program are as follows:</p>
+<dl class="simple">
+<dt>-p, --print-nodes</dt><dd><p>Prints the node status for each cluster after the cluster’s one-line
+status display, in a format designed to allow the user to understand
+the node’s most important parameters. For details, see the man page
+for <strong>htools</strong>(1).</p>
+</dd>
+<dt>-d <em>path</em></dt><dd><p>Save the node and instance data for each cluster under <em>path</em>,
+instead of the current directory.</p>
+</dd>
+<dt>-V, --version</dt><dd><p>Just show the program version and exit.</p>
+</dd>
+</dl>
+</section>
+<section id="exit-status">
+<h2>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h2>
+<p>The exist status of the command will be zero, unless for some reason
+loading the input data failed fatally (e.g. wrong node or instance
+data).</p>
+</section>
+<section id="bugs">
+<h2>BUGS<a class="headerlink" href="#bugs" title="Link to this heading">¶</a></h2>
+<p>The program does not check its input data for consistency, and aborts
+with cryptic errors messages in this case.</p>
+</section>
+<section id="example">
+<h2>EXAMPLE<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hscan cluster1
+Name     Nodes  Inst BNode BInst  t_mem  f_mem t_disk f_disk      Score
+cluster1     2     2     0     0   1008    652    255    253 0.24404762
+$ ls -l cluster1.data
+-rw-r--r-- 1 root root 364 2009-03-23 07:26 cluster1.data
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">hscan</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+<li><a class="reference internal" href="#example">EXAMPLE</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="man-hroller.html"
+                          title="previous chapter">hroller</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-hspace.html"
+                          title="next chapter">hspace</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-hscan.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-hspace.html" title="hspace"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-hroller.html" title="hroller"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hscan</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

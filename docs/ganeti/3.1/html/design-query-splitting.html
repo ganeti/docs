@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Splitting the query and job execution paths &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Implementing the qemu blockdev backend" href="design-qemu-blockdev.html" />
+    <link rel="prev" title="Query version 2 design" href="design-query2.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-qemu-blockdev.html" title="Implementing the qemu blockdev backend"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-query2.html" title="Query version 2 design"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Splitting the query and job execution paths</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="splitting-the-query-and-job-execution-paths">
+<h1>Splitting the query and job execution paths<a class="headerlink" href="#splitting-the-query-and-job-execution-paths" title="Link to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Created<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2012-May-07</p>
+</dd>
+<dt class="field-even">Status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2.7.0, 2.8.0, 2.9.0</p>
+</dd>
+</dl>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>Currently, the master daemon does two main roles:</p>
+<ul class="simple">
+<li><p>execute jobs that change the cluster state</p></li>
+<li><p>respond to queries</p></li>
+</ul>
+<p>Due to the technical details of the implementation, the job execution
+and query paths interact with each other, and for example the “masterd
+hang” issue that we had late in the 2.5 release cycle was due to the
+interaction between job queries and job execution.</p>
+<p>Furthermore, also because technical implementations (Python lacking
+read-only variables being one example), we can’t share internal data
+structures for jobs; instead, in the query path, we read them from
+disk in order to not block job execution due to locks.</p>
+<p>All these point to the fact that the integration of both queries and
+job execution in the same process (multi-threaded) creates more
+problems than advantages, and hence we should look into separating
+them.</p>
+</section>
+<section id="proposed-design">
+<h2>Proposed design<a class="headerlink" href="#proposed-design" title="Link to this heading">¶</a></h2>
+<p>In Ganeti 2.7, we will introduce a separate, optional daemon to handle
+queries (note: whether this is an actual “new” daemon, or its
+functionality is folded into confd, remains to be seen).</p>
+<p>This daemon will expose exactly the same Luxi interface as masterd,
+except that job submission will be disabled. If so configured (at
+build time), clients will be changed to:</p>
+<ul class="simple">
+<li><p>keep sending REQ_SUBMIT_JOB, REQ_SUBMIT_MANY_JOBS, and all requests
+except REQ_QUERY_* to the masterd socket (but also QR_LOCK)</p></li>
+<li><p>redirect all REQ_QUERY_* requests to the new Luxi socket of the new
+daemon (except generic query with QR_LOCK)</p></li>
+</ul>
+<p>This new daemon will serve both pure configuration queries (which
+confd can already serve), and run-time queries (which currently only
+masterd can serve). Since the RPC can be done from any node to any
+node, the new daemon can run on all master candidates, not only on the
+master node. This means that all gnt-* list options can be now run on
+other nodes than the master node. If we implement this as a separate
+daemon that talks to confd, then we could actually run this on all
+nodes of the cluster (to be decided).</p>
+<p>During the 2.7 release, masterd will still respond to queries itself,
+but it will log all such queries for identification of “misbehaving”
+clients.</p>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">¶</a></h3>
+<p>As far as I can see, this will bring some significant advantages.</p>
+<p>First, we remove any interaction between the job execution and cluster
+query state. This means that bugs in the locking code (job execution)
+will not impact the query of the cluster state, nor the query of the
+job execution itself. Furthermore, we will be able to have different
+tuning parameters between job execution (e.g. 25 threads for job
+execution) versus query (since these are transient, we could
+practically have unlimited numbers of query threads).</p>
+<p>As a result of the above split, we move from the current model, where
+shutdown of the master daemon practically “breaks” the entire Ganeti
+functionality (no job execution nor queries, not even connecting to
+the instance console), to a split model:</p>
+<ul class="simple">
+<li><p>if just masterd is stopped, then other cluster functionality remains
+available: listing instances, connecting to the console of an
+instance, etc.</p></li>
+<li><p>if just “luxid” is stopped, masterd can still process jobs, and one
+can furthermore run queries from other nodes (MCs)</p></li>
+<li><p>only if both are stopped, we end up with the previous state</p></li>
+</ul>
+<p>This will help, for example, in the case where the master node has
+crashed and we haven’t failed it over yet: querying and investigating
+the cluster state will still be possible from other master candidates
+(on small clusters, this will mean from all nodes).</p>
+<p>A last advantage is that we finally will be able to reduce the
+footprint of masterd; instead of previous discussion of splitting
+individual jobs, which requires duplication of all the base
+functionality, this will just split the queries, a more trivial piece
+of code than job execution. This should be a reasonable work effort,
+with a much smaller impact in case of failure (we can still run
+masterd as before).</p>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading">¶</a></h3>
+<p>We might get increased inconsistency during queries, as there will be
+a delay between masterd saving an updated configuration and
+confd/query loading and parsing it. However, this could be compensated
+by the fact that queries will only look at “snapshots” of the
+configuration, whereas before it could also look at “in-progress”
+modifications (due to the non-atomic updates). I think these will
+cancel each other out, we will have to see in practice how it works.</p>
+<p>Another disadvantage <em>might</em> be that we have a more complex setup, due
+to the introduction of a new daemon. However, the query path will be
+much simpler, and when we remove the query functionality from masterd
+we should have a more robust system.</p>
+<p>Finally, we have QR_LOCK, which is an internal query related to the
+master daemon, using the same infrastructure as the other queries
+(related to cluster state). This is unfortunate, and will require
+untangling in order to keep code duplication low.</p>
+</section>
+</section>
+<section id="long-term-plans">
+<h2>Long-term plans<a class="headerlink" href="#long-term-plans" title="Link to this heading">¶</a></h2>
+<p>If this works well, the plan would be (tentatively) to disable the
+query functionality in masterd completely in Ganeti 2.8, in order to
+remove the duplication. This might change based on how/if we split the
+configuration/locking daemon out, or not.</p>
+<p>Once we split this out, there is not technical reason why we can’t
+execute any query from any node; except maybe practical reasons
+(network topology, remote nodes, etc.) or security reasons (if/whether
+we want to change the cluster security model). In any case, it should
+be possible to do this in a reliable way from all master candidates.</p>
+<p>Update: We decided to keep the restriction to run queries on the master
+node. The reason is that it is confusing from a usability point of view
+that querying will work on any node and suddenly, when the user tries
+to submit a job, it won’t work.</p>
+<section id="some-implementation-details">
+<h3>Some implementation details<a class="headerlink" href="#some-implementation-details" title="Link to this heading">¶</a></h3>
+<p>We will fold this in confd, at least initially, to reduce the
+proliferation of daemons. Haskell will limit (if used properly) any too
+deep integration between the old “confd” functionality and the new query
+one. As advantages, we’ll have a single daemons that handles
+configuration queries.</p>
+<p>The redirection of Luxi requests can be easily done based on the
+request type, if we have both sockets open, or if we open on demand.</p>
+<p>We don’t want the masterd to talk to the luxid itself (hidden
+redirection), since we want to be able to run queries while masterd is
+down.</p>
+<p>During the 2.7 release cycle, we can test all queries against both
+masterd and luxid in QA, so we know we have exactly the same
+interface and it is consistent.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Splitting the query and job execution paths</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#proposed-design">Proposed design</a><ul>
+<li><a class="reference internal" href="#advantages">Advantages</a></li>
+<li><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#long-term-plans">Long-term plans</a><ul>
+<li><a class="reference internal" href="#some-implementation-details">Some implementation details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-query2.html"
+                          title="previous chapter">Query version 2 design</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-qemu-blockdev.html"
+                          title="next chapter">Implementing the qemu blockdev backend</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-query-splitting.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-qemu-blockdev.html" title="Implementing the qemu blockdev backend"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-query2.html" title="Query version 2 design"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Splitting the query and job execution paths</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

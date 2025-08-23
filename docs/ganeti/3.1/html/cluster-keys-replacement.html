@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cluster Keys Replacement &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Improving allocation efficiency by considering the total reserved memory" href="design-allocation-efficiency.html" />
+    <link rel="prev" title="Merging clusters" href="cluster-merge.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-allocation-efficiency.html" title="Improving allocation efficiency by considering the total reserved memory"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cluster-merge.html" title="Merging clusters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Cluster Keys Replacement</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cluster-keys-replacement">
+<h1>Cluster Keys Replacement<a class="headerlink" href="#cluster-keys-replacement" title="Link to this heading">¶</a></h1>
+<p>Ganeti uses both SSL and SSH keys, and actively modifies the SSH keys
+on the nodes.  As result, in order to replace these keys, a few extra
+steps need to be followed.</p>
+<p>For an example when this could be needed, see the thread at
+<a class="reference external" href="http://groups.google.com/group/ganeti/browse_thread/thread/30cc95102dc2123e">Regenerating SSL and SSH keys after the security bug in Debian’s
+OpenSSL</a>.</p>
+<p>Ganeti uses OpenSSL for encryption on the RPC layer and SSH for
+executing commands. The SSL certificate is automatically generated
+when the cluster is initialized and it’s copied to added nodes
+automatically together with the master’s SSH host key.</p>
+<p>Note that paths below may vary depending on your distribution. In
+general, modifications should be done on the master node and then
+distributed to all nodes of a cluster (possibly using a pendrive - but
+don’t forget to use “shred” to remove files securely afterwards).</p>
+<section id="replacing-ssl-keys">
+<h2>Replacing SSL keys<a class="headerlink" href="#replacing-ssl-keys" title="Link to this heading">¶</a></h2>
+<p>The cluster-wide SSL key is stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/server.pem</span></code>.
+Besides that, since Ganeti 2.11, each node has an individual node
+SSL key, which is stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/client.pem</span></code>. This
+client certificate is signed by the cluster-wide SSL certificate.</p>
+<p>To renew the individual node certificates, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">cluster</span> <span class="n">renew</span><span class="o">-</span><span class="n">crypto</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">certificates</span>
+</pre></div>
+</div>
+<p>Run the following command to generate a new cluster-wide certificate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">cluster</span> <span class="n">renew</span><span class="o">-</span><span class="n">crypto</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">cluster</span><span class="o">-</span><span class="n">certificate</span>
+</pre></div>
+</div>
+<p>Note that this triggers both, the renewal of the cluster certificate
+as well as the renewal of the individual node certificate. The reason
+for this is that the node certificates are signed by the cluster
+certificate and thus they need to be renewed and signed as soon as
+the changes certificate changes. Therefore, the command above is
+equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnt</span><span class="o">-</span><span class="n">cluster</span> <span class="n">renew</span><span class="o">-</span><span class="n">crypto</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">cluster</span><span class="o">-</span><span class="n">certificate</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">certificates</span>
+</pre></div>
+</div>
+<p>On older versions, which don’t have this command, use this instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="mi">0600</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ganeti</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">pem</span> <span class="o">&amp;&amp;</span>
+<span class="n">openssl</span> <span class="n">req</span> <span class="o">-</span><span class="n">new</span> <span class="o">-</span><span class="n">newkey</span> <span class="n">rsa</span><span class="p">:</span><span class="mi">1024</span> <span class="o">-</span><span class="n">days</span> <span class="mi">1825</span> <span class="o">-</span><span class="n">nodes</span> \
+ <span class="o">-</span><span class="n">x509</span> <span class="o">-</span><span class="n">keyout</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ganeti</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">pem</span> \
+ <span class="o">-</span><span class="n">out</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ganeti</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">pem</span> <span class="o">-</span><span class="n">batch</span> <span class="o">&amp;&amp;</span>
+<span class="n">chmod</span> <span class="mi">0400</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ganeti</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">pem</span> <span class="o">&amp;&amp;</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">ganeti</span> <span class="n">restart</span>
+
+<span class="n">gnt</span><span class="o">-</span><span class="n">cluster</span> <span class="n">copyfile</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ganeti</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">pem</span>
+
+<span class="n">gnt</span><span class="o">-</span><span class="n">cluster</span> <span class="n">command</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">ganeti</span> <span class="n">restart</span>
+</pre></div>
+</div>
+<p>Note that older versions don’t have individual node certificates and thus
+one does not have to handle the creation and distribution of them.</p>
+</section>
+<section id="replacing-ssh-keys">
+<h2>Replacing SSH keys<a class="headerlink" href="#replacing-ssh-keys" title="Link to this heading">¶</a></h2>
+<p>There are two sets of SSH keys in the cluster: the host keys (both DSA
+and RSA, though Ganeti only uses the RSA one) and the root’s DSA key
+(Ganeti uses DSA for historically reasons, in the future RSA will be
+used).</p>
+<section id="host-keys">
+<h3>host keys<a class="headerlink" href="#host-keys" title="Link to this heading">¶</a></h3>
+<p>These are the files named <code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_host_*</span></code>. You need to
+manually recreate them; it’s possibly that the startup script of
+OpenSSH will generate them if they don’t exist, or that the package
+system regenerates them.</p>
+<p>Also make sure to copy the master’s SSH host keys to all other nodes.</p>
+</section>
+<section id="cluster-public-key-file">
+<h3>cluster public key file<a class="headerlink" href="#cluster-public-key-file" title="Link to this heading">¶</a></h3>
+<p>The new public rsa host key created in the previous step must be added
+in two places:</p>
+<ol class="arabic simple">
+<li><p>known hosts file, <code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/known_hosts</span></code></p></li>
+<li><p>cluster configuration file, <code class="docutils literal notranslate"><span class="pre">/var/lib/ganeti/config.data</span></code></p></li>
+</ol>
+<p>Edit these two files and update them with newly generated SSH host key
+(in the previous step, take it from the
+<code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_host_rsa_key.pub</span></code>).</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">config.data</span></code> file, please look for an entry named
+<code class="docutils literal notranslate"><span class="pre">rsahostkeypub</span></code> and replace the value for it with the contents of
+the <code class="docutils literal notranslate"><span class="pre">.pub</span></code> file. For the <code class="docutils literal notranslate"><span class="pre">known_hosts</span></code> file, you need to replace
+the old key with the new one on each line (for each host).</p>
+</section>
+<section id="root-s-key">
+<h3>root’s key<a class="headerlink" href="#root-s-key" title="Link to this heading">¶</a></h3>
+<p>These are the files named <code class="docutils literal notranslate"><span class="pre">~root/.ssh/id_dsa*</span></code>.</p>
+<p>Run this command to rebuild them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">dsa</span> <span class="o">-</span><span class="n">f</span> <span class="o">~</span><span class="n">root</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_dsa</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">N</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="root-s-authorized-keys">
+<h3>root’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code><a class="headerlink" href="#root-s-authorized-keys" title="Link to this heading">¶</a></h3>
+<p>This is the file named <code class="docutils literal notranslate"><span class="pre">~root/.ssh/authorized_keys</span></code>.</p>
+<p>Edit file and update it with the newly generated root key, from the
+<code class="docutils literal notranslate"><span class="pre">id_dsa.pub</span></code> file generated in the previous step.</p>
+</section>
+</section>
+<section id="finish">
+<h2>Finish<a class="headerlink" href="#finish" title="Link to this heading">¶</a></h2>
+<p>In the end, the files mentioned above should be identical for all
+nodes in a cluster. Also do not forget to run <code class="docutils literal notranslate"><span class="pre">gnt-cluster</span> <span class="pre">verify</span></code>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Cluster Keys Replacement</a><ul>
+<li><a class="reference internal" href="#replacing-ssl-keys">Replacing SSL keys</a></li>
+<li><a class="reference internal" href="#replacing-ssh-keys">Replacing SSH keys</a><ul>
+<li><a class="reference internal" href="#host-keys">host keys</a></li>
+<li><a class="reference internal" href="#cluster-public-key-file">cluster public key file</a></li>
+<li><a class="reference internal" href="#root-s-key">root’s key</a></li>
+<li><a class="reference internal" href="#root-s-authorized-keys">root’s <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finish">Finish</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cluster-merge.html"
+                          title="previous chapter">Merging clusters</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-allocation-efficiency.html"
+                          title="next chapter">Improving allocation efficiency by considering the total reserved memory</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cluster-keys-replacement.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-allocation-efficiency.html" title="Improving allocation efficiency by considering the total reserved memory"
+             >next</a></li>
+        <li class="right" >
+          <a href="cluster-merge.html" title="Merging clusters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Cluster Keys Replacement</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

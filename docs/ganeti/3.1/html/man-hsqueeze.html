@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>hsqueeze &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="htools" href="man-htools.html" />
+    <link rel="prev" title="hspace" href="man-hspace.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-htools.html" title="htools"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="man-hspace.html" title="hspace"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hsqueeze</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hsqueeze">
+<h1>hsqueeze<a class="headerlink" href="#hsqueeze" title="Link to this heading">¶</a></h1>
+<section id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>hsqueeze - Dynamic power management</p>
+</section>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><strong>hsqueeze</strong> {backend options…} [algorithm options…] [reporting options…]</p>
+<p><strong>hsqueeze</strong> --version</p>
+<p>Backend options:</p>
+<p>{ <strong>-L[</strong> <em>path</em> <strong>]</strong> [-X]** | <strong>-t</strong> <em>data-file</em> }</p>
+<p>Algorithm options:</p>
+<p><strong>[ --minimal-resources=*factor* ]</strong>
+<strong>[ --target-resources=*factor* ]</strong></p>
+<p>Reporting options:</p>
+<p><strong>[ -S *file* ]</strong>
+<strong>[ -C[*file*] ]</strong></p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>hsqueeze does dynamic power management, by powering up or shutting down nodes,
+depending on the current load of the cluster. Currently, only suggesting nodes
+is implemented.</p>
+<section id="algorithm">
+<h3>ALGORITHM<a class="headerlink" href="#algorithm" title="Link to this heading">¶</a></h3>
+<p>hsqueeze considers all online non-master nodes with only externally mirrored
+instances as candidates for being taken offline. These nodes are iteratively,
+starting from the node with the least number of instances, added to the set
+of nodes to be put offline, if possible. A set of nodes is considered as suitable
+for being taken offline, if, after marking these nodes as offline, balancing the
+cluster by the algorithm used by <strong>hbal</strong>(1) yields a situation where all instances
+are located on online nodes, and each node has at least the target resources free
+for new instances.</p>
+<p>All offline nodes with a tag starting with <code class="docutils literal notranslate"><span class="pre">htools:standby</span></code> are
+considered candidates for being taken online. Those nodes are taken online
+till balancing the cluster by the algorithm used by <strong>hbal</strong>(1) yields a
+situation where each node has at least the minimal resources free for new
+instances.</p>
+</section>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>-L [<em>path</em>]</dt><dd><p>Backend specification: collect data directly from the master daemon,
+which is to be contacted via LUXI (an internal Ganeti protocol). The
+option is described in the man page <strong>htools</strong>(1).</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-X</span></kbd></dt>
+<dd><p>When using the Luxi backend, hsqueeze can also execute the given
+commands.</p>
+<p>The execution of the job series can be interrupted, see below for
+signal handling.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-S <em>filename</em>, --save-cluster=*filename*</dt><dd><p>If given, the state of the cluster before the squeezing is saved to
+the given file plus the extension “original”
+(i.e. <em>filename</em>.original), and the state at the end of the
+squeezing operation is saved to the given file plus the extension “squeezed”
+(i.e. <em>filename</em>.squeezed).</p>
+</dd>
+<dt>-C[<em>filename</em>], --print-commands[=*filename*]</dt><dd><p>If given, a shell script containing the commands to squeeze or unsqueeze
+the cluster are saved in a file with the given name; if no name is provided,
+they are printed to stdout.</p>
+</dd>
+<dt>-t <em>datafile</em>, --text-data=*datafile*</dt><dd><p>Backend specification: the name of the file holding node and instance
+information (if not collecting LUXI). This or one of the
+other backends must be selected. The option is described in the man
+page <strong>htools</strong>(1).</p>
+</dd>
+<dt>--minimal-resources=*factor*</dt><dd><p>Specify the amount of resources to be free on each node for hsqueeze not to
+consider onlining additional nodes. The value is reported a multiple of the
+standard instance specification, as taken from the instance policy.</p>
+</dd>
+<dt>--target-resources=*factor*</dt><dd><p>Specify the amount of resources to remain free on any node after squeezing.
+The value is reported a multiple of the standard instance specification, as
+taken from the instance policy.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">hsqueeze</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#algorithm">ALGORITHM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="man-hspace.html"
+                          title="previous chapter">hspace</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-htools.html"
+                          title="next chapter">htools</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/man-hsqueeze.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="man-htools.html" title="htools"
+             >next</a></li>
+        <li class="right" >
+          <a href="man-hspace.html" title="hspace"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="manpages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hsqueeze</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

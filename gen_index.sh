@@ -2,8 +2,7 @@
 PYTHONPATH=docs.ganeti.org sphinx-build -b html -W docs.ganeti.org/ ./
 
 # github pages has no directory index, create one here
-for v in docs/ganeti/*; do
-  if [[ -d "${v}/man/" ]]; then
-    tree -H '.' -L 1 --noreport --charset utf-8 -T "Ganeti ${v##docs/ganeti/} Manpages" -I index.html -o ${v}/man/index.html -- ${v}/man/
-  fi
-done
+version=$(grep 'Stable' docs.ganeti.org/index.rst | cut -d '|' -f 3 | tr -d '* ')
+cd docs/ganeti/${version}/man
+tree -H '' -L 1 --noreport --charset utf-8 -T "Ganeti ${version} Manpages" -I index.html -o index.html -- ./
+cd -

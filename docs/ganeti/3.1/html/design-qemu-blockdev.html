@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Implementing the qemu blockdev backend &#8212; Ganeti 3.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    
+    <script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ganeti reason trail" href="design-reason-trail.html" />
+    <link rel="prev" title="Splitting the query and job execution paths" href="design-query-splitting.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-reason-trail.html" title="Ganeti reason trail"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="design-query-splitting.html" title="Splitting the query and job execution paths"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Implementing the qemu blockdev backend</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="implementing-the-qemu-blockdev-backend">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Implementing the qemu blockdev backend</a><a class="headerlink" href="#implementing-the-qemu-blockdev-backend" title="Link to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Created<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2022-Apr-20</p>
+</dd>
+<dt class="field-even">Status<span class="colon">:</span></dt>
+<dd class="field-even"><p>Implemented</p>
+</dd>
+<dt class="field-odd">Ganeti-Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3.1</p>
+</dd>
+</dl>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#implementing-the-qemu-blockdev-backend" id="id1">Implementing the qemu blockdev backend</a></p>
+<ul>
+<li><p><a class="reference internal" href="#current-state-and-shortcomings" id="id2">Current state and shortcomings</a></p></li>
+<li><p><a class="reference internal" href="#proposed-changes" id="id3">Proposed changes</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id4">Implementation</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>This is a design document explaining the changes inside Ganeti while
+transitioning to the blockdev backend of QEMU, making the currently used
+<cite>-drive</cite> parameter obsolete.</p>
+<section id="current-state-and-shortcomings">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Current state and shortcomings</a><a class="headerlink" href="#current-state-and-shortcomings" title="Link to this heading">¶</a></h2>
+<p>Ganeti’s KVM/QEMU code currently uses the <cite>-drive</cite> commandline parameter to add
+virtual hard-disks, floppy or CD drives to instances. This approach has been
+deprecated and superseded by the newer <cite>-blockdev</cite> parameter which has been
+considered stable with the 2.9 release of QEMU.</p>
+<p>Furthermore, the use of <cite>-drive</cite> blocks the transition from QEMU’s human
+monitor to QMP, as the latter has never seen an implementation of the relevant
+methods to hot-add/hot-remove storage devices configured through <cite>-drive</cite>.</p>
+<p>Currently, Ganeti QEMU/KVM instances support the following storage devices:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">Hard-disks</span></code></dt><dd><p>An instance can have none to many disks which are represented to guests as the
+selected <cite>disk_type</cite>. Ganeti supports various device types like <cite>paravirtual</cite>
+(VirtIO), <cite>scsi-hd</cite> (along with an emulated SCSI controller), <cite>ide</cite> and the
+like. The disk type can only be set per instance, not per disk.</p>
+<p>A disk’s backing storage may be file- or block-based, depending on the
+available disk templates on the node.</p>
+<p>Disks can be hot-added to or hot-removed from running instances.</p>
+<p>An instance may boot off the first disk when not using direct kernel boot,
+specified through the <cite>boot_order</cite> parameter.</p>
+<p>Ganeti allows tweaking of various disk related parameters like AIO modes,
+caching, discard settings etc.
+Recent versions of QEMU (5.0+) have introduced the <cite>io_uring</cite> AIO mode which
+is currently not configurable through Ganeti.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">CD</span> <span class="pre">Drives</span></code></dt><dd><p>Ganeti allows for up to two virtual CD drives to be attached to an instance.
+The backing storage to a CD drive must be an ISO image, which needs to be
+either a file accessible locally on the node or remotely through a HTTP(S)
+URL. Different bus types (e.g. <cite>ide</cite>, <cite>scsi</cite>, or <cite>paravirtual</cite>) are supported.</p>
+<p>CD drives can not be hot-added to or hot-removed from running instances.</p>
+<p>Instances not using direct kernel boot may boot from the first CD drive, when
+specified through the <cite>boot_order</cite> parameter. If the <cite>boot_order</cite> is set to
+CD, the bus type will silently be overridden to <cite>ide</cite>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">Floppy</span> <span class="pre">Drive</span></code></dt><dd><p>An instance can be configured to provide access to a virtual floppy drive
+using an image file present on the node.</p>
+<p>Floppy drives can not be hot-added to or hot-removed from running instances.</p>
+<p>Instances not using direct kernel boot may boot from the floppy drive, when
+specified through the <cite>boot_order</cite> parameter.</p>
+</dd>
+</dl>
+</section>
+<section id="proposed-changes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Proposed changes</a><a class="headerlink" href="#proposed-changes" title="Link to this heading">¶</a></h2>
+<p>We have to eliminate all uses of the <cite>-drive</cite> parameter from the Ganeti codebase
+to ensure compatibility with future versions of QEMU. With this, we can also
+switch all hotplugging-related methods to use QMP and drop all code relating to
+the human monitor interface.</p>
+<p>Ganeti should support the AIO mode <cite>io_uring</cite> as long as the QEMU version on
+the node is recent enough.</p>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading">¶</a></h2>
+<section id="i-o-methods">
+<h3>I/O Methods<a class="headerlink" href="#i-o-methods" title="Link to this heading">¶</a></h3>
+<p>With QEMU 5.0, support for <cite>io_uring</cite> has been introduced. This should be
+supported by Ganeti as well, given a recent enough QEMU version is present on
+the node. Ganeti will still default to using the <cite>threads</cite> mode on new
+installations.</p>
+</section>
+<section id="disk-cache">
+<h3>Disk Cache<a class="headerlink" href="#disk-cache" title="Link to this heading">¶</a></h3>
+<p>Using the following table found in <cite>man 1 qemu-system-x86_64</cite> we can translate
+the disk cache modes known to Ganeti into the settings required by <cite>-blockdev</cite>:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>┌─────────────┬─────────────────┬──────────────┬────────────────┐
+│             │ cache.writeback │ cache.direct │ cache.no-flush │
+├─────────────┼─────────────────┼──────────────┼────────────────┤
+│writeback    │ on              │ off          │ off            │
+├─────────────┼─────────────────┼──────────────┼────────────────┤
+│none         │ on              │ on           │ off            │
+├─────────────┼─────────────────┼──────────────┼────────────────┤
+│writethrough │ off             │ off          │ off            │
+├─────────────┼─────────────────┼──────────────┼────────────────┤
+│directsync   │ off             │ on           │ off            │
+├─────────────┼─────────────────┼──────────────┼────────────────┤
+│unsafe       │ on              │ off          │ on             │
+└─────────────┴─────────────────┴──────────────┴────────────────┘
+</pre></div>
+</div>
+</div></blockquote>
+<p>The table also shows <cite>directsync</cite> and <cite>unsafe</cite>, which are currently not
+implemented by Ganeti and may be addressed in future changes. The Ganeti value
+of <cite>default</cite> should internally be mapped to <cite>writeback</cite>, as that reflects the
+values which QEMU assumes when not given explicitly according to the
+documentation.</p>
+</section>
+<section id="construction-of-the-command-line-parameters">
+<h3>Construction of the command line parameters<a class="headerlink" href="#construction-of-the-command-line-parameters" title="Link to this heading">¶</a></h3>
+<p>The code responsible for generating the commandline parameters to add disks,
+cdroms and floppies needs to be changed to use the combination of <cite>-blockdev</cite>
+and <cite>-device</cite>. This will not change they way a disk is actually presented to
+the virtual guest.
+A small exception will be cdrom: Ganeti used to overwrite the cdrom disk type to
+<cite>ide</cite> when <cite>boot_order</cite> is set to <cite>cdrom</cite>. This is not required any more - QEMU
+will also boot off VirtIO or SCSI CD drives.</p>
+</section>
+<section id="hot-adding-disks">
+<h3>Hot-Adding Disks<a class="headerlink" href="#hot-adding-disks" title="Link to this heading">¶</a></h3>
+<p>The code needs to be refactored to make use of the QMP method “blockdev-add”,
+using the same parameters as for its commandline counterpart (e.g. blockdev node
+id, caching, aio-mode).</p>
+</section>
+<section id="hot-removing-disks">
+<h3>Hot-Removing Disks<a class="headerlink" href="#hot-removing-disks" title="Link to this heading">¶</a></h3>
+<p>Hot-removing a disk consists of two steps:</p>
+<ul class="simple">
+<li><p>removing the virtual device (or rather: ask the guest to release it)</p></li>
+<li><p>releasing the storage backend</p></li>
+</ul>
+<p>The first step always returns immediately (QMP request <cite>device_del</cite>) but signals
+its <cite>actual</cite> result asynchronously through the QMP event <cite>DEVICE_DELETED</cite>.
+Ganeti currently does not support receiving QMP events - implementing this will
+be out of scope for this change.</p>
+<p>In Ganeti releases up to 3.0 the human monitor was used to delete the device.
+Executing commands through that interface was very slow (500ms to 1s) and
+seemingly slow enough to let the following request to remove the drive succeed
+as the guest had enough time to actually release the device.
+With the switch to QMP, both requests will fire in direct succession. Since QEMU
+cannot release a block device (<cite>blockdev-del</cite> through QMP) which is still in use
+by a device inside the guest, hot-removing disks will always fail.</p>
+<p>Without support for QMP events, the only feasible way will be to mimic the slow
+human monitor interface and block for one second after sending the <cite>device_del</cite>
+request to the guest.</p>
+<p>On upgraded clusters it will <strong>not</strong> be possible to hot-remove a disk before the
+instance has been either restarted or live-migrated (thus “upgrading” all disk
+related parameters to <cite>-blockdev</cite>). Disks added with <cite>-drive</cite> can not be removed
+using <cite>blockdev-dev</cite>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Implementing the qemu blockdev backend</a><ul>
+<li><a class="reference internal" href="#current-state-and-shortcomings">Current state and shortcomings</a></li>
+<li><a class="reference internal" href="#proposed-changes">Proposed changes</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li><a class="reference internal" href="#i-o-methods">I/O Methods</a></li>
+<li><a class="reference internal" href="#disk-cache">Disk Cache</a></li>
+<li><a class="reference internal" href="#construction-of-the-command-line-parameters">Construction of the command line parameters</a></li>
+<li><a class="reference internal" href="#hot-adding-disks">Hot-Adding Disks</a></li>
+<li><a class="reference internal" href="#hot-removing-disks">Hot-Removing Disks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="design-query-splitting.html"
+                          title="previous chapter">Splitting the query and job execution paths</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="design-reason-trail.html"
+                          title="next chapter">Ganeti reason trail</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/design-qemu-blockdev.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="design-reason-trail.html" title="Ganeti reason trail"
+             >next</a></li>
+        <li class="right" >
+          <a href="design-query-splitting.html" title="Splitting the query and job execution paths"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ganeti 3.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Implementing the qemu blockdev backend</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Google Inc..
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

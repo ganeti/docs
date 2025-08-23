@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket</title>
+    <meta name="generator" content="pydoctor 24.11.2"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          server/ganeti <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.html" class="internal-link" title="This class"><wbr></wbr>Qemu<wbr></wbr>Monitor<wbr></wbr>Socket</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#execute_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.execute_qmp">execute<wbr></wbr>_qmp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_qmp_response" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.get_qmp_response">get<wbr></wbr>_qmp<wbr></wbr>_response</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#recv_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.recv_qmp">recv<wbr></wbr>_qmp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#send_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.send_qmp">send<wbr></wbr>_qmp</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#wait_for_qmp_event" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.wait_for_qmp_event">wait<wbr></wbr>_for<wbr></wbr>_qmp<wbr></wbr>_event</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_read_buffer" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._read_buffer">_read<wbr></wbr>_buffer</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#__enter__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.__enter__">__enter__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#__exit__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.__exit__">__exit__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#close" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.close">close</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#connect" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.connect">connect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#is_connected" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.is_connected">is<wbr></wbr>_connected</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#recv" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.recv">recv</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#reset_timeout" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.reset_timeout">reset<wbr></wbr>_timeout</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#send" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.send">send</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ARGUMENTS_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ARGUMENTS_KEY">_ARGUMENTS<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ERROR_CLASS_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_CLASS_KEY">_ERROR<wbr></wbr>_CLASS<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ERROR_DESC_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_DESC_KEY">_ERROR<wbr></wbr>_DESC<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_ERROR_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_KEY">_ERROR<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EVENT_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EVENT_KEY">_EVENT<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_EXECUTE_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EXECUTE_KEY">_EXECUTE<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_MESSAGE_END_TOKEN" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._MESSAGE_END_TOKEN">_MESSAGE<wbr></wbr>_END<wbr></wbr>_TOKEN</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_RETURN_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._RETURN_KEY">_RETURN<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_SEND_END_TOKEN" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._SEND_END_TOKEN">_SEND<wbr></wbr>_END<wbr></wbr>_TOKEN</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_buffer" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._buffer">_buffer</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#sock" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.sock">sock</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#socket_path" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.socket_path">socket<wbr></wbr>_path</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#timeout" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.timeout">timeout</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#_connected" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection._connected">_connected</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="ganeti.hypervisor.hv_kvm.monitor.html" class="internal-link" title="The parent of this class">monitor</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket"><wbr></wbr>Qemu<wbr></wbr>Monitor<wbr></wbr>Socket</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpConnection"><wbr></wbr>Qmp<wbr></wbr>Connection</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpEvent.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpEvent"><wbr></wbr>Qmp<wbr></wbr>Event</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpMessage.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpMessage"><wbr></wbr>Qmp<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection"><wbr></wbr>Unix<wbr></wbr>File<wbr></wbr>Socket<wbr></wbr>Connection</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpCommandNotSupported.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpCommandNotSupported"><wbr></wbr>Qmp<wbr></wbr>Command<wbr></wbr>Not<wbr></wbr>Supported</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpTimeoutError.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpTimeoutError"><wbr></wbr>Qmp<wbr></wbr>Timeout<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.html#_ensure_connection" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor._ensure_connection">_ensure<wbr></wbr>_connection</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="ganeti.hypervisor.hv_kvm.monitor.html#QmpTimestamp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpTimestamp"><wbr></wbr>Qmp<wbr></wbr>Timestamp</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="ganeti.html" class="internal-link">ganeti</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.html" class="internal-link" title="ganeti.hypervisor">hypervisor</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_kvm.html" class="internal-link" title="ganeti.hypervisor.hv_kvm">hv_kvm</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_kvm.monitor.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor">monitor</a></code><wbr></wbr>.<code><a href="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket">QemuMonitorSocket</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">QemuMonitorSocket</span>(<a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection">UnixFileSocketConnection</a>):</code></p><p>Known subclasses: <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.__init__">QemuMonitorSocket(socket_path, timeout)</a></code></p>
+          <p><a href="classIndex.html#ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p class="undocumented">Undocumented</p></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id459">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#execute_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.execute_qmp">execute<wbr></wbr>_qmp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_qmp_response" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.get_qmp_response">get<wbr></wbr>_qmp<wbr></wbr>_response</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#recv_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.recv_qmp">recv<wbr></wbr>_qmp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#send_qmp" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.send_qmp">send<wbr></wbr>_qmp</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#wait_for_qmp_event" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.wait_for_qmp_event">wait<wbr></wbr>_for<wbr></wbr>_qmp<wbr></wbr>_event</a></code></td>
+    <td>Waits for one of the specified events and returns it. If the timeout is reached, returns None.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_read_buffer" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._read_buffer">_read<wbr></wbr>_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ARGUMENTS_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ARGUMENTS_KEY">_ARGUMENTS<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ERROR_CLASS_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_CLASS_KEY">_ERROR<wbr></wbr>_CLASS<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ERROR_DESC_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_DESC_KEY">_ERROR<wbr></wbr>_DESC<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_ERROR_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_KEY">_ERROR<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EVENT_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EVENT_KEY">_EVENT<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_EXECUTE_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EXECUTE_KEY">_EXECUTE<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_MESSAGE_END_TOKEN" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._MESSAGE_END_TOKEN">_MESSAGE<wbr></wbr>_END<wbr></wbr>_TOKEN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_RETURN_KEY" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._RETURN_KEY">_RETURN<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_SEND_END_TOKEN" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._SEND_END_TOKEN">_SEND<wbr></wbr>_END<wbr></wbr>_TOKEN</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_buffer" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._buffer">_buffer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection">UnixFileSocketConnection</a></code>:
+            </p>
+            <table class="children sortable" id="id460">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#__enter__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.__enter__">__enter__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#__exit__" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.__exit__">__exit__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#close" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.close">close</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#connect" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.connect">connect</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#is_connected" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.is_connected">is<wbr></wbr>_connected</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#recv" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.recv">recv</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#reset_timeout" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.reset_timeout">reset<wbr></wbr>_timeout</a></code></td>
+    <td>Reset the timeout to self.timeout</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#send" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.send">send</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#sock" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.sock">sock</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#socket_path" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.socket_path">socket<wbr></wbr>_path</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#timeout" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.timeout">timeout</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#_connected" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection._connected">_connected</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, socket_path: <code>str</code>, timeout)</span>:
+    
+    <a class="headerLink" href="#__init__" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.html#__init__" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.UnixFileSocketConnection.__init__</a></code></div><div class="interfaceinfo">overridden in <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.execute_qmp">
+    
+  </a>
+  <a name="execute_qmp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">execute_qmp</span><span class="function-signature">(self, command: <code>str</code>, arguments: <code>dict</code> = None) -&gt; <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpMessage.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpMessage">QmpMessage</a></code></span>:
+    
+    <a class="headerLink" href="#execute_qmp" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.execute_qmp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.get_qmp_response">
+    
+  </a>
+  <a name="get_qmp_response">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_qmp_response</span><span class="function-signature">(self, command) -&gt; <code>dict</code></span>:
+    
+    <a class="headerLink" href="#get_qmp_response" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.get_qmp_response">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.recv_qmp">
+    
+  </a>
+  <a name="recv_qmp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">recv_qmp</span><span class="function-signature">(self) -&gt; <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpMessage.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpMessage">QmpMessage</a></code></span>:
+    
+    <a class="headerLink" href="#recv_qmp" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.recv_qmp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.send_qmp">
+    
+  </a>
+  <a name="send_qmp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">send_qmp</span><span class="function-signature">(self, message: <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpMessage.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpMessage">QmpMessage</a></code>)</span>:
+    
+    <a class="headerLink" href="#send_qmp" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.send_qmp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.wait_for_qmp_event">
+    
+  </a>
+  <a name="wait_for_qmp_event">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">wait_for_qmp_event</span><span class="function-signature">(self, event_types: <code>list[<wbr></wbr>str]</code>, timeout: <code>int | float</code>) -&gt; <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpEvent.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpEvent">QmpEvent</a> | None</code></span>:
+    
+    <a class="headerLink" href="#wait_for_qmp_event" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket.wait_for_qmp_event">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Waits for one of the specified events and returns it. If the timeout is reached, returns None.</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._read_buffer">
+    
+  </a>
+  <a name="_read_buffer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_read_buffer</span><span class="function-signature">(self) -&gt; <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpMessage.html" class="internal-link" title="ganeti.hypervisor.hv_kvm.monitor.QmpMessage">QmpMessage</a></code></span>:
+    
+    <a class="headerLink" href="#_read_buffer" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._read_buffer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ARGUMENTS_KEY">
+    
+  </a>
+  <a name="_ARGUMENTS_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ARGUMENTS_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_ARGUMENTS_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ARGUMENTS_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">arguments</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_CLASS_KEY">
+    
+  </a>
+  <a name="_ERROR_CLASS_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ERROR_CLASS_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_ERROR_CLASS_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_CLASS_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">class</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_DESC_KEY">
+    
+  </a>
+  <a name="_ERROR_DESC_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ERROR_DESC_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_ERROR_DESC_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_DESC_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">desc</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_KEY">
+    
+  </a>
+  <a name="_ERROR_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_ERROR_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_ERROR_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._ERROR_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">error</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EVENT_KEY">
+    
+  </a>
+  <a name="_EVENT_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EVENT_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_EVENT_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EVENT_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">event</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EXECUTE_KEY">
+    
+  </a>
+  <a name="_EXECUTE_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_EXECUTE_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_EXECUTE_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._EXECUTE_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">execute</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._MESSAGE_END_TOKEN">
+    
+  </a>
+  <a name="_MESSAGE_END_TOKEN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_MESSAGE_END_TOKEN</span>: <code>bytes</code> =
+    
+    <a class="headerLink" href="#_MESSAGE_END_TOKEN" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._MESSAGE_END_TOKEN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>b<span class="rst-variable-quote">'''</span><span class="rst-variable-string">\r</span>
+<span class="rst-variable-string"></span><span class="rst-variable-quote">'''</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._RETURN_KEY">
+    
+  </a>
+  <a name="_RETURN_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_RETURN_KEY</span>: <code>str</code> =
+    
+    <a class="headerLink" href="#_RETURN_KEY" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._RETURN_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">return</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._SEND_END_TOKEN">
+    
+  </a>
+  <a name="_SEND_END_TOKEN">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_SEND_END_TOKEN</span>: <code>bytes</code> =
+    
+    <a class="headerLink" href="#_SEND_END_TOKEN" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._SEND_END_TOKEN">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>b<span class="rst-variable-quote">'''</span><span class="rst-variable-string"></span>
+<span class="rst-variable-string"></span><span class="rst-variable-quote">'''</span></code></pre></td></tr></table>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._buffer">
+    
+  </a>
+  <a name="_buffer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_buffer</span> =
+    
+    <a class="headerLink" href="#_buffer" title="ganeti.hypervisor.hv_kvm.monitor.QemuMonitorSocket._buffer">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="ganeti.hypervisor.hv_kvm.monitor.QmpConnection.html" class="internal-link">ganeti.hypervisor.hv_kvm.monitor.QmpConnection</a></code></div>
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for server/ganeti,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    24.11.2 at 2025-08-23 09:38:44.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
